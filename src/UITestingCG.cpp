@@ -28,7 +28,6 @@ UITestingCG::UITestingCG()
     btn->debug = true;
     AddElementToCanvas(btn);
 
-
     btn = new UIButton(*tex, { 150,170 }, { 57,23 }, { 0,4,57,23 }, { 0.5f,0.5f });
     btn->AddRect(UIButton::ButtonStates::HOVER, { 57,0,101,31 });
     btn->AddRect(UIButton::ButtonStates::PRESSED, { 158,0,101,31 });

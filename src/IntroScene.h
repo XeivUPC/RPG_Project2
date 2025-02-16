@@ -44,8 +44,9 @@ private:
 
 	float logoDelay=2;
 	float logoFadeIn = 1.5f;
+	float logoHold=1;
 	float logoFadeOut = 2;
 	
 
-	float timeToLoad = 6;
+	float timeToLoad = 7;
 };

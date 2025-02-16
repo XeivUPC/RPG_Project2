@@ -187,8 +187,8 @@ void DrawingTools::RenderText(const string& text, TTF_Font& font, int fontSize, 
     verticalAlignment--;
 
     Vector2Int newPosition = position;
-    newPosition.x += (int)((textBoxSize.x / 2 * scale.x - textureRect.w / 2 * scale.x ) * horizonalAlignment);
-    newPosition.y += (int)((textBoxSize.y / 2 * scale.y - textureRect.h / 2 * scale.y ) * verticalAlignment);
+    newPosition.x += (int)((textBoxSize.x / 2.f * scale.x - textureRect.w / 2.f * scale.x ) * horizonalAlignment);
+    newPosition.y += (int)((textBoxSize.y / 2.f * scale.y - textureRect.h / 2.f * scale.y ) * verticalAlignment);
 
     RenderTexture(*texture, newPosition, &textureRect, scale,0,pivot);
 

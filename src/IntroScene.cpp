@@ -45,11 +45,14 @@ bool IntroScene::Update()
     fade_logo->UpdateCanvas();
 
     if (!fade_logo->IsFading()) {
-        if (logoTimer.ReadSec() > logoDelay + logoFadeIn + logoFadeOut) {
+        if (logoTimer.ReadSec() > logoDelay + logoFadeIn + logoFadeOut + logoHold) {
 
         }
-        else if (logoTimer.ReadSec() > logoDelay + logoFadeIn) {
+        else if (logoTimer.ReadSec() > logoDelay + logoFadeIn + logoHold) {
             fade_logo->FadeOut(logoFadeOut);
+        }
+        else if (logoTimer.ReadSec() > logoDelay + logoFadeIn) {
+
         }
         else if (logoTimer.ReadSec() > logoDelay) {
             fade_logo->FadeIn(logoFadeIn);
