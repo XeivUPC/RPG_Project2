@@ -39,10 +39,10 @@ void ModuleAssetDatabase::LoadAssets()
 
 	AddFontToStorage("monogram", *fontFactory->CreateFont("Assets/Fonts/monogram.ttf", 12));
 
-	AddTextureToStorage("btn_tex1", *textureFactory->CreateTexture("Assets/Textures/btn.png"));
-	AddTextureToStorage("toggle_tex1", *textureFactory->CreateTexture("Assets/Textures/toggle.png"));
-	AddTextureToStorage("slider_tex1", *textureFactory->CreateTexture("Assets/Textures/slider.png"));
-	AddTextureToStorage("team_logo", *textureFactory->CreateTexture("Assets/Textures/team_logo.png"));
+	AddTextureToStorage("btn_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/btn.png"));
+	AddTextureToStorage("toggle_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/toggle.png"));
+	AddTextureToStorage("slider_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/slider.png"));
+	AddTextureToStorage("team_logo", *textureFactory->CreateTexture("Assets/Textures/General/team_logo.png"));
 
 	Engine::Instance().m_audio->PlayMusicAsync(GetMusic("1"), 0);
 
