@@ -24,6 +24,7 @@
     <ProjectGuid>{3727946a-fa0e-4821-b1ea-dab621bc0260}</ProjectGuid>
     <RootNamespace>SDLPrefab</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>RPG_Game</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
