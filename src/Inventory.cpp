@@ -57,7 +57,7 @@ int Inventory::AddItem(InventoryItem& newItem, int amount) {
 
 void Inventory::RemoveItem(const std::string& itemName, int amount) {
     for (auto& slot : slots) {
-        if (!slot.IsEmpty() && slot.item->GetName() == itemName) {
+        if (!slot.IsEmpty() && slot.item!=nullptr && slot.item->GetName() == itemName) {
             const int removeAmount = min(slot.count, amount);
             slot.count -= removeAmount;
             amount -= removeAmount;
@@ -94,8 +94,8 @@ int Inventory::GetTotalSlots() const
 }
 
 int Inventory::GetUsedSlots() const {
-    return std::count_if(slots.begin(), slots.end(),
-        [](const InventorySlot& s) { return !s.IsEmpty(); });
+    return (int)(std::count_if(slots.begin(), slots.end(),
+        [](const InventorySlot& s) { return !s.IsEmpty(); }));
 }
 
 int Inventory::GetFreeSlots() const
