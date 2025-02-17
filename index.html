@@ -14,41 +14,25 @@
             <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
             <link rel="icon" type="image/x-icon" href="assets/team_logo.ico">
             <link rel="stylesheet" href="css/index.css">
+            <script src="js/index.js"></script>
         <!--Links-->
-        <script src="js/index.js"></script>
-        
-        <div class="page-container">
-            <header>header</header>
-            <body>
-                <div class="body-container">
-                    <iframe src="" frameborder="0"></iframe>
-                    <div class="menu">
-                        open-menu
-                        <ul class="menulist">
-                            menuitem
-                        </ul>
-                    </div>
-                </div>
-            </body>
-            <footer>footer</footer>
-        </div>
-
-        <!--<body>
-            <header>
-                <h1>Esset Axis</h1>
-            </header>
-            <iframe class="page-container" src="html/portrait.html" frameborder="0"></iframe>
-            <div class="menu">
-                <button class="openmenu"></button>
-                <ul class="sections">
-                    <button class="menusection"></button>
-                    <button class="menusection"></button>
-                </ul>
-            </div>
-            <footer>
-                Copyright to the author
-            </footer>
-        </body>-->
-
     </head>
+    <main>
+        <header>header</header>
+        <body>
+            <div class="row">
+                <iframe src="" class="page-frame" frameborder="0"></iframe>
+                <div class="menu">
+                    <button onclick="" class="active"><span class="i-iconamoon-menu-burger-horizontal-fill"></span></button>
+                    <ul class="menulist">
+                        <li><button onclick="setHTML(portrait);" class= "inactive"><iconify-icon icon="iconamoon:home-fill"></iconify-icon> Home</button></li>
+                        <li><button onclick="setHTML(games);" class= "inactive"><iconify-icon icon="iconamoon:player-play-fill"></iconify-icon> Games</button></li>
+                        <li><button onclick="setHTML(portrait);" class= "inactive"><iconify-icon icon="iconamoon:profile-fill"></iconify-icon> Members</button></li>
+                    </ul>
+                </div>
+            </div>
+        </body>
+        <footer>footer</footer>
+    </main>
+    
 </html>

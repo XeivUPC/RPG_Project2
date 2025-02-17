@@ -1,19 +1,31 @@
-.page-container
+main
 {
     display: grid;
     min-height: 100dvh;
     grid-template-rows: auto 1fr auto;
     margin: 0;
 }
-
-.page-container footer{
-    background-color: rgb(185, 185, 185);
+.page-frame
+{
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    border: 0;
+    pointer-events: none;
 }
-
+.row
+{
+    display: flex; /* Arrange children in a row */
+}
 header{
-    background-color: rgb(150, 150, 150);
+    background-color: red;
 }
 
 body{
-    background-color: rgb(236, 236, 236);
+    background-color: green;
+}
+
+footer{
+    background-color: blue;
 }
