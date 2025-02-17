@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Modules">
+      <UniqueIdentifier>{291b0037-fb40-4a33-b924-397b0bebe9ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Modules\Type %28Module%29">
+      <UniqueIdentifier>{1c3d3708-dc79-4b3c-96e8-c011f84276a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities">
+      <UniqueIdentifier>{899b4359-4071-46bd-9956-ce9331fcea39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Type %28Entity%29">
+      <UniqueIdentifier>{8f9700c5-2b51-4062-ad28-b8f7198f732d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{ff479ab8-c414-454b-85d0-6696d38579e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\_Core">
+      <UniqueIdentifier>{234f9b4e-4b81-4392-b5da-b2e20e0a4a4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\_Core\Interfaces">
+      <UniqueIdentifier>{833494fa-cbe0-4e8b-93b0-8dfaba01af24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Log">
+      <UniqueIdentifier>{41d17024-a453-43e8-9b13-0b007c19f73e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Vector">
+      <UniqueIdentifier>{65712e1b-306f-4680-9877-5a24a80f2194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Pooling">
+      <UniqueIdentifier>{d3c3f443-ada4-4686-82c7-626a6f72edeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Timers">
+      <UniqueIdentifier>{ce061ee5-8d87-42db-8628-4be40900f10f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\_Core\Engine">
+      <UniqueIdentifier>{ba4b39c7-ca39-4c62-bfe3-13dd17db9666}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Collisions">
+      <UniqueIdentifier>{a253d603-35e0-48ba-8a40-ab08dfcd904f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Assets">
+      <UniqueIdentifier>{4d4df376-22da-4324-9040-24bde2278f59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Render">
+      <UniqueIdentifier>{28effb0c-e1c7-466a-b86f-92e76ccac186}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\TileMap">
+      <UniqueIdentifier>{734d64af-e0ba-4f36-973c-ceabc04a438b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\_DataFiles">
+      <UniqueIdentifier>{a36a20cc-375a-4b9e-a5f6-da0d1a801040}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\UserPrefs">
+      <UniqueIdentifier>{861fb413-8640-441d-bca1-6383148e259c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Modules\Type %28Module%29\Scenes %28ModuleScene%29">
+      <UniqueIdentifier>{ae39cfa9-659e-40ba-9a5a-0395e2dc4101}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{2903bd2e-4dac-41cf-852e-87a3d7df111b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI\Elements %28UIElements%29">
+      <UniqueIdentifier>{7249770a-1fe5-49a9-9bce-ab68b8877e82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI\CanvasGroups %28UICanvas%29">
+      <UniqueIdentifier>{b19abfc4-2a57-4e0e-adb4-6c388c16f259}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Saving">
+      <UniqueIdentifier>{11bb50fb-069a-4f8a-80f9-55f62e298c95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Inventory">
+      <UniqueIdentifier>{55a3c20d-c09f-4ca1-90e2-049846e90231}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Inventory\Items">
+      <UniqueIdentifier>{c306b260-f839-44b3-802f-528eb87f9b65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\_Core\Icon">
+      <UniqueIdentifier>{f5afe485-e511-4b21-b9fa-c4359a190599}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ModuleRender.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ModuleUpdater.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>Source Files\_Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Log.cpp">
+      <Filter>Source Files\Utils\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Vector2.cpp">
+      <Filter>Source Files\Utils\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Module.cpp">
+      <Filter>Source Files\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ChronoTimer.cpp">
+      <Filter>Source Files\Utils\Timers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ModuleTime.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StepTimer.cpp">
+      <Filter>Source Files\Utils\Timers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine.cpp">
+      <Filter>Source Files\_Core\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ModuleWindow.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ModuleInput.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ModulePhysics.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PhysicFactory.cpp">
+      <Filter>Source Files\Utils\Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CollisionsDispatcher.cpp">
+      <Filter>Source Files\Utils\Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CollisionSensor.cpp">
+      <Filter>Source Files\Utils\Collisions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureFactory.cpp">
+      <Filter>Source Files\Utils\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ModuleAssetDatabase.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AtlasFactory.cpp">
+      <Filter>Source Files\Utils\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ModuleAudio.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AudioFactory.cpp">
+      <Filter>Source Files\Utils\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DrawingTools.cpp">
+      <Filter>Source Files\Utils\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ModuleLocalization.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Vector2Int.cpp">
+      <Filter>Source Files\Utils\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tilemap.cpp">
+      <Filter>Source Files\Utils\TileMap</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UserPrefs.cpp">
+      <Filter>Source Files\Utils\UserPrefs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UIElement.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UIImage.cpp">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UICanvas.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UIButton.cpp">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ModuleScene.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameScene.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29\Scenes %28ModuleScene%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UIToggle.cpp">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UISlider.cpp">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UITestingCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UITextBox.cpp">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FontFactory.cpp">
+      <Filter>Source Files\Utils\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IntroScene.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29\Scenes %28ModuleScene%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TitleScene.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29\Scenes %28ModuleScene%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FadeCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UIInputField.cpp">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Inventory.cpp">
+      <Filter>Source Files\Utils\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InventoryItem.cpp">
+      <Filter>Source Files\Utils\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ModuleCursor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\IRendereable.h">
+      <Filter>Source Files\_Core\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IUpdateable.h">
+      <Filter>Source Files\_Core\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity.h">
+      <Filter>Source Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Module.h">
+      <Filter>Source Files\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ModuleRender.h">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IInitializable.h">
+      <Filter>Source Files\_Core\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ICleanable.h">
+      <Filter>Source Files\_Core\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ModuleUpdater.h">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ITransformable.h">
+      <Filter>Source Files\_Core\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Log.h">
+      <Filter>Source Files\Utils\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vector2.h">
+      <Filter>Source Files\Utils\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Pooling.h">
+      <Filter>Source Files\Utils\Pooling</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ChronoTimer.h">
+      <Filter>Source Files\Utils\Timers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ModuleTime.h">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StepTimer.h">
+      <Filter>Source Files\Utils\Timers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine.h">
+      <Filter>Source Files\_Core\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IActivable.h">
+      <Filter>Source Files\_Core\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Globals.h">
+      <Filter>Source Files\_Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ModuleWindow.h">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IPooleable.h">
+      <Filter>Source Files\Utils\Pooling</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ModuleInput.h">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ModulePhysics.h">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PhysicFactory.h">
+      <Filter>Source Files\Utils\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CollisionsDispatcher.h">
+      <Filter>Source Files\Utils\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CollisionSensor.h">
+      <Filter>Source Files\Utils\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextureFactory.h">
+      <Filter>Source Files\Utils\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AudioFactory.h">
+      <Filter>Source Files\Utils\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ModuleAssetDatabase.h">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AtlasFactory.h">
+      <Filter>Source Files\Utils\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MemLeaks.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ModuleAudio.h">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DrawingTools.h">
+      <Filter>Source Files\Utils\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ModuleLocalization.h">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vector2Int.h">
+      <Filter>Source Files\Utils\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tilemap.h">
+      <Filter>Source Files\Utils\TileMap</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UserPrefs.h">
+      <Filter>Source Files\Utils\UserPrefs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UIElement.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UICanvas.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UIButton.h">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UIToggle.h">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UISlider.h">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UITextBox.h">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UIInputField.h">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UIImage.h">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ModuleScene.h">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameScene.h">
+      <Filter>Source Files\Modules\Type %28Module%29\Scenes %28ModuleScene%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UITestingCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FontFactory.h">
+      <Filter>Source Files\Utils\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera.h">
+      <Filter>Source Files\Utils\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IntroScene.h">
+      <Filter>Source Files\Modules\Type %28Module%29\Scenes %28ModuleScene%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TitleScene.h">
+      <Filter>Source Files\Modules\Type %28Module%29\Scenes %28ModuleScene%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FadeCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Inventory.h">
+      <Filter>Source Files\Utils\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\InventoryItem.h">
+      <Filter>Source Files\Utils\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sword.h">
+      <Filter>Source Files\Utils\Inventory\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HealthPotion.h">
+      <Filter>Source Files\Utils\Inventory\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ModuleCursor.h">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Assets\Data\UserPrefs.xml">
+      <Filter>Source Files\_DataFiles</Filter>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\raylib.ico">
+      <Filter>Source Files\_Core\Icon</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src\resources.rc">
+      <Filter>Source Files\_Core\Icon</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
