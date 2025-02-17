@@ -17,11 +17,11 @@ typedef unsigned __int64 uint64;
 typedef unsigned char uchar;
 
 // Configuration -----------
-#define SCREEN_WIDTH		 640
-#define SCREEN_HEIGHT		 360
+#define SCREEN_WIDTH		 1280
+#define SCREEN_HEIGHT		 720
 
-#define LOGIC_SCREEN_WIDTH		 640
-#define LOGIC_SCREEN_HEIGHT		 360
+#define LOGIC_SCREEN_WIDTH		 1280
+#define LOGIC_SCREEN_HEIGHT		 720
 
 #define WIN_FULLSCREEN		false
 #define WIN_RESIZABLE		true
