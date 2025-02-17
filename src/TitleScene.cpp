@@ -2,6 +2,8 @@
 #include "GameScene.h"
 #include "Engine.h"
 #include "ModuleRender.h"
+#include "ModuleCursor.h"
+#include "ModuleAssetDatabase.h"
 
 #include "FadeCG.h"
 
@@ -24,7 +26,7 @@ bool TitleScene::Start()
     fade->FadeOut(1);
     Engine::Instance().m_render->AddToRenderQueue(*this);
 
-    
+    Engine::Instance().m_cursor->SetCursor(Engine::Instance().m_assetsDB->GetTexture("mouse_cursor"), { 0,0,18,18 }, { 1,1 }, 1);
 
     return true;
 }

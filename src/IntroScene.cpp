@@ -2,6 +2,7 @@
 #include "TitleScene.h"
 #include "Engine.h"
 #include "ModuleRender.h"
+#include "ModuleCursor.h"
 #include "ModuleAssetDatabase.h"
 
 #include "FadeCG.h"
@@ -29,6 +30,7 @@ bool IntroScene::Start()
 
     fade_logo = new FadeCG(255, 255, 255, { LOGIC_SCREEN_WIDTH / 2, LOGIC_SCREEN_HEIGHT / 2 }, { 38,36 }, {0.5f,0.5f},3, Engine::Instance().m_assetsDB->GetTexture("team_logo"));
 
+    Engine::Instance().m_cursor->HideAllCursors();
 
     Engine::Instance().m_render->AddToRenderQueue(*this);
     return true;

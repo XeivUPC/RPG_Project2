@@ -26,4 +26,4 @@ typedef unsigned char uchar;
 #define WIN_FULLSCREEN		false
 #define WIN_RESIZABLE		true
 #define VSYNC				false
-#define TITLE "SDL_PREFAB"
+#define TITLE "The Record of Lies: The Encounter"

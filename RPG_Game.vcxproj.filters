@@ -88,6 +88,9 @@
     <Filter Include="Source Files\Utils\Inventory\Items">
       <UniqueIdentifier>{c306b260-f839-44b3-802f-528eb87f9b65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\_Core\Icon">
+      <UniqueIdentifier>{f5afe485-e511-4b21-b9fa-c4359a190599}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -221,6 +224,9 @@
     </ClCompile>
     <ClCompile Include="src\InventoryItem.cpp">
       <Filter>Source Files\Utils\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ModuleCursor.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -392,10 +398,23 @@
     <ClInclude Include="src\HealthPotion.h">
       <Filter>Source Files\Utils\Inventory\Items</Filter>
     </ClInclude>
+    <ClInclude Include="src\ModuleCursor.h">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Assets\Data\UserPrefs.xml">
       <Filter>Source Files\_DataFiles</Filter>
     </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\raylib.ico">
+      <Filter>Source Files\_Core\Icon</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src\resources.rc">
+      <Filter>Source Files\_Core\Icon</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

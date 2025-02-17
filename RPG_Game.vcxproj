@@ -144,6 +144,7 @@
     <ClCompile Include="src\InventoryItem.cpp" />
     <ClCompile Include="src\ModuleAssetDatabase.cpp" />
     <ClCompile Include="src\ModuleAudio.cpp" />
+    <ClCompile Include="src\ModuleCursor.cpp" />
     <ClCompile Include="src\ModuleLocalization.cpp" />
     <ClCompile Include="src\ModuleScene.cpp" />
     <ClCompile Include="src\PhysicFactory.cpp" />
@@ -193,6 +194,7 @@
     <ClInclude Include="src\MemLeaks.h" />
     <ClInclude Include="src\ModuleAssetDatabase.h" />
     <ClInclude Include="src\ModuleAudio.h" />
+    <ClInclude Include="src\ModuleCursor.h" />
     <ClInclude Include="src\ModuleLocalization.h" />
     <ClInclude Include="src\ModuleScene.h" />
     <ClInclude Include="src\PhysicFactory.h" />
@@ -238,6 +240,12 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Assets\Data\UserPrefs.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src\resources.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\raylib.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

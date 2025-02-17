@@ -119,6 +119,10 @@ bool ModuleInput::PreUpdate()
 			textInput = event.text.text;
 		}
 	}
+
+	if (GetKey(SDL_SCANCODE_ESCAPE))
+		windowEvents[WE_QUIT] = true;
+
 	return true;
 }
 

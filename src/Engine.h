@@ -4,6 +4,7 @@
 class Module;
 class ModuleWindow;
 class ModuleInput;
+class ModuleCursor;
 class ModuleAssetDatabase;
 class ModulePhysics;
 class ModuleTime;
@@ -34,6 +35,7 @@ public:
 	ModuleWindow* m_window = nullptr;
 	ModulePhysics* m_physics = nullptr;
 	ModuleInput* m_input = nullptr;
+	ModuleCursor* m_cursor = nullptr;
 	ModuleAssetDatabase* m_assetsDB = nullptr;
 	ModuleTime* m_time = nullptr;
 	ModuleUpdater* m_updater = nullptr;

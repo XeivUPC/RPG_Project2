@@ -8,6 +8,7 @@
 #include "ModuleTime.h"
 #include "ModuleAssetDatabase.h"
 #include "ModuleInput.h"
+#include "ModuleCursor.h"
 #include "ModuleAudio.h"
 
 //// SCENES /////
@@ -27,6 +28,7 @@ Engine::Engine()
 	m_window = new ModuleWindow();
 	m_physics = new ModulePhysics();
 	m_input = new ModuleInput();
+	m_cursor = new ModuleCursor();
 	m_audio = new ModuleAudio();
 	m_render = new ModuleRender();
 	m_assetsDB = new ModuleAssetDatabase();
@@ -41,6 +43,7 @@ Engine::Engine()
 	AddModule(m_window);
 	AddModule(m_physics);
 	AddModule(m_input);
+	AddModule(m_cursor);
 	AddModule(m_audio);
 	AddModule(m_time);
 

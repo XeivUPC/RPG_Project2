@@ -44,7 +44,6 @@ UITestingCG::UITestingCG()
     btn->debug = true;
     AddElementToCanvas(btn);
 
-
     UIToggle* toggle = new UIToggle(*tex2, { 300,240 }, { 19,19 }, { 0,0,19,19 }, { 19,0,19,19 }, { 0.5,0.5 }, true);
     toggle->debug = true;
     AddElementToCanvas(toggle);
@@ -60,7 +59,6 @@ UITestingCG::UITestingCG()
     slider1->SetValue(Engine::Instance().m_audio->GetMusicVolume());
     slider1->debug = true;
     AddElementToCanvas(slider1);
-
 
     UIInputField* textBox1 = new UIInputField("Enter text...", "", *font, 16, { 255,255,255,255 }, { 71,71,71,255 }, { 300,100 }, { 200, 100 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Left, UITextBox::VerticalAlignment::Top, false);
     textBox1->debug = true;
