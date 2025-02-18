@@ -21,18 +21,17 @@
         <header>header</header>
         <body>
             <div class="row">
-                <iframe src="" class="page-frame" frameborder="0"></iframe>
+                <iframe id="frame" src="html/portrait.html" class="page-frame" frameborder="0"></iframe>
                 <div class="menu">
-                    <button onclick="" class="active"><span class="i-iconamoon-menu-burger-horizontal-fill"></span></button>
+                    <button onclick="" class="page-menu-button"><span class="i-iconamoon-menu-burger-horizontal-fill"></span></button>
                     <ul class="menulist">
-                        <li><button onclick="setHTML(portrait);" class= "inactive"><iconify-icon icon="iconamoon:home-fill"></iconify-icon> Home</button></li>
-                        <li><button onclick="setHTML(games);" class= "inactive"><iconify-icon icon="iconamoon:player-play-fill"></iconify-icon> Games</button></li>
-                        <li><button onclick="setHTML(portrait);" class= "inactive"><iconify-icon icon="iconamoon:profile-fill"></iconify-icon> Members</button></li>
+                        <li><button onclick="setHTML('portrait');" class= "menu-item"><iconify-icon icon="iconamoon:home-fill"></iconify-icon> Home</button></li>
+                        <li><button onclick="setHTML('games');" class= "menu-item"><iconify-icon icon="iconamoon:player-play-fill"></iconify-icon> Games</button></li>
+                        <li><button onclick="setHTML('portrait');" class= "menu-item"><iconify-icon icon="iconamoon:profile-fill"></iconify-icon> Members</button></li>
                     </ul>
                 </div>
             </div>
         </body>
         <footer>footer</footer>
     </main>
-    
 </html>

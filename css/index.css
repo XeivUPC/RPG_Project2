@@ -1,31 +1,49 @@
-main
-{
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* This will hide the scrollbar */
+}
+
+main {
     display: grid;
     min-height: 100dvh;
     grid-template-rows: auto 1fr auto;
     margin: 0;
 }
-.page-frame
-{
+
+.page-frame {
     position: relative;
     width: 100%;
     min-height: 100%;
     box-sizing: border-box;
     border: 0;
     pointer-events: none;
+    overflow: hidden; /* This will prevent scrolling inside the iframe */
 }
-.row
-{
+
+.row {
     display: flex; /* Arrange children in a row */
 }
-header{
+
+header {
     background-color: red;
 }
 
-body{
+body {
     background-color: green;
+    overflow: hidden; /* This will hide the scrollbar */
 }
 
-footer{
+.menulist
+{
+    list-style-type: none;
+}
+
+.menu-item
+{
+    width: 100%;
+}
+
+footer {
     background-color: blue;
 }
