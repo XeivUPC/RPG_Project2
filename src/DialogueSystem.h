@@ -7,6 +7,7 @@
 #include <map>
 #include <variant>
 #include <nlohmann/json.hpp>
+#include <functional>
 
 using namespace std;
 using json = nlohmann::json;
@@ -45,19 +46,7 @@ struct DialogueNode {
 };
 
 class DialogueSystem {
-private:
-    map<string, DialogueNode> nodes;
-    string current_node;
-    string previous_node; // Para detectar cambios
-    vector<Signal> active_signals;
-    bool dialogue_active = false;
 
-    // Variables de estado del juego (ejemplo: amistad)
-    map<string, variant<bool, float>> game_state;
-
-    void ProcessSignals();
-    SignalType DetermineSignalType(const SignalData& data);
-    bool CheckCondition(const Condition& cond);
 
 public:
     DialogueSystem();
@@ -81,4 +70,32 @@ public:
     // Getters
     bool IsDialogueActive() const;
     const vector<Signal>& GetActiveSignals() const;
+
+public:
+    vector<function<void(Signal*)>> onSignalCall;
+
+    vector<function<void()>> onDialogStart;
+    vector<function<void()>> onDialogEnd;
+    vector<function<void()>> onDialogNodeChange;
+
+private:
+    void ProcessSignals();
+    SignalType DetermineSignalType(const SignalData& data);
+    bool CheckCondition(const Condition& cond);
+
+private:
+    map<string, DialogueNode> nodes;
+    string current_node;
+    string previous_node; // Para detectar cambios
+    vector<Signal> active_signals;
+    bool dialogue_active = false;
+
+    // Variables de estado del juego
+    map<string, variant<bool, float>> game_state;
+protected:
+    void TriggerCallbacks(vector<function<void()>>& callbacks);
+    void TriggerCallbacks(vector<function<void(Signal*)>>& callbacks, Signal* _value);
+
+protected:
+
 };

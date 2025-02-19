@@ -10,6 +10,7 @@ public:
 	virtual ~UICanvas() = 0;
 
 	void AddElementToCanvas(UIElement* element);
+	void RemoveElementFromCanvas(UIElement* element);
 
 public:
 	void UpdateCanvas();

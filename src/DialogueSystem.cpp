@@ -94,15 +94,15 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
                 if (signal_name == "parent")
                     continue;
                 signal.name = signal_name;
-                if (signal_data.is_string()) {
-                    signal.data = signal_data.get<string>();
+                if (signal_data.begin()->is_string()) {
+                    signal.data = signal_data.begin()->get<string>();
                     signal.type = SignalType::String;
                 }
-                else if (signal_data.is_number()) {
-                    signal.data = signal_data.get<float>();
+                else if (signal_data.begin()->is_number()) {
+                    signal.data = signal_data.begin()->get<float>();
                     signal.type = SignalType::Number;
                 }
-                else if (signal_data.is_null()) {
+                else if (signal_data.begin()->is_null()) {
                     signal.data = monostate{};
                     signal.type = SignalType::Empty;
                 }
@@ -130,16 +130,10 @@ void DialogueSystem::Update() {
 
     // Llamar señales solo al entrar al nodo
     if (current_node != previous_node) {
+        TriggerCallbacks(onDialogStart);
         ProcessSignals();
         previous_node = current_node;
-    }
-
-    // Mostrar texto
-    cout << "Diálogo: " << node.text << "\n";
-
-    // Mostrar opciones
-    for (size_t i = 0; i < node.choices.size(); ++i) {
-        cout << i + 1 << ") " << node.choices[i].text << "\n";
+        TriggerCallbacks(onDialogNodeChange);
     }
 }
 
@@ -164,6 +158,7 @@ void DialogueSystem::ProcessInput(int choice) {
         current_node = node.next_node;
     }
     else {
+         TriggerCallbacks(onDialogStart);
         EndDialogue();
     }
 
@@ -180,8 +175,7 @@ void DialogueSystem::ProcessSignals() {
         // Determinar tipo automáticamente
         signal.type = DetermineSignalType(signal.data);
         active_signals.push_back(signal);
-
-        printf("%s Triggered\n", signal.name.c_str());
+        TriggerCallbacks(onSignalCall, &signal);
     }
 }
 
@@ -254,4 +248,18 @@ bool DialogueSystem::IsDialogueActive() const {
 
 const vector<Signal>& DialogueSystem::GetActiveSignals() const {
     return active_signals;
+}
+
+void DialogueSystem::TriggerCallbacks(vector<function<void()>>& callbacks)
+{
+    for (auto& callback : callbacks) {
+        callback();
+    }
+}
+
+void DialogueSystem::TriggerCallbacks(vector<function<void(Signal*)>>& callbacks, Signal* _value)
+{
+    for (auto& callback : callbacks) {
+        callback(_value);
+    }
 }

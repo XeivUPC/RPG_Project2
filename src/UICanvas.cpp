@@ -14,6 +14,11 @@ void UICanvas::AddElementToCanvas(UIElement* element)
 	elements.emplace_back(element);
 }
 
+void UICanvas::RemoveElementFromCanvas(UIElement* element)
+{
+	elements.erase(remove(elements.begin(), elements.end(), element), elements.end());
+}
+
 void UICanvas::UpdateCanvas()
 {
 	for (const auto& element : elements)
