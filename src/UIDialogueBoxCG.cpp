@@ -115,7 +115,7 @@ void UIDialogueBoxCG::CreateChoiceButton(string text, int index, float verticalS
 	btn->onMouseClick.emplace_back([this, index]() {dialogue->ProcessInput(index); });
 	btn->debug = true;
 
-	UITextBox* textBox = new UITextBox(text, *font, 64, { 0,0,0,255 }, { 0,0 }, { 470,45 }, { 0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle, true);
+	UITextBox* textBox = new UITextBox(text, *font, 32, { 0,0,0,255 }, { 0,0 }, { 470,45 }, { 0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle, true);
 	textBox->SetParent(btn);
 
 	AddElementToCanvas(btn);
