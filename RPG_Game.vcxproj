@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="src\AtlasFactory.cpp" />
     <ClCompile Include="src\AudioFactory.cpp" />
+    <ClCompile Include="src\DialogueSystem.cpp" />
     <ClCompile Include="src\DrawingTools.cpp" />
     <ClCompile Include="src\FadeCG.cpp" />
     <ClCompile Include="src\FontFactory.cpp" />
@@ -164,6 +165,7 @@
     <ClCompile Include="src\ModuleWindow.cpp" />
     <ClCompile Include="src\StepTimer.cpp" />
     <ClCompile Include="src\TitleScene.cpp" />
+    <ClCompile Include="src\UIDialogueBoxCG.cpp" />
     <ClCompile Include="src\UIInputField.cpp" />
     <ClCompile Include="src\UITestingCG.cpp" />
     <ClCompile Include="src\TextureFactory.cpp" />
@@ -183,6 +185,7 @@
     <ClInclude Include="src\AtlasFactory.h" />
     <ClInclude Include="src\AudioFactory.h" />
     <ClInclude Include="src\Camera.h" />
+    <ClInclude Include="src\DialogueSystem.h" />
     <ClInclude Include="src\DrawingTools.h" />
     <ClInclude Include="src\FadeCG.h" />
     <ClInclude Include="src\FontFactory.h" />
@@ -223,6 +226,7 @@
     <ClInclude Include="src\StepTimer.h" />
     <ClInclude Include="src\Sword.h" />
     <ClInclude Include="src\TitleScene.h" />
+    <ClInclude Include="src\UIDialogueBoxCG.h" />
     <ClInclude Include="src\UITestingCG.h" />
     <ClInclude Include="src\TextureFactory.h" />
     <ClInclude Include="src\Tilemap.h" />

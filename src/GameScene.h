@@ -4,6 +4,7 @@
 
 
 class UICanvas;
+class UIDialogueBoxCG;
 
 class GameScene : public ModuleScene, public IRendereable{
 	friend class Engine;
@@ -31,4 +32,5 @@ private:
 
 private:
 	UICanvas* canvas = nullptr;
+	UIDialogueBoxCG* dialogueCanvas = nullptr;
 };

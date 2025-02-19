@@ -180,17 +180,35 @@ void DrawingTools::RenderText(const string& text, TTF_Font& font, int fontSize, 
     surface = TTF_RenderText_Blended_Wrapped(&font, text.c_str(), color, maxSize);
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
-    SDL_Rect textureRect = {0,0,0,0};
+    SDL_Rect textureRect = { textBoxSize.x * scale.x,textBoxSize.y * scale.y,0,0};
     SDL_QueryTexture(texture, NULL, NULL, &textureRect.w, &textureRect.h);
 
-    horizonalAlignment--;
-    verticalAlignment--;
 
-    Vector2Int newPosition = position;
-    newPosition.x += (int)((textBoxSize.x / 2.f * scale.x - textureRect.w / 2.f * scale.x ) * horizonalAlignment);
-    newPosition.y += (int)((textBoxSize.y / 2.f * scale.y - textureRect.h / 2.f * scale.y ) * verticalAlignment);
 
-    RenderTexture(*texture, newPosition, &textureRect, scale,0,pivot);
+    Vector2Int drawinPosition = { 0,0 };
+    SDL_Point center = SDL_Point{ (int)(textureRect.x * pivot.x), (int)(textureRect.y * pivot.y) };
+
+    if (horizonalAlignment == 0)      // Left
+        drawinPosition.x = position.x;
+    else if (horizonalAlignment == 1) // Center
+        drawinPosition.x = position.x + textureRect.x / 2 - textureRect.w / 2 * scale.x;
+    else if (horizonalAlignment == 2) // Right
+        drawinPosition.x = position.x + textureRect.x - textureRect.w * scale.x;
+
+    if (verticalAlignment == 0)      // Top
+        drawinPosition.y = position.y;
+    else if (verticalAlignment == 1) // Center
+        drawinPosition.y = position.y + textureRect.y / 2 - textureRect.h / 2 * scale.y;
+    else if (verticalAlignment == 2) // Bottom
+        drawinPosition.y = position.y + textureRect.y * scale.y - textureRect.h * scale.y;
+
+    drawinPosition.x -= center.x;
+    drawinPosition.y -= center.y;
+
+    textureRect.x = 0;
+    textureRect.y = 0;
+
+    RenderTexture(*texture, drawinPosition, &textureRect, scale,0);
 
     SDL_DestroyTexture(texture);
 }

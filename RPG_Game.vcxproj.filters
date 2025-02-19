@@ -91,6 +91,9 @@
     <Filter Include="Source Files\_Core\Icon">
       <UniqueIdentifier>{f5afe485-e511-4b21-b9fa-c4359a190599}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils\Dialogue">
+      <UniqueIdentifier>{6e52211a-4276-4633-ba7a-03fd9b7d4f32}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -226,6 +229,12 @@
       <Filter>Source Files\Utils\Inventory</Filter>
     </ClCompile>
     <ClCompile Include="src\ModuleCursor.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DialogueSystem.cpp">
+      <Filter>Source Files\Utils\Dialogue</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UIDialogueBoxCG.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -400,6 +409,12 @@
     </ClInclude>
     <ClInclude Include="src\ModuleCursor.h">
       <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DialogueSystem.h">
+      <Filter>Source Files\Utils\Dialogue</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UIDialogueBoxCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -3,6 +3,7 @@
 #include "ModuleRender.h"
 
 #include "UITestingCG.h"
+#include "UIDialogueBoxCG.h"
 
 GameScene::GameScene(bool start_active) : ModuleScene(start_active)
 {
@@ -22,6 +23,7 @@ bool GameScene::Start()
 {
 
     canvas = new UITestingCG();
+    dialogueCanvas = new UIDialogueBoxCG();
     Engine::Instance().m_render->AddToRenderQueue(*this);
 
     return true;
@@ -34,7 +36,9 @@ bool GameScene::PreUpdate()
 
 bool GameScene::Update()
 {
+
     canvas->UpdateCanvas();
+    dialogueCanvas->UpdateCanvas();
     return true;
 }
 
@@ -46,11 +50,13 @@ bool GameScene::PostUpdate()
 void GameScene::Render()
 {
     canvas->RenderCanvas();
+    dialogueCanvas->RenderCanvas();
 }
 
 
 bool GameScene::CleanUp()
 {
+    delete dialogueCanvas;
     delete canvas;
     Engine::Instance().m_render->RemoveFomRenderQueue(*this);
     return true;
