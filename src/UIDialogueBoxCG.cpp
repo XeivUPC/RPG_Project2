@@ -35,9 +35,11 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 	btns.emplace_back(btn);
 
 	dialogue = new DialogueSystem();
-	dialogue->LoadDialogueFromJSON("Assets/Dialogues/test3.json");
-	amistad = 10;
 	dialogue->AddGameStateVariable("friendship", amistad);
+	dialogue->AddGameStateVariable("RodrigoState", (float)rodrigoState);
+
+	dialogue->LoadDialogueFromJSON("Assets/Dialogues/test4.json");
+	amistad = 10;
 	dialogue->StartDialogue();
 
 	dialogue->onSignalCall.emplace_back([this](Signal* signal) {SignalReader(signal); });
@@ -101,6 +103,7 @@ void UIDialogueBoxCG::UpdateCanvas()
 		contentTextBox->text = "";
 		characterNameTextBox->text = "";
 
+
 	}
 
 	UICanvas::UpdateCanvas();
@@ -129,6 +132,12 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 	if (signal->name == "ChangeDialogue") {
 		if (holds_alternative<string>(signal->data)) {
 			dialogue->LoadDialogueFromJSON(get<string>(signal->data));
+		}
+	}
+	else if (signal->name == "RodrigoStateUpdate") {
+		if (holds_alternative<float>(signal->data)) {
+			rodrigoState = get<float>(signal->data);
+			dialogue->AddGameStateVariable("RodrigoState", (float)rodrigoState);
 		}
 	}
 }

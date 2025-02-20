@@ -84,6 +84,7 @@ private:
     bool CheckCondition(const Condition& cond);
 
 private:
+    DialogueNode root_node;
     map<string, DialogueNode> nodes;
     string current_node;
     string previous_node; // Para detectar cambios

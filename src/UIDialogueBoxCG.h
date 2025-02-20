@@ -30,4 +30,5 @@ private:
 
 	///// Btn
 	vector<UIButton*> btns;
+	int rodrigoState = 0;
 };

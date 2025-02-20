@@ -31,7 +31,41 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
 
     // Recorrer cada nodo en el JSON
     for (auto& [node_id, node_data] : json_data.items()) {
-        if (node_id == "__editor" || node_id == "root") continue; // Ignorar metadata
+        if (node_id == "__editor") continue; // Ignorar metadata
+
+        if (node_id == "root") {
+            if(json_data["root"].contains("next"))
+                root_node.next_node = json_data["root"]["next"];
+            if (node_data.contains("conditions")) {
+                for (auto& cond_data : node_data["conditions"]) {
+                    Condition cond;
+                    for (auto& [var_name, var_data] : cond_data.items()) {
+                        cond.next_node = cond_data["next"];
+                        if (var_name == "next" || var_name == "parent") continue;
+                        cond.variable = var_name;
+                        if (var_data.contains("value")) {
+                            if (var_data["value"].is_number()) {
+                                cond.value = var_data["value"].get<float>();
+                            }
+                            else if (var_data["value"].is_boolean()) {
+                                cond.value = var_data["value"].get<bool>();
+                            }
+
+                            if (var_data.contains("operator")) {
+                                string op = var_data["operator"];
+                                if (op == "equal") cond.comparison = "==";
+                                else if (op == "greater") cond.comparison = ">";
+                                else if (op == "less") cond.comparison = "<";
+                            }
+                        }
+                        break;
+                        
+                    }
+                    root_node.conditions.push_back(cond);
+                }
+            }
+            continue;
+        }
 
         DialogueNode node;
         node.id = node_id;
@@ -77,9 +111,7 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
                         else if (op == "greater") cond.comparison = ">";
                         else if (op == "less") cond.comparison = "<";
                         // Añadir más operadores si es necesario
-                    }
-
-                    
+                    }   
                     break; // Solo manejamos una variable por condición
                 }
 
@@ -94,15 +126,17 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
                 if (signal_name == "parent")
                     continue;
                 signal.name = signal_name;
-                if (signal_data.begin()->is_string()) {
+                auto it = signal_data.begin();
+                string key = it.key();
+                if (key == "String") {
                     signal.data = signal_data.begin()->get<string>();
                     signal.type = SignalType::String;
                 }
-                else if (signal_data.begin()->is_number()) {
-                    signal.data = signal_data.begin()->get<float>();
+                else if (key == "Number") {
+                    signal.data = stof(signal_data.begin()->get<string>());
                     signal.type = SignalType::Number;
                 }
-                else if (signal_data.begin()->is_null()) {
+                else if (key == "Empty") {
                     signal.data = monostate{};
                     signal.type = SignalType::Empty;
                 }
@@ -115,7 +149,24 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
 
     // Establecer el nodo raíz
     if (json_data.contains("root")) {
-        current_node = json_data["root"]["next"];
+        if(root_node.conditions.size() == 0)
+            current_node = root_node.next_node;
+        else {
+            for (auto& condition : root_node.conditions) {
+                if (CheckCondition(condition)) {
+                    current_node = condition.next_node;
+                    return;
+                }
+            }
+        }
+
+        if (current_node != previous_node) {
+            TriggerCallbacks(onDialogStart);
+            ProcessSignals();
+            previous_node = current_node;
+            TriggerCallbacks(onDialogNodeChange);
+        }
+
     }
 }
 
@@ -214,7 +265,18 @@ void DialogueSystem::ResetDialogue() {
     for (auto& [id, node] : nodes) {
         node.completed = false;
     }
-    current_node = "root";
+    
+    if (root_node.conditions.size() == 0)
+        current_node = root_node.next_node;
+    else {
+        for (auto& condition : root_node.conditions) {
+            if (CheckCondition(condition)) {
+                current_node = condition.next_node;
+                return;
+            }
+        }
+    }
+
     dialogue_active = false;
 }
 
