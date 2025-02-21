@@ -23,6 +23,8 @@ private:
 private:
 	bool fullscreen = false;
 
+	bool vSync = false;
+
 	int width = 1280;
 	int height = 720;
 

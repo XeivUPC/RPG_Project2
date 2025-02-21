@@ -33,9 +33,12 @@ bool ModuleRender::Init()
 		LOG("Using vsync");
 	}
 
+
 	SDL_Window* window = Engine::Instance().m_window->window;
 
 	renderer = SDL_CreateRenderer(window, -1, flags);
+
+	
 
 	if (renderer == NULL)
 	{

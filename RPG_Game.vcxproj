@@ -163,6 +163,7 @@
     <ClCompile Include="src\ModuleUpdater.cpp" />
     <ClCompile Include="src\ChronoTimer.cpp" />
     <ClCompile Include="src\ModuleWindow.cpp" />
+    <ClCompile Include="src\SettingsCG.cpp" />
     <ClCompile Include="src\StepTimer.cpp" />
     <ClCompile Include="src\TitleScene.cpp" />
     <ClCompile Include="src\UIDialogueBoxCG.cpp" />
@@ -223,6 +224,7 @@
     <ClInclude Include="src\ModuleWindow.h" />
     <ClInclude Include="src\Pooling.h" />
     <ClInclude Include="src\ChronoTimer.h" />
+    <ClInclude Include="src\SettingsCG.h" />
     <ClInclude Include="src\StepTimer.h" />
     <ClInclude Include="src\Sword.h" />
     <ClInclude Include="src\TitleScene.h" />

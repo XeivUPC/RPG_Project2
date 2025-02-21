@@ -6,6 +6,7 @@
 #include "ModuleAssetDatabase.h"
 
 #include "FadeCG.h"
+#include "SettingsCG.h"
 
 TitleScene::TitleScene(bool start_active) : ModuleScene(start_active)
 {
@@ -24,6 +25,9 @@ bool TitleScene::Start()
 {
     fade = new FadeCG(0, 0, 36);
     fade->FadeOut(1);
+
+    settings_canvas = new SettingsCG();
+
     Engine::Instance().m_render->AddToRenderQueue(*this);
 
     Engine::Instance().m_cursor->SetCursor(Engine::Instance().m_assetsDB->GetTexture("mouse_cursor"), { 0,0,18,18 }, { 1,1 }, 1);
@@ -38,10 +42,11 @@ bool TitleScene::PreUpdate()
 
 bool TitleScene::Update()
 {
+    settings_canvas->UpdateCanvas();
     fade->UpdateCanvas();
     if (!fade->IsFading()) {
-        Engine::Instance().s_game->Activate();
-        Desactivate();
+       /*Engine::Instance().s_game->Activate();
+        Desactivate();*/
     }
     return true;
 }
@@ -53,13 +58,14 @@ bool TitleScene::PostUpdate()
 
 void TitleScene::Render()
 {
+    settings_canvas->RenderCanvas();
     fade->RenderCanvas();
 }
 
 bool TitleScene::CleanUp()
 {
     delete fade;
-    delete canvas;
+    delete settings_canvas;
     Engine::Instance().m_render->RemoveFomRenderQueue(*this);
     return true;
 }

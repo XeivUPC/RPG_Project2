@@ -38,7 +38,7 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 	dialogue->AddGameStateVariable("friendship", amistad);
 	dialogue->AddGameStateVariable("RodrigoState", (float)rodrigoState);
 
-	dialogue->LoadDialogueFromJSON("Assets/Dialogues/test4.json");
+	dialogue->LoadDialogueFromJSON("Assets/Dialogues/test2.json");
 	amistad = 10;
 	dialogue->StartDialogue();
 

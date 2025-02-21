@@ -32,5 +32,6 @@ private:
 
 private:
 	UICanvas* canvas = nullptr;
+	UICanvas* settings_canvas = nullptr;
 	FadeCG* fade = nullptr;
 };
