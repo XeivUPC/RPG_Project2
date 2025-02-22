@@ -16,6 +16,8 @@ public:
 	void UpdateCanvas();
 	void RenderCanvas();
 
+	bool visible = true;
+
 protected:
 	UICanvas() = default;
 protected:

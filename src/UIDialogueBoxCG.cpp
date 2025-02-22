@@ -113,8 +113,7 @@ void UIDialogueBoxCG::CreateChoiceButton(string text, int index, float verticalS
 {
 	_TTF_Font* font = Engine::Instance().m_assetsDB->GetFont("monogram");
 
-	SDL_Texture* nullTexture = nullptr;
-	UIButton* btn = new UIButton(*nullTexture, { 776 ,(int)(247 + verticalSpacing+ (45 + verticalSpacing) * index )}, { 470,45 }, { 0,0,0,0 }, { 0,0 });
+	UIButton* btn = new UIButton({ 776 ,(int)(247 + verticalSpacing+ (45 + verticalSpacing) * index )}, { 470,45 }, { 0,0,0,0 }, { 0,0 });
 	btn->onMouseClick.emplace_back([this, index]() {dialogue->ProcessInput(index); });
 	btn->debug = true;
 
@@ -136,7 +135,7 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 	}
 	else if (signal->name == "RodrigoStateUpdate") {
 		if (holds_alternative<float>(signal->data)) {
-			rodrigoState = get<float>(signal->data);
+			rodrigoState = (int)get<float>(signal->data);
 			dialogue->AddGameStateVariable("RodrigoState", (float)rodrigoState);
 		}
 	}

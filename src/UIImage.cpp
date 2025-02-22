@@ -6,6 +6,10 @@ UIImage::UIImage(SDL_Texture& _texture, Vector2Int _position, Vector2Int _size, 
 {
 }
 
+UIImage::UIImage(Vector2Int _position, Vector2Int _size, Vector2 _pivot, bool _useRect, SDL_Rect _rect, SDL_Color _color) : UIElement(_position, _size, _pivot), sprite(nullptr), useRect(_useRect), rect(_rect), color(_color)
+{
+}
+
 UIImage::~UIImage()
 {
 }

@@ -13,6 +13,7 @@ public:
 	};
 
 	UIButton(SDL_Texture& _texture, Vector2Int _position, Vector2Int _size, SDL_Rect _defaultRect, Vector2 _pivot = {0,0});
+	UIButton(Vector2Int _position, Vector2Int _size, SDL_Rect _defaultRect, Vector2 _pivot = {0,0});
 	~UIButton();
 
 	// Inherited via UIElement

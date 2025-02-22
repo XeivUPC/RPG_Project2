@@ -21,12 +21,16 @@ void UICanvas::RemoveElementFromCanvas(UIElement* element)
 
 void UICanvas::UpdateCanvas()
 {
+	if (!visible)
+		return;
 	for (const auto& element : elements)
 		element->UpdateElement();
 }
 
 void UICanvas::RenderCanvas()
 {
+	if (!visible)
+		return;
 	for (const auto& element : elements)
 		element->RenderElement();
 }
