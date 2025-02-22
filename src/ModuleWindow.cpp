@@ -92,3 +92,8 @@ bool ModuleWindow::IsFullscreen()
 {
 	return fullscreen;
 }
+
+void ModuleWindow::SetTitle(const string& title)
+{
+	SDL_SetWindowTitle(window, title.c_str());
+}

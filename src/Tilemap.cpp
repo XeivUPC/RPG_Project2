@@ -4,21 +4,23 @@
 #include "ModuleAssetDatabase.h"
 #include "DrawingTools.h"
 
-Tilemap::Tilemap(SDL_Texture& _texture, Vector2Int _tileSize, Vector2Int _tilemapSize, vector<int> _tiles)
+Tilemap::Tilemap(SDL_Texture& _texture, Vector2Int _initialPosition, Vector2Int _tileSize, Vector2Int _tilemapSize, vector<int> _tiles, float _scale)
 {
-	SetTilemapData(_texture, move(_tileSize), move(_tilemapSize), move(_tiles));
+	SetTilemapData(_texture, move(_initialPosition), move(_tileSize), move(_tilemapSize), move(_tiles), _scale);
 }
 
 Tilemap::~Tilemap()
 {
 }
 
-void Tilemap::SetTilemapData(SDL_Texture& _texture, Vector2Int _tileSize, Vector2Int _tilemapSize, vector<int> _tiles)
+void Tilemap::SetTilemapData(SDL_Texture& _texture, Vector2Int _initialPosition, Vector2Int _tileSize, Vector2Int _tilemapSize, vector<int> _tiles, float _scale)
 {
 	texture = &_texture;
+	initialPosition = _initialPosition;
 	tileSize = _tileSize;
 	tilemapSize = _tilemapSize;
 	tiles = _tiles;
+	scale = _scale;
 
 	textureSize = Engine::Instance().m_assetsDB->GetTextureSize(*texture);
 }
@@ -42,8 +44,8 @@ void Tilemap::RenderTilemap()
 			int gid = GetTileRelativeIndex(xPos, yPos);
 
 			GetTileRect(gid, rect);
-		
-			painter.RenderTexture(*texture, drawingPos,&rect);
+			
+			painter.RenderTexture(*texture, drawingPos+initialPosition, &rect, {scale,scale});
 		}
 	}
 }

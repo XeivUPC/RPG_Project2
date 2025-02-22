@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "ChronoTimer.h"
 
 class Module;
 class ModuleWindow;
@@ -59,4 +60,8 @@ private:
 	void AddModule(Module* module);
 private:
 	vector<Module*> list_modules;
+
+	ChronoTimer lastSecFrameTime;
+	int lastSecFrameCount = 0;
+	float averageFps = 0.0f;
 };

@@ -11,6 +11,11 @@
 #include "ModuleCursor.h"
 #include "ModuleAudio.h"
 
+#include "Globals.h"
+
+#include <sstream>
+#include <iomanip>
+
 //// SCENES /////
 
 #include "IntroScene.h"
@@ -120,6 +125,19 @@ bool Engine::Update()
 			ret = module->PostUpdate();
 		}
 	}
+
+	lastSecFrameCount++;
+	if (lastSecFrameTime.ReadMSec() > 1000) {
+		lastSecFrameTime.StartTimer();
+		averageFps = (averageFps + lastSecFrameCount) / 2;
+		lastSecFrameCount = 0;
+
+		stringstream ss;
+		ss << TITLE << ": Av.FPS: " << fixed << setprecision(2) << averageFps;
+		string titleStr = ss.str();
+		m_window->SetTitle(titleStr.c_str());
+	}
+	
 
 	return ret;
 }

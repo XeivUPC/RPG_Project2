@@ -11,6 +11,8 @@ public:
 	void SetFullscreen(bool _fullscreen);
 	bool IsFullscreen();
 
+	void SetTitle(const string& title);
+
 public:
 	SDL_Window* window = nullptr;
 
