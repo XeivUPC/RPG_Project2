@@ -4,6 +4,7 @@
 
 
 class UICanvas;
+class FadeCG;
 class UIDialogueBoxCG;
 
 class GameScene : public ModuleScene, public IRendereable{
@@ -32,5 +33,6 @@ private:
 
 private:
 	UICanvas* canvas = nullptr;
+	FadeCG* fade = nullptr;
 	UIDialogueBoxCG* dialogueCanvas = nullptr;
 };

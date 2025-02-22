@@ -13,6 +13,7 @@ public:
 	~TitleScene();
 
 public:
+	void StartGame(bool _newGame);
 
 private:
 	// Inherited via IInitializable
@@ -34,4 +35,7 @@ private:
 	UICanvas* canvas = nullptr;
 	UICanvas* settings_canvas = nullptr;
 	FadeCG* fade = nullptr;
+
+	bool starting_game = false;
+	bool newGame = false;
 };

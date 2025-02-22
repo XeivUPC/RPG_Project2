@@ -162,3 +162,8 @@ Vector2Int ModuleInput::GetMouseMotion()
 {
 	return Vector2Int(mouseMotionX, mouseMotionY);
 }
+
+void ModuleInput::ForceQuit()
+{
+	windowEvents[WE_QUIT] = true;
+}

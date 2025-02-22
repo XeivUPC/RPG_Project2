@@ -64,6 +64,7 @@ protected:
 	float localScale = 1;
 
 	UIElement* parent = nullptr;
+	vector<UIElement*> childs;
 	bool isMouseOver = false;
 
 };

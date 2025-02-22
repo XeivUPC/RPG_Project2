@@ -28,7 +28,7 @@ bool IntroScene::Start()
     fade_bg = new FadeCG(0,0,36);
     fade_bg->FadeIn(bgFadeIn);
 
-    fade_logo = new FadeCG(255, 255, 255, { LOGIC_SCREEN_WIDTH / 2, LOGIC_SCREEN_HEIGHT / 2 }, { 38,36 }, {0.5f,0.5f},3, Engine::Instance().m_assetsDB->GetTexture("team_logo"));
+    fade_logo = new FadeCG(255, 255, 255, { LOGIC_SCREEN_WIDTH / 2, LOGIC_SCREEN_HEIGHT / 2 }, { 38,36 }, {0.5f,0.5f},5, Engine::Instance().m_assetsDB->GetTexture("team_logo"));
 
     Engine::Instance().m_cursor->HideAllCursors();
 

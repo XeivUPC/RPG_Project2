@@ -4,6 +4,7 @@
 
 UIElement::UIElement(Vector2Int _position, Vector2Int _size, Vector2 _pivot) : localPosition(_position), size(_size), pivot(_pivot)
 {
+	ForceUpdateTransforms();
 }
 
 UIElement::~UIElement()
@@ -79,11 +80,13 @@ float& UIElement::GetLocalScale()
 void UIElement::SetLocalScale(float _localScale)
 {
 	localScale = _localScale;
+	ForceUpdateTransforms();
 }
 
 void UIElement::SetLocalPosition(Vector2Int _localPosition)
 {
 	localPosition = _localPosition;
+	ForceUpdateTransforms();
 }
 
 
@@ -98,7 +101,17 @@ SDL_Rect UIElement::GetBounds()
 
 void UIElement::SetParent(UIElement* _parent)
 {
+	if (parent!=nullptr)
+		parent->childs.erase(remove(parent->childs.begin(), parent->childs.end(), this), parent->childs.end());
+
 	parent = _parent;
+
+	if (parent != nullptr) {
+		parent->childs.emplace_back(this);
+		ForceUpdateTransforms();
+	}
+
+
 }
 
 void UIElement::ForceUpdateTransforms()
@@ -110,6 +123,11 @@ void UIElement::ForceUpdateTransforms()
 	else {
 		scale = localScale;
 		position = localPosition;
+	}
+
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		childs[i]->ForceUpdateTransforms();
 	}
 }
 

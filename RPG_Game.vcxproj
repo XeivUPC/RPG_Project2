@@ -165,6 +165,7 @@
     <ClCompile Include="src\ModuleWindow.cpp" />
     <ClCompile Include="src\SettingsCG.cpp" />
     <ClCompile Include="src\StepTimer.cpp" />
+    <ClCompile Include="src\TitleMenuCG.cpp" />
     <ClCompile Include="src\TitleScene.cpp" />
     <ClCompile Include="src\UIDialogueBoxCG.cpp" />
     <ClCompile Include="src\UIInputField.cpp" />
@@ -227,6 +228,7 @@
     <ClInclude Include="src\SettingsCG.h" />
     <ClInclude Include="src\StepTimer.h" />
     <ClInclude Include="src\Sword.h" />
+    <ClInclude Include="src\TitleMenuCG.h" />
     <ClInclude Include="src\TitleScene.h" />
     <ClInclude Include="src\UIDialogueBoxCG.h" />
     <ClInclude Include="src\UITestingCG.h" />

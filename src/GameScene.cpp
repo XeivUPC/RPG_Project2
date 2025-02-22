@@ -2,6 +2,7 @@
 #include "Engine.h"
 #include "ModuleRender.h"
 
+#include "FadeCG.h"
 #include "UITestingCG.h"
 #include "UIDialogueBoxCG.h"
 
@@ -22,6 +23,9 @@ bool GameScene::Init()
 bool GameScene::Start()
 {
 
+    fade = new FadeCG(0, 0, 36);
+    fade->FadeOut(1);
+
     canvas = new UITestingCG();
     dialogueCanvas = new UIDialogueBoxCG();
     Engine::Instance().m_render->AddToRenderQueue(*this);
@@ -39,6 +43,7 @@ bool GameScene::Update()
 
     canvas->UpdateCanvas();
     dialogueCanvas->UpdateCanvas();
+    fade->UpdateCanvas();
     return true;
 }
 
@@ -51,6 +56,7 @@ void GameScene::Render()
 {
     canvas->RenderCanvas();
     dialogueCanvas->RenderCanvas();
+    fade->RenderCanvas();
 }
 
 
@@ -58,6 +64,7 @@ bool GameScene::CleanUp()
 {
     delete dialogueCanvas;
     delete canvas;
+    delete fade;
     Engine::Instance().m_render->RemoveFomRenderQueue(*this);
     return true;
 }

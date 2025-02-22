@@ -50,6 +50,8 @@ public:
 	Vector2Int GetMousePosition();
 	Vector2Int GetMouseMotion();
 
+	void ForceQuit();
+
 private:
 	bool windowEvents[WE_COUNT];
 	KeyState* keyboard;
