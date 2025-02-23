@@ -36,6 +36,7 @@ void ModuleAssetDatabase::LoadAssets()
 
 	AddMusicToStorage("1", *audioFactory->CreateMusic("Assets/Sounds/Music/Level0_Music.ogg"));
 	AddAudioToStorage("btn_enter", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_enter.wav"));
+	AddAudioToStorage("btn_click", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click.wav"));
 
 	AddFontToStorage("monogram", *fontFactory->CreateFont("Assets/Fonts/monogram.ttf", 12));
 	AddFontToStorage("alagard", *fontFactory->CreateFont("Assets/Fonts/alagard.ttf", 12));

@@ -26,7 +26,9 @@ public:
 
 	void RenderLine(const Vector2Int& start, const Vector2Int& end, const SDL_Color& color = { 255,255,255,255 }) const;
 
-	void RenderText(const string& text, TTF_Font& font, int fontSize, const Vector2Int& position, const Vector2Int& textBoxSize, const Vector2& scale = {1,1}, int horizonalAlignment = 0, int verticalAlignment = 0, bool wrap = true, const Vector2& pivot = { 0,0 }, const SDL_Color& color = { 255,255,255,255 }) const;
+	SDL_Texture* RenderText(const string& text, TTF_Font& font, int fontSize, const Vector2Int& position, const Vector2Int& textBoxSize, bool returnTexture = true, const Vector2& scale = {1,1}, int horizonalAlignment = 0, int verticalAlignment = 0, bool wrap = true, const Vector2& pivot = { 0,0 }, const SDL_Color& color = { 255,255,255,255 }) const;
+
+	void RenderInsideBox(SDL_Texture& texture, const Vector2Int& position, const Vector2Int& boxSize, const Vector2& scale = { 1,1 }, int horizonalAlignment = 0, int verticalAlignment = 0, const Vector2& pivot = { 0,0 }) const;
 
 private:
 	void SetColor(const SDL_Color& color) const;

@@ -24,6 +24,7 @@ public:
 
 public:
 	UITextBox* textComponent;
+	void SetDefaultText(string _defaultText);
 private:
 
 private:
@@ -44,4 +45,9 @@ private:
 
 	string defaultText = "Enter text...";
 	SDL_Color defaultColor;
+
+
+	bool dirty = true;
+	SDL_Texture* defaultTextTexture = nullptr;
+	SDL_Texture* writerPointerTexture = nullptr;
 };

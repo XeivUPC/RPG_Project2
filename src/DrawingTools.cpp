@@ -148,7 +148,7 @@ void DrawingTools::RenderLine(const Vector2Int& start, const Vector2Int& end, co
     
 }
 
-void DrawingTools::RenderText(const string& text, TTF_Font& font, int fontSize, const Vector2Int& position, const Vector2Int& textBoxSize, const Vector2& scale, int horizonalAlignment, int verticalAlignment, bool wrap, const Vector2& pivot, const SDL_Color& color) const
+SDL_Texture* DrawingTools::RenderText(const string& text, TTF_Font& font, int fontSize, const Vector2Int& position, const Vector2Int& textBoxSize, bool returnTexture, const Vector2& scale, int horizonalAlignment, int verticalAlignment, bool wrap, const Vector2& pivot, const SDL_Color& color) const
 {
     int current_fontSize = TTF_FontHeight(&font);
     if (current_fontSize != fontSize)
@@ -180,10 +180,21 @@ void DrawingTools::RenderText(const string& text, TTF_Font& font, int fontSize, 
     surface = TTF_RenderText_Blended_Wrapped(&font, text.c_str(), color, maxSize);
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
-    SDL_Rect textureRect = { textBoxSize.x * scale.x,textBoxSize.y * scale.y,0,0};
-    SDL_QueryTexture(texture, NULL, NULL, &textureRect.w, &textureRect.h);
 
 
+    RenderInsideBox(*texture, position, textBoxSize, scale, horizonalAlignment, verticalAlignment, pivot);
+
+    if (returnTexture) {
+        return texture;
+    }
+    SDL_DestroyTexture(texture);
+    return nullptr;
+}
+
+void DrawingTools::RenderInsideBox(SDL_Texture& texture, const Vector2Int& position, const Vector2Int& boxSize, const Vector2& scale, int horizonalAlignment, int verticalAlignment, const Vector2& pivot) const
+{
+    SDL_Rect textureRect = { (int)(boxSize.x * scale.x),(int)(boxSize.y * scale.y),0,0 };
+    SDL_QueryTexture(&texture, NULL, NULL, &textureRect.w, &textureRect.h);
 
     Vector2Int drawinPosition = { 0,0 };
     SDL_Point center = SDL_Point{ (int)(textureRect.x * pivot.x), (int)(textureRect.y * pivot.y) };
@@ -191,16 +202,16 @@ void DrawingTools::RenderText(const string& text, TTF_Font& font, int fontSize, 
     if (horizonalAlignment == 0)      // Left
         drawinPosition.x = position.x;
     else if (horizonalAlignment == 1) // Center
-        drawinPosition.x = position.x + textureRect.x / 2 - textureRect.w / 2 * scale.x;
+        drawinPosition.x = (int)(position.x + textureRect.x / 2 - textureRect.w / 2 * scale.x);
     else if (horizonalAlignment == 2) // Right
-        drawinPosition.x = position.x + textureRect.x - textureRect.w * scale.x;
+        drawinPosition.x = (int)(position.x + textureRect.x - textureRect.w * scale.x);
 
     if (verticalAlignment == 0)      // Top
         drawinPosition.y = position.y;
     else if (verticalAlignment == 1) // Center
-        drawinPosition.y = position.y + textureRect.y / 2 - textureRect.h / 2 * scale.y;
+        drawinPosition.y = (int)(position.y + textureRect.y / 2 - textureRect.h / 2 * scale.y);
     else if (verticalAlignment == 2) // Bottom
-        drawinPosition.y = position.y + textureRect.y * scale.y - textureRect.h * scale.y;
+        drawinPosition.y = (int)(position.y + textureRect.y * scale.y - textureRect.h * scale.y);
 
     drawinPosition.x -= center.x;
     drawinPosition.y -= center.y;
@@ -208,9 +219,7 @@ void DrawingTools::RenderText(const string& text, TTF_Font& font, int fontSize, 
     textureRect.x = 0;
     textureRect.y = 0;
 
-    RenderTexture(*texture, drawinPosition, &textureRect, scale,0);
-
-    SDL_DestroyTexture(texture);
+    RenderTexture(texture, drawinPosition, &textureRect, scale, 0);
 }
 
 

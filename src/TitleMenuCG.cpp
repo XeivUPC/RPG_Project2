@@ -17,6 +17,8 @@ TitleMenuCG::TitleMenuCG(UICanvas& _settingsReference) : settingsReference(&_set
 	///// AssetsLoading
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
 	SDL_Texture* btn_texture = Engine::Instance().m_assetsDB->GetTexture("btn_tex1");
+	Mix_Chunk* btn_enter = Engine::Instance().m_assetsDB->GetAudio("btn_enter");
+	Mix_Chunk* btn_click = Engine::Instance().m_assetsDB->GetAudio("btn_click");
 
 
 	///// Buttons
@@ -27,6 +29,8 @@ TitleMenuCG::TitleMenuCG(UICanvas& _settingsReference) : settingsReference(&_set
 	startNewGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 57,0,101,31 });
 	startNewGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 158,0,101,31 });
 	startNewGame_btn->onMouseClick.emplace_back([this]() {Engine::Instance().s_title->StartGame(true); });
+	startNewGame_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	startNewGame_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	startNewGame_btn->SetLocalScale(3);
 	
 
@@ -35,6 +39,8 @@ TitleMenuCG::TitleMenuCG(UICanvas& _settingsReference) : settingsReference(&_set
 	continueGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 57,0,101,31 });
 	continueGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 158,0,101,31 });
 	continueGame_btn->onMouseClick.emplace_back([this]() {Engine::Instance().s_title->StartGame(false); });
+	continueGame_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	continueGame_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	continueGame_btn->SetLocalScale(3);
 
 
@@ -43,6 +49,8 @@ TitleMenuCG::TitleMenuCG(UICanvas& _settingsReference) : settingsReference(&_set
 	settings_btn->AddRect(UIButton::ButtonStates::HOVER, { 57,0,101,31 });
 	settings_btn->AddRect(UIButton::ButtonStates::PRESSED, { 158,0,101,31 });
 	settings_btn->onMouseClick.emplace_back([this]() {settingsReference->visible = true; });
+	settings_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	settings_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	settings_btn->SetLocalScale(3);
 
 
@@ -51,6 +59,8 @@ TitleMenuCG::TitleMenuCG(UICanvas& _settingsReference) : settingsReference(&_set
 	exit_btn->AddRect(UIButton::ButtonStates::HOVER, { 57,0,101,31 });
 	exit_btn->AddRect(UIButton::ButtonStates::PRESSED, { 158,0,101,31 });
 	exit_btn->onMouseClick.emplace_back([this]() {Engine::Instance().m_input->ForceQuit(); });
+	exit_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	exit_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	exit_btn->SetLocalScale(3);
 
 

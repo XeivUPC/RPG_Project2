@@ -1,6 +1,7 @@
 #include "UIInputField.h"
 #include "UIImage.h"
 #include "Engine.h"
+#include "TextureFactory.h"
 #include "ModuleInput.h"
 #include "DrawingTools.h"
 
@@ -13,6 +14,12 @@ UIInputField::UIInputField(string _defaultText, string _text, _TTF_Font& _font, 
 
 UIInputField::~UIInputField()
 {
+	if (defaultTextTexture != nullptr)
+		SDL_DestroyTexture(defaultTextTexture);
+
+	if (writerPointerTexture != nullptr)
+		SDL_DestroyTexture(writerPointerTexture);
+
 	delete textComponent;
 	//delete imageComponent;
 }
@@ -71,8 +78,8 @@ void UIInputField::UpdateElement()
 			if (movingTimer.ReadMSec() > timeToWait) {
 				movingCount++;
 				writerPointer++;
-				if (writerPointer > (int)textComponent->text.length()-1)
-					writerPointer = (int)textComponent->text.length() - 1;
+				if (writerPointer > (int)textComponent->GetText().length()-1)
+					writerPointer = (int)textComponent->GetText().length() - 1;
 				movingTimer.StartTimer();
 			}
 		}else 
@@ -82,14 +89,14 @@ void UIInputField::UpdateElement()
 
 		if (input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN) {
 			writerPointer++;
-			textComponent->text.insert(writerPointer, 1, '\n');
+			textComponent->GetModificableText().insert(writerPointer, 1, '\n');
 		}
 
 		const string& inputRef = input->GetTextInput();
 		for (size_t i = 0; i < inputRef.length(); i++)
 		{
 			writerPointer++;
-			textComponent->text.insert(writerPointer, 1, inputRef[i]);
+			textComponent->GetModificableText().insert(writerPointer, 1, inputRef[i]);
 		}
 		
 		if (input->GetKey(SDL_SCANCODE_BACKSPACE) == KEY_REPEAT) {
@@ -98,8 +105,8 @@ void UIInputField::UpdateElement()
 				timeToWait = backspaceSaveRemovingSpeedMS;
 			}
 			if (backspaceTimer.ReadMSec() > timeToWait){
-				if (writerPointer < textComponent->text.length() && writerPointer != -1) {
-					textComponent->text.erase(writerPointer, 1);
+				if (writerPointer < textComponent->GetText().length() && writerPointer != -1) {
+					textComponent->GetModificableText().erase(writerPointer, 1);
 					writerPointer--;
 					if (writerPointer < -1)
 						writerPointer = -1;
@@ -119,12 +126,19 @@ void UIInputField::RenderElement()
 {
 	//imageComponent->RenderElement();
 	
-	if (textComponent->text.length() == 0 && !isSelected) {
-		Engine::Instance().m_render->painter().RenderText(defaultText, *textComponent->GetFont(), textComponent->fontSize, position, size, { scale, scale }, (int)textComponent->horizontalAligment, (int)textComponent->verticalAligment, textComponent->wrap, pivot, defaultColor);
+	if (textComponent->GetText().length() == 0 && !isSelected) {
+		if (dirty || textComponent->GetIfDirty()) {
+			if (defaultTextTexture != nullptr)
+				SDL_DestroyTexture(defaultTextTexture);
+			defaultTextTexture = Engine::Instance().m_render->painter().RenderText(defaultText, textComponent->GetFont(), textComponent->GetFontSize(), position, size, true, { scale, scale }, (int)textComponent->GetHorizontalAligment(), (int)textComponent->GetVerticalAligment(), textComponent->GetIfWrap(), pivot, defaultColor);
+			dirty = false;
+		}
+		else
+			Engine::Instance().m_render->painter().RenderInsideBox(*defaultTextTexture, position, size, { scale, scale }, (int)textComponent->GetHorizontalAligment(), (int)textComponent->GetVerticalAligment(), pivot);
 	}
 	else if (isSelected) {
 
-		std::string maskedText = textComponent->text;
+		std::string maskedText = textComponent->GetText();
 		int index = writerPointer;
 		Vector2Int drawPointerPos = position;
 		drawPointerPos.x -= 3;
@@ -136,14 +150,14 @@ void UIInputField::RenderElement()
 		}
 		else {
 			maskedText = "";
-			for (size_t i = 0; i < textComponent->text.size(); i++) {
+			for (size_t i = 0; i < textComponent->GetText().size(); i++) {
 				if (i == index) {
 					maskedText += " |";
 				}
-				else if (textComponent->text[i] == '\n') {
+				else if (textComponent->GetText()[i] == '\n') {
 					maskedText += "\n ";
 				}
-				else if (textComponent->text[i] == ' ') {
+				else if (textComponent->GetText()[i] == ' ') {
 					maskedText += " ";
 				}
 				else {
@@ -152,7 +166,16 @@ void UIInputField::RenderElement()
 			}
 			
 		}
-		Engine::Instance().m_render->painter().RenderText(maskedText, *textComponent->GetFont(), textComponent->fontSize, drawPointerPos, size, { scale, scale }, (int)textComponent->horizontalAligment, (int)textComponent->verticalAligment, textComponent->wrap, pivot, {255,0,0,255});
+
+		if (textComponent->GetIfDirty()) {
+			if (writerPointerTexture != nullptr)
+				SDL_DestroyTexture(writerPointerTexture);
+			writerPointerTexture = Engine::Instance().m_render->painter().RenderText(maskedText, textComponent->GetFont(), textComponent->GetFontSize(), drawPointerPos, size, true, { scale, scale }, (int)textComponent->GetHorizontalAligment(), (int)textComponent->GetVerticalAligment(), textComponent->GetIfWrap(), pivot, { 255,0,0,255 });
+		}
+		else
+			Engine::Instance().m_render->painter().RenderInsideBox(*writerPointerTexture, drawPointerPos, size, { scale, scale }, (int)textComponent->GetHorizontalAligment(), (int)textComponent->GetVerticalAligment(), pivot);
+
+		
 	}
 
 	textComponent->RenderElement();
@@ -163,4 +186,10 @@ void UIInputField::RenderElement()
 
 void UIInputField::RenderElementDebug()
 {
+}
+
+void UIInputField::SetDefaultText(string _defaultText)
+{
+	defaultText = _defaultText;
+	dirty = true;
 }

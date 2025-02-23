@@ -58,7 +58,7 @@ void UIDialogueBoxCG::UpdateCanvas()
 	if (dialogue->IsDialogueActive()) {
 		dialogueTextBox->GetColor().a = 255;
 		const DialogueNode& node = dialogue->GetCurrentDialogue();
-		contentTextBox->text = node.text;
+		contentTextBox->SetText(node.text);
 		if (node.choices.size() > 1)
 		{
 			btns[0]->isEnabled = false;
@@ -96,12 +96,12 @@ void UIDialogueBoxCG::UpdateCanvas()
 		}
 		
 		
-		characterNameTextBox->text = node.characterName;
+		characterNameTextBox->SetText(node.characterName);
 	}
 	else {
 		dialogueTextBox->GetColor().a = 0;
-		contentTextBox->text = "";
-		characterNameTextBox->text = "";
+		contentTextBox->SetText("");
+		characterNameTextBox->SetText("");
 
 
 	}
