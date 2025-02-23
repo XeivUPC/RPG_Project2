@@ -19,6 +19,9 @@ SettingsCG::SettingsCG()
 	///// AssetsLoading
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
 
+	Mix_Chunk* btn_enter = Engine::Instance().m_assetsDB->GetAudio("btn_enter");
+	Mix_Chunk* btn_click = Engine::Instance().m_assetsDB->GetAudio("btn_click");
+
 	SDL_Texture* nullTexture = nullptr;
 	SDL_Texture* bg_texture = Engine::Instance().m_assetsDB->GetTexture("uiBox1");
 
@@ -45,6 +48,8 @@ SettingsCG::SettingsCG()
 	close_btn->AddRect(UIButton::ButtonStates::HOVER, {19,0,19,19});
 	close_btn->AddRect(UIButton::ButtonStates::PRESSED, {38,0,19,19});
 	close_btn->onMouseClick.emplace_back([this]() {visible = false; });
+	close_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	close_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 
 
 	///// AudioSettings

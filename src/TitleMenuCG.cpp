@@ -16,9 +16,12 @@ TitleMenuCG::TitleMenuCG(UICanvas& _settingsReference) : settingsReference(&_set
 {
 	///// AssetsLoading
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
-	SDL_Texture* btn_texture = Engine::Instance().m_assetsDB->GetTexture("btn_tex1");
+
 	Mix_Chunk* btn_enter = Engine::Instance().m_assetsDB->GetAudio("btn_enter");
 	Mix_Chunk* btn_click = Engine::Instance().m_assetsDB->GetAudio("btn_click");
+
+	SDL_Texture* btn_texture = Engine::Instance().m_assetsDB->GetTexture("btn_tex1");
+
 
 
 	///// Buttons
