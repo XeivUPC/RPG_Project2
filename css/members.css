@@ -17,7 +17,7 @@ body
 {
     overflow-x: hidden;
     animation: 0.5s ease-out 0s 1 slideInFromLeft;
-    background-color: #373b41;
+    background-color: #33595e;
     width: 98%;
     height: 98%;
     pointer-events: auto;
@@ -35,7 +35,6 @@ ul
     width: 550px;
     height: 280px;
     align-content: center;
-    background-color: #33595e;
     justify-items: center; border-radius: 15px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -51,11 +50,13 @@ ul
 .member-photo
 {
     width: 200px;
-    height: 200px;
+    height: 100%;
     margin: 10px;
     margin-top: 25px;
-    border-radius: 20px;
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1),rgba(0,0,0,0.8), rgba(0,0,0,0));
+    border-radius: 10px;
+    margin-top: 0;
+    margin-left: 0;
+    mask-image: linear-gradient(to right, rgba(0,0,0,1),rgba(0,0,0,1),rgba(0,0,0,1),rgba(0,0,0,1), rgba(0,0,0,0));
 
 }
 .member-main-info

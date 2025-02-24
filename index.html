@@ -22,8 +22,13 @@
         <body>
             <div class="row">
                 <iframe id="frame" src="html/portrait.html" class="page-frame" frameborder="0"></iframe>
+                <!-- Updated HTML structure -->
                 <div class="menu">
-                    <button onclick="" class="page-menu-button"><iconify-icon icon="iconamoon:menu-burger-horizontal-fill"></iconify-icon><span class="i-iconamoon-menu-burger-horizontal-fill"></span></button>
+                    <!-- Move checkbox to be sibling of menulist -->
+                    <input type="checkbox" class="page-menu-button" id="menuToggle">
+                    <label class="menu-toggle" for="menuToggle">
+                        <iconify-icon class="menu-icon" icon="iconamoon:menu-burger-horizontal-fill"></iconify-icon>
+                    </label>
                     <ul class="menulist">
                         <li><button onclick="setHTML('portrait');" class= "menu-item"><iconify-icon icon="iconamoon:home-fill"></iconify-icon> Home</button></li>
                         <li><button onclick="setHTML('games');" class= "menu-item"><iconify-icon icon="iconamoon:player-play-fill"></iconify-icon> Games</button></li>

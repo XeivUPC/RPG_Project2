@@ -29,7 +29,7 @@ header {
 }
 
 body {
-    background-color: #373b41;
+    background-color: #33595e;
     overflow: hidden; /* This will hide the scrollbar */
 }
 
@@ -41,10 +41,59 @@ body {
     background-color: #33595e;
 }
 
+/* Hide the default checkbox */
 .page-menu-button {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+}
+  
+  /* Style the custom toggle button */
+.menu-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     font-size: 20px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+/* Correct CSS */
+.menulist {
+    transform: translateX(100%); /* Start off-screen */
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.3s ease-out;
+}
+
+.page-menu-button:checked ~ .menulist {
+    animation: 0.5s ease-out 0s 1 slideInFromLeft;
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
+
+/* For closing animation */
+.page-menu-button:not(:checked) ~ .menulist {
+    animation: 0.5s ease-out 0s 1 slideOutToRight;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideInFromLeft {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes slideOutToRight {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
 }
 
 .menulist
