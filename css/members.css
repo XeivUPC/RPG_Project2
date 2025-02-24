@@ -98,6 +98,7 @@ ul
 
 .name
 {
+    height: 75px;
 }
 
 .age
@@ -109,21 +110,24 @@ ul
 {
     width: 100%;
 }
+.roles
+{
+    height: 100px;
+}
 
 .contact
 {
     display: block;
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5) inset;
-    margin-top: 10px;
-    justify-content: center;
-    align-content: center;
+    justify-self: right;
     padding-left: 10px;
     padding-right: 10px;
     width: fit-content;
     height: 30px;
     padding-top: 5px;
     background-color: 373b41;
+    margin-bottom: -20px;
 }
 
 .website-icon
