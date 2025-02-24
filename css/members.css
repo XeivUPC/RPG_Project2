@@ -19,7 +19,6 @@ body::-webkit-scrollbar {
 
 body
 {
-
     animation: 0.5s ease-out 0s 1 slideInFromLeft;
     background-color: #33595e;
     width: 98%;
