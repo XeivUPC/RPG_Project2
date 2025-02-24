@@ -33,6 +33,8 @@ void UITextBox::RenderElement()
 		else
 			Engine::Instance().m_render->painter().RenderInsideBox(*texture,position, size, { scale, scale }, (int)horizontalAligment, (int)verticalAligment,pivot);
 	}
+	else
+		dirty = false;
 
 	if (debug)
 		RenderElementDebug();

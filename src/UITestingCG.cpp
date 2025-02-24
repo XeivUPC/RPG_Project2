@@ -48,17 +48,17 @@ UITestingCG::UITestingCG()
     //toggle->debug = true;
     AddElementToCanvas(toggle);
 
-    UISlider* slider2 = new UISlider(*tex3, { 300,300 }, { 92,13 }, { 0,0,98,26 }, *tex3, { 8,26 }, { 98,0,8,26 }, { 106,0,8,26 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::RightToLeft);
-    slider2->onValueChange.emplace_back([this](float value) {Engine::Instance().m_audio->SetGeneralVolume(value); });
-    slider2->SetValue(Engine::Instance().m_audio->GetGeneralVolume());
-   // slider2->debug = true;
-    AddElementToCanvas(slider2);
+   // UISlider* slider2 = new UISlider(*tex3, { 300,300 }, { 92,13 }, { 0,0,98,26 }, *tex3, { 8,26 }, { 98,0,8,26 }, { 106,0,8,26 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::RightToLeft);
+   // slider2->onValueChange.emplace_back([this](float value) {Engine::Instance().m_audio->SetGeneralVolume(value); });
+   // slider2->SetValue(Engine::Instance().m_audio->GetGeneralVolume());
+   //// slider2->debug = true;
+   // AddElementToCanvas(slider2);
 
-    UISlider* slider1 = new UISlider(*tex3, { 400,200 }, { 13,92 }, { 0,26,26,98 }, *tex3, { 26,8 }, { 0,124,26,8 }, { 0,132,26,8 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::TopToDown);
-    slider1->onValueChange.emplace_back([this](float value) {Engine::Instance().m_audio->SetMusicVolume(value); });
-    slider1->SetValue(Engine::Instance().m_audio->GetMusicVolume());
-   // slider1->debug = true;
-    AddElementToCanvas(slider1);
+   // UISlider* slider1 = new UISlider(*tex3, { 400,200 }, { 13,92 }, { 0,26,26,98 }, *tex3, { 26,8 }, { 0,124,26,8 }, { 0,132,26,8 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::TopToDown);
+   // slider1->onValueChange.emplace_back([this](float value) {Engine::Instance().m_audio->SetMusicVolume(value); });
+   // slider1->SetValue(Engine::Instance().m_audio->GetMusicVolume());
+   //// slider1->debug = true;
+   // AddElementToCanvas(slider1);
 
     UIInputField* textBox1 = new UIInputField("Enter text...", "", *font, 16, { 255,255,255,255 }, { 71,71,71,255 }, { 300,100 }, { 200, 100 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Left, UITextBox::VerticalAlignment::Top, false);
    // textBox1->debug = true;
