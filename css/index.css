@@ -25,11 +25,11 @@ main {
 }
 
 header {
-    background-color: red;
+    background-color: #5BB3BD;
 }
 
 body {
-    background-color: green;
+    background-color: #373b41;
     overflow: hidden; /* This will hide the scrollbar */
 }
 
@@ -38,7 +38,7 @@ body {
     flex-direction: column;
     align-items: end;
     width: 150px;
-    background-color: beige;
+    background-color: #33595e;
 }
 
 .page-menu-button {
@@ -62,5 +62,5 @@ body {
 }
 
 footer {
-    background-color: blue;
+    background-color: #5BB3BD;
 }

@@ -1,3 +1,12 @@
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
 .row
 {
     display: flex; /* Arrange children in a row */
@@ -6,9 +15,11 @@
 
 body
 {
-    background-color: aliceblue;
-    width: 100%;
-    height: 100%;
+    overflow-x: hidden;
+    animation: 0.5s ease-out 0s 1 slideInFromLeft;
+    background-color: #373b41;
+    width: 98%;
+    height: 98%;
     pointer-events: auto;
 }
 ul
@@ -22,10 +33,11 @@ ul
 {
     display: flexbox;
     width: 550px;
-    height: 250px;
+    height: 280px;
     align-content: center;
-    background-color: brown;
-    justify-items: center;
+    background-color: #33595e;
+    justify-items: center; border-radius: 15px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .member-display
@@ -40,21 +52,28 @@ ul
 {
     width: 200px;
     height: 200px;
-    margin-top: 20px;
+    margin: 10px;
+    margin-top: 25px;
+    border-radius: 20px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1),rgba(0,0,0,0.8), rgba(0,0,0,0));
+
 }
 .member-main-info
 {
     justify-content: space-between;
     width: 100%;
+    color: #5BB3BD;
 }
 
 .member-info
 {
+    color: #373b41;
+    font-weight: bold;
     width: 95%;
-    height: 95%;
-    background-color: bisque;
+    height: 90%;
+    background-color: #fbf1dc;
     align-content: center;
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
 }
 
@@ -62,6 +81,13 @@ ul
 {
     width: 100%;
     height: 100%;
+    transition: all 0.3s ease;
+}
+
+.member-info:not(:hover)
+{
+    width: 95%;
+    height: 90%;
     transition: all 0.3s ease;
 }
 
@@ -92,7 +118,7 @@ ul
     width: fit-content;
     height: 30px;
     padding-top: 5px;
-    background-color: aqua;
+    background-color: 373b41;
 }
 
 .website-icon
@@ -100,7 +126,7 @@ ul
     margin-left: 5px;
     margin-right: 5px;
     font-size: 20px;
-    color: black;
+    color: #fdf1dd;
     border-radius: 20px;
     background-color: transparent;
     border: none;
@@ -108,7 +134,21 @@ ul
 
 .website-icon:hover
 {
-    background-color: black;
-    color:beige;
+    background-color: #ddd7c5;
+    color:#33595e;
     transition: all 0.3s ease;
+}
+
+.website-icon:not(:hover)
+{
+    background-color: transparent;
+    color:#fdf1dd;
+    transition: all 0.3s ease;
+}
+
+.title{
+    color:#fbf1dc;
+    font-size: 80px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
 }
