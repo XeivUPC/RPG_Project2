@@ -38,7 +38,6 @@ body {
     flex-direction: column;
     align-items: end;
     width: 150px;
-    background-color: #33595e;
 }
 
 /* Hide the default checkbox */
@@ -72,6 +71,7 @@ body {
     transform: translateX(100%); /* Start off-screen */
     opacity: 0;
     transition: transform 0.5s ease-out, opacity 0.3s ease-out;
+    
 }
 
 .page-menu-button:checked ~ .menulist {
@@ -98,8 +98,10 @@ body {
 
 .menulist
 {
-    width: 100%;
+    width: fit-content;
+    height: 100%;
     list-style-type: none;
+    background-color: red;
 }
 
 
@@ -108,6 +110,11 @@ body {
     text-align: left;
     width: 100%;
     height: 50px;
+    margin-left: 0;
+}
+.menulist li:first-child
+{
+    margin-top: 10px;
 }
 
 footer {
