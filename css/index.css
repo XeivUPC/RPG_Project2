@@ -1,12 +1,8 @@
 html, body {
     margin: 0;
     padding: 0;
-    
-    
-}
 
-body::-webkit-scrollbar {
-    display: none;
+    overflow: hidden;
 }
 
 main {
@@ -29,8 +25,23 @@ main {
     display: flex; /* Arrange children in a row */
 }
 
+.team-logo{
+    width: 70px;
+    height: 70px;
+    margin: 15px;
+}
+
+.team-name{
+    font-size: 40px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #fdf1dd;
+    
+}
+
 header {
     background-color: #5BB3BD;
+    align-items: center;
+    padding-left: 30px;
 }
 
 body {
@@ -70,9 +81,9 @@ body {
     cursor: pointer;
     margin-top: 10px;
     margin-right: 10px;
-
+    
 }
-/* Correct CSS */
+
 .menulist {
     transform: translateX(100%); /* Start off-screen */
     opacity: 0;
@@ -91,13 +102,6 @@ body {
 .page-menu-button:not(:checked) ~ .menulist {
     animation: 0.5s ease-out 0s 1 slideOutToRight;
     animation-fill-mode: forwards;
-}
-
-.page-menu-button:checked ~ .menulist {
-    animation: 0.5s ease-out 0s 1 slideInFromLeft;
-    animation-fill-mode: forwards;
-    opacity: 1;
-    
 }
 
 
@@ -137,7 +141,6 @@ body {
 .menulist
 {
     padding-inline-start: 0;
-
     width: 136px;
     margin-top:-50px ;
     margin-bottom: 0px ;
@@ -145,10 +148,6 @@ body {
     list-style-type: none;
     background-color: #fdf1dd;
 
-}
-
-.menu-icon{
-    margin-right: 100px;
 }
 
 .menu-item
@@ -165,4 +164,8 @@ body {
 
 footer {
     background-color: #5BB3BD;
+    height: 25px;
+    align-content: center;
+    padding-left: 20px;
+    
 }
