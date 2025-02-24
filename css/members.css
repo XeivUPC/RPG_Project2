@@ -1,6 +1,7 @@
 .row
 {
     display: flex; /* Arrange children in a row */
+    justify-items: space-between;
 }
 
 body
@@ -8,6 +9,7 @@ body
     background-color: aliceblue;
     width: 100%;
     height: 100%;
+    pointer-events: auto;
 }
 ul
 {
@@ -19,7 +21,7 @@ ul
 .member
 {
     display: flexbox;
-    width: 500px;
+    width: 550px;
     height: 250px;
     align-content: center;
     background-color: brown;
@@ -29,19 +31,20 @@ ul
 .member-display
 {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-    
-    gap: 5px;
+    grid-template-columns: repeat(auto-fill, 550px);
+    gap: 35px;
+    place-content: center;
 }
 
 .member-photo
 {
     width: 200px;
     height: 200px;
+    margin-top: 20px;
 }
 .member-main-info
 {
-    align-content: space-between;
+    justify-content: space-between;
     width: 100%;
     background-color: blue;
 }
@@ -51,6 +54,7 @@ ul
     width: 95%;
     height: 95%;
     background-color: bisque;
+    align-content: center;
 }
 
 .member-info:hover
@@ -68,4 +72,33 @@ ul
 .age
 {
     background-color: antiquewhite;
+    margin-right: 10px;
+}
+
+.info
+{
+    width: 100%;
+}
+
+.contact
+{
+    display: block;
+    border-radius: 15px;
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5) inset;
+    margin-top: 10px;
+    justify-content: center;
+    align-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: fit-content;
+    height: 30px;
+    padding-top: 5px;
+}
+
+.website-icon
+{
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 20px;
+    color: black;
 }
