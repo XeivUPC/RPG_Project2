@@ -25,8 +25,23 @@ main {
     display: flex; /* Arrange children in a row */
 }
 
+.team-logo{
+    width: 70px;
+    height: 70px;
+    margin: 15px;
+}
+
+.team-name{
+    font-size: 40px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #fdf1dd;
+    
+}
+
 header {
     background-color: #5BB3BD;
+    align-items: center;
+    padding-left: 30px;
 }
 
 body {
@@ -149,4 +164,8 @@ body {
 
 footer {
     background-color: #5BB3BD;
+    height: 25px;
+    align-content: center;
+    padding-left: 20px;
+    
 }
