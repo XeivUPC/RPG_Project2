@@ -13,9 +13,13 @@
     justify-items: space-between;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 body
 {
-    overflow: hidden; /* This will hide the scrollbar */
+
     animation: 0.5s ease-out 0s 1 slideInFromLeft;
     background-color: #33595e;
     width: 98%;

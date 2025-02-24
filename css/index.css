@@ -1,8 +1,12 @@
 html, body {
     margin: 0;
     padding: 0;
-    overflow: hidden; /* This will hide the scrollbar */
     
+    
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 main {
