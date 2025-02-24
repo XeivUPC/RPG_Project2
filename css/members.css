@@ -46,7 +46,6 @@ ul
 {
     justify-content: space-between;
     width: 100%;
-    background-color: blue;
 }
 
 .member-info
@@ -55,6 +54,8 @@ ul
     height: 95%;
     background-color: bisque;
     align-content: center;
+    border-radius: 15px;
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
 }
 
 .member-info:hover
@@ -66,12 +67,10 @@ ul
 
 .name
 {
-    background-color: aqua;
 }
 
 .age
 {
-    background-color: antiquewhite;
     margin-right: 10px;
 }
 
@@ -93,6 +92,7 @@ ul
     width: fit-content;
     height: 30px;
     padding-top: 5px;
+    background-color: aqua;
 }
 
 .website-icon
@@ -101,4 +101,14 @@ ul
     margin-right: 5px;
     font-size: 20px;
     color: black;
+    border-radius: 20px;
+    background-color: transparent;
+    border: none;
+}
+
+.website-icon:hover
+{
+    background-color: black;
+    color:beige;
+    transition: all 0.3s ease;
 }
