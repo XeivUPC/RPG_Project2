@@ -34,7 +34,7 @@ void ModuleAssetDatabase::LoadAssets()
 
 	///// LOAD ASSETS REQUIERED
 
-	AddMusicToStorage("1", *audioFactory->CreateMusic("Assets/Sounds/Music/Level0_Music.ogg"));
+	AddMusicToStorage("mainTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/Main Theme.ogg"));
 	AddAudioToStorage("btn_enter", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_enter.wav"));
 	AddAudioToStorage("btn_click", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click.wav"));
 
@@ -51,7 +51,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("team_logo", *textureFactory->CreateTexture("Assets/Textures/General/team_logo.png"));
 	AddTextureToStorage("mouse_cursor", *textureFactory->CreateTexture("Assets/Textures/General/mouse_cursor.png"));
 
-	Engine::Instance().m_audio->PlayMusicAsync(GetMusic("1"), 0);
+	Engine::Instance().m_audio->PlayMusicAsync(GetMusic("mainTheme"), 0);
 
 	/////
 }
