@@ -11,13 +11,6 @@ struct SDL_Texture;
 
 
 class FadeCG : public UICanvas {
-	struct Color {
-		int r;
-		int g;
-		int b;
-		int a;
-	};
-
 public:
 	FadeCG(int r, int g, int b, int a, SDL_Texture* texture = nullptr, Vector2Int _position = { 0,0 }, Vector2Int _size = { LOGIC_SCREEN_WIDTH, LOGIC_SCREEN_HEIGHT }, Vector2 _pivot = {0,0}, float _scale = 1);
 	~FadeCG() override = default;
@@ -38,6 +31,14 @@ public:
 public:
 
 private:
+	struct Color {
+		int r;
+		int g;
+		int b;
+		int a;
+	};
+
+
 private:
 	UIImage* fadeImage;
 	bool fading=false;
