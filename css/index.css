@@ -186,17 +186,31 @@ body
     color: #fdf1dd;
     transition: all 0.3s ease;
 }
+.menu-item:not(:hover)
+{
+    background-color: transparent;
+    color: #fdf1dd;
+    transition: all 0.3s ease;
+}
+
 
 .menu-item:hover iconify-icon
 {
     font-size: 24px;
     transition: all 0.3s ease;
 }
+.menu-item:not(:hover) iconify-icon
+{
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
 
 .menulist li:first-child
 {
     margin-top: 0px;
 }
+
 
 footer
 {
