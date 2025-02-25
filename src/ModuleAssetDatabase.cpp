@@ -50,6 +50,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("dialogue_answerBox", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_answerBox.png"));
 	AddTextureToStorage("team_logo", *textureFactory->CreateTexture("Assets/Textures/General/team_logo.png"));
 	AddTextureToStorage("mouse_cursor", *textureFactory->CreateTexture("Assets/Textures/General/mouse_cursor.png"));
+	AddTextureToStorage("top_fade", *textureFactory->CreateTexture("Assets/Textures/General/top_fade.png"));
 
 	Engine::Instance().m_audio->PlayMusicAsync(GetMusic("mainTheme"), 0);
 

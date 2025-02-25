@@ -22,9 +22,8 @@ bool GameScene::Init()
 
 bool GameScene::Start()
 {
-
-    fade = new FadeCG(0, 0, 36);
-    fade->FadeOut(1);
+    fade = new FadeCG(0, 0, 36,255);
+    fade->FadeTo(1,0);
 
     canvas = new UITestingCG();
     dialogueCanvas = new UIDialogueBoxCG();
@@ -44,6 +43,7 @@ bool GameScene::Update()
     canvas->UpdateCanvas();
     dialogueCanvas->UpdateCanvas();
     fade->UpdateCanvas();
+
     return true;
 }
 

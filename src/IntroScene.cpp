@@ -25,10 +25,10 @@ bool IntroScene::Start()
     timer.StartTimer();
     logoTimer.StartTimer();
 
-    fade_bg = new FadeCG(0,0,36);
-    fade_bg->FadeIn(bgFadeIn);
+    fade_bg = new FadeCG(0,0,36,0);
+    fade_bg->FadeTo(bgFadeIn,255);
 
-    fade_logo = new FadeCG(255, 255, 255, { LOGIC_SCREEN_WIDTH / 2, LOGIC_SCREEN_HEIGHT / 2 }, { 38,36 }, {0.5f,0.5f},5, Engine::Instance().m_assetsDB->GetTexture("team_logo"));
+    fade_logo = new FadeCG(255, 255, 255,0, Engine::Instance().m_assetsDB->GetTexture("team_logo"), { LOGIC_SCREEN_WIDTH / 2, LOGIC_SCREEN_HEIGHT / 2 }, { 38,36 }, {0.5f,0.5f},5);
 
     Engine::Instance().m_cursor->HideAllCursors();
 
@@ -51,13 +51,13 @@ bool IntroScene::Update()
 
         }
         else if (logoTimer.ReadSec() > logoDelay + logoFadeIn + logoHold) {
-            fade_logo->FadeOut(logoFadeOut);
+            fade_logo->FadeTo(logoFadeOut,0);
         }
         else if (logoTimer.ReadSec() > logoDelay + logoFadeIn) {
 
         }
         else if (logoTimer.ReadSec() > logoDelay) {
-            fade_logo->FadeIn(logoFadeIn);
+            fade_logo->FadeTo(logoFadeIn,255);
         }
     }
     if (timer.ReadSec() > timeToLoad) {

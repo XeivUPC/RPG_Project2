@@ -19,7 +19,7 @@ TitleScene::~TitleScene()
 
 void TitleScene::StartGame(bool _newGame)
 {
-    fade->FadeIn(1);
+    fade->FadeTo(1,255);
     starting_game = true;
     newGame = _newGame;
 }
@@ -33,8 +33,8 @@ bool TitleScene::Start()
 {
     starting_game = false;
 
-    fade = new FadeCG(0, 0, 36);
-    fade->FadeOut(1);
+    fade = new FadeCG(0, 0, 36,255);
+    fade->FadeTo(1,0);
 
     settings_canvas = new SettingsCG();
     settings_canvas->visible = false;

@@ -5,12 +5,11 @@
 
 #include <algorithm>
 
-FadeCG::FadeCG(int r, int g, int b, Vector2Int _position, Vector2Int _size, Vector2 _pivot, float _scale, SDL_Texture* texture)
+FadeCG::FadeCG(int r, int g, int b, int a, SDL_Texture* texture, Vector2Int _position, Vector2Int _size, Vector2 _pivot, float _scale)
 {
 	fadeImage = new UIImage(*texture, _position, _size, _pivot, false, { 0,0,0,0 });
 	fadeImage->SetLocalScale(_scale);
-	SetColor(r, g, b);
-	SetOpacity(0);
+	SetColor(r, g, b, a);
 
 	AddElementToCanvas(fadeImage);
 }
@@ -23,8 +22,14 @@ void FadeCG::UpdateCanvas()
 		//// Fade Effect
 
 		float currentTime = timer.ReadSec();
-		currentOpacity = (int)(startOpacity + (targetOpacity - startOpacity) * currentTime/timeToDoFade);
-		SetOpacity(currentOpacity);
+
+		float percentage = currentTime / timeToDoFade;
+		int r = (int)(startingColor.r + (targetColor.r - startingColor.r) * percentage);
+		int g = (int)(startingColor.g + (targetColor.g - startingColor.g) * percentage);
+		int b = (int)(startingColor.b + (targetColor.b - startingColor.b) * percentage);
+		int a = (int)(startingColor.a + (targetColor.a - startingColor.a) * percentage);
+
+		SetColor(r,g,b,a);
 		
 		////
 
@@ -36,22 +41,37 @@ void FadeCG::UpdateCanvas()
 	UICanvas::UpdateCanvas();
 }
 
-void FadeCG::FadeIn(float fadeTime)
+void FadeCG::FadeTo(float fadeTime, int r, int g, int b, int a)
 {
 	timeToDoFade = fadeTime;
 	fading = true;
 	timer.Start();
-	targetOpacity = 255;
-	startOpacity = 0;
+
+	SDL_Color& current = fadeImage->GetColor();
+	startingColor = { current.r,current.g,current.b,current.a };
+	targetColor = { r,g,b,a };
 }
 
-void FadeCG::FadeOut(float fadeTime)
+void FadeCG::FadeTo(float fadeTime, int a)
 {
 	timeToDoFade = fadeTime;
 	fading = true;
 	timer.Start();
-	targetOpacity = 0;
-	startOpacity = 255;
+
+	SDL_Color& current = fadeImage->GetColor();
+	startingColor = { current.r,current.g,current.b,current.a };
+	targetColor = { current.r,current.g,current.b,a };
+}
+
+void FadeCG::FadeTo(float fadeTime, int r, int g, int b)
+{
+	timeToDoFade = fadeTime;
+	fading = true;
+	timer.Start();
+
+	SDL_Color& current = fadeImage->GetColor();
+	startingColor = { current.r,current.g,current.b,current.a };
+	targetColor = { r,g,b,current.a };
 }
 
 void FadeCG::SetOpacity(int opacity)
@@ -64,6 +84,12 @@ void FadeCG::SetColor(int r, int g, int b)
 	fadeImage->GetColor().r = r;
 	fadeImage->GetColor().g = g;
 	fadeImage->GetColor().b = b;
+}
+
+void FadeCG::SetColor(int r, int g, int b, int a)
+{
+	SetColor(r,g,b);
+	SetOpacity(a);
 }
 
 bool FadeCG::IsFading()

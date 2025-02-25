@@ -11,17 +11,28 @@ struct SDL_Texture;
 
 
 class FadeCG : public UICanvas {
+	struct Color {
+		int r;
+		int g;
+		int b;
+		int a;
+	};
+
 public:
-	FadeCG(int r, int g, int b, Vector2Int _position = { 0,0 }, Vector2Int _size = { LOGIC_SCREEN_WIDTH, LOGIC_SCREEN_HEIGHT }, Vector2 _pivot = {0,0}, float _scale = 1, SDL_Texture* texture = nullptr);
+	FadeCG(int r, int g, int b, int a, SDL_Texture* texture = nullptr, Vector2Int _position = { 0,0 }, Vector2Int _size = { LOGIC_SCREEN_WIDTH, LOGIC_SCREEN_HEIGHT }, Vector2 _pivot = {0,0}, float _scale = 1);
 	~FadeCG() override = default;
 
 	void UpdateCanvas();
 
-	void FadeIn(float fadeTime);
-	void FadeOut(float fadeTime);
+	void FadeTo(float fadeTime, int r, int g, int b, int a);
+	void FadeTo(float fadeTime, int a);
+	void FadeTo(float fadeTime, int r, int g, int b);
 
 	void SetOpacity(int opacity);
 	void SetColor(int r, int g, int b);
+	void SetColor(int r, int g, int b, int a);
+
+
 
 	bool IsFading();
 public:
@@ -34,7 +45,7 @@ private:
 	float timeToDoFade = 0;
 	StepTimer timer;
 
-	int currentOpacity=0;
-	int targetOpacity = 255;
-	int startOpacity = 0;
+
+	Color startingColor;
+	Color targetColor;
 };
