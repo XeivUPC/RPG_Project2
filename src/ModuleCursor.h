@@ -29,13 +29,23 @@ public:
 	void ShowAllCursors();
 	
 	void SetCursor(SDL_Texture* _texture, SDL_Rect _rect, Vector2Int _hitPoint = {0,0}, float _scale = 1);
+	void SetDefaultCursor(SDL_Texture* _texture, SDL_Rect _rect, Vector2Int _hitPoint = { 0,0 }, float _scale = 1);
+	void UseDefaultCursor();
+
+public:
 
 private:
-	SDL_Texture* texture = nullptr;
-	SDL_Rect rect = {0,0,0,0};
-	float scale = 1;
+	struct CursorData {
+		SDL_Texture* texture = nullptr;
+		SDL_Rect rect = { 0,0,0,0 };
+		float scale = 1;
 
-	Vector2Int hitPoint = {0,0};
+		Vector2Int hitPoint = { 0,0 };
+	};
+private:
+
+	CursorData activeCursor;
+	CursorData defaultCursor;
 
 	bool hiddenAll = false;
 	bool hiddenCustom = false;

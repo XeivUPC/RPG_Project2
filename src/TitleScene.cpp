@@ -43,7 +43,8 @@ bool TitleScene::Start()
 
     Engine::Instance().m_render->AddToRenderQueue(*this);
 
-    Engine::Instance().m_cursor->SetCursor(Engine::Instance().m_assetsDB->GetTexture("mouse_cursor"), { 0,0,18,18 }, { 1,1 }, 1);
+    Engine::Instance().m_cursor->SetDefaultCursor(Engine::Instance().m_assetsDB->GetTexture("mouse_cursor0"), { 0,0,18,18 }, { 1,1 }, 2);
+    Engine::Instance().m_cursor->UseDefaultCursor();
 
     return true;
 }

@@ -22,7 +22,7 @@ bool ModuleCursor::Init()
 bool ModuleCursor::Start()
 {
 	Engine::Instance().m_render->AddToRenderQueue(*this);
-	SetCursor(texture, rect);
+	SetCursor(activeCursor.texture, activeCursor.rect);
 	return true;
 }
 
@@ -37,7 +37,7 @@ void ModuleCursor::Render()
 	if (hiddenCustom)
 		return;
 	Vector2Int mousePos = Engine::Instance().m_input->GetMousePosition();
-	Engine::Instance().m_render->painter().RenderTexture(*texture, mousePos + hitPoint, &rect, {scale, scale},0 );
+	Engine::Instance().m_render->painter().RenderTexture(*activeCursor.texture, mousePos + activeCursor.hitPoint, &activeCursor.rect, { activeCursor.scale, activeCursor.scale},0 );
 }
 
 void ModuleCursor::HideNormalCursor()
@@ -74,12 +74,12 @@ void ModuleCursor::ShowAllCursors()
 
 void ModuleCursor::SetCursor(SDL_Texture* _texture, SDL_Rect _rect, Vector2Int _hitPoint, float _scale)
 {
-	texture = _texture;
-	rect = _rect;
-	hitPoint = _hitPoint;
-	scale = _scale;
+ 	activeCursor.texture = _texture;
+	activeCursor.rect = _rect;
+	activeCursor.hitPoint = _hitPoint;
+	activeCursor.scale = _scale;
 
-	if (texture != nullptr) {
+	if (activeCursor.texture != nullptr) {
 		HideNormalCursor();
 		ShowCustomCursor();
 	}
@@ -87,6 +87,23 @@ void ModuleCursor::SetCursor(SDL_Texture* _texture, SDL_Rect _rect, Vector2Int _
 		ShowNormalCursor();
 		HideCustomCursor();
 	}
+}
+
+void ModuleCursor::SetDefaultCursor(SDL_Texture* _texture, SDL_Rect _rect, Vector2Int _hitPoint, float _scale)
+{
+	defaultCursor.texture = _texture;
+	defaultCursor.rect = _rect;
+	defaultCursor.hitPoint = _hitPoint;
+	defaultCursor.scale = _scale;
+
+	if (activeCursor.texture == nullptr && defaultCursor.texture != nullptr && !hiddenCustom) {
+		UseDefaultCursor();
+	}
+}
+
+void ModuleCursor::UseDefaultCursor()
+{
+	SetCursor(defaultCursor.texture, defaultCursor.rect, defaultCursor.hitPoint, defaultCursor.scale);
 }
 
 

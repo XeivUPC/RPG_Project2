@@ -34,13 +34,20 @@ void ModuleAssetDatabase::LoadAssets()
 
 	///// LOAD ASSETS REQUIERED
 
+//// Sounds
+	////Music
 	AddMusicToStorage("mainTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/Main Theme.ogg"));
+	///SFX
 	AddAudioToStorage("btn_enter", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_enter.wav"));
 	AddAudioToStorage("btn_click", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click.wav"));
 
+//// Fonts
 	AddFontToStorage("monogram", *fontFactory->CreateFont("Assets/Fonts/monogram.ttf", 12));
 	AddFontToStorage("alagard", *fontFactory->CreateFont("Assets/Fonts/alagard.ttf", 12));
 
+//// Textures
+	///Menus
+	///UI
 	AddTextureToStorage("btn_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/btn1.png"));
 	AddTextureToStorage("btn_tex2", *textureFactory->CreateTexture("Assets/Textures/UI/btn2.png"));
 	AddTextureToStorage("toggle_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/toggle.png"));
@@ -48,8 +55,12 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("uiBox1", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox1.png"));
 	AddTextureToStorage("dialogue_box", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_box.png"));
 	AddTextureToStorage("dialogue_answerBox", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_answerBox.png"));
+	///Cursors
+	AddTextureToStorage("mouse_cursor1", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_1.png"));
+	AddTextureToStorage("mouse_cursor0", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_0.png"));
+	///Icons
+	///General
 	AddTextureToStorage("team_logo", *textureFactory->CreateTexture("Assets/Textures/General/team_logo.png"));
-	AddTextureToStorage("mouse_cursor", *textureFactory->CreateTexture("Assets/Textures/General/mouse_cursor.png"));
 	AddTextureToStorage("top_fade", *textureFactory->CreateTexture("Assets/Textures/General/top_fade.png"));
 
 	Engine::Instance().m_audio->PlayMusicAsync(GetMusic("mainTheme"), 0);
