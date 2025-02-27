@@ -54,21 +54,21 @@ SettingsCG::SettingsCG()
 
 	///// AudioSettings
 	UITextBox* generalAudio_text = new UITextBox("General Vol.", *textFont, 32, { 27,34,54,255 }, { LOGIC_SCREEN_WIDTH / 2 , LOGIC_SCREEN_HEIGHT / 2 - 170 }, { textureSize.x * 2, 50 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
-	UISlider* generalAudio_slider = new UISlider(*slider_texture, { LOGIC_SCREEN_WIDTH / 2,LOGIC_SCREEN_HEIGHT / 2 - 110 }, { 92,13 }, { 0,0,98,26 }, *slider_texture, { 8,26 }, { 98,0,8,26 }, { 106,0,8,26 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::RightToLeft);
+	UISlider* generalAudio_slider = new UISlider(*slider_texture, { LOGIC_SCREEN_WIDTH / 2,LOGIC_SCREEN_HEIGHT / 2 - 110 }, { 92,13 }, { 0,0,98,26 }, *slider_texture, { 8,26 }, { 98,0,8,26 }, { 106,0,8,26 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::LeftToRight);
 	generalAudio_slider->onValueChange.emplace_back([this](float value) {Engine::Instance().m_audio->SetGeneralVolume(value); });
 	generalAudio_slider->SetValue(Engine::Instance().m_audio->GetGeneralVolume());
 	generalAudio_slider->SetLocalScale(3);
 
 
 	UITextBox* musicAudio_text = new UITextBox("Music Vol.", *textFont, 32, { 27,34,54,255 }, { LOGIC_SCREEN_WIDTH / 2 , LOGIC_SCREEN_HEIGHT / 2 - 40 }, { textureSize.x * 2, 50 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
-	UISlider* musicAudio_slider = new UISlider(*slider_texture, { LOGIC_SCREEN_WIDTH/2,LOGIC_SCREEN_HEIGHT / 2 + 20}, { 92,13 }, { 0,0,98,26 }, *slider_texture, { 8,26 }, { 98,0,8,26 }, { 106,0,8,26 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::RightToLeft);
+	UISlider* musicAudio_slider = new UISlider(*slider_texture, { LOGIC_SCREEN_WIDTH/2,LOGIC_SCREEN_HEIGHT / 2 + 20}, { 92,13 }, { 0,0,98,26 }, *slider_texture, { 8,26 }, { 98,0,8,26 }, { 106,0,8,26 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::LeftToRight);
 	musicAudio_slider->onValueChange.emplace_back([this](float value) {Engine::Instance().m_audio->SetMusicVolume(value); });
 	musicAudio_slider->SetValue(Engine::Instance().m_audio->GetMusicVolume());
 	musicAudio_slider->SetLocalScale(3);
 
 
 	UITextBox* sfxAudio_text = new UITextBox("SFX Vol.", *textFont, 32, { 27,34,54,255 }, { LOGIC_SCREEN_WIDTH / 2 , LOGIC_SCREEN_HEIGHT / 2 + 90 }, { textureSize.x * 2, 50 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
-	UISlider* sfxAudio_slider = new UISlider(*slider_texture, { LOGIC_SCREEN_WIDTH / 2,LOGIC_SCREEN_HEIGHT / 2 + 150 }, { 92,13 }, { 0,0,98,26 }, *slider_texture, { 8,26 }, { 98,0,8,26 }, { 106,0,8,26 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::RightToLeft);
+	UISlider* sfxAudio_slider = new UISlider(*slider_texture, { LOGIC_SCREEN_WIDTH / 2,LOGIC_SCREEN_HEIGHT / 2 + 150 }, { 92,13 }, { 0,0,98,26 }, *slider_texture, { 8,26 }, { 98,0,8,26 }, { 106,0,8,26 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::LeftToRight);
 	sfxAudio_slider->onValueChange.emplace_back([this](float value) {Engine::Instance().m_audio->SetSfxVolume(value); });
 	sfxAudio_slider->SetValue(Engine::Instance().m_audio->GetSFXVolume());
 	sfxAudio_slider->SetLocalScale(3);
