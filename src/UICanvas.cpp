@@ -19,6 +19,18 @@ void UICanvas::RemoveElementFromCanvas(UIElement* element)
 	elements.erase(remove(elements.begin(), elements.end(), element), elements.end());
 }
 
+void UICanvas::SetInteractable(bool mode)
+{
+	interactable = mode;
+	for (const auto& element : elements)
+		element->interactable = mode;
+}
+
+bool UICanvas::IsInteractable()
+{
+	return interactable;
+}
+
 void UICanvas::UpdateCanvas()
 {
 	if (!visible)

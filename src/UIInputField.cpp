@@ -33,7 +33,8 @@ void UIInputField::UpdateElement()
 	ModuleInput* input = Engine::Instance().m_input;
 	KeyState mouseClickState = input->GetMouseButtonDown(SDL_BUTTON_LEFT);
 
-	if (!isSelected) {
+
+	if (!isSelected ) {
 		if (isMouseOver)
 		{
 			if (mouseClickState == KEY_DOWN) {
@@ -43,7 +44,7 @@ void UIInputField::UpdateElement()
 		}
 	}
 	else {
-		if (mouseClickState == KEY_DOWN) {
+		if (mouseClickState == KEY_DOWN || !interactable) {
 			if (isMouseOver) {
 
 			}

@@ -45,6 +45,7 @@ public:
 	Vector2Int size = {100,50};
 
 	bool debug = false;
+	bool interactable = true;
 
 private:
 	

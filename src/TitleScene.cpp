@@ -43,8 +43,9 @@ bool TitleScene::Start()
 
     Engine::Instance().m_render->AddToRenderQueue(*this);
 
-    Engine::Instance().m_cursor->SetDefaultCursor(Engine::Instance().m_assetsDB->GetTexture("mouse_cursor0"), { 0,0,18,18 }, { 1,1 }, 2);
-    Engine::Instance().m_cursor->UseDefaultCursor();
+    Engine::Instance().m_cursor->AddCursor("hand_cursor", Engine::Instance().m_assetsDB->GetTexture("mouse_cursor1"), { 0,0,18,18 }, { -6,1 }, 2);
+    Engine::Instance().m_cursor->AddDefaultCursor(Engine::Instance().m_assetsDB->GetTexture("mouse_cursor0"), { 0,0,18,18 }, { 1,1 }, 2);
+    Engine::Instance().m_cursor->SelectDefaultCursor();
 
     return true;
 }
@@ -56,8 +57,16 @@ bool TitleScene::PreUpdate()
 
 bool TitleScene::Update()
 {
-    if(!settings_canvas->visible && !fade->IsFading())
-        canvas->UpdateCanvas();
+    if (settings_canvas->visible || fade->IsFading()) {
+        if (canvas->IsInteractable())
+            canvas->SetInteractable(false);
+    }
+    else {
+        if (!canvas->IsInteractable())
+            canvas->SetInteractable(true);
+    }
+
+    canvas->UpdateCanvas();
     settings_canvas->UpdateCanvas();
     fade->UpdateCanvas();
     if (!fade->IsFading() && starting_game) {

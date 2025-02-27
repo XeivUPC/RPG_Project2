@@ -2,6 +2,7 @@
 
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
+#include "ModuleCursor.h"
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "TitleScene.h"
@@ -34,6 +35,11 @@ TitleMenuCG::TitleMenuCG(UICanvas& _settingsReference) : settingsReference(&_set
 	startNewGame_btn->onMouseClick.emplace_back([this]() {Engine::Instance().s_title->StartGame(true); });
 	startNewGame_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	startNewGame_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
+
+	startNewGame_btn->onMouseEnter.emplace_back([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
+	startNewGame_btn->onMouseExit.emplace_back([this]() {Engine::Instance().m_cursor->SelectDefaultCursor(); });
+
+
 	startNewGame_btn->SetLocalScale(3);
 	
 

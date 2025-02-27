@@ -3,10 +3,15 @@
 #include "IRendereable.h"
 #include "Vector2Int.h"
 
+#include <unordered_map>
+#include <string>
+
+using namespace std;
+
 class ModuleCursor : public Module, public IRendereable
 {
 	friend class Engine;
-public:
+public:	
 
 	ModuleCursor(bool start_active = true);
 	~ModuleCursor();
@@ -28,26 +33,31 @@ public:
 	void HideAllCursors();
 	void ShowAllCursors();
 	
-	void SetCursor(SDL_Texture* _texture, SDL_Rect _rect, Vector2Int _hitPoint = {0,0}, float _scale = 1);
-	void SetDefaultCursor(SDL_Texture* _texture, SDL_Rect _rect, Vector2Int _hitPoint = { 0,0 }, float _scale = 1);
-	void UseDefaultCursor();
+	void AddCursor(string id, SDL_Texture* _texture, SDL_Rect _rect, Vector2Int _hitPoint = { 0,0 }, float _scale = 1);
+	void AddDefaultCursor(SDL_Texture* _texture, SDL_Rect _rect, Vector2Int _hitPoint = { 0,0 }, float _scale = 1);
+
+	void SelectCursor(string id);
+	void SelectDefaultCursor();
 
 public:
 
-private:
+private:	
 	struct CursorData {
 		SDL_Texture* texture = nullptr;
 		SDL_Rect rect = { 0,0,0,0 };
-		float scale = 1;
-
 		Vector2Int hitPoint = { 0,0 };
+		float scale = 1;
 	};
+
+	CursorData CreateCursor(SDL_Texture* _texture, SDL_Rect _rect, Vector2Int _hitPoint = {0,0}, float _scale = 1);
+	void SetCursor(const CursorData& data);
+
 private:
-
-	CursorData activeCursor;
-	CursorData defaultCursor;
-
 	bool hiddenAll = false;
 	bool hiddenCustom = false;
 
+
+	CursorData activeCursor;
+	CursorData defaultCursor;
+	unordered_map<string, CursorData> cursors;
 };

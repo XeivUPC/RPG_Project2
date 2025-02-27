@@ -9,6 +9,7 @@ UIElement::UIElement(Vector2Int _position, Vector2Int _size, Vector2 _pivot) : l
 
 UIElement::~UIElement()
 {
+	TriggerCallbacks(onMouseExit);
 }
 
 void UIElement::UpdateElement()
@@ -23,6 +24,12 @@ void UIElement::UpdateElement()
 		position = localPosition;
 	}
 
+	if (!interactable) {
+		if(isMouseOver)
+			TriggerCallbacks(onMouseExit);
+		isMouseOver = false;
+		return;
+	}
 	if (IsInBounds(Engine::Instance().m_input->GetMousePosition())) {
 		if (!isMouseOver)
 			TriggerCallbacks(onMouseEnter);

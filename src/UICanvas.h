@@ -12,12 +12,16 @@ public:
 	void AddElementToCanvas(UIElement* element);
 	void RemoveElementFromCanvas(UIElement* element);
 
-public:
 	void UpdateCanvas();
 	void RenderCanvas();
 
-	bool visible = true;
+	void SetInteractable(bool mode);
 
+	bool IsInteractable();
+
+public:
+
+	bool visible = true;
 protected:
 	UICanvas() = default;
 protected:
@@ -25,5 +29,6 @@ protected:
 private:
 
 private:
+	bool interactable = true;
 	vector<UIElement*> elements;
 };

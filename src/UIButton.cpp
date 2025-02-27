@@ -60,7 +60,7 @@ void UIButton::UpdateElement()
 		}
 	}
 	else{
-		if (mouseClickState == KEY_UP && isMouseHolding) {
+		if ((mouseClickState == KEY_UP || !interactable) && isMouseHolding) {
 			TriggerCallbacks(onMouseUp);
 			isMouseHolding = false;
 		}
