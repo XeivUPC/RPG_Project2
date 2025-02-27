@@ -18,10 +18,11 @@ function showSlides(n, no) {
   filePath = x[slideIndex[no]-1].getAttribute('alt');
 }
 
-var filePath = "../assets/documents/files/test.txt";
+var filePath = "";
 function downloadFile(){
 
-  var filename = filePath.replace(/^.*[\\/]/, '')
+  plusSlides(0,0);
+  var filename = filePath.replace(/^.*[\\/]/, '');
 
   fetch('https://jsonplaceholder.typicode.com/todos/1')
   .then(resp => resp.status === 200 ? resp.blob() : Promise.reject('something went wrong'))
