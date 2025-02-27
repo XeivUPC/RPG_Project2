@@ -5,19 +5,25 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../css/documents.css">
+        <script src="../js/documents.js"></script>
     <!--Links-->
 </head>
 <body>
-    <h1>Document Archive</h1>
-    <div class="archive-displayer row">
-        <button class="select-document-button"></button>
-        <img src="" alt="" class="doc-in-side">
-        <img src="../assets/documents/portraits/art_bible.png" alt="" class="current-doc">
-        <img src="" alt="" class="doc-in-side">
-        <button class="select-document-button"></button>
+    <h1 class="title">Document Archive</h1>
+    <div class="slideshow1-container">    
+        <div class="slideshow1" alt="../assets/documents/files/test.txt">
+            <img src="../assets/documents/portraits/art_bible.png" />
+        </div>
+        <div class="slideshow1" alt="../assets/documents/files/test.txt">
+            <img src="../assets/documents/portraits/audio_bible.png" />
+        </div>
+        <div class="slideshow1" alt="../assets/documents/files/test.txt">
+            <img src="../assets/documents/portraits/tdd.png" />
+        </div>
+
+        <a class="prev-document-button" onclick="plusSlides(-1, 0)">&#10094;</a>
+        <a class="next-document-button" onclick="plusSlides(1, 0)">&#10095;</a>
+
     </div>
-    <button class="download-doc">Download ↓</button>
-    <ul class="doc-list row">
-        <li class="doc">Test document</li>
-    </ul>
+    <button class="download-doc" onclick="downloadFile()">Download ↓</button>
 </body>

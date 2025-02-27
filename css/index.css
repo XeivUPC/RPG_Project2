@@ -1,7 +1,6 @@
 html, body {
     margin: 0;
     padding: 0;
-
     overflow: hidden;
 }
 
@@ -18,16 +17,14 @@ main {
     min-height: 100%;
     box-sizing: border-box;
     border: 0;
-    overflow: hidden; /* This will prevent scrolling inside the iframe */
+    overflow: hidden; /* Prevent scrolling inside the iframe */
 }
 
-.row
-{
+.row {
     display: flex; /* Arrange children in a row */
 }
 
-.team-logo
-{
+.team-logo {
     width: 70px;
     height: 70px;
     margin: 15px;
@@ -35,16 +32,14 @@ main {
     border-right: 2px solid white;
 }
 
-.team-name
-{
+.team-name {
     padding-left: 25px;
     font-size: 30px;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #fdf1dd;
 }
 
-header
-{
+header {
     background-color: #5BB3BD;
     align-items: center;
     padding-left: 30px;
@@ -52,23 +47,22 @@ header
     box-shadow: 0, 20px, 3px, black;
 }
 
-body
-{
+body {
     background-color: #33595e;
-    overflow: hidden; /* This will hide the scrollbar */
+    overflow: hidden; /* Hide the scrollbar */
 }
 
-.menu
-{
-    display: flex;
+.menu {
+    right: 0;
+    height: 100vh; /* Fixed height */
+    position: absolute;
     flex-direction: column;
     align-items: end;
     width: fit-content;
 }
 
 /* Hide the default checkbox */
-.page-menu-button
-{
+.page-menu-button {
     position: absolute;
     opacity: 0;
     width: 0;
@@ -76,10 +70,9 @@ body
     margin: 0;
     padding: 0;
 }
-  
-  /* Style the custom toggle button */
-.menu-icon
-{
+
+/* Style the custom toggle button */
+.menu-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -92,82 +85,39 @@ body
     cursor: pointer;
     margin-top: 10px;
     margin-right: 10px;
+    transition: transform 0.5s ease-out; /* Smooth button animation */
 }
 
-.menulist
-{
+.menulist {
     transform: translateX(100%); /* Start off-screen */
     opacity: 0;
-    transition: transform 0.5s ease-out, opacity 0.3s ease-out;
-    
-}
-
-.page-menu-button:checked ~ .menulist
-{
-    animation: 0.5s ease-out 0s 1 slideInFromLeft;
-    animation-fill-mode: forwards;
-    opacity: 1;
-}
-
-/* For closing animation */
-.page-menu-button:not(:checked) ~ .menulist
-{
-    animation: 0.5s ease-out 0s 1 slideOutToRight;
-    animation-fill-mode: forwards;
-}
-
-
-/* For closing animation */
-.page-menu-button:checked ~ .menu-toggle .menu-icon
-{
-    animation: 0.5s ease-out 0s 1 slideBtnInFromLeft;
-    animation-fill-mode: forwards;
-}
-
-/* For closing animation */
-.page-menu-button:not(:checked) ~ .menu-toggle .menu-icon {
-    animation: 0.5s ease-out 0s 1 slideBtnOutToRight;
-    animation-fill-mode: forwards;
-}
-
-@keyframes slideInFromLeft
-{
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(0); }
-}
-
-@keyframes slideOutToRight
-{
-    0% { transform: translateX(0); }
-    100% { transform: translateX(100%); }
-}
-
-@keyframes slideBtnInFromLeft
-{
-    0% { margin-right: 10px; }
-    100% { margin-right: 140px; }
-}
-
-@keyframes slideBtnOutToRight
-{
-    0% { margin-right: 140px; }
-    100% { margin-right: 10px; }
-}
-
-
-.menulist
-{
+    transition: transform 0.5s ease-out, opacity 0.3s ease-out; /* Smooth menu animation */
     padding-inline-start: 0;
     width: 136px;
-    margin-top:-50px ;
-    margin-bottom: 0px ;
     height: 100%;
+    margin-top: 0;
     list-style-type: none;
     background-color: #448a92;
 }
 
-.menu-item
+.page-menu-button:checked ~ .menulist {
+    transform: translateX(0%); /* Slide in */
+    opacity: 1;
+}
+
+.menu-toggle
 {
+    position: absolute;
+    right: 0;
+    transform: translateX(0%);
+    transition: transform 0.5s ease-out, opacity 0.3s ease-out;
+}
+
+.page-menu-button:checked ~ .menu-toggle {
+    transform: translateX(-140px); /* Slide in */
+}
+
+.menu-item {
     text-align: left;
     width: 100%;
     height: 50px;
@@ -178,45 +128,34 @@ body
     margin-bottom: 2px;
     border-top: 1px solid #fdf1dd;
     border-bottom: 1px solid #fdf1dd;
+    color: #fdf1dd;
+    transition: all 0.3s ease; /* Smooth hover effect */
 }
 
-.menu-item:hover
-{
+.menu-item:hover {
     background-color: #373b41;
     color: #fdf1dd;
-    transition: all 0.3s ease;
-}
-.menu-item:not(:hover)
-{
-    background-color: transparent;
-    color: #fdf1dd;
-    transition: all 0.3s ease;
 }
 
-
-.menu-item:hover iconify-icon
-{
+.menu-item:hover iconify-icon {
     font-size: 24px;
     transition: all 0.3s ease;
 }
-.menu-item:not(:hover) iconify-icon
-{
+
+.menu-item:not(:hover) iconify-icon {
     font-size: 20px;
     transition: all 0.3s ease;
 }
 
-
-.menulist li:first-child
-{
+.menulist li:first-child {
     margin-top: 0px;
 }
 
-
-footer
-{
+footer {
     background-color: #5BB3BD;
     height: 30px;
     align-content: center;
     padding-left: 20px;
     box-shadow: 0, -20px, 3px, black;
+    z-index: 10000;
 }
