@@ -24,19 +24,26 @@ function downloadFile(){
   plusSlides(0,0);
   var filename = filePath.replace(/^.*[\\/]/, '');
 
-  fetch('https://jsonplaceholder.typicode.com/todos/1')
-  .then(resp => resp.status === 200 ? resp.blob() : Promise.reject('something went wrong'))
-  .then(blob => {
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.style.display = 'none';
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    window.URL.revokeObjectURL(url);
-    // or you know, something with better UX...
-    alert('File Downloaded'); 
+  axios({
+    url: filePath,  // Use the file path as the URL for download
+    method: 'GET',
+    responseType: 'blob'  // Ensures that the response is treated as a blob (binary data)
   })
-  .catch(() => alert('oh no!'));
+  .then((response) => {
+    if (response.status === 200) {
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', filename); // Use the extracted filename as the download filename
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } else {
+      console.error('Error: Received non-200 status code');
+    }
+  })
+  .catch((error) => {
+    console.error('Error downloading the image:', error);
+  });
 }
