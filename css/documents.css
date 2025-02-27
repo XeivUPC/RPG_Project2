@@ -20,15 +20,15 @@ body
     pointer-events: auto;
 }
 
-.slideshow1
+.slideshow
 {
     display: none;
-    width: 420px;
-    height: 594px;
+    width: 210px;
+    height: 297px;
     box-shadow: 0 0 5px black;
 }
 
-.slideshow1 {
+.slideshow {
     display: none
 }
 
@@ -37,16 +37,16 @@ img {
     width: 100%;
 }
 
-.slideshow1-container {
-    max-width: 420px;
+.slideshow-container {
+    max-width: 210px;
     position: relative;
     margin: auto;
 }
 
-.slideshow1-container :first-child{
+.slideshow-container :first-child{
     display: block;
-    width: 420px;
-    height: 594px;
+    width: 210px;
+    height: 297px;
     box-shadow: 0 0 5px black;
 }
 
@@ -88,9 +88,23 @@ img {
     margin: 0 auto;
     margin-top: 30px;
     display: block;
-    width: 140px;
-    height: 50px;;
+    width: 200px;
+    height: 50px;
     font-size: 24px;
+    border-radius: 25px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+.download-doc:hover span
+{
+    font-size: 0px;
+    opacity: 0;
+    transition: font-size 0.3s ease;
+}
+
+.download-doc:not(:hover) span
+{
+    font-size: 24px;
+    opacity: 100;
+    transition: font-size 0.3s ease;
+}
