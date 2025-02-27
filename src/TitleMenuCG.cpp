@@ -35,11 +35,8 @@ TitleMenuCG::TitleMenuCG(UICanvas& _settingsReference) : settingsReference(&_set
 	startNewGame_btn->onMouseClick.emplace_back([this]() {Engine::Instance().s_title->StartGame(true); });
 	startNewGame_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	startNewGame_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
-
 	startNewGame_btn->onMouseEnter.emplace_back([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
 	startNewGame_btn->onMouseExit.emplace_back([this]() {Engine::Instance().m_cursor->SelectDefaultCursor(); });
-
-
 	startNewGame_btn->SetLocalScale(3);
 	
 
@@ -50,6 +47,8 @@ TitleMenuCG::TitleMenuCG(UICanvas& _settingsReference) : settingsReference(&_set
 	continueGame_btn->onMouseClick.emplace_back([this]() {Engine::Instance().s_title->StartGame(false); });
 	continueGame_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	continueGame_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
+	continueGame_btn->onMouseEnter.emplace_back([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
+	continueGame_btn->onMouseExit.emplace_back([this]() {Engine::Instance().m_cursor->SelectDefaultCursor(); });
 	continueGame_btn->SetLocalScale(3);
 
 
@@ -60,6 +59,8 @@ TitleMenuCG::TitleMenuCG(UICanvas& _settingsReference) : settingsReference(&_set
 	settings_btn->onMouseClick.emplace_back([this]() {settingsReference->visible = true; });
 	settings_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	settings_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
+	settings_btn->onMouseEnter.emplace_back([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
+	settings_btn->onMouseExit.emplace_back([this]() {Engine::Instance().m_cursor->SelectDefaultCursor(); });
 	settings_btn->SetLocalScale(3);
 
 
@@ -70,6 +71,8 @@ TitleMenuCG::TitleMenuCG(UICanvas& _settingsReference) : settingsReference(&_set
 	exit_btn->onMouseClick.emplace_back([this]() {Engine::Instance().m_input->ForceQuit(); });
 	exit_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	exit_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
+	exit_btn->onMouseEnter.emplace_back([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
+	exit_btn->onMouseExit.emplace_back([this]() {Engine::Instance().m_cursor->SelectDefaultCursor(); });
 	exit_btn->SetLocalScale(3);
 
 
