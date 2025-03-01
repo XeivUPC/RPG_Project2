@@ -10,10 +10,10 @@ UIButton::UIButton(SDL_Texture& _texture, Vector2Int _position, Vector2Int _size
 	image_Component->SetParent(this);
 }
 
-UIButton::UIButton(Vector2Int _position, Vector2Int _size, SDL_Rect _defaultRect, Vector2 _pivot) : UIElement(_position, _size, _pivot)
+UIButton::UIButton(Vector2Int _position, Vector2Int _size, SDL_Rect _defaultRect, Vector2 _pivot, SDL_Color _color) : UIElement(_position, _size, _pivot)
 {
 	AddRect(ButtonStates::DEFAULT, move(_defaultRect));
-	image_Component = new UIImage({ 0,0 }, move(_size), move(_pivot), true, move(_defaultRect));
+	image_Component = new UIImage({ 0,0 }, move(_size), move(_pivot), true, move(_defaultRect), move(_color));
 	image_Component->SetParent(this);
 }
 

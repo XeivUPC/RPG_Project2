@@ -40,35 +40,35 @@ SettingsCG::SettingsCG()
 	box_image->SetLocalScale(2);
 
 
-	UITextBox* boxTitle_text = new UITextBox("Settings", *textFont, 32, { 27,34,54,255 }, { LOGIC_SCREEN_WIDTH / 2 , 120 }, { textureSize.x * 2, 50 }, {0.5f,0.5f},UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+	UITextBox* boxTitle_text = new UITextBox("Settings", *textFont, 32, {184,132,78,255}, { LOGIC_SCREEN_WIDTH / 2 , 120 }, { textureSize.x * 2, 50 }, {0.5f,0.5f},UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
 	boxTitle_text->SetLocalScale(1.5f);
 
-	UIButton* close_btn = new UIButton(*btn_texture, { LOGIC_SCREEN_WIDTH / 2 - textureSize.x, LOGIC_SCREEN_HEIGHT / 2 - textureSize.y }, { 19,19 }, { 0,0,19,19 }, {0.5f,0.5f});
+	UIButton* close_btn = new UIButton(*btn_texture, { LOGIC_SCREEN_WIDTH / 2 - textureSize.x + (int)(15 * 1.5f) +12, LOGIC_SCREEN_HEIGHT / 2 - textureSize.y + (int)(15 * 1.5f)+12 }, { 15,15 }, { 0,0,15,15 }, {0.5f,0.5f});
 	close_btn->SetLocalScale(3);
-	close_btn->AddRect(UIButton::ButtonStates::HOVER, {19,0,19,19});
-	close_btn->AddRect(UIButton::ButtonStates::PRESSED, {38,0,19,19});
+	close_btn->AddRect(UIButton::ButtonStates::HOVER, {15,0,15,15});
+	close_btn->AddRect(UIButton::ButtonStates::PRESSED, {30,0,15,15});
 	close_btn->onMouseClick.emplace_back([this]() {visible = false; });
 	close_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	close_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 
 
 	///// AudioSettings
-	UITextBox* generalAudio_text = new UITextBox("General Vol.", *textFont, 32, { 27,34,54,255 }, { LOGIC_SCREEN_WIDTH / 2 , LOGIC_SCREEN_HEIGHT / 2 - 170 }, { textureSize.x * 2, 50 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
-	UISlider* generalAudio_slider = new UISlider(*slider_texture, { LOGIC_SCREEN_WIDTH / 2,LOGIC_SCREEN_HEIGHT / 2 - 110 }, { 92,13 }, { 0,0,98,26 }, *slider_texture, { 8,26 }, { 98,0,8,26 }, { 106,0,8,26 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::LeftToRight);
+	UITextBox* generalAudio_text = new UITextBox("General Vol.", *textFont, 32, {184,132,78,255}, { LOGIC_SCREEN_WIDTH / 2 , LOGIC_SCREEN_HEIGHT / 2 - 170 }, { textureSize.x * 2, 50 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+	UISlider* generalAudio_slider = new UISlider(*slider_texture, { LOGIC_SCREEN_WIDTH / 2,LOGIC_SCREEN_HEIGHT / 2 - 110 }, { 89,12 }, { 0,0,94,12 }, *slider_texture, { 5,12 }, { 94,0,5,12 }, { 99,0,5,12 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::LeftToRight);
 	generalAudio_slider->onValueChange.emplace_back([this](float value) {Engine::Instance().m_audio->SetGeneralVolume(value); });
 	generalAudio_slider->SetValue(Engine::Instance().m_audio->GetGeneralVolume());
 	generalAudio_slider->SetLocalScale(3);
 
 
-	UITextBox* musicAudio_text = new UITextBox("Music Vol.", *textFont, 32, { 27,34,54,255 }, { LOGIC_SCREEN_WIDTH / 2 , LOGIC_SCREEN_HEIGHT / 2 - 40 }, { textureSize.x * 2, 50 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
-	UISlider* musicAudio_slider = new UISlider(*slider_texture, { LOGIC_SCREEN_WIDTH/2,LOGIC_SCREEN_HEIGHT / 2 + 20}, { 92,13 }, { 0,0,98,26 }, *slider_texture, { 8,26 }, { 98,0,8,26 }, { 106,0,8,26 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::LeftToRight);
+	UITextBox* musicAudio_text = new UITextBox("Music Vol.", *textFont, 32, {184,132,78,255}, { LOGIC_SCREEN_WIDTH / 2 , LOGIC_SCREEN_HEIGHT / 2 - 40 }, { textureSize.x * 2, 50 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+	UISlider* musicAudio_slider = new UISlider(*slider_texture, { LOGIC_SCREEN_WIDTH/2,LOGIC_SCREEN_HEIGHT / 2 + 20}, { 89,12 }, { 0,0,94,12 }, *slider_texture, { 5,12 }, { 94,0,5,12 }, { 99,0,5,12 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::LeftToRight);
 	musicAudio_slider->onValueChange.emplace_back([this](float value) {Engine::Instance().m_audio->SetMusicVolume(value); });
 	musicAudio_slider->SetValue(Engine::Instance().m_audio->GetMusicVolume());
 	musicAudio_slider->SetLocalScale(3);
 
 
-	UITextBox* sfxAudio_text = new UITextBox("SFX Vol.", *textFont, 32, { 27,34,54,255 }, { LOGIC_SCREEN_WIDTH / 2 , LOGIC_SCREEN_HEIGHT / 2 + 90 }, { textureSize.x * 2, 50 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
-	UISlider* sfxAudio_slider = new UISlider(*slider_texture, { LOGIC_SCREEN_WIDTH / 2,LOGIC_SCREEN_HEIGHT / 2 + 150 }, { 92,13 }, { 0,0,98,26 }, *slider_texture, { 8,26 }, { 98,0,8,26 }, { 106,0,8,26 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::LeftToRight);
+	UITextBox* sfxAudio_text = new UITextBox("SFX Vol.", *textFont, 32, {184,132,78,255}, { LOGIC_SCREEN_WIDTH / 2 , LOGIC_SCREEN_HEIGHT / 2 + 90 }, { textureSize.x * 2, 50 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+	UISlider* sfxAudio_slider = new UISlider(*slider_texture, { LOGIC_SCREEN_WIDTH / 2,LOGIC_SCREEN_HEIGHT / 2 + 150 }, { 89,12 }, { 0,0,94,12 }, *slider_texture, { 5,12 }, { 94,0,5,12 }, { 99,0,5,12 }, { 0.5f,0.5f }, 0, 0, 1, UISlider::SliderMode::LeftToRight);
 	sfxAudio_slider->onValueChange.emplace_back([this](float value) {Engine::Instance().m_audio->SetSfxVolume(value); });
 	sfxAudio_slider->SetValue(Engine::Instance().m_audio->GetSFXVolume());
 	sfxAudio_slider->SetLocalScale(3);

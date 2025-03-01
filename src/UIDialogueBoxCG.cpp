@@ -13,7 +13,7 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 {
 	SDL_Texture* tex = Engine::Instance().m_assetsDB->GetTexture("dialogue_box");
 	SDL_Texture* tex2 = Engine::Instance().m_assetsDB->GetTexture("dialogue_answerBox");
-	_TTF_Font* font = Engine::Instance().m_assetsDB->GetFont("monogram");
+	_TTF_Font* font = Engine::Instance().m_assetsDB->GetFont("alagard");
 
 	Vector2Int textureSize = Engine::Instance().m_assetsDB->GetTextureSize(*tex);
 	dialogueTextBox = new UIImage(*tex, { 0,0 }, textureSize);
@@ -21,10 +21,10 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 	AddElementToCanvas(dialogueTextBox);
 	AddElementToCanvas(dialogueChoiceBox);
 
-	contentTextBox = new UITextBox("", *font, 64, { 255,255,255,255 }, { 12,574 }, { 1223,137 }, {0,0}, UITextBox::HorizontalAlignment::Left, UITextBox::VerticalAlignment::Top, true);
+	contentTextBox = new UITextBox("", *font, 32, { 184,132,78,255 }, { 33,582 }, { 1173,117 }, {0,0}, UITextBox::HorizontalAlignment::Left, UITextBox::VerticalAlignment::Top, true);
 	AddElementToCanvas(contentTextBox);
 
-	characterNameTextBox = new UITextBox("", *font, 64, { 255,255,255,255 }, { 12, 511 }, { 481,47 }, { 0,0 }, UITextBox::HorizontalAlignment::Left, UITextBox::VerticalAlignment::Top, true);
+	characterNameTextBox = new UITextBox("", *font, 32, { 184,132,78,255 }, { 12, 521 }, { 461,37 }, { 0,0 }, UITextBox::HorizontalAlignment::Left, UITextBox::VerticalAlignment::Middle, true);
 	AddElementToCanvas(characterNameTextBox);
 
 	UIButton* btn = new UIButton(*tex, { 0,559 }, { 1280,161 }, { 0,0,0,0 }, { 0,0 });
@@ -111,13 +111,13 @@ void UIDialogueBoxCG::UpdateCanvas()
 
 void UIDialogueBoxCG::CreateChoiceButton(string text, int index, float verticalSpacing)
 {
-	_TTF_Font* font = Engine::Instance().m_assetsDB->GetFont("monogram");
+	_TTF_Font* font = Engine::Instance().m_assetsDB->GetFont("alagard");
 
-	UIButton* btn = new UIButton({ 776 ,(int)(247 + verticalSpacing+ (45 + verticalSpacing) * index )}, { 470,45 }, { 0,0,0,0 }, { 0,0 });
+	UIButton* btn = new UIButton({ 776 ,(int)(247 + verticalSpacing + (45 + verticalSpacing) * index) }, { 470,45 }, { 0,0,0,0 }, { 0,0 }, {148,112,75,255});
+
 	btn->onMouseClick.emplace_back([this, index]() {dialogue->ProcessInput(index); });
-	btn->debug = true;
 
-	UITextBox* textBox = new UITextBox(text, *font, 32, { 0,0,0,255 }, { 0,0 }, { 470,45 }, { 0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle, true);
+	UITextBox* textBox = new UITextBox(text, *font, 32, { 184,132,78,255 }, { 0,5 }, { 470,45 }, { 0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle, true);
 	textBox->SetParent(btn);
 
 	AddElementToCanvas(btn);
