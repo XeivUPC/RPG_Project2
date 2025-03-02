@@ -97,6 +97,9 @@
     <Filter Include="Source Files\UI\CanvasGroups %28UICanvas%29\Testing">
       <UniqueIdentifier>{e9020f48-895f-41e4-8b5b-dc410d12f940}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils\Parallax">
+      <UniqueIdentifier>{eedc49ea-06e6-4e50-a878-4a28aa2158af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">

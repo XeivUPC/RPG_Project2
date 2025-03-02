@@ -25,7 +25,7 @@ bool IntroScene::Start()
     timer.StartTimer();
     logoTimer.StartTimer();
 
-    fade_bg = new FadeCG(0,0,36,0);
+    fade_bg = new FadeCG(33, 25, 17, 0);
     fade_bg->FadeTo(bgFadeIn,255);
 
     //fade_logo = new FadeCG(255, 255, 255, 0, Engine::Instance().m_assetsDB->GetTexture("game_title"), { LOGIC_SCREEN_WIDTH / 2, LOGIC_SCREEN_HEIGHT / 2 }, { 38,36 }, { 0.5f,0.5f }, 0.3f);

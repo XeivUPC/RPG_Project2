@@ -33,7 +33,7 @@ bool TitleScene::Start()
 {
     starting_game = false;
 
-    fade = new FadeCG(0, 0, 36,255);
+    fade = new FadeCG(33, 25, 17, 255);
     fade->FadeTo(1,0);
 
     settings_canvas = new SettingsCG();
