@@ -128,13 +128,13 @@ body {
     margin-bottom: 2px;
     border-top: 1px solid #fdf1dd;
     border-bottom: 1px solid #fdf1dd;
-    color: #fdf1dd;
+    color: white;
     transition: all 0.3s ease; /* Smooth hover effect */
 }
 
 .menu-item:hover {
     background-color: #373b41;
-    color: #fdf1dd;
+    color: white;
 }
 
 .menu-item:hover iconify-icon {

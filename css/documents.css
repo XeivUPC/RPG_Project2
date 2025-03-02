@@ -80,7 +80,7 @@ img {
 }
 
 .title{
-    color:#fbf1dc;
+    color:white;
     font-size: 80px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
@@ -88,7 +88,7 @@ img {
 
 .download-doc{
     background-color: #373b41;
-    color:#fbf1dc;
+    color:white;
     margin: 0 auto;
     margin-top: 30px;
     display: block;

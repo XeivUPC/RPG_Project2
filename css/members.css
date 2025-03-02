@@ -134,7 +134,7 @@ ul
     margin-left: 5px;
     margin-right: 5px;
     font-size: 20px;
-    color: #fdf1dd;
+    color: white;
     border-radius: 20px;
     background-color: transparent;
     border: none;
@@ -150,12 +150,12 @@ ul
 .website-icon:not(:hover)
 {
     background-color: transparent;
-    color:#fdf1dd;
+    color:white;
     transition: all 0.3s ease;
 }
 
 .title{
-    color:#fbf1dc;
+    color:white;
     font-size: 80px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;

@@ -1,0 +1,93 @@
+.row
+{
+    display: flex; /* Arrange children in a row */
+}
+
+.logo
+{
+    width: 300px;
+    height: 300px;
+    padding-right: 20px;
+}
+
+h1
+{
+    color: white;
+    font-size: 70px;
+}
+h1
+{
+    color: white;
+    font-size: 80px;
+    text-shadow: 0px 10px 5px black;
+    text-justify: inter-word;
+    width: 400px;
+    align-self: center;
+    justify-self: center;
+}
+h2
+{
+    color: white;
+    font-size: 40px;
+    text-shadow: 0px 10px 5px black;
+    text-justify: inter-word;
+    width: 400px;
+    align-self: center;
+    justify-self: center;
+}
+h2 span
+{
+    color: #5d46fa;
+    text-align: top;
+    text-shadow:
+    0px 1px 0 #000aa1,
+    0px 2px 0 #000aa1,
+    0px 3px 0 #000aa1,
+    0px 4px 0 #000aa1,
+    0px 5px 0 #000aa1,
+    0px 6px 0 #000aa1,
+    0px 7px 0 #000aa1,
+    0px 8px 0 #000aa1,
+    0px 9px 0 #000aa1,
+    0px 10px 0 #000aa1,
+    0px 10px 5px black;
+    margin-top: -10px;
+}
+
+h3
+{
+    color: white;
+    font-size: 30px;
+    width: 600px;
+    padding-top: 50px;
+    justify-self: center;
+    text-align: center;
+}
+
+.info
+{
+    width: 400px;
+}
+
+.logo-container
+{
+    align-self: center;
+    justify-self: center;
+    width: fit-content;
+    height: 300px;
+}
+
+.logo-container:hover .info
+{
+    width: 400px;
+    opacity: 100;
+    transition: width 0.2s ease;
+}
+
+
+.logo-container:not(:hover) .info
+{
+    width: 0;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
