@@ -154,10 +154,11 @@ body {
 }
 
 footer {
+    color:var(--background-color5);
     background-color: var(--background-color2);
     height: 30px;
     align-content: center;
     padding-left: 20px;
-    box-shadow: 0, -20px, 3px, var(--background-color5);
+    box-shadow: 0, -20px, 3px, black;
     z-index: 10000;
 }

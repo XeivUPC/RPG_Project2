@@ -135,6 +135,7 @@ ul
 .website-icon
 {
     margin-left: 5px;
+    margin-top: 3px;
     margin-right: 5px;
     font-size: 20px;
     color: var(--background-color1);
