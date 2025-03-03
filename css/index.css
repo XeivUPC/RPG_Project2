@@ -1,3 +1,5 @@
+@import url(colors.css);
+
 html, body {
     margin: 0;
     padding: 0;
@@ -29,18 +31,18 @@ main {
     height: 70px;
     margin: 15px;
     padding-right: 50px;
-    border-right: 2px solid white;
+    border-right: 2px solid var(--background-color5);
 }
 
 .team-name {
     padding-left: 25px;
     font-size: 30px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: #fdf1dd;
+    color: var(--background-color5);
 }
 
 header {
-    background-color: #5BB3BD;
+    background-color: var(--background-color2);
     align-items: center;
     padding-left: 30px;
     height: 80px;
@@ -48,7 +50,7 @@ header {
 }
 
 body {
-    background-color: #33595e;
+    background-color: var(--background-color1);
     overflow: hidden; /* Hide the scrollbar */
 }
 
@@ -79,8 +81,8 @@ body {
     width: 40px;
     height: 40px;
     font-size: 20px;
-    background: #373b41;
-    color: #fdf1dd;
+    background: var(--background-color2);
+    color: var(--background-color4);
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
@@ -97,7 +99,7 @@ body {
     height: 100%;
     margin-top: 0;
     list-style-type: none;
-    background-color: #448a92;
+    background-color: var(--background-color3);
 }
 
 .page-menu-button:checked ~ .menulist {
@@ -126,15 +128,15 @@ body {
     border: none;
     margin-top: 2px;
     margin-bottom: 2px;
-    border-top: 1px solid #fdf1dd;
-    border-bottom: 1px solid #fdf1dd;
-    color: white;
+    border-top: 1px solid var(--background-color2);
+    border-bottom: 1px solid var(--background-color2);
+    color: var(--background-color2);
     transition: all 0.3s ease; /* Smooth hover effect */
 }
 
 .menu-item:hover {
-    background-color: #373b41;
-    color: white;
+    background-color: var(--background-color2);
+    color: var(--background-color5);
 }
 
 .menu-item:hover iconify-icon {
@@ -152,10 +154,10 @@ body {
 }
 
 footer {
-    background-color: #5BB3BD;
+    background-color: var(--background-color2);
     height: 30px;
     align-content: center;
     padding-left: 20px;
-    box-shadow: 0, -20px, 3px, black;
+    box-shadow: 0, -20px, 3px, var(--background-color5);
     z-index: 10000;
 }

@@ -1,3 +1,5 @@
+@import url(colors.css);
+
 @keyframes slideInFromLeft {
     0% {
       transform: translateX(100%);
@@ -14,7 +16,7 @@ body::-webkit-scrollbar {
 body
 {
     animation: 0.5s ease-out 0s 1 slideInFromLeft;
-    background-color: #33595e;
+    background-color: var(--background-color1);
     width: 98%;
     height: 98%;
     pointer-events: auto;
@@ -57,7 +59,7 @@ img {
     width: auto;
     padding: 8px;
     margin-top: -22px;
-    color: white;
+    color: var(--background-color2);
     font-weight: bold;
     font-size: 18px;
     transition: 0.6s ease;
@@ -75,20 +77,20 @@ img {
 }
   
 .prev-document-button:hover, .next-document-button:hover {
-    background-color: #f1f1f1;
-    color: black;
+    background-color: var(--background-color2);
+    color: var(--background-color5);
 }
 
 .title{
-    color:white;
+    color:var(--background-color5);
     font-size: 80px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
 }
 
 .download-doc{
-    background-color: #373b41;
-    color:white;
+    background-color: var(--background-color2);
+    color:var(--background-color5);
     margin: 0 auto;
     margin-top: 30px;
     display: block;

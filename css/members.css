@@ -1,3 +1,6 @@
+
+@import url(colors.css);
+
 @keyframes slideInFromLeft {
     0% {
       transform: translateX(100%);
@@ -20,7 +23,7 @@ body::-webkit-scrollbar {
 body
 {
     animation: 0.5s ease-out 0s 1 slideInFromLeft;
-    background-color: #33595e;
+    background-color: var(--background-color1);
     width: 98%;
     height: 98%;
     pointer-events: auto;
@@ -66,7 +69,7 @@ ul
 {
     justify-content: space-between;
     width: 100%;
-    color: #5BB3BD;
+    color: var(--background-color2);
 }
 
 .member-info
@@ -75,7 +78,7 @@ ul
     font-weight: bold;
     width: 95%;
     height: 90%;
-    background-color: #ffffff;
+    background-color: var(--background-color5);
     align-content: center;
     border-radius: 10px;
     box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
@@ -125,7 +128,7 @@ ul
     width: fit-content;
     height: 30px;
     padding-top: 5px;
-    background-color: 373b41;
+    background-color: var(--background-color4);
     margin-bottom: -20px;
 }
 
@@ -134,7 +137,7 @@ ul
     margin-left: 5px;
     margin-right: 5px;
     font-size: 20px;
-    color: white;
+    color: var(--background-color1);
     border-radius: 20px;
     background-color: transparent;
     border: none;
@@ -142,20 +145,20 @@ ul
 
 .website-icon:hover
 {
-    background-color: #ddd7c5;
-    color:#33595e;
+    background-color: var(--background-color2);
+    color:var(--background-color1);
     transition: all 0.3s ease;
 }
 
 .website-icon:not(:hover)
 {
     background-color: transparent;
-    color:white;
+    color:var(--background-color2);;
     transition: all 0.3s ease;
 }
 
 .title{
-    color:white;
+    color:var(--background-color5);
     font-size: 80px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;

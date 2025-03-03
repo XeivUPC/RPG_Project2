@@ -1,3 +1,5 @@
+@import url(colors.css);
+
 @keyframes slideInFromTop {
     0% {
       transform: translateY(-100%);
@@ -14,7 +16,7 @@ body::-webkit-scrollbar {
 body
 {
     animation: 0.5s ease-out 0s 1 slideInFromTop;
-    background-color: #33595e;
+    background-color: var(--background-color1);
     width: 98%;
     height: 98%;
     pointer-events: auto;
@@ -39,12 +41,12 @@ body
 
 h1
 {
-    color: white;
+    color: var(--background-color5);
     font-size: 70px;
 }
 h1
 {
-    color: white;
+    color: var(--background-color5);
     font-size: 80px;
     text-justify: inter-word;
     width: 400px;
@@ -53,7 +55,7 @@ h1
 }
 h2
 {
-    color: white;
+    color: var(--background-color5);
     font-size: 40px;
     text-justify: inter-word;
     width: 400px;
@@ -80,7 +82,7 @@ h2 span
 
 h3
 {
-    color: white;
+    color: var(--background-color5);
     font-size: 30px;
     width: 600px;
     padding-top: 50px;
