@@ -1,0 +1,102 @@
+{
+    "path": {
+        "resource": "G:/GitHub/RPG_Project2/Assets/Dialogues",
+        "OSX": "",
+        "Windows": "G:/GitHub/RPG_Project2/Assets/Dialogues",
+        "UWP": "",
+        "X11": ""
+    },
+    "configuration": {
+        "has_portrait": "true",
+        "has_name": "true",
+        "dialogue_character_limit": "0",
+        "choice_character_limit": "0"
+    },
+    "locale": {
+        "current": "en",
+        "selected": "[ \"en\" ]\ncustom=[  ]"
+    },
+    "variables": {
+        "characters": [
+            {
+                "name": "Godot",
+                "portraits": [],
+                "uuid": "aab9e515-0f7f-48c9-8775-8264ab97f8c7"
+            },
+            {
+                "name": "Godot2",
+                "portraits": [],
+                "uuid": "44bfefce-6e1c-4d9d-bf83-3a5dc38c92de"
+            },
+            {
+                "name": "Cassian",
+                "portraits": [
+                    {
+                        "name": "cassian_early_idle",
+                        "path": "/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-idle.png",
+                        "uuid": "4554b69f-5f52-41fa-b69d-5fcd5e366cfa"
+                    },
+                    {
+                        "name": "cassian_early_sad_fade",
+                        "path": "/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-sad-fade.png",
+                        "uuid": "2fbbee9b-fa1a-4790-96b7-d656f33940e2"
+                    },
+                    {
+                        "name": "cassian_early_angry_fade",
+                        "path": "/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-angry-fade.png",
+                        "uuid": "d03c4513-94af-4ced-8686-cb3617097bcd"
+                    },
+                    {
+                        "name": "cassian_early_happy",
+                        "path": "/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-happy.png",
+                        "uuid": "e5f848c7-bdbe-4171-9512-d5286b6b55a5"
+                    }
+                ],
+                "uuid": "9e488680-eba3-4172-8361-67b08867e5ab"
+            },
+            {
+                "name": "Artis",
+                "portraits": [
+                    {
+                        "name": "artis_early_idle",
+                        "path": "/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+                        "uuid": "4c31dc6e-2dad-4873-8654-5b42cd387e01"
+                    },
+                    {
+                        "name": "artis_early_happy",
+                        "path": "/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-happy.png",
+                        "uuid": "4f126967-df0b-4cba-b72e-c6dd4f50f767"
+                    }
+                ],
+                "uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336"
+            }
+        ],
+        "files": [
+            {
+                "name": "test.json",
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/test.json"
+            },
+            {
+                "name": "test2.json",
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/test2.json"
+            },
+            {
+                "name": "test3.json",
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/test3.json"
+            },
+            {
+                "name": "test4.json",
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/test4.json"
+            }
+        ]
+    },
+    "cache": {
+        "last_opened_file": {
+            "name": "test3.json",
+            "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/test3.json"
+        }
+    },
+    "info": {
+        "version": "v1.1.3"
+    }
+}

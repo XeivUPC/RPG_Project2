@@ -32,17 +32,30 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 	btn->SetLocalScale(1);
 	AddElementToCanvas(btn);
 
+
+	characterPortraitImage = new UIImage({ 0,510 }, { 64, 64 }, { 0,1 }, true, { 0,0,64,64 }, {255,255,255,255});
+	characterPortraitImage->SetLocalScale(3);
+	AddElementToCanvas(characterPortraitImage);
+
+
+
 	btns.emplace_back(btn);
 
 	dialogue = new DialogueSystem();
+
+	dialogue->onSignalCall.emplace_back([this](Signal* signal) {SignalReader(signal); });
+	dialogue->onDialogNodeChange.emplace_back([this]() {ChangePortrait(); });
+	dialogue->onDialogEnd.emplace_back([this]() {EndDialogue(); });
+
 	dialogue->AddGameStateVariable("friendship", amistad);
 	dialogue->AddGameStateVariable("RodrigoState", (float)rodrigoState);
 
-	dialogue->LoadDialogueFromJSON("Assets/Dialogues/test2.json");
+	dialogue->LoadDialogueWorkspace("Assets/Dialogues/Workspaces/RPG_Game.json");
+	dialogue->LoadDialogueFromJSON("Assets/Dialogues/test3.json");
 	amistad = 10;
 	dialogue->StartDialogue();
 
-	dialogue->onSignalCall.emplace_back([this](Signal* signal) {SignalReader(signal); });
+
 }
 
 UIDialogueBoxCG::~UIDialogueBoxCG()
@@ -96,14 +109,7 @@ void UIDialogueBoxCG::UpdateCanvas()
 		}
 		
 		
-		characterNameTextBox->SetText(node.characterName);
-	}
-	else {
-		dialogueTextBox->GetColor().a = 0;
-		contentTextBox->SetText("");
-		characterNameTextBox->SetText("");
-
-
+		characterNameTextBox->SetText(node.character.name);
 	}
 
 	UICanvas::UpdateCanvas();
@@ -139,4 +145,28 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 			dialogue->AddGameStateVariable("RodrigoState", (float)rodrigoState);
 		}
 	}
+}
+
+void UIDialogueBoxCG::ChangePortrait()
+{
+	const DialogueNode& node = dialogue->GetCurrentDialogue();
+	characterPortraitImage->SetColor({ 255, 255, 255, 0 });
+	for (size_t i = 0; i < node.character.portraits.size(); i++)
+	{
+		if (node.character.portraits[i].id.find(node.portraitId) != std::string::npos)
+		{
+			SDL_Texture* tex = Engine::Instance().m_assetsDB->GetTexture(node.character.portraits[i].name);
+			characterPortraitImage->SetSprite(*tex, true, {0,0,64,64});
+			characterPortraitImage->SetColor({ 255, 255, 255, 255 });
+			break;
+		}
+	}
+}
+
+void UIDialogueBoxCG::EndDialogue()
+{
+	characterPortraitImage->SetColor({ 255, 255, 255, 0 });
+	dialogueTextBox->GetColor().a = 0;
+	contentTextBox->SetText("");
+	characterNameTextBox->SetText("");
 }

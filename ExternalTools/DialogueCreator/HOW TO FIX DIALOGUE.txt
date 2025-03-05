@@ -1,5 +1,0 @@
-1- Select the "RPG_Project2" folder
-
-2- Select all the .cfg files from the workspace folder
-
-2- Fix paths

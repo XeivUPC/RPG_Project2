@@ -9,9 +9,37 @@ DialogueSystem::~DialogueSystem()
 {
 }
 
-void DialogueSystem::LoadDialogue(const map<string, DialogueNode>& new_nodes) {
-    nodes = new_nodes;
-    ResetDialogue();
+
+void DialogueSystem::LoadDialogueWorkspace(const string& path)
+{
+    ifstream file(path);
+    if (!file.is_open()) {
+        cerr << "Error al abrir el archivo JSON." << endl;
+        return;
+    }
+
+    json json_data;
+    file >> json_data; // Leer el JSON
+    file.close();
+
+    characters.clear(); // Limpiar characters existentes
+
+    for (const auto& character_data : json_data["variables"]["characters"]) {
+        DialogueCharacter character;
+        character.id = character_data["uuid"];
+        character.name = character_data["name"];
+
+        // Extraer retratos (portraits)
+        for (const auto& portrait_data : character_data["portraits"]) {
+            Portrait portrait;
+            portrait.id = portrait_data["path"];
+            portrait.name = portrait_data["name"];
+            character.portraits.push_back(portrait);
+        }
+
+        characters[character.id] =(character);
+    }
+
 }
 
 void DialogueSystem::LoadDialogueFromJSON(const string& path)
@@ -71,7 +99,9 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
         node.id = node_id;
         node.text = node_data["text"]["en"]; // Usar texto en inglés por defecto
         node.next_node = node_data.value("next", "");
-        node.characterName = node_data["name"];
+        string characterID = node_data["character_uuid"];
+        node.character = characters[characterID];
+        node.portraitId = node_data["portrait"];
 
         // Cargar opciones (choices)
         if (node_data.contains("choices")) {
@@ -209,7 +239,7 @@ void DialogueSystem::ProcessInput(int choice) {
         current_node = node.next_node;
     }
     else {
-         TriggerCallbacks(onDialogStart);
+        TriggerCallbacks(onDialogEnd);
         EndDialogue();
     }
 

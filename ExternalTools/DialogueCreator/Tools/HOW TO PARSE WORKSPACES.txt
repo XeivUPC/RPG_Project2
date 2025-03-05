@@ -1,0 +1,5 @@
+1- Select the workspace files
+
+2- Select the destination folder
+
+2- Convert to JSON

@@ -21,12 +21,16 @@ public:
 private:
 	void CreateChoiceButton(string text, int index, float verticalSpacing);
 	void SignalReader(Signal* signal);
+	void ChangePortrait();
+	void EndDialogue();
 private:
 	float amistad = 0;
-	UITextBox* contentTextBox;
-	UITextBox* characterNameTextBox;
-	UIImage* dialogueChoiceBox;
-	UIImage* dialogueTextBox;
+	UITextBox* contentTextBox = nullptr;
+	UITextBox* characterNameTextBox = nullptr;
+	UIImage* dialogueChoiceBox = nullptr;
+	UIImage* dialogueTextBox = nullptr;
+
+	UIImage* characterPortraitImage = nullptr;
 
 	///// Btn
 	vector<UIButton*> btns;

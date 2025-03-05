@@ -66,6 +66,15 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("game_title", *textureFactory->CreateTexture("Assets/Textures/General/game_title.png"));
 	AddTextureToStorage("game_title_pixel", *textureFactory->CreateTexture("Assets/Textures/General/game_title_pixel.png"));
 	AddTextureToStorage("top_fade", *textureFactory->CreateTexture("Assets/Textures/General/top_fade.png"));
+	///Characters --> Make Atlas later
+	AddTextureToStorage("cassian_early_idle", *textureFactory->CreateTexture("Assets/Textures/Characters/Cassian-early-idle.png"));
+	AddTextureToStorage("cassian_early_happy", *textureFactory->CreateTexture("Assets/Textures/Characters/Cassian-early-happy.png"));
+	AddTextureToStorage("cassian_early_angry_fade", *textureFactory->CreateTexture("Assets/Textures/Characters/Cassian-early-angry-fade.png"));
+	AddTextureToStorage("cassian_early_sad_fade", *textureFactory->CreateTexture("Assets/Textures/Characters/Cassian-early-sad-fade.png"));
+
+	AddTextureToStorage("artis_early_happy", *textureFactory->CreateTexture("Assets/Textures/Characters/Artis-early-happy.png"));
+	AddTextureToStorage("artis_early_idle", *textureFactory->CreateTexture("Assets/Textures/Characters/Artis-early-idle.png"));
+
 
 	Engine::Instance().m_audio->PlayMusicAsync(GetMusic("mainTheme"), 0);
 

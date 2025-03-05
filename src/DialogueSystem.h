@@ -22,6 +22,11 @@ struct Signal {
     SignalData data;
 };
 
+struct Portrait {
+    string id;
+    string name;
+};
+
 struct Condition {
     string variable;
     variant<bool, float> value;
@@ -34,10 +39,19 @@ struct DialogueChoice {
     string next_node;
 };
 
+
+
+struct DialogueCharacter {
+    string id;
+    string name;
+    vector<Portrait> portraits;
+};
+
 struct DialogueNode {
     string id;
     string text;
-    string characterName;
+    DialogueCharacter character;
+    string portraitId;
     vector<DialogueChoice> choices;
     vector<Condition> conditions;
     vector<Signal> signals;
@@ -52,7 +66,7 @@ public:
     DialogueSystem();
     ~DialogueSystem();
 
-    void LoadDialogue(const map<string, DialogueNode>& new_nodes);
+    void LoadDialogueWorkspace(const string& path);
     void LoadDialogueFromJSON(const string& path); // Nueva función
     void StartDialogue();
     void Update();
@@ -84,6 +98,9 @@ private:
     bool CheckCondition(const Condition& cond);
 
 private:
+    map<string, DialogueCharacter> characters;
+
+
     DialogueNode root_node;
     map<string, DialogueNode> nodes;
     string current_node;
