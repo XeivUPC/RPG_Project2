@@ -148,7 +148,7 @@ void UIDialogueBoxCG::ChangePortrait()
 	characterPortraitImage->SetColor({ 255, 255, 255, 0 });
 	for (size_t i = 0; i < node.character.portraits.size(); i++)
 	{
-		if (node.portraitId.find(node.character.portraits[i].id) != std::string::npos)
+		if (node.character.portraits[i].id.find(node.portraitId) != std::string::npos)
 		{
 			SDL_Texture* tex = Engine::Instance().m_assetsDB->GetTexture(node.character.portraits[i].name);
 			characterPortraitImage->SetSprite(*tex, true, {0,0,64,64});
