@@ -69,13 +69,8 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("game_title_pixel", *textureFactory->CreateTexture("Assets/Textures/General/game_title_pixel.png"));
 	AddTextureToStorage("top_fade", *textureFactory->CreateTexture("Assets/Textures/General/top_fade.png"));
 	///Characters --> Make Atlas later
-	AddTextureToStorage("cassian_early_idle", *textureFactory->CreateTexture("Assets/Textures/Characters/Cassian-early-idle.png"));
-	AddTextureToStorage("cassian_early_happy", *textureFactory->CreateTexture("Assets/Textures/Characters/Cassian-early-happy.png"));
-	AddTextureToStorage("cassian_early_angry_fade", *textureFactory->CreateTexture("Assets/Textures/Characters/Cassian-early-angry-fade.png"));
-	AddTextureToStorage("cassian_early_sad_fade", *textureFactory->CreateTexture("Assets/Textures/Characters/Cassian-early-sad-fade.png"));
-
-	AddTextureToStorage("artis_early_happy", *textureFactory->CreateTexture("Assets/Textures/Characters/Artis-early-happy.png"));
-	AddTextureToStorage("artis_early_idle", *textureFactory->CreateTexture("Assets/Textures/Characters/Artis-early-idle.png"));
+	AddTextureToStorage("character_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/CharactersAtlas.png"));
+	AddAtlasToStorage("character_atlas",*atlasFactory->CreateAtlas(*GetTexture("character_atlas"), "Assets/Textures/Atlas/CharactersAtlas.xml"));
 
 
 	Engine::Instance().m_audio->PlayMusicAsync(GetMusic("mainTheme"), 0);
@@ -267,7 +262,6 @@ bool ModuleAssetDatabase::CleanUp()
 	for (; atlasData.size() != 0;)
 	{
 		atlasFactory->DeleteAtlas(*atlasData.begin()->second);
-		delete atlasData.begin()->second;
 		atlasData.erase(atlasData.begin()->first);
 	}
 	atlasData.clear();

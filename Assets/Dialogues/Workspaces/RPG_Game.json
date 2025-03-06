@@ -33,24 +33,44 @@
                 "name": "Cassian",
                 "portraits": [
                     {
-                        "name": "cassian_early_idle",
+                        "name": "Cassian-early-idle",
                         "path": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-idle.png",
                         "uuid": "4554b69f-5f52-41fa-b69d-5fcd5e366cfa"
                     },
                     {
-                        "name": "cassian_early_sad_fade",
+                        "name": "Cassian-early-sad-fade",
                         "path": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-sad-fade.png",
                         "uuid": "2fbbee9b-fa1a-4790-96b7-d656f33940e2"
                     },
                     {
-                        "name": "cassian_early_angry_fade",
+                        "name": "Cassian-early-angry-fade",
                         "path": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-angry-fade.png",
                         "uuid": "d03c4513-94af-4ced-8686-cb3617097bcd"
                     },
                     {
-                        "name": "cassian_early_happy",
+                        "name": "Cassian-early-happy",
                         "path": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-happy.png",
                         "uuid": "e5f848c7-bdbe-4171-9512-d5286b6b55a5"
+                    },
+                    {
+                        "name": "Cassian-late-idle",
+                        "path": "/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-late-idle.png",
+                        "uuid": "bd5242e9-97df-4563-b008-f220e7658966"
+                    },
+                    {
+                        "name": "Cassian-late-sad-fade",
+                        "path": "/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-late-sad-fade.png",
+                        "uuid": "4cf717fc-0a3b-40a3-b937-92ef0c651e21"
+                    },
+                    {
+                        "name": "Cassian-late-angry-fade",
+                        "path": "/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-late-angry-fade.png",
+                        "uuid": "400f4605-28f4-4658-92cd-5b2490b5648e"
+                    },
+                    {
+                        "name": "Cassian-late-happy",
+                        "path": "/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-late-happy.png",
+                        "uuid": "2285c502-a097-414d-8e6d-b3fcbed2e554"
                     }
                 ],
                 "uuid": "9e488680-eba3-4172-8361-67b08867e5ab"
@@ -59,14 +79,19 @@
                 "name": "Artis",
                 "portraits": [
                     {
-                        "name": "artis_early_idle",
+                        "name": "Artis-early-idle",
                         "path": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
                         "uuid": "4c31dc6e-2dad-4873-8654-5b42cd387e01"
                     },
                     {
-                        "name": "artis_early_happy",
+                        "name": "Artis-early-happy",
                         "path": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-happy.png",
                         "uuid": "4f126967-df0b-4cba-b72e-c6dd4f50f767"
+                    },
+                    {
+                        "name": "Artis-late-idle",
+                        "path": "/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-late-idle.png",
+                        "uuid": "f9ed7dec-dbbf-41ff-a60e-86f682483777"
                     }
                 ],
                 "uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336"

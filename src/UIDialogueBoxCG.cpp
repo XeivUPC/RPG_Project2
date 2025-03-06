@@ -2,6 +2,7 @@
 
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
+#include "AtlasFactory.h"
 #include "DialogueSystem.h"
 #include "DrawingTools.h"
 
@@ -169,8 +170,13 @@ void UIDialogueBoxCG::ChangePortrait()
 	{
 		if (node.character.portraits[i].id.find(node.portraitId) != std::string::npos)
 		{
-			SDL_Texture* tex = Engine::Instance().m_assetsDB->GetTexture(node.character.portraits[i].name);
-			characterPortraitImage->SetSprite(*tex, true, {0,0,64,64});
+			Atlas* atlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
+
+			SDL_Texture* tex = atlas->texture;
+			Vector2Int spritePos = atlas->sprites[node.character.portraits[i].name].position;
+			Vector2Int spriteSize = atlas->sprites[node.character.portraits[i].name].size;
+
+			characterPortraitImage->SetSprite(*tex, true, { spritePos.x, spritePos.y,spriteSize.x,spriteSize.y});
 			characterPortraitImage->SetColor({ 255, 255, 255, 255 });
 			break;
 		}

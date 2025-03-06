@@ -28,17 +28,17 @@ Atlas* AtlasFactory::CreateAtlas(SDL_Texture& texture, const string& xmlInfoPath
 		{
 			string id = spriteNode.attribute("nameId").as_string();
 
-			Vector2 origin;
-			origin.x = spriteNode.attribute("originX").as_float();
-			origin.y = spriteNode.attribute("originY").as_float();
+			Vector2Int origin;
+			origin.x = spriteNode.attribute("originX").as_int();
+			origin.y = spriteNode.attribute("originY").as_int();
 
-			Vector2 position;
-			position.x = spriteNode.attribute("positionX").as_float();
-			position.y = spriteNode.attribute("positionY").as_float();
+			Vector2Int position;
+			position.x = spriteNode.attribute("positionX").as_int();
+			position.y = spriteNode.attribute("positionY").as_int();
 
-			Vector2 size;
-			size.x = spriteNode.attribute("sourceWidth").as_float();
-			size.y = spriteNode.attribute("sourceHeight").as_float();
+			Vector2Int size;
+			size.x = spriteNode.attribute("sourceWidth").as_int();
+			size.y = spriteNode.attribute("sourceHeight").as_int();
 
 			Atlas::AtlasSprite spriteData = Atlas::AtlasSprite{ move(origin), move(position), move(size) };
 			atlas->sprites.emplace(move(id), move(spriteData));

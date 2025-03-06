@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    rTexPacker XML atlas descriptor file (v2.0)
+    Number of packed sprites:     18
+-->
+<AtlasTexture imagePath='atlas.png' width='512' height='512' spriteCount='18' isFont='0' fontSize='32'>
+    <Sprite nameId='Artis-early-happy' originX='0' originY='0' positionX='0' positionY='0' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='5' trimRecY='7' trimRecWidth='52' trimRecHeight='57' />
+    <Sprite nameId='Artis-early-idle' originX='0' originY='0' positionX='64' positionY='0' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='5' trimRecY='7' trimRecWidth='52' trimRecHeight='57' />
+    <Sprite nameId='Artis-late-idle' originX='0' originY='0' positionX='128' positionY='0' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='1' trimRecY='7' trimRecWidth='57' trimRecHeight='57' />
+    <Sprite nameId='Cassian-early-angry-fade' originX='0' originY='0' positionX='192' positionY='0' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='5' trimRecY='4' trimRecWidth='52' trimRecHeight='60' />
+    <Sprite nameId='Cassian-early-happy' originX='0' originY='0' positionX='256' positionY='0' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='5' trimRecY='4' trimRecWidth='52' trimRecHeight='60' />
+    <Sprite nameId='Cassian-early-idle' originX='0' originY='0' positionX='320' positionY='0' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='5' trimRecY='4' trimRecWidth='52' trimRecHeight='60' />
+    <Sprite nameId='Cassian-early-sad-fade' originX='0' originY='0' positionX='384' positionY='0' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='5' trimRecY='4' trimRecWidth='52' trimRecHeight='60' />
+    <Sprite nameId='Cassian-late-angry-fade' originX='0' originY='0' positionX='448' positionY='0' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='1' trimRecY='4' trimRecWidth='58' trimRecHeight='60' />
+    <Sprite nameId='Cassian-late-happy' originX='0' originY='0' positionX='0' positionY='64' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='1' trimRecY='4' trimRecWidth='58' trimRecHeight='60' />
+    <Sprite nameId='Cassian-late-idle' originX='0' originY='0' positionX='64' positionY='64' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='1' trimRecY='4' trimRecWidth='58' trimRecHeight='60' />
+    <Sprite nameId='Cassian-late-sad-fade' originX='0' originY='0' positionX='128' positionY='64' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='1' trimRecY='4' trimRecWidth='58' trimRecHeight='60' />
+    <Sprite nameId='CharlesII-idle' originX='0' originY='0' positionX='192' positionY='64' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='1' trimRecY='0' trimRecWidth='58' trimRecHeight='64' />
+    <Sprite nameId='CharlesII-poisoned' originX='0' originY='0' positionX='256' positionY='64' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='1' trimRecY='0' trimRecWidth='56' trimRecHeight='64' />
+    <Sprite nameId='Edward-early-idle' originX='0' originY='0' positionX='320' positionY='64' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='1' trimRecY='7' trimRecWidth='58' trimRecHeight='57' />
+    <Sprite nameId='Edward-late-idle' originX='0' originY='0' positionX='384' positionY='64' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='1' trimRecY='7' trimRecWidth='58' trimRecHeight='57' />
+    <Sprite nameId='EndoVisMuth-idle' originX='0' originY='0' positionX='448' positionY='64' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='1' trimRecY='7' trimRecWidth='58' trimRecHeight='57' />
+    <Sprite nameId='SilverVanshi-idle' originX='0' originY='0' positionX='0' positionY='128' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='4' trimRecY='7' trimRecWidth='55' trimRecHeight='57' />
+    <Sprite nameId='Zeryn-idle' originX='0' originY='0' positionX='64' positionY='128' sourceWidth='64' sourceHeight='64' padding='0' trimmed='0' trimRecX='1' trimRecY='5' trimRecWidth='56' trimRecHeight='59' />
+</AtlasTexture>
