@@ -33,8 +33,8 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 	AddElementToCanvas(btn);
 
 
-	characterPortraitImage = new UIImage({ 0,510 }, { 64, 64 }, { 0,1 }, true, { 0,0,64,64 }, {255,255,255,255});
-	characterPortraitImage->SetLocalScale(3);
+	characterPortraitImage = new UIImage({ 0,511 }, { 64, 64 }, { 0,1 }, true, { 0,0,64,64 }, {255,255,255,255});
+	characterPortraitImage->SetLocalScale(4);
 	AddElementToCanvas(characterPortraitImage);
 
 
@@ -134,12 +134,7 @@ void UIDialogueBoxCG::CreateChoiceButton(string text, int index, float verticalS
 
 void UIDialogueBoxCG::SignalReader(Signal* signal)
 {
-	if (signal->name == "ChangeDialogue") {
-		if (holds_alternative<string>(signal->data)) {
-			dialogue->LoadDialogueFromJSON(get<string>(signal->data));
-		}
-	}
-	else if (signal->name == "RodrigoStateUpdate") {
+	if (signal->name == "RodrigoStateUpdate") {
 		if (holds_alternative<float>(signal->data)) {
 			rodrigoState = (int)get<float>(signal->data);
 			dialogue->AddGameStateVariable("RodrigoState", (float)rodrigoState);

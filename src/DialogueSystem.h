@@ -95,6 +95,8 @@ public:
 private:
     void ProcessSignals();
     SignalType DetermineSignalType(const SignalData& data);
+    void DoCustomSignalFunctions(Signal* signal);
+
     bool CheckCondition(const Condition& cond);
 
 private:

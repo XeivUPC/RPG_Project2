@@ -1,4 +1,7 @@
 #include "DialogueSystem.h"
+#include "Engine.h"
+#include "ModuleAssetDatabase.h"
+#include "ModuleAudio.h"
 #include <fstream>
 
 DialogueSystem::DialogueSystem()
@@ -256,6 +259,7 @@ void DialogueSystem::ProcessSignals() {
         // Determinar tipo automáticamente
         signal.type = DetermineSignalType(signal.data);
         active_signals.push_back(signal);
+        DoCustomSignalFunctions(&signal);
         TriggerCallbacks(onSignalCall, &signal);
     }
 }
@@ -266,6 +270,25 @@ SignalType DialogueSystem::DetermineSignalType(const SignalData& data) {
     if (holds_alternative<float>(data)) return SignalType::Number;
     if (holds_alternative<Vector2>(data)) return SignalType::Vector2;
     return SignalType::Empty; // Asume que Empty es el último caso
+}
+
+void DialogueSystem::DoCustomSignalFunctions(Signal* signal)
+{
+    if (signal->name == "ChangeDialogue") {
+        if (holds_alternative<string>(signal->data)) {
+            LoadDialogueFromJSON(get<string>(signal->data));
+        }
+    }
+    else if (signal->name == "PlaySFX") {
+        if (holds_alternative<string>(signal->data)) {
+            Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio(get<string>(signal->data)));
+        }
+    }
+    else if (signal->name == "PlayMusic") {
+        if (holds_alternative<string>(signal->data)) {
+            Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic(get<string>(signal->data)),100);
+        }
+    }
 }
 
 bool DialogueSystem::CheckCondition(const Condition& cond) {

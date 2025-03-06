@@ -37,9 +37,11 @@ void ModuleAssetDatabase::LoadAssets()
 //// Sounds
 	////Music
 	AddMusicToStorage("mainTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/Main Theme.ogg"));
+	AddMusicToStorage("patoGallina", *audioFactory->CreateMusic("Assets/Sounds/Music/PatoGallina.ogg"));
 	///SFX
 	AddAudioToStorage("btn_enter", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_enter.wav"));
 	AddAudioToStorage("btn_click", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click.wav"));
+	AddAudioToStorage("miau", *audioFactory->CreateAudio("Assets/Sounds/SFX/Miau.wav"));
 
 //// Fonts
 	AddFontToStorage("monogram", *fontFactory->CreateFont("Assets/Fonts/monogram.ttf", 12));
