@@ -146,10 +146,6 @@ void ModuleAudio::StopMusic()
     }
 
     std::lock_guard<std::mutex> lock(musicMutex);
-    if (Mix_PlayingMusic()) {
-        Mix_HaltMusic();
-        currentMusic = nullptr;
-    }
 
     stopRequested = false;
 }
@@ -164,7 +160,7 @@ bool ModuleAudio::PlayMusic(_Mix_Music* music, int fadeTimeMS)
 
     if (currentMusic != nullptr) {
         if (fadeTimeMS > 0) {
-            Mix_FadeOutMusic(fadeTimeMS);
+            Mix_FadeOutMusic(fadeTimeMS/2);
         }
         else {
             Mix_HaltMusic();
@@ -172,7 +168,7 @@ bool ModuleAudio::PlayMusic(_Mix_Music* music, int fadeTimeMS)
     }
 
     if (fadeTimeMS > 0) {
-        if (Mix_FadeInMusic(music, -1, fadeTimeMS) < 0) {
+        if (Mix_FadeInMusic(music, -1, fadeTimeMS/2) < 0) {
             ret = false;
         }
     }

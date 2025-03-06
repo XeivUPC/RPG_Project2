@@ -134,12 +134,31 @@ void UIDialogueBoxCG::CreateChoiceButton(string text, int index, float verticalS
 
 void UIDialogueBoxCG::SignalReader(Signal* signal)
 {
-	if (signal->name == "RodrigoStateUpdate") {
+	if (signal->name == "ChangeColorText") {
+		if (holds_alternative<string>(signal->data)) {
+
+			//SDL_Color color = ;///Parse
+		}
+	}
+	else if (signal->name == "SetTypewriterMode") {
+		if (holds_alternative<float>(signal->data)) {
+			bool typewriter = (bool)((int)get<float>(signal->data));
+		}
+	}
+	else if (signal->name == "SetTypewriterSpeed") {
+		if (holds_alternative<float>(signal->data)) {
+			float typewriterSpeed = get<float>(signal->data);
+		}
+	}
+	else if (signal->name == "RodrigoStateUpdate") {
 		if (holds_alternative<float>(signal->data)) {
 			rodrigoState = (int)get<float>(signal->data);
 			dialogue->AddGameStateVariable("RodrigoState", (float)rodrigoState);
 		}
 	}
+
+
+	//Change dialogue box
 }
 
 void UIDialogueBoxCG::ChangePortrait()

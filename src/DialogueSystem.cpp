@@ -286,7 +286,7 @@ void DialogueSystem::DoCustomSignalFunctions(Signal* signal)
     }
     else if (signal->name == "PlayMusic") {
         if (holds_alternative<string>(signal->data)) {
-            Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic(get<string>(signal->data)),100);
+            Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic(get<string>(signal->data)),500);
         }
     }
 }
