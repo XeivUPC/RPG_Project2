@@ -37,6 +37,7 @@ void ModuleAssetDatabase::LoadAssets()
 //// Sounds
 	////Music
 	AddMusicToStorage("mainTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/Main Theme.ogg"));
+	AddMusicToStorage("townTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/Town Theme.ogg"));
 	AddMusicToStorage("patoGallina", *audioFactory->CreateMusic("Assets/Sounds/Music/PatoGallina.ogg"));
 	///SFX
 	AddAudioToStorage("btn_enter", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_enter.wav"));

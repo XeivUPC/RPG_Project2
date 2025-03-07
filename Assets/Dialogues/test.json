@@ -1,11 +1,8 @@
 {
-    "root": {
-        "next": "a833535f-934e-4959-8a1f-de35c94d91d4"
-    },
     "a833535f-934e-4959-8a1f-de35c94d91d4": {
-        "name": "Godot2",
-        "character_uuid": "aab9e515-0f7f-48c9-8775-8264ab97f8c7",
-        "portrait": "",
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-idle.png",
         "text": {
             "en": "Hi",
             "fr": ""
@@ -14,9 +11,9 @@
         "next": "c4dbd48e-cfa3-4c05-afa1-281e87ccc2a8"
     },
     "c4dbd48e-cfa3-4c05-afa1-281e87ccc2a8": {
-        "name": "Godot",
-        "character_uuid": "aab9e515-0f7f-48c9-8775-8264ab97f8c7",
-        "portrait": "",
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
         "text": {
             "en": "Do you want to come?",
             "fr": ""
@@ -42,14 +39,14 @@
         ]
     },
     "071b3f9a-e54f-4627-92b3-bb3549397aae": {
-        "name": "Godot",
-        "character_uuid": "aab9e515-0f7f-48c9-8775-8264ab97f8c7",
-        "portrait": "",
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
         "text": {
             "en": "MMMMM, do you want to come?",
             "fr": ""
         },
-        "parent": "d642b98e-edb3-4a25-baec-431dc8b7c1ba",
+        "parent": "05ab91db-405d-40ac-afe2-58282c26ba90",
         "choices": [
             {
                 "text": {
@@ -70,9 +67,9 @@
         ]
     },
     "969b9740-52df-4e05-9304-f757e4951432": {
-        "name": "Godot",
-        "character_uuid": "aab9e515-0f7f-48c9-8775-8264ab97f8c7",
-        "portrait": "",
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
         "text": {
             "en": "WOW",
             "fr": ""
@@ -98,12 +95,12 @@
                 "String": "Hello"
             }
         },
-        "parent": "05ab91db-405d-40ac-afe2-58282c26ba90"
+        "parent": "d642b98e-edb3-4a25-baec-431dc8b7c1ba"
     },
     "dff6c4a6-66f4-4bc6-a5c8-af5d3b85cf67": {
-        "name": "Godot",
-        "character_uuid": "aab9e515-0f7f-48c9-8775-8264ab97f8c7",
-        "portrait": "",
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
         "text": {
             "en": "I love you",
             "fr": ""
@@ -111,14 +108,17 @@
         "parent": "ba4f4c7a-e23c-4900-be39-181f5075cd99"
     },
     "c9a7f4d1-7a64-4d9c-b0f5-ecc943c079fc": {
-        "name": "Godot",
-        "character_uuid": "aab9e515-0f7f-48c9-8775-8264ab97f8c7",
-        "portrait": "",
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
         "text": {
             "en": "I hate you",
             "fr": ""
         },
         "parent": "c7dcef35-0553-4570-9543-65c6dcda626d"
+    },
+    "root": {
+        "next": "a833535f-934e-4959-8a1f-de35c94d91d4"
     },
     "__editor": {
         "root": {

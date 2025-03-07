@@ -1,5 +1,6 @@
 #pragma once
 #include "UICanvas.h"
+#include "StepTimer.h"
 #include <string>
 
 class DialogueSystem;
@@ -7,7 +8,6 @@ class UITextBox;
 class UIButton;
 class UIImage;
 
-struct SDL_Rect;
 struct Signal;
 
 class UIDialogueBoxCG : public UICanvas {
@@ -21,8 +21,10 @@ public:
 private:
 	void CreateChoiceButton(string text, int index, float verticalSpacing);
 	void SignalReader(Signal* signal);
-	void ChangePortrait();
+	void ChangeDialogueNode();
 	void EndDialogue();
+
+	void NextDialogue();
 private:
 	float amistad = 0;
 	UITextBox* contentTextBox = nullptr;
@@ -31,6 +33,13 @@ private:
 	UIImage* dialogueTextBox = nullptr;
 
 	UIImage* characterPortraitImage = nullptr;
+
+
+	////Config
+	bool typewriterMode = true;
+	float typewriterSpeed = 0.05f;
+	string typewriterText = "";
+	StepTimer typewriterTimer;
 
 	///// Btn
 	vector<UIButton*> btns;

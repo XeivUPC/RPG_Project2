@@ -1,6 +1,8 @@
 #include "GameScene.h"
 #include "Engine.h"
 #include "ModuleRender.h"
+#include "ModuleAssetDatabase.h"
+#include "ModuleAudio.h"
 
 #include "FadeCG.h"
 #include "UITestingCG.h"
@@ -28,6 +30,8 @@ bool GameScene::Start()
     canvas = new UITestingCG();
     dialogueCanvas = new UIDialogueBoxCG();
     Engine::Instance().m_render->AddToRenderQueue(*this);
+
+    Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("townTheme"), 1000);
 
     return true;
 }

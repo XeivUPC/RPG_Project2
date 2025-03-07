@@ -1,4 +1,129 @@
 {
+    "0169e41e-1fa8-4571-bca5-e0da0d5ce2c7": {
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "text": {
+            "en": "Bienvenido al Tutorial",
+            "fr": ""
+        },
+        "parent": "b103c060-11b1-4f6e-a7c5-8fd6b30b8f76",
+        "signals": {
+            "parent": "0169e41e-1fa8-4571-bca5-e0da0d5ce2c7",
+            "RodrigoStateUpdate": {
+                "Number": "1"
+            }
+        }
+    },
+    "d10048df-26b6-4d08-90b1-85f9820e1900": {
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "text": {
+            "en": "Hombre, ahora te veo mejor!",
+            "fr": ""
+        },
+        "parent": "7a42fdf3-6045-45a6-a343-7948c478954d",
+        "next": "909981b6-d8f7-4a9b-93ff-8a4fcff82193"
+    },
+    "909981b6-d8f7-4a9b-93ff-8a4fcff82193": {
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "text": {
+            "en": "Quieres follar?",
+            "fr": ""
+        },
+        "parent": "bee504e7-7d68-4536-adf8-a592285e80ea",
+        "choices": [
+            {
+                "text": {
+                    "en": "Si",
+                    "fr": ""
+                },
+                "next": "5a339448-2e1c-4e3e-b1cc-8f10c9292064",
+                "parent": "909981b6-d8f7-4a9b-93ff-8a4fcff82193"
+            },
+            {
+                "text": {
+                    "en": "No",
+                    "fr": ""
+                },
+                "next": "3cfe6ab3-cbe1-4a78-933e-9df41ab05cc7",
+                "parent": "909981b6-d8f7-4a9b-93ff-8a4fcff82193"
+            }
+        ]
+    },
+    "5a339448-2e1c-4e3e-b1cc-8f10c9292064": {
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "text": {
+            "en": "Pos vamos",
+            "fr": ""
+        },
+        "parent": "9be7e044-4e46-47c1-b32a-0d31d19f6a46",
+        "signals": {
+            "parent": "5a339448-2e1c-4e3e-b1cc-8f10c9292064",
+            "RodrigoStateUpdate": {
+                "Number": "2"
+            }
+        }
+    },
+    "3cfe6ab3-cbe1-4a78-933e-9df41ab05cc7": {
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "text": {
+            "en": "vaya, me cago en tus muerto",
+            "fr": ""
+        },
+        "parent": "a502730d-141e-4617-b99c-70321ddc2181",
+        "signals": {
+            "parent": "3cfe6ab3-cbe1-4a78-933e-9df41ab05cc7",
+            "RodrigoStateUpdate": {
+                "Number": "3"
+            }
+        }
+    },
+    "31d4d27a-d14d-4dfe-af69-dccdfefe788a": {
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "text": {
+            "en": "Te veo esta noche vd?",
+            "fr": ""
+        },
+        "parent": "93299aea-046a-41ad-8aa2-a213ec68d6fe",
+        "choices": [
+            {
+                "text": {
+                    "en": "Si",
+                    "fr": ""
+                },
+                "next": "8f255ba7-90ce-4473-baa2-24c0b26d635f",
+                "parent": "31d4d27a-d14d-4dfe-af69-dccdfefe788a"
+            },
+            {
+                "text": {
+                    "en": "No",
+                    "fr": ""
+                },
+                "next": "3cfe6ab3-cbe1-4a78-933e-9df41ab05cc7",
+                "parent": "31d4d27a-d14d-4dfe-af69-dccdfefe788a"
+            }
+        ]
+    },
+    "8f255ba7-90ce-4473-baa2-24c0b26d635f": {
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "text": {
+            "en": "Perfecto",
+            "fr": ""
+        },
+        "parent": "84d2633a-0b75-4a03-9e7e-e04b7b10d44c"
+    },
     "root": {
         "conditions": [
             {
@@ -134,6 +259,14 @@
         ],
         "signals": [
             {
+                "uuid": "e2cf803d-8a9c-4d32-a4c0-6ebe0a17852f",
+                "offset": [
+                    1120,
+                    -760
+                ],
+                "parent": "0169e41e-1fa8-4571-bca5-e0da0d5ce2c7"
+            },
+            {
                 "uuid": "842565d6-8723-471c-b1cc-7dca0d4c562d",
                 "offset": [
                     2660,
@@ -160,14 +293,6 @@
                         "Number": "3"
                     }
                 }
-            },
-            {
-                "uuid": "e2cf803d-8a9c-4d32-a4c0-6ebe0a17852f",
-                "offset": [
-                    1120,
-                    -760
-                ],
-                "parent": "0169e41e-1fa8-4571-bca5-e0da0d5ce2c7"
             }
         ],
         "choices": [
@@ -204,130 +329,5 @@
                 "parent": "31d4d27a-d14d-4dfe-af69-dccdfefe788a"
             }
         ]
-    },
-    "0169e41e-1fa8-4571-bca5-e0da0d5ce2c7": {
-        "name": "Godot",
-        "character_uuid": "aab9e515-0f7f-48c9-8775-8264ab97f8c7",
-        "portrait": "",
-        "text": {
-            "en": "Bienvenido al Tutorial",
-            "fr": ""
-        },
-        "parent": "b103c060-11b1-4f6e-a7c5-8fd6b30b8f76",
-        "signals": {
-            "parent": "0169e41e-1fa8-4571-bca5-e0da0d5ce2c7",
-            "RodrigoStateUpdate": {
-                "Number": "1"
-            }
-        }
-    },
-    "d10048df-26b6-4d08-90b1-85f9820e1900": {
-        "name": "Godot",
-        "character_uuid": "aab9e515-0f7f-48c9-8775-8264ab97f8c7",
-        "portrait": "",
-        "text": {
-            "en": "Hombre, ahora te veo mejor!",
-            "fr": ""
-        },
-        "parent": "7a42fdf3-6045-45a6-a343-7948c478954d",
-        "next": "909981b6-d8f7-4a9b-93ff-8a4fcff82193"
-    },
-    "909981b6-d8f7-4a9b-93ff-8a4fcff82193": {
-        "name": "Godot",
-        "character_uuid": "aab9e515-0f7f-48c9-8775-8264ab97f8c7",
-        "portrait": "",
-        "text": {
-            "en": "Quieres follar?",
-            "fr": ""
-        },
-        "parent": "bee504e7-7d68-4536-adf8-a592285e80ea",
-        "choices": [
-            {
-                "text": {
-                    "en": "Si",
-                    "fr": ""
-                },
-                "next": "5a339448-2e1c-4e3e-b1cc-8f10c9292064",
-                "parent": "909981b6-d8f7-4a9b-93ff-8a4fcff82193"
-            },
-            {
-                "text": {
-                    "en": "No",
-                    "fr": ""
-                },
-                "next": "3cfe6ab3-cbe1-4a78-933e-9df41ab05cc7",
-                "parent": "909981b6-d8f7-4a9b-93ff-8a4fcff82193"
-            }
-        ]
-    },
-    "5a339448-2e1c-4e3e-b1cc-8f10c9292064": {
-        "name": "Godot",
-        "character_uuid": "aab9e515-0f7f-48c9-8775-8264ab97f8c7",
-        "portrait": "",
-        "text": {
-            "en": "Pos vamos",
-            "fr": ""
-        },
-        "parent": "9be7e044-4e46-47c1-b32a-0d31d19f6a46",
-        "signals": {
-            "parent": "5a339448-2e1c-4e3e-b1cc-8f10c9292064",
-            "RodrigoStateUpdate": {
-                "Number": "2"
-            }
-        }
-    },
-    "3cfe6ab3-cbe1-4a78-933e-9df41ab05cc7": {
-        "name": "Godot",
-        "character_uuid": "aab9e515-0f7f-48c9-8775-8264ab97f8c7",
-        "portrait": "",
-        "text": {
-            "en": "vaya, me cago en tus muerto",
-            "fr": ""
-        },
-        "parent": "a502730d-141e-4617-b99c-70321ddc2181",
-        "signals": {
-            "parent": "3cfe6ab3-cbe1-4a78-933e-9df41ab05cc7",
-            "RodrigoStateUpdate": {
-                "Number": "3"
-            }
-        }
-    },
-    "31d4d27a-d14d-4dfe-af69-dccdfefe788a": {
-        "name": "Godot",
-        "character_uuid": "aab9e515-0f7f-48c9-8775-8264ab97f8c7",
-        "portrait": "",
-        "text": {
-            "en": "Te veo esta noche vd?",
-            "fr": ""
-        },
-        "parent": "93299aea-046a-41ad-8aa2-a213ec68d6fe",
-        "choices": [
-            {
-                "text": {
-                    "en": "Si",
-                    "fr": ""
-                },
-                "next": "8f255ba7-90ce-4473-baa2-24c0b26d635f",
-                "parent": "31d4d27a-d14d-4dfe-af69-dccdfefe788a"
-            },
-            {
-                "text": {
-                    "en": "No",
-                    "fr": ""
-                },
-                "next": "3cfe6ab3-cbe1-4a78-933e-9df41ab05cc7",
-                "parent": "31d4d27a-d14d-4dfe-af69-dccdfefe788a"
-            }
-        ]
-    },
-    "8f255ba7-90ce-4473-baa2-24c0b26d635f": {
-        "name": "Godot",
-        "character_uuid": "aab9e515-0f7f-48c9-8775-8264ab97f8c7",
-        "portrait": "",
-        "text": {
-            "en": "Perfecto",
-            "fr": ""
-        },
-        "parent": "84d2633a-0b75-4a03-9e7e-e04b7b10d44c"
     }
 }

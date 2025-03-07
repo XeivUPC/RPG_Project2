@@ -2,6 +2,7 @@
 
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
+#include "ModuleTime.h"
 #include "AtlasFactory.h"
 #include "DialogueSystem.h"
 #include "DrawingTools.h"
@@ -9,6 +10,8 @@
 #include "UIImage.h"
 #include "UIButton.h"
 #include "UITextBox.h"
+
+#include <sstream>
 
 UIDialogueBoxCG::UIDialogueBoxCG()
 {
@@ -29,7 +32,7 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 	AddElementToCanvas(characterNameTextBox);
 
 	UIButton* btn = new UIButton(*tex, { 0,559 }, { 1280,161 }, { 0,0,0,0 }, { 0,0 });
-	btn->onMouseClick.emplace_back([this]() {dialogue->ProcessInput(0); });
+	btn->onMouseClick.emplace_back([this]() {NextDialogue(); });
 	btn->SetLocalScale(1);
 	AddElementToCanvas(btn);
 
@@ -45,14 +48,14 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 	dialogue = new DialogueSystem();
 
 	dialogue->onSignalCall.emplace_back([this](Signal* signal) {SignalReader(signal); });
-	dialogue->onDialogNodeChange.emplace_back([this]() {ChangePortrait(); });
+	dialogue->onDialogNodeChange.emplace_back([this]() {ChangeDialogueNode(); });
 	dialogue->onDialogEnd.emplace_back([this]() {EndDialogue(); });
 
 	dialogue->AddGameStateVariable("friendship", amistad);
 	dialogue->AddGameStateVariable("RodrigoState", (float)rodrigoState);
 
 	dialogue->LoadDialogueWorkspace("Assets/Dialogues/Workspaces/RPG_Game.json");
-	dialogue->LoadDialogueFromJSON("Assets/Dialogues/test3.json");
+	dialogue->LoadDialogueFromJSON("Assets/Dialogues/test2.json");
 	amistad = 10;
 	dialogue->StartDialogue();
 
@@ -72,17 +75,39 @@ void UIDialogueBoxCG::UpdateCanvas()
 	if (dialogue->IsDialogueActive()) {
 		dialogueTextBox->GetColor().a = 255;
 		const DialogueNode& node = dialogue->GetCurrentDialogue();
-		contentTextBox->SetText(node.text);
-		if (node.choices.size() > 1)
+
+		if (typewriterMode) {
+			typewriterTimer.Step(ModuleTime::deltaTime);
+			if (typewriterText != node.text) {
+				if (typewriterTimer.ReadSec() > typewriterSpeed) {
+					typewriterTimer.Start();
+					char c = node.text.at(typewriterText.size());
+					typewriterText += c;
+				}
+			}
+			contentTextBox->SetText(typewriterText);
+		}
+		else {
+
+			contentTextBox->SetText(node.text);
+		}
+
+		if (typewriterMode && typewriterText != node.text) {
+			btns[0]->isEnabled = true;
+			dialogueChoiceBox->GetColor().a = 0;
+			while (btns.size() != 1) {
+				RemoveElementFromCanvas(btns.back());
+				delete btns.back();
+				btns.pop_back();
+			}
+		}
+		else if (node.choices.size() > 1)
 		{
+
 			btns[0]->isEnabled = false;
 			dialogueChoiceBox->GetColor().a = 255;
 
 			if (node.choices.size() == ((int)btns.size()) - 1) {
-				for (int i = 1; i < node.choices.size(); i++)
-				{
-					
-				}
 			}
 			else {	
 				while (btns.size() != 1) {
@@ -135,20 +160,29 @@ void UIDialogueBoxCG::CreateChoiceButton(string text, int index, float verticalS
 
 void UIDialogueBoxCG::SignalReader(Signal* signal)
 {
-	if (signal->name == "ChangeColorText") {
+	if (signal->name == "ChangeTextColor") {
 		if (holds_alternative<string>(signal->data)) {
-
-			//SDL_Color color = ;///Parse
+			vector<int> colorsData;
+			string color = get<string>(signal->data);
+			color.erase(remove(color.begin(), color.end(), ' '));
+			stringstream ss(color);
+			string temp;
+			 
+			while (getline(ss, temp, ','))
+			{
+				colorsData.emplace_back(stoi(temp));
+			}
+			contentTextBox->SetColor({ (unsigned char)colorsData[0], (unsigned char)colorsData[1], (unsigned char)colorsData[2], (unsigned char)colorsData[3] });
 		}
 	}
 	else if (signal->name == "SetTypewriterMode") {
 		if (holds_alternative<float>(signal->data)) {
-			bool typewriter = (bool)((int)get<float>(signal->data));
+			typewriterMode = (bool)((int)get<float>(signal->data));
 		}
 	}
 	else if (signal->name == "SetTypewriterSpeed") {
 		if (holds_alternative<float>(signal->data)) {
-			float typewriterSpeed = get<float>(signal->data);
+			typewriterSpeed = get<float>(signal->data);
 		}
 	}
 	else if (signal->name == "RodrigoStateUpdate") {
@@ -162,8 +196,12 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 	//Change dialogue box
 }
 
-void UIDialogueBoxCG::ChangePortrait()
+void UIDialogueBoxCG::ChangeDialogueNode()
 {
+
+	typewriterText = "";
+
+
 	const DialogueNode& node = dialogue->GetCurrentDialogue();
 	characterPortraitImage->SetColor({ 255, 255, 255, 0 });
 	for (size_t i = 0; i < node.character.portraits.size(); i++)
@@ -189,4 +227,19 @@ void UIDialogueBoxCG::EndDialogue()
 	dialogueTextBox->GetColor().a = 0;
 	contentTextBox->SetText("");
 	characterNameTextBox->SetText("");
+}
+
+void UIDialogueBoxCG::NextDialogue()
+{
+	if (typewriterMode) {
+		if (typewriterText != dialogue->GetCurrentDialogue().text) {
+			typewriterText = dialogue->GetCurrentDialogue().text;
+		}
+		else {
+			dialogue->ProcessInput(0);
+		}
+	}
+	else {
+		dialogue->ProcessInput(0);
+	}
 }
