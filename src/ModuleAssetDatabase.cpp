@@ -7,6 +7,8 @@
 #include "AudioFactory.h"
 #include "FontFactory.h"
 #include "Vector2Int.h"
+#include "AudioContainer.h"
+#include "MusicContainer.h"
 #include "Log.h"
 
 ModuleAssetDatabase::ModuleAssetDatabase(bool start_active) : Module(start_active)
@@ -43,6 +45,10 @@ void ModuleAssetDatabase::LoadAssets()
 	AddAudioToStorage("btn_enter", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_enter.wav"));
 	AddAudioToStorage("btn_click", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click.wav"));
 	AddAudioToStorage("miau", *audioFactory->CreateAudio("Assets/Sounds/SFX/Miau.wav"));
+	AddAudioToStorage("ambient_birds1", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds1.wav"));
+	AddAudioToStorage("ambient_birds2", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds2.wav"));
+
+	AddAudioContainerToStorage("birds_container", *new AudioContainer(AudioContainer::PlayMode::NonRepeatingRandom, {GetAudio("ambient_birds1"),GetAudio("ambient_birds2") }));
 
 //// Fonts
 	AddFontToStorage("monogram", *fontFactory->CreateFont("Assets/Fonts/monogram.ttf", 12));
@@ -142,6 +148,16 @@ Mix_Chunk* ModuleAssetDatabase::GetAudio(const string& audioID)
 	return audioData[audioID];
 }
 
+AudioContainer* ModuleAssetDatabase::GetAudioContainer(const string& audioContainerID)
+{
+	if (!IsAudioContainerLoaded(audioContainerID))
+	{
+		printf("Audio Container File Not Loaded\n");
+		return nullptr;
+	}
+	return audioContainerData[audioContainerID];
+}
+
 _Mix_Music* ModuleAssetDatabase::GetMusic(const string& musicID)
 {
 	if (!IsMusicLoaded(musicID))
@@ -152,9 +168,24 @@ _Mix_Music* ModuleAssetDatabase::GetMusic(const string& musicID)
 	return musicData[musicID];
 }
 
+MusicContainer* ModuleAssetDatabase::GetMusicContainer(const string& musicContainerID)
+{
+	if (!IsMusicContainerLoaded(musicContainerID))
+	{
+		printf("Music Container File Not Loaded\n");
+		return nullptr;
+	}
+	return musicContainerData[musicContainerID];
+}
+
 void ModuleAssetDatabase::AddAudioToStorage(string audioID, Mix_Chunk& audio)
 {
 	audioData[audioID] = &audio;
+}
+
+void ModuleAssetDatabase::AddAudioContainerToStorage(string audioContainerID, AudioContainer& audioContainer)
+{
+	audioContainerData[audioContainerID] = &audioContainer;
 }
 
 void ModuleAssetDatabase::AddMusicToStorage(string musicID, _Mix_Music& music)
@@ -162,9 +193,19 @@ void ModuleAssetDatabase::AddMusicToStorage(string musicID, _Mix_Music& music)
 	musicData[musicID] = &music;
 }
 
+void ModuleAssetDatabase::AddMusicContainerToStorage(string musicContainerID, MusicContainer& musicContainer)
+{
+	musicContainerData[musicContainerID] = &musicContainer;
+}
+
 bool ModuleAssetDatabase::IsAudioLoaded(const string& audioID)
 {
 	return audioData.find(audioID) != audioData.end();
+}
+
+bool ModuleAssetDatabase::IsAudioContainerLoaded(const string& audioContainerID)
+{
+	return audioContainerData.find(audioContainerID) != audioContainerData.end();
 }
 
 bool ModuleAssetDatabase::IsMusicLoaded(const string& musicID)
@@ -172,9 +213,19 @@ bool ModuleAssetDatabase::IsMusicLoaded(const string& musicID)
 	return musicData.find(musicID) != musicData.end();
 }
 
+bool ModuleAssetDatabase::IsMusicContainerLoaded(const string& musicContainerID)
+{
+	return musicContainerData.find(musicContainerID) != musicContainerData.end();
+}
+
 const unordered_map<string, Mix_Chunk*>& ModuleAssetDatabase::GetAllAudioReference()
 {
 	return audioData;
+}
+
+const unordered_map<string, AudioContainer*>& ModuleAssetDatabase::GetAllAudioContainerReference()
+{
+	return audioContainerData;
 }
 
 const unordered_map<string, _Mix_Music*>& ModuleAssetDatabase::GetAllMusicReference()
@@ -182,7 +233,12 @@ const unordered_map<string, _Mix_Music*>& ModuleAssetDatabase::GetAllMusicRefere
 	return musicData;
 }
 
-Atlas* ModuleAssetDatabase::GetAtlas(const string& atlasID)
+const unordered_map<string, MusicContainer*>& ModuleAssetDatabase::GetAllMusicContainerReference()
+{
+	return musicContainerData;
+}
+
+TextureAtlas* ModuleAssetDatabase::GetAtlas(const string& atlasID)
 {
 	if (!IsAtlasLoaded(atlasID))
 	{
@@ -192,7 +248,7 @@ Atlas* ModuleAssetDatabase::GetAtlas(const string& atlasID)
 	return atlasData[atlasID];
 }
 
-void ModuleAssetDatabase::AddAtlasToStorage(string atlasID, Atlas& atlas)
+void ModuleAssetDatabase::AddAtlasToStorage(string atlasID, TextureAtlas& atlas)
 {
 	atlasData[atlasID] = &atlas;
 }
@@ -202,7 +258,7 @@ bool ModuleAssetDatabase::IsAtlasLoaded(const string& atlasID)
 	return atlasData.find(atlasID) != atlasData.end();
 }
 
-const unordered_map<string, Atlas*>& ModuleAssetDatabase::GetAllAtlasReference()
+const unordered_map<string, TextureAtlas*>& ModuleAssetDatabase::GetAllAtlasReference()
 {
 	return atlasData;
 }
@@ -250,6 +306,10 @@ bool ModuleAssetDatabase::CleanUp()
 		audioData.erase(audioData.begin()->first);
 	}
 	audioData.clear();
+	for (auto& [id, container] : audioContainerData) {
+		delete container;
+	}
+	audioContainerData.clear();
 
 	LOG("Freeing music");
 	for (; musicData.size() != 0;)
@@ -258,6 +318,10 @@ bool ModuleAssetDatabase::CleanUp()
 		musicData.erase(musicData.begin()->first);
 	}
 	musicData.clear();
+	for (auto& [id, container] : musicContainerData) {
+		delete container;
+	}
+	musicContainerData.clear();
 
 	LOG("Freeing atlas");
 	for (; atlasData.size() != 0;)
@@ -274,6 +338,7 @@ bool ModuleAssetDatabase::CleanUp()
 		fontData.erase(fontData.begin()->first);
 	}
 	fontData.clear();
+
 
 	delete textureFactory;
 	delete atlasFactory;

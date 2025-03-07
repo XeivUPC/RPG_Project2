@@ -3,7 +3,7 @@
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
 #include "ModuleTime.h"
-#include "AtlasFactory.h"
+#include "TextureAtlas.h"
 #include "DialogueSystem.h"
 #include "DrawingTools.h"
 
@@ -208,7 +208,7 @@ void UIDialogueBoxCG::ChangeDialogueNode()
 	{
 		if (node.character.portraits[i].id.find(node.portraitId) != std::string::npos)
 		{
-			Atlas* atlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
+			TextureAtlas* atlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
 
 			SDL_Texture* tex = atlas->texture;
 			Vector2Int spritePos = atlas->sprites[node.character.portraits[i].name].position;

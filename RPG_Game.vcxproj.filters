@@ -100,6 +100,18 @@
     <Filter Include="Source Files\Utils\Parallax">
       <UniqueIdentifier>{eedc49ea-06e6-4e50-a878-4a28aa2158af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils\Assets\Atlas">
+      <UniqueIdentifier>{2651e0f7-403f-4fad-9708-a76923083fd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Assets\Audio">
+      <UniqueIdentifier>{f520e526-1eee-4664-864f-e60a3983cdaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Assets\Font">
+      <UniqueIdentifier>{f9d1f9b9-e4e0-4098-b1f5-2a91390e2996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Assets\Texture">
+      <UniqueIdentifier>{8497423c-5afe-441b-acc5-869c0aac0d47}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -153,20 +165,11 @@
     <ClCompile Include="src\CollisionSensor.cpp">
       <Filter>Source Files\Utils\Collisions</Filter>
     </ClCompile>
-    <ClCompile Include="src\TextureFactory.cpp">
-      <Filter>Source Files\Utils\Assets</Filter>
-    </ClCompile>
     <ClCompile Include="src\ModuleAssetDatabase.cpp">
       <Filter>Source Files\Modules\Type %28Module%29</Filter>
     </ClCompile>
-    <ClCompile Include="src\AtlasFactory.cpp">
-      <Filter>Source Files\Utils\Assets</Filter>
-    </ClCompile>
     <ClCompile Include="src\ModuleAudio.cpp">
       <Filter>Source Files\Modules\Type %28Module%29</Filter>
-    </ClCompile>
-    <ClCompile Include="src\AudioFactory.cpp">
-      <Filter>Source Files\Utils\Assets</Filter>
     </ClCompile>
     <ClCompile Include="src\DrawingTools.cpp">
       <Filter>Source Files\Utils\Render</Filter>
@@ -210,9 +213,6 @@
     <ClCompile Include="src\UITextBox.cpp">
       <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
     </ClCompile>
-    <ClCompile Include="src\FontFactory.cpp">
-      <Filter>Source Files\Utils\Assets</Filter>
-    </ClCompile>
     <ClCompile Include="src\IntroScene.cpp">
       <Filter>Source Files\Modules\Type %28Module%29\Scenes %28ModuleScene%29</Filter>
     </ClCompile>
@@ -248,6 +248,24 @@
     </ClCompile>
     <ClCompile Include="src\TitleMenuCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AtlasFactory.cpp">
+      <Filter>Source Files\Utils\Assets\Atlas</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AudioFactory.cpp">
+      <Filter>Source Files\Utils\Assets\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FontFactory.cpp">
+      <Filter>Source Files\Utils\Assets\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureFactory.cpp">
+      <Filter>Source Files\Utils\Assets\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AudioContainer.cpp">
+      <Filter>Source Files\Utils\Assets\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MusicContainer.cpp">
+      <Filter>Source Files\Utils\Assets\Audio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -326,17 +344,8 @@
     <ClInclude Include="src\CollisionSensor.h">
       <Filter>Source Files\Utils\Collisions</Filter>
     </ClInclude>
-    <ClInclude Include="src\TextureFactory.h">
-      <Filter>Source Files\Utils\Assets</Filter>
-    </ClInclude>
-    <ClInclude Include="src\AudioFactory.h">
-      <Filter>Source Files\Utils\Assets</Filter>
-    </ClInclude>
     <ClInclude Include="src\ModuleAssetDatabase.h">
       <Filter>Source Files\Modules\Type %28Module%29</Filter>
-    </ClInclude>
-    <ClInclude Include="src\AtlasFactory.h">
-      <Filter>Source Files\Utils\Assets</Filter>
     </ClInclude>
     <ClInclude Include="src\MemLeaks.h">
       <Filter>Source Files\Utils</Filter>
@@ -389,9 +398,6 @@
     <ClInclude Include="src\GameScene.h">
       <Filter>Source Files\Modules\Type %28Module%29\Scenes %28ModuleScene%29</Filter>
     </ClInclude>
-    <ClInclude Include="src\FontFactory.h">
-      <Filter>Source Files\Utils\Assets</Filter>
-    </ClInclude>
     <ClInclude Include="src\Camera.h">
       <Filter>Source Files\Utils\Render</Filter>
     </ClInclude>
@@ -433,6 +439,27 @@
     </ClInclude>
     <ClInclude Include="src\TitleMenuCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AtlasFactory.h">
+      <Filter>Source Files\Utils\Assets\Atlas</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextureAtlas.h">
+      <Filter>Source Files\Utils\Assets\Atlas</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AudioFactory.h">
+      <Filter>Source Files\Utils\Assets\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FontFactory.h">
+      <Filter>Source Files\Utils\Assets\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextureFactory.h">
+      <Filter>Source Files\Utils\Assets\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MusicContainer.h">
+      <Filter>Source Files\Utils\Assets\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AudioContainer.h">
+      <Filter>Source Files\Utils\Assets\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

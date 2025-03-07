@@ -1,6 +1,5 @@
 #pragma once
 #include "UICanvas.h"
-
 class TitleScene;
 
 class TitleMenuCG : public UICanvas {

@@ -3,11 +3,16 @@
 #include "Engine.h"
 #include "ModuleRender.h"
 #include "ModuleCursor.h"
+#include "ModuleTime.h"
+#include "ModuleAudio.h"
+#include "AudioContainer.h"
 #include "ModuleAssetDatabase.h"
 
 #include "FadeCG.h"
 #include "TitleMenuCG.h"
 #include "SettingsCG.h"
+
+#include <random>
 
 TitleScene::TitleScene(bool start_active) : ModuleScene(start_active)
 {
@@ -47,6 +52,10 @@ bool TitleScene::Start()
     Engine::Instance().m_cursor->AddDefaultCursor(Engine::Instance().m_assetsDB->GetTexture("mouse_cursor2"), { 0,0,23,23 }, { -2,-3 }, 2);
     Engine::Instance().m_cursor->SelectDefaultCursor();
 
+
+    mt19937 engine(std::random_device{}());
+    randomSoundTime = uniform_real_distribution<float>(minRandomSoundTime, maxRandomSoundTime)(engine);
+
     return true;
 }
 
@@ -57,6 +66,16 @@ bool TitleScene::PreUpdate()
 
 bool TitleScene::Update()
 {
+    randomSoundTimer.Step(ModuleTime::deltaTime);
+    if (randomSoundTime < randomSoundTimer.ReadSec()) {
+
+        mt19937 engine(std::random_device{}());
+        randomSoundTime = uniform_real_distribution<float>(minRandomSoundTime, maxRandomSoundTime)(engine);
+        randomSoundTimer.Start();
+        Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudioContainer("birds_container")->GetNextClip());
+    }
+
+
     if (settings_canvas->visible || fade->IsFading()) {
         if (canvas->IsInteractable())
             canvas->SetInteractable(false);

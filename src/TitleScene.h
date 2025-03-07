@@ -1,6 +1,7 @@
 #pragma once
 #include "ModuleScene.h"
 #include "IRendereable.h"
+#include "StepTimer.h"
 
 
 class UICanvas;
@@ -38,4 +39,10 @@ private:
 
 	bool starting_game = false;
 	bool newGame = false;
+
+
+	StepTimer randomSoundTimer;
+	float randomSoundTime = 10;
+	float minRandomSoundTime = 5;
+	float maxRandomSoundTime = 15;
 };

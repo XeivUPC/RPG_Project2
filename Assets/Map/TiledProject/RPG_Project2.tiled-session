@@ -3,13 +3,13 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Map1.tmx",
+    "activeFile": "Maps/Testing_Zone.tmx",
     "expandedProjectPaths": [
-        ".",
+        "Objects",
         "Tilesets",
-        "Maps",
         "Prefabs",
-        "Objects"
+        ".",
+        "Maps"
     ],
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
     "fileStates": {
@@ -20,8 +20,16 @@
             "scale": 0.75,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 339.9999999999999,
+                "x": 340,
                 "y": 177.33333333333337
+            }
+        },
+        "Maps/Testing_Zone.tmx": {
+            "scale": 2,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 297,
+                "y": 187.5
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -41,7 +49,7 @@
             "scaleInEditor": 4
         },
         "Tilesets/Floors_Tiles.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 2,
             "scaleInEditor": 4
         },
         "Tilesets/Water_tiles.tsx": {
@@ -57,18 +65,21 @@
             }
         }
     },
+    "last.exportedFilePath": "G:/GitHub/RPG_Project2/Assets/Map/Data",
     "last.imagePath": "G:/GitHub/RPG_Project2/Assets/Textures/Tilesets",
     "last.objectTemplatePath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Objects",
     "map.height": 12,
+    "map.lastUsedExportFilter": "Archivos de mapas de Tiled (*.tmx *.xml)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
-        "Maps/Map1.tmx"
+        "Maps/Testing_Zone.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
     "recentFiles": [
+        "Maps/Testing_Zone.tmx",
         "Maps/Map1.tmx",
         "Tilesets/Floors_Tiles.tsx",
         "Tilesets/Water_tiles.tsx",

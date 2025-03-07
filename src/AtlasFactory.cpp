@@ -12,9 +12,9 @@ AtlasFactory::~AtlasFactory()
 {
 }
 
-Atlas* AtlasFactory::CreateAtlas(SDL_Texture& texture, const string& xmlInfoPath) const
+TextureAtlas* AtlasFactory::CreateAtlas(SDL_Texture& texture, const string& xmlInfoPath) const
 {
-	Atlas* atlas = new Atlas(&texture);
+	TextureAtlas* atlas = new TextureAtlas(&texture);
 
 	xml_document atlasXML;
 	xml_parse_result result = atlasXML.load_file(xmlInfoPath.c_str());
@@ -40,7 +40,7 @@ Atlas* AtlasFactory::CreateAtlas(SDL_Texture& texture, const string& xmlInfoPath
 			size.x = spriteNode.attribute("sourceWidth").as_int();
 			size.y = spriteNode.attribute("sourceHeight").as_int();
 
-			Atlas::AtlasSprite spriteData = Atlas::AtlasSprite{ move(origin), move(position), move(size) };
+			TextureAtlas::AtlasSprite spriteData = TextureAtlas::AtlasSprite{ move(origin), move(position), move(size) };
 			atlas->sprites.emplace(move(id), move(spriteData));
 		}
 	}
@@ -51,7 +51,7 @@ Atlas* AtlasFactory::CreateAtlas(SDL_Texture& texture, const string& xmlInfoPath
 	return atlas;
 }
 
-void AtlasFactory::DeleteAtlas(Atlas& atlas) const
+void AtlasFactory::DeleteAtlas(TextureAtlas& atlas) const
 {
 	delete& atlas;
 }
