@@ -5,16 +5,24 @@
     },
     "activeFile": "Maps/Testing_Zone.tmx",
     "expandedProjectPaths": [
+        "Maps",
         "Objects",
         "Tilesets",
-        "Prefabs",
         ".",
-        "Maps"
+        "Prefabs"
     ],
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
     "fileStates": {
         "": {
             "scaleInDock": 1
+        },
+        "G:/GitHub/RPG_Project2/Assets/Map/Data/Testing_Zone.tmx": {
+            "scale": 2.27703125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 320.15370891374465,
+                "y": 184.0115281685309
+            }
         },
         "Maps/Map1.tmx": {
             "scale": 0.75,
@@ -26,10 +34,10 @@
         },
         "Maps/Testing_Zone.tmx": {
             "scale": 2,
-            "selectedLayer": 0,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 297,
-                "y": 187.5
+                "x": 293.5,
+                "y": 201
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -75,15 +83,19 @@
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
-        "Maps/Testing_Zone.tmx"
+        "Maps/Testing_Zone.tmx",
+        "Tilesets/Floors_Tiles.tsx",
+        "Tilesets/Cave_Tiles.tsx",
+        "Tilesets/Water_tiles.tsx"
     ],
     "project": "RPG_Project2.tiled-project",
     "recentFiles": [
-        "Maps/Testing_Zone.tmx",
-        "Maps/Map1.tmx",
-        "Tilesets/Floors_Tiles.tsx",
         "Tilesets/Water_tiles.tsx",
         "Tilesets/Cave_Tiles.tsx",
+        "Tilesets/Floors_Tiles.tsx",
+        "Maps/Testing_Zone.tmx",
+        "G:/GitHub/RPG_Project2/Assets/Map/Data/Testing_Zone.tmx",
+        "Maps/Map1.tmx",
         "Maps/Water_tiles.tsx",
         "Maps/sin nombre.tmx",
         "sin nombre.tmx"

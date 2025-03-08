@@ -13,13 +13,23 @@ UIToggle::UIToggle(SDL_Texture& _texture, Vector2Int _position, Vector2Int _size
 
 UIToggle::~UIToggle()
 {
-	delete button_component;
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		delete childs[i];
+	}
+	childs.clear();
 }
 
 void UIToggle::UpdateElement()
 {
+
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		childs[i]->UpdateElement();
+	}
+
 	UIElement::UpdateElement();
-	button_component->UpdateElement();
+
 	if (isOn)
 	{
 		button_component->SetState(UIButton::ButtonStates::PRESSED);
@@ -31,7 +41,10 @@ void UIToggle::UpdateElement()
 
 void UIToggle::RenderElement()
 {
-	button_component->RenderElement();
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		childs[i]->RenderElement();
+	}
 }
 
 void UIToggle::RenderElementDebug()

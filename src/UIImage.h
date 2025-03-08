@@ -8,6 +8,8 @@ public:
 	~UIImage();
 
 	// Inherited via UIElement
+	void UpdateElement() override;
+	// Inherited via UIElement
 	void RenderElement() override;
 	// Inherited via UIElement
 	void RenderElementDebug() override;

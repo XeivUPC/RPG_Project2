@@ -20,14 +20,20 @@ UIInputField::~UIInputField()
 	if (writerPointerTexture != nullptr)
 		SDL_DestroyTexture(writerPointerTexture);
 
-	delete textComponent;
-	//delete imageComponent;
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		delete childs[i];
+	}
+	childs.clear();
 }
 
 void UIInputField::UpdateElement()
 {
-	//imageComponent->UpdateElement();
-	textComponent->UpdateElement();
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		childs[i]->UpdateElement();
+	}
+
 	UIElement::UpdateElement();
 
 	ModuleInput* input = Engine::Instance().m_input;
@@ -125,8 +131,7 @@ void UIInputField::UpdateElement()
 
 void UIInputField::RenderElement()
 {
-	//imageComponent->RenderElement();
-	
+
 	if (textComponent->GetText().length() == 0 && !isSelected) {
 		if (dirty || textComponent->GetIfDirty()) {
 			if (defaultTextTexture != nullptr)
@@ -179,10 +184,14 @@ void UIInputField::RenderElement()
 		
 	}
 
-	textComponent->RenderElement();
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		childs[i]->RenderElement();
+	}
 	
-	if (debug)
+	if (debug) {
 		RenderElementDebug();
+	}
 }
 
 void UIInputField::RenderElementDebug()

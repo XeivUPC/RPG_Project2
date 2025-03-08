@@ -28,7 +28,6 @@ public:
 private:
 
 private:
-	//UIImage* imageComponent;
 
 	bool isSelected = false;
 	int writerPointer = -1;

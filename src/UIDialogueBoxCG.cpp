@@ -153,7 +153,6 @@ void UIDialogueBoxCG::CreateChoiceButton(string text, int index, float verticalS
 	textBox->SetParent(btn);
 
 	AddElementToCanvas(btn);
-	AddElementToCanvas(textBox);
 
 	btns.emplace_back(btn);
 }
@@ -200,6 +199,12 @@ void UIDialogueBoxCG::ChangeDialogueNode()
 {
 
 	typewriterText = "";
+
+	while (btns.size() != 1) {
+		RemoveElementFromCanvas(btns.back());
+		delete btns.back();
+		btns.pop_back();
+	}
 
 
 	const DialogueNode& node = dialogue->GetCurrentDialogue();

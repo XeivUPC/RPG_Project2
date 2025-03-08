@@ -112,6 +112,12 @@
     <Filter Include="Source Files\Utils\Assets\Texture">
       <UniqueIdentifier>{8497423c-5afe-441b-acc5-869c0aac0d47}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\GameState">
+      <UniqueIdentifier>{582bd195-dc35-413b-8900-51116ec83f22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameState\Types %28GameState%29">
+      <UniqueIdentifier>{048bf76e-5f2a-4f31-b977-7216760628b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -266,6 +272,9 @@
     </ClCompile>
     <ClCompile Include="src\MusicContainer.cpp">
       <Filter>Source Files\Utils\Assets\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DialogueGameState.cpp">
+      <Filter>Source Files\GameState\Types %28GameState%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -460,6 +469,12 @@
     </ClInclude>
     <ClInclude Include="src\AudioContainer.h">
       <Filter>Source Files\Utils\Assets\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameState.h">
+      <Filter>Source Files\GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DialogueGameState.h">
+      <Filter>Source Files\GameState\Types %28GameState%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

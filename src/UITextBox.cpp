@@ -14,10 +14,21 @@ UITextBox::~UITextBox()
 {
 	if (texture != nullptr)
 		SDL_DestroyTexture(texture);
+
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		delete childs[i];
+	}
+	childs.clear();
 }
 
 void UITextBox::UpdateElement()
 {
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		childs[i]->UpdateElement();
+	}
+
 	UIElement::UpdateElement();
 }
 
@@ -35,6 +46,11 @@ void UITextBox::RenderElement()
 	}
 	else
 		dirty = false;
+
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		childs[i]->RenderElement();
+	}
 
 	if (debug)
 		RenderElementDebug();

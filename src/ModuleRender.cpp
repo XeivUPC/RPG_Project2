@@ -52,6 +52,7 @@ bool ModuleRender::Init()
 			LOG("No se pudo obtener el modo de pantalla: %s", SDL_GetError());
 
 		SDL_RenderSetLogicalSize(renderer, LOGIC_SCREEN_WIDTH, LOGIC_SCREEN_HEIGHT);
+		camera.viewport = { LOGIC_SCREEN_WIDTH, LOGIC_SCREEN_HEIGHT };
 	}
 	return ret;
 }
@@ -61,6 +62,7 @@ bool ModuleRender::Start()
 	LOG("render start");
 
 	drawingTools = new DrawingTools(renderer, camera, cameraMode);
+	
 
 	return true;
 }
@@ -172,7 +174,7 @@ void ModuleRender::SetCameraZoom(float zoom)
 bool ModuleRender::IsRectCameraVisible(const SDL_Rect& rect) const
 {
 	SDL_Rect cameraRect = camera.GetRect();
-	return SDL_HasIntersection(&rect, {});
+	return SDL_HasIntersection(&rect, &cameraRect);
 }
 
 bool ModuleRender::IsPointCameraVisible(const Vector2& point) const

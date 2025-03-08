@@ -12,6 +12,22 @@ UIImage::UIImage(Vector2Int _position, Vector2Int _size, Vector2 _pivot, bool _u
 
 UIImage::~UIImage()
 {
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		delete childs[i];
+	}
+	childs.clear();
+}
+
+void UIImage::UpdateElement()
+{
+
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		childs[i]->UpdateElement();
+	}
+
+	UIElement::UpdateElement();
 }
 
 void UIImage::RenderElement()
@@ -21,8 +37,14 @@ void UIImage::RenderElement()
 	else
 		Engine::Instance().m_render->painter().RenderTexture(*sprite, position, useRect ? &rect : NULL, { scale,scale }, 0, pivot,SDL_FLIP_NONE,color);
 
-	if (debug)
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		childs[i]->RenderElement();
+	}
+
+	if (debug) {
 		RenderElementDebug();
+	}
 }
 
 void UIImage::RenderElementDebug()

@@ -1,36 +1,69 @@
 #pragma once
 #include "Vector2Int.h"
 #include <vector>
+#include <string>
+#include <pugixml.hpp>
+#include <map>
+#include <filesystem>
 
+namespace fs = std::filesystem;
+using namespace pugi;
+using namespace fs;
 using namespace std;
+
 
 struct SDL_Texture;
 struct SDL_Rect;
 
-class Tilemap
-{
-public:
-	Tilemap(SDL_Texture& _texture, Vector2Int _initialPosition, Vector2Int _tileSize, Vector2Int _tilemapSize, vector<int> _tiles, float _scale = 1);
-	~Tilemap();
+struct Tileset {
+    int firstGid=0;
+    int tileCount=0;
+    std::string name="";
+    Vector2Int tileSize = {0,0};
+    int spacing=0;
+    int margin=0;
+    int columns=0;
+    SDL_Texture* texture=nullptr;
+    std::map<int, std::vector<SDL_Rect>> animations;
+};
 
-	void SetTilemapData(SDL_Texture& _texture, Vector2Int _initialPosition, Vector2Int _tileSize, Vector2Int _tilemapSize, vector<int> _tiles,float _scale = 1);
+struct TileLayer {
+    std::string name="";
+    Vector2Int layerSize = {0,0};
+    std::vector<int> tiles;
+    bool visible=false;
+    std::map<std::string, std::string> properties;
+};
 
-	void UpdateTilemap();
-	void RenderTilemap();
+class Tilemap {
 
-private:
-	int GetTileRelativeIndex(int x, int y);
-	void GetTileRect(int gid, SDL_Rect& rect);
-private:
-	Vector2Int initialPosition = { 0,0 };
+    public:
+        Tilemap();
+        Tilemap(string filename);
+        ~Tilemap();
 
-	Vector2Int tileSize;
-	Vector2Int tilemapSize;
+        bool LoadFromXML(string filename);
+        void UpdateTilemap();
+        void RenderTilemap();
 
-	Vector2Int textureSize;
-	SDL_Texture* texture;
+    public:
+        float scale = 1;
+        Vector2Int position = {0,0};
 
-	vector<int> tiles;
+    private:
+        void ParseTileset(xml_node tsNode, const path& basePath);
+        void ParseLayer(xml_node layerNode);
+        void ParseObjectLayer(xml_node objectGroupNode);
+        void GetTileRect(Tileset* tileset, int tileId, SDL_Rect& rect);
+        int GetTileRelativeIndex(int x, int y, const TileLayer& layer) const;
+        Tileset* GetTileset(int gid);
 
-	float scale = 1;
+    private:
+        Vector2Int tileSize = {0,0};
+
+        std::vector<Tileset> tilesets;
+        std::vector<TileLayer> layers;
+        std::vector<TileLayer> objectLayers;
+
+        Tileset* lastTilesetUsed = nullptr;
 };

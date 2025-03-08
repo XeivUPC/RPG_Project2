@@ -19,22 +19,30 @@ UIButton::UIButton(Vector2Int _position, Vector2Int _size, SDL_Rect _defaultRect
 
 UIButton::~UIButton()
 {
-	delete image_Component;
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		delete childs[i];
+	}
+	childs.clear();
 	rects.clear();
 }
 
 void UIButton::UpdateElement()
 {
+
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		childs[i]->UpdateElement();
+	}
+
 	if (!isEnabled) {
 		isMouseHolding = false;
 		SetState(ButtonStates::DISABLED);
-		image_Component->UpdateElement();
 		return;
 	}
 
 	UIElement::UpdateElement();
 
-	
 	ModuleInput* input = Engine::Instance().m_input;
 	KeyState mouseClickState = input->GetMouseButtonDown(SDL_BUTTON_LEFT);
 	
@@ -67,14 +75,17 @@ void UIButton::UpdateElement()
 		SetState(ButtonStates::DEFAULT);
 	}
 
-	image_Component->UpdateElement();
 }
 
 void UIButton::RenderElement()
 {
-	image_Component->RenderElement();
-	if (debug)
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		childs[i]->RenderElement();
+	}
+	if (debug) {
 		RenderElementDebug();
+	}
 }
 
 void UIButton::RenderElementDebug()

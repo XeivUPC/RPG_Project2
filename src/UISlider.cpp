@@ -22,14 +22,19 @@ UISlider::UISlider(SDL_Texture& _bgTexture, Vector2Int _position, Vector2Int _si
 
 UISlider::~UISlider()
 {
-	delete button_component;
-	delete image_component;
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		delete childs[i];
+	}
+	childs.clear();
 }
 
 void UISlider::UpdateElement()
 {
-	image_component->UpdateElement();
-	button_component->UpdateElement();
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		childs[i]->UpdateElement();
+	}
 
 	UIElement::UpdateElement();
 
@@ -66,8 +71,10 @@ void UISlider::UpdateElement()
 
 void UISlider::RenderElement()
 {
-	image_component->RenderElement();
-	button_component->RenderElement();
+	for (size_t i = 0; i < childs.size(); i++)
+	{
+		childs[i]->RenderElement();
+	}
 
 	if (debug)
 		RenderElementDebug();
