@@ -25,9 +25,9 @@ bool ModuleWindow::Init()
 	{
 		
 		width = UserPrefs::Instance().GetInt("screen_width", SCREEN_WIDTH);
-		int min_width = LOGIC_SCREEN_WIDTH;
+		int min_width = MIN_SCREEN_WIDTH;
 		height = UserPrefs::Instance().GetInt("screen_height", SCREEN_HEIGHT);
-		int min_height = LOGIC_SCREEN_HEIGHT;
+		int min_height = MIN_SCREEN_HEIGHT;
 
 		windowTitle = TITLE;
 

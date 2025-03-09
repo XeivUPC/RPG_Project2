@@ -48,7 +48,7 @@ bool GameScene::Start()
 
     ////
 
-    tilemaps.emplace_back(new Tilemap("Assets/Map/Data/Testing_Zone.xml",2));
+    tilemaps.emplace_back(new Tilemap("Assets/Map/Data/Testing_Zone.xml",1));
 
     return true;
 }

@@ -20,8 +20,11 @@ typedef unsigned char uchar;
 #define SCREEN_WIDTH		 1280
 #define SCREEN_HEIGHT		 720
 
-#define LOGIC_SCREEN_WIDTH		 1280
-#define LOGIC_SCREEN_HEIGHT		 720
+#define MIN_SCREEN_WIDTH		 1280
+#define MIN_SCREEN_HEIGHT		 720
+
+#define LOGIC_SCREEN_WIDTH		 640
+#define LOGIC_SCREEN_HEIGHT		 360
 
 #define WIN_FULLSCREEN		false
 #define WIN_RESIZABLE		true

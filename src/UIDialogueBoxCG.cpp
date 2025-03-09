@@ -11,6 +11,8 @@
 #include "UIButton.h"
 #include "UITextBox.h"
 
+#include "Globals.h"
+
 #include <sstream>
 
 UIDialogueBoxCG::UIDialogueBoxCG()
@@ -25,20 +27,20 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 	AddElementToCanvas(dialogueTextBox);
 	AddElementToCanvas(dialogueChoiceBox);
 
-	contentTextBox = new UITextBox("", *font, 32, { 184,132,78,255 }, { 33,582 }, { 1173,117 }, {0,0}, UITextBox::HorizontalAlignment::Left, UITextBox::VerticalAlignment::Top, true);
+	contentTextBox = new UITextBox("", *font, 16, { 184,132,78,255 }, { 16,291 }, { 586,58 }, {0,0}, UITextBox::HorizontalAlignment::Left, UITextBox::VerticalAlignment::Top, true);
 	AddElementToCanvas(contentTextBox);
 
-	characterNameTextBox = new UITextBox("", *font, 32, { 184,132,78,255 }, { 12, 521 }, { 461,37 }, { 0,0 }, UITextBox::HorizontalAlignment::Left, UITextBox::VerticalAlignment::Middle, true);
+	characterNameTextBox = new UITextBox("", *font, 16, { 184,132,78,255 }, { 6, 263 }, { 230,18 }, { 0,0 }, UITextBox::HorizontalAlignment::Left, UITextBox::VerticalAlignment::Middle, true);
 	AddElementToCanvas(characterNameTextBox);
 
-	UIButton* btn = new UIButton(*tex, { 0,559 }, { 1280,161 }, { 0,0,0,0 }, { 0,0 });
+	UIButton* btn = new UIButton(*tex, { 0,279 }, { LOGIC_SCREEN_WIDTH,80 }, { 0,0,0,0 }, { 0,0 });
 	btn->onMouseClick.emplace_back([this]() {NextDialogue(); });
 	btn->SetLocalScale(1);
 	AddElementToCanvas(btn);
 
 
-	characterPortraitImage = new UIImage({ 0,511 }, { 64, 64 }, { 0,1 }, true, { 0,0,64,64 }, {255,255,255,255});
-	characterPortraitImage->SetLocalScale(4);
+	characterPortraitImage = new UIImage({ 0,261 }, { 64, 64 }, { 0,1 }, true, { 0,0,64,64 }, {255,255,255,255});
+	characterPortraitImage->SetLocalScale(1.5f);
 	AddElementToCanvas(characterPortraitImage);
 
 
@@ -117,7 +119,7 @@ void UIDialogueBoxCG::UpdateCanvas()
 				}
 				for (int i = 1; i < node.choices.size() + 1; i++)
 				{
-					CreateChoiceButton(node.choices[i - 1].text, i - 1, 5);
+					CreateChoiceButton(node.choices[i - 1].text, i - 1, 3);
 				}
 			}
 			
@@ -145,11 +147,11 @@ void UIDialogueBoxCG::CreateChoiceButton(string text, int index, float verticalS
 {
 	_TTF_Font* font = Engine::Instance().m_assetsDB->GetFont("alagard");
 
-	UIButton* btn = new UIButton({ 776 ,(int)(247 + verticalSpacing + (45 + verticalSpacing) * index) }, { 470,45 }, { 0,0,0,0 }, { 0,0 }, {148,112,75,255});
+	UIButton* btn = new UIButton({ 388 ,(int)(123 + verticalSpacing + (22 + verticalSpacing) * index) }, { 235,22 }, { 0,0,0,0 }, { 0,0 }, {148,112,75,255});
 
 	btn->onMouseClick.emplace_back([this, index]() {dialogue->ProcessInput(index); });
 
-	UITextBox* textBox = new UITextBox(text, *font, 32, { 184,132,78,255 }, { 0,5 }, { 470,45 }, { 0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle, true);
+	UITextBox* textBox = new UITextBox(text, *font, 16, { 184,132,78,255 }, { 0,2 }, { 235,22 }, { 0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle, true);
 	textBox->SetParent(btn);
 
 	AddElementToCanvas(btn);
