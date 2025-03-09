@@ -177,6 +177,32 @@ bool ModuleRender::IsRectCameraVisible(const SDL_Rect& rect) const
 	return SDL_HasIntersection(&rect, &cameraRect);
 }
 
+bool ModuleRender::IsCircleCameraVisible(const Vector2& center, float radius) const
+{
+	SDL_Rect cameraRect = camera.GetRect();
+
+	// Circle's bounding box
+	SDL_Rect circleBounds;
+	circleBounds.x = (int)(center.x - radius);
+	circleBounds.y = (int)(center.y - radius);
+	circleBounds.w = (int)(radius * 2);
+	circleBounds.h = (int)(radius * 2);
+
+	// Check if the bounding box of the circle intersects with the camera
+	if (!SDL_HasIntersection(&circleBounds, &cameraRect))
+		return false;
+
+	// If the bounding box intersects, do a more precise check
+	Vector2 closestPoint;
+	closestPoint.x = std::clamp(center.x, (float)cameraRect.x, (float)(cameraRect.x + cameraRect.w));
+	closestPoint.y = std::clamp(center.y, (float)cameraRect.y, (float)(cameraRect.y + cameraRect.h));
+
+	float distanceSquared = (center.x - closestPoint.x) * (center.x - closestPoint.x) +
+		(center.y - closestPoint.y) * (center.y - closestPoint.y);
+
+	return distanceSquared <= (radius * radius);
+}
+
 bool ModuleRender::IsPointCameraVisible(const Vector2& point) const
 {
 	SDL_Rect cameraRect = camera.GetRect();

@@ -35,6 +35,7 @@ class ModuleRender : public Module {
 		void SetCameraZoom(float zoom);
 
 		bool IsRectCameraVisible(const SDL_Rect& rect) const;
+		bool IsCircleCameraVisible(const Vector2& center, float radius) const;
 		bool IsPointCameraVisible(const Vector2& point) const;
 		bool IsLineCameraVisible(const Vector2& point1, const Vector2& point2) const;
 	public:

@@ -144,6 +144,10 @@ bool Engine::Update()
 
 bool Engine::CleanUp()
 {
+	sort(list_modules.begin(), list_modules.end(), [](const Module* a, const Module* b) {
+		return a->priority_deleting < b->priority_deleting;
+		});
+
 	bool ret = true;
 	for (auto it = list_modules.rbegin(); it != list_modules.rend() && ret; ++it)
 	{

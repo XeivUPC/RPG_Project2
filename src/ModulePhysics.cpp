@@ -1,18 +1,23 @@
 #include "Engine.h"
 #include "ModulePhysics.h"
+#include "ModuleRender.h"
+#include "ModuleInput.h"
+
 #include "CollisionsDispatcher.h"
 #include "PhysicFactory.h"
 #include "Globals.h"
 #include "ModuleTime.h"
 #include "Log.h"
+#include "DrawingTools.h"
 
 #include <math.h>
 
 
 ModulePhysics::ModulePhysics(bool start_active) : Module(start_active)
 {
-	debug = false;
+	debug = true;
 	collisionsManager = new CollisionsDispatcher();
+	renderLayer = 10;
 }
 
 ModulePhysics::~ModulePhysics()
@@ -33,6 +38,8 @@ bool ModulePhysics::Start()
 
 	world->SetContactListener(collisionsManager);
 
+	Engine::Instance().m_render->AddToRenderQueue(*this);
+
 	return true;
 }
 
@@ -47,7 +54,9 @@ bool ModulePhysics::PreUpdate()
 
 bool ModulePhysics::Update()
 {
-
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN) {
+		debug = !debug;
+	}
 	return true;
 }
 
@@ -67,11 +76,116 @@ bool ModulePhysics::CleanUp()
 	delete collisionsManager;
 	delete physicFactory;
 
-	// Delete the whole physics world!
 	delete ground;
 	delete world;
 
+	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+
 	return true;
+}
+
+void ModulePhysics::Render()
+{
+	if (!debug)
+	{
+		return;
+	} 
+
+	ModuleRender& renderer = *Engine::Instance().m_render;
+	const DrawingTools& painter = renderer.painter();
+
+	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
+	{
+		for (b2Fixture* f = b->GetFixtureList(); f; f = f->GetNext())
+		{
+			b2Shape* shape = f->GetShape();
+			switch (f->GetType())
+			{
+				// Draw circles ------------------------------------------------
+			case b2Shape::e_circle:
+			{
+				b2CircleShape* circleShape = (b2CircleShape*)shape;
+				b2Vec2 pos = b->GetWorldPoint(circleShape->m_p);
+
+				if (renderer.IsCircleCameraVisible({ (float)METERS_TO_PIXELS(pos.x), (float)METERS_TO_PIXELS(pos.y) },(float)METERS_TO_PIXELS(circleShape->m_radius)))
+				{
+					painter.RenderCircle({ METERS_TO_PIXELS(pos.x), METERS_TO_PIXELS(pos.y) },(float)METERS_TO_PIXELS(circleShape->m_radius), {255,255,255,255});
+				}
+			}
+			break;
+
+			case b2Shape::e_chain:
+			{
+				b2ChainShape* chainShape = (b2ChainShape*)shape;
+				b2Vec2 prev, v;
+
+				for (int32 i = 0; i < chainShape->m_count; ++i)
+				{
+					v = b->GetWorldPoint(chainShape->m_vertices[i]);
+					if (i > 0)
+					{
+						if (renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(prev.x), (float)METERS_TO_PIXELS(prev.y) }, {(float)METERS_TO_PIXELS(v.x), (float)METERS_TO_PIXELS(v.y) }))
+						{
+							painter.RenderLine({ METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y) }, {METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y) },{0,255,0,255});
+						}
+					}
+					prev = v;
+				}
+			}
+			break;
+
+			case b2Shape::e_polygon:
+			{
+				b2PolygonShape* polygonShape = (b2PolygonShape*)shape;
+				int32 count = polygonShape->m_count;
+				b2Vec2 prev, v;
+
+				for (int32 i = 0; i < count; ++i)
+				{
+					v = b->GetWorldPoint(polygonShape->m_vertices[i]);
+					if (i > 0)
+					{
+						if (renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(prev.x), (float)METERS_TO_PIXELS(prev.y) }, { (float)METERS_TO_PIXELS(v.x), (float)METERS_TO_PIXELS(v.y) }))
+						{
+							painter.RenderLine({ METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y) }, {METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y) },{ 255,0,0,255 });
+						}
+					}
+					prev = v;
+				}
+
+				v = b->GetWorldPoint(polygonShape->m_vertices[0]);
+
+				if (renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(prev.x), (float)METERS_TO_PIXELS(prev.y) }, { (float)METERS_TO_PIXELS(v.x), (float)METERS_TO_PIXELS(v.y) }))
+				{
+					painter.RenderLine({ METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y) }, {METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y) },{ 255,0,0,255 });
+				}
+			}
+			break;
+
+			case b2Shape::e_edge:
+			{
+				b2EdgeShape* edgeShape = (b2EdgeShape*)shape;
+				b2Vec2 v1 = b->GetWorldPoint(edgeShape->m_vertex0);
+				b2Vec2 v2 = b->GetWorldPoint(edgeShape->m_vertex1);
+				if(renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(v1.x), (float)METERS_TO_PIXELS(v1.y) }, { (float)METERS_TO_PIXELS(v2.x), (float)METERS_TO_PIXELS(v2.y) }))
+				{
+					painter.RenderLine({ METERS_TO_PIXELS(v1.x), METERS_TO_PIXELS(v1.y) }, {METERS_TO_PIXELS(v2.x), METERS_TO_PIXELS(v2.y) },{ 0,0,255,255 });
+				}
+			}
+			break;
+			}
+		}
+	}
+
+	for (b2Joint* j = world->GetJointList(); j; j = j->GetNext())
+	{
+		b2Vec2 anchorA = j->GetAnchorA();
+		b2Vec2 anchorB = j->GetAnchorB();
+
+		painter.RenderCircle({ METERS_TO_PIXELS(anchorA.x), METERS_TO_PIXELS(anchorA.y) }, 4, { 0,255,255,255 });
+		painter.RenderCircle({ METERS_TO_PIXELS(anchorB.x), METERS_TO_PIXELS(anchorB.y) }, 4, { 0,255,255,255 });
+		painter.RenderLine({ METERS_TO_PIXELS(anchorA.x), METERS_TO_PIXELS(anchorA.y) }, { METERS_TO_PIXELS(anchorB.x), METERS_TO_PIXELS(anchorB.y) }, { 0,0,255,255 });
+	}
 }
 
 bool ModulePhysics::IsDebugActive()

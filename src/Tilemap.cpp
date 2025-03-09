@@ -1,6 +1,8 @@
 #include "Tilemap.h"
 #include "Engine.h"
 #include "ModuleRender.h"
+#include "ModulePhysics.h"
+#include "PhysicFactory.h"
 #include "Camera.h"
 #include "ModuleAssetDatabase.h"
 #include "DrawingTools.h"
@@ -8,21 +10,18 @@
 
 #include <sstream>
 
-Tilemap::Tilemap()
+Tilemap::Tilemap(string filename, float _scale)
 {
-}
-
-Tilemap::Tilemap(string filename)
-{
-    LoadFromXML(move(filename));
+    LoadFromXML(move(filename), _scale);
 }
 
 Tilemap::~Tilemap()
 {
 }
 
-bool Tilemap::LoadFromXML(string filename)
+bool Tilemap::LoadFromXML(string filename, float _scale)
 {
+    scale = _scale;
     xml_document doc;
     xml_parse_result result = doc.load_file(filename.c_str());
 
@@ -208,28 +207,15 @@ void Tilemap::ParseLayer(xml_node layerNode)
 
 void Tilemap::ParseObjectLayer(xml_node objectGroupNode)
 {
-    TileLayer objectLayer;
+    ObjectLayer objectLayer;
     objectLayer.name = objectGroupNode.attribute("name").as_string();
-    objectLayer.visible = objectGroupNode.attribute("visible").as_bool(true);
 
-    for (xml_node objNode : objectGroupNode.children("object")) {
-        map<string, string> objProperties;
-        Vector2Int position = {
-            static_cast<int>(objNode.attribute("x").as_float()),
-            static_cast<int>(objNode.attribute("y").as_float())
-        };
 
-        objProperties["id"] = to_string(objNode.attribute("id").as_int());
-        objProperties["name"] = objNode.attribute("name").as_string();
-        objProperties["width"] = to_string(objNode.attribute("width").as_int());
-        objProperties["height"] = to_string(objNode.attribute("height").as_int());
-
-        if (xml_node objProps = objNode.child("properties")) {
-            for (xml_node propNode : objProps.children("property")) {
-                const char* name = propNode.attribute("name").as_string();
-                const char* value = propNode.attribute("value").as_string();
-                objProperties[name] = value;
-            }
+    if (xml_node propertiesNode = objectGroupNode.child("properties")) {
+        for (xml_node propNode : propertiesNode.children("property")) {
+            const char* name = propNode.attribute("name").as_string();
+            const char* value = propNode.attribute("value").as_string();
+            objectLayer.properties[name] = value;
         }
     }
 

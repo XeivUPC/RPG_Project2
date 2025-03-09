@@ -24,25 +24,29 @@ struct Tileset {
     int margin=0;
     int columns=0;
     SDL_Texture* texture=nullptr;
-    std::map<int, std::vector<SDL_Rect>> animations;
+    map<int, vector<SDL_Rect>> animations;
 };
 
 struct TileLayer {
-    std::string name="";
+    string name="";
     Vector2Int layerSize = {0,0};
-    std::vector<int> tiles;
+    vector<int> tiles;
     bool visible=false;
-    std::map<std::string, std::string> properties;
+    map<string, string> properties;
+};
+
+struct ObjectLayer {
+    string name = "";
+    map<string, string> properties;
 };
 
 class Tilemap {
 
     public:
-        Tilemap();
-        Tilemap(string filename);
+        Tilemap(string filename, float _scale = 1);
         ~Tilemap();
 
-        bool LoadFromXML(string filename);
+        bool LoadFromXML(string filename, float _scale = 1);
         void UpdateTilemap();
         void RenderTilemap();
 
@@ -61,9 +65,9 @@ class Tilemap {
     private:
         Vector2Int tileSize = {0,0};
 
-        std::vector<Tileset> tilesets;
-        std::vector<TileLayer> layers;
-        std::vector<TileLayer> objectLayers;
+        vector<Tileset> tilesets;
+        vector<TileLayer> layers;
+        vector<ObjectLayer> objectLayers;
 
         Tileset* lastTilesetUsed = nullptr;
 };

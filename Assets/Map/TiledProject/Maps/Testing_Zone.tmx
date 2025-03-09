@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="51" height="31" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="9">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="51" height="31" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="27">
  <editorsettings>
   <export target="../../Data/Testing_Zone.xml" format="tmx"/>
  </editorsettings>
@@ -152,6 +152,48 @@
   </object>
   <object id="8" name="NPC" x="340.125" y="287.625" width="34.75" height="34.75">
    <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup id="9" name="FixedCollisions">
+  <properties>
+   <property name="dsa" value=""/>
+  </properties>
+  <object id="9" x="179.636" y="240" width="24.3636" height="12.5455">
+   <ellipse/>
+  </object>
+  <object id="10" x="291.568" y="288.227" width="24.3636" height="12.5455">
+   <ellipse/>
+  </object>
+  <object id="11" x="340.152" y="208.394" width="24.3636" height="12.5455">
+   <ellipse/>
+  </object>
+  <object id="12" x="515.818" y="209.394" width="24.3636" height="12.5455">
+   <ellipse/>
+  </object>
+  <object id="14" x="483.909" y="320.03" width="24.3636" height="12.5455">
+   <ellipse/>
+  </object>
+  <object id="15" x="403.943" y="96.3522" width="24.3636" height="12.5455">
+   <ellipse/>
+  </object>
+  <object id="16" x="340" y="16.6363" width="24.3636" height="12.5455">
+   <ellipse/>
+  </object>
+  <object id="17" x="99.9432" y="79.9772" width="24.3636" height="12.5455">
+   <ellipse/>
+  </object>
+  <object id="18" x="51.8182" y="224.091" width="24.3636" height="12.5455">
+   <ellipse/>
+  </object>
+  <object id="19" x="612.091" y="31.9091" width="24.3636" height="12.5455">
+   <ellipse/>
+  </object>
+  <object id="22" x="213.333" y="62">
+   <polygon points="0,0 10.6667,34 -37.3333,34"/>
+  </object>
+  <object id="23" x="249.333" y="89.3333" width="34" height="33.3333"/>
+  <object id="24" x="208.667" y="129.333">
+   <point/>
   </object>
  </objectgroup>
 </map>

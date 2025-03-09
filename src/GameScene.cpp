@@ -48,8 +48,7 @@ bool GameScene::Start()
 
     ////
 
-    tilemaps.emplace_back(new Tilemap("Assets/Map/Data/Testing_Zone.xml"));
-    tilemaps[0]->scale = 2;
+    tilemaps.emplace_back(new Tilemap("Assets/Map/Data/Testing_Zone.xml",2));
 
     return true;
 }

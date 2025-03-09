@@ -2,6 +2,7 @@
 
 ModuleScene::ModuleScene(bool start_active) : Module(start_active)
 {
+    priority_deleting = 1;
 }
 
 ModuleScene::~ModuleScene()

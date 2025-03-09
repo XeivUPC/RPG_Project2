@@ -40,5 +40,9 @@ class Module : public IInitializable, public IUpdateable, public IActivable, pub
 	
 	private:
 		bool isEnabled = true;
+	
+	protected:
 
+	protected:
+		unsigned int priority_deleting = 0;
 };

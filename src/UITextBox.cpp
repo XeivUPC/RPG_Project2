@@ -12,8 +12,9 @@ UITextBox::UITextBox(string _text,_TTF_Font& _font, int _fontSize, SDL_Color _co
 
 UITextBox::~UITextBox()
 {
-	if (texture != nullptr)
+	if (texture != nullptr) {
 		SDL_DestroyTexture(texture);
+	}
 
 	for (size_t i = 0; i < childs.size(); i++)
 	{

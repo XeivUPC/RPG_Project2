@@ -1,12 +1,13 @@
 #pragma once
 
 #include "Module.h"
+#include "IRendereable.h"
 #include "Globals.h"
 #include "Vector2.h"
 #include "box2d/box2d.h"
 
 
-#define PIXELS_PER_METER 16.0f // if touched change METER_PER_PIXEL too
+#define PIXELS_PER_METER 16.0f
 #define METER_PER_PIXEL 1/PIXELS_PER_METER // this is 1 / PIXELS_PER_METER !
 
 #define METERS_TO_PIXELS(m) ((int) floor(PIXELS_PER_METER * m))
@@ -149,9 +150,20 @@ class PhysicFactory;
 class CollisionsDispatcher;
 
 // Module --------------------------------------
-class ModulePhysics : public Module
+class ModulePhysics : public Module, public IRendereable
 {
 	friend class Engine;
+
+	union Layer {
+		Uint16 rawValue = 0;
+		struct internalFlags {
+			char default_layer : 1;
+			char ground_layer : 1;
+			char player_layer : 1;
+			char interactable_layer : 1;
+		}flags;
+	};
+
 	public:
 		ModulePhysics(bool start_active = true);
 		~ModulePhysics();
@@ -175,6 +187,8 @@ class ModulePhysics : public Module
 		bool Update() override;
 		// Inherited via IUpdateable
 		bool PostUpdate() override;
+		// Inherited via IRendereable
+		void Render() override;
 		// Inherited via ICleanable
 		bool CleanUp() override;
 
@@ -185,4 +199,6 @@ class ModulePhysics : public Module
 
 		CollisionsDispatcher* collisionsManager = nullptr;
 		PhysicFactory* physicFactory = nullptr;
+
+		
 };

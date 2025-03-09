@@ -5,8 +5,8 @@
     },
     "activeFile": "Maps/Testing_Zone.tmx",
     "expandedProjectPaths": [
-        "Maps",
         "Objects",
+        "Maps",
         "Tilesets",
         ".",
         "Prefabs"
@@ -33,11 +33,11 @@
             }
         },
         "Maps/Testing_Zone.tmx": {
-            "scale": 2,
-            "selectedLayer": 3,
+            "scale": 1.5,
+            "selectedLayer": 5,
             "viewCenter": {
-                "x": 293.5,
-                "y": 201
+                "x": 311.33333333333326,
+                "y": 174.66666666666669
             }
         },
         "Maps/Water_tiles.tsx": {
