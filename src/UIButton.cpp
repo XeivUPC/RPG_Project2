@@ -53,7 +53,7 @@ void UIButton::UpdateElement()
 			isMouseHolding = true;
 		}
 		else if (mouseClickState == KEY_REPEAT) {
-			isMouseHolding = true;
+			//isMouseHolding = true;
 			SetState(ButtonStates::PRESSED);
 		}
 		else if (mouseClickState == KEY_UP) {

@@ -75,8 +75,8 @@ SettingsCG::SettingsCG()
 
 
 	///// VSync Settings
-	/*UIToggle* vSync_toggle = new UIToggle(*toggle_texture, { LOGIC_SCREEN_WIDTH / 2,240 }, { 19,19 }, { 0,0,19,19 }, { 19,0,19,19 }, { 0.5,0.5 }, true);
-	vSync_toggle->SetLocalScale(1.5f);*/
+	UIToggle* vSync_toggle = new UIToggle(*toggle_texture, { LOGIC_SCREEN_WIDTH / 2,290 }, { 19,19 }, { 0,0,19,19 }, { 19,0,19,19 }, { 0.5,0.5 }, true);
+	vSync_toggle->SetLocalScale(1.5f);
 
 
 	///// AddElements
@@ -90,5 +90,5 @@ SettingsCG::SettingsCG()
 	AddElementToCanvas(musicAudio_text);
 	AddElementToCanvas(sfxAudio_slider);
 	AddElementToCanvas(sfxAudio_text);
-	//AddElementToCanvas(vSync_toggle);
+	AddElementToCanvas(vSync_toggle);
 }
