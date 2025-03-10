@@ -83,6 +83,10 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("water_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Water_Tiles.png"));
 	AddTextureToStorage("cave_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Cave_Tiles.png"));
 
+	AddTextureToStorage("building_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/Buildings/BuildingsAtlas.png"));
+	AddAtlasToStorage("building_atlas", *atlasFactory->CreateAtlas(*GetTexture("building_atlas"), "Assets/Textures/Atlas/Buildings/BuildingsAtlas.xml"));
+
+
 
 	Engine::Instance().m_audio->PlayMusicAsync(GetMusic("mainTheme"), 0);
 

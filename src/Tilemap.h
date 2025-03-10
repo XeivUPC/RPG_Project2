@@ -23,7 +23,8 @@ struct Tileset {
     int spacing=0;
     int margin=0;
     int columns=0;
-    SDL_Texture* texture=nullptr;
+    SDL_Texture* tilesetImage=nullptr;
+    map<int, string> imageCollection;
     map<int, vector<SDL_Rect>> animations;
 };
 

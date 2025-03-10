@@ -33,11 +33,11 @@
             }
         },
         "Maps/Testing_Zone.tmx": {
-            "scale": 1.5,
-            "selectedLayer": 5,
+            "scale": 0.5,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 311.33333333333326,
-                "y": 174.66666666666669
+                "x": 420,
+                "y": 172
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -52,17 +52,30 @@
                 "y": 96.09759912411045
             }
         },
+        "Tilesets/Building_Atlas.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        },
         "Tilesets/Cave_Tiles.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 2,
             "scaleInEditor": 4
         },
         "Tilesets/Floors_Tiles.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 2,
             "scaleInEditor": 4
         },
         "Tilesets/Water_tiles.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 3,
             "scaleInEditor": 4
+        },
+        "Tilesets/dsa.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 0.33,
+            "scaleInEditor": 1
         },
         "sin nombre.tmx": {
             "scale": 2,
@@ -74,10 +87,10 @@
         }
     },
     "last.exportedFilePath": "G:/GitHub/RPG_Project2/Assets/Map/Data",
-    "last.imagePath": "G:/GitHub/RPG_Project2/Assets/Textures/Tilesets",
+    "last.imagePath": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Building/Single",
     "last.objectTemplatePath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Objects",
     "map.height": 12,
-    "map.lastUsedExportFilter": "Archivos de mapas de Tiled (*.tmx *.xml)",
+    "map.lastUsedExportFilter": "All Files (*)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
@@ -90,10 +103,12 @@
     ],
     "project": "RPG_Project2.tiled-project",
     "recentFiles": [
+        "Tilesets/Building_Atlas.tsx",
         "Tilesets/Water_tiles.tsx",
         "Tilesets/Cave_Tiles.tsx",
         "Tilesets/Floors_Tiles.tsx",
         "Maps/Testing_Zone.tmx",
+        "Tilesets/dsa.tsx",
         "G:/GitHub/RPG_Project2/Assets/Map/Data/Testing_Zone.tmx",
         "Maps/Map1.tmx",
         "Maps/Water_tiles.tsx",
