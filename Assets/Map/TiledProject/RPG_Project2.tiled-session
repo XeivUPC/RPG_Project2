@@ -32,12 +32,20 @@
                 "y": 177.33333333333337
             }
         },
+        "Maps/Rogue_Squadron_Headquarters.tmx": {
+            "scale": 3,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 144.33333333333331,
+                "y": 187
+            }
+        },
         "Maps/Testing_Zone.tmx": {
             "scale": 1.5,
-            "selectedLayer": 5,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 311.33333333333326,
-                "y": 174.66666666666669
+                "x": 551.3333333333334,
+                "y": 277.33333333333326
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -73,7 +81,7 @@
             }
         }
     },
-    "last.exportedFilePath": "G:/GitHub/RPG_Project2/Assets/Map/Data",
+    "last.exportedFilePath": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Map/Data",
     "last.imagePath": "G:/GitHub/RPG_Project2/Assets/Textures/Tilesets",
     "last.objectTemplatePath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Objects",
     "map.height": 12,
@@ -90,6 +98,7 @@
     ],
     "project": "RPG_Project2.tiled-project",
     "recentFiles": [
+        "Maps/Rogue_Squadron_Headquarters.tmx",
         "Tilesets/Water_tiles.tsx",
         "Tilesets/Cave_Tiles.tsx",
         "Tilesets/Floors_Tiles.tsx",
