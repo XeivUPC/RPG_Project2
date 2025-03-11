@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 #include <pugixml.hpp>
-#include <map>
+#include <unordered_map>
 #include <filesystem>
 
 namespace fs = std::filesystem;
@@ -24,8 +24,9 @@ struct Tileset {
     int margin=0;
     int columns=0;
     SDL_Texture* tilesetImage=nullptr;
-    map<int, string> imageCollection;
-    map<int, vector<SDL_Rect>> animations;
+    unordered_map<int, string> imageCollection;
+    unordered_map<int, vector<SDL_Rect>> animations;
+    vector<int> ignoredTiles;
 };
 
 struct TileLayer {
@@ -33,12 +34,12 @@ struct TileLayer {
     Vector2Int layerSize = {0,0};
     vector<int> tiles;
     bool visible=false;
-    map<string, string> properties;
+    unordered_map<string, string> properties;
 };
 
 struct ObjectLayer {
     string name = "";
-    map<string, string> properties;
+    unordered_map<string, string> properties;
 };
 
 class Tilemap {

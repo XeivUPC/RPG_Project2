@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!--
     rTexPacker XML atlas descriptor file (v2.0)
-    Number of packed sprites:     1
+    Number of packed sprites:     3
 -->
-<AtlasTexture imagePath='BuildingsAtlas.png' width='1024' height='1024' spriteCount='1' isFont='0' fontSize='32'>
+<AtlasTexture imagePath='atlas.png' width='512' height='512' spriteCount='3' isFont='0' fontSize='32'>
     <Sprite nameId='tent1' originX='0' originY='0' positionX='0' positionY='0' sourceWidth='96' sourceHeight='107' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='96' trimRecHeight='107' />
+    <Sprite nameId='tent2' originX='0' originY='0' positionX='96' positionY='0' sourceWidth='96' sourceHeight='107' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='96' trimRecHeight='107' />
+    <Sprite nameId='tent3' originX='0' originY='0' positionX='192' positionY='0' sourceWidth='96' sourceHeight='107' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='96' trimRecHeight='107' />
 </AtlasTexture>

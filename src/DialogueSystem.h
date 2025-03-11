@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include <variant>
 #include <nlohmann/json.hpp>
 #include <functional>
@@ -104,14 +104,14 @@ private:
 
 
     DialogueNode root_node;
-    map<string, DialogueNode> nodes;
+    unordered_map<string, DialogueNode> nodes;
     string current_node;
     string previous_node; // Para detectar cambios
     vector<Signal> active_signals;
     bool dialogue_active = false;
 
     // Variables de estado del juego
-    map<string, variant<bool, float>> game_state;
+    unordered_map<string, variant<bool, float>> game_state;
 protected:
     void TriggerCallbacks(vector<function<void()>>& callbacks);
     void TriggerCallbacks(vector<function<void(Signal*)>>& callbacks, Signal* _value);

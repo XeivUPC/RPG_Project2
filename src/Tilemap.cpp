@@ -81,8 +81,11 @@ void Tilemap::RenderTilemap()
     int endX = (int)(((cameraRect.x + cameraRect.w) - position.x) / (tileSize.x * scale) + 1);
     int endY = (int)(((cameraRect.y + cameraRect.h) - position.y) / (tileSize.y * scale) + 1);
 
+
     startX = std::max(0, startX);
     startY = std::max(0, startY);
+
+    ///FIX OUT OF BOUNDS RENDERING
 
     for (const auto& layer : layers) {
         if (!layer.visible) continue;
@@ -104,11 +107,13 @@ void Tilemap::RenderTilemap()
                     int nextGid = lastTilesetUsed->firstGid + lastTilesetUsed->tileCount;
                     if (gid < nextGid) {
                         tileset = lastTilesetUsed;
-                    } 
+                    }
                 }
-                if(tileset==nullptr)
+                if (!tileset) {
                     tileset = GetTileset(gid);
-                if (!tileset) continue;
+                    if (!tileset)
+                        continue;
+                }
 
                 const int tileId = gid - tileset->firstGid;
                 if (!tileset->tilesetImage) {
@@ -138,7 +143,6 @@ void Tilemap::RenderTilemap()
             }
         }
     }
-
 }
 
 
@@ -165,6 +169,19 @@ void Tilemap::ParseTileset(xml_node tsNode, const path& basePath)
         tileset.spacing = tsxNode.attribute("spacing").as_int(0);
         tileset.margin = tsxNode.attribute("margin").as_int(0);
         tileset.columns = tsxNode.attribute("columns").as_int();
+
+        for (xml_node tileNode : tsxNode.children("tile")) {
+            int tileId = tileNode.attribute("id").as_int();
+            if (xml_node propertiesNode = tileNode.child("properties")) {
+                for (xml_node propNode : propertiesNode.children("property")) {
+                    string name = propNode.attribute("name").as_string();
+                    string value = propNode.attribute("value").as_string();
+                    if (name == "ignore" && value == "true") {
+                        tileset.ignoredTiles.emplace_back(tileId);
+                    }
+                }
+            }
+        }
 
         xml_node imageNode = tsxNode.child("image");
         if (imageNode) {
@@ -235,7 +252,17 @@ void Tilemap::ParseLayer(xml_node layerNode)
 
             while (getline(ss, token, ',')) {
                 if (!token.empty()) {
-                    layer.tiles.push_back(stoi(token));
+                    const int id = stoi(token);
+                    Tileset* tileset = GetTileset(id);       
+                    bool isIgnored = false;
+                    if (tileset) {
+                        const int relativeId = id - tileset->firstGid;
+                        isIgnored = find(tileset->ignoredTiles.begin(), tileset->ignoredTiles.end(), relativeId) != tileset->ignoredTiles.end();
+                    }
+                    if(!isIgnored)
+                        layer.tiles.push_back(id);
+                    else
+                        layer.tiles.push_back(0);
                 }
             }
         }
