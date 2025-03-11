@@ -1,7 +1,8 @@
 #pragma once
 #include "ModuleScene.h"
-#include "IRendereable.h"
+#include "Entity.h"
 #include <unordered_map>
+#include <vector>
 
 
 class UICanvas;
@@ -10,7 +11,7 @@ class UIDialogueBoxCG;
 class GameState;
 class Tilemap;
 
-class GameScene : public ModuleScene, public IRendereable{
+class GameScene : public ModuleScene{
 	friend class Engine;
 	friend class DialogueGameState;
 public:
@@ -38,8 +39,6 @@ private:
 	bool Update() override;
 	// Inherited via IUpdateable
 	bool PostUpdate() override;
-	// Inherited via IRendereable
-	void Render() override;
 	// Inherited via ICleanable
 	bool CleanUp() override;
 
@@ -58,6 +57,7 @@ private:
 
 	/// Map
 	vector<Tilemap*> tilemaps;
+	vector<Entity*> entities;
 
 	/// Extra
 };

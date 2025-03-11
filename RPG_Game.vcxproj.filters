@@ -246,9 +246,6 @@
     <ClCompile Include="src\UIDialogueBoxCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29\Testing</Filter>
     </ClCompile>
-    <ClCompile Include="src\UITestingCG.cpp">
-      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29\Testing</Filter>
-    </ClCompile>
     <ClCompile Include="src\SettingsCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClCompile>
@@ -275,6 +272,9 @@
     </ClCompile>
     <ClCompile Include="src\DialogueGameState.cpp">
       <Filter>Source Files\GameState\Types %28GameState%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Building.cpp">
+      <Filter>Source Files\Entities\Type %28Entity%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -440,9 +440,6 @@
     <ClInclude Include="src\UIDialogueBoxCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29\Testing</Filter>
     </ClInclude>
-    <ClInclude Include="src\UITestingCG.h">
-      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29\Testing</Filter>
-    </ClInclude>
     <ClInclude Include="src\SettingsCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
@@ -475,6 +472,9 @@
     </ClInclude>
     <ClInclude Include="src\DialogueGameState.h">
       <Filter>Source Files\GameState\Types %28GameState%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Building.h">
+      <Filter>Source Files\Entities\Type %28Entity%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

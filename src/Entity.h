@@ -6,6 +6,8 @@
 #include "IPooleable.h"
 #include "ICleanable.h"
 
+#include <SDL2/SDL_rect.h>
+
 struct SDL_Texture;
 class Entity : public IInitializable, public IRendereable, public IUpdateable, public ICleanable, public ITransformable {
 
@@ -35,11 +37,15 @@ class Entity : public IInitializable, public IRendereable, public IUpdateable, p
 		// Inherited via ITransformable
 		void SetAngle(double newAngle) override;
 		// Inherited via ITransformable
-		void SetScale(float newScale) override;
-		// Inherited via ITransformable
 		double GetAngle() override;
 		// Inherited via ITransformable
+		void SetScale(float newScale) override;
+		// Inherited via ITransformable
 		float GetScale() override;
+		// Inherited via ITransformable
+		void SetAnchor(Vector2 newAnchor) override;
+		// Inherited via ITransformable
+		Vector2 GetAnchor() override;
 
 	public:
 

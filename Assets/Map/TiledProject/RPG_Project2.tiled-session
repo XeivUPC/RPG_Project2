@@ -5,12 +5,14 @@
     },
     "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
     "expandedProjectPaths": [
+        "Objects",
         ".",
         "Tilesets",
+        "Prefabs/Buildings",
         "Maps",
-        "Objects",
         "Prefabs"
     ],
+    "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
     "fileStates": {
         "": {
@@ -33,11 +35,11 @@
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx": {
-            "scale": 1.5,
+            "scale": 2,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 403.33333333333326,
-                "y": 156
+                "x": 362,
+                "y": 397.5
             }
         },
         "Maps/Testing_Zone.tmx": {
@@ -62,7 +64,7 @@
         },
         "Tilesets/Building_Atlas.tsx": {
             "dynamicWrapping": true,
-            "scaleInDock": 1,
+            "scaleInDock": 0.75,
             "scaleInEditor": 4
         },
         "Tilesets/Cave_Tiles.tsx": {
@@ -94,11 +96,12 @@
             }
         }
     },
-    "last.exportedFilePath": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Map/Data",
+    "last.exportedFilePath": "G:/GitHub/RPG_Project2/Assets/Map/Data",
+    "last.externalTilesetPath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Tilesets",
     "last.imagePath": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Buildings/Single",
-    "last.objectTemplatePath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Objects",
+    "last.objectTemplatePath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Prefabs",
     "map.height": 12,
-    "map.lastUsedExportFilter": "Todos los archivos (*)",
+    "map.lastUsedExportFilter": "All Files (*)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
@@ -108,7 +111,7 @@
         "Tilesets/Building_Atlas.tsx"
     ],
     "project": "RPG_Project2.tiled-project",
-    "property.type": "bool",
+    "property.type": "string",
     "recentFiles": [
         "Tilesets/Building_Atlas.tsx",
         "Maps/Rogue_Squadron_Headquarters.tmx",

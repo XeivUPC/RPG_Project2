@@ -1,5 +1,6 @@
 #pragma once
 #include "Vector2Int.h"
+#include "IRendereable.h"
 #include <vector>
 #include <string>
 #include <pugixml.hpp>
@@ -42,7 +43,7 @@ struct ObjectLayer {
     unordered_map<string, string> properties;
 };
 
-class Tilemap {
+class Tilemap : public IRendereable{
 
     public:
         Tilemap(string filename, float _scale = 1);
@@ -50,7 +51,8 @@ class Tilemap {
 
         bool LoadFromXML(string filename, float _scale = 1);
         void UpdateTilemap();
-        void RenderTilemap();
+        // Inherited via IRendereable
+        void Render() override;
 
     public:
         float scale = 1;
@@ -72,4 +74,6 @@ class Tilemap {
         vector<ObjectLayer> objectLayers;
 
         Tileset* lastTilesetUsed = nullptr;
+
+        
 };

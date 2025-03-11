@@ -20,11 +20,6 @@ bool DialogueGameState::PostUpdateState()
     return true;
 }
 
-void DialogueGameState::RenderState()
-{
-    Engine::Instance().s_game->dialogueCanvas->RenderCanvas();
-}
-
 void DialogueGameState::StateSelected()
 {
 }

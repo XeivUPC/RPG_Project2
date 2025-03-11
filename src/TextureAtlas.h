@@ -1,6 +1,7 @@
 #pragma once
 #include <unordered_map>
 #include "Vector2Int.h"
+#include <SDL2/SDL_rect.h>
 
 using namespace std;
 
@@ -13,8 +14,7 @@ class TextureAtlas {
 public:
 	struct AtlasSprite {
 		Vector2Int origin;
-		Vector2Int position;
-		Vector2Int size;
+		SDL_Rect rect;
 	};
 
 	inline TextureAtlas(SDL_Texture* _texture)

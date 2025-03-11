@@ -1,4 +1,5 @@
 #include "Vector2Int.h"
+#include "Vector2.h"
 
 
 Vector2Int::Vector2Int() : x(0), y(0) {}
@@ -80,4 +81,10 @@ Vector2Int Vector2Int::operator/(float scalar) const {
 void Vector2Int::operator=(const Vector2Int& other) {
     x = other.x;
     y = other.y;
+}
+
+
+Vector2Int::operator Vector2() const
+{
+    return { (float)x, (float)y };
 }

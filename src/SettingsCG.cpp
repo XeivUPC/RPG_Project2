@@ -47,7 +47,7 @@ SettingsCG::SettingsCG()
 	close_btn->SetLocalScale(1.5f);
 	close_btn->AddRect(UIButton::ButtonStates::HOVER, {15,0,15,15});
 	close_btn->AddRect(UIButton::ButtonStates::PRESSED, {30,0,15,15});
-	close_btn->onMouseClick.emplace_back([this]() {visible = false; });
+	close_btn->onMouseClick.emplace_back([this]() {isVisible = false; });
 	close_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	close_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 

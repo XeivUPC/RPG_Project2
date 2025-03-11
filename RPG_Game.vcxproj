@@ -136,6 +136,7 @@
     <ClCompile Include="src\AtlasFactory.cpp" />
     <ClCompile Include="src\AudioContainer.cpp" />
     <ClCompile Include="src\AudioFactory.cpp" />
+    <ClCompile Include="src\Building.cpp" />
     <ClCompile Include="src\DialogueGameState.cpp" />
     <ClCompile Include="src\DialogueSystem.cpp" />
     <ClCompile Include="src\DrawingTools.cpp" />
@@ -172,7 +173,6 @@
     <ClCompile Include="src\TitleScene.cpp" />
     <ClCompile Include="src\UIDialogueBoxCG.cpp" />
     <ClCompile Include="src\UIInputField.cpp" />
-    <ClCompile Include="src\UITestingCG.cpp" />
     <ClCompile Include="src\TextureFactory.cpp" />
     <ClCompile Include="src\Tilemap.cpp" />
     <ClCompile Include="src\UIButton.cpp" />
@@ -190,6 +190,7 @@
     <ClInclude Include="src\AtlasFactory.h" />
     <ClInclude Include="src\AudioContainer.h" />
     <ClInclude Include="src\AudioFactory.h" />
+    <ClInclude Include="src\Building.h" />
     <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\DialogueGameState.h" />
     <ClInclude Include="src\DialogueSystem.h" />
@@ -239,7 +240,6 @@
     <ClInclude Include="src\TitleMenuCG.h" />
     <ClInclude Include="src\TitleScene.h" />
     <ClInclude Include="src\UIDialogueBoxCG.h" />
-    <ClInclude Include="src\UITestingCG.h" />
     <ClInclude Include="src\TextureFactory.h" />
     <ClInclude Include="src\Tilemap.h" />
     <ClInclude Include="src\UIButton.h" />

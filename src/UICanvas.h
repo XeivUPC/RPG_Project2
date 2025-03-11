@@ -1,11 +1,13 @@
 #pragma once
+#include "IRendereable.h"
 #include <vector>
+
 
 using namespace std;
 
 class UIElement;
 
-class UICanvas {
+class UICanvas : public IRendereable {
 public:
 	virtual ~UICanvas() = 0;
 
@@ -21,9 +23,8 @@ public:
 
 public:
 
-	bool visible = true;
 protected:
-	UICanvas() = default;
+	UICanvas();
 protected:
 
 private:
@@ -31,4 +32,7 @@ private:
 private:
 	bool interactable = true;
 	vector<UIElement*> elements;
+
+	// Inherited via IRendereable
+	void Render() override;
 };

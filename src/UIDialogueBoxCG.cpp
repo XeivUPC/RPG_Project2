@@ -61,7 +61,6 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 	amistad = 10;
 	dialogue->StartDialogue();
 
-
 }
 
 UIDialogueBoxCG::~UIDialogueBoxCG()
@@ -218,10 +217,8 @@ void UIDialogueBoxCG::ChangeDialogueNode()
 			TextureAtlas* atlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
 
 			SDL_Texture* tex = atlas->texture;
-			Vector2Int spritePos = atlas->sprites[node.character.portraits[i].name].position;
-			Vector2Int spriteSize = atlas->sprites[node.character.portraits[i].name].size;
 
-			characterPortraitImage->SetSprite(*tex, true, { spritePos.x, spritePos.y,spriteSize.x,spriteSize.y});
+			characterPortraitImage->SetSprite(*tex, true, atlas->sprites[node.character.portraits[i].name].rect);
 			characterPortraitImage->SetColor({ 255, 255, 255, 255 });
 			break;
 		}

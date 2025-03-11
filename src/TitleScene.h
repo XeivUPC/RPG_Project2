@@ -1,13 +1,12 @@
 #pragma once
 #include "ModuleScene.h"
-#include "IRendereable.h"
 #include "StepTimer.h"
 
 
 class UICanvas;
 class FadeCG;
 
-class TitleScene : public ModuleScene, public IRendereable {
+class TitleScene : public ModuleScene{
 	friend class Engine;
 public:
 	TitleScene(bool start_active = true);
@@ -27,8 +26,6 @@ private:
 	bool Update() override;
 	// Inherited via IUpdateable
 	bool PostUpdate() override;
-	// Inherited via IRendereable
-	void Render() override;
 	// Inherited via ICleanable
 	bool CleanUp() override;
 

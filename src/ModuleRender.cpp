@@ -130,7 +130,8 @@ void ModuleRender::RenderAll()
 {
 	for (const auto& renderTask : renderQueue)
 	{
-		renderTask->Render();
+		if(renderTask->isVisible)
+			renderTask->Render();
 	}
 }
 

@@ -9,15 +9,20 @@
 #include "DrawingTools.h"
 #include "LOG.h"
 
+#include "Building.h"
+
 #include <sstream>
 
 Tilemap::Tilemap(string filename, float _scale)
 {
     LoadFromXML(move(filename), _scale);
+    Engine::Instance().m_render->AddToRenderQueue(*this);
+    renderLayer = 2;
 }
 
 Tilemap::~Tilemap()
 {
+    Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 }
 
 bool Tilemap::LoadFromXML(string filename, float _scale)
@@ -41,9 +46,6 @@ bool Tilemap::LoadFromXML(string filename, float _scale)
         for (xml_node tsNode : mapNode.children("tileset")) {
             ParseTileset(tsNode, mapPath.parent_path());
         }
-
-
-
         for (xml_node layerNode : mapNode.children("layer")) {
             ParseLayer(layerNode);
         }
@@ -64,8 +66,7 @@ void Tilemap::UpdateTilemap()
 {
 }
 
-
-void Tilemap::RenderTilemap()
+void Tilemap::Render()
 {
     ModuleRender& renderer = *Engine::Instance().m_render;
     const DrawingTools& painter = renderer.painter();
@@ -74,7 +75,6 @@ void Tilemap::RenderTilemap()
     Vector2Int drawingPos = { 0,0 };
     Tileset* tileset = nullptr;
     SDL_Rect rect = { 0,0,0,0 };
-    SDL_Texture* texture = nullptr;
 
     int startX = (int)((cameraRect.x - position.x) / (tileSize.x * scale));
     int startY = (int)((cameraRect.y - position.y) / (tileSize.y * scale));
@@ -95,7 +95,6 @@ void Tilemap::RenderTilemap()
 
         for (int y = startY; y < endY; y++) {
             for (int x = startX; x < endX; x++) {
-                texture = nullptr;
                 const int index = GetTileRelativeIndex(x, y, layer);
                 const int gid = layer.tiles[index];
 
@@ -114,32 +113,16 @@ void Tilemap::RenderTilemap()
                     if (!tileset)
                         continue;
                 }
+                if (!tileset->tilesetImage)
+                    continue;
 
                 const int tileId = gid - tileset->firstGid;
-                if (!tileset->tilesetImage) {
-                    TextureAtlas* atlas = Engine::Instance().m_assetsDB->GetAtlas(tileset->name);
-                    if (!atlas)
-                        continue;
+                GetTileRect(tileset, tileId, rect);
 
-                    texture = atlas->texture;
-                    string spriteId = tileset->imageCollection[tileId];
-                    Vector2Int pos = atlas->sprites[spriteId].position;
-                    Vector2Int size = atlas->sprites[spriteId].size;
-                    rect = { pos.x, pos.y, size.x,size.y };
-                    
+                drawingPos.x = (int)(x * tileSize.x * scale);
+                drawingPos.y = (int)(y * tileSize.y * scale);
 
-                    drawingPos.x = (int)(x * tileSize.x * scale);
-                    drawingPos.y = (int)((y+1) * tileSize.y * scale);
-                    drawingPos.y -= size.y * scale;
-                }
-                else {
-                    GetTileRect(tileset, tileId, rect);
-                    texture = tileset->tilesetImage;
-                    drawingPos.x = (int)(x * tileSize.x * scale);
-                    drawingPos.y = (int)(y * tileSize.y * scale);
-                }
-
-                painter.RenderTexture(*texture, drawingPos + position, &rect, { scale,scale });
+                painter.RenderTexture(*tileset->tilesetImage, drawingPos + position, &rect, { scale,scale });
             }
         }
     }
@@ -284,6 +267,37 @@ void Tilemap::ParseObjectLayer(xml_node objectGroupNode)
             objectLayer.properties[name] = value;
         }
     }
+
+    for (xml_node objNode : objectGroupNode.children("object")) {
+        const int id = objNode.attribute("id").as_int();
+        const int gid = objNode.attribute("gid").as_int();
+        const int x = objNode.attribute("x").as_int();
+        const int y = objNode.attribute("y").as_int();
+        const int width = objNode.attribute("width").as_int();
+        const int height = objNode.attribute("height").as_int();
+
+        unordered_map<string, string> objProperties;
+        if (xml_node objPropertiesNode = objNode.child("properties")) {
+            for (xml_node propNode : objPropertiesNode.children("property")) {
+                const char* name = propNode.attribute("name").as_string();
+                const char* value = propNode.attribute("value").as_string();
+                objProperties[name] = value;
+            }
+        }
+
+        if (objProperties["Type"] == "building") {
+            /// CreateBuilding
+            Tileset* tileset = GetTileset(gid);
+            const int tileId = gid - tileset->firstGid;
+            string idName = tileset->imageCollection[tileId];
+
+            Building* building = new Building(tileset->name, idName, { (float)x + (width/2 * scale),(float)y }, scale);
+        }
+
+
+    }
+
+
 
     objectLayers.push_back(objectLayer);
 }

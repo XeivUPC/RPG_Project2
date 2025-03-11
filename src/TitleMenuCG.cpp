@@ -58,7 +58,7 @@ TitleMenuCG::TitleMenuCG(UICanvas& _settingsReference) : settingsReference(&_set
 	UIButton* settings_btn = new UIButton(*btn_texture, anchorPoint + Vector2Int{ 0,25 }, btnSize, { 0,0,57,23 }, { 0.5f,0.5f });
 	settings_btn->AddRect(UIButton::ButtonStates::HOVER, { 57,0,57,23 });
 	settings_btn->AddRect(UIButton::ButtonStates::PRESSED, { 114,0,57,23 });
-	settings_btn->onMouseClick.emplace_back([this]() {settingsReference->visible = true; });
+	settings_btn->onMouseClick.emplace_back([this]() {settingsReference->isVisible = true; });
 	settings_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	settings_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	settings_btn->onMouseEnter.emplace_back([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });

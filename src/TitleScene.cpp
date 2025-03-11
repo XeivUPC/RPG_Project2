@@ -40,13 +40,14 @@ bool TitleScene::Start()
 
     fade = new FadeCG(33, 25, 17, 255);
     fade->FadeTo(1,0);
+    fade->renderLayer = 9;
 
     settings_canvas = new SettingsCG();
-    settings_canvas->visible = false;
+    settings_canvas->isVisible = false;
+    settings_canvas->renderLayer = 7;
 
     canvas = new TitleMenuCG(*settings_canvas);
-
-    Engine::Instance().m_render->AddToRenderQueue(*this);
+    canvas->renderLayer = 6;
 
     Engine::Instance().m_cursor->AddCursor("hand_cursor", Engine::Instance().m_assetsDB->GetTexture("mouse_cursor3"), { 0,0,23,23 }, { -2,-2 }, 1);
     Engine::Instance().m_cursor->AddDefaultCursor(Engine::Instance().m_assetsDB->GetTexture("mouse_cursor2"), { 0,0,23,23 }, { -2,-3 }, 1);
@@ -76,7 +77,7 @@ bool TitleScene::Update()
     }
 
 
-    if (settings_canvas->visible || fade->IsFading()) {
+    if (settings_canvas->isVisible || fade->IsFading()) {
         if (canvas->IsInteractable())
             canvas->SetInteractable(false);
     }
@@ -101,18 +102,10 @@ bool TitleScene::PostUpdate()
     return true;
 }
 
-void TitleScene::Render()
-{
-    canvas->RenderCanvas();
-    settings_canvas->RenderCanvas();
-    fade->RenderCanvas();
-}
-
 bool TitleScene::CleanUp()
 {
     delete canvas;
     delete fade;
     delete settings_canvas;
-    Engine::Instance().m_render->RemoveFomRenderQueue(*this);
     return true;
 }

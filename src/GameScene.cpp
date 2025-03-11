@@ -6,7 +6,6 @@
 #include "Tilemap.h"
 
 #include "FadeCG.h"
-#include "UITestingCG.h"
 #include "UIDialogueBoxCG.h"
 #include "UIDialogueBoxCG.h"
 
@@ -33,15 +32,15 @@ bool GameScene::Start()
 {
     fade = new FadeCG(33, 25, 17, 255);
     fade->FadeTo(1,0);
+    fade->renderLayer = 9;
 
-    canvas = new UITestingCG();
+    //canvas = new UITestingCG();
+    //canvas->renderLayer = 6;
     dialogueCanvas = new UIDialogueBoxCG();
-
-    Engine::Instance().m_render->AddToRenderQueue(*this);
+    dialogueCanvas->renderLayer = 7;
 
     Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("townTheme"), 1000);
-
-
+    
     //// Create States
 
     game_states[State::Dialogue] = new DialogueGameState();
@@ -66,7 +65,13 @@ bool GameScene::Update()
         tilemaps[i]->UpdateTilemap();
     }
 
-    canvas->UpdateCanvas();
+    for (size_t i = 0; i < entities.size(); i++)
+    {
+        entities[i]->Update();
+    }
+
+
+    //canvas->UpdateCanvas();
 
     game_states[state]->UpdateState();
 
@@ -81,25 +86,11 @@ bool GameScene::PostUpdate()
     return true;
 }
 
-void GameScene::Render()
-{
-    for (size_t i = 0; i < tilemaps.size(); i++)
-    {
-        tilemaps[i]->RenderTilemap();
-    }
-
-    canvas->RenderCanvas();
-
-    game_states[state]->RenderState();
-
-    fade->RenderCanvas();  
-}
-
 
 bool GameScene::CleanUp()
 {
     delete dialogueCanvas;
-    delete canvas;
+    //delete canvas;
     delete fade;
 
     for (; game_states.size() != 0;)
@@ -115,7 +106,13 @@ bool GameScene::CleanUp()
     }
     tilemaps.clear();
 
-    Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+    for (size_t i = 0; i < entities.size(); i++)
+    {
+        entities[i]->CleanUp();
+        delete entities[i];
+    }
+    entities.clear();
+
     return true;
 }
 

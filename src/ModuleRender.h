@@ -8,7 +8,25 @@
 class IRendereable;
 class DrawingTools;
 
+///// Layers
+/*
+	0  - DEFAULT
 
+	1  - Bottom
+
+	2  - World2
+	3  - World3
+	4  - World4
+	5  - World5
+
+	6  - Canvas1
+	7  - Canvas2
+	8  - Canvas3
+	9  - Canvas4
+
+	10 - Top
+*/
+////
 
 
 class ModuleRender : public Module {

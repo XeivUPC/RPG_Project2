@@ -4,6 +4,8 @@
 
 using namespace std;
 
+struct Vector2;
+
 struct Vector2Int {
 public:
     int x, y;
@@ -45,4 +47,6 @@ public:
     Vector2Int operator/(float scalar) const;
 
     void operator=(const Vector2Int& other);
+
+    operator Vector2() const;
 };

@@ -8,7 +8,7 @@
 class UICanvas;
 class FadeCG;
 
-class IntroScene : public ModuleScene, public IRendereable {
+class IntroScene : public ModuleScene {
 	friend class Engine;
 public:
 	IntroScene(bool start_active = true);
@@ -27,8 +27,6 @@ private:
 	bool Update() override;
 	// Inherited via IUpdateable
 	bool PostUpdate() override;
-	// Inherited via IRendereable
-	void Render() override;
 	// Inherited via ICleanable
 	bool CleanUp() override;
 
