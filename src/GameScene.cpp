@@ -1,8 +1,11 @@
 #include "GameScene.h"
 #include "Engine.h"
 #include "ModuleRender.h"
+#include "ModuleInput.h"
+#include "ModuleUpdater.h"
 #include "ModuleAssetDatabase.h"
 #include "ModuleAudio.h"
+#include "ModuleTime.h"
 #include "Tilemap.h"
 
 #include "FadeCG.h"
@@ -40,6 +43,8 @@ bool GameScene::Start()
     dialogueCanvas->renderLayer = 7;
 
     Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("townTheme"), 1000);
+    Engine::Instance().m_render->SetCameraZoom(1.5f);
+    Engine::Instance().m_render->SetCameraPosition({0, 0});
     
     //// Create States
 
@@ -48,6 +53,10 @@ bool GameScene::Start()
     ////
 
     tilemaps.emplace_back(new Tilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml",1));
+
+    Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+    Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+    Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
 
     return true;
 }
@@ -70,6 +79,17 @@ bool GameScene::Update()
         entities[i]->Update();
     }
 
+    Vector2 dir = { 0,0 };
+    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
+        dir.y -= 40;
+    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
+        dir.y += 40;
+    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
+        dir.x -= 40;
+    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
+        dir.x += 40;
+
+    Engine::Instance().m_render->MoveCamera(dir*(float)ModuleTime::deltaTime);
 
     //canvas->UpdateCanvas();
 
@@ -112,6 +132,10 @@ bool GameScene::CleanUp()
         delete entities[i];
     }
     entities.clear();
+
+    Engine::Instance().m_updater->RemoveFomUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+    Engine::Instance().m_updater->RemoveFomUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+    Engine::Instance().m_updater->RemoveFomUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
 
     return true;
 }

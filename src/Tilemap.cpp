@@ -7,6 +7,7 @@
 #include "TextureAtlas.h"
 #include "ModuleAssetDatabase.h"
 #include "DrawingTools.h"
+#include "Pooling.h"
 #include "LOG.h"
 
 #include "Building.h"
@@ -15,9 +16,14 @@
 
 Tilemap::Tilemap(string filename, float _scale)
 {
+    Pooling::Instance().CreatePool<Building>(10);
+
+
+
     LoadFromXML(move(filename), _scale);
     Engine::Instance().m_render->AddToRenderQueue(*this);
     renderLayer = 2;
+  
 }
 
 Tilemap::~Tilemap()
@@ -69,6 +75,7 @@ void Tilemap::UpdateTilemap()
 void Tilemap::Render()
 {
     ModuleRender& renderer = *Engine::Instance().m_render;
+    renderer.SetCameraMode(true);
     const DrawingTools& painter = renderer.painter();
     SDL_Rect cameraRect = renderer.GetCamera().GetRect();
 
@@ -126,6 +133,7 @@ void Tilemap::Render()
             }
         }
     }
+    renderer.SetCameraMode(false);
 }
 
 
@@ -291,7 +299,8 @@ void Tilemap::ParseObjectLayer(xml_node objectGroupNode)
             const int tileId = gid - tileset->firstGid;
             string idName = tileset->imageCollection[tileId];
 
-            Building* building = new Building(tileset->name, idName, { (float)x + (width/2 * scale),(float)y }, scale);
+            auto building = Pooling::Instance().AcquireObject<Building>();
+            building->SetData(tileset->name, idName, { (float)x + (width/2 * scale),(float)y }, scale);
         }
 
 

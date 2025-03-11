@@ -1,18 +1,16 @@
 #pragma once
 #include <iostream>
 #include <unordered_map>
-#include <vector>
+#include <unordered_set>
+#include <queue>
 #include <typeindex>
 #include <memory>
 #include <mutex>
 #include <type_traits>
-#include <string_view>
-
-using namespace std;
 
 class IPooleable;
-class Pooling
-{
+
+class Pooling {
 public:
     static Pooling& Instance() {
         static Pooling instance;
@@ -21,72 +19,100 @@ public:
 
     template <typename T>
     void CreatePool(size_t size) {
-        static_assert(is_base_of<IPooleable, T>::value, "T must inherit from IPooleable");
+        static_assert(std::is_base_of_v<IPooleable, T>,
+            "T must inherit from IPooleable");
 
-        lock_guard<mutex> lock(poolMutex);
+        std::lock_guard lock(mutex_);
+        auto& pool = GetPool<T>();
 
-        if (poolDictionary.find(typeid(T)) != poolDictionary.end()) {
-            cout << "Pool already exists for type " << typeid(T).name() << ". No need to create a new one." << endl;
-            return; 
-        }
-
-        auto pool = make_shared<vector<T>>();
-        pool->reserve(size);
-
+        // Preallocate objects
         for (size_t i = 0; i < size; ++i) {
-            pool->emplace_back(T());
+            auto obj = std::make_unique<T>();
+            obj->ResetPoolObject();
+            pool.available.push(obj.get());
+            pool.all_objects.push_back(std::move(obj));
         }
-
-        poolDictionary[typeid(T)] = pool;
     }
 
     template <typename T>
-    shared_ptr<T> AcquireObject() {
-        static_assert(is_base_of<IPooleable, T>::value, "T must inherit from IPooleable");
+    std::shared_ptr<T> AcquireObject() {
+        std::lock_guard lock(mutex_);
+        auto& pool = GetPool<T>();
 
-        lock_guard<mutex> lock(poolMutex);
-        auto it = poolDictionary.find(typeid(T));
-        if (it != poolDictionary.end()) {
-            auto pool = static_pointer_cast<vector<T>>(it->second);
+        T* raw_ptr = nullptr;
 
-            if (!pool->empty()) {
-                T obj = move(pool->back());
-                pool->pop_back();
-
-                return make_shared<T>(move(obj));
-            }
-            else {
-                cout << "Pool of " << typeid(T).name() << " is empty, creating new object." << endl;
-                return make_shared<T>();
-            }
-        }
-        cout << "Pool not found for type " << typeid(T).name() << ", cannot acquire object." << endl;
-        return make_shared<T>();
-    }
-
-    template <typename T>
-    void ReturnObject(const shared_ptr<T>& obj) {
-        static_assert(is_base_of<IPooleable, T>::value, "T must inherit from IPooleable");
-
-        lock_guard<mutex> lock(poolMutex);
-        auto it = poolDictionary.find(typeid(T));
-        if (it != poolDictionary.end()) {
-            auto pool = static_pointer_cast<vector<T>>(it->second);
-            pool->push_back(*obj);
+        if (!pool.available.empty()) {
+            raw_ptr = pool.available.front();
+            pool.available.pop();
         }
         else {
-            cout << "Error: No pool exists for the returned object type " << typeid(T).name() << "." << endl;
+            auto new_obj = std::make_unique<T>();
+            raw_ptr = new_obj.get();
+            pool.all_objects.push_back(std::move(new_obj));
+            std::cout << "Pool expanded for " << typeid(T).name() << "\n";
+        }
+        pool.checked_out.insert(raw_ptr);
+        raw_ptr->InitPoolObject();
+
+        return std::shared_ptr<T>(raw_ptr, [](T*) {});
+    }
+
+    template <typename T>
+    void ReturnObject(T* obj) {
+        std::lock_guard lock(mutex_);
+        auto& pool = GetPool<T>();
+
+        if (pool.checked_out.erase(obj)) {
+            obj->ResetPoolObject();
+            pool.available.push(obj);
+        }
+        else {
+            std::cerr << "Object not from this pool!\n";
+        }
+    }
+
+    ~Pooling() {
+        std::lock_guard lock(mutex_);
+        for (auto& entry : pools_) {
+            auto& pool = *static_cast<TypePoolBase*>(entry.second.get());
+            pool.Clear();
         }
     }
 
 private:
-    Pooling() = default;
-    ~Pooling() = default;
+    struct TypePoolBase {
+        virtual ~TypePoolBase() = default;
+        virtual void Clear() = 0;
+    };
 
-    Pooling(const Pooling&) = delete;
-    Pooling& operator=(const Pooling&) = delete;
+    template <typename T>
+    struct TypePool : TypePoolBase {
+        std::vector<std::unique_ptr<T>> all_objects;
+        std::queue<T*> available;
+        std::unordered_set<T*> checked_out;
 
-private:
-    unordered_map<type_index, shared_ptr<void>> poolDictionary;
-    mutable std::mutex poolMutex;
+        void Clear() override {
+            all_objects.clear();
+            available = {};
+            checked_out.clear();
+        }
+    };
+
+    std::unordered_map<std::type_index, std::unique_ptr<TypePoolBase>> pools_;
+    std::mutex mutex_;
+
+    template <typename T>
+    TypePool<T>& GetPool() {
+        auto type = std::type_index(typeid(T));
+        auto it = pools_.find(type);
+
+        if (it == pools_.end()) {
+            auto new_pool = std::make_unique<TypePool<T>>();
+            auto& pool_ref = *new_pool;
+            pools_.emplace(type, std::move(new_pool));
+            return pool_ref;
+        }
+
+        return *static_cast<TypePool<T>*>(it->second.get());
+    }
 };

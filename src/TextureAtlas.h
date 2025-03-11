@@ -14,7 +14,7 @@ class TextureAtlas {
 public:
 	struct AtlasSprite {
 		Vector2Int origin;
-		SDL_Rect rect;
+		SDL_Rect rect = {0,0,0,0};
 	};
 
 	inline TextureAtlas(SDL_Texture* _texture)

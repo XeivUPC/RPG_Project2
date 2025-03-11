@@ -6,14 +6,14 @@
 class ModuleUpdater : public Module {
 	friend class Engine;
 
-	enum class UpdateMode {
-		PRE_UPDATE,
-		UPDATE,
-		POST_UPDATE
-	};
+	
 
 	public:
-		
+		enum class UpdateMode {
+			PRE_UPDATE,
+			UPDATE,
+			POST_UPDATE
+		};
 
 		ModuleUpdater(bool start_active = true);
 		~ModuleUpdater();
@@ -38,9 +38,9 @@ class ModuleUpdater : public Module {
 		// Inherited via ICleanable
 		bool CleanUp() override;
 
-		void PreUpdateAll();
-		void UpdateAll();
-		void PostUpdateAll();
+		bool PreUpdateAll();
+		bool UpdateAll();
+		bool PostUpdateAll();
 
 	private:
 		unordered_map<UpdateMode, vector<IUpdateable*>> updatesQueue;

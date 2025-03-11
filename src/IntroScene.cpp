@@ -2,6 +2,7 @@
 #include "TitleScene.h"
 #include "Engine.h"
 #include "ModuleRender.h"
+#include "ModuleUpdater.h"
 #include "ModuleCursor.h"
 #include "ModuleAssetDatabase.h"
 
@@ -35,6 +36,10 @@ bool IntroScene::Start()
     fade_logo->renderLayer = 7;
 
     Engine::Instance().m_cursor->HideAllCursors();
+
+    Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+    Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+    Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
     return true;
 }
 
@@ -79,5 +84,9 @@ bool IntroScene::CleanUp()
     delete canvas;
     delete fade_bg;
     delete fade_logo;
+
+    Engine::Instance().m_updater->RemoveFomUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+    Engine::Instance().m_updater->RemoveFomUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+    Engine::Instance().m_updater->RemoveFomUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
     return true;
 }

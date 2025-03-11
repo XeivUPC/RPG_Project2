@@ -14,6 +14,10 @@ class ModuleTime : public Module {
 		static double deltaTime;
 		static float timeScale;
 	private:
+		// Inherited via IInitializable
+		bool Start() override;
+		// Inherited via ICleneable
+		bool CleanUp() override;
 		// Inherited via IUpdateable
 		bool PreUpdate() override;
 

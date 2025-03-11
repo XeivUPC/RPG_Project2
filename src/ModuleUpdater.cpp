@@ -2,6 +2,7 @@
 
 ModuleUpdater::ModuleUpdater(bool start_active) : Module(start_active)
 {
+	priority_deleting = -1;
 }
 
 ModuleUpdater::~ModuleUpdater()
@@ -11,21 +12,21 @@ ModuleUpdater::~ModuleUpdater()
 bool ModuleUpdater::PreUpdate()
 {
 	if(!isPaused)
-		PreUpdateAll();
+		return PreUpdateAll();
 	return true;
 }
 
 bool ModuleUpdater::Update()
 {
 	if (!isPaused)
-		UpdateAll();
+		return UpdateAll();
 	return true;
 }
 
 bool ModuleUpdater::PostUpdate()
 {
 	if (!isPaused)
-		PostUpdateAll();
+		return PostUpdateAll();
 	return true;
 }
 
@@ -68,29 +69,41 @@ bool ModuleUpdater::IsPaused()
 	return isPaused;
 }
 
-void ModuleUpdater::PreUpdateAll()
+bool ModuleUpdater::PreUpdateAll()
 {
+	bool ret = true;
 	for (const auto& updateTask : updatesQueue[UpdateMode::PRE_UPDATE])
 	{
 		if(!updateTask->isPaused)
-			updateTask->PreUpdate();
+			ret = updateTask->PreUpdate();
+		if (!ret)
+			break;
 	}
+	return ret;
 }
 
-void ModuleUpdater::UpdateAll()
+bool ModuleUpdater::UpdateAll()
 {
+	bool ret = true;
 	for (const auto& updateTask : updatesQueue[UpdateMode::UPDATE])
 	{
 		if (!updateTask->isPaused)
-			updateTask->Update();
+			ret = updateTask->Update();
+		if (!ret)
+			break;
 	}
+	return ret;
 }
 
-void ModuleUpdater::PostUpdateAll()
+bool ModuleUpdater::PostUpdateAll()
 {
+	bool ret = true;
 	for (const auto& updateTask : updatesQueue[UpdateMode::POST_UPDATE])
 	{
 		if (!updateTask->isPaused)
-			updateTask->PostUpdate();
+			ret = updateTask->PostUpdate();
+		if (!ret)
+			break;
 	}
+	return ret;
 }

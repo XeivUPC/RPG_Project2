@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include "ModuleRender.h"
 #include "ModuleWindow.h"
+#include "ModuleUpdater.h"
 #include "IRendereable.h"
 #include "DrawingTools.h"
 #include "Log.h"
@@ -10,10 +11,12 @@
 
 ModuleRender::ModuleRender(bool start_active) : Module(start_active)
 {
+
 }
 
 ModuleRender::~ModuleRender()
 {
+	
 }
 
 const DrawingTools& ModuleRender::painter()
@@ -62,8 +65,22 @@ bool ModuleRender::Start()
 	LOG("render start");
 
 	drawingTools = new DrawingTools(renderer, camera, cameraMode);
-	
+	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
 
+	return true;
+}
+
+bool ModuleRender::CleanUp()
+{
+	Engine::Instance().m_updater->RemoveFomUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+	Engine::Instance().m_updater->RemoveFomUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
+
+	LOG("Destroying SDL render");
+	renderQueue.clear();
+	delete drawingTools;
+
+	SDL_DestroyRenderer(renderer);
 	return true;
 }
 
@@ -86,16 +103,6 @@ bool ModuleRender::PostUpdate()
 
 	SDL_SetRenderDrawColor(renderer, background.r, background.g, background.g, background.a);
 	SDL_RenderPresent(renderer);
-	return true;
-}
-
-bool ModuleRender::CleanUp()
-{
-	LOG("Destroying SDL render");
-	renderQueue.clear();
-	delete drawingTools;
-
-	SDL_DestroyRenderer(renderer);
 	return true;
 }
 
@@ -152,14 +159,14 @@ const Camera& ModuleRender::GetCamera() const
 
 void ModuleRender::MoveCamera(const Vector2& moveAmount)
 {
-	camera.target.x += moveAmount.x;
-	camera.target.y += moveAmount.y;
+	camera.position.x += moveAmount.x;
+	camera.position.y += moveAmount.y;
 }
 
 void ModuleRender::SetCameraPosition(const Vector2Int& position)
 {
-	camera.target.x = (float)position.x;
-	camera.target.y = (float)position.y;
+	camera.position.x = (float)position.x;
+	camera.position.y = (float)position.y;
 }
 
 void ModuleRender::SetCameraOffset(const Vector2& offset)

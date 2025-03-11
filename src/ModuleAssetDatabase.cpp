@@ -13,6 +13,7 @@
 
 ModuleAssetDatabase::ModuleAssetDatabase(bool start_active) : Module(start_active)
 {
+
 }
 
 ModuleAssetDatabase::~ModuleAssetDatabase()

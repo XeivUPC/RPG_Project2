@@ -64,14 +64,15 @@ class ModuleRender : public Module {
 		bool Init() override;
 		// Inherited via IInitializable
 		bool Start() override;
+		// Inherited via ICleanable
+		bool CleanUp() override;
 		// Inherited via IUpdateable
 		bool PreUpdate() override;
 		// Inherited via IUpdateable
 		bool Update() override;
 		// Inherited via IUpdateable
 		bool PostUpdate() override;
-		// Inherited via ICleanable
-		bool CleanUp() override;
+
 		void SortRenderTasks();
 		void RenderAll();
 

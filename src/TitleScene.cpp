@@ -7,7 +7,7 @@
 #include "ModuleAudio.h"
 #include "AudioContainer.h"
 #include "ModuleAssetDatabase.h"
-
+#include "ModuleUpdater.h"
 #include "FadeCG.h"
 #include "TitleMenuCG.h"
 #include "SettingsCG.h"
@@ -56,6 +56,10 @@ bool TitleScene::Start()
 
     mt19937 engine(std::random_device{}());
     randomSoundTime = uniform_real_distribution<float>(minRandomSoundTime, maxRandomSoundTime)(engine);
+
+    Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+    Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+    Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
 
     return true;
 }
@@ -107,5 +111,9 @@ bool TitleScene::CleanUp()
     delete canvas;
     delete fade;
     delete settings_canvas;
+
+    Engine::Instance().m_updater->RemoveFomUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+    Engine::Instance().m_updater->RemoveFomUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+    Engine::Instance().m_updater->RemoveFomUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
     return true;
 }

@@ -45,6 +45,7 @@ Engine::Engine()
 	s_game = new GameScene(false);
 
 
+
 	AddModule(m_window);
 	AddModule(m_physics);
 	AddModule(m_input);
@@ -60,7 +61,6 @@ Engine::Engine()
 	AddModule(s_game);
 
 	////////////////
-
 
 	AddModule(m_updater);
 	AddModule(m_render);
@@ -101,7 +101,14 @@ bool Engine::Update()
 	if (m_input->GetWindowEvent(WE_QUIT) == true)
 		ret = false;
 
-	for (auto it = list_modules.begin(); it != list_modules.end() && ret == true; ++it)
+	if(ret)
+		ret = m_updater->PreUpdate();
+	if (ret)
+		ret = m_updater->Update();
+	if (ret)
+		ret = m_updater->PostUpdate();
+
+	/*for (auto it = list_modules.begin(); it != list_modules.end() && ret == true; ++it)
 	{
 		Module* module = *it;
 		if (module->IsActive())
@@ -124,7 +131,7 @@ bool Engine::Update()
 		{
 			ret = module->PostUpdate();
 		}
-	}
+	}*/
 
 	lastSecFrameCount++;
 	if (lastSecFrameTime.ReadMSec() > 1000) {
