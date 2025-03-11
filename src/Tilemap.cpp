@@ -4,6 +4,7 @@
 #include "ModulePhysics.h"
 #include "PhysicFactory.h"
 #include "Camera.h"
+#include "TextureAtlas.h"
 #include "ModuleAssetDatabase.h"
 #include "DrawingTools.h"
 #include "LOG.h"
@@ -68,11 +69,12 @@ void Tilemap::RenderTilemap()
 {
     ModuleRender& renderer = *Engine::Instance().m_render;
     const DrawingTools& painter = renderer.painter();
-    Vector2Int drawingPos = { 0,0 };
-    SDL_Rect rect = { 0,0,0,0 };
     SDL_Rect cameraRect = renderer.GetCamera().GetRect();
 
+    Vector2Int drawingPos = { 0,0 };
     Tileset* tileset = nullptr;
+    SDL_Rect rect = { 0,0,0,0 };
+    SDL_Texture* texture = nullptr;
 
     int startX = (int)((cameraRect.x - position.x) / (tileSize.x * scale));
     int startY = (int)((cameraRect.y - position.y) / (tileSize.y * scale));
@@ -90,6 +92,7 @@ void Tilemap::RenderTilemap()
 
         for (int y = startY; y < endY; y++) {
             for (int x = startX; x < endX; x++) {
+                texture = nullptr;
                 const int index = GetTileRelativeIndex(x, y, layer);
                 const int gid = layer.tiles[index];
 
@@ -105,15 +108,33 @@ void Tilemap::RenderTilemap()
                 }
                 if(tileset==nullptr)
                     tileset = GetTileset(gid);
-                if (!tileset || !tileset->texture) continue;
+                if (!tileset) continue;
 
                 const int tileId = gid - tileset->firstGid;
-                GetTileRect(tileset, tileId, rect);
+                if (!tileset->tilesetImage) {
+                    TextureAtlas* atlas = Engine::Instance().m_assetsDB->GetAtlas(tileset->name);
+                    if (!atlas)
+                        continue;
 
-                drawingPos.x = (int)(x * tileSize.x * scale);
-                drawingPos.y = (int)(y * tileSize.y * scale);
+                    texture = atlas->texture;
+                    string spriteId = tileset->imageCollection[tileId];
+                    Vector2Int pos = atlas->sprites[spriteId].position;
+                    Vector2Int size = atlas->sprites[spriteId].size;
+                    rect = { pos.x, pos.y, size.x,size.y };
+                    
 
-                painter.RenderTexture(*tileset->texture, drawingPos + position, &rect, { scale,scale });
+                    drawingPos.x = (int)(x * tileSize.x * scale);
+                    drawingPos.y = (int)((y+1) * tileSize.y * scale);
+                    drawingPos.y -= size.y * scale;
+                }
+                else {
+                    GetTileRect(tileset, tileId, rect);
+                    texture = tileset->tilesetImage;
+                    drawingPos.x = (int)(x * tileSize.x * scale);
+                    drawingPos.y = (int)(y * tileSize.y * scale);
+                }
+
+                painter.RenderTexture(*texture, drawingPos + position, &rect, { scale,scale });
             }
         }
     }
@@ -145,7 +166,25 @@ void Tilemap::ParseTileset(xml_node tsNode, const path& basePath)
         tileset.margin = tsxNode.attribute("margin").as_int(0);
         tileset.columns = tsxNode.attribute("columns").as_int();
 
-        tileset.texture = Engine::Instance().m_assetsDB->GetTexture(tileset.name);
+        xml_node imageNode = tsxNode.child("image");
+        if (imageNode) {
+            tileset.tilesetImage = Engine::Instance().m_assetsDB->GetTexture(tileset.name);
+        }
+        else {
+            fs::path tsxDir = tsxPath.parent_path();
+            for (xml_node tileNode : tsxNode.children("tile")) {
+                int tileId = tileNode.attribute("id").as_int();
+                xml_node tileImageNode = tileNode.child("image");
+                if (tileImageNode) {
+                    string imageSource = tileImageNode.attribute("source").as_string();
+                    fs::path imagePath = tsxDir / imageSource;
+                    imagePath = fs::canonical(imagePath);
+                    string filename = imagePath.stem().string();
+                    tileset.imageCollection[tileId] = filename;
+                }
+            }
+        }
+
 
        /* for (xml_node tileNode : tsxNode.children("tile")) {
             int tileId = tileNode.attribute("id").as_int();
