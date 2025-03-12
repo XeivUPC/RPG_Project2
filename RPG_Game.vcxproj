@@ -140,6 +140,7 @@
     <ClCompile Include="src\DialogueGameState.cpp" />
     <ClCompile Include="src\DialogueSystem.cpp" />
     <ClCompile Include="src\DrawingTools.cpp" />
+    <ClCompile Include="src\ExploringGameState.cpp" />
     <ClCompile Include="src\FadeCG.cpp" />
     <ClCompile Include="src\FontFactory.cpp" />
     <ClCompile Include="src\GameScene.cpp" />
@@ -152,6 +153,8 @@
     <ClCompile Include="src\ModuleLocalization.cpp" />
     <ClCompile Include="src\ModuleScene.cpp" />
     <ClCompile Include="src\MusicContainer.cpp" />
+    <ClCompile Include="src\PauseGameState.cpp" />
+    <ClCompile Include="src\PauseMenuCG.cpp" />
     <ClCompile Include="src\PhysicFactory.cpp" />
     <ClCompile Include="src\CollisionsDispatcher.cpp" />
     <ClCompile Include="src\CollisionSensor.cpp" />
@@ -195,6 +198,7 @@
     <ClInclude Include="src\DialogueGameState.h" />
     <ClInclude Include="src\DialogueSystem.h" />
     <ClInclude Include="src\DrawingTools.h" />
+    <ClInclude Include="src\ExploringGameState.h" />
     <ClInclude Include="src\FadeCG.h" />
     <ClInclude Include="src\FontFactory.h" />
     <ClInclude Include="src\GameScene.h" />
@@ -210,6 +214,8 @@
     <ClInclude Include="src\ModuleLocalization.h" />
     <ClInclude Include="src\ModuleScene.h" />
     <ClInclude Include="src\MusicContainer.h" />
+    <ClInclude Include="src\PauseGameState.h" />
+    <ClInclude Include="src\PauseMenuCG.h" />
     <ClInclude Include="src\PhysicFactory.h" />
     <ClInclude Include="src\CollisionsDispatcher.h" />
     <ClInclude Include="src\CollisionSensor.h" />

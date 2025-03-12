@@ -8,15 +8,16 @@
 class UICanvas;
 class FadeCG;
 class UIDialogueBoxCG;
+class PauseMenuCG;
 class GameState;
 class Tilemap;
 
 class GameScene : public ModuleScene{
 	friend class Engine;
 	friend class DialogueGameState;
+	friend class PauseGameState;
+	friend class ExploringGameState;
 public:
-	GameScene(bool start_active = true);
-	~GameScene();
 
 	enum class State {
 		Exploring,
@@ -25,6 +26,12 @@ public:
 		Menu,
 		GameOver
 	};
+
+	GameScene(bool start_active = true);
+	~GameScene();
+
+	void SetState(State _newState);
+	State GetState();
 
 public:
 
@@ -42,9 +49,6 @@ private:
 	// Inherited via ICleanable
 	bool CleanUp() override;
 
-	void SetState(State _newState);
-	State GetState();
-
 private:
 	/// Core
 	State state = State::Dialogue;
@@ -52,6 +56,7 @@ private:
 
 	/// UI
 	UICanvas* canvas = nullptr;
+	PauseMenuCG* pauseCanvas = nullptr;
 	FadeCG* fade = nullptr;
 	UIDialogueBoxCG* dialogueCanvas = nullptr;
 

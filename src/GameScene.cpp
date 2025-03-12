@@ -10,11 +10,13 @@
 
 #include "FadeCG.h"
 #include "UIDialogueBoxCG.h"
-#include "UIDialogueBoxCG.h"
+#include "PauseMenuCG.h"
 
 /// States
 #include "GameState.h"
 #include "DialogueGameState.h"
+#include "PauseGameState.h"
+#include "ExploringGameState.h"
 ///
 
 GameScene::GameScene(bool start_active) : ModuleScene(start_active)
@@ -39,8 +41,12 @@ bool GameScene::Start()
 
     //canvas = new UITestingCG();
     //canvas->renderLayer = 6;
+
     dialogueCanvas = new UIDialogueBoxCG();
     dialogueCanvas->renderLayer = 7;
+
+    pauseCanvas = new PauseMenuCG();
+    pauseCanvas->renderLayer = 7;
 
     Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("townTheme"), 1000);
     Engine::Instance().m_render->SetCameraZoom(1.5f);
@@ -48,7 +54,14 @@ bool GameScene::Start()
     
     //// Create States
 
+    game_states[State::Exploring] = new ExploringGameState();
+    game_states[State::Exploring]->StateDeselected();
     game_states[State::Dialogue] = new DialogueGameState();
+    game_states[State::Dialogue]->StateDeselected();
+    game_states[State::Menu] = new PauseGameState();
+    game_states[State::Menu]->StateDeselected();
+
+    SetState(State::Dialogue);
 
     ////
 
@@ -110,6 +123,7 @@ bool GameScene::PostUpdate()
 bool GameScene::CleanUp()
 {
     delete dialogueCanvas;
+    delete pauseCanvas;
     //delete canvas;
     delete fade;
 
