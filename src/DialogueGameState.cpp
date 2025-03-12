@@ -1,6 +1,7 @@
 #include "DialogueGameState.h"
 #include "Engine.h"
 #include "ModuleInput.h"
+#include "ModuleUpdater.h"
 #include "GameScene.h"
 #include "UIDialogueBoxCG.h"
 #include "DialogueSystem.h"
@@ -34,6 +35,7 @@ bool DialogueGameState::PostUpdateState()
 
 void DialogueGameState::StateSelected()
 {
+    Engine::Instance().m_updater->PauseUpdateGroup("Entity");
     Engine::Instance().s_game->dialogueCanvas->SetInteractable(true);
     Engine::Instance().s_game->dialogueCanvas->isVisible = true;
 }

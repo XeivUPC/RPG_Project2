@@ -1,5 +1,6 @@
 #include "PauseGameState.h"
 #include "Engine.h"
+#include "ModuleUpdater.h"
 #include "GameScene.h"
 #include "TitleScene.h"
 #include "PauseMenuCG.h"
@@ -36,6 +37,7 @@ bool PauseGameState::PostUpdateState()
 void PauseGameState::StateSelected()
 {
     Engine::Instance().s_game->pauseCanvas->isVisible = true;
+    Engine::Instance().m_updater->PauseUpdateGroup("Entity");
 }
 
 void PauseGameState::StateDeselected()

@@ -1,6 +1,7 @@
 #include "ExploringGameState.h"
 #include "Engine.h"
 #include "ModuleInput.h"
+#include "ModuleUpdater.h"
 #include "GameScene.h"
 
 bool ExploringGameState::PreUpdateState()
@@ -22,6 +23,7 @@ bool ExploringGameState::PostUpdateState()
 
 void ExploringGameState::StateSelected()
 {
+    Engine::Instance().m_updater->ResumeUpdateGroup("Entity");
 }
 
 void ExploringGameState::StateDeselected()

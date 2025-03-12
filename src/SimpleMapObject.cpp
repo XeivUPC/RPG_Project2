@@ -55,10 +55,11 @@ void SimpleMapObject::InitPoolObject()
 {
 	Engine::Instance().m_render->AddToRenderQueue(*this);
 	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+	Engine::Instance().m_updater->AddToUpdateGroup(*this, "Entity");
 }
 
 void SimpleMapObject::ResetPoolObject()
 {
-	Engine::Instance().m_updater->RemoveFomUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 }

@@ -20,7 +20,7 @@ bool ModuleTime::Start()
 
 bool ModuleTime::CleanUp()
 {
-    Engine::Instance().m_updater->RemoveFomUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+    Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
     return true;
 }
 
