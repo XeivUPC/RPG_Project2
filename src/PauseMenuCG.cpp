@@ -55,7 +55,7 @@ PauseMenuCG::PauseMenuCG()
 	resumeGame_text->SetParent(continueGame_btn);
 	continueGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	continueGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
-	continueGame_btn->onMouseClick.emplace_back([this]() {Engine::Instance().s_game->SetState(GameScene::State::Exploring); });
+	continueGame_btn->onMouseClick.emplace_back([this]() {Engine::Instance().s_game->SetPreviousState(); });
 	continueGame_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	continueGame_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	continueGame_btn->onMouseEnter.emplace_back([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
@@ -101,6 +101,7 @@ PauseMenuCG::PauseMenuCG()
 	mainMenuGame_text->SetParent(mainMenuGame_btn);
 	mainMenuGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	mainMenuGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
+	mainMenuGame_btn->onMouseClick.emplace_back([this]() {Engine::Instance().s_game->ExitGame(); });
 	mainMenuGame_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	mainMenuGame_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	mainMenuGame_btn->onMouseEnter.emplace_back([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });

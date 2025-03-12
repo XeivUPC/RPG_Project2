@@ -8,6 +8,12 @@
 #include "ModuleTime.h"
 #include "Tilemap.h"
 
+///Pooling
+#include "Pooling.h"
+#include "Building.h"
+#include "SimpleMapObject.h"
+///
+
 #include "FadeCG.h"
 #include "UIDialogueBoxCG.h"
 #include "PauseMenuCG.h"
@@ -35,6 +41,9 @@ bool GameScene::Init()
 
 bool GameScene::Start()
 {
+    Pooling::Instance().CreatePool<Building>(10);
+    Pooling::Instance().CreatePool<SimpleMapObject>(30);
+
     fade = new FadeCG(33, 25, 17, 255);
     fade->FadeTo(1,0);
     fade->renderLayer = 9;
@@ -151,12 +160,21 @@ bool GameScene::CleanUp()
     Engine::Instance().m_updater->RemoveFomUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
     Engine::Instance().m_updater->RemoveFomUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
 
+    Pooling::Instance().DeletePool<Building>(true);
+    Pooling::Instance().DeletePool<SimpleMapObject>(true);
+
+    exitGame = false;
+
     return true;
 }
 
 void GameScene::SetState(State _newState)
 {
-    game_states[state]->StateDeselected();
+    if (state == _newState)
+        return;
+    previous_state = state;
+    if(state != State::NONE___DO_NOT_USE)
+        game_states[state]->StateDeselected();
     state = _newState;
     game_states[state]->StateSelected();
 }
@@ -164,5 +182,18 @@ void GameScene::SetState(State _newState)
 GameScene::State GameScene::GetState()
 {
     return state;
+}
+
+void GameScene::SetPreviousState()
+{
+    if (state == previous_state || state == State::NONE___DO_NOT_USE)
+        return;
+    SetState(previous_state);
+}
+
+void GameScene::ExitGame()
+{
+    exitGame = true;
+    fade->FadeTo(0.5f, 255);
 }
 

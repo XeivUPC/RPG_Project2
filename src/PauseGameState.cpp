@@ -1,7 +1,9 @@
 #include "PauseGameState.h"
 #include "Engine.h"
 #include "GameScene.h"
+#include "TitleScene.h"
 #include "PauseMenuCG.h"
+#include "FadeCG.h"
 
 bool PauseGameState::PreUpdateState()
 {
@@ -10,12 +12,24 @@ bool PauseGameState::PreUpdateState()
 
 bool PauseGameState::UpdateState()
 {
-    Engine::Instance().s_game->pauseCanvas->UpdateCanvas();
+    GameScene* scene = Engine::Instance().s_game;
+    scene->pauseCanvas->UpdateCanvas();
+    
     return true;
 }
 
 bool PauseGameState::PostUpdateState()
 {
+    GameScene* scene = Engine::Instance().s_game;
+    if (scene->exitGame && !scene->fade->IsFading()) {
+        Engine::Instance().s_title->Activate();
+        scene->Desactivate();
+    }
+    else if (scene->exitGame) {
+        if (Engine::Instance().s_game->pauseCanvas->IsInteractable()) {
+            Engine::Instance().s_game->pauseCanvas->SetInteractable(false);
+        }
+    }
     return true;
 }
 

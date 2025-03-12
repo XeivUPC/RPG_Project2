@@ -24,7 +24,8 @@ public:
 		Combat,
 		Dialogue,
 		Menu,
-		GameOver
+		GameOver,
+		NONE___DO_NOT_USE
 	};
 
 	GameScene(bool start_active = true);
@@ -32,6 +33,9 @@ public:
 
 	void SetState(State _newState);
 	State GetState();
+	void SetPreviousState();
+
+	void ExitGame();
 
 public:
 
@@ -51,8 +55,10 @@ private:
 
 private:
 	/// Core
-	State state = State::Dialogue;
+	State state = State::NONE___DO_NOT_USE;
+	State previous_state = State::NONE___DO_NOT_USE;
 	unordered_map<State, GameState*> game_states;
+	bool exitGame = false;
 
 	/// UI
 	UICanvas* canvas = nullptr;

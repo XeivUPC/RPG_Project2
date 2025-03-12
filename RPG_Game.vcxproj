@@ -171,6 +171,7 @@
     <ClCompile Include="src\ChronoTimer.cpp" />
     <ClCompile Include="src\ModuleWindow.cpp" />
     <ClCompile Include="src\SettingsCG.cpp" />
+    <ClCompile Include="src\SimpleMapObject.cpp" />
     <ClCompile Include="src\StepTimer.cpp" />
     <ClCompile Include="src\TitleMenuCG.cpp" />
     <ClCompile Include="src\TitleScene.cpp" />
@@ -240,6 +241,7 @@
     <ClInclude Include="src\Pooling.h" />
     <ClInclude Include="src\ChronoTimer.h" />
     <ClInclude Include="src\SettingsCG.h" />
+    <ClInclude Include="src\SimpleMapObject.h" />
     <ClInclude Include="src\StepTimer.h" />
     <ClInclude Include="src\Sword.h" />
     <ClInclude Include="src\TextureAtlas.h" />

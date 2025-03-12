@@ -71,6 +71,43 @@ public:
         }
     }
 
+    template <typename T>
+    bool DeletePool(bool force = false) {
+        std::lock_guard<std::mutex> lock(mutex_);
+        auto type = std::type_index(typeid(T));
+        auto it = pools_.find(type);
+
+        if (it == pools_.end()) {
+            std::cout << "Pool for type " << type.name() << " not found.\n";
+            return false;
+        }
+
+        TypePool<T>& pool = static_cast<TypePool<T>&>(*it->second);
+
+        if (!force && !pool.checked_out.empty()) {
+            std::cout << "Cannot delete pool - " << pool.checked_out.size()
+                << " objects still checked out. Use force=true to override.\n";
+            return false;
+        }
+
+        if (force && !pool.checked_out.empty()) {
+            std::cout << "WARNING: Force deleting pool with " << pool.checked_out.size()
+                << " active objects. Any existing pointers will become invalid!\n";
+
+            for (T* obj : pool.checked_out) {
+                obj->ResetPoolObject();
+            }
+        }
+
+        pool.Clear();
+
+        pools_.erase(it);
+
+        std::cout << "Pool for type " << type.name() << " deleted "
+            << (force ? "(forced)" : "(normal)") << "\n";
+        return true;
+    }
+
     ~Pooling() {
         std::lock_guard lock(mutex_);
         for (auto& entry : pools_) {

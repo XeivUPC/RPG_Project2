@@ -285,6 +285,9 @@
     <ClCompile Include="src\ExploringGameState.cpp">
       <Filter>Source Files\GameState\Types %28GameState%29</Filter>
     </ClCompile>
+    <ClCompile Include="src\SimpleMapObject.cpp">
+      <Filter>Source Files\Entities\Type %28Entity%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -493,6 +496,9 @@
     </ClInclude>
     <ClInclude Include="src\ExploringGameState.h">
       <Filter>Source Files\GameState\Types %28GameState%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SimpleMapObject.h">
+      <Filter>Source Files\Entities\Type %28Entity%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -11,15 +11,13 @@
 #include "LOG.h"
 
 #include "Building.h"
+#include "SimpleMapObject.h"
 
 #include <sstream>
 
 Tilemap::Tilemap(string filename, float _scale)
 {
-    Pooling::Instance().CreatePool<Building>(10);
-
-
-
+    
     LoadFromXML(move(filename), _scale);
     Engine::Instance().m_render->AddToRenderQueue(*this);
     renderLayer = 2;
@@ -301,6 +299,15 @@ void Tilemap::ParseObjectLayer(xml_node objectGroupNode)
 
             auto building = Pooling::Instance().AcquireObject<Building>();
             building->SetData(tileset->name, idName, { (float)x + (width/2 * scale),(float)y }, scale);
+        }
+        else if(objProperties["Type"] == "simpleObject") {
+            /// CreateBuilding
+            Tileset* tileset = GetTileset(gid);
+            const int tileId = gid - tileset->firstGid;
+            string idName = tileset->imageCollection[tileId];
+
+            auto simpleObject = Pooling::Instance().AcquireObject<SimpleMapObject>();
+            simpleObject->SetData(tileset->name, idName, { (float)x + (width / 2 * scale),(float)y }, scale);
         }
 
 

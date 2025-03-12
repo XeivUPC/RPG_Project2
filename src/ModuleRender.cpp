@@ -6,6 +6,7 @@
 #include "DrawingTools.h"
 #include "Log.h"
 #include "Globals.h"
+#include "UserPrefs.h"
 
 #include <algorithm>
 
@@ -19,6 +20,7 @@ ModuleRender::~ModuleRender()
 	
 }
 
+
 const DrawingTools& ModuleRender::painter()
 {
 	return *drawingTools;
@@ -31,7 +33,8 @@ bool ModuleRender::Init()
 
 	Uint32 flags = SDL_RENDERER_ACCELERATED;
 
-	if (VSYNC) {
+	SetVSync(UserPrefs::Instance().GetBool("screen_vsync", VSYNC));
+	if (vSync) {
 		flags |= SDL_RENDERER_PRESENTVSYNC;
 		LOG("Using vsync");
 	}
@@ -226,5 +229,17 @@ bool ModuleRender::IsLineCameraVisible(const Vector2& point1, const Vector2& poi
 	int y1 = (int)point1.y;
 	int y2 = (int)point2.y;
 	return SDL_IntersectRectAndLine(&cameraRect, &x1, &y1, &x2, &y2);
+}
+
+void ModuleRender::SetVSync(bool _vSync)
+{
+	vSync = _vSync;
+	SDL_RenderSetVSync(renderer, vSync);
+	UserPrefs::Instance().SaveBool("screen_vsync", vSync);
+}
+
+bool ModuleRender::IsVSync()
+{
+	return vSync;
 }
 

@@ -38,6 +38,9 @@ class ModuleRender : public Module {
 		ModuleRender(bool start_active = true);
 		~ModuleRender();
 
+		void SetVSync(bool _vSync);
+		bool IsVSync();
+
 		const DrawingTools& painter();
 
 		void AddToRenderQueue(IRendereable& rendereableObj);
@@ -79,6 +82,8 @@ class ModuleRender : public Module {
 	private:
 		SDL_Color background = {0,0,0,255};
 		Camera camera;
+
+		bool vSync = false;
 
 		vector<IRendereable*> renderQueue;
 		bool renderQueueDirty = false;

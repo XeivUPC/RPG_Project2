@@ -73,8 +73,8 @@ SettingsCG::SettingsCG()
 
 	///// VSync Settings
 	UITextBox* vSync_text = new UITextBox("V-Sync", *textFont, 16, { 184,132,78,255 }, { LOGIC_SCREEN_WIDTH / 2 , LOGIC_SCREEN_HEIGHT / 2 + 80 }, { textureSize.x * 2, 50 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
-	UIToggle* vSync_toggle = new UIToggle(*toggle_texture, { LOGIC_SCREEN_WIDTH / 2, LOGIC_SCREEN_HEIGHT / 2 + 110 }, { 19,19 }, { 0,0,19,19 }, { 19,0,19,19 }, { 0.5,0.5 }, true);
-
+	UIToggle* vSync_toggle = new UIToggle(*toggle_texture, { LOGIC_SCREEN_WIDTH / 2, LOGIC_SCREEN_HEIGHT / 2 + 110 }, { 19,19 }, { 19,0,19,19 }, { 0,0,19,19 }, { 0.5,0.5 }, Engine::Instance().m_render->IsVSync());
+	vSync_toggle->onValueChange.emplace_back([this](bool value) {Engine::Instance().m_render->SetVSync(value); });
 
 	///// AddElements
 	AddElementToCanvas(bg_image);
