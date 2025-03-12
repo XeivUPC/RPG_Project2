@@ -76,12 +76,16 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("game_title_pixel", *textureFactory->CreateTexture("Assets/Textures/General/game_title_pixel.png"));
 	AddTextureToStorage("top_fade", *textureFactory->CreateTexture("Assets/Textures/General/top_fade.png"));
 	///Characters --> Make Atlas later
-	AddTextureToStorage("character_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/CharactersAtlas.png"));
-	AddAtlasToStorage("character_atlas",*atlasFactory->CreateAtlas(*GetTexture("character_atlas"), "Assets/Textures/Atlas/CharactersAtlas.xml"));
+	AddTextureToStorage("character_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/Characters/CharactersAtlas.png"));
+	AddAtlasToStorage("character_atlas",*atlasFactory->CreateAtlas(*GetTexture("character_atlas"), "Assets/Textures/Atlas/Characters/CharactersAtlas.xml"));
 	///Tilesets
 	AddTextureToStorage("floors_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Floors_Tiles.png"));
 	AddTextureToStorage("water_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Water_Tiles.png"));
 	AddTextureToStorage("cave_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Cave_Tiles.png"));
+
+	AddTextureToStorage("building_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/Buildings/BuildingsAtlas.png"));
+	AddAtlasToStorage("building_atlas", *atlasFactory->CreateAtlas(*GetTexture("building_atlas"), "Assets/Textures/Atlas/Buildings/BuildingsAtlas.xml"));
+
 
 
 	Engine::Instance().m_audio->PlayMusicAsync(GetMusic("mainTheme"), 0);
