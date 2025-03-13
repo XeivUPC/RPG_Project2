@@ -26,6 +26,7 @@
 
 
 double ModuleTime::deltaTime = 0;
+double ModuleTime::fixedDeltaTime = 0;
 float ModuleTime::timeScale = 1;
 
 Engine::Engine()

@@ -2,6 +2,8 @@
 #include "Engine.h"
 #include "ModuleUpdater.h"
 
+#include "Globals.h"
+
 ModuleTime::ModuleTime(bool start_active) : Module(start_active)
 {
     currentTime = SDL_GetPerformanceCounter();
@@ -31,6 +33,15 @@ bool ModuleTime::PreUpdate()
     currentTime = SDL_GetPerformanceCounter();
     deltaTime = static_cast<double>(currentTime - lastTime) / SDL_GetPerformanceFrequency();
     deltaTime *= timeScale;
+    accumulator += deltaTime;
+
+    fixedDeltaTime = 0;
+    while (accumulator >= FIXED_DELTA_TIME)
+    {
+        accumulator -= FIXED_DELTA_TIME;
+        fixedDeltaTime += FIXED_DELTA_TIME;
+    }
+
     return true;
 }
 

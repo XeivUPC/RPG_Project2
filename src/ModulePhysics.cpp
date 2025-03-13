@@ -2,6 +2,7 @@
 #include "ModulePhysics.h"
 #include "ModuleRender.h"
 #include "ModuleInput.h"
+#include "ModuleTime.h"
 #include "ModuleUpdater.h"
 
 #include "CollisionsDispatcher.h"
@@ -51,10 +52,11 @@ bool ModulePhysics::Start()
 
 bool ModulePhysics::PreUpdate()
 {
-	double dt = ModuleTime::deltaTime;
+	double dt = ModuleTime::fixedDeltaTime;
 
+	printf("%f\n",dt);
 	if(simulationOn)
-		world->Step(1/60.f, 6, 2);
+		world->Step(dt, 6, 2);
 	return true;
 }
 

@@ -6,5 +6,5 @@
 	<Entry Key="sfx_volume" Value="1.000000" />
 	<Entry Key="screen_width" Value="1280" />
 	<Entry Key="screen_height" Value="720" />
-	<Entry Key="screen_vsync" Value="0" />
+	<Entry Key="screen_vsync" Value="1" />
 </UserPrefs>
