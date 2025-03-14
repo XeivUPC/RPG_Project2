@@ -25,7 +25,7 @@ struct Tileset {
     int margin=0;
     int columns=0;
     SDL_Texture* tilesetImage=nullptr;
-    unordered_map<int, string> imageCollection;
+    unordered_map < int,unordered_map<string, string>> tileProperties;
     unordered_map<int, vector<SDL_Rect>> animations;
     vector<int> ignoredTiles;
 };

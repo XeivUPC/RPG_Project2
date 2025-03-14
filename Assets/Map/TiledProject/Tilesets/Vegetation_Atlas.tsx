@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="vegetation_atlas" tilewidth="48" tileheight="48" tilecount="178" columns="0">
+<tileset version="1.10" tiledversion="1.11.0" name="vegetation_atlas" tilewidth="48" tileheight="48" tilecount="178" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_0.png" width="16" height="16"/>

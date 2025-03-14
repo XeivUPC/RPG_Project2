@@ -3,14 +3,14 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
+    "activeFile": "Tilesets/Building_Atlas.tsx",
     "expandedProjectPaths": [
-        "Tilesets",
         "Maps",
-        ".",
-        "Prefabs",
+        "Objects",
         "Prefabs/Buildings",
-        "Objects"
+        "Tilesets",
+        ".",
+        "Prefabs"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -35,11 +35,11 @@
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx": {
-            "scale": 1.5,
+            "scale": 2,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 388,
-                "y": 246.66666666666669
+                "x": 457,
+                "y": 89.5
             }
         },
         "Maps/Testing_Zone.tmx": {
@@ -65,7 +65,7 @@
         "Tilesets/Building_Atlas.tsx": {
             "dynamicWrapping": true,
             "scaleInDock": 0.75,
-            "scaleInEditor": 4
+            "scaleInEditor": 0.75
         },
         "Tilesets/Cave_Tiles.tsx": {
             "dynamicWrapping": false,
@@ -104,7 +104,7 @@
     "last.exportedFilePath": "G:/GitHub/RPG_Project2/Assets/Map/Data",
     "last.externalTilesetPath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Tilesets",
     "last.imagePath": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/MapObjects/Buildings/Single",
-    "last.objectTemplatePath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Prefabs",
+    "last.objectTemplatePath": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Map/TiledProject/Prefabs",
     "map.height": 12,
     "map.lastUsedExportFilter": "All Files (*)",
     "map.lastUsedFormat": "tmx",
@@ -113,13 +113,14 @@
     "map.width": 20,
     "openFiles": [
         "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Tilesets/Vegetation_Atlas.tsx"
+        "Tilesets/Vegetation_Atlas.tsx",
+        "Tilesets/Building_Atlas.tsx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "string",
     "recentFiles": [
-        "Tilesets/Vegetation_Atlas.tsx",
         "Maps/Rogue_Squadron_Headquarters.tmx",
+        "Tilesets/Vegetation_Atlas.tsx",
         "Tilesets/Building_Atlas.tsx",
         "Tilesets/Floors_Tiles.tsx",
         "Maps/Testing_Zone.tmx",

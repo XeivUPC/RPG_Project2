@@ -186,8 +186,20 @@ void Tilemap::ParseTileset(xml_node tsNode, const path& basePath)
                     fs::path imagePath = tsxDir / imageSource;
                     imagePath = fs::canonical(imagePath);
                     string filename = imagePath.stem().string();
-                    tileset.imageCollection[tileId] = filename;
+
+                    tileset.tileProperties[tileId]["image"] = filename;
                 }
+
+                if (xml_node objectGroupNodes = tileNode.child("objectgroup")) {
+                    for (xml_node objectNode : objectGroupNodes.children("object")) {
+                        string name = objectNode.attribute("name").as_string();
+                        /// GetCustomValues
+                        string value = objectNode.attribute("value").as_string();
+                        tileset.tileProperties[tileId][name] = value;
+                    }
+                }
+
+
             }
         }
 
@@ -295,7 +307,7 @@ void Tilemap::ParseObjectLayer(xml_node objectGroupNode)
             /// CreateBuilding
             Tileset* tileset = GetTileset(gid);
             const int tileId = gid - tileset->firstGid;
-            string idName = tileset->imageCollection[tileId];
+            string idName = tileset->tileProperties[tileId]["image"];
 
             auto building = Pooling::Instance().AcquireObject<Building>();
             building->SetData(tileset->name, idName, { (float)x + (width/2 * scale),(float)y }, scale);
@@ -304,7 +316,7 @@ void Tilemap::ParseObjectLayer(xml_node objectGroupNode)
             /// CreateBuilding
             Tileset* tileset = GetTileset(gid);
             const int tileId = gid - tileset->firstGid;
-            string idName = tileset->imageCollection[tileId];
+            string idName = tileset->tileProperties[tileId]["image"];
 
             auto simpleObject = Pooling::Instance().AcquireObject<SimpleMapObject>();
             simpleObject->SetData(tileset->name, idName, { (float)x + (width / 2 * scale),(float)y }, scale);
