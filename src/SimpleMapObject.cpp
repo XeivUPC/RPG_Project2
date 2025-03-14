@@ -26,6 +26,8 @@ void SimpleMapObject::SetData(string _atlasId, string _textureId, Vector2 _posit
 	rect = atlas->sprites[_textureId].rect;
 	renderLayer = 3;
 
+	textureId = _textureId;
+
 	anchor = { 0.5f,1 };
 }
 
