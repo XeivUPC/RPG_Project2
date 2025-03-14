@@ -3,6 +3,7 @@
 #include "ModuleWindow.h"
 #include "ModuleUpdater.h"
 #include "IRendereable.h"
+#include "ITransformable.h"
 #include "DrawingTools.h"
 #include "Log.h"
 #include "Globals.h"
@@ -57,8 +58,11 @@ bool ModuleRender::Init()
 		if (SDL_GetCurrentDisplayMode(0, &displayMode) != 0)
 			LOG("No se pudo obtener el modo de pantalla: %s", SDL_GetError());
 
+		//SDL_RenderSetIntegerScale(renderer, SDL_TRUE);
 		SDL_RenderSetLogicalSize(renderer, LOGIC_SCREEN_WIDTH, LOGIC_SCREEN_HEIGHT);
 		camera.viewport = { LOGIC_SCREEN_WIDTH, LOGIC_SCREEN_HEIGHT };
+
+		
 	}
 	return ret;
 }
@@ -81,6 +85,7 @@ bool ModuleRender::CleanUp()
 
 	LOG("Destroying SDL render");
 	renderQueue.clear();
+	transformMap.clear();
 	delete drawingTools;
 
 	SDL_DestroyRenderer(renderer);
@@ -113,6 +118,12 @@ void ModuleRender::RemoveFomRenderQueue(IRendereable& rendereableObj)
 {
 	if (renderQueue.size() == 0)
 		return;
+
+	auto it = transformMap.find(&rendereableObj);
+	if (it != transformMap.end()) {
+		transformMap.erase(it);
+	}
+
 	renderQueue.erase(
 		remove(renderQueue.begin(), renderQueue.end(), &rendereableObj),
 		renderQueue.end()
@@ -120,10 +131,32 @@ void ModuleRender::RemoveFomRenderQueue(IRendereable& rendereableObj)
 	renderQueueDirty = true;
 }
 
+void ModuleRender::SortRenderQueueLayerByPosition(int targetLayer) {
+	SortRenderTasks();
+
+	auto begin = std::lower_bound(renderQueue.begin(), renderQueue.end(), targetLayer,
+		[](IRendereable* a, int layer) { return a->renderLayer < layer; });
+	auto end = std::upper_bound(renderQueue.begin(), renderQueue.end(), targetLayer,
+		[](int layer, IRendereable* a) { return layer < a->renderLayer; });
+
+	auto mid = std::stable_partition(begin, end, [this](IRendereable* a) {
+		return transformMap.find(a) != transformMap.end();
+		});
+
+	std::sort(begin, mid, [this](IRendereable* a, IRendereable* b) {
+		return transformMap[a]->GetPosition().y < transformMap[b]->GetPosition().y;
+		});
+}
 void ModuleRender::AddToRenderQueue(IRendereable& rendereableObj)
 {
 	renderQueue.emplace_back(&rendereableObj);
 	renderQueueDirty = true;
+}
+
+void ModuleRender::AddToRenderQueue(IRendereable& rendereableObj, ITransformable& transformableObj)
+{
+	AddToRenderQueue(rendereableObj);
+	transformMap[&rendereableObj] = &transformableObj;
 }
 
 void ModuleRender::SortRenderTasks()

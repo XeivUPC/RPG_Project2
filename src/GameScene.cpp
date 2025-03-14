@@ -102,6 +102,8 @@ bool GameScene::Update()
         entities[i]->Update();
     }
 
+    Engine::Instance().m_render->SortRenderQueueLayerByPosition(3);
+
     Vector2 dir = { 0,0 };
     if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
         dir.y -= 40;

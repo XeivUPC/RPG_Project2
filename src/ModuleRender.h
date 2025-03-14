@@ -4,8 +4,10 @@
 #include "Vector2Int.h" 
 #include "Camera.h" 
 #include <vector>
+#include <unordered_map>
 
 class IRendereable;
+class ITransformable;
 class DrawingTools;
 
 ///// Layers
@@ -44,7 +46,9 @@ class ModuleRender : public Module {
 		const DrawingTools& painter();
 
 		void AddToRenderQueue(IRendereable& rendereableObj);
+		void AddToRenderQueue(IRendereable& rendereableObj, ITransformable& transformableObj);
 		void RemoveFomRenderQueue(IRendereable& rendereableObj);
+		void SortRenderQueueLayerByPosition(int targetLayer);
 
 		bool IsCameraModeActive() const;
 		void SetCameraMode(bool isActive);
@@ -86,6 +90,7 @@ class ModuleRender : public Module {
 		bool vSync = false;
 
 		vector<IRendereable*> renderQueue;
+		unordered_map<IRendereable*, ITransformable*> transformMap;
 		bool renderQueueDirty = false;
 
 		bool cameraMode = false;

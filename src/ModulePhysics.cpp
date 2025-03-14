@@ -54,9 +54,8 @@ bool ModulePhysics::PreUpdate()
 {
 	double dt = ModuleTime::fixedDeltaTime;
 
-	printf("%f\n",dt);
 	if(simulationOn)
-		world->Step(dt, 6, 2);
+		world->Step((float)dt, 6, 2);
 	return true;
 }
 
