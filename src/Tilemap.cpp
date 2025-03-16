@@ -187,15 +187,17 @@ void Tilemap::ParseTileset(xml_node tsNode, const path& basePath)
                     imagePath = fs::canonical(imagePath);
                     string filename = imagePath.stem().string();
 
-                    tileset.tileProperties[tileId]["image"] = filename;
+                    tileset.tileProperties[tileId].properties["image"]["id"] = filename;
                 }
 
                 if (xml_node objectGroupNodes = tileNode.child("objectgroup")) {
                     for (xml_node objectNode : objectGroupNodes.children("object")) {
-                        string name = objectNode.attribute("name").as_string();
-                        /// GetCustomValues
-                        string value = objectNode.attribute("value").as_string();
-                        tileset.tileProperties[tileId][name] = value;
+                        string propertyName = objectNode.attribute("name").as_string();
+                        for (xml_attribute objectAttribute : objectNode.attributes()) {
+                            string name = objectAttribute.name();
+                            string value = objectAttribute.as_string();
+                            tileset.tileProperties[tileId].properties[propertyName][name] = value;
+                        }      
                     }
                 }
 
@@ -307,7 +309,14 @@ void Tilemap::ParseObjectLayer(xml_node objectGroupNode)
             /// CreateBuilding
             Tileset* tileset = GetTileset(gid);
             const int tileId = gid - tileset->firstGid;
-            string idName = tileset->tileProperties[tileId]["image"];
+
+            TileProperties* tileProperties = &tileset->tileProperties[tileId];
+            string idName = tileProperties->properties["image"]["id"];
+
+            Vector2 renderPos = { stof(tileProperties->properties["renderPosition"]["x"]),stof(tileProperties->properties["renderPosition"]["y"]) };
+
+            SDL_Rect collision = { stof(tileProperties->properties["collision"]["x"]),stof(tileProperties->properties["collision"]["y"]),
+                                   stof(tileProperties->properties["collision"]["width"]) ,stof(tileProperties->properties["collision"]["height"]) };
 
             auto building = Pooling::Instance().AcquireObject<Building>();
             building->SetData(tileset->name, idName, { (float)x + (width/2 * scale),(float)y }, scale);
@@ -316,7 +325,7 @@ void Tilemap::ParseObjectLayer(xml_node objectGroupNode)
             /// CreateBuilding
             Tileset* tileset = GetTileset(gid);
             const int tileId = gid - tileset->firstGid;
-            string idName = tileset->tileProperties[tileId]["image"];
+            string idName = tileset->tileProperties[tileId].properties["image"]["id"];
 
             auto simpleObject = Pooling::Instance().AcquireObject<SimpleMapObject>();
             simpleObject->SetData(tileset->name, idName, { (float)x + (width / 2 * scale),(float)y }, scale);

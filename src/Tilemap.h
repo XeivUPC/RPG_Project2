@@ -16,6 +16,10 @@ using namespace std;
 struct SDL_Texture;
 struct SDL_Rect;
 
+
+struct TileProperties {
+    unordered_map<string, unordered_map<string, string>> properties;
+};
 struct Tileset {
     int firstGid=0;
     int tileCount=0;
@@ -25,7 +29,7 @@ struct Tileset {
     int margin=0;
     int columns=0;
     SDL_Texture* tilesetImage=nullptr;
-    unordered_map < int,unordered_map<string, string>> tileProperties;
+    unordered_map < int, TileProperties> tileProperties;
     unordered_map<int, vector<SDL_Rect>> animations;
     vector<int> ignoredTiles;
 };
