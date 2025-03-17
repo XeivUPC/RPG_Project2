@@ -7,6 +7,8 @@
 #include "ModuleAudio.h"
 #include "ModuleTime.h"
 #include "Tilemap.h"
+#include "PlayerCharacter.h"
+#include "CameraController.h"
 
 ///Pooling
 #include "Pooling.h"
@@ -81,6 +83,11 @@ bool GameScene::Start()
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
 
+    cameraController = new CameraController();
+    cameraController->SetOffset({ -LOGIC_SCREEN_WIDTH / 2, -LOGIC_SCREEN_HEIGHT / 2 });
+    player = new PlayerCharacter();
+    cameraController->SetTarget(player);
+
     return true;
 }
 
@@ -105,18 +112,6 @@ bool GameScene::Update()
 
     Engine::Instance().m_render->SortRenderQueueLayerByPosition(3);
 
-    Vector2 dir = { 0,0 };
-    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
-        dir.y -= 40;
-    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
-        dir.y += 40;
-    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
-        dir.x -= 40;
-    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
-        dir.x += 40;
-
-    Engine::Instance().m_render->MoveCamera(dir*(float)ModuleTime::deltaTime);
-
     //canvas->UpdateCanvas();
 
     game_states[state]->UpdateState();
@@ -140,6 +135,8 @@ bool GameScene::CleanUp()
     //delete canvas;
     delete fade;
 
+   
+
     for (; game_states.size() != 0;)
     {
         delete game_states.begin()->second;
@@ -159,6 +156,11 @@ bool GameScene::CleanUp()
         delete entities[i];
     }
     entities.clear();
+
+    player->CleanUp();
+    delete player;
+    cameraController->CleanUp();
+    delete cameraController;
 
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);

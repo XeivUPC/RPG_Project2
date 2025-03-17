@@ -93,7 +93,7 @@ class ModuleRender : public Module {
 		unordered_map<IRendereable*, ITransformable*> transformMap;
 		bool renderQueueDirty = false;
 
-		bool cameraMode = false;
+		bool cameraMode = true;
 
 		DrawingTools* drawingTools = nullptr;
 	

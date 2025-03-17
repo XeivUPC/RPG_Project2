@@ -46,13 +46,9 @@ bool SimpleMapObject::Update()
 
 void SimpleMapObject::Render()
 {
-	Engine::Instance().m_render->SetCameraMode(true);
-
 	SDL_Rect positionRect = { (int)(position.x - rect.w * anchor.x),(int)(position.y - rect.h * anchor.y), rect.w,rect.h };
 	if (Engine::Instance().m_render->IsRectCameraVisible(positionRect))
 		Engine::Instance().m_render->painter().RenderTexture(*texture, position, &rect, { scale, scale }, 0, anchor);
-
-	Engine::Instance().m_render->SetCameraMode(false);
 }
 
 bool SimpleMapObject::CleanUp()

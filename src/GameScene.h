@@ -11,6 +11,8 @@ class UIDialogueBoxCG;
 class PauseMenuCG;
 class GameState;
 class Tilemap;
+class PlayerCharacter;
+class CameraController;
 
 class GameScene : public ModuleScene{
 	friend class Engine;
@@ -69,6 +71,8 @@ private:
 	/// Map
 	vector<Tilemap*> tilemaps;
 	vector<Entity*> entities;
+	PlayerCharacter* player = nullptr;
+	CameraController* cameraController = nullptr;
 
 	/// Extra
 };

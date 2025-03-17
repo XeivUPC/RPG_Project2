@@ -345,7 +345,6 @@ void Tilemap::UpdateTilemap()
 void Tilemap::Render()
 {
     ModuleRender& renderer = *Engine::Instance().m_render;
-    renderer.SetCameraMode(true);
     const DrawingTools& painter = renderer.painter();
     SDL_Rect cameraRect = renderer.GetCamera().GetRect();
 
@@ -401,7 +400,6 @@ void Tilemap::Render()
             }
         }
     }
-    renderer.SetCameraMode(false);
 }
 
 void Tilemap::GetTileRect(Tileset* tileset, int tileId, SDL_Rect& rect)

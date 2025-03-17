@@ -137,6 +137,8 @@
     <ClCompile Include="src\AudioContainer.cpp" />
     <ClCompile Include="src\AudioFactory.cpp" />
     <ClCompile Include="src\Building.cpp" />
+    <ClCompile Include="src\CameraController.cpp" />
+    <ClCompile Include="src\Character.cpp" />
     <ClCompile Include="src\DialogueGameState.cpp" />
     <ClCompile Include="src\DialogueSystem.cpp" />
     <ClCompile Include="src\DrawingTools.cpp" />
@@ -170,6 +172,7 @@
     <ClCompile Include="src\ModuleUpdater.cpp" />
     <ClCompile Include="src\ChronoTimer.cpp" />
     <ClCompile Include="src\ModuleWindow.cpp" />
+    <ClCompile Include="src\PlayerCharacter.cpp" />
     <ClCompile Include="src\SettingsCG.cpp" />
     <ClCompile Include="src\SimpleMapObject.cpp" />
     <ClCompile Include="src\StepTimer.cpp" />
@@ -196,6 +199,8 @@
     <ClInclude Include="src\AudioFactory.h" />
     <ClInclude Include="src\Building.h" />
     <ClInclude Include="src\Camera.h" />
+    <ClInclude Include="src\CameraController.h" />
+    <ClInclude Include="src\Character.h" />
     <ClInclude Include="src\DialogueGameState.h" />
     <ClInclude Include="src\DialogueSystem.h" />
     <ClInclude Include="src\DrawingTools.h" />
@@ -238,6 +243,7 @@
     <ClInclude Include="src\ModuleTime.h" />
     <ClInclude Include="src\ModuleUpdater.h" />
     <ClInclude Include="src\ModuleWindow.h" />
+    <ClInclude Include="src\PlayerCharacter.h" />
     <ClInclude Include="src\Pooling.h" />
     <ClInclude Include="src\ChronoTimer.h" />
     <ClInclude Include="src\SettingsCG.h" />

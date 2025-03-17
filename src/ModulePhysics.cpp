@@ -103,8 +103,6 @@ void ModulePhysics::Render()
 	ModuleRender& renderer = *Engine::Instance().m_render;
 	const DrawingTools& painter = renderer.painter();
 
-	renderer.SetCameraMode(true);
-
 	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
 	{
 		for (b2Fixture* f = b->GetFixtureList(); f; f = f->GetNext())
@@ -197,7 +195,6 @@ void ModulePhysics::Render()
 		painter.RenderCircle({ METERS_TO_PIXELS(anchorB.x), METERS_TO_PIXELS(anchorB.y) }, 4, { 0,255,255,255 });
 		painter.RenderLine({ METERS_TO_PIXELS(anchorA.x), METERS_TO_PIXELS(anchorA.y) }, { METERS_TO_PIXELS(anchorB.x), METERS_TO_PIXELS(anchorB.y) }, { 0,0,255,255 });
 	}
-	renderer.SetCameraMode(false);
 
 }
 

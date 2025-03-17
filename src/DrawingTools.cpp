@@ -57,8 +57,6 @@ void DrawingTools::RenderTexture(SDL_Texture& texture, const Vector2Int& positio
     }
 
     SDL_Point center = SDL_Point{ (int)(dstRect.w * pivot.x), (int)(dstRect.h * pivot.y)};
-    dstRect.x -= center.x;
-    dstRect.y -= center.y;    
     
     if (*cameraMode) {
         float screenPivotX = (position.x - camera->rect.x) * camera->zoom;
@@ -96,9 +94,6 @@ void DrawingTools::RenderBox(const Vector2Int& position, const Vector2Int& size,
         rect.x = position.x - center.x;
         rect.y = position.y - center.y;
     }
-
-    rect.x -= center.x;
-    rect.y -= center.y;
 
     if (fill) {
         SDL_RenderFillRect(renderer, &rect);
