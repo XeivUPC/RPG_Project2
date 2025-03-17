@@ -63,8 +63,7 @@ void CameraController::Move()
             desiredPos.y = targetPos.y - direction * deadZoneVerticalRadius;
         }
 
-        // Smoothly interpolate towards the desired position
-        float deltaTime = ModuleTime::deltaTime; // Assume this method exists
+        float deltaTime = ModuleTime::deltaTime;
         position = Vector2::Lerp(position, desiredPos, smoothSpeed * deltaTime);
 
         Engine::Instance().m_render->SetCameraPosition(position);
