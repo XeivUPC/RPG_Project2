@@ -10,8 +10,12 @@ class Animator
 
 public:
 	Animator();
+	~Animator();
 	AnimationClip* operator()();
 	void Animate(string animation);
-	~Animator();
+
+	void Start();
+	void Update();
+	void CleanUp();
 };
 
