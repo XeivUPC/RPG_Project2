@@ -83,13 +83,22 @@ void DrawingTools::RenderBox(const Vector2Int& position, const Vector2Int& size,
     SetColor(color);
 
     SDL_Point center = SDL_Point{ (int)(rect.w * pivot.x), (int)(rect.h * pivot.y) };
-    rect.x -= center.x;
-    rect.y -= center.y;
+
 
     if (*cameraMode) {
-        rect.x += camera->rect.x;
-        rect.y += camera->rect.y;
+        float screenPivotX = (position.x - camera->rect.x) * camera->zoom;
+        float screenPivotY = (position.y - camera->rect.y) * camera->zoom;
+
+        rect.x = static_cast<int>(screenPivotX - center.x);
+        rect.y = static_cast<int>(screenPivotY - center.y);
     }
+    else {
+        rect.x = position.x - center.x;
+        rect.y = position.y - center.y;
+    }
+
+    rect.x -= center.x;
+    rect.y -= center.y;
 
     if (fill) {
         SDL_RenderFillRect(renderer, &rect);
@@ -153,11 +162,23 @@ void DrawingTools::RenderLine(const Vector2Int& start, const Vector2Int& end, co
 {
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     SetColor(color);
+
     if (*cameraMode) {
-        SDL_RenderDrawLine(renderer, start.x + camera->rect.x, start.y + camera->rect.y, end.x + camera->rect.x, end.y + camera->rect.y);
-    }else
+        // Transform both points to screen space
+        const float screenStartX = (start.x - camera->rect.x) * camera->zoom;
+        const float screenStartY = (start.y - camera->rect.y) * camera->zoom;
+        const float screenEndX = (end.x - camera->rect.x) * camera->zoom;
+        const float screenEndY = (end.y - camera->rect.y) * camera->zoom;
+
+        SDL_RenderDrawLine(renderer,
+            static_cast<int>(screenStartX),
+            static_cast<int>(screenStartY),
+            static_cast<int>(screenEndX),
+            static_cast<int>(screenEndY));
+    }
+    else {
         SDL_RenderDrawLine(renderer, start.x, start.y, end.x, end.y);
-    
+    }
 }
 
 SDL_Texture* DrawingTools::RenderText(const string& text, TTF_Font& font, int fontSize, const Vector2Int& position, const Vector2Int& textBoxSize, bool returnTexture, const Vector2& scale, int horizonalAlignment, int verticalAlignment, bool wrap, const Vector2& pivot, const SDL_Color& color) const

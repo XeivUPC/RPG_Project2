@@ -80,7 +80,7 @@ struct TileData {
     int id;
     std::unordered_map<std::string, Property> properties;
     std::vector<TileAnimationFrame> animation;
-    std::vector<TileObject> objects;
+    std::unordered_map<std::string,TileObject> objects;
     std::string textureId;
 };
 

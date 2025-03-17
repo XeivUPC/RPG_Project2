@@ -89,7 +89,11 @@ void Tilemap::CreateObjects()
                 Vector2 position = { object->x + object->width / 2 * scale ,object->y };
 
                 auto building = Pooling::Instance().AcquireObject<Building>();
-                building->SetData(tileset->name, tileset->tiles.at(local_gid).textureId, position, scale);
+                const TileData* tileData = &tileset->tiles.at(local_gid);
+                building->SetData(tileset->name, tileData->textureId, position, scale);
+
+                const TileObject* tileObject = &tileData->objects.at("collision");
+                building->AddCollision({PIXEL_TO_METERS(position.x+tileObject->x),PIXEL_TO_METERS(position.y-tileObject->y)}, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height)});
             }
         }
     }
@@ -151,7 +155,7 @@ void Tilemap::ParseTileData(xml_node& tileNode, TileData& tileData, const Tilese
         for (xml_node objNode : objectGroup.children("object")) {
             TileObject obj;
             ParseObject(objNode, obj, baseDir);
-            tileData.objects.push_back(obj);
+            tileData.objects[obj.name] = obj;
         }
     }
 }

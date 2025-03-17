@@ -3,6 +3,8 @@
 
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
+#include "ModulePhysics.h"
+#include "PhysicFactory.h"
 #include "TextureAtlas.h"
 #include "ModuleRender.h"
 #include "ModuleUpdater.h"
@@ -29,6 +31,12 @@ void SimpleMapObject::SetData(string _atlasId, string _textureId, Vector2 _posit
 	textureId = _textureId;
 
 	anchor = { 0.5f,1 };
+}
+
+void SimpleMapObject::AddCollision(Vector2 position, Vector2 size)
+{
+	body = Engine::Instance().m_physics->factory().CreateBox(position, size.x, size.y);
+	body->SetType(PhysBody::BodyType::Static);
 }
 
 bool SimpleMapObject::Update()
