@@ -3,14 +3,14 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
+    "activeFile": "Tilesets/Water_tiles.tsx",
     "expandedProjectPaths": [
-        "Maps",
-        "Prefabs/Buildings",
         "Tilesets",
-        ".",
         "Objects",
-        "Prefabs"
+        "Maps",
+        ".",
+        "Prefabs",
+        "Prefabs/Buildings"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -38,8 +38,8 @@
             "scale": 2,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 457,
-                "y": 364
+                "x": 467.5,
+                "y": 308
             }
         },
         "Maps/Testing_Zone.tmx": {
@@ -47,7 +47,7 @@
             "selectedLayer": 1,
             "viewCenter": {
                 "x": 235.5,
-                "y": 115.5
+                "y": 115.25
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -112,30 +112,32 @@
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
+        "Maps/Testing_Zone.tmx",
         "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Tilesets/Vegetation_Atlas.tsx",
-        "Tilesets/Building_Atlas.tsx"
+        "Tilesets/Water_tiles.tsx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "string",
     "recentFiles": [
-        "Tilesets/Building_Atlas.tsx",
-        "Tilesets/Vegetation_Atlas.tsx",
-        "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Tilesets/Floors_Tiles.tsx",
         "Maps/Testing_Zone.tmx",
+        "Maps/Rogue_Squadron_Headquarters.tmx",
         "Tilesets/Water_tiles.tsx",
-        "Tilesets/Cave_Tiles.tsx",
         "Tilesets/dsa.tsx",
+        "Tilesets/Vegetation_Atlas.tsx",
+        "Tilesets/Building_Atlas.tsx",
+        "Tilesets/Floors_Tiles.tsx",
+        "Tilesets/Cave_Tiles.tsx",
         "G:/GitHub/RPG_Project2/Assets/Map/Data/Testing_Zone.tmx",
         "Maps/Map1.tmx",
         "Maps/Water_tiles.tsx",
         "Maps/sin nombre.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 2,
+    "tileset.spacing": 2,
     "tileset.tileSize": {
         "height": 16,
         "width": 16
     },
-    "tileset.type": 1
+    "tileset.type": 0
 }

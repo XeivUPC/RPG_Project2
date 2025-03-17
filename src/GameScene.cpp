@@ -75,6 +75,7 @@ bool GameScene::Start()
     ////
 
     tilemaps.emplace_back(new Tilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml",1));
+    tilemaps[0]->CreateObjects();
 
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
