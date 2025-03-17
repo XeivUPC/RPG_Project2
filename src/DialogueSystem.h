@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include <variant>
 #include <nlohmann/json.hpp>
 #include <functional>
@@ -12,8 +12,7 @@
 using namespace std;
 using json = nlohmann::json;
 
-// Tipos de datos para señales
-using SignalData = variant<monostate, string, float, Vector2>; // Vector2 debes implementarlo
+using SignalData = variant<monostate, string, float, Vector2>;
 enum class SignalType { Empty, String, Number, Vector2 };
 
 struct Signal {
@@ -67,7 +66,7 @@ public:
     ~DialogueSystem();
 
     void LoadDialogueWorkspace(const string& path);
-    void LoadDialogueFromJSON(const string& path); // Nueva función
+    void LoadDialogueFromJSON(const string& path);
     void StartDialogue();
     void Update();
     void ProcessInput(int choice);
@@ -76,12 +75,9 @@ public:
 
     const DialogueNode& GetCurrentDialogue();
 
-    // Añadir una variable al game_state
     void AddGameStateVariable(const string& variable_name, const variant<bool, float>& value);
-    // Eliminar una variable del game_state
     void RemoveGameStateVariable(const string& variable_name);
 
-    // Getters
     bool IsDialogueActive() const;
     const vector<Signal>& GetActiveSignals() const;
 
@@ -104,14 +100,12 @@ private:
 
 
     DialogueNode root_node;
-    map<string, DialogueNode> nodes;
+    unordered_map<string, DialogueNode> nodes;
     string current_node;
-    string previous_node; // Para detectar cambios
+    string previous_node;
     vector<Signal> active_signals;
     bool dialogue_active = false;
-
-    // Variables de estado del juego
-    map<string, variant<bool, float>> game_state;
+    unordered_map<string, variant<bool, float>> game_state;
 protected:
     void TriggerCallbacks(vector<function<void()>>& callbacks);
     void TriggerCallbacks(vector<function<void(Signal*)>>& callbacks, Signal* _value);

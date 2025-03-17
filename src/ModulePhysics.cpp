@@ -2,6 +2,8 @@
 #include "ModulePhysics.h"
 #include "ModuleRender.h"
 #include "ModuleInput.h"
+#include "ModuleTime.h"
+#include "ModuleUpdater.h"
 
 #include "CollisionsDispatcher.h"
 #include "PhysicFactory.h"
@@ -18,10 +20,13 @@ ModulePhysics::ModulePhysics(bool start_active) : Module(start_active)
 	debug = true;
 	collisionsManager = new CollisionsDispatcher();
 	renderLayer = 10;
+
+	
 }
 
 ModulePhysics::~ModulePhysics()
 {
+	
 }
 
 bool ModulePhysics::Start()
@@ -39,16 +44,18 @@ bool ModulePhysics::Start()
 	world->SetContactListener(collisionsManager);
 
 	Engine::Instance().m_render->AddToRenderQueue(*this);
+	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 
 	return true;
 }
 
 bool ModulePhysics::PreUpdate()
 {
-	double dt = ModuleTime::deltaTime;
+	double dt = ModuleTime::fixedDeltaTime;
 
 	if(simulationOn)
-		world->Step(1/60.f, 6, 2);
+		world->Step((float)dt, 6, 2);
 	return true;
 }
 
@@ -80,6 +87,8 @@ bool ModulePhysics::CleanUp()
 	delete world;
 
 	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 
 	return true;
 }

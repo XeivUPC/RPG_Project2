@@ -1,6 +1,7 @@
 #include "ModuleInput.h"
 #include "Engine.h"
 #include "ModuleWindow.h"
+#include "ModuleUpdater.h"
 #include "Log.h"
 
 #define MAX_KEYS 300
@@ -10,11 +11,15 @@ ModuleInput::ModuleInput(bool start_active) : Module(start_active)
     keyboard = new KeyState[MAX_KEYS];
     memset(keyboard, KEY_IDLE, sizeof(KeyState) * MAX_KEYS);
     memset(mouseButtons, KEY_IDLE, sizeof(KeyState) * NUM_MOUSE_BUTTONS);
+
+	
 }
 
 ModuleInput::~ModuleInput()
 {
     delete[] keyboard;
+
+	
 }
 
 bool ModuleInput::Init()
@@ -34,8 +39,17 @@ bool ModuleInput::Init()
 
 bool ModuleInput::Start()
 {
+	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
     SDL_StopTextInput();
     return true;
+}
+
+bool ModuleInput::CleanUp()
+{
+	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+	LOG("Quitting SDL event subsystem");
+	SDL_QuitSubSystem(SDL_INIT_EVENTS);
+	return true;
 }
 
 bool ModuleInput::PreUpdate()
@@ -124,13 +138,6 @@ bool ModuleInput::PreUpdate()
 		windowEvents[WE_QUIT] = true;
 
 	return true;
-}
-
-bool ModuleInput::CleanUp()
-{
-	LOG("Quitting SDL event subsystem");
-	SDL_QuitSubSystem(SDL_INIT_EVENTS);
-    return true;
 }
 
 KeyState ModuleInput::GetKey(int id) const

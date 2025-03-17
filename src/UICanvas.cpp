@@ -1,8 +1,18 @@
 #include "UICanvas.h"
+#include "Engine.h"
+#include "ModuleRender.h"
 #include "UIElement.h"
+
+
+UICanvas::UICanvas()
+{
+	Engine::Instance().m_render->AddToRenderQueue(*this);
+}
 
 UICanvas::~UICanvas()
 {
+	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+
 	for (const auto& element : elements)
 		delete element;
 
@@ -33,7 +43,7 @@ bool UICanvas::IsInteractable()
 
 void UICanvas::UpdateCanvas()
 {
-	if (!visible)
+	if (!isVisible)
 		return;
 	for (const auto& element : elements)
 		element->UpdateElement();
@@ -41,8 +51,11 @@ void UICanvas::UpdateCanvas()
 
 void UICanvas::RenderCanvas()
 {
-	if (!visible)
-		return;
 	for (const auto& element : elements)
 		element->RenderElement();
+}
+
+void UICanvas::Render()
+{
+	RenderCanvas();
 }

@@ -51,13 +51,25 @@ void DrawingTools::RenderTexture(SDL_Texture& texture, const Vector2Int& positio
     dstRect.w = (int)(dstRect.w * scale.x);
     dstRect.h = (int)(dstRect.h * scale.y);
 
+    if (*cameraMode) {
+        dstRect.w = static_cast<int>(dstRect.w * camera->zoom);
+        dstRect.h = static_cast<int>(dstRect.h * camera->zoom);
+    }
+
     SDL_Point center = SDL_Point{ (int)(dstRect.w * pivot.x), (int)(dstRect.h * pivot.y)};
     dstRect.x -= center.x;
     dstRect.y -= center.y;    
     
     if (*cameraMode) {
-        dstRect.x -= camera->rect.x;
-        dstRect.y -= camera->rect.y;
+        float screenPivotX = (position.x - camera->rect.x) * camera->zoom;
+        float screenPivotY = (position.y - camera->rect.y) * camera->zoom;
+
+        dstRect.x = static_cast<int>(screenPivotX - center.x);
+        dstRect.y = static_cast<int>(screenPivotY - center.y);
+    }
+    else {
+        dstRect.x = position.x - center.x;
+        dstRect.y = position.y - center.y;
     }
 
     SDL_RenderCopyEx(renderer, &texture, section, &dstRect, angle, &center, flipMode);
@@ -75,8 +87,8 @@ void DrawingTools::RenderBox(const Vector2Int& position, const Vector2Int& size,
     rect.y -= center.y;
 
     if (*cameraMode) {
-        rect.x -= camera->rect.x;
-        rect.y -= camera->rect.y;
+        rect.x += camera->rect.x;
+        rect.y += camera->rect.y;
     }
 
     if (fill) {
@@ -105,10 +117,10 @@ void DrawingTools::RenderCircle(const Vector2Int& position, float radius, const 
 
 
         if (*cameraMode) {
-            x1 -= camera->rect.x;
-            x2 -= camera->rect.x;
-            y1 -= camera->rect.y;
-            y2 -= camera->rect.y;
+            x1 += camera->rect.x;
+            x2 += camera->rect.x;
+            y1 += camera->rect.y;
+            y2 += camera->rect.y;
         }
         SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
     }
@@ -128,8 +140,8 @@ void DrawingTools::RenderFillCircle(const Vector2Int& position, float radius, co
                 int xPos = (int)(position.x + x);
                 int yPos = (int)(position.y + y);
                 if (*cameraMode) {
-                    xPos -= camera->rect.x;
-                    yPos -= camera->rect.y;
+                    xPos += camera->rect.x;
+                    yPos += camera->rect.y;
                 }
                 SDL_RenderDrawPoint(renderer,xPos , yPos);
             }
@@ -142,7 +154,7 @@ void DrawingTools::RenderLine(const Vector2Int& start, const Vector2Int& end, co
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     SetColor(color);
     if (*cameraMode) {
-        SDL_RenderDrawLine(renderer, start.x - camera->rect.x, start.y- camera->rect.y, end.x - camera->rect.x, end.y -camera->rect.y);
+        SDL_RenderDrawLine(renderer, start.x + camera->rect.x, start.y + camera->rect.y, end.x + camera->rect.x, end.y + camera->rect.y);
     }else
         SDL_RenderDrawLine(renderer, start.x, start.y, end.x, end.y);
     

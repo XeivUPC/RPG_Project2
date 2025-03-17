@@ -22,17 +22,16 @@ void DialogueSystem::LoadDialogueWorkspace(const string& path)
     }
 
     json json_data;
-    file >> json_data; // Leer el JSON
+    file >> json_data;
     file.close();
 
-    characters.clear(); // Limpiar characters existentes
+    characters.clear();
 
     for (const auto& character_data : json_data["variables"]["characters"]) {
         DialogueCharacter character;
         character.id = character_data["uuid"];
         character.name = character_data["name"];
 
-        // Extraer retratos (portraits)
         for (const auto& portrait_data : character_data["portraits"]) {
             Portrait portrait;
             portrait.id = portrait_data["path"];
@@ -55,14 +54,13 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
     }
 
     json json_data;
-    file >> json_data; // Leer el JSON
+    file >> json_data; 
     file.close();
 
-    nodes.clear(); // Limpiar nodos existentes
+    nodes.clear();
 
-    // Recorrer cada nodo en el JSON
     for (auto& [node_id, node_data] : json_data.items()) {
-        if (node_id == "__editor") continue; // Ignorar metadata
+        if (node_id == "__editor") continue;
 
         if (node_id == "root") {
             if(json_data["root"].contains("next"))
@@ -100,35 +98,31 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
 
         DialogueNode node;
         node.id = node_id;
-        node.text = node_data["text"]["en"]; // Usar texto en inglés por defecto
+        node.text = node_data["text"]["en"];
         node.next_node = node_data.value("next", "");
         string characterID = node_data["character_uuid"];
         node.character = characters[characterID];
         node.portraitId = node_data["portrait"];
 
-        // Cargar opciones (choices)
         if (node_data.contains("choices")) {
             for (auto& choice_data : node_data["choices"]) {
                 DialogueChoice choice;
-                choice.text = choice_data["text"]["en"]; // Usar texto en inglés
+                choice.text = choice_data["text"]["en"];
                 choice.next_node = choice_data["next"];
                 node.choices.push_back(choice);
             }
         }
 
-        // Cargar condiciones
         if (node_data.contains("conditions")) {
             for (auto& cond_data : node_data["conditions"]) {
                 Condition cond;
 
-                // Buscar la variable (ej: "frienship")
                 for (auto& [var_name, var_data] : cond_data.items()) {
-                    cond.next_node = cond_data["next"]; // Guardar el nodo siguiente
-                    if (var_name == "next" || var_name == "parent") continue; // Ignorar campos especiales
+                    cond.next_node = cond_data["next"];
+                    if (var_name == "next" || var_name == "parent") continue;
 
-                    cond.variable = var_name; // Guardar el nombre de la variable (ej: "frienship")
+                    cond.variable = var_name;
 
-                    // Extraer el valor y el operador
                     if (var_data.contains("value")) {
                         if (var_data["value"].is_number()) {
                             cond.value = var_data["value"].get<float>();
@@ -143,9 +137,8 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
                         if (op == "equal") cond.comparison = "==";
                         else if (op == "greater") cond.comparison = ">";
                         else if (op == "less") cond.comparison = "<";
-                        // Añadir más operadores si es necesario
                     }   
-                    break; // Solo manejamos una variable por condición
+                    break;
                 }
 
                 node.conditions.push_back(cond);
@@ -212,7 +205,6 @@ void DialogueSystem::Update() {
 
     DialogueNode& node = nodes[current_node];
 
-    // Llamar señales solo al entrar al nodo
     if (current_node != previous_node) {
         TriggerCallbacks(onDialogStart);
         ProcessSignals();
@@ -226,7 +218,6 @@ void DialogueSystem::ProcessInput(int choice) {
 
     DialogueNode& node = nodes[current_node];
 
-    // Verificar condiciones primero
     for (auto& condition : node.conditions) {
         if (CheckCondition(condition)) {
             current_node = condition.next_node;
@@ -234,7 +225,6 @@ void DialogueSystem::ProcessInput(int choice) {
         }
     }
 
-    // Procesar elección
     if (!node.choices.empty() && choice >= 0 && choice < node.choices.size()) {
         current_node = node.choices[choice].next_node;
     }
@@ -246,17 +236,15 @@ void DialogueSystem::ProcessInput(int choice) {
         EndDialogue();
     }
 
-    // Marcar completado
     node.completed = true;
 }
 
 void DialogueSystem::ProcessSignals() {
-    // Limpiar señales previas y activar nuevas
+
     active_signals.clear();
 
     DialogueNode& node = nodes[current_node];
     for (Signal& signal : node.signals) {
-        // Determinar tipo automáticamente
         signal.type = DetermineSignalType(signal.data);
         active_signals.push_back(signal);
         DoCustomSignalFunctions(&signal);
@@ -269,7 +257,7 @@ SignalType DialogueSystem::DetermineSignalType(const SignalData& data) {
     if (holds_alternative<string>(data)) return SignalType::String;
     if (holds_alternative<float>(data)) return SignalType::Number;
     if (holds_alternative<Vector2>(data)) return SignalType::Vector2;
-    return SignalType::Empty; // Asume que Empty es el último caso
+    return SignalType::Empty;
 }
 
 void DialogueSystem::DoCustomSignalFunctions(Signal* signal)
@@ -304,7 +292,6 @@ bool DialogueSystem::CheckCondition(const Condition& cond) {
         if (cond.comparison == "==") return game_val == cond_val;
         if (cond.comparison == ">") return game_val > cond_val;
         if (cond.comparison == "<") return game_val < cond_val;
-        // ... otras comparaciones
     }
     return false;
 }
@@ -339,16 +326,14 @@ const DialogueNode& DialogueSystem::GetCurrentDialogue()
 }
 
 void DialogueSystem::AddGameStateVariable(const string& variable_name, const variant<bool, float>& value) {
-    // Añadir o actualizar la variable en game_state
     game_state[variable_name] = value;
     cout << "Variable añadida/actualizada: " << variable_name << endl;
 }
 
 void DialogueSystem::RemoveGameStateVariable(const string& variable_name) {
-    // Buscar la variable en game_state
     auto it = game_state.find(variable_name);
     if (it != game_state.end()) {
-        game_state.erase(it); // Eliminar la variable
+        game_state.erase(it);
         cout << "Variable eliminada: " << variable_name << endl;
     }
     else {
@@ -356,7 +341,6 @@ void DialogueSystem::RemoveGameStateVariable(const string& variable_name) {
     }
 }
 
-// Getters
 bool DialogueSystem::IsDialogueActive() const {
     return dialogue_active;
 }

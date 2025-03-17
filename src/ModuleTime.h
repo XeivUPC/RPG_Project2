@@ -12,13 +12,20 @@ class ModuleTime : public Module {
 
 	public:
 		static double deltaTime;
+		static double fixedDeltaTime;
 		static float timeScale;
 	private:
+		// Inherited via IInitializable
+		bool Start() override;
+		// Inherited via ICleneable
+		bool CleanUp() override;
 		// Inherited via IUpdateable
 		bool PreUpdate() override;
 
 	private:
 		Uint64 lastTime = 0;
 		Uint64 currentTime = 0;
+
+		double accumulator = 0;
 };
 
