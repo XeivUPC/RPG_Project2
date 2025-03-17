@@ -288,6 +288,15 @@
     <ClCompile Include="src\SimpleMapObject.cpp">
       <Filter>Source Files\Entities\Type %28Entity%29</Filter>
     </ClCompile>
+    <ClCompile Include="src\AnimationClip.cpp">
+      <Filter>Source Files\Utils\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Animator.cpp">
+      <Filter>Source Files\Utils\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sprite.cpp">
+      <Filter>Source Files\Utils\Render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -499,6 +508,15 @@
     </ClInclude>
     <ClInclude Include="src\SimpleMapObject.h">
       <Filter>Source Files\Entities\Type %28Entity%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AnimationClip.h">
+      <Filter>Source Files\Utils\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Animator.h">
+      <Filter>Source Files\Utils\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sprite.h">
+      <Filter>Source Files\Utils\Render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

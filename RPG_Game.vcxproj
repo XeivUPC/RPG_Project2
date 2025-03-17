@@ -133,6 +133,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\AnimationClip.cpp" />
+    <ClCompile Include="src\Animator.cpp" />
     <ClCompile Include="src\AtlasFactory.cpp" />
     <ClCompile Include="src\AudioContainer.cpp" />
     <ClCompile Include="src\AudioFactory.cpp" />
@@ -172,6 +174,7 @@
     <ClCompile Include="src\ModuleWindow.cpp" />
     <ClCompile Include="src\SettingsCG.cpp" />
     <ClCompile Include="src\SimpleMapObject.cpp" />
+    <ClCompile Include="src\Sprite.cpp" />
     <ClCompile Include="src\StepTimer.cpp" />
     <ClCompile Include="src\TitleMenuCG.cpp" />
     <ClCompile Include="src\TitleScene.cpp" />
@@ -191,6 +194,8 @@
     <ClCompile Include="src\Vector2Int.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\AnimationClip.h" />
+    <ClInclude Include="src\Animator.h" />
     <ClInclude Include="src\AtlasFactory.h" />
     <ClInclude Include="src\AudioContainer.h" />
     <ClInclude Include="src\AudioFactory.h" />
@@ -242,6 +247,7 @@
     <ClInclude Include="src\ChronoTimer.h" />
     <ClInclude Include="src\SettingsCG.h" />
     <ClInclude Include="src\SimpleMapObject.h" />
+    <ClInclude Include="src\Sprite.h" />
     <ClInclude Include="src\StepTimer.h" />
     <ClInclude Include="src\Sword.h" />
     <ClInclude Include="src\TextureAtlas.h" />

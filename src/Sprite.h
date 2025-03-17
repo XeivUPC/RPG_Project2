@@ -11,6 +11,11 @@ private:
 
 public:
 	Sprite(SDL_Texture* _texture, SDL_Rect _section, Vector2 _pivot = { 0,0 }, Vector2 _offset = { 0,0 });
+	SDL_Texture*& Texture();
+	SDL_Rect& Section();
+	Vector2& Pivot();
+	Vector2& Offset();
+	void CleanUp();
 	~Sprite();
 };
 
