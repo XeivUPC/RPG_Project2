@@ -80,20 +80,33 @@ void Tilemap::CreateObjects()
                 type = object->properties.at("Type").get<string>();
 
             if (type == "simpleObject") {
-                Vector2 position = { object->x + object->width / 2 * scale ,object->y };
+                Vector2 position = { object->x + object->width / 2 ,object->y };
 
                 auto simpleObject = Pooling::Instance().AcquireObject<SimpleMapObject>();
-                simpleObject->SetData(tileset->name, tileset->tiles.at(local_gid).textureId, position,scale);
+                const TileData* tileData = &tileset->tiles.at(local_gid);
+                simpleObject->SetData(tileset->name, tileData->textureId, position,scale);
+
+                if (tileData->objects.count("collision")) {
+                    const TileObject* tileObject = &tileData->objects.at("collision");
+                    simpleObject->AddCollision({ PIXEL_TO_METERS(position.x + tileObject->x),PIXEL_TO_METERS(position.y - tileObject->height * 1.5f + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) });
+                }
             }
-            else if(type == "building"){
+            else if (type == "building") {
                 Vector2 position = { object->x + object->width / 2 * scale ,object->y };
 
                 auto building = Pooling::Instance().AcquireObject<Building>();
                 const TileData* tileData = &tileset->tiles.at(local_gid);
                 building->SetData(tileset->name, tileData->textureId, position, scale);
 
-                const TileObject* tileObject = &tileData->objects.at("collision");
-                building->AddCollision({PIXEL_TO_METERS(position.x+tileObject->x),PIXEL_TO_METERS(position.y-tileObject->y)}, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height)});
+                if (tileData->objects.count("collision")){
+                    const TileObject* tileObject = &tileData->objects.at("collision");
+                    building->AddCollision({ PIXEL_TO_METERS(position.x + tileObject->x),PIXEL_TO_METERS(position.y - tileObject->height * 1.5f + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) });
+                }
+
+                if (tileData->objects.count("renderPosition")) {
+                    const TileObject* tileObject = &tileData->objects.at("renderPosition");
+                    building->renderOffsetSorting = { 0,(int)(tileObject->y - object->height)};
+                }
             }
         }
     }

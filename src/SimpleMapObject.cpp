@@ -72,4 +72,5 @@ void SimpleMapObject::ResetPoolObject()
 {
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+	delete body;
 }

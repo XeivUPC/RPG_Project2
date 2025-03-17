@@ -144,7 +144,7 @@ void ModuleRender::SortRenderQueueLayerByPosition(int targetLayer) {
 		});
 
 	std::sort(begin, mid, [this](IRendereable* a, IRendereable* b) {
-		return transformMap[a]->GetPosition().y < transformMap[b]->GetPosition().y;
+		return (transformMap[a]->GetPosition().y + a->renderOffsetSorting.y) < (transformMap[b]->GetPosition().y + b->renderOffsetSorting.y);
 		});
 }
 void ModuleRender::AddToRenderQueue(IRendereable& rendereableObj)
