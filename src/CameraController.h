@@ -25,4 +25,8 @@ private:
 	float deadZoneVerticalRadius=30;
 
 	float smoothSpeed = 5.0f;
+	Vector2 lastTargetPosition;         
+	float stationaryTimer = 0.0f;  
+	float stationaryThreshold = 1.0f;  
+	float recenterSpeed = 3.0f;
 };

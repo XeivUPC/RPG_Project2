@@ -34,7 +34,7 @@ bool PlayerCharacter::Update()
 
 void PlayerCharacter::Render()
 {
-	Engine::Instance().m_render->painter().RenderBox(body->GetPhysicPosition(), { 20,50 }, { 1,1 }, {0.5f,1 }, true);
+	Engine::Instance().m_render->painter().RenderBox(position, { 20,50 }, { 1,1 }, {0.5f,1 }, true);
 }
 
 bool PlayerCharacter::CleanUp()

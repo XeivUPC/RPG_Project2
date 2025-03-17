@@ -8,7 +8,7 @@ class SimpleMapObject : public Entity, public IPooleable {
 public:
 	SimpleMapObject();
 	~SimpleMapObject();
-	void SetData(string _atlasId, string _textureId, Vector2 _position, float _scale);
+	void SetData(string _atlasId, string _textureId, Vector2Int _position, float _scale);
 	void AddCollision(Vector2 position, Vector2 size);
 
 	bool Update() override;

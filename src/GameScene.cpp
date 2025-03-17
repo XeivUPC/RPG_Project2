@@ -61,7 +61,7 @@ bool GameScene::Start()
 
     Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("townTheme"), 1000);
     Engine::Instance().m_render->SetCameraZoom(1.5f);
-    Engine::Instance().m_render->SetCameraPosition({0, 0});
+    Engine::Instance().m_render->SetCameraPosition(Vector2{0, 0});
     
     //// Create States
 

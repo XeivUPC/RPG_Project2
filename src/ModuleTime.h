@@ -3,6 +3,7 @@
 #include <vector>
 #include <unordered_map>
 
+using namespace std;
 
 class ModuleTime : public Module {
 	friend class Engine;

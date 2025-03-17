@@ -36,7 +36,7 @@ bool ModuleTime::PreUpdate()
     accumulator += deltaTime;
 
     fixedDeltaTime = 0;
-    while (accumulator >= FIXED_DELTA_TIME)
+    while (isgreater(accumulator, FIXED_DELTA_TIME))
     {
         accumulator -= FIXED_DELTA_TIME;
         fixedDeltaTime += FIXED_DELTA_TIME;

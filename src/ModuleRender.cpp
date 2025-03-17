@@ -205,6 +205,12 @@ void ModuleRender::SetCameraPosition(const Vector2Int& position)
 	camera.position.y = (float)position.y;
 }
 
+void ModuleRender::SetCameraPosition(const Vector2& position)
+{
+	camera.position.x = position.x;
+	camera.position.y = position.y;
+}
+
 void ModuleRender::SetCameraOffset(const Vector2& offset)
 {
 	camera.offset = { offset.x, offset.y};

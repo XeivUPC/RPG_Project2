@@ -46,12 +46,27 @@ void CameraController::Move()
     if (!target) return;
 
     Vector2 targetPos = target->GetPosition();
-    Vector2 delta = targetPos - position;
+    float deltaTime = ModuleTime::deltaTime;
 
-    bool moveX = abs(delta.x) > deadZoneHorizontalRadius;
-    bool moveY = abs(delta.y) > deadZoneVerticalRadius;
+    if (targetPos == lastTargetPosition) {
+        stationaryTimer += deltaTime;
+    }
+    else {
+        stationaryTimer = 0.0f;    
+        lastTargetPosition = targetPos;
+    }
+    if (stationaryTimer >= stationaryThreshold) {
+        position = Vector2::Lerp(
+            position,
+            targetPos,  
+            recenterSpeed * deltaTime
+        );
+    }
+    else {
+        Vector2 delta = targetPos - position;
+        bool moveX = abs(delta.x) > deadZoneHorizontalRadius;
+        bool moveY = abs(delta.y) > deadZoneVerticalRadius;
 
-    if (moveX || moveY) {
         Vector2 desiredPos = position;
 
         if (moveX) {
@@ -63,9 +78,12 @@ void CameraController::Move()
             desiredPos.y = targetPos.y - direction * deadZoneVerticalRadius;
         }
 
-        float deltaTime = ModuleTime::deltaTime;
-        position = Vector2::Lerp(position, desiredPos, smoothSpeed * deltaTime);
-
-        Engine::Instance().m_render->SetCameraPosition(position);
+        position = Vector2::Lerp(
+            position,
+            desiredPos,
+            smoothSpeed * deltaTime
+        );
     }
+
+    Engine::Instance().m_render->SetCameraPosition(position);
 }

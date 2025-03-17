@@ -56,6 +56,7 @@ class ModuleRender : public Module {
 		const Camera& GetCamera() const;
 		void MoveCamera(const Vector2& moveAmount);
 		void SetCameraPosition(const Vector2Int& position);
+		void SetCameraPosition(const Vector2& position);
 		void SetCameraOffset(const Vector2& offset);
 		void SetCameraZoom(float zoom);
 

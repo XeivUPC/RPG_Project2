@@ -18,7 +18,7 @@ SimpleMapObject::~SimpleMapObject()
 {
 }
 
-void SimpleMapObject::SetData(string _atlasId, string _textureId, Vector2 _position, float _scale)
+void SimpleMapObject::SetData(string _atlasId, string _textureId, Vector2Int _position, float _scale)
 {
 	SetPosition(move(_position));
 	SetScale(move(_scale));
