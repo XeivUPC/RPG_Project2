@@ -32,4 +32,6 @@ protected:
 
 	Vector2 moveDirection = { 0,0 };
 	float speed = 5;
+
+	Vector2 previousPhysicsPosition = { 0,0 };
 };

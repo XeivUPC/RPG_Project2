@@ -31,64 +31,68 @@ void DrawingTools::SetCamera(Camera& _camera)
     camera = &_camera;
 }
 
-void DrawingTools::RenderTexture(SDL_Texture& texture, const Vector2Int& position, const SDL_Rect* section, const Vector2& scale, float angle, const Vector2& pivot, SDL_RendererFlip flipMode, const SDL_Color& color) const
+void DrawingTools::RenderTexture(SDL_Texture& texture, const Vector2& position, const SDL_Rect* section, const Vector2& scale, float angle, const Vector2& pivot, SDL_RendererFlip flipMode, const SDL_Color& color) const
 {
     SDL_SetTextureColorMod(&texture, color.r, color.g, color.b);
     SDL_SetTextureAlphaMod(&texture, color.a);
 
-    SDL_Rect dstRect;
-    dstRect.x = (int)position.x;
-    dstRect.y = (int)position.y;
+    SDL_FRect dstRect;
+    dstRect.x = position.x;
+    dstRect.y = position.y;
 
     if (section == NULL) {
-        SDL_QueryTexture(&texture, NULL, NULL, &dstRect.w, &dstRect.h);
+        int widht;
+        int height;
+        SDL_QueryTexture(&texture, NULL, NULL, &widht, &height);
+        dstRect.w = (float)widht;
+        dstRect.h = (float)height;
     }
     else {
-        dstRect.w = (int)(section->w);
-        dstRect.h = (int)(section->h);
+        dstRect.w = (float)(section->w);
+        dstRect.h = (float)(section->h);
     }
 
-    dstRect.w = (int)(dstRect.w * scale.x);
-    dstRect.h = (int)(dstRect.h * scale.y);
+    dstRect.w = (dstRect.w * scale.x);
+    dstRect.h = (dstRect.h * scale.y);
 
     if (*cameraMode) {
-        dstRect.w = static_cast<int>(dstRect.w * camera->zoom);
-        dstRect.h = static_cast<int>(dstRect.h * camera->zoom);
+        dstRect.w = (dstRect.w * camera->zoom);
+        dstRect.h = (dstRect.h * camera->zoom);
     }
 
-    SDL_Point center = SDL_Point{ (int)(dstRect.w * pivot.x), (int)(dstRect.h * pivot.y)};
+    SDL_FPoint center = SDL_FPoint{ (dstRect.w * pivot.x), (dstRect.h * pivot.y)};
     
     if (*cameraMode) {
         float screenPivotX = (position.x - camera->rect.x) * camera->zoom;
         float screenPivotY = (position.y - camera->rect.y) * camera->zoom;
 
-        dstRect.x = static_cast<int>(screenPivotX - center.x);
-        dstRect.y = static_cast<int>(screenPivotY - center.y);
+        dstRect.x = (screenPivotX - center.x);
+        dstRect.y = (screenPivotY - center.y);
     }
     else {
         dstRect.x = position.x - center.x;
         dstRect.y = position.y - center.y;
     }
 
-    SDL_RenderCopyEx(renderer, &texture, section, &dstRect, angle, &center, flipMode);
+    SDL_RenderCopyExF(renderer, &texture, section, &dstRect, angle, &center, flipMode);
 
 }
 
-void DrawingTools::RenderBox(const Vector2Int& position, const Vector2Int& size, const Vector2& scale, const Vector2& pivot, bool fill, const SDL_Color& color) const
+void DrawingTools::RenderBox(const Vector2& position, const Vector2& size, const Vector2& scale, const Vector2& pivot, bool fill, const SDL_Color& color) const
 {
-    SDL_Rect rect = { (int)position.x, (int)position.y, (int)(size.x * scale.x), (int)(size.y * scale.y)};
+    SDL_FRect rect = { position.x, position.y, (size.x * scale.x), (size.y * scale.y)};
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     SetColor(color);
 
-    SDL_Point center = SDL_Point{ (int)(rect.w * pivot.x), (int)(rect.h * pivot.y) };
+    SDL_FPoint center = SDL_FPoint{ (rect.w * pivot.x), (rect.h * pivot.y) };
 
 
     if (*cameraMode) {
         float screenPivotX = (position.x - camera->rect.x) * camera->zoom;
         float screenPivotY = (position.y - camera->rect.y) * camera->zoom;
 
-        rect.x = static_cast<int>(screenPivotX - center.x);
-        rect.y = static_cast<int>(screenPivotY - center.y);
+        rect.x = (screenPivotX - center.x);
+        rect.y = (screenPivotY - center.y);
     }
     else {
         rect.x = position.x - center.x;
@@ -96,14 +100,14 @@ void DrawingTools::RenderBox(const Vector2Int& position, const Vector2Int& size,
     }
 
     if (fill) {
-        SDL_RenderFillRect(renderer, &rect);
+        SDL_RenderFillRectF(renderer, &rect);
     }
     else {
-        SDL_RenderDrawRect(renderer, &rect);
+        SDL_RenderDrawRectF(renderer, &rect);
     }
 }
 
-void DrawingTools::RenderCircle(const Vector2Int& position, float radius, const SDL_Color& color, const int precision) const
+void DrawingTools::RenderCircle(const Vector2& position, float radius, const SDL_Color& color, const int precision) const
 {
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     SetColor(color);
@@ -114,10 +118,10 @@ void DrawingTools::RenderCircle(const Vector2Int& position, float radius, const 
         float theta1 = i * angleStep;
         float theta2 = (i + 1) * angleStep;
 
-        int x1 = (int)(position.x + radius * cosf(theta1));
-        int y1 = (int)(position.y + radius * sinf(theta1));
-        int x2 = (int)(position.x + radius * cosf(theta2));
-        int y2 = (int)(position.y + radius * sinf(theta2));
+        float x1 = (position.x + radius * cosf(theta1));
+        float y1 = (position.y + radius * sinf(theta1));
+        float x2 = (position.x + radius * cosf(theta2));
+        float y2 = (position.y + radius * sinf(theta2));
 
 
         if (*cameraMode) {
@@ -126,11 +130,11 @@ void DrawingTools::RenderCircle(const Vector2Int& position, float radius, const 
             y1 += camera->rect.y;
             y2 += camera->rect.y;
         }
-        SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
+        SDL_RenderDrawLineF(renderer, x1, y1, x2, y2);
     }
 }
 
-void DrawingTools::RenderFillCircle(const Vector2Int& position, float radius, const SDL_Color& color) const
+void DrawingTools::RenderFillCircle(const Vector2& position, float radius, const SDL_Color& color) const
 {
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     SetColor(color);
@@ -141,19 +145,19 @@ void DrawingTools::RenderFillCircle(const Vector2Int& position, float radius, co
         {
             if (x * x + y * y <= radius * radius)
             {
-                int xPos = (int)(position.x + x);
-                int yPos = (int)(position.y + y);
+                float xPos = (position.x + x);
+                float yPos = (position.y + y);
                 if (*cameraMode) {
                     xPos += camera->rect.x;
                     yPos += camera->rect.y;
                 }
-                SDL_RenderDrawPoint(renderer,xPos , yPos);
+                SDL_RenderDrawPointF(renderer,xPos , yPos);
             }
         }
     }
 }
 
-void DrawingTools::RenderLine(const Vector2Int& start, const Vector2Int& end, const SDL_Color& color) const
+void DrawingTools::RenderLine(const Vector2& start, const Vector2& end, const SDL_Color& color) const
 {
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     SetColor(color);
@@ -165,18 +169,18 @@ void DrawingTools::RenderLine(const Vector2Int& start, const Vector2Int& end, co
         const float screenEndX = (end.x - camera->rect.x) * camera->zoom;
         const float screenEndY = (end.y - camera->rect.y) * camera->zoom;
 
-        SDL_RenderDrawLine(renderer,
-            static_cast<int>(screenStartX),
-            static_cast<int>(screenStartY),
-            static_cast<int>(screenEndX),
-            static_cast<int>(screenEndY));
+        SDL_RenderDrawLineF(renderer,
+            (screenStartX),
+            (screenStartY),
+            (screenEndX),
+            (screenEndY));
     }
     else {
-        SDL_RenderDrawLine(renderer, start.x, start.y, end.x, end.y);
+        SDL_RenderDrawLineF(renderer, start.x, start.y, end.x, end.y);
     }
 }
 
-SDL_Texture* DrawingTools::RenderText(const string& text, TTF_Font& font, int fontSize, const Vector2Int& position, const Vector2Int& textBoxSize, bool returnTexture, const Vector2& scale, int horizonalAlignment, int verticalAlignment, bool wrap, const Vector2& pivot, const SDL_Color& color) const
+SDL_Texture* DrawingTools::RenderText(const string& text, TTF_Font& font, int fontSize, const Vector2& position, const Vector2& textBoxSize, bool returnTexture, const Vector2& scale, int horizonalAlignment, int verticalAlignment, bool wrap, const Vector2& pivot, const SDL_Color& color) const
 {
     int current_fontSize = TTF_FontHeight(&font);
     if (current_fontSize != fontSize)
@@ -186,7 +190,7 @@ SDL_Texture* DrawingTools::RenderText(const string& text, TTF_Font& font, int fo
     SDL_Surface* surface = nullptr;
     int maxSize = 5000;
     if (wrap) {
-        maxSize = textBoxSize.x;
+        maxSize = (int)textBoxSize.x;
     }
     else {
         //// Get Longest Line
@@ -219,27 +223,27 @@ SDL_Texture* DrawingTools::RenderText(const string& text, TTF_Font& font, int fo
     return nullptr;
 }
 
-void DrawingTools::RenderInsideBox(SDL_Texture& texture, const Vector2Int& position, const Vector2Int& boxSize, const Vector2& scale, int horizonalAlignment, int verticalAlignment, const Vector2& pivot) const
+void DrawingTools::RenderInsideBox(SDL_Texture& texture, const Vector2& position, const Vector2& boxSize, const Vector2& scale, int horizonalAlignment, int verticalAlignment, const Vector2& pivot) const
 {
     SDL_Rect textureRect = { (int)(boxSize.x * scale.x),(int)(boxSize.y * scale.y),0,0 };
     SDL_QueryTexture(&texture, NULL, NULL, &textureRect.w, &textureRect.h);
 
-    Vector2Int drawinPosition = { 0,0 };
-    SDL_Point center = SDL_Point{ (int)(textureRect.x * pivot.x), (int)(textureRect.y * pivot.y) };
+    Vector2 drawinPosition = { 0,0 };
+    SDL_FPoint center = SDL_FPoint{ (textureRect.x * pivot.x), (textureRect.y * pivot.y) };
 
     if (horizonalAlignment == 0)      // Left
         drawinPosition.x = position.x;
     else if (horizonalAlignment == 1) // Center
-        drawinPosition.x = (int)(position.x + textureRect.x / 2 - textureRect.w / 2 * scale.x);
+        drawinPosition.x = (position.x + textureRect.x / 2 - textureRect.w / 2 * scale.x);
     else if (horizonalAlignment == 2) // Right
-        drawinPosition.x = (int)(position.x + textureRect.x - textureRect.w * scale.x);
+        drawinPosition.x = (position.x + textureRect.x - textureRect.w * scale.x);
 
     if (verticalAlignment == 0)      // Top
         drawinPosition.y = position.y;
     else if (verticalAlignment == 1) // Center
-        drawinPosition.y = (int)(position.y + textureRect.y / 2 - textureRect.h / 2 * scale.y);
+        drawinPosition.y = (position.y + textureRect.y / 2 - textureRect.h / 2 * scale.y);
     else if (verticalAlignment == 2) // Bottom
-        drawinPosition.y = (int)(position.y + textureRect.y * scale.y - textureRect.h * scale.y);
+        drawinPosition.y = (position.y + textureRect.y * scale.y - textureRect.h * scale.y);
 
     drawinPosition.x -= center.x;
     drawinPosition.y -= center.y;

@@ -301,7 +301,7 @@
       <Filter>Source Files\Entities\Type %28Entity%29\Character</Filter>
     </ClCompile>
     <ClCompile Include="src\CameraController.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Entities\Type %28Entity%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

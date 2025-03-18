@@ -1,5 +1,7 @@
 #include "ModuleUpdater.h"
 
+#include <algorithm>
+
 ModuleUpdater::ModuleUpdater(bool start_active) : Module(start_active)
 {
 	priority_deleting = -1;
@@ -11,6 +13,7 @@ ModuleUpdater::~ModuleUpdater()
 
 bool ModuleUpdater::PreUpdate()
 {
+	SortUpdateTasks();
 	if(!isPaused)
 		return PreUpdateAll();
 	return true;
@@ -18,6 +21,7 @@ bool ModuleUpdater::PreUpdate()
 
 bool ModuleUpdater::Update()
 {
+	SortUpdateTasks();
 	if (!isPaused)
 		return UpdateAll();
 	return true;
@@ -25,6 +29,7 @@ bool ModuleUpdater::Update()
 
 bool ModuleUpdater::PostUpdate()
 {
+	SortUpdateTasks();
 	if (!isPaused)
 		return PostUpdateAll();
 	return true;
@@ -39,12 +44,14 @@ bool ModuleUpdater::CleanUp()
 
 void ModuleUpdater::AddToUpdateQueue(IUpdateable& updateableObj, UpdateMode mode, const string& groupId)
 {
+	updateQueueDirty = true;
 	updatesQueue[mode].emplace_back(&updateableObj);
 	AddToUpdateGroup(updateableObj, groupId);
 }
 
 void ModuleUpdater::RemoveFromUpdateQueue(IUpdateable& updateableObj, UpdateMode mode, bool removeFromGroups)
 {
+	updateQueueDirty = true;
 	updatesQueue[mode].erase(
 		remove(updatesQueue[mode].begin(), updatesQueue[mode].end(), &updateableObj),
 		updatesQueue[mode].end()
@@ -85,6 +92,11 @@ void ModuleUpdater::RemoveFromUpdateGroup(IUpdateable& updateableObj)
 	}
 }
 
+void ModuleUpdater::SetUpdateQueueDirty()
+{
+	updateQueueDirty = true;
+}
+
 ModuleUpdater::UpdateGroup& ModuleUpdater::GetModifiableUpdateGroup(const string& groupID)
 {
 	for (auto& groupEntry : groups) {
@@ -95,6 +107,28 @@ ModuleUpdater::UpdateGroup& ModuleUpdater::GetModifiableUpdateGroup(const string
 
 	
 	return groups[groupID];
+}
+
+void ModuleUpdater::SortUpdateTasks()
+{
+	if (!updateQueueDirty)
+		return;
+	
+
+	sort(updatesQueue[UpdateMode::PRE_UPDATE].begin(), updatesQueue[UpdateMode::PRE_UPDATE].end(),
+		[](IUpdateable* a, IUpdateable* b) {
+			return a->priority_updating > b->priority_updating;
+		});
+
+	sort(updatesQueue[UpdateMode::UPDATE].begin(), updatesQueue[UpdateMode::UPDATE].end(),
+		[](IUpdateable* a, IUpdateable* b) {
+			return a->priority_updating > b->priority_updating;
+		});
+
+	sort(updatesQueue[UpdateMode::POST_UPDATE].begin(), updatesQueue[UpdateMode::POST_UPDATE].end(),
+		[](IUpdateable* a, IUpdateable* b) {
+			return a->priority_updating > b->priority_updating;
+		});
 }
 
 const ModuleUpdater::UpdateGroup& ModuleUpdater::GetUpdateGroup(const string& groupID)

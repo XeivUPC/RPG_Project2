@@ -49,6 +49,7 @@ class ModuleRender : public Module {
 		void AddToRenderQueue(IRendereable& rendereableObj, ITransformable& transformableObj);
 		void RemoveFomRenderQueue(IRendereable& rendereableObj);
 		void SortRenderQueueLayerByPosition(int targetLayer);
+		void SetRenderQueueDirty();
 
 		bool IsCameraModeActive() const;
 		void SetCameraMode(bool isActive);

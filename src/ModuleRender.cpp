@@ -13,7 +13,7 @@
 
 ModuleRender::ModuleRender(bool start_active) : Module(start_active)
 {
-
+	priority_updating = -1;
 }
 
 ModuleRender::~ModuleRender()
@@ -146,6 +146,10 @@ void ModuleRender::SortRenderQueueLayerByPosition(int targetLayer) {
 	std::sort(begin, mid, [this](IRendereable* a, IRendereable* b) {
 		return (transformMap[a]->GetPosition().y + a->renderOffsetSorting.y) < (transformMap[b]->GetPosition().y + b->renderOffsetSorting.y);
 		});
+}
+void ModuleRender::SetRenderQueueDirty()
+{
+	renderQueueDirty = true;
 }
 void ModuleRender::AddToRenderQueue(IRendereable& rendereableObj)
 {

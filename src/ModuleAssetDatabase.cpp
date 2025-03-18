@@ -77,6 +77,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("game_title", *textureFactory->CreateTexture("Assets/Textures/General/game_title.png"));
 	AddTextureToStorage("game_title_pixel", *textureFactory->CreateTexture("Assets/Textures/General/game_title_pixel.png"));
 	AddTextureToStorage("top_fade", *textureFactory->CreateTexture("Assets/Textures/General/top_fade.png"));
+	AddTextureToStorage("player_test", *textureFactory->CreateTexture("Assets/Textures/General/Idle_Down-Sheet.png"));
 	///Characters --> Make Atlas later
 	AddTextureToStorage("character_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/Characters/CharactersAtlas.png"));
 	AddAtlasToStorage("character_atlas",*atlasFactory->CreateAtlas(*GetTexture("character_atlas"), "Assets/Textures/Atlas/Characters/CharactersAtlas.xml"));

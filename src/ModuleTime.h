@@ -11,6 +11,8 @@ class ModuleTime : public Module {
 		ModuleTime(bool start_active = true);
 		~ModuleTime();
 
+		float GetPhysicsInterpolationAlpha() const;
+
 	public:
 		static double deltaTime;
 		static double fixedDeltaTime;
@@ -22,6 +24,8 @@ class ModuleTime : public Module {
 		bool CleanUp() override;
 		// Inherited via IUpdateable
 		bool PreUpdate() override;
+
+		
 
 	private:
 		Uint64 lastTime = 0;

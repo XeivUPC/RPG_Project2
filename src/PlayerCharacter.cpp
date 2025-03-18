@@ -1,8 +1,10 @@
 #include "PlayerCharacter.h"
 #include "Engine.h"
 #include "ModuleRender.h"
+#include "ModuleAssetDataBase.h"
 #include "ModuleUpdater.h"
 #include "ModuleInput.h"
+#include "ModuleTime.h"
 #include "DrawingTools.h"
 #include "ModulePhysics.h"
 #include "PhysicFactory.h"
@@ -19,6 +21,8 @@ PlayerCharacter::PlayerCharacter()
 	body = Engine::Instance().m_physics->factory().CreateBox({0,0.2f},0.5f,0.2f);
 	body->SetFriction(0, 0);
 	body->body->SetFixedRotation(true);
+
+	texture = Engine::Instance().m_assetsDB->GetTexture("player_test");
 }
 
 PlayerCharacter::~PlayerCharacter()
@@ -27,6 +31,8 @@ PlayerCharacter::~PlayerCharacter()
 
 bool PlayerCharacter::Update()
 {
+	previousPhysicsPosition = position;
+
 	GetInput();
 	Move();
 	return true;
@@ -34,7 +40,13 @@ bool PlayerCharacter::Update()
 
 void PlayerCharacter::Render()
 {
-	Engine::Instance().m_render->painter().RenderBox(position, { 20,50 }, { 1,1 }, {0.5f,1 }, true);
+	float alpha = Engine::Instance().m_time->GetPhysicsInterpolationAlpha();
+	
+	Vector2 renderPosition = Vector2::Lerp(previousPhysicsPosition, position, alpha);
+
+	SDL_Rect rect = { 0,0,64,64 };
+
+	Engine::Instance().m_render->painter().RenderTexture(*texture,renderPosition, &rect, { 1.f,1.f },0, {0.5f,0.75f });
 }
 
 bool PlayerCharacter::CleanUp()

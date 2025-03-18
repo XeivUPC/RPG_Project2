@@ -118,7 +118,7 @@ void ModulePhysics::Render()
 
 				if (renderer.IsCircleCameraVisible({ (float)METERS_TO_PIXELS(pos.x), (float)METERS_TO_PIXELS(pos.y) },(float)METERS_TO_PIXELS(circleShape->m_radius)))
 				{
-					painter.RenderCircle({ METERS_TO_PIXELS(pos.x), METERS_TO_PIXELS(pos.y) },(float)METERS_TO_PIXELS(circleShape->m_radius), {255,255,255,255});
+					painter.RenderCircle({ METERS_TO_PIXELS_RAW(pos.x), METERS_TO_PIXELS_RAW(pos.y) },(float)METERS_TO_PIXELS_RAW(circleShape->m_radius), {255,255,255,255});
 				}
 			}
 			break;
@@ -135,7 +135,7 @@ void ModulePhysics::Render()
 					{
 						if (renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(prev.x), (float)METERS_TO_PIXELS(prev.y) }, {(float)METERS_TO_PIXELS(v.x), (float)METERS_TO_PIXELS(v.y) }))
 						{
-							painter.RenderLine({ METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y) }, {METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y) },{0,255,0,255});
+							painter.RenderLine({ METERS_TO_PIXELS_RAW(prev.x), METERS_TO_PIXELS_RAW(prev.y) }, { METERS_TO_PIXELS_RAW(v.x), METERS_TO_PIXELS_RAW(v.y) },{0,255,0,255});
 						}
 					}
 					prev = v;
@@ -156,7 +156,7 @@ void ModulePhysics::Render()
 					{
 						if (renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(prev.x), (float)METERS_TO_PIXELS(prev.y) }, { (float)METERS_TO_PIXELS(v.x), (float)METERS_TO_PIXELS(v.y) }))
 						{
-							painter.RenderLine({ METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y) }, {METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y) },{ 255,0,0,255 });
+							painter.RenderLine({ METERS_TO_PIXELS_RAW(prev.x), METERS_TO_PIXELS_RAW(prev.y) }, { METERS_TO_PIXELS_RAW(v.x), METERS_TO_PIXELS_RAW(v.y) },{ 255,0,0,255 });
 						}
 					}
 					prev = v;
@@ -166,7 +166,7 @@ void ModulePhysics::Render()
 
 				if (renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(prev.x), (float)METERS_TO_PIXELS(prev.y) }, { (float)METERS_TO_PIXELS(v.x), (float)METERS_TO_PIXELS(v.y) }))
 				{
-					painter.RenderLine({ METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y) }, {METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y) },{ 255,0,0,255 });
+					painter.RenderLine({ METERS_TO_PIXELS_RAW(prev.x), METERS_TO_PIXELS_RAW(prev.y) }, { METERS_TO_PIXELS_RAW(v.x), METERS_TO_PIXELS_RAW(v.y) },{ 255,0,0,255 });
 				}
 			}
 			break;
@@ -178,7 +178,7 @@ void ModulePhysics::Render()
 				b2Vec2 v2 = b->GetWorldPoint(edgeShape->m_vertex1);
 				if(renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(v1.x), (float)METERS_TO_PIXELS(v1.y) }, { (float)METERS_TO_PIXELS(v2.x), (float)METERS_TO_PIXELS(v2.y) }))
 				{
-					painter.RenderLine({ METERS_TO_PIXELS(v1.x), METERS_TO_PIXELS(v1.y) }, {METERS_TO_PIXELS(v2.x), METERS_TO_PIXELS(v2.y) },{ 0,0,255,255 });
+					painter.RenderLine({ METERS_TO_PIXELS_RAW(v1.x), METERS_TO_PIXELS_RAW(v1.y) }, { METERS_TO_PIXELS_RAW(v2.x), METERS_TO_PIXELS_RAW(v2.y) },{ 0,0,255,255 });
 				}
 			}
 			break;
@@ -191,9 +191,9 @@ void ModulePhysics::Render()
 		b2Vec2 anchorA = j->GetAnchorA();
 		b2Vec2 anchorB = j->GetAnchorB();
 
-		painter.RenderCircle({ METERS_TO_PIXELS(anchorA.x), METERS_TO_PIXELS(anchorA.y) }, 4, { 0,255,255,255 });
-		painter.RenderCircle({ METERS_TO_PIXELS(anchorB.x), METERS_TO_PIXELS(anchorB.y) }, 4, { 0,255,255,255 });
-		painter.RenderLine({ METERS_TO_PIXELS(anchorA.x), METERS_TO_PIXELS(anchorA.y) }, { METERS_TO_PIXELS(anchorB.x), METERS_TO_PIXELS(anchorB.y) }, { 0,0,255,255 });
+		painter.RenderCircle({ METERS_TO_PIXELS_RAW(anchorA.x), METERS_TO_PIXELS_RAW(anchorA.y) }, 4, { 0,255,255,255 });
+		painter.RenderCircle({ METERS_TO_PIXELS_RAW(anchorB.x), METERS_TO_PIXELS_RAW(anchorB.y) }, 4, { 0,255,255,255 });
+		painter.RenderLine({ METERS_TO_PIXELS_RAW(anchorA.x), METERS_TO_PIXELS_RAW(anchorA.y) }, { METERS_TO_PIXELS_RAW(anchorB.x), METERS_TO_PIXELS_RAW(anchorB.y) }, { 0,0,255,255 });
 	}
 
 }
@@ -243,8 +243,8 @@ Vector2 PhysBody::GetPhysicPosition() const
 {
 	if (body) {
 		b2Vec2 pos = body->GetPosition();
-		int x = METERS_TO_PIXELS(pos.x);
-		int y = METERS_TO_PIXELS(pos.y);
+		float x = METERS_TO_PIXELS_RAW(pos.x);
+		float y = METERS_TO_PIXELS_RAW(pos.y);
 		return { (float)x,(float)y };
 	}
 	return { 0,0 };
