@@ -14,6 +14,7 @@ public:
 
 	bool CleanUp() override;
 
+	void SetPosition(Vector2 newPosition) override;
 
 public:
 

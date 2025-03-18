@@ -41,6 +41,12 @@ bool NpcCharacter::CleanUp()
     return true;
 }
 
+void NpcCharacter::SetNpcData(int _npcId, Vector2 _position)
+{
+    npcId = npcId;
+    SetPosition(position);
+}
+
 void NpcCharacter::SearchPath()
 {
 }
@@ -60,6 +66,14 @@ void NpcCharacter::InitPoolObject()
     body->SetType(PhysBody::BodyType::Kinematic);
     body->SetFriction(0, 0);
     body->body->SetFixedRotation(true);
+
+    int index = Engine::Instance().m_physics->factory().AddCircle(body, { 0,0.1f }, 1.0f);
+    body->SetSensor(index, true);
+    ModulePhysics::Layer category;
+    ModulePhysics::Layer mask;
+    category.flags.interactable_layer = 1;
+    mask.flags.interactable_layer = 1;
+    body->SetFilter(index, category.rawValue, mask.rawValue, 0);
 }
 
 void NpcCharacter::ResetPoolObject()

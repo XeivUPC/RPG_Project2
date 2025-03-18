@@ -129,6 +129,7 @@ class PhysBody
 		float GetRestitution(size_t fixtureIndex) const;
 		float GetRestitutionThreshold(size_t fixtureIndex) const;
 		b2FixtureUserData GetFixtureUserData(size_t fixtureIndex) const;
+		b2BodyUserData GetUserData() const;
 		bool IsSensor(size_t fixtureIndex) const;
 		b2Filter GetFilter(size_t fixtureIndex) const;
 
@@ -155,17 +156,20 @@ class ModulePhysics : public Module, public IRendereable
 {
 	friend class Engine;
 
-	union Layer {
-		Uint16 rawValue = 0;
-		struct internalFlags {
-			char default_layer : 1;
-			char ground_layer : 1;
-			char player_layer : 1;
-			char interactable_layer : 1;
-		}flags;
-	};
+	
 
 	public:
+
+		union Layer {
+			Uint16 rawValue = 0;
+			struct internalFlags {
+				char default_layer : 1;
+				char ground_layer : 1;
+				char player_layer : 1;
+				char interactable_layer : 1;
+			}flags;
+		};
+
 		ModulePhysics(bool start_active = true);
 		~ModulePhysics();
 

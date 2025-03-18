@@ -18,9 +18,21 @@ PlayerCharacter::PlayerCharacter()
 	renderLayer = 3;
 	renderOffsetSorting = { 0,2 };
 
-	body = Engine::Instance().m_physics->factory().CreateBox({0,0.2f},0.5f,0.2f);
+
+	b2FixtureUserData sensorData;
+	sensorData.pointer = (uintptr_t)(&interactionSensor);
+	body = Engine::Instance().m_physics->factory().CreateBox({0,0.2f},0.5f,0.2f, sensorData);
 	body->SetFriction(0, 0);
 	body->body->SetFixedRotation(true);
+	ModulePhysics::Layer category;
+	ModulePhysics::Layer mask;
+	category.flags.interactable_layer = 1;
+	category.flags.player_layer = 1;
+	mask.flags.interactable_layer = 1;
+	mask.flags.default_layer = 1;
+	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
+
+	interactionSensor.SetFixtureToTrack(body, 0);
 
 	texture = Engine::Instance().m_assetsDB->GetTexture("player_test");
 }
@@ -32,6 +44,13 @@ PlayerCharacter::~PlayerCharacter()
 bool PlayerCharacter::Update()
 {
 	previousPhysicsPosition = position;
+
+	if (interactionSensor.IsBeingTriggered()) {
+		printf("interacting\n");
+		PhysBody* interactor = interactionSensor.GetClosestBodyColliding();
+		/// Call Interact
+		 
+	}
 
 	GetInput();
 	Move();

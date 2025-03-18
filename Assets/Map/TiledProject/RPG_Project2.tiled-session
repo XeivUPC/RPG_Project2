@@ -3,14 +3,14 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
+    "activeFile": "",
     "expandedProjectPaths": [
-        "Objects",
         "Maps",
-        ".",
+        "Objects",
+        "Prefabs",
         "Prefabs/Buildings",
         "Tilesets",
-        "Prefabs"
+        "."
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -115,10 +115,9 @@
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
-        "Maps/Rogue_Squadron_Headquarters.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
-    "property.type": "string",
+    "property.type": "file",
     "recentFiles": [
         "Maps/Rogue_Squadron_Headquarters.tmx",
         "Tilesets/Building_Atlas.tsx",

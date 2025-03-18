@@ -118,18 +118,25 @@ void DrawingTools::RenderCircle(const Vector2& position, float radius, const SDL
         float theta1 = i * angleStep;
         float theta2 = (i + 1) * angleStep;
 
-        float x1 = (position.x + radius * cosf(theta1));
-        float y1 = (position.y + radius * sinf(theta1));
-        float x2 = (position.x + radius * cosf(theta2));
-        float y2 = (position.y + radius * sinf(theta2));
+        float x1 = 0;
+        float y1 = 0;
+        float x2 = 0;
+        float y2 = 0;
 
 
         if (*cameraMode) {
-            x1 += camera->rect.x;
-            x2 += camera->rect.x;
-            y1 += camera->rect.y;
-            y2 += camera->rect.y;
+            x1 = ((position.x - camera->rect.x + radius * cosf(theta1))) * camera->zoom;
+            y1 = ((position.x - camera->rect.y + radius * sinf(theta1)) * camera->zoom);
+            x2 = ((position.x - camera->rect.x + radius * cosf(theta2)) * camera->zoom);
+            y2 = ((position.x - camera->rect.y + radius * sinf(theta2)) * camera->zoom);
+        }else{
+            x1 = (position.x + radius * cosf(theta1));
+            y1 = (position.y + radius * sinf(theta1));
+            x2 = (position.x + radius * cosf(theta2));
+            y2 = (position.y + radius * sinf(theta2));
         }
+
+
         SDL_RenderDrawLineF(renderer, x1, y1, x2, y2);
     }
 }

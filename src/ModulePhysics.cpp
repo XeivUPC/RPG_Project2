@@ -538,6 +538,13 @@ b2FixtureUserData PhysBody::GetFixtureUserData(size_t fixtureIndex) const
 	return b2FixtureUserData();
 }
 
+b2BodyUserData PhysBody::GetUserData() const
+{
+	if(body)
+		return body->GetUserData();
+	return b2BodyUserData();
+}
+
 bool PhysBody::IsSensor(size_t fixtureIndex) const {
 	if (b2Fixture* fixture = GetFixtureByIndex(fixtureIndex)) {
 		return fixture->IsSensor();

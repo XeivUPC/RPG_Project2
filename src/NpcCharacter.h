@@ -14,6 +14,8 @@ public:
 
 	bool CleanUp() override;
 
+	void SetNpcData(int _npcId, Vector2 _position);
+
 	// Heredado vía IPooleable
 	void InitPoolObject() override;
 	// Heredado vía IPooleable
@@ -24,8 +26,8 @@ public:
 private:
 	void SearchPath();
 private:
-	string dialoguePath="";
-	int dialogueState = 0;
+	int npcId = 0;
+
 protected:
 	// Inherited via Character
 	void Move() override;
