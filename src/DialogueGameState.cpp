@@ -7,6 +7,11 @@
 #include "UIDialogueBoxCG.h"
 #include "DialogueSystem.h"
 
+DialogueGameState::DialogueGameState()
+{
+    Engine::Instance().s_game->dialogueCanvas->isVisible = false;
+}
+
 bool DialogueGameState::PreUpdateState()
 {
     return true;
@@ -48,6 +53,5 @@ void DialogueGameState::StateDeselected()
         Engine::Instance().m_physics->StartSimulation();
     }
     Engine::Instance().s_game->dialogueCanvas->SetInteractable(false);
-    Engine::Instance().s_game->dialogueCanvas->isVisible = false;
     Engine::Instance().s_game->dialogueCanvas->UpdateCanvas();
 }
