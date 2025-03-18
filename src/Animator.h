@@ -9,7 +9,7 @@ class Animator
 	AnimationClip* currentAnimation;
 
 public:
-	Animator();
+	Animator(vector<AnimationClip*> Animations, AnimationClip* current);
 	~Animator();
 	AnimationClip* operator()();
 	void Animate(string animation);
