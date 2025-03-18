@@ -1,12 +1,12 @@
 {
   "dependencies": [
     "box2d",
+    "nlohmann-json",
     "pugixml",
     "sdl2",
     "sdl2-image",
     "sdl2-mixer",
     "sdl2-ttf",
-    "tracy",
-    "nlohmann-json"
+    "tracy"
   ]
 }

@@ -215,7 +215,7 @@ void ModulePhysics::StartSimulation()
 
 bool ModulePhysics::IsSimulationPaused()
 {
-	return simulationOn;
+	return !simulationOn;
 }
 
 const PhysicFactory& ModulePhysics::factory()
@@ -364,6 +364,7 @@ void PhysBody::SetAngularDamping(float angularDamping)
 	}
 }
 
+
 Vector2 PhysBody::GetLinearVelocity() const {
 	if (body) {
 		b2Vec2 vel = body->GetLinearVelocity();
@@ -462,6 +463,13 @@ void PhysBody::SetBullet(bool status)
 	}
 }
 
+void PhysBody::SetFixedRotation(bool flag)
+{
+	if (body) {
+		body->SetFixedRotation(flag);
+	}
+}
+
 void PhysBody::SetFriction(size_t fixtureIndex, float friction) {
 	if (b2Fixture* fixture = GetFixtureByIndex(fixtureIndex)) {
 		fixture->SetFriction(friction);
@@ -501,6 +509,7 @@ b2Filter PhysBody::GetFilter(size_t fixtureIndex) const {
 	return {};
 }
 
+
 float PhysBody::GetFriction(size_t fixtureIndex) const {
 	if (b2Fixture* fixture = GetFixtureByIndex(fixtureIndex)) {
 		return fixture->GetFriction();
@@ -536,13 +545,6 @@ b2FixtureUserData PhysBody::GetFixtureUserData(size_t fixtureIndex) const
 		return fixture->GetUserData();
 	}
 	return b2FixtureUserData();
-}
-
-b2BodyUserData PhysBody::GetUserData() const
-{
-	if(body)
-		return body->GetUserData();
-	return b2BodyUserData();
 }
 
 bool PhysBody::IsSensor(size_t fixtureIndex) const {

@@ -142,6 +142,12 @@ void UIDialogueBoxCG::UpdateCanvas()
 	UICanvas::UpdateCanvas();
 }
 
+void UIDialogueBoxCG::SetDialogue(string path)
+{
+	dialogue->LoadDialogueFromJSON(path);
+	dialogue->StartDialogue();
+}
+
 void UIDialogueBoxCG::CreateChoiceButton(string text, int index, float verticalSpacing)
 {
 	_TTF_Font* font = Engine::Instance().m_assetsDB->GetFont("alagard");

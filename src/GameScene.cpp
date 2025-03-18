@@ -37,6 +37,11 @@ GameScene::~GameScene()
     
 }
 
+void GameScene::SetDialogue(string path)
+{
+    dialogueCanvas->SetDialogue(path);
+}
+
 bool GameScene::Init()
 {
     return true;
@@ -74,7 +79,7 @@ bool GameScene::Start()
     game_states[State::Menu] = new PauseGameState();
     game_states[State::Menu]->StateDeselected();
 
-    SetState(State::Dialogue);
+    SetState(State::Exploring);
 
     ////
 

@@ -1,8 +1,9 @@
 #pragma once
 #include "Character.h"
 #include "IPooleable.h"
+#include "IInteractuable.h"
 
-class NpcCharacter : public Character, public IPooleable {
+class NpcCharacter : public Character, public IPooleable, public IInteractuable {
 
 public:
 
@@ -15,6 +16,9 @@ public:
 	bool CleanUp() override;
 
 	void SetNpcData(int _npcId, Vector2 _position);
+
+	// Inherited via IInteractuable
+	void Interact() override;
 
 	// Heredado vía IPooleable
 	void InitPoolObject() override;
@@ -32,6 +36,8 @@ protected:
 	// Inherited via Character
 	void Move() override;
 protected:
+
+
 
 
 

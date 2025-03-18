@@ -530,6 +530,9 @@
     <ClInclude Include="src\NpcCharacter.h">
       <Filter>Source Files\Entities\Type %28Entity%29\Character</Filter>
     </ClInclude>
+    <ClInclude Include="src\IInteractuable.h">
+      <Filter>Source Files\_Core\Interfaces</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Assets\Data\UserPrefs.xml">

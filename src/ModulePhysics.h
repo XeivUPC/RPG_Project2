@@ -117,6 +117,7 @@ class PhysBody
 		void SetMass(float mass, const Vector2& center, float inertia);
 		void SetType(BodyType type);
 		void SetBullet(bool status);
+		void SetFixedRotation(bool flag);
 		void SetFriction(size_t fixtureIndex, float friction);
 		void SetDensity(size_t fixtureIndex, float density);
 		void SetRestitution(size_t fixtureIndex, float restitution);
@@ -129,7 +130,6 @@ class PhysBody
 		float GetRestitution(size_t fixtureIndex) const;
 		float GetRestitutionThreshold(size_t fixtureIndex) const;
 		b2FixtureUserData GetFixtureUserData(size_t fixtureIndex) const;
-		b2BodyUserData GetUserData() const;
 		bool IsSensor(size_t fixtureIndex) const;
 		b2Filter GetFilter(size_t fixtureIndex) const;
 
@@ -138,9 +138,13 @@ class PhysBody
 		void DestroyBody();
 	
 	public:
-		b2Body* body = nullptr;
 		int width, height = 0;
+		uintptr_t data;
 
+		/// <summary>
+		/// DO NOT MODIFY!!
+		/// </summary>
+		b2Body* body = nullptr;
 	private:
 		b2Fixture* GetFixtureByIndex(size_t fixtureIndex) const;
 

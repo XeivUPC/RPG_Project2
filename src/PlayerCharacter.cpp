@@ -8,6 +8,7 @@
 #include "DrawingTools.h"
 #include "ModulePhysics.h"
 #include "PhysicFactory.h"
+#include "IInteractuable.h"
 
 PlayerCharacter::PlayerCharacter()
 {
@@ -21,18 +22,17 @@ PlayerCharacter::PlayerCharacter()
 
 	b2FixtureUserData sensorData;
 	sensorData.pointer = (uintptr_t)(&interactionSensor);
-	body = Engine::Instance().m_physics->factory().CreateBox({0,0.2f},0.5f,0.2f, sensorData);
+	body = Engine::Instance().m_physics->factory().CreateBox({0,0.2f},0.5f,0.2f);
 	body->SetFriction(0, 0);
-	body->body->SetFixedRotation(true);
-	ModulePhysics::Layer category;
-	ModulePhysics::Layer mask;
-	category.flags.interactable_layer = 1;
-	category.flags.player_layer = 1;
-	mask.flags.interactable_layer = 1;
-	mask.flags.default_layer = 1;
-	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
+	body->SetFixedRotation(true);
 
-	interactionSensor.SetFixtureToTrack(body, 0);
+	int fixtureIndex = Engine::Instance().m_physics->factory().AddBox(body, { 0,0 }, 0.5f, 0.5f, sensorData);
+	interactionSensor.SetFixtureToTrack(body, fixtureIndex);
+	body->SetSensor(fixtureIndex, true);
+	ModulePhysics::Layer category, mask;
+	category.flags.interactable_layer = 1;
+	mask.flags.interactable_layer = 1;
+	body->SetFilter(fixtureIndex, category.rawValue, mask.rawValue, 0);
 
 	texture = Engine::Instance().m_assetsDB->GetTexture("player_test");
 }
@@ -46,9 +46,12 @@ bool PlayerCharacter::Update()
 	previousPhysicsPosition = position;
 
 	if (interactionSensor.IsBeingTriggered()) {
-		printf("interacting\n");
-		PhysBody* interactor = interactionSensor.GetClosestBodyColliding();
-		/// Call Interact
+
+		if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_E) == KEY_DOWN){
+				PhysBody* interactor = interactionSensor.GetClosestBodyColliding();
+				IInteractuable* interactuableObj = reinterpret_cast<IInteractuable*>(interactor->data);
+				interactuableObj->Interact();
+		}
 		 
 	}
 

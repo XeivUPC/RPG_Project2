@@ -3,6 +3,7 @@
 
 #include "Engine.h"
 #include "ModuleRender.h"
+#include "GameScene.h"
 #include "ModuleAssetDataBase.h"
 #include "ModuleUpdater.h"
 #include "DrawingTools.h"
@@ -43,7 +44,7 @@ bool NpcCharacter::CleanUp()
 
 void NpcCharacter::SetNpcData(int _npcId, Vector2 _position)
 {
-    npcId = npcId;
+    npcId = _npcId;
     SetPosition(position);
 }
 
@@ -56,6 +57,13 @@ void NpcCharacter::Move()
     position = body->GetPhysicPosition();
 }
 
+void NpcCharacter::Interact()
+{
+    printf("Ey\n");
+    Engine::Instance().s_game->SetState(GameScene::State::Dialogue);
+    Engine::Instance().s_game->SetDialogue("Assets/Dialogues/test2.json");
+}
+
 void NpcCharacter::InitPoolObject()
 {
     Engine::Instance().m_render->AddToRenderQueue(*this, *this);
@@ -65,15 +73,19 @@ void NpcCharacter::InitPoolObject()
     body = Engine::Instance().m_physics->factory().CreateBox({ 0,0.2f }, 0.5f, 0.2f);
     body->SetType(PhysBody::BodyType::Kinematic);
     body->SetFriction(0, 0);
-    body->body->SetFixedRotation(true);
+    body->SetFixedRotation(true);
 
-    int index = Engine::Instance().m_physics->factory().AddCircle(body, { 0,0.1f }, 1.0f);
-    body->SetSensor(index, true);
-    ModulePhysics::Layer category;
-    ModulePhysics::Layer mask;
+    body->data = (uintptr_t)((IInteractuable*)this);
+
+    int fixtureIndex = Engine::Instance().m_physics->factory().AddCircle(body, { 0,0.1f }, 1.0f);
+    body->SetSensor(fixtureIndex, true);
+    ModulePhysics::Layer category, mask;
     category.flags.interactable_layer = 1;
     mask.flags.interactable_layer = 1;
-    body->SetFilter(index, category.rawValue, mask.rawValue, 0);
+    body->SetFilter(fixtureIndex, category.rawValue, mask.rawValue, 0);
+
+
+   
 }
 
 void NpcCharacter::ResetPoolObject()

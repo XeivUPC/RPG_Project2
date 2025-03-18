@@ -33,6 +33,8 @@ public:
 	GameScene(bool start_active = true);
 	~GameScene();
 
+	void SetDialogue(string path);
+
 	void SetState(State _newState);
 	State GetState();
 	void SetPreviousState();

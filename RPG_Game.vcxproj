@@ -211,6 +211,7 @@
     <ClInclude Include="src\GameScene.h" />
     <ClInclude Include="src\GameState.h" />
     <ClInclude Include="src\HealthPotion.h" />
+    <ClInclude Include="src\IInteractuable.h" />
     <ClInclude Include="src\IntroScene.h" />
     <ClInclude Include="src\Inventory.h" />
     <ClInclude Include="src\InventoryItem.h" />
