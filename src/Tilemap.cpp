@@ -12,6 +12,7 @@
 
 #include "Building.h"
 #include "SimpleMapObject.h"
+#include "NpcCharacter.h"
 
 #include <sstream>
 
@@ -77,7 +78,7 @@ void Tilemap::CreateObjects()
                 local_gid = object->gid - tileset->firstGid;
             string type = "";
             if(object->properties.count("Type"))
-                type = object->properties.at("Type").get<string>();
+                type = object->properties.at("Type").value;
 
             if (type == "simpleObject") {
                 Vector2 position = { object->x + object->width / 2 ,object->y };
@@ -107,6 +108,11 @@ void Tilemap::CreateObjects()
                     const TileObject* tileObject = &tileData->objects.at("renderPosition");
                     building->renderOffsetSorting = { 0,(int)(tileObject->y - object->height)};
                 }
+            }
+            else if (type == "npc") {
+                int npcId = stoi(object->properties.at("NpcId").value);
+                auto npc = Pooling::Instance().AcquireObject<NpcCharacter>();
+                
             }
         }
     }
@@ -315,22 +321,7 @@ void Tilemap::ParseProperties(const xml_node& node, unordered_map<string, Proper
             Property prop;
             const string type = propNode.attribute("type").as_string("string");
             const string value = propNode.attribute("value").as_string();
-
-            if (type == "int") {
-                prop.value = stoi(value);
-            }
-            else if (type == "float") {
-                prop.value = stof(value);
-            }
-            else if (type == "bool") {
-                prop.value = (value == "true");
-            }
-            else if (type == "file") {
-                prop.value =  path(value);
-            }
-            else {
-                prop.value = value;
-            }
+            prop.value = value;
 
             props[propNode.attribute("name").as_string()] = prop;
         }

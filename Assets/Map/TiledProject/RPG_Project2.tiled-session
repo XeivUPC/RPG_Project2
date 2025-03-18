@@ -7,9 +7,9 @@
     "expandedProjectPaths": [
         "Objects",
         "Maps",
+        ".",
         "Prefabs/Buildings",
         "Tilesets",
-        ".",
         "Prefabs"
     ],
     "exportAsImage.visibleLayersOnly": false,
@@ -38,11 +38,11 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 1.5,
+            "scale": 2,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 482.3333333333333,
-                "y": 356
+                "x": 420,
+                "y": 183
             }
         },
         "Maps/Testing_Zone.tmx": {

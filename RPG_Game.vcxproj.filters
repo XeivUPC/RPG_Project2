@@ -303,6 +303,9 @@
     <ClCompile Include="src\CameraController.cpp">
       <Filter>Source Files\Entities\Type %28Entity%29</Filter>
     </ClCompile>
+    <ClCompile Include="src\NpcCharacter.cpp">
+      <Filter>Source Files\Entities\Type %28Entity%29\Character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -523,6 +526,9 @@
     </ClInclude>
     <ClInclude Include="src\CameraController.h">
       <Filter>Source Files\Entities\Type %28Entity%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NpcCharacter.h">
+      <Filter>Source Files\Entities\Type %28Entity%29\Character</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

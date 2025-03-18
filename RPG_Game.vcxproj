@@ -155,6 +155,7 @@
     <ClCompile Include="src\ModuleLocalization.cpp" />
     <ClCompile Include="src\ModuleScene.cpp" />
     <ClCompile Include="src\MusicContainer.cpp" />
+    <ClCompile Include="src\NpcCharacter.cpp" />
     <ClCompile Include="src\PauseGameState.cpp" />
     <ClCompile Include="src\PauseMenuCG.cpp" />
     <ClCompile Include="src\PhysicFactory.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="src\ModuleLocalization.h" />
     <ClInclude Include="src\ModuleScene.h" />
     <ClInclude Include="src\MusicContainer.h" />
+    <ClInclude Include="src\NpcCharacter.h" />
     <ClInclude Include="src\PauseGameState.h" />
     <ClInclude Include="src\PauseMenuCG.h" />
     <ClInclude Include="src\PhysicFactory.h" />
