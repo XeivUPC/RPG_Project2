@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="62" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="99">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="62" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="102">
  <editorsettings>
   <export target="../../Data/Rogue_Squadron_Headquarters.xml" format="tmx"/>
  </editorsettings>
@@ -387,9 +387,30 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="98" x="568.5" y="143">
+  <object id="98" x="568.5" y="135.5">
    <properties>
     <property name="NpcId" value="0"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="99" x="346" y="279.5">
+   <properties>
+    <property name="NpcId" value="1"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="100" x="169.212" y="436">
+   <properties>
+    <property name="NpcId" value="2"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="101" x="438.667" y="588">
+   <properties>
+    <property name="NpcId" value="3"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>

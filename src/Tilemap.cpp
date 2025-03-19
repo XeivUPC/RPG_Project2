@@ -112,6 +112,9 @@ void Tilemap::CreateObjects()
             else if (type == "npc") {
                 int npcId = stoi(object->properties.at("NpcId").value);
                 auto npc = Pooling::Instance().AcquireObject<NpcCharacter>();
+
+                Vector2 position = { object->x ,object->y };
+                npc->SetPosition(position);
                 
             }
         }
