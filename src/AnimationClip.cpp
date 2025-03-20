@@ -5,9 +5,8 @@
 #include "ModuleUpdater.h"
 #include "DrawingTools.h"
 
-AnimationClip::AnimationClip(string name, bool _visible, bool _loop, bool _stop, float _speed, vector<Sprite> sprites, Vector2& newPosition, float& newScale) :
+AnimationClip::AnimationClip(string name, bool _loop, bool _stop, float _speed, vector<Sprite> sprites, Vector2* newPosition, float* newScale) :
 	animationName(name),
-	visible(_visible),
 	loop(_loop),
 	stop(_stop),
 	speed(_speed),
@@ -26,11 +25,6 @@ void AnimationClip::Stop()
 	stop = true;
 }
 
-void AnimationClip::Visible(bool state)
-{
-	visible = state;
-}
-
 void AnimationClip::Loop(bool state)
 {
 	loop = state;
@@ -41,19 +35,24 @@ void AnimationClip::Speed(float sp)
 	speed = sp;
 }
 
-void AnimationClip::Start()
+SDL_Rect& AnimationClip::GetAnimationSpace()
 {
-	Engine::Instance().m_render->AddToRenderQueue(*this);
-	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
-	
+	Sprite& sprite = spriteList[currentSprite];
+	animation_space = sprite.Section();
+	animation_space.x = GetPosition().x - animation_space.w * sprite.Pivot().x + sprite.Offset().x;
+	animation_space.y = GetPosition().y - animation_space.h * sprite.Pivot().y + sprite.Offset().x;
+	return animation_space;
+}
+
+void AnimationClip::Start()
+{	
 	currentSprite = 0;
 	time = 0;
 }
 
 void AnimationClip::CleanUp()
 {
-	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
-	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+	
 	for (size_t i = 0; i < spriteList.size(); i++)
 	{
 		spriteList[i].CleanUp();
@@ -62,7 +61,7 @@ void AnimationClip::CleanUp()
 }
 
 
-bool AnimationClip::Update()
+bool AnimationClip::UpdateClip()
 {
 	if(!stop || (time >= speed && currentSprite == spriteList.size() - 1 && !loop))
 		time += ModuleTime::deltaTime;
@@ -77,19 +76,19 @@ bool AnimationClip::Update()
 	return true;
 }
 
-void AnimationClip::Render()
+void AnimationClip::RenderClip()
 {
 	Engine::Instance().m_render->painter().RenderTexture(*spriteList[currentSprite].Texture(), GetPosition() + spriteList[currentSprite].Offset(), &spriteList[currentSprite].Section(), {GetScale(), GetScale()}, 0, spriteList[currentSprite].Pivot());
 }
 
 Vector2 AnimationClip::GetPosition()
 {
-	return position;
+	return *position;
 }
 
 float AnimationClip::GetScale()
 {
-	return 0.0f;
+	return *scale;
 }
 
 AnimationClip::~AnimationClip()

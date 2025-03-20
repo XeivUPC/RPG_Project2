@@ -5,13 +5,13 @@
 using namespace std;
 class Animator
 {
-	vector<AnimationClip*> AnimationList;
+	vector<AnimationClip> AnimationList;
 	AnimationClip* currentAnimation;
 
 public:
-	Animator(vector<AnimationClip*> Animations, int current);
+	Animator(vector<AnimationClip> Animations, int current);
 	~Animator();
-	AnimationClip* operator()();
+	AnimationClip* clip();
 	void Animate(string animation);
 	void CleanUp();
 };

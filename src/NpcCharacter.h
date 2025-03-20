@@ -3,6 +3,8 @@
 #include "IPooleable.h"
 #include "IInteractuable.h"
 
+class Animator;
+
 class NpcCharacter : public Character, public IPooleable, public IInteractuable {
 
 public:
@@ -31,6 +33,7 @@ private:
 	void SearchPath();
 private:
 	int npcId = 0;
+	Animator* animator;
 
 protected:
 	// Inherited via Character

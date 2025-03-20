@@ -8,22 +8,22 @@ Sprite::Sprite(SDL_Texture* _texture, SDL_Rect _section, Vector2 _pivot, Vector2
 	offset = _offset;
 }
 
-SDL_Texture*& Sprite::Texture()
+SDL_Texture* Sprite::Texture() const
 {
 	return texture;
 }
 
-SDL_Rect& Sprite::Section()
+const SDL_Rect& Sprite::Section() const
 {
 	return rect;
 }
 
-Vector2& Sprite::Pivot()
+const Vector2& Sprite::Pivot() const
 {
 	return pivot;
 }
 
-Vector2& Sprite::Offset()
+const Vector2& Sprite::Offset() const
 {
 	return offset;
 }
