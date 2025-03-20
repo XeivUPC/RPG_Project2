@@ -9,13 +9,10 @@ class Animator
 	AnimationClip* currentAnimation;
 
 public:
-	Animator(vector<AnimationClip*> Animations, AnimationClip* current);
+	Animator(vector<AnimationClip*> Animations, int current);
 	~Animator();
 	AnimationClip* operator()();
 	void Animate(string animation);
-
-	void Start();
-	void Update();
 	void CleanUp();
 };
 

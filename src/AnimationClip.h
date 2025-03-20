@@ -27,6 +27,7 @@ class AnimationClip : public IUpdateable, public IRendereable
 public:
 	AnimationClip(string name, bool _visible, bool _loop, bool _stop, float _speed, vector<Sprite> sprites, Vector2& newPosition, float& newScale);
 	~AnimationClip();
+	string Name();
 	void Play();
 	void Stop();
 	void Visible(bool state);

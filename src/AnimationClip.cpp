@@ -95,3 +95,8 @@ float AnimationClip::GetScale()
 AnimationClip::~AnimationClip()
 {
 }
+
+string AnimationClip::Name()
+{
+	return animationName;
+}
