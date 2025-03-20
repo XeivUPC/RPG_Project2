@@ -14,14 +14,12 @@
 
 #include <math.h>
 
-
 ModulePhysics::ModulePhysics(bool start_active) : Module(start_active)
 {
 	debug = true;
 	collisionsManager = new CollisionsDispatcher();
 	renderLayer = 10;
 
-	
 }
 
 ModulePhysics::~ModulePhysics()
@@ -206,6 +204,8 @@ bool ModulePhysics::IsDebugActive()
 void ModulePhysics::PauseSimulation()
 {
 	simulationOn = false;
+
+
 }
 
 void ModulePhysics::StartSimulation()

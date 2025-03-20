@@ -17,6 +17,8 @@
 
 PauseMenuCG::PauseMenuCG()
 {
+	
+
 	///// AssetsLoading
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
 
