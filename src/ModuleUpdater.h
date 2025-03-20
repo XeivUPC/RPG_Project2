@@ -30,6 +30,7 @@ class ModuleUpdater : public Module {
 		void AddToUpdateGroup(IUpdateable& updateableObj, string groupID);
 		void RemoveFromUpdateGroup(IUpdateable& updateableObj, const string& groupID);
 		void RemoveFromUpdateGroup(IUpdateable& updateableObj);
+		void SetUpdateQueueDirty();
 
 		const UpdateGroup& GetUpdateGroup(const string& groupID);
 		void PauseUpdateGroup(const string& groupID);
@@ -60,10 +61,13 @@ class ModuleUpdater : public Module {
 		bool PostUpdateAll();
 
 		UpdateGroup& GetModifiableUpdateGroup(const string& groupID);
+		void SortUpdateTasks();
 
 	private:
 		unordered_map<UpdateMode, vector<IUpdateable*>> updatesQueue;
 		unordered_map<string, UpdateGroup> groups;
 		bool isPaused = false;
+
+		bool updateQueueDirty = false;
 };
 

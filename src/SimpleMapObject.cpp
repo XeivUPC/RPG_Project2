@@ -3,6 +3,8 @@
 
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
+#include "ModulePhysics.h"
+#include "PhysicFactory.h"
 #include "TextureAtlas.h"
 #include "ModuleRender.h"
 #include "ModuleUpdater.h"
@@ -16,7 +18,7 @@ SimpleMapObject::~SimpleMapObject()
 {
 }
 
-void SimpleMapObject::SetData(string _atlasId, string _textureId, Vector2 _position, float _scale)
+void SimpleMapObject::SetData(string _atlasId, string _textureId, Vector2Int _position, float _scale)
 {
 	SetPosition(move(_position));
 	SetScale(move(_scale));
@@ -31,6 +33,12 @@ void SimpleMapObject::SetData(string _atlasId, string _textureId, Vector2 _posit
 	anchor = { 0.5f,1 };
 }
 
+void SimpleMapObject::AddCollision(Vector2 position, Vector2 size)
+{
+	body = Engine::Instance().m_physics->factory().CreateBox(position, size.x, size.y);
+	body->SetType(PhysBody::BodyType::Static);
+}
+
 bool SimpleMapObject::Update()
 {
 	return true;
@@ -38,13 +46,9 @@ bool SimpleMapObject::Update()
 
 void SimpleMapObject::Render()
 {
-	Engine::Instance().m_render->SetCameraMode(true);
-
 	SDL_Rect positionRect = { (int)(position.x - rect.w * anchor.x),(int)(position.y - rect.h * anchor.y), rect.w,rect.h };
 	if (Engine::Instance().m_render->IsRectCameraVisible(positionRect))
 		Engine::Instance().m_render->painter().RenderTexture(*texture, position, &rect, { scale, scale }, 0, anchor);
-
-	Engine::Instance().m_render->SetCameraMode(false);
 }
 
 bool SimpleMapObject::CleanUp()
@@ -64,4 +68,5 @@ void SimpleMapObject::ResetPoolObject()
 {
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+	delete body;
 }

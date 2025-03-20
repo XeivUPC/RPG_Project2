@@ -49,6 +49,7 @@ class ModuleRender : public Module {
 		void AddToRenderQueue(IRendereable& rendereableObj, ITransformable& transformableObj);
 		void RemoveFomRenderQueue(IRendereable& rendereableObj);
 		void SortRenderQueueLayerByPosition(int targetLayer);
+		void SetRenderQueueDirty();
 
 		bool IsCameraModeActive() const;
 		void SetCameraMode(bool isActive);
@@ -56,6 +57,7 @@ class ModuleRender : public Module {
 		const Camera& GetCamera() const;
 		void MoveCamera(const Vector2& moveAmount);
 		void SetCameraPosition(const Vector2Int& position);
+		void SetCameraPosition(const Vector2& position);
 		void SetCameraOffset(const Vector2& offset);
 		void SetCameraZoom(float zoom);
 
@@ -93,7 +95,7 @@ class ModuleRender : public Module {
 		unordered_map<IRendereable*, ITransformable*> transformMap;
 		bool renderQueueDirty = false;
 
-		bool cameraMode = false;
+		bool cameraMode = true;
 
 		DrawingTools* drawingTools = nullptr;
 	

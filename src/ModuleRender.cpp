@@ -13,7 +13,7 @@
 
 ModuleRender::ModuleRender(bool start_active) : Module(start_active)
 {
-
+	priority_updating = -1;
 }
 
 ModuleRender::~ModuleRender()
@@ -144,8 +144,12 @@ void ModuleRender::SortRenderQueueLayerByPosition(int targetLayer) {
 		});
 
 	std::sort(begin, mid, [this](IRendereable* a, IRendereable* b) {
-		return transformMap[a]->GetPosition().y < transformMap[b]->GetPosition().y;
+		return (transformMap[a]->GetPosition().y + a->renderOffsetSorting.y) < (transformMap[b]->GetPosition().y + b->renderOffsetSorting.y);
 		});
+}
+void ModuleRender::SetRenderQueueDirty()
+{
+	renderQueueDirty = true;
 }
 void ModuleRender::AddToRenderQueue(IRendereable& rendereableObj)
 {
@@ -203,6 +207,12 @@ void ModuleRender::SetCameraPosition(const Vector2Int& position)
 {
 	camera.position.x = (float)position.x;
 	camera.position.y = (float)position.y;
+}
+
+void ModuleRender::SetCameraPosition(const Vector2& position)
+{
+	camera.position.x = position.x;
+	camera.position.y = position.y;
 }
 
 void ModuleRender::SetCameraOffset(const Vector2& offset)

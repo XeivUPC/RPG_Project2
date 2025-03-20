@@ -23,6 +23,7 @@ class CollisionSensor
         void EndContact(b2Contact* contact);
 
         const std::vector<PhysBody*>& GetBodiesColliding();
+        PhysBody* GetClosestBodyColliding();
     
     private:
         PhysBody* GetDifferentBody(PhysBody* body1, PhysBody* body2, PhysBody* bodyToBeDifferentFrom);

@@ -4,6 +4,8 @@
 
 #include "Globals.h"
 
+#include <algorithm>
+
 ModuleTime::ModuleTime(bool start_active) : Module(start_active)
 {
     currentTime = SDL_GetPerformanceCounter();
@@ -36,12 +38,17 @@ bool ModuleTime::PreUpdate()
     accumulator += deltaTime;
 
     fixedDeltaTime = 0;
-    while (accumulator >= FIXED_DELTA_TIME)
+    while (isgreater(accumulator, FIXED_DELTA_TIME))
     {
         accumulator -= FIXED_DELTA_TIME;
         fixedDeltaTime += FIXED_DELTA_TIME;
     }
 
     return true;
+}
+
+float ModuleTime::GetPhysicsInterpolationAlpha() const
+{
+    return clamp((float)(accumulator / fixedDeltaTime), 0.0f, 1.0f);
 }
 

@@ -36,6 +36,11 @@ void Vector2::normalize() {
     y /= mag;
 }
 
+Vector2 Vector2::Lerp(const Vector2& a, const Vector2& b, float t)
+{
+    return a + (b - a) * t;
+}
+
 bool Vector2::operator==(const Vector2& other) const {
     return (x == other.x && y == other.y);
 }

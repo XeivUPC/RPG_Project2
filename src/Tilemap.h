@@ -22,36 +22,8 @@ struct SDL_Rect;
 
 
 struct Property {
-    using Value = variant<
-        string,  
-        int,           
-        float,        
-        bool,          
-        path       
-    >;
 
-    Value value;
-
-    std::string get_type_name() const {
-        switch (value.index()) {
-        case 0: return "String";
-        case 1: return "Int";
-        case 2: return "Float";
-        case 3: return "Bool";
-        case 4: return "File";
-        default: return "Unknown";
-        }
-    }
-
-    template<typename T>
-    const T& get() const {
-        return std::get<T>(value);
-    }
-
-    template<typename Visitor>
-    auto visit(Visitor&& vis) const {
-        return std::visit(std::forward<Visitor>(vis), value);
-    }
+    string value;
 };
 
 struct TileAnimationFrame {
@@ -80,7 +52,7 @@ struct TileData {
     int id;
     std::unordered_map<std::string, Property> properties;
     std::vector<TileAnimationFrame> animation;
-    std::vector<TileObject> objects;
+    std::unordered_map<std::string,TileObject> objects;
     std::string textureId;
 };
 

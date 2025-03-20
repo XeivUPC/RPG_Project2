@@ -118,6 +118,12 @@
     <Filter Include="Source Files\GameState\Types %28GameState%29">
       <UniqueIdentifier>{048bf76e-5f2a-4f31-b977-7216760628b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Entities\Type %28Entity%29\MapObject">
+      <UniqueIdentifier>{208face1-98bc-4de1-a013-456d90f57334}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Type %28Entity%29\Character">
+      <UniqueIdentifier>{297ecfbd-f11a-43a8-9ac3-72b2eacc6947}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -273,9 +279,6 @@
     <ClCompile Include="src\DialogueGameState.cpp">
       <Filter>Source Files\GameState\Types %28GameState%29</Filter>
     </ClCompile>
-    <ClCompile Include="src\Building.cpp">
-      <Filter>Source Files\Entities\Type %28Entity%29</Filter>
-    </ClCompile>
     <ClCompile Include="src\PauseMenuCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClCompile>
@@ -285,17 +288,23 @@
     <ClCompile Include="src\ExploringGameState.cpp">
       <Filter>Source Files\GameState\Types %28GameState%29</Filter>
     </ClCompile>
+    <ClCompile Include="src\Building.cpp">
+      <Filter>Source Files\Entities\Type %28Entity%29\MapObject</Filter>
+    </ClCompile>
     <ClCompile Include="src\SimpleMapObject.cpp">
+      <Filter>Source Files\Entities\Type %28Entity%29\MapObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Character.cpp">
+      <Filter>Source Files\Entities\Type %28Entity%29\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PlayerCharacter.cpp">
+      <Filter>Source Files\Entities\Type %28Entity%29\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CameraController.cpp">
       <Filter>Source Files\Entities\Type %28Entity%29</Filter>
     </ClCompile>
-    <ClCompile Include="src\AnimationClip.cpp">
-      <Filter>Source Files\Utils\Render</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Animator.cpp">
-      <Filter>Source Files\Utils\Render</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Sprite.cpp">
-      <Filter>Source Files\Utils\Render</Filter>
+    <ClCompile Include="src\NpcCharacter.cpp">
+      <Filter>Source Files\Entities\Type %28Entity%29\Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -494,9 +503,6 @@
     <ClInclude Include="src\DialogueGameState.h">
       <Filter>Source Files\GameState\Types %28GameState%29</Filter>
     </ClInclude>
-    <ClInclude Include="src\Building.h">
-      <Filter>Source Files\Entities\Type %28Entity%29</Filter>
-    </ClInclude>
     <ClInclude Include="src\PauseMenuCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
@@ -506,17 +512,26 @@
     <ClInclude Include="src\ExploringGameState.h">
       <Filter>Source Files\GameState\Types %28GameState%29</Filter>
     </ClInclude>
+    <ClInclude Include="src\Building.h">
+      <Filter>Source Files\Entities\Type %28Entity%29\MapObject</Filter>
+    </ClInclude>
     <ClInclude Include="src\SimpleMapObject.h">
+      <Filter>Source Files\Entities\Type %28Entity%29\MapObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Character.h">
+      <Filter>Source Files\Entities\Type %28Entity%29\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PlayerCharacter.h">
+      <Filter>Source Files\Entities\Type %28Entity%29\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CameraController.h">
       <Filter>Source Files\Entities\Type %28Entity%29</Filter>
     </ClInclude>
-    <ClInclude Include="src\AnimationClip.h">
-      <Filter>Source Files\Utils\Render</Filter>
+    <ClInclude Include="src\NpcCharacter.h">
+      <Filter>Source Files\Entities\Type %28Entity%29\Character</Filter>
     </ClInclude>
-    <ClInclude Include="src\Animator.h">
-      <Filter>Source Files\Utils\Render</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Sprite.h">
-      <Filter>Source Files\Utils\Render</Filter>
+    <ClInclude Include="src\IInteractuable.h">
+      <Filter>Source Files\_Core\Interfaces</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

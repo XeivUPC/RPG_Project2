@@ -3,12 +3,15 @@
 #include <vector>
 #include <unordered_map>
 
+using namespace std;
 
 class ModuleTime : public Module {
 	friend class Engine;
 	public:
 		ModuleTime(bool start_active = true);
 		~ModuleTime();
+
+		float GetPhysicsInterpolationAlpha() const;
 
 	public:
 		static double deltaTime;
@@ -21,6 +24,8 @@ class ModuleTime : public Module {
 		bool CleanUp() override;
 		// Inherited via IUpdateable
 		bool PreUpdate() override;
+
+		
 
 	private:
 		Uint64 lastTime = 0;

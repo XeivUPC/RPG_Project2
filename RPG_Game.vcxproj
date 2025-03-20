@@ -139,6 +139,8 @@
     <ClCompile Include="src\AudioContainer.cpp" />
     <ClCompile Include="src\AudioFactory.cpp" />
     <ClCompile Include="src\Building.cpp" />
+    <ClCompile Include="src\CameraController.cpp" />
+    <ClCompile Include="src\Character.cpp" />
     <ClCompile Include="src\DialogueGameState.cpp" />
     <ClCompile Include="src\DialogueSystem.cpp" />
     <ClCompile Include="src\DrawingTools.cpp" />
@@ -155,6 +157,7 @@
     <ClCompile Include="src\ModuleLocalization.cpp" />
     <ClCompile Include="src\ModuleScene.cpp" />
     <ClCompile Include="src\MusicContainer.cpp" />
+    <ClCompile Include="src\NpcCharacter.cpp" />
     <ClCompile Include="src\PauseGameState.cpp" />
     <ClCompile Include="src\PauseMenuCG.cpp" />
     <ClCompile Include="src\PhysicFactory.cpp" />
@@ -172,6 +175,7 @@
     <ClCompile Include="src\ModuleUpdater.cpp" />
     <ClCompile Include="src\ChronoTimer.cpp" />
     <ClCompile Include="src\ModuleWindow.cpp" />
+    <ClCompile Include="src\PlayerCharacter.cpp" />
     <ClCompile Include="src\SettingsCG.cpp" />
     <ClCompile Include="src\SimpleMapObject.cpp" />
     <ClCompile Include="src\Sprite.cpp" />
@@ -201,6 +205,8 @@
     <ClInclude Include="src\AudioFactory.h" />
     <ClInclude Include="src\Building.h" />
     <ClInclude Include="src\Camera.h" />
+    <ClInclude Include="src\CameraController.h" />
+    <ClInclude Include="src\Character.h" />
     <ClInclude Include="src\DialogueGameState.h" />
     <ClInclude Include="src\DialogueSystem.h" />
     <ClInclude Include="src\DrawingTools.h" />
@@ -210,6 +216,7 @@
     <ClInclude Include="src\GameScene.h" />
     <ClInclude Include="src\GameState.h" />
     <ClInclude Include="src\HealthPotion.h" />
+    <ClInclude Include="src\IInteractuable.h" />
     <ClInclude Include="src\IntroScene.h" />
     <ClInclude Include="src\Inventory.h" />
     <ClInclude Include="src\InventoryItem.h" />
@@ -220,6 +227,7 @@
     <ClInclude Include="src\ModuleLocalization.h" />
     <ClInclude Include="src\ModuleScene.h" />
     <ClInclude Include="src\MusicContainer.h" />
+    <ClInclude Include="src\NpcCharacter.h" />
     <ClInclude Include="src\PauseGameState.h" />
     <ClInclude Include="src\PauseMenuCG.h" />
     <ClInclude Include="src\PhysicFactory.h" />
@@ -243,6 +251,7 @@
     <ClInclude Include="src\ModuleTime.h" />
     <ClInclude Include="src\ModuleUpdater.h" />
     <ClInclude Include="src\ModuleWindow.h" />
+    <ClInclude Include="src\PlayerCharacter.h" />
     <ClInclude Include="src\Pooling.h" />
     <ClInclude Include="src\ChronoTimer.h" />
     <ClInclude Include="src\SettingsCG.h" />

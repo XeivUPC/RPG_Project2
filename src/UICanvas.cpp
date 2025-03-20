@@ -51,11 +51,15 @@ void UICanvas::UpdateCanvas()
 
 void UICanvas::RenderCanvas()
 {
+	Engine::Instance().m_render->SetCameraMode(false);
 	for (const auto& element : elements)
 		element->RenderElement();
+	Engine::Instance().m_render->SetCameraMode(true);
 }
 
 void UICanvas::Render()
 {
+	
 	RenderCanvas();
+	
 }

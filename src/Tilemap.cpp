@@ -12,6 +12,7 @@
 
 #include "Building.h"
 #include "SimpleMapObject.h"
+#include "NpcCharacter.h"
 
 #include <sstream>
 
@@ -77,19 +78,44 @@ void Tilemap::CreateObjects()
                 local_gid = object->gid - tileset->firstGid;
             string type = "";
             if(object->properties.count("Type"))
-                type = object->properties.at("Type").get<string>();
+                type = object->properties.at("Type").value;
 
             if (type == "simpleObject") {
-                Vector2 position = { object->x + object->width / 2 * scale ,object->y };
+                Vector2 position = { object->x + object->width / 2 ,object->y };
 
                 auto simpleObject = Pooling::Instance().AcquireObject<SimpleMapObject>();
-                simpleObject->SetData(tileset->name, tileset->tiles.at(local_gid).textureId, position,scale);
+                const TileData* tileData = &tileset->tiles.at(local_gid);
+                simpleObject->SetData(tileset->name, tileData->textureId, position,scale);
+
+                if (tileData->objects.count("collision")) {
+                    const TileObject* tileObject = &tileData->objects.at("collision");
+                    simpleObject->AddCollision({ PIXEL_TO_METERS(position.x + tileObject->x),PIXEL_TO_METERS(position.y - tileObject->height * 1.5f + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) });
+                }
             }
-            else if(type == "building"){
+            else if (type == "building") {
                 Vector2 position = { object->x + object->width / 2 * scale ,object->y };
 
                 auto building = Pooling::Instance().AcquireObject<Building>();
-                building->SetData(tileset->name, tileset->tiles.at(local_gid).textureId, position, scale);
+                const TileData* tileData = &tileset->tiles.at(local_gid);
+                building->SetData(tileset->name, tileData->textureId, position, scale);
+
+                if (tileData->objects.count("collision")){
+                    const TileObject* tileObject = &tileData->objects.at("collision");
+                    building->AddCollision({ PIXEL_TO_METERS(position.x + tileObject->x),PIXEL_TO_METERS(position.y - tileObject->height * 1.5f + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) });
+                }
+
+                if (tileData->objects.count("renderPosition")) {
+                    const TileObject* tileObject = &tileData->objects.at("renderPosition");
+                    building->renderOffsetSorting = { 0,(int)(tileObject->y - object->height)};
+                }
+            }
+            else if (type == "npc") {
+                int npcId = stoi(object->properties.at("NpcId").value);
+                auto npc = Pooling::Instance().AcquireObject<NpcCharacter>();
+
+                Vector2 position = { object->x ,object->y };
+                npc->SetPosition(position);
+                
             }
         }
     }
@@ -151,7 +177,7 @@ void Tilemap::ParseTileData(xml_node& tileNode, TileData& tileData, const Tilese
         for (xml_node objNode : objectGroup.children("object")) {
             TileObject obj;
             ParseObject(objNode, obj, baseDir);
-            tileData.objects.push_back(obj);
+            tileData.objects[obj.name] = obj;
         }
     }
 }
@@ -298,22 +324,7 @@ void Tilemap::ParseProperties(const xml_node& node, unordered_map<string, Proper
             Property prop;
             const string type = propNode.attribute("type").as_string("string");
             const string value = propNode.attribute("value").as_string();
-
-            if (type == "int") {
-                prop.value = stoi(value);
-            }
-            else if (type == "float") {
-                prop.value = stof(value);
-            }
-            else if (type == "bool") {
-                prop.value = (value == "true");
-            }
-            else if (type == "file") {
-                prop.value =  path(value);
-            }
-            else {
-                prop.value = value;
-            }
+            prop.value = value;
 
             props[propNode.attribute("name").as_string()] = prop;
         }
@@ -328,7 +339,6 @@ void Tilemap::UpdateTilemap()
 void Tilemap::Render()
 {
     ModuleRender& renderer = *Engine::Instance().m_render;
-    renderer.SetCameraMode(true);
     const DrawingTools& painter = renderer.painter();
     SDL_Rect cameraRect = renderer.GetCamera().GetRect();
 
@@ -384,7 +394,6 @@ void Tilemap::Render()
             }
         }
     }
-    renderer.SetCameraMode(false);
 }
 
 void Tilemap::GetTileRect(Tileset* tileset, int tileId, SDL_Rect& rect)

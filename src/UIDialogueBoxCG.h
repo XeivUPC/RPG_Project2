@@ -16,8 +16,11 @@ public:
 	~UIDialogueBoxCG() override;
 
 	void UpdateCanvas();
+
+	void SetDialogue(string path);
 public:
 	DialogueSystem* dialogue;
+	
 private:
 	void CreateChoiceButton(string text, int index, float verticalSpacing);
 	void SignalReader(Signal* signal);
@@ -26,6 +29,7 @@ private:
 
 	void NextDialogue();
 private:
+
 	float amistad = 0;
 	UITextBox* contentTextBox = nullptr;
 	UITextBox* characterNameTextBox = nullptr;

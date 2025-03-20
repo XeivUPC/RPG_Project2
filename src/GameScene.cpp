@@ -7,10 +7,13 @@
 #include "ModuleAudio.h"
 #include "ModuleTime.h"
 #include "Tilemap.h"
+#include "PlayerCharacter.h"
+#include "CameraController.h"
 
 ///Pooling
 #include "Pooling.h"
 #include "Building.h"
+#include "NpcCharacter.h"
 #include "SimpleMapObject.h"
 ///
 
@@ -34,6 +37,11 @@ GameScene::~GameScene()
     
 }
 
+void GameScene::SetDialogue(string path)
+{
+    dialogueCanvas->SetDialogue(path);
+}
+
 bool GameScene::Init()
 {
     return true;
@@ -43,6 +51,7 @@ bool GameScene::Start()
 {
     Pooling::Instance().CreatePool<Building>(10);
     Pooling::Instance().CreatePool<SimpleMapObject>(30);
+    Pooling::Instance().CreatePool<NpcCharacter>(10);
 
     fade = new FadeCG(33, 25, 17, 255);
     fade->FadeTo(1,0);
@@ -59,7 +68,7 @@ bool GameScene::Start()
 
     Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("townTheme"), 1000);
     Engine::Instance().m_render->SetCameraZoom(1.5f);
-    Engine::Instance().m_render->SetCameraPosition({0, 0});
+    Engine::Instance().m_render->SetCameraPosition(Vector2{0, 0});
     
     //// Create States
 
@@ -70,7 +79,7 @@ bool GameScene::Start()
     game_states[State::Menu] = new PauseGameState();
     game_states[State::Menu]->StateDeselected();
 
-    SetState(State::Dialogue);
+    SetState(State::Exploring);
 
     ////
 
@@ -80,6 +89,11 @@ bool GameScene::Start()
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
+
+    cameraController = new CameraController();
+    cameraController->SetOffset({ -LOGIC_SCREEN_WIDTH / 2, -LOGIC_SCREEN_HEIGHT / 2 });
+    player = new PlayerCharacter();
+    cameraController->SetTarget(player);
 
     return true;
 }
@@ -105,18 +119,6 @@ bool GameScene::Update()
 
     Engine::Instance().m_render->SortRenderQueueLayerByPosition(3);
 
-    Vector2 dir = { 0,0 };
-    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
-        dir.y -= 40;
-    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
-        dir.y += 40;
-    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
-        dir.x -= 40;
-    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
-        dir.x += 40;
-
-    Engine::Instance().m_render->MoveCamera(dir*(float)ModuleTime::deltaTime);
-
     //canvas->UpdateCanvas();
 
     game_states[state]->UpdateState();
@@ -140,6 +142,8 @@ bool GameScene::CleanUp()
     //delete canvas;
     delete fade;
 
+   
+
     for (; game_states.size() != 0;)
     {
         delete game_states.begin()->second;
@@ -160,12 +164,18 @@ bool GameScene::CleanUp()
     }
     entities.clear();
 
+    player->CleanUp();
+    delete player;
+    cameraController->CleanUp();
+    delete cameraController;
+
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
 
     Pooling::Instance().DeletePool<Building>(true);
     Pooling::Instance().DeletePool<SimpleMapObject>(true);
+    Pooling::Instance().DeletePool<NpcCharacter>(true);
 
     exitGame = false;
 

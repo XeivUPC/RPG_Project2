@@ -1,6 +1,7 @@
 #include "PauseGameState.h"
 #include "Engine.h"
 #include "ModuleUpdater.h"
+#include "ModulePhysics.h"
 #include "GameScene.h"
 #include "TitleScene.h"
 #include "PauseMenuCG.h"
@@ -38,10 +39,14 @@ void PauseGameState::StateSelected()
 {
     Engine::Instance().s_game->pauseCanvas->isVisible = true;
     Engine::Instance().m_updater->PauseUpdateGroup("Entity");
+    Engine::Instance().m_physics->PauseSimulation();
 }
 
 void PauseGameState::StateDeselected()
 {
+    if (Engine::Instance().m_physics->IsSimulationPaused()) {
+        Engine::Instance().m_physics->StartSimulation();
+    }
     if (Engine::Instance().s_game->pauseCanvas->IsInteractable()) {
         Engine::Instance().s_game->pauseCanvas->SetInteractable(false);
         Engine::Instance().s_game->pauseCanvas->UpdateCanvas();
