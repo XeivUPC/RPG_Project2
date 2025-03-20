@@ -40,9 +40,4 @@ protected:
 	void Move() override;
 protected:
 
-
-
-
-
-
 };
