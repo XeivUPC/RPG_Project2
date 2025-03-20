@@ -109,7 +109,11 @@ void ModuleCursor::SetCursor(const CursorData& data)
 	activeCursor.scale = data.scale;
 
 	if (activeCursor.texture != nullptr) {
+		if (hiddenAll)
+			return;
 		HideNormalCursor();
+		if (hiddenCustom)
+			return;
 		ShowCustomCursor();
 	}
 	else {

@@ -52,6 +52,7 @@ bool TitleScene::Start()
     Engine::Instance().m_cursor->AddCursor("hand_cursor", Engine::Instance().m_assetsDB->GetTexture("mouse_cursor3"), { 0,0,23,23 }, { -2,-2 }, 1);
     Engine::Instance().m_cursor->AddDefaultCursor(Engine::Instance().m_assetsDB->GetTexture("mouse_cursor2"), { 0,0,23,23 }, { -2,-3 }, 1);
     Engine::Instance().m_cursor->SelectDefaultCursor();
+    Engine::Instance().m_cursor->ShowCustomCursor();
 
 
     mt19937 engine(std::random_device{}());

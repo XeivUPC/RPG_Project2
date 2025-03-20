@@ -3,19 +3,33 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
+    "activeFile": "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx",
     "expandedProjectPaths": [
         "Prefabs/Buildings",
-        "Maps",
-        "Tilesets",
+        "Prefabs",
         "Objects",
         ".",
-        "Prefabs"
+        "Tilesets",
+        "Maps"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
     "fileStates": {
         "": {
+            "scaleInDock": 1
+        },
+        "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx": {
+            "scale": 0.125,
+            "selectedLayer": -1,
+            "viewCenter": {
+                "x": 6952,
+                "y": 3528
+            }
+        },
+        "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx#MainTileSet": {
+            "scaleInDock": 1
+        },
+        "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx#MapData": {
             "scaleInDock": 1
         },
         "G:/GitHub/RPG_Project2/Assets/Map/Data/Testing_Zone.tmx": {
@@ -41,8 +55,8 @@
             "scale": 1.5,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 334.6666666666667,
-                "y": 204
+                "x": 496,
+                "y": 319.66666666666663
             }
         },
         "Maps/Testing_Zone.tmx": {
@@ -115,12 +129,14 @@
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
-        "Maps/Rogue_Squadron_Headquarters.tmx"
+        "Maps/Rogue_Squadron_Headquarters.tmx",
+        "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "file",
     "recentFiles": [
         "Maps/Rogue_Squadron_Headquarters.tmx",
+        "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx",
         "Tilesets/Building_Atlas.tsx",
         "Tilesets/Water_tiles.tsx",
         "Maps/Testing_Zone.tmx",
@@ -130,8 +146,7 @@
         "Tilesets/Cave_Tiles.tsx",
         "G:/GitHub/RPG_Project2/Assets/Map/Data/Testing_Zone.tmx",
         "Maps/Map1.tmx",
-        "Maps/Water_tiles.tsx",
-        "Maps/sin nombre.tmx"
+        "Maps/Water_tiles.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 2,

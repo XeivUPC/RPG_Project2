@@ -125,10 +125,10 @@ void DrawingTools::RenderCircle(const Vector2& position, float radius, const SDL
 
 
         if (*cameraMode) {
-            x1 = ((position.x - camera->rect.x + radius * cosf(theta1))) * camera->zoom;
-            y1 = ((position.x - camera->rect.y + radius * sinf(theta1)) * camera->zoom);
+            x1 = ((position.x - camera->rect.x + radius * cosf(theta1)) * camera->zoom);
+            y1 = ((position.y - camera->rect.y + radius * sinf(theta1)) * camera->zoom);
             x2 = ((position.x - camera->rect.x + radius * cosf(theta2)) * camera->zoom);
-            y2 = ((position.x - camera->rect.y + radius * sinf(theta2)) * camera->zoom);
+            y2 = ((position.y - camera->rect.y + radius * sinf(theta2)) * camera->zoom);
         }else{
             x1 = (position.x + radius * cosf(theta1));
             y1 = (position.y + radius * sinf(theta1));

@@ -2,6 +2,7 @@
 #include "Engine.h"
 #include "ModuleInput.h"
 #include "ModulePhysics.h"
+#include "ModuleCursor.h"
 #include "ModuleUpdater.h"
 #include "GameScene.h"
 #include "UIDialogueBoxCG.h"
@@ -45,6 +46,7 @@ void DialogueGameState::StateSelected()
     Engine::Instance().m_physics->PauseSimulation();
     Engine::Instance().s_game->dialogueCanvas->SetInteractable(true);
     Engine::Instance().s_game->dialogueCanvas->isVisible = true;
+    Engine::Instance().m_cursor->ShowCustomCursor();
 }
 
 void DialogueGameState::StateDeselected()

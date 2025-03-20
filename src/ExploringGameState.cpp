@@ -2,6 +2,7 @@
 #include "Engine.h"
 #include "ModuleInput.h"
 #include "ModuleUpdater.h"
+#include "ModuleCursor.h"
 #include "GameScene.h"
 
 bool ExploringGameState::PreUpdateState()
@@ -24,6 +25,7 @@ bool ExploringGameState::PostUpdateState()
 void ExploringGameState::StateSelected()
 {
     Engine::Instance().m_updater->ResumeUpdateGroup("Entity");
+    Engine::Instance().m_cursor->HideAllCursors();
 }
 
 void ExploringGameState::StateDeselected()
