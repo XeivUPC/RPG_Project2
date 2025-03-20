@@ -6,17 +6,34 @@
 #include "GameScene.h"
 #include "ModuleAssetDataBase.h"
 #include "ModuleUpdater.h"
+#include "ModuleInput.h"
 #include "DrawingTools.h"
 #include "ModulePhysics.h"
 #include "PhysicFactory.h"
+#include "Animator.h"
+#include "AnimationClip.h"
 
 NpcCharacter::NpcCharacter()
 {
-    
-    texture = Engine::Instance().m_assetsDB->GetTexture("npc_test");
+    texture = Engine::Instance().m_assetsDB->GetTexture("pj_test");
 
     renderLayer = 3;
     renderOffsetSorting = { 0,2 };
+    animator = new Animator
+    (
+        { 
+            AnimationClip("test1", true, false, 0.5f,
+            {
+                Sprite(texture, {58,49,31,49}),
+                Sprite(texture, {107,52,31,46})
+            },&position,&scale),
+            AnimationClip("test2", true, false, 0.5f,
+            {
+                Sprite(texture, {58,99,31,49}),
+                Sprite(texture, {107,101,31,46})
+            },&position,&scale)
+        }, 0
+    );
 }
 
 NpcCharacter::~NpcCharacter()
@@ -25,6 +42,18 @@ NpcCharacter::~NpcCharacter()
 
 bool NpcCharacter::Update()
 {
+
+    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
+        animator->Animate("test1");
+    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
+        animator->Animate("test2");
+
+    if(!Engine::Instance().m_render->IsRectCameraVisible(animator->clip()->GetAnimationSpace()))
+        isVisible = false;
+    else
+        isVisible = true;
+
+    animator->clip()->UpdateClip();
     SearchPath();
     Move();
     return true;
@@ -32,12 +61,14 @@ bool NpcCharacter::Update()
 
 void NpcCharacter::Render()
 {
-    SDL_Rect rect = { 0,0,64,64 };
-    Engine::Instance().m_render->painter().RenderTexture(*texture, position, &rect, { 1.f,1.f }, 0, { 0.5f,0.75f });
+    
+    animator->clip()->RenderClip();
 }
 
 bool NpcCharacter::CleanUp()
 {
+    animator->CleanUp();
+    delete animator;
     Pooling::Instance().ReturnObject(this);
     return true;
 }
