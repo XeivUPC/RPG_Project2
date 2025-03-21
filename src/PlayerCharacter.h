@@ -20,7 +20,7 @@ private:
 	void GetInput();
 private:
 	CollisionSensor interactionSensor;
-	Vector2 lastDirection = { 0,1 };
+
 protected:
 	// Inherited via Character
 	void Move() override;

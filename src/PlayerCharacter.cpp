@@ -166,7 +166,7 @@ void PlayerCharacter::GetInput()
 	
 	bool flip = animationDirection.x < 0;
 	animator->clip()->Flip(flip);
-	if (std::abs(animationDirection.x) > std::abs(animationDirection.y)) {
+	if (std::abs(animationDirection.x) >= std::abs(animationDirection.y)) {
 		
 		if (isMoving) {
 			animator->Animate("walk-horizontally");

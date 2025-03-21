@@ -19,6 +19,62 @@ NpcCharacter::NpcCharacter()
 
     renderLayer = 3;
     renderOffsetSorting = { 0,2 };
+
+	int spriteSize = 64;
+	animator = new Animator
+	(
+		{
+			AnimationClip("idle-down", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("idle-horizontally", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("idle-top", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,2 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,2 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,2 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,2 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("walk-down", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("walk-horizontally", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("walk-top", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale)
+
+		}, 0
+	);
 }
 
 NpcCharacter::~NpcCharacter()
@@ -29,6 +85,8 @@ bool NpcCharacter::Update()
 {
     SearchPath();
     Move();
+
+	animator->clip()->UpdateClip();
     return true;
 }
 
@@ -37,11 +95,15 @@ void NpcCharacter::Render()
     
     SDL_Rect rect = { 0,0,64,64 };
 
-    Engine::Instance().m_render->painter().RenderTexture(*texture, position, &rect, { 1.f,1.f }, 0, { 0.5f,0.75f });
+    //Engine::Instance().m_render->painter().RenderTexture(*texture, position, &rect, { 1.f,1.f }, 0, { 0.5f,0.75f });
+	animator->clip()->RenderClip();
+
 }
 
 bool NpcCharacter::CleanUp()
 {
+	animator->CleanUp();
+	delete animator;
     Pooling::Instance().ReturnObject(this);
     return true;
 }
@@ -59,6 +121,43 @@ void NpcCharacter::SearchPath()
 void NpcCharacter::Move()
 {
     position = body->GetPhysicPosition();
+
+	bool isMoving = (moveDirection != Vector2{ 0,0 });
+	if (isMoving)
+		lastDirection = moveDirection;
+
+	Vector2 animationDirection = lastDirection;
+
+	if (moveDirection.magnitude() != 0)
+		moveDirection.normalize();
+
+	bool flip = animationDirection.x < 0;
+	animator->clip()->Flip(flip);
+	if (std::abs(animationDirection.x) >= std::abs(animationDirection.y)) {
+
+		if (isMoving) {
+			animator->Animate("walk-horizontally");
+		}
+		else {
+			animator->Animate("idle-horizontally");
+		}
+	}
+	else if (animationDirection.y > 0) {
+		if (isMoving) {
+			animator->Animate("walk-down");
+		}
+		else {
+			animator->Animate("idle-down");
+		}
+	}
+	else {
+		if (isMoving) {
+			animator->Animate("walk-top");
+		}
+		else {
+			animator->Animate("idle-top");
+		}
+	}
 }
 
 void NpcCharacter::Interact()

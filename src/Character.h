@@ -34,6 +34,7 @@ protected:
 	PhysBody* body = nullptr;
 
 	Vector2 moveDirection = { 0,0 };
+	Vector2 lastDirection = { 0,1 };
 	float speed = 5;
 
 	Vector2 previousPhysicsPosition = { 0,0 };

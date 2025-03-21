@@ -76,13 +76,12 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("team_logo", *textureFactory->CreateTexture("Assets/Textures/General/team_logo.png"));
 	AddTextureToStorage("game_title_pixel", *textureFactory->CreateTexture("Assets/Textures/General/game_title_pixel.png"));
 	AddTextureToStorage("top_fade", *textureFactory->CreateTexture("Assets/Textures/General/top_fade.png"));
-	AddTextureToStorage("player_test", *textureFactory->CreateTexture("Assets/Textures/General/Idle_Down.png"));
-	AddTextureToStorage("npc_test", *textureFactory->CreateTexture("Assets/Textures/General/NPC_Idle_Down.png"));
 	///Characters --> Make Atlas later
 	AddTextureToStorage("character_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/Characters/CharactersAtlas.png"));
 	AddAtlasToStorage("character_atlas",*atlasFactory->CreateAtlas(*GetTexture("character_atlas"), "Assets/Textures/Atlas/Characters/CharactersAtlas.xml"));
 
 	AddTextureToStorage("pj_test", *textureFactory->CreateTexture("Assets/Textures/Characters/player_spritesheet.png"));
+	AddTextureToStorage("npc_test", *textureFactory->CreateTexture("Assets/Textures/Characters/npc_spritesheet.png"));
 	///Tilesets
 	AddTextureToStorage("floors_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Floors_Tiles.png"));
 	AddTextureToStorage("water_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Water_Tiles.png"));
