@@ -2,6 +2,7 @@
 #include "Vector2Int.h"
 #include "IRendereable.h"
 #include "ITransformable.h"
+#include "AnimationClip.h"
 
 #include <pugixml.hpp>
 #include <variant>
@@ -156,7 +157,7 @@ private:
     void ParseProperties(const pugi::xml_node& node, std::unordered_map<std::string, Property>& props);
 
 
-    void GetTileRect(Tileset* tileset, int tileId, SDL_Rect& rect);
+    void GetTileRect(const Tileset& tileset, int tileId, SDL_Rect& rect);
     int GetTileRelativeIndex(int x, int y, const TileLayer& layer) const;
     Tileset* GetTileset(int gid);
 
@@ -164,4 +165,6 @@ private:
     fs::path currentMapPath;
 
     Tileset* lastTilesetUsed;
+
+    unordered_map<int, AnimationClip> animations;
 };

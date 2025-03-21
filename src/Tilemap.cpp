@@ -9,10 +9,13 @@
 #include "DrawingTools.h"
 #include "Pooling.h"
 #include "LOG.h"
+#include "Animator.h"
+#include "AnimationClip.h"
 
 #include "Building.h"
 #include "SimpleMapObject.h"
 #include "NpcCharacter.h"
+
 
 #include <sstream>
 
@@ -21,7 +24,7 @@ Tilemap::Tilemap(const  path& tmxPath, float _scale)
     LoadMapFromXML(tmxPath, _scale);
     Engine::Instance().m_render->AddToRenderQueue(*this);
     renderLayer = 2;
-  
+    
 }
 
 Tilemap::~Tilemap()
@@ -32,6 +35,8 @@ Tilemap::~Tilemap()
 
 void Tilemap::LoadMapFromXML(const  path& tmxPath)
 {
+    //// Clean Animator;
+    animations.clear();
     currentMap = TiledMap{};
     currentMapPath = tmxPath.parent_path();
 
@@ -165,12 +170,19 @@ void Tilemap::ParseTileData(xml_node& tileNode, TileData& tileData, const Tilese
     }
 
     if (xml_node animationNode = tileNode.child("animation")) {
+        vector<Sprite> sprites;
         for (xml_node frameNode : animationNode.children("frame")) {
-            tileData.animation.push_back({
+            TileAnimationFrame data = {
                 frameNode.attribute("tileid").as_int(),
                 frameNode.attribute("duration").as_int()
-                });
+            };
+            tileData.animation.push_back(move(data));
+            SDL_Rect rect = { 0,0,0,0 };
+            GetTileRect(tileset, data.tileId, rect);
+            sprites.emplace_back(Sprite{ tileset.texture,rect,{0,0},{0,0} });
         }
+        AnimationClip clip = AnimationClip{to_string((tileset.firstGid + tileData.id)),true,false,0.1f,move(sprites),nullptr, nullptr};
+        animations[tileset.firstGid + tileData.id] = clip;
     }
 
     if (xml_node objectGroup = tileNode.child("objectgroup")) {
@@ -334,6 +346,10 @@ void Tilemap::ParseProperties(const xml_node& node, unordered_map<string, Proper
 
 void Tilemap::UpdateTilemap()
 {
+    for (auto& anim : animations)
+    {
+        anim.second.UpdateClip();
+    }
 }
 
 void Tilemap::Render()
@@ -385,26 +401,31 @@ void Tilemap::Render()
                     continue;
 
                 const int tileId = gid - tileset->firstGid;
-                GetTileRect(tileset, tileId, rect);
 
                 drawingPos.x = (int)(x * currentMap.tileWidth * scale);
                 drawingPos.y = (int)(y * currentMap.tileHeight * scale);
 
-                painter.RenderTexture(*tileset->texture, drawingPos + position, &rect, { scale,scale });
+                const TileData& tileData = tileset->tiles[tileId];
+                if (tileData.animation.size() == 0) {
+                    GetTileRect(*tileset, tileId, rect);
+                    painter.RenderTexture(*tileset->texture, drawingPos + position, &rect, { scale,scale });
+                }
+                else {
+                    /// Animate
+                    int nonConst_gid = gid;
+                    animations[nonConst_gid].RenderClip(drawingPos + position, scale);
+                }
             }
         }
     }
 }
 
-void Tilemap::GetTileRect(Tileset* tileset, int tileId, SDL_Rect& rect)
+void Tilemap::GetTileRect(const Tileset& tileset, int tileId, SDL_Rect& rect)
 {
-	if (!tileset) {
-		rect = { 0, 0, 0, 0 };
-		return;
-	}
-	const int tx = (tileId % tileset->columns) * (tileset->tileWidth + tileset->spacing) + tileset->margin;
-	const int ty = (tileId / tileset->columns) * (tileset->tileHeight + tileset->spacing) + tileset->margin;
-	rect = { tx, ty, tileset->tileWidth, tileset->tileHeight };
+
+	const int tx = (tileId % tileset.columns) * (tileset.tileWidth + tileset.spacing) + tileset.margin;
+	const int ty = (tileId / tileset.columns) * (tileset.tileHeight + tileset.spacing) + tileset.margin;
+	rect = { tx, ty, tileset.tileWidth, tileset.tileHeight };
 }
 
 int Tilemap::GetTileRelativeIndex(int x, int y, const TileLayer& layer) const

@@ -2,6 +2,7 @@
 #include "Entity.h"
 
 class PhysBody;
+class Animator;
 
 class Character : public Entity {
 public:
@@ -29,6 +30,7 @@ protected:
 
 	string textureId = "";
 	SDL_Texture* texture = nullptr;
+	Animator* animator;
 	PhysBody* body = nullptr;
 
 	Vector2 moveDirection = { 0,0 };

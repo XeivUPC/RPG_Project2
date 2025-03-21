@@ -15,6 +15,10 @@ AnimationClip::AnimationClip(string name, bool _loop, bool _stop, float _speed, 
 	scale(newScale)
 {}
 
+AnimationClip::AnimationClip()
+{
+}
+
 void AnimationClip::Play()
 {
 	stop = false;
@@ -35,13 +39,28 @@ void AnimationClip::Speed(float sp)
 	speed = sp;
 }
 
+void AnimationClip::Flip(float flp)
+{
+	flip = flp;
+}
+
 SDL_Rect& AnimationClip::GetAnimationSpace()
 {
 	Sprite& sprite = spriteList[currentSprite];
 	animation_space = sprite.Section();
-	animation_space.x = GetPosition().x - animation_space.w * sprite.Pivot().x + sprite.Offset().x;
-	animation_space.y = GetPosition().y - animation_space.h * sprite.Pivot().y + sprite.Offset().x;
+	animation_space.x = (int)(position->x - animation_space.w * sprite.Pivot().x + sprite.Offset().x);
+	animation_space.y = (int)(position->y - animation_space.h * sprite.Pivot().y + sprite.Offset().x);
 	return animation_space;
+}
+
+void AnimationClip::SetPosition(Vector2* newPosition)
+{
+	position = newPosition;
+}
+
+void AnimationClip::SetScale(float* newScale)
+{
+	scale = newScale;
 }
 
 void AnimationClip::Start()
@@ -61,10 +80,10 @@ void AnimationClip::CleanUp()
 }
 
 
-bool AnimationClip::UpdateClip()
+void AnimationClip::UpdateClip()
 {
 	if(!stop || (time >= speed && currentSprite == spriteList.size() - 1 && !loop))
-		time += ModuleTime::deltaTime;
+		time += (float)ModuleTime::deltaTime;
 	if (time >= speed)
 	{
 		time = 0;
@@ -73,22 +92,16 @@ bool AnimationClip::UpdateClip()
 		else if (currentSprite <= spriteList.size() - 1)
 			currentSprite++;
 	}
-	return true;
 }
 
 void AnimationClip::RenderClip()
 {
-	Engine::Instance().m_render->painter().RenderTexture(*spriteList[currentSprite].Texture(), GetPosition() + spriteList[currentSprite].Offset(), &spriteList[currentSprite].Section(), {GetScale(), GetScale()}, 0, spriteList[currentSprite].Pivot());
+	RenderClip(*position, *scale);
 }
 
-Vector2 AnimationClip::GetPosition()
+void AnimationClip::RenderClip(Vector2 _position, float _scale)
 {
-	return *position;
-}
-
-float AnimationClip::GetScale()
-{
-	return *scale;
+	Engine::Instance().m_render->painter().RenderTexture(*spriteList[currentSprite].Texture(), _position + spriteList[currentSprite].Offset(), &spriteList[currentSprite].Section(), { _scale, _scale }, 0, spriteList[currentSprite].Pivot(), flip ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 }
 
 AnimationClip::~AnimationClip()

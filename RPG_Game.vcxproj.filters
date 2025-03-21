@@ -124,6 +124,9 @@
     <Filter Include="Source Files\Entities\Type %28Entity%29\Character">
       <UniqueIdentifier>{297ecfbd-f11a-43a8-9ac3-72b2eacc6947}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils\Animation">
+      <UniqueIdentifier>{8e5d8eff-a93b-4a08-a64c-f38fa9115829}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -305,6 +308,15 @@
     </ClCompile>
     <ClCompile Include="src\NpcCharacter.cpp">
       <Filter>Source Files\Entities\Type %28Entity%29\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AnimationClip.cpp">
+      <Filter>Source Files\Utils\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Animator.cpp">
+      <Filter>Source Files\Utils\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sprite.cpp">
+      <Filter>Source Files\Utils\Animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -532,6 +544,15 @@
     </ClInclude>
     <ClInclude Include="src\IInteractuable.h">
       <Filter>Source Files\_Core\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AnimationClip.h">
+      <Filter>Source Files\Utils\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Animator.h">
+      <Filter>Source Files\Utils\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sprite.h">
+      <Filter>Source Files\Utils\Animation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

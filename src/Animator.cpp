@@ -6,15 +6,26 @@ AnimationList(Animations)
 	currentAnimation = &AnimationList[current];
 	currentAnimation->Start();
 }
+Animator::Animator()
+{
+}
 Animator::~Animator()
 {}
+void Animator::AddAnimationClip(AnimationClip clip)
+{
+	AnimationList.emplace_back(clip);
+	if (currentAnimation == nullptr)
+		currentAnimation = &AnimationList[0];
+}
 AnimationClip* Animator::clip()
 {
 	return currentAnimation;
 }
 
-void Animator::Animate(string animation)
+void Animator::Animate(const string& animation, bool keepTime)
 {
+	if (currentAnimation && currentAnimation->Name() == animation)
+		return;
 	for (size_t i = 0; i < AnimationList.size(); i++)
 	{
 		if (AnimationList[i].Name() == animation)
@@ -23,7 +34,8 @@ void Animator::Animate(string animation)
 			return;
 		}
 	}
-	currentAnimation->Start();
+	if(!keepTime)
+		currentAnimation->Start();
 }
 
 void Animator::CleanUp()
