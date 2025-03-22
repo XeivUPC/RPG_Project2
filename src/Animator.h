@@ -5,8 +5,6 @@
 using namespace std;
 class Animator
 {
-	vector<AnimationClip> AnimationList;
-	AnimationClip* currentAnimation;
 
 public:
 	Animator(vector<AnimationClip> Animations, int current);
@@ -16,5 +14,15 @@ public:
 	AnimationClip* clip();
 	void Animate(const string& animation, bool keepTime= false);
 	void CleanUp();
+
+public:
+	SystemEvent<string> onAnimationChanged;
+
+private:
+
+private:
+	vector<AnimationClip> AnimationList;
+	AnimationClip* currentAnimation;
+
 };
 

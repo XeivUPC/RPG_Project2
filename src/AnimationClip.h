@@ -31,7 +31,7 @@ public:
 
 
 public:
-
+	SystemEvent<> onAnimationFinished;
 private:
 	
 	void SetPosition(Vector2* newPosition);

@@ -66,6 +66,7 @@ void AnimationClip::SetScale(float* newScale)
 void AnimationClip::Start()
 {	
 	currentSprite = 0;
+	spriteList[currentSprite].onSpriteSelected.Trigger();
 	time = 0;
 }
 
@@ -87,10 +88,17 @@ void AnimationClip::UpdateClip()
 	if (time >= speed)
 	{
 		time = 0;
-		if (currentSprite == spriteList.size() - 1 && loop)
+		if (currentSprite == spriteList.size() - 1 && loop) {
 			currentSprite = 0;
-		else if (currentSprite <= spriteList.size() - 1)
+			onAnimationFinished.Trigger();
+			spriteList[currentSprite].onSpriteSelected.Trigger();
+			
+
+		}
+		else if (currentSprite <= spriteList.size() - 1) {
 			currentSprite++;
+			spriteList[currentSprite].onSpriteSelected.Trigger();
+		}
 	}
 }
 

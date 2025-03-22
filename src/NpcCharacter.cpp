@@ -79,6 +79,8 @@ NpcCharacter::NpcCharacter()
 
 NpcCharacter::~NpcCharacter()
 {
+	animator->CleanUp();
+	delete animator;
 }
 
 bool NpcCharacter::Update()
@@ -102,8 +104,7 @@ void NpcCharacter::Render()
 
 bool NpcCharacter::CleanUp()
 {
-	animator->CleanUp();
-	delete animator;
+	
     Pooling::Instance().ReturnObject(this);
     return true;
 }

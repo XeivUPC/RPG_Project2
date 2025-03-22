@@ -28,9 +28,9 @@ public:
 	void SetState(ButtonStates _state);
 
 public:
-	vector<function<void()>> onMouseDown;
-	vector<function<void()>> onMouseUp;
-	vector<function<void()>> onMouseClick;
+	SystemEvent<> onMouseDown;
+	SystemEvent<> onMouseUp;
+	SystemEvent<> onMouseClick;
 
 	bool isEnabled = true;
 private:

@@ -9,7 +9,7 @@ UIElement::UIElement(Vector2Int _position, Vector2Int _size, Vector2 _pivot) : l
 
 UIElement::~UIElement()
 {
-	TriggerCallbacks(onMouseExit);
+	onMouseExit.Trigger();
 }
 
 void UIElement::UpdateElement()
@@ -26,20 +26,20 @@ void UIElement::UpdateElement()
 
 	if (!interactable) {
 		if(isMouseOver)
-			TriggerCallbacks(onMouseExit);
+			onMouseExit.Trigger();
 		isMouseOver = false;
 		return;
 	}
 	if (IsInBounds(Engine::Instance().m_input->GetMousePosition())) {
 		if (!isMouseOver)
-			TriggerCallbacks(onMouseEnter);
+			onMouseEnter.Trigger();
 		else
-			TriggerCallbacks(onMouseOver);
+			onMouseOver.Trigger();
 		isMouseOver = true;
 	}
 	else {
 		if(isMouseOver)
-			TriggerCallbacks(onMouseExit);
+			onMouseExit.Trigger();
 		isMouseOver = false;
 	}
 }
@@ -146,9 +146,3 @@ bool UIElement::IsInBounds(Vector2Int point)
 	return false;
 }
 
-void UIElement::TriggerCallbacks(vector<function<void()>>& callbacks)
-{
-	for (auto& callback : callbacks) {
-		callback();
-	}
-}

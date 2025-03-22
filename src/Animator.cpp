@@ -31,6 +31,7 @@ void Animator::Animate(const string& animation, bool keepTime)
 		if (AnimationList[i].Name() == animation)
 		{
 			currentAnimation = &AnimationList[i];
+			onAnimationChanged.Trigger(currentAnimation->Name());
 			return;
 		}
 	}

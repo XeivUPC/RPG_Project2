@@ -57,11 +57,11 @@ PauseMenuCG::PauseMenuCG()
 	resumeGame_text->SetParent(continueGame_btn);
 	continueGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	continueGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
-	continueGame_btn->onMouseClick.emplace_back([this]() {Engine::Instance().s_game->SetPreviousState(); });
-	continueGame_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
-	continueGame_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
-	continueGame_btn->onMouseEnter.emplace_back([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
-	continueGame_btn->onMouseExit.emplace_back([this]() {Engine::Instance().m_cursor->SelectDefaultCursor(); });
+	continueGame_btn->onMouseClick.Subscribe([this]() {Engine::Instance().s_game->SetPreviousState(); });
+	continueGame_btn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	continueGame_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
+	continueGame_btn->onMouseEnter.Subscribe([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
+	continueGame_btn->onMouseExit.Subscribe([this]() {Engine::Instance().m_cursor->SelectDefaultCursor(); });
 
 
 	UIButton* teamGame_btn = new UIButton(*btn_texture, anchorPoint + Vector2Int{ 0,1 * btnOffset }, btnSize, { 0,0,86,35 }, { 0,0 });
@@ -69,10 +69,10 @@ PauseMenuCG::PauseMenuCG()
 	teamGame_text->SetParent(teamGame_btn);
 	teamGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	teamGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
-	teamGame_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
-	teamGame_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
-	teamGame_btn->onMouseEnter.emplace_back([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
-	teamGame_btn->onMouseExit.emplace_back([this]() {Engine::Instance().m_cursor->SelectDefaultCursor(); });
+	teamGame_btn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	teamGame_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
+	teamGame_btn->onMouseEnter.Subscribe([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
+	teamGame_btn->onMouseExit.Subscribe([this]() {Engine::Instance().m_cursor->SelectDefaultCursor(); });
 
 
 
@@ -81,10 +81,10 @@ PauseMenuCG::PauseMenuCG()
 	saveLoadGame_text->SetParent(saveLoadGame_btn);
 	saveLoadGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	saveLoadGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
-	saveLoadGame_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
-	saveLoadGame_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
-	saveLoadGame_btn->onMouseEnter.emplace_back([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
-	saveLoadGame_btn->onMouseExit.emplace_back([this]() {Engine::Instance().m_cursor->SelectDefaultCursor(); });
+	saveLoadGame_btn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	saveLoadGame_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
+	saveLoadGame_btn->onMouseEnter.Subscribe([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
+	saveLoadGame_btn->onMouseExit.Subscribe([this]() {Engine::Instance().m_cursor->SelectDefaultCursor(); });
 
 
 	UIButton* settingsGame_btn = new UIButton(*btn_texture, anchorPoint + Vector2Int{ 0,3 * btnOffset }, btnSize, { 0,0,86,35 }, { 0,0 });
@@ -92,10 +92,10 @@ PauseMenuCG::PauseMenuCG()
 	settingsGame_text->SetParent(settingsGame_btn);
 	settingsGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	settingsGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
-	settingsGame_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
-	settingsGame_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
-	settingsGame_btn->onMouseEnter.emplace_back([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
-	settingsGame_btn->onMouseExit.emplace_back([this]() {Engine::Instance().m_cursor->SelectDefaultCursor(); });
+	settingsGame_btn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	settingsGame_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
+	settingsGame_btn->onMouseEnter.Subscribe([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
+	settingsGame_btn->onMouseExit.Subscribe([this]() {Engine::Instance().m_cursor->SelectDefaultCursor(); });
 
 
 	UIButton* mainMenuGame_btn = new UIButton(*btn_texture, anchorPoint + Vector2Int{ 0,4* btnOffset }, btnSize, { 0,0,86,35 }, { 0,0 });
@@ -103,11 +103,11 @@ PauseMenuCG::PauseMenuCG()
 	mainMenuGame_text->SetParent(mainMenuGame_btn);
 	mainMenuGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	mainMenuGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
-	mainMenuGame_btn->onMouseClick.emplace_back([this]() {Engine::Instance().s_game->ExitGame(); });
-	mainMenuGame_btn->onMouseClick.emplace_back([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
-	mainMenuGame_btn->onMouseEnter.emplace_back([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
-	mainMenuGame_btn->onMouseEnter.emplace_back([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
-	mainMenuGame_btn->onMouseExit.emplace_back([this]() {Engine::Instance().m_cursor->SelectDefaultCursor(); });
+	mainMenuGame_btn->onMouseClick.Subscribe([this]() {Engine::Instance().s_game->ExitGame(); });
+	mainMenuGame_btn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	mainMenuGame_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
+	mainMenuGame_btn->onMouseEnter.Subscribe([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
+	mainMenuGame_btn->onMouseExit.Subscribe([this]() {Engine::Instance().m_cursor->SelectDefaultCursor(); });
 
 	///// AddElements
 

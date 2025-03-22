@@ -11,8 +11,8 @@ UISlider::UISlider(SDL_Texture& _bgTexture, Vector2Int _position, Vector2Int _si
 	button_component = new UIButton(_thumbTexture, {0,0}, _thumbSize, _defaultThumbRect, { 0.5f,0.5f });
 	button_component->SetParent(this);
 	button_component->AddRect(UIButton::ButtonStates::PRESSED, _selectedThumbRect);
-	button_component->onMouseDown.emplace_back([this]() {usingSlider = true; });
-	button_component->onMouseUp.emplace_back([this]() {usingSlider = false; });
+	button_component->onMouseDown.Subscribe([this]() {usingSlider = true; });
+	button_component->onMouseUp.Subscribe([this]() {usingSlider = false; });
 
 	image_component = new UIImage(_bgTexture, {0,0}, _size, _pivot, true, _bgRect);
 	image_component->SetParent(this);
@@ -60,7 +60,7 @@ void UISlider::UpdateElement()
 		if (FixThumbBounds(mousePos)) {
 			ForceUpdateTransforms();
 			UpdateValue();
-			TriggerCallbacks(onValueChange, value);
+			onValueChange.Trigger(value);
 		}
 	}
 	else
@@ -264,9 +264,3 @@ void UISlider::UpdateThumbByValue()
 	}
 }
 
-void UISlider::TriggerCallbacks(vector<function<void(float)>>& callbacks, float _value)
-{
-	for (auto& callback : callbacks) {
-		callback(_value);
-	}
-}

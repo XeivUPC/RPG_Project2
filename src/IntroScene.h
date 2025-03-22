@@ -3,6 +3,7 @@
 #include "IRendereable.h"
 
 #include "ChronoTimer.h"
+#include "SystemEvent.h"
 
 
 class UICanvas;
@@ -47,4 +48,9 @@ private:
 	
 
 	float timeToLoad = 7;
+
+	SystemEvent<int> event1;
+	SystemEvent<string> event2;
+	SystemEvent<> event3;
+	SystemEvent<int, string> event4;
 };

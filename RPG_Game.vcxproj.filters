@@ -127,6 +127,9 @@
     <Filter Include="Source Files\Utils\Animation">
       <UniqueIdentifier>{8e5d8eff-a93b-4a08-a64c-f38fa9115829}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\_Core\Events">
+      <UniqueIdentifier>{ba5f00e7-fadc-43b7-98fb-fd41fe7cf0ca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -553,6 +556,9 @@
     </ClInclude>
     <ClInclude Include="src\Sprite.h">
       <Filter>Source Files\Utils\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SystemEvent.h">
+      <Filter>Source Files\_Core\Events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

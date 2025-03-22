@@ -8,7 +8,7 @@ UIToggle::UIToggle(SDL_Texture& _texture, Vector2Int _position, Vector2Int _size
 	button_component->SetParent(this);
 	SetValue(_isOn);
 
-	button_component->onMouseClick.emplace_back([this]() {SetValue(!isOn); });
+	button_component->onMouseClick.Subscribe([this]() {SetValue(!isOn); });
 }
 
 UIToggle::~UIToggle()
@@ -59,12 +59,6 @@ bool UIToggle::IsOn() const
 void UIToggle::SetValue(bool _isOn)
 {
 	isOn = _isOn;
-	TriggerCallbacks(onValueChange, isOn);
+	onValueChange.Trigger(isOn);
 }
 
-void UIToggle::TriggerCallbacks(vector<function<void(bool)>>& callbacks, bool _value)
-{
-	for (auto& callback : callbacks) {
-		callback(_value);
-	}
-}

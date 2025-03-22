@@ -1,6 +1,7 @@
 #pragma once
 #include "SDL2/SDL.h"
 #include "Vector2.h"
+#include "SystemEvent.h"
 struct Sprite
 {
 private:
@@ -17,5 +18,7 @@ public:
 	const Vector2& Offset() const;
 	void CleanUp();
 	~Sprite();
+
+	SystemEvent<> onSpriteSelected;
 };
 

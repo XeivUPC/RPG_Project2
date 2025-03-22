@@ -10,6 +10,7 @@
 
 IntroScene::IntroScene(bool start_active) : ModuleScene(start_active)
 {
+
 }
 
 IntroScene::~IntroScene()

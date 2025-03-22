@@ -259,6 +259,7 @@
     <ClInclude Include="src\Sprite.h" />
     <ClInclude Include="src\StepTimer.h" />
     <ClInclude Include="src\Sword.h" />
+    <ClInclude Include="src\SystemEvent.h" />
     <ClInclude Include="src\TextureAtlas.h" />
     <ClInclude Include="src\TitleMenuCG.h" />
     <ClInclude Include="src\TitleScene.h" />
