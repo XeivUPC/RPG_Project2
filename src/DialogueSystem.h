@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Vector2.h"
+#include "SystemEvent.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -82,11 +83,11 @@ public:
     const vector<Signal>& GetActiveSignals() const;
 
 public:
-    vector<function<void(Signal*)>> onSignalCall;
+    SystemEvent<Signal*> onSignalCall;
 
-    vector<function<void()>> onDialogStart;
-    vector<function<void()>> onDialogEnd;
-    vector<function<void()>> onDialogNodeChange;
+    SystemEvent<> onDialogStart;
+    SystemEvent<> onDialogEnd;
+    SystemEvent<> onDialogNodeChange;
 
 private:
     void ProcessSignals();

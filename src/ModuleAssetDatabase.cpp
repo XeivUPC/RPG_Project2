@@ -49,6 +49,16 @@ void ModuleAssetDatabase::LoadAssets()
 	AddAudioToStorage("ambient_birds1", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds1.wav"));
 	AddAudioToStorage("ambient_birds2", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds2.wav"));
 
+	
+	AudioContainer* footstepContainer = new AudioContainer(AudioContainer::PlayMode::NonRepeatingRandom, { });
+	AddAudioContainerToStorage("footsteps_container", *footstepContainer);
+	for (size_t i = 1; i <= 12; i++)
+	{
+		Mix_Chunk* audioFile = audioFactory->CreateAudio("Assets/Sounds/SFX/Footsteps/footStep" + to_string(i) + ".wav");
+		AddAudioToStorage("footstep" + to_string(i), *audioFile);
+		footstepContainer->AddClip(audioFile);
+	}
+
 	AddAudioContainerToStorage("birds_container", *new AudioContainer(AudioContainer::PlayMode::NonRepeatingRandom, {GetAudio("ambient_birds1"),GetAudio("ambient_birds2") }));
 
 //// Fonts

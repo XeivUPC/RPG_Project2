@@ -53,6 +53,11 @@ SDL_Rect& AnimationClip::GetAnimationSpace()
 	return animation_space;
 }
 
+Sprite& AnimationClip::GetSprite(int index)
+{
+	return spriteList[index];
+}
+
 void AnimationClip::SetPosition(Vector2* newPosition)
 {
 	position = newPosition;

@@ -1,6 +1,7 @@
 #include "PlayerCharacter.h"
 #include "Engine.h"
 #include "ModuleRender.h"
+#include "ModuleAudio.h"
 #include "ModuleAssetDataBase.h"
 #include "ModuleUpdater.h"
 #include "ModuleInput.h"
@@ -11,6 +12,7 @@
 #include "IInteractuable.h"
 #include "Animator.h"
 #include "AnimationClip.h"
+#include "AudioContainer.h"
 
 PlayerCharacter::PlayerCharacter()
 {
@@ -94,6 +96,18 @@ PlayerCharacter::PlayerCharacter()
 			
 		}, 0
 	);
+
+	ModuleAudio* audioRef = Engine::Instance().m_audio;
+	ModuleAssetDatabase* assetsRef = Engine::Instance().m_assetsDB;
+
+	animator->GetAnimationClip("walk-top")->GetSprite(0).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+	animator->GetAnimationClip("walk-top")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+
+	animator->GetAnimationClip("walk-down")->GetSprite(0).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+	animator->GetAnimationClip("walk-down")->GetSprite(3).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+
+	animator->GetAnimationClip("walk-horizontally")->GetSprite(0).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+	animator->GetAnimationClip("walk-horizontally")->GetSprite(3).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
 }
 
 PlayerCharacter::~PlayerCharacter()

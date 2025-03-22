@@ -187,10 +187,10 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
         }
 
         if (current_node != previous_node) {
-            TriggerCallbacks(onDialogStart);
+            onDialogStart.Trigger();
             ProcessSignals();
             previous_node = current_node;
-            TriggerCallbacks(onDialogNodeChange);
+            onDialogNodeChange.Trigger();
         }
 
     }
@@ -206,10 +206,10 @@ void DialogueSystem::Update() {
     DialogueNode& node = nodes[current_node];
 
     if (current_node != previous_node) {
-        TriggerCallbacks(onDialogStart);
+        onDialogStart.Trigger();
         ProcessSignals();
         previous_node = current_node;
-        TriggerCallbacks(onDialogNodeChange);
+        onDialogNodeChange.Trigger();
     }
 }
 
@@ -232,7 +232,7 @@ void DialogueSystem::ProcessInput(int choice) {
         current_node = node.next_node;
     }
     else {
-        TriggerCallbacks(onDialogEnd);
+        onDialogEnd.Trigger();
         EndDialogue();
     }
 
@@ -248,7 +248,7 @@ void DialogueSystem::ProcessSignals() {
         signal.type = DetermineSignalType(signal.data);
         active_signals.push_back(signal);
         DoCustomSignalFunctions(&signal);
-        TriggerCallbacks(onSignalCall, &signal);
+        onSignalCall.Trigger(&signal);
     }
 }
 
