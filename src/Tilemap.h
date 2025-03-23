@@ -148,6 +148,9 @@ public:
     // Inherited via ITransformable
     Vector2 GetAnchor() override;
 
+
+    Vector2 GetTilemapSize();
+
 private:
     void ParseTileset(const pugi::xml_node& tsNode, const fs::path& baseDir);
     void ParseLayer(const pugi::xml_node& layerNode, const fs::path& baseDir);

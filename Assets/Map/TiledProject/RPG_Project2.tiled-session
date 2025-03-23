@@ -3,14 +3,14 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Tilesets/Water_tiles.tsx",
+    "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
     "expandedProjectPaths": [
+        ".",
+        "Tilesets",
         "Maps",
         "Prefabs/Buildings",
         "Objects",
-        ".",
-        "Prefabs",
-        "Tilesets"
+        "Prefabs"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -52,11 +52,11 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 2,
+            "scale": 1.5,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 417,
-                "y": 267.5
+                "x": 616.6666666666666,
+                "y": 356
             }
         },
         "Maps/Testing_Zone.tmx": {
@@ -129,7 +129,8 @@
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
-        "Tilesets/Water_tiles.tsx"
+        "Tilesets/Water_tiles.tsx",
+        "Maps/Rogue_Squadron_Headquarters.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "file",

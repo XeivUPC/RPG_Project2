@@ -14,4 +14,8 @@ struct Camera {
 	SDL_Rect GetRect() const {
 		return { (int)(position.x + offset.x/zoom), (int)(position.y + offset.y/zoom), (int)(viewport.x * (1 / zoom)), (int)(viewport.y * (1 / zoom)) };
 	}
+
+	SDL_Rect GetNonOffsetRect() const {
+		return { (int)(position.x ), (int)(position.y), (int)(viewport.x * (1 / zoom)), (int)(viewport.y * (1 / zoom)) };
+	}
 };

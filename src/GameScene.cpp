@@ -92,6 +92,7 @@ bool GameScene::Start()
 
     cameraController = new CameraController();
     cameraController->SetOffset({ -LOGIC_SCREEN_WIDTH / 2, -LOGIC_SCREEN_HEIGHT / 2 });
+    cameraController->SetBounds(tilemaps[0]->GetPosition(), tilemaps[0]->GetTilemapSize());
     player = new PlayerCharacter();
     cameraController->SetTarget(player);
 
