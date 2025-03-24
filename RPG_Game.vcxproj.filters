@@ -130,6 +130,9 @@
     <Filter Include="Source Files\_Core\Events">
       <UniqueIdentifier>{ba5f00e7-fadc-43b7-98fb-fd41fe7cf0ca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils\Pathfinding">
+      <UniqueIdentifier>{ee77a7f1-87c4-42f1-9951-258a19b0a83e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -320,6 +323,15 @@
     </ClCompile>
     <ClCompile Include="src\Sprite.cpp">
       <Filter>Source Files\Utils\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Path.cpp">
+      <Filter>Source Files\Utils\Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Pathfinding.cpp">
+      <Filter>Source Files\Utils\Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ModulePathfinding.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -559,6 +571,15 @@
     </ClInclude>
     <ClInclude Include="src\SystemEvent.h">
       <Filter>Source Files\_Core\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Path.h">
+      <Filter>Source Files\Utils\Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Pathfinding.h">
+      <Filter>Source Files\Utils\Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ModulePathfinding.h">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
