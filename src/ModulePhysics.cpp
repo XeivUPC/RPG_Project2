@@ -2,6 +2,8 @@
 #include "ModulePhysics.h"
 #include "ModuleRender.h"
 #include "ModuleInput.h"
+#include "ModuleTime.h"
+#include "ModuleUpdater.h"
 
 #include "CollisionsDispatcher.h"
 #include "PhysicFactory.h"
@@ -12,16 +14,17 @@
 
 #include <math.h>
 
-
 ModulePhysics::ModulePhysics(bool start_active) : Module(start_active)
 {
 	debug = true;
 	collisionsManager = new CollisionsDispatcher();
 	renderLayer = 10;
+
 }
 
 ModulePhysics::~ModulePhysics()
 {
+	
 }
 
 bool ModulePhysics::Start()
@@ -39,16 +42,18 @@ bool ModulePhysics::Start()
 	world->SetContactListener(collisionsManager);
 
 	Engine::Instance().m_render->AddToRenderQueue(*this);
+	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 
 	return true;
 }
 
 bool ModulePhysics::PreUpdate()
 {
-	double dt = ModuleTime::deltaTime;
+	double dt = ModuleTime::fixedDeltaTime;
 
 	if(simulationOn)
-		world->Step(1/60.f, 6, 2);
+		world->Step((float)dt, 6, 2);
 	return true;
 }
 
@@ -80,6 +85,8 @@ bool ModulePhysics::CleanUp()
 	delete world;
 
 	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 
 	return true;
 }
@@ -109,7 +116,7 @@ void ModulePhysics::Render()
 
 				if (renderer.IsCircleCameraVisible({ (float)METERS_TO_PIXELS(pos.x), (float)METERS_TO_PIXELS(pos.y) },(float)METERS_TO_PIXELS(circleShape->m_radius)))
 				{
-					painter.RenderCircle({ METERS_TO_PIXELS(pos.x), METERS_TO_PIXELS(pos.y) },(float)METERS_TO_PIXELS(circleShape->m_radius), {255,255,255,255});
+					painter.RenderCircle({ METERS_TO_PIXELS_RAW(pos.x), METERS_TO_PIXELS_RAW(pos.y) },(float)METERS_TO_PIXELS_RAW(circleShape->m_radius), {255,255,255,255});
 				}
 			}
 			break;
@@ -126,7 +133,7 @@ void ModulePhysics::Render()
 					{
 						if (renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(prev.x), (float)METERS_TO_PIXELS(prev.y) }, {(float)METERS_TO_PIXELS(v.x), (float)METERS_TO_PIXELS(v.y) }))
 						{
-							painter.RenderLine({ METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y) }, {METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y) },{0,255,0,255});
+							painter.RenderLine({ METERS_TO_PIXELS_RAW(prev.x), METERS_TO_PIXELS_RAW(prev.y) }, { METERS_TO_PIXELS_RAW(v.x), METERS_TO_PIXELS_RAW(v.y) },{0,255,0,255});
 						}
 					}
 					prev = v;
@@ -147,7 +154,7 @@ void ModulePhysics::Render()
 					{
 						if (renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(prev.x), (float)METERS_TO_PIXELS(prev.y) }, { (float)METERS_TO_PIXELS(v.x), (float)METERS_TO_PIXELS(v.y) }))
 						{
-							painter.RenderLine({ METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y) }, {METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y) },{ 255,0,0,255 });
+							painter.RenderLine({ METERS_TO_PIXELS_RAW(prev.x), METERS_TO_PIXELS_RAW(prev.y) }, { METERS_TO_PIXELS_RAW(v.x), METERS_TO_PIXELS_RAW(v.y) },{ 255,0,0,255 });
 						}
 					}
 					prev = v;
@@ -157,7 +164,7 @@ void ModulePhysics::Render()
 
 				if (renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(prev.x), (float)METERS_TO_PIXELS(prev.y) }, { (float)METERS_TO_PIXELS(v.x), (float)METERS_TO_PIXELS(v.y) }))
 				{
-					painter.RenderLine({ METERS_TO_PIXELS(prev.x), METERS_TO_PIXELS(prev.y) }, {METERS_TO_PIXELS(v.x), METERS_TO_PIXELS(v.y) },{ 255,0,0,255 });
+					painter.RenderLine({ METERS_TO_PIXELS_RAW(prev.x), METERS_TO_PIXELS_RAW(prev.y) }, { METERS_TO_PIXELS_RAW(v.x), METERS_TO_PIXELS_RAW(v.y) },{ 255,0,0,255 });
 				}
 			}
 			break;
@@ -169,7 +176,7 @@ void ModulePhysics::Render()
 				b2Vec2 v2 = b->GetWorldPoint(edgeShape->m_vertex1);
 				if(renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(v1.x), (float)METERS_TO_PIXELS(v1.y) }, { (float)METERS_TO_PIXELS(v2.x), (float)METERS_TO_PIXELS(v2.y) }))
 				{
-					painter.RenderLine({ METERS_TO_PIXELS(v1.x), METERS_TO_PIXELS(v1.y) }, {METERS_TO_PIXELS(v2.x), METERS_TO_PIXELS(v2.y) },{ 0,0,255,255 });
+					painter.RenderLine({ METERS_TO_PIXELS_RAW(v1.x), METERS_TO_PIXELS_RAW(v1.y) }, { METERS_TO_PIXELS_RAW(v2.x), METERS_TO_PIXELS_RAW(v2.y) },{ 0,0,255,255 });
 				}
 			}
 			break;
@@ -182,10 +189,11 @@ void ModulePhysics::Render()
 		b2Vec2 anchorA = j->GetAnchorA();
 		b2Vec2 anchorB = j->GetAnchorB();
 
-		painter.RenderCircle({ METERS_TO_PIXELS(anchorA.x), METERS_TO_PIXELS(anchorA.y) }, 4, { 0,255,255,255 });
-		painter.RenderCircle({ METERS_TO_PIXELS(anchorB.x), METERS_TO_PIXELS(anchorB.y) }, 4, { 0,255,255,255 });
-		painter.RenderLine({ METERS_TO_PIXELS(anchorA.x), METERS_TO_PIXELS(anchorA.y) }, { METERS_TO_PIXELS(anchorB.x), METERS_TO_PIXELS(anchorB.y) }, { 0,0,255,255 });
+		painter.RenderCircle({ METERS_TO_PIXELS_RAW(anchorA.x), METERS_TO_PIXELS_RAW(anchorA.y) }, 4, { 0,255,255,255 });
+		painter.RenderCircle({ METERS_TO_PIXELS_RAW(anchorB.x), METERS_TO_PIXELS_RAW(anchorB.y) }, 4, { 0,255,255,255 });
+		painter.RenderLine({ METERS_TO_PIXELS_RAW(anchorA.x), METERS_TO_PIXELS_RAW(anchorA.y) }, { METERS_TO_PIXELS_RAW(anchorB.x), METERS_TO_PIXELS_RAW(anchorB.y) }, { 0,0,255,255 });
 	}
+
 }
 
 bool ModulePhysics::IsDebugActive()
@@ -196,6 +204,8 @@ bool ModulePhysics::IsDebugActive()
 void ModulePhysics::PauseSimulation()
 {
 	simulationOn = false;
+
+
 }
 
 void ModulePhysics::StartSimulation()
@@ -205,7 +215,7 @@ void ModulePhysics::StartSimulation()
 
 bool ModulePhysics::IsSimulationPaused()
 {
-	return simulationOn;
+	return !simulationOn;
 }
 
 const PhysicFactory& ModulePhysics::factory()
@@ -233,8 +243,8 @@ Vector2 PhysBody::GetPhysicPosition() const
 {
 	if (body) {
 		b2Vec2 pos = body->GetPosition();
-		int x = METERS_TO_PIXELS(pos.x);
-		int y = METERS_TO_PIXELS(pos.y);
+		float x = METERS_TO_PIXELS_RAW(pos.x);
+		float y = METERS_TO_PIXELS_RAW(pos.y);
 		return { (float)x,(float)y };
 	}
 	return { 0,0 };
@@ -354,6 +364,7 @@ void PhysBody::SetAngularDamping(float angularDamping)
 	}
 }
 
+
 Vector2 PhysBody::GetLinearVelocity() const {
 	if (body) {
 		b2Vec2 vel = body->GetLinearVelocity();
@@ -452,6 +463,13 @@ void PhysBody::SetBullet(bool status)
 	}
 }
 
+void PhysBody::SetFixedRotation(bool flag)
+{
+	if (body) {
+		body->SetFixedRotation(flag);
+	}
+}
+
 void PhysBody::SetFriction(size_t fixtureIndex, float friction) {
 	if (b2Fixture* fixture = GetFixtureByIndex(fixtureIndex)) {
 		fixture->SetFriction(friction);
@@ -490,6 +508,7 @@ b2Filter PhysBody::GetFilter(size_t fixtureIndex) const {
 	}
 	return {};
 }
+
 
 float PhysBody::GetFriction(size_t fixtureIndex) const {
 	if (b2Fixture* fixture = GetFixtureByIndex(fixtureIndex)) {

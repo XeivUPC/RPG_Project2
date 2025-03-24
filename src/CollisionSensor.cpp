@@ -1,4 +1,5 @@
 #include "CollisionSensor.h"
+#include "Vector2.h"
 
 CollisionSensor::CollisionSensor()
 {
@@ -104,6 +105,33 @@ void CollisionSensor::EndContact(b2Contact* contact)
 const std::vector<PhysBody*>& CollisionSensor::GetBodiesColliding()
 {
     return bodiesColliding;
+}
+
+PhysBody* CollisionSensor::GetClosestBodyColliding()
+{
+    if (!physBodyToTrack || bodiesColliding.empty())
+        return nullptr;
+
+    PhysBody* closestBody = nullptr;
+    float closestDistanceSq = FLT_MAX;
+    Vector2 trackedPos = physBodyToTrack->GetPosition();
+
+    for (PhysBody* body : bodiesColliding)
+    {
+        if (!body) continue;
+
+        Vector2 bodyPos = body->GetPosition();
+        Vector2 delta = trackedPos - bodyPos;
+        float distanceSq = delta.x * delta.x + delta.y * delta.y;
+
+        if (distanceSq < closestDistanceSq)
+        {
+            closestDistanceSq = distanceSq;
+            closestBody = body;
+        }
+    }
+
+    return closestBody;
 }
 
 PhysBody* CollisionSensor::GetDifferentBody(PhysBody* body1, PhysBody* body2, PhysBody* bodyToBeDifferentFrom)

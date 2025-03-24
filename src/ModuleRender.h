@@ -4,11 +4,31 @@
 #include "Vector2Int.h" 
 #include "Camera.h" 
 #include <vector>
+#include <unordered_map>
 
 class IRendereable;
+class ITransformable;
 class DrawingTools;
 
+///// Layers
+/*
+	0  - DEFAULT
 
+	1  - Bottom
+
+	2  - World2
+	3  - World3
+	4  - World4
+	5  - World5
+
+	6  - Canvas1
+	7  - Canvas2
+	8  - Canvas3
+	9  - Canvas4
+
+	10 - Top
+*/
+////
 
 
 class ModuleRender : public Module {
@@ -20,10 +40,16 @@ class ModuleRender : public Module {
 		ModuleRender(bool start_active = true);
 		~ModuleRender();
 
+		void SetVSync(bool _vSync);
+		bool IsVSync();
+
 		const DrawingTools& painter();
 
 		void AddToRenderQueue(IRendereable& rendereableObj);
+		void AddToRenderQueue(IRendereable& rendereableObj, ITransformable& transformableObj);
 		void RemoveFomRenderQueue(IRendereable& rendereableObj);
+		void SortRenderQueueLayerByPosition(int targetLayer);
+		void SetRenderQueueDirty();
 
 		bool IsCameraModeActive() const;
 		void SetCameraMode(bool isActive);
@@ -31,6 +57,7 @@ class ModuleRender : public Module {
 		const Camera& GetCamera() const;
 		void MoveCamera(const Vector2& moveAmount);
 		void SetCameraPosition(const Vector2Int& position);
+		void SetCameraPosition(const Vector2& position);
 		void SetCameraOffset(const Vector2& offset);
 		void SetCameraZoom(float zoom);
 
@@ -46,14 +73,15 @@ class ModuleRender : public Module {
 		bool Init() override;
 		// Inherited via IInitializable
 		bool Start() override;
+		// Inherited via ICleanable
+		bool CleanUp() override;
 		// Inherited via IUpdateable
 		bool PreUpdate() override;
 		// Inherited via IUpdateable
 		bool Update() override;
 		// Inherited via IUpdateable
 		bool PostUpdate() override;
-		// Inherited via ICleanable
-		bool CleanUp() override;
+
 		void SortRenderTasks();
 		void RenderAll();
 
@@ -61,10 +89,13 @@ class ModuleRender : public Module {
 		SDL_Color background = {0,0,0,255};
 		Camera camera;
 
+		bool vSync = false;
+
 		vector<IRendereable*> renderQueue;
+		unordered_map<IRendereable*, ITransformable*> transformMap;
 		bool renderQueueDirty = false;
 
-		bool cameraMode = false;
+		bool cameraMode = true;
 
 		DrawingTools* drawingTools = nullptr;
 	

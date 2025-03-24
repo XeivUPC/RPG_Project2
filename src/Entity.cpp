@@ -76,3 +76,13 @@ float Entity::GetScale()
 {
     return scale;
 }
+
+void Entity::SetAnchor(Vector2 newAnchor)
+{
+    anchor = newAnchor;
+}
+
+Vector2 Entity::GetAnchor()
+{
+    return anchor;
+}

@@ -3,12 +3,13 @@
 #include "IRendereable.h"
 
 #include "ChronoTimer.h"
+#include "SystemEvent.h"
 
 
 class UICanvas;
 class FadeCG;
 
-class IntroScene : public ModuleScene, public IRendereable {
+class IntroScene : public ModuleScene {
 	friend class Engine;
 public:
 	IntroScene(bool start_active = true);
@@ -27,8 +28,6 @@ private:
 	bool Update() override;
 	// Inherited via IUpdateable
 	bool PostUpdate() override;
-	// Inherited via IRendereable
-	void Render() override;
 	// Inherited via ICleanable
 	bool CleanUp() override;
 
@@ -49,4 +48,9 @@ private:
 	
 
 	float timeToLoad = 7;
+
+	SystemEvent<int> event1;
+	SystemEvent<string> event2;
+	SystemEvent<> event3;
+	SystemEvent<int, string> event4;
 };

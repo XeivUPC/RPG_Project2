@@ -34,7 +34,7 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 	AddElementToCanvas(characterNameTextBox);
 
 	UIButton* btn = new UIButton(*tex, { 0,279 }, { LOGIC_SCREEN_WIDTH,80 }, { 0,0,0,0 }, { 0,0 });
-	btn->onMouseClick.emplace_back([this]() {NextDialogue(); });
+	btn->onMouseClick.Subscribe([this]() {NextDialogue(); });
 	btn->SetLocalScale(1);
 	AddElementToCanvas(btn);
 
@@ -49,9 +49,9 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 
 	dialogue = new DialogueSystem();
 
-	dialogue->onSignalCall.emplace_back([this](Signal* signal) {SignalReader(signal); });
-	dialogue->onDialogNodeChange.emplace_back([this]() {ChangeDialogueNode(); });
-	dialogue->onDialogEnd.emplace_back([this]() {EndDialogue(); });
+	dialogue->onSignalCall.Subscribe([this](Signal* signal) {SignalReader(signal); });
+	dialogue->onDialogNodeChange.Subscribe([this]() {ChangeDialogueNode(); });
+	dialogue->onDialogEnd.Subscribe([this]() {EndDialogue(); });
 
 	dialogue->AddGameStateVariable("friendship", amistad);
 	dialogue->AddGameStateVariable("RodrigoState", (float)rodrigoState);
@@ -60,7 +60,6 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 	dialogue->LoadDialogueFromJSON("Assets/Dialogues/test2.json");
 	amistad = 10;
 	dialogue->StartDialogue();
-
 
 }
 
@@ -143,13 +142,19 @@ void UIDialogueBoxCG::UpdateCanvas()
 	UICanvas::UpdateCanvas();
 }
 
+void UIDialogueBoxCG::SetDialogue(string path)
+{
+	dialogue->LoadDialogueFromJSON(path);
+	dialogue->StartDialogue();
+}
+
 void UIDialogueBoxCG::CreateChoiceButton(string text, int index, float verticalSpacing)
 {
 	_TTF_Font* font = Engine::Instance().m_assetsDB->GetFont("alagard");
 
 	UIButton* btn = new UIButton({ 388 ,(int)(123 + verticalSpacing + (22 + verticalSpacing) * index) }, { 235,22 }, { 0,0,0,0 }, { 0,0 }, {148,112,75,255});
 
-	btn->onMouseClick.emplace_back([this, index]() {dialogue->ProcessInput(index); });
+	btn->onMouseClick.Subscribe([this, index]() {dialogue->ProcessInput(index); });
 
 	UITextBox* textBox = new UITextBox(text, *font, 16, { 184,132,78,255 }, { 0,2 }, { 235,22 }, { 0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle, true);
 	textBox->SetParent(btn);
@@ -218,10 +223,8 @@ void UIDialogueBoxCG::ChangeDialogueNode()
 			TextureAtlas* atlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
 
 			SDL_Texture* tex = atlas->texture;
-			Vector2Int spritePos = atlas->sprites[node.character.portraits[i].name].position;
-			Vector2Int spriteSize = atlas->sprites[node.character.portraits[i].name].size;
 
-			characterPortraitImage->SetSprite(*tex, true, { spritePos.x, spritePos.y,spriteSize.x,spriteSize.y});
+			characterPortraitImage->SetSprite(*tex, true, atlas->sprites[node.character.portraits[i].name].rect);
 			characterPortraitImage->SetColor({ 255, 255, 255, 255 });
 			break;
 		}

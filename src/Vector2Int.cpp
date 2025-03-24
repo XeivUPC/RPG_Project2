@@ -1,4 +1,5 @@
 #include "Vector2Int.h"
+#include "Vector2.h"
 
 
 Vector2Int::Vector2Int() : x(0), y(0) {}
@@ -32,6 +33,11 @@ void Vector2Int::normalize() {
     }
     x = (int)(x / mag);
     y = (int)(y / mag);
+}
+
+Vector2Int Vector2Int::Lerp(const Vector2Int& a, const Vector2Int& b, float t)
+{
+    return a + (b - a) * t;
 }
 
 bool Vector2Int::operator==(const Vector2Int& other) const {
@@ -80,4 +86,10 @@ Vector2Int Vector2Int::operator/(float scalar) const {
 void Vector2Int::operator=(const Vector2Int& other) {
     x = other.x;
     y = other.y;
+}
+
+
+Vector2Int::operator Vector2() const
+{
+    return { (float)x, (float)y };
 }

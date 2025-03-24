@@ -3,10 +3,10 @@
 
 class DialogueGameState : public GameState {
 public:
+	DialogueGameState();
 	bool PreUpdateState() override;
 	bool UpdateState() override;
 	bool PostUpdateState() override;
-	void RenderState() override;
 	void StateSelected() override;
 	void StateDeselected() override;
 };

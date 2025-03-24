@@ -4,7 +4,7 @@
 #include "SDL2/SDL.h"
 
 struct Camera {
-	Vector2 target{ 0,0 };
+	Vector2 position{ 0,0 };
 	Vector2Int viewport{ 0,0 };
 	Vector2 offset = { 0,0 };
 	float zoom = 1;
@@ -12,6 +12,6 @@ struct Camera {
 	SDL_Rect rect = {0,0,0,0};
 
 	SDL_Rect GetRect() const {
-		return { (int)target.x, (int)target.y, (int)(viewport.x * (1 / zoom)), (int)(viewport.y * (1 / zoom)) };
+		return { (int)(position.x + offset.x/zoom), (int)(position.y + offset.y/zoom), (int)(viewport.x * (1 / zoom)), (int)(viewport.y * (1 / zoom)) };
 	}
 };

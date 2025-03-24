@@ -40,7 +40,7 @@ TextureAtlas* AtlasFactory::CreateAtlas(SDL_Texture& texture, const string& xmlI
 			size.x = spriteNode.attribute("sourceWidth").as_int();
 			size.y = spriteNode.attribute("sourceHeight").as_int();
 
-			TextureAtlas::AtlasSprite spriteData = TextureAtlas::AtlasSprite{ move(origin), move(position), move(size) };
+			TextureAtlas::AtlasSprite spriteData = TextureAtlas::AtlasSprite{ move(origin), {position.x, position.y, size.x, size.y}};
 			atlas->sprites.emplace(move(id), move(spriteData));
 		}
 	}

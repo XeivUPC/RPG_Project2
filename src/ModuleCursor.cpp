@@ -40,7 +40,9 @@ void ModuleCursor::Render()
 		return;
 	Vector2Int mousePos = Engine::Instance().m_input->GetMousePosition();
 
+	Engine::Instance().m_render->SetCameraMode(false);
 	Engine::Instance().m_render->painter().RenderTexture(*activeCursor.texture, mousePos + activeCursor.hitPoint* activeCursor.scale, &activeCursor.rect, {activeCursor.scale, activeCursor.scale}, 0);
+	Engine::Instance().m_render->SetCameraMode(true);
 }
 
 void ModuleCursor::HideNormalCursor()
@@ -107,7 +109,11 @@ void ModuleCursor::SetCursor(const CursorData& data)
 	activeCursor.scale = data.scale;
 
 	if (activeCursor.texture != nullptr) {
+		if (hiddenAll)
+			return;
 		HideNormalCursor();
+		if (hiddenCustom)
+			return;
 		ShowCustomCursor();
 	}
 	else {

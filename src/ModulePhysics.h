@@ -10,8 +10,9 @@
 #define PIXELS_PER_METER 16.0f
 #define METER_PER_PIXEL 1/PIXELS_PER_METER // this is 1 / PIXELS_PER_METER !
 
-#define METERS_TO_PIXELS(m) ((int) floor(PIXELS_PER_METER * m))
-#define PIXEL_TO_METERS(p)  ((float) METER_PER_PIXEL * p)
+#define METERS_TO_PIXELS(m) ((int) floor(PIXELS_PER_METER * (m)))
+#define METERS_TO_PIXELS_RAW(m) (floor(PIXELS_PER_METER * (m)))
+#define PIXEL_TO_METERS(p)  ((float) METER_PER_PIXEL * (p))
 
 
 class PhysJoint
@@ -116,6 +117,7 @@ class PhysBody
 		void SetMass(float mass, const Vector2& center, float inertia);
 		void SetType(BodyType type);
 		void SetBullet(bool status);
+		void SetFixedRotation(bool flag);
 		void SetFriction(size_t fixtureIndex, float friction);
 		void SetDensity(size_t fixtureIndex, float density);
 		void SetRestitution(size_t fixtureIndex, float restitution);
@@ -136,9 +138,13 @@ class PhysBody
 		void DestroyBody();
 	
 	public:
-		b2Body* body = nullptr;
 		int width, height = 0;
+		uintptr_t data;
 
+		/// <summary>
+		/// DO NOT MODIFY!!
+		/// </summary>
+		b2Body* body = nullptr;
 	private:
 		b2Fixture* GetFixtureByIndex(size_t fixtureIndex) const;
 
@@ -154,17 +160,20 @@ class ModulePhysics : public Module, public IRendereable
 {
 	friend class Engine;
 
-	union Layer {
-		Uint16 rawValue = 0;
-		struct internalFlags {
-			char default_layer : 1;
-			char ground_layer : 1;
-			char player_layer : 1;
-			char interactable_layer : 1;
-		}flags;
-	};
+	
 
 	public:
+
+		union Layer {
+			Uint16 rawValue = 0;
+			struct internalFlags {
+				char default_layer : 1;
+				char ground_layer : 1;
+				char player_layer : 1;
+				char interactable_layer : 1;
+			}flags;
+		};
+
 		ModulePhysics(bool start_active = true);
 		~ModulePhysics();
 

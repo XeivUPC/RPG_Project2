@@ -7,4 +7,6 @@ public:
 	virtual ~IUpdateable() {}
 
 	bool isPaused = false;
+
+	int priority_updating = 0;
 };

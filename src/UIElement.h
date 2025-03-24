@@ -1,6 +1,7 @@
 #pragma once
 #include "Vector2.h"
 #include "ModuleRender.h"
+#include "SystemEvent.h"
 #include <functional>
 #include <string>
 #include <vector>
@@ -37,9 +38,9 @@ public:
 
 	/// How To Use
 	/// button->onMouseEvent.emplace_back([scope](parameters) {FunctionContent});
-	vector<function<void()>> onMouseOver;
-	vector<function<void()>> onMouseEnter;
-	vector<function<void()>> onMouseExit;
+	SystemEvent<> onMouseOver;
+	SystemEvent<> onMouseEnter;
+	SystemEvent<> onMouseExit;
 
 	Vector2 pivot = {0,0};
 	Vector2Int size = {100,50};
@@ -53,7 +54,6 @@ private:
 
 protected:
 	bool IsInBounds(Vector2Int point);
-	void TriggerCallbacks(vector<function<void()>>& callbacks);
 
 protected:
 	float scale = 1;
