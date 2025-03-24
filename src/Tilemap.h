@@ -3,6 +3,7 @@
 #include "IRendereable.h"
 #include "ITransformable.h"
 #include "AnimationClip.h"
+#include "SystemEvent.h"
 
 #include <pugixml.hpp>
 #include <variant>
@@ -53,7 +54,7 @@ struct TileData {
     int id;
     std::unordered_map<std::string, Property> properties;
     std::vector<TileAnimationFrame> animation;
-    std::unordered_map<std::string,TileObject> objects;
+    std::unordered_map<std::string,vector<TileObject>> objects;
     std::string textureId;
 };
 
@@ -148,6 +149,14 @@ public:
     // Inherited via ITransformable
     Vector2 GetAnchor() override;
 
+
+    Vector2 GetTilemapSize();
+    Vector2 GetSpawnPoint();
+    void SetSpawnPoint(Vector2 _spawnPoint);
+
+public:
+    SystemEvent<> onTilemapLoad;
+
 private:
     void ParseTileset(const pugi::xml_node& tsNode, const fs::path& baseDir);
     void ParseLayer(const pugi::xml_node& layerNode, const fs::path& baseDir);
@@ -167,4 +176,6 @@ private:
     Tileset* lastTilesetUsed;
 
     unordered_map<int, AnimationClip> animations;
+
+    Vector2 spawnPoint = { 0,0 };
 };
