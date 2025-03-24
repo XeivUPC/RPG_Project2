@@ -44,5 +44,5 @@ class Module : public IInitializable, public IUpdateable, public IActivable, pub
 	protected:
 
 	protected:
-		unsigned int priority_deleting = 0;
+		int priority_deleting = 0;
 };

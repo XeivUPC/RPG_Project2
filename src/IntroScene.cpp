@@ -2,6 +2,7 @@
 #include "TitleScene.h"
 #include "Engine.h"
 #include "ModuleRender.h"
+#include "ModuleUpdater.h"
 #include "ModuleCursor.h"
 #include "ModuleAssetDatabase.h"
 
@@ -9,6 +10,7 @@
 
 IntroScene::IntroScene(bool start_active) : ModuleScene(start_active)
 {
+
 }
 
 IntroScene::~IntroScene()
@@ -27,14 +29,18 @@ bool IntroScene::Start()
 
     fade_bg = new FadeCG(33, 25, 17, 0);
     fade_bg->FadeTo(bgFadeIn,255);
+    fade_bg->renderLayer = 6;
 
     //fade_logo = new FadeCG(255, 255, 255, 0, Engine::Instance().m_assetsDB->GetTexture("game_title"), { LOGIC_SCREEN_WIDTH / 2, LOGIC_SCREEN_HEIGHT / 2 }, { 38,36 }, { 0.5f,0.5f }, 0.3f);
     fade_logo = new FadeCG(255, 255, 255,0, Engine::Instance().m_assetsDB->GetTexture("game_title_pixel"), { LOGIC_SCREEN_WIDTH / 2, LOGIC_SCREEN_HEIGHT / 2 }, { 38,36 }, {0.5f,0.5f},1.5);
     //fade_logo = new FadeCG(255, 255, 255,0, Engine::Instance().m_assetsDB->GetTexture("team_logo"), { LOGIC_SCREEN_WIDTH / 2, LOGIC_SCREEN_HEIGHT / 2 }, { 38,36 }, {0.5f,0.5f},5);
+    fade_logo->renderLayer = 7;
 
     Engine::Instance().m_cursor->HideAllCursors();
 
-    Engine::Instance().m_render->AddToRenderQueue(*this);
+    Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+    Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+    Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
     return true;
 }
 
@@ -74,17 +80,14 @@ bool IntroScene::PostUpdate()
     return true;
 }
 
-void IntroScene::Render()
-{
-    fade_bg->RenderCanvas();
-    fade_logo->RenderCanvas();
-}
-
 bool IntroScene::CleanUp()
 {
     delete canvas;
     delete fade_bg;
     delete fade_logo;
-    Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+
+    Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
+    Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+    Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
     return true;
 }

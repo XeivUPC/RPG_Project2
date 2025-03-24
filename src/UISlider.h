@@ -34,7 +34,7 @@ public:
 
 
 public:
-	vector<function<void(float)>> onValueChange;
+	SystemEvent<float> onValueChange;
 private:
 	bool FixThumbBounds(Vector2Int thumPosition);
 	void FixValueLimits();
@@ -54,5 +54,4 @@ private:
 	SliderMode mode = SliderMode::LeftToRight;
 
 protected:
-	void TriggerCallbacks(vector<function<void(float)>>& callbacks, float _value);
 };

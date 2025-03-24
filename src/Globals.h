@@ -17,6 +17,8 @@ typedef unsigned __int64 uint64;
 typedef unsigned char uchar;
 
 // Configuration -----------
+#define FIXED_DELTA_TIME 0.02
+
 #define SCREEN_WIDTH		 1280
 #define SCREEN_HEIGHT		 720
 

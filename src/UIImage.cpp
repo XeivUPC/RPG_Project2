@@ -50,7 +50,7 @@ void UIImage::RenderElement()
 void UIImage::RenderElementDebug()
 {
 	if (sprite != nullptr)
-		Engine::Instance().m_render->painter().RenderBox(position, {rect.w,rect.h}, { scale,scale }, pivot, false, { 0,0,255,255 });
+		Engine::Instance().m_render->painter().RenderBox(position, {(float)rect.w,(float)rect.h}, { scale,scale }, pivot, false, { 0,0,255,255 });
 
 	Engine::Instance().m_render->painter().RenderBox(position, size, { scale,scale }, pivot, false, { 255,255,0,255 });
 

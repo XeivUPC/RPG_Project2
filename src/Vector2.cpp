@@ -1,4 +1,5 @@
 #include "Vector2.h"
+#include "Vector2Int.h"
 #include <iostream>
 #include <cmath>
 
@@ -33,6 +34,11 @@ void Vector2::normalize() {
     }
     x /= mag;
     y /= mag;
+}
+
+Vector2 Vector2::Lerp(const Vector2& a, const Vector2& b, float t)
+{
+    return a + (b - a) * t;
 }
 
 bool Vector2::operator==(const Vector2& other) const {
@@ -81,4 +87,9 @@ Vector2 Vector2::operator/(float scalar) const {
 void Vector2::operator=(const Vector2& other) {
     x = other.x;
     y = other.y;
+}
+
+Vector2::operator Vector2Int() const
+{
+    return { (int)x, (int)y };
 }

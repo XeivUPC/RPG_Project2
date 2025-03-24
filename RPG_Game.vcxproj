@@ -133,12 +133,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\AnimationClip.cpp" />
+    <ClCompile Include="src\Animator.cpp" />
     <ClCompile Include="src\AtlasFactory.cpp" />
     <ClCompile Include="src\AudioContainer.cpp" />
     <ClCompile Include="src\AudioFactory.cpp" />
+    <ClCompile Include="src\Building.cpp" />
+    <ClCompile Include="src\CameraController.cpp" />
+    <ClCompile Include="src\Character.cpp" />
     <ClCompile Include="src\DialogueGameState.cpp" />
     <ClCompile Include="src\DialogueSystem.cpp" />
     <ClCompile Include="src\DrawingTools.cpp" />
+    <ClCompile Include="src\ExploringGameState.cpp" />
     <ClCompile Include="src\FadeCG.cpp" />
     <ClCompile Include="src\FontFactory.cpp" />
     <ClCompile Include="src\GameScene.cpp" />
@@ -151,6 +157,9 @@
     <ClCompile Include="src\ModuleLocalization.cpp" />
     <ClCompile Include="src\ModuleScene.cpp" />
     <ClCompile Include="src\MusicContainer.cpp" />
+    <ClCompile Include="src\NpcCharacter.cpp" />
+    <ClCompile Include="src\PauseGameState.cpp" />
+    <ClCompile Include="src\PauseMenuCG.cpp" />
     <ClCompile Include="src\PhysicFactory.cpp" />
     <ClCompile Include="src\CollisionsDispatcher.cpp" />
     <ClCompile Include="src\CollisionSensor.cpp" />
@@ -166,13 +175,15 @@
     <ClCompile Include="src\ModuleUpdater.cpp" />
     <ClCompile Include="src\ChronoTimer.cpp" />
     <ClCompile Include="src\ModuleWindow.cpp" />
+    <ClCompile Include="src\PlayerCharacter.cpp" />
     <ClCompile Include="src\SettingsCG.cpp" />
+    <ClCompile Include="src\SimpleMapObject.cpp" />
+    <ClCompile Include="src\Sprite.cpp" />
     <ClCompile Include="src\StepTimer.cpp" />
     <ClCompile Include="src\TitleMenuCG.cpp" />
     <ClCompile Include="src\TitleScene.cpp" />
     <ClCompile Include="src\UIDialogueBoxCG.cpp" />
     <ClCompile Include="src\UIInputField.cpp" />
-    <ClCompile Include="src\UITestingCG.cpp" />
     <ClCompile Include="src\TextureFactory.cpp" />
     <ClCompile Include="src\Tilemap.cpp" />
     <ClCompile Include="src\UIButton.cpp" />
@@ -187,18 +198,25 @@
     <ClCompile Include="src\Vector2Int.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\AnimationClip.h" />
+    <ClInclude Include="src\Animator.h" />
     <ClInclude Include="src\AtlasFactory.h" />
     <ClInclude Include="src\AudioContainer.h" />
     <ClInclude Include="src\AudioFactory.h" />
+    <ClInclude Include="src\Building.h" />
     <ClInclude Include="src\Camera.h" />
+    <ClInclude Include="src\CameraController.h" />
+    <ClInclude Include="src\Character.h" />
     <ClInclude Include="src\DialogueGameState.h" />
     <ClInclude Include="src\DialogueSystem.h" />
     <ClInclude Include="src\DrawingTools.h" />
+    <ClInclude Include="src\ExploringGameState.h" />
     <ClInclude Include="src\FadeCG.h" />
     <ClInclude Include="src\FontFactory.h" />
     <ClInclude Include="src\GameScene.h" />
     <ClInclude Include="src\GameState.h" />
     <ClInclude Include="src\HealthPotion.h" />
+    <ClInclude Include="src\IInteractuable.h" />
     <ClInclude Include="src\IntroScene.h" />
     <ClInclude Include="src\Inventory.h" />
     <ClInclude Include="src\InventoryItem.h" />
@@ -209,6 +227,9 @@
     <ClInclude Include="src\ModuleLocalization.h" />
     <ClInclude Include="src\ModuleScene.h" />
     <ClInclude Include="src\MusicContainer.h" />
+    <ClInclude Include="src\NpcCharacter.h" />
+    <ClInclude Include="src\PauseGameState.h" />
+    <ClInclude Include="src\PauseMenuCG.h" />
     <ClInclude Include="src\PhysicFactory.h" />
     <ClInclude Include="src\CollisionsDispatcher.h" />
     <ClInclude Include="src\CollisionSensor.h" />
@@ -230,16 +251,19 @@
     <ClInclude Include="src\ModuleTime.h" />
     <ClInclude Include="src\ModuleUpdater.h" />
     <ClInclude Include="src\ModuleWindow.h" />
+    <ClInclude Include="src\PlayerCharacter.h" />
     <ClInclude Include="src\Pooling.h" />
     <ClInclude Include="src\ChronoTimer.h" />
     <ClInclude Include="src\SettingsCG.h" />
+    <ClInclude Include="src\SimpleMapObject.h" />
+    <ClInclude Include="src\Sprite.h" />
     <ClInclude Include="src\StepTimer.h" />
     <ClInclude Include="src\Sword.h" />
+    <ClInclude Include="src\SystemEvent.h" />
     <ClInclude Include="src\TextureAtlas.h" />
     <ClInclude Include="src\TitleMenuCG.h" />
     <ClInclude Include="src\TitleScene.h" />
     <ClInclude Include="src\UIDialogueBoxCG.h" />
-    <ClInclude Include="src\UITestingCG.h" />
     <ClInclude Include="src\TextureFactory.h" />
     <ClInclude Include="src\Tilemap.h" />
     <ClInclude Include="src\UIButton.h" />

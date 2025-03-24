@@ -17,7 +17,7 @@ public:
 	void SetValue(bool _isOn);
 
 public:
-	vector<function<void(bool)>> onValueChange;
+	SystemEvent<bool> onValueChange;
 private:
 
 private:
@@ -25,5 +25,5 @@ private:
 	bool isOn = false;
 
 protected:
-	void TriggerCallbacks(vector<function<void(bool)>>& callbacks, bool _value);
+
 };

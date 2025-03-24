@@ -48,7 +48,7 @@ void UIButton::UpdateElement()
 	
 	if (isMouseOver) {
 		if (mouseClickState == KEY_DOWN) {
-			TriggerCallbacks(onMouseDown);
+			onMouseDown.Trigger();
 			SetState(ButtonStates::PRESSED);
 			isMouseHolding = true;
 		}
@@ -57,9 +57,9 @@ void UIButton::UpdateElement()
 			SetState(ButtonStates::PRESSED);
 		}
 		else if (mouseClickState == KEY_UP) {
-			TriggerCallbacks(onMouseUp);
+			onMouseUp.Trigger();
 			if (isMouseHolding) {
-				TriggerCallbacks(onMouseClick);
+				onMouseClick.Trigger();
 			}
 			isMouseHolding = false;
 		}
@@ -69,7 +69,7 @@ void UIButton::UpdateElement()
 	}
 	else{
 		if ((mouseClickState == KEY_UP || !interactable) && isMouseHolding) {
-			TriggerCallbacks(onMouseUp);
+			onMouseUp.Trigger();
 			isMouseHolding = false;
 		}
 		SetState(ButtonStates::DEFAULT);

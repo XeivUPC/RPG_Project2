@@ -13,6 +13,7 @@
 
 ModuleAssetDatabase::ModuleAssetDatabase(bool start_active) : Module(start_active)
 {
+
 }
 
 ModuleAssetDatabase::~ModuleAssetDatabase()
@@ -48,6 +49,16 @@ void ModuleAssetDatabase::LoadAssets()
 	AddAudioToStorage("ambient_birds1", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds1.wav"));
 	AddAudioToStorage("ambient_birds2", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds2.wav"));
 
+	
+	AudioContainer* footstepContainer = new AudioContainer(AudioContainer::PlayMode::NonRepeatingRandom, { });
+	AddAudioContainerToStorage("footsteps_container", *footstepContainer);
+	for (size_t i = 1; i <= 12; i++)
+	{
+		Mix_Chunk* audioFile = audioFactory->CreateAudio("Assets/Sounds/SFX/Footsteps/footStep" + to_string(i) + ".wav");
+		AddAudioToStorage("footstep" + to_string(i), *audioFile);
+		footstepContainer->AddClip(audioFile);
+	}
+
 	AddAudioContainerToStorage("birds_container", *new AudioContainer(AudioContainer::PlayMode::NonRepeatingRandom, {GetAudio("ambient_birds1"),GetAudio("ambient_birds2") }));
 
 //// Fonts
@@ -62,6 +73,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("toggle_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/toggle.png"));
 	AddTextureToStorage("slider_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/slider.png"));
 	AddTextureToStorage("uiBox1", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox1.png"));
+	AddTextureToStorage("uiBox2", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox2.png"));
 	AddTextureToStorage("dialogue_box", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_box.png"));
 	AddTextureToStorage("dialogue_answerBox", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_answerBox.png"));
 	///Cursors
@@ -72,19 +84,24 @@ void ModuleAssetDatabase::LoadAssets()
 	///Icons
 	///General
 	AddTextureToStorage("team_logo", *textureFactory->CreateTexture("Assets/Textures/General/team_logo.png"));
-	AddTextureToStorage("game_title", *textureFactory->CreateTexture("Assets/Textures/General/game_title.png"));
 	AddTextureToStorage("game_title_pixel", *textureFactory->CreateTexture("Assets/Textures/General/game_title_pixel.png"));
 	AddTextureToStorage("top_fade", *textureFactory->CreateTexture("Assets/Textures/General/top_fade.png"));
 	///Characters --> Make Atlas later
 	AddTextureToStorage("character_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/Characters/CharactersAtlas.png"));
 	AddAtlasToStorage("character_atlas",*atlasFactory->CreateAtlas(*GetTexture("character_atlas"), "Assets/Textures/Atlas/Characters/CharactersAtlas.xml"));
+
+	AddTextureToStorage("pj_test", *textureFactory->CreateTexture("Assets/Textures/Characters/player_spritesheet.png"));
+	AddTextureToStorage("npc_test", *textureFactory->CreateTexture("Assets/Textures/Characters/npc_spritesheet.png"));
 	///Tilesets
 	AddTextureToStorage("floors_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Floors_Tiles.png"));
 	AddTextureToStorage("water_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Water_Tiles.png"));
 	AddTextureToStorage("cave_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Cave_Tiles.png"));
 
-	AddTextureToStorage("building_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/Buildings/BuildingsAtlas.png"));
-	AddAtlasToStorage("building_atlas", *atlasFactory->CreateAtlas(*GetTexture("building_atlas"), "Assets/Textures/Atlas/Buildings/BuildingsAtlas.xml"));
+	AddTextureToStorage("building_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/MapObjects/Buildings/BuildingsAtlas.png"));
+	AddAtlasToStorage("building_atlas", *atlasFactory->CreateAtlas(*GetTexture("building_atlas"), "Assets/Textures/Atlas/MapObjects/Buildings/BuildingsAtlas.xml"));
+
+	AddTextureToStorage("vegetation_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/MapObjects/Vegetation/VegetationAtlas.png"));
+	AddAtlasToStorage("vegetation_atlas", *atlasFactory->CreateAtlas(*GetTexture("vegetation_atlas"), "Assets/Textures/Atlas/MapObjects/Vegetation/VegetationAtlas.xml"));
 
 
 

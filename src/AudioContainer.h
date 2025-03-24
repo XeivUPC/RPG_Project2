@@ -17,6 +17,8 @@ public:
     AudioContainer(PlayMode _mode, std::vector<Mix_Chunk*> _clips);
     Mix_Chunk* GetNextClip();
 
+    void AddClip(Mix_Chunk* clip);
+
 private:
     PlayMode mode;
     std::vector<Mix_Chunk*> clips;
