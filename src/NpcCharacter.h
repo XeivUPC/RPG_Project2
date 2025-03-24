@@ -11,6 +11,8 @@ class NpcCharacter : public Character, public IPooleable, public IInteractuable 
 
 public:
 
+	enum class MovementType { PingPong, Loop, StopAtEnd };
+
 	NpcCharacter();
 	~NpcCharacter();
 
@@ -20,7 +22,7 @@ public:
 	bool CleanUp() override;
 
 	void SetNpcId(int _npcId);
-	void SetNpcPath(vector<Vector2> _path);
+	void SetNpcPath(vector<Vector2> _path, MovementType _movementType = MovementType::PingPong);
 
 	// Inherited via IInteractuable
 	void Interact() override;
@@ -40,6 +42,7 @@ private:
 	vector<Vector2> path;
 	int pathPosition = 0;
 	int pathDirection = 1;
+	MovementType movementType = MovementType::PingPong;
 
 protected:
 	// Inherited via Character

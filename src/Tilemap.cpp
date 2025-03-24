@@ -150,6 +150,7 @@ void Tilemap::CreateObjects()
                 if (object->properties.count("Path"))
                 {
                     int pathId = stoi(object->properties.at("Path").value);
+                    
                     const MapObject* pathObject = &layer->objects.at(pathId);
                     vector<Vector2> pathData = pathObject->shapes[0].points;
 
@@ -158,7 +159,11 @@ void Tilemap::CreateObjects()
                         pathData[i] += {pathObject->x, pathObject->y};
                     }
 
-                    npc->SetNpcPath(move(pathData));
+                    if (object->properties.count("PathMovementType")) {
+                        int pathMoveId = stoi(object->properties.at("PathMovementType").value);
+                        npc->SetNpcPath(move(pathData), (NpcCharacter::MovementType)pathMoveId);
+                    }else
+                        npc->SetNpcPath(move(pathData));
                     printf("");
                 }
             }

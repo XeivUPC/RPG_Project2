@@ -117,34 +117,54 @@ void NpcCharacter::SetNpcId(int _npcId)
 	npcId = _npcId;
 }
 
-void NpcCharacter::SetNpcPath(vector<Vector2> _path)
+void NpcCharacter::SetNpcPath(vector<Vector2> _path, MovementType _movementType)
 {
 	path = _path;
+	movementType = _movementType;
 }
 
 
 void NpcCharacter::SearchPath()
 {
-	if (path.size() == 0)
-		moveDirection = { 0,0 };
-	else if (path.size() == 1)
-		moveDirection = { 0,0 };
-	else if (Vector2::Approximately(position, path[pathPosition],5))
-	{
+	if (path.size() <= 1) {
+		moveDirection = { 0, 0 };
+	}
+	else if (Vector2::Approximately(position, path[pathPosition], 2)) {
 		int nextTarget = pathPosition + pathDirection;
+		bool isNextTargetValid = (nextTarget >= 0 && nextTarget < path.size());
 
-		if (nextTarget < 0 || nextTarget >= path.size())
-		{
-			pathDirection *= -1;
-			nextTarget = pathPosition + pathDirection;
+		if (!isNextTargetValid) {
+			switch (movementType) {
+			case MovementType::PingPong:
+				pathDirection *= -1;
+				nextTarget = pathPosition + pathDirection;
+				SetPosition(path[pathPosition]);
+				isNextTargetValid = true;
+				break;
 
-			SetPosition(path[pathPosition]);
+			case MovementType::Loop:
+				if (nextTarget >= path.size()) {
+					nextTarget = 0;
+				}
+				else {
+					nextTarget = (int)(path.size() - 1);
+				}
+				isNextTargetValid = true;
+				break;
+
+			case MovementType::StopAtEnd:
+				moveDirection = { 0, 0 };
+				pathPosition = (pathDirection > 0) ? (int)(path.size() - 1) : 0;
+				SetPosition(path[pathPosition]);
+				return;
+			}
 		}
 
-		pathPosition = nextTarget;
-		moveDirection = Vector2::Direction(position,path[pathPosition]);
+		if (isNextTargetValid) {
+			pathPosition = nextTarget;
+			moveDirection = Vector2::Direction(position, path[pathPosition]);
+		}
 	}
-
 }
 void NpcCharacter::Move()
 {
