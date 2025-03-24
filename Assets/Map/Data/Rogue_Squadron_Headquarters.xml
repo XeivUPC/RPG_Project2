@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="54" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="107">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="54" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="111">
  <tileset firstgid="1" source="../TiledProject/Tilesets/Floors_Tiles.tsx"/>
  <tileset firstgid="626" source="../TiledProject/Tilesets/Cave_Tiles.tsx"/>
  <tileset firstgid="915" source="../TiledProject/Tilesets/Building_Atlas.tsx"/>
@@ -423,9 +423,10 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="98" x="568.5" y="135.5">
+  <object id="98" x="448.125" y="136">
    <properties>
     <property name="NpcId" value="0"/>
+    <property name="Path" type="object" value="108"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -437,9 +438,10 @@
    </properties>
    <point/>
   </object>
-  <object id="100" x="169.212" y="436">
+  <object id="100" x="168.045" y="199.333">
    <properties>
     <property name="NpcId" value="2"/>
+    <property name="Path" type="object" value="109"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -460,6 +462,12 @@
     <property name="Type" value="spawnPoint"/>
    </properties>
    <point/>
+  </object>
+  <object id="108" x="448" y="136">
+   <polyline points="0,0 95,0"/>
+  </object>
+  <object id="109" x="177" y="204.042">
+   <polyline points="-9,-4.2921 -8.66667,220.458 247,220.458"/>
   </object>
  </objectgroup>
 </map>

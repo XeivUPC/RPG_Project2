@@ -16,6 +16,8 @@
 
 PlayerCharacter::PlayerCharacter()
 {
+	speed = 4;
+
 	characterName = "Cassian";
 	Engine::Instance().m_render->AddToRenderQueue(*this, *this);
 	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
@@ -33,6 +35,7 @@ PlayerCharacter::PlayerCharacter()
 	category.flags.player_layer = 1;
 	mask.flags.trigger_layer = 1;
 	mask.flags.ground_layer = 1;
+	mask.flags.npc_layer = 1;
 	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
 
 	category.rawValue = 0;
@@ -46,7 +49,6 @@ PlayerCharacter::PlayerCharacter()
 	body->SetFilter(fixtureIndex, category.rawValue, mask.rawValue, 0);
 
 	texture = Engine::Instance().m_assetsDB->GetTexture("pj_test");
-
 
 	int spriteSize = 64;
 	animator = new Animator
@@ -99,7 +101,34 @@ PlayerCharacter::PlayerCharacter()
 				Sprite(texture, {3 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
 				Sprite(texture, {4 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
 				Sprite(texture, {5 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
-			},& position,& scale)
+			},& position,& scale),
+				AnimationClip("run-down", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("run-horizontally", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("run-top", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale)
 			
 		}, 0
 	);
@@ -115,6 +144,15 @@ PlayerCharacter::PlayerCharacter()
 
 	animator->GetAnimationClip("walk-horizontally")->GetSprite(0).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
 	animator->GetAnimationClip("walk-horizontally")->GetSprite(3).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+
+	animator->GetAnimationClip("run-top")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+	animator->GetAnimationClip("run-top")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+
+	animator->GetAnimationClip("run-down")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+	animator->GetAnimationClip("run-down")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+
+	animator->GetAnimationClip("run-horizontally")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+	animator->GetAnimationClip("run-horizontally")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
 }
 
 PlayerCharacter::~PlayerCharacter()
@@ -136,6 +174,7 @@ bool PlayerCharacter::Update()
 	}
 
 	GetInput();
+	Animate();
 	Move();
 
 	animator->clip()->UpdateClip();
@@ -176,46 +215,48 @@ void PlayerCharacter::GetInput()
 	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
 		moveDirection.x += 1;
 
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT) {
+		speedModifier = runSpeedModifier;
+	}else{
+		speedModifier = 1;
+	}
+
+}
+
+void PlayerCharacter::Move()
+{
+	body->SetVelocity(moveDirection * speed * speedModifier);
+	position = body->GetPhysicPosition();
+}
+
+void PlayerCharacter::Animate()
+{
 	bool isMoving = (moveDirection != Vector2{ 0,0 });
 	if (isMoving)
 		lastDirection = moveDirection;
 
 	Vector2 animationDirection = lastDirection;
 
-	if(moveDirection.magnitude()!=0)
+	if (moveDirection.magnitude() != 0)
 		moveDirection.normalize();
-	
+
 	bool flip = animationDirection.x < 0;
 	animator->clip()->Flip(flip);
+
+
+	string animationId = isMoving ? (speedModifier == runSpeedModifier ? "run-" : "walk-") : "idle-";
+	string animationDirectionId = "";
+
 	if (std::abs(animationDirection.x) >= std::abs(animationDirection.y)) {
-		
-		if (isMoving) {
-			animator->Animate("walk-horizontally");
-		}
-		else {
-			animator->Animate("idle-horizontally");
-		}
+
+		animationDirectionId = "horizontally";
 	}
 	else if (animationDirection.y > 0) {
-		if (isMoving) {
-			animator->Animate("walk-down");
-		}
-		else {
-			animator->Animate("idle-down");
-		}
+		animationDirectionId = "down";
 	}
 	else {
-		if (isMoving) {
-			animator->Animate("walk-top");
-		}
-		else {
-			animator->Animate("idle-top");
-		}
+		animationDirectionId = "top";
 	}
-}
-
-void PlayerCharacter::Move()
-{
-	body->SetVelocity(moveDirection * speed);
-	position = body->GetPhysicPosition();
+	animationId += animationDirectionId;
+	animator->Animate(animationId);
 }

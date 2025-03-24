@@ -24,7 +24,8 @@ private:
 private:	
 
 protected:
-	virtual void Move() = 0;;
+	virtual void Animate() = 0;
+	virtual void Move() = 0;
 protected:
 	string characterName = "NO_NAME";
 

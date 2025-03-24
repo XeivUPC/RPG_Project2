@@ -37,7 +37,7 @@ struct TileAnimationFrame {
 struct ObjectShape {
     enum class Type { Rectangle, Ellipse, Polygon, Polyline };
     Type type;
-    std::vector<std::pair<float, float>> points;
+    std::vector<Vector2> points;
 };
 
 struct TileObject {
@@ -101,7 +101,7 @@ struct MapObject {
 
 struct ObjectGroupLayer {
     std::string name;
-    std::vector<MapObject> objects;
+    std::unordered_map<int, MapObject> objects;
     float opacity;
     bool visible;
     std::unordered_map<std::string, Property> properties;

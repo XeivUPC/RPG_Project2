@@ -52,11 +52,11 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 2,
+            "scale": 4,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 274.75,
-                "y": 182.5
+                "x": 258.5,
+                "y": 226.25
             }
         },
         "Maps/Testing_Zone.tmx": {
@@ -66,7 +66,7 @@
             "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 245.75,
+                "x": 245.5,
                 "y": 174.5
             }
         },
@@ -77,8 +77,8 @@
             "scale": 2.121514423076923,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208.10605631408984,
-                "y": 112.184012237267
+                "x": 207.87037561611243,
+                "y": 112.18401223726701
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -149,7 +149,7 @@
         "Maps/Testing_Zone2.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
-    "property.type": "string",
+    "property.type": "object",
     "recentFiles": [
         "Tilesets/Building_Atlas.tsx",
         "Maps/Rogue_Squadron_Headquarters.tmx",

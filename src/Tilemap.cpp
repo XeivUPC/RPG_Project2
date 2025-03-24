@@ -77,9 +77,9 @@ void Tilemap::CreateObjects()
     for (size_t i = 0; i < currentMap.objectLayers.size(); i++)
     {
         const ObjectGroupLayer* layer = &currentMap.objectLayers[i];
-        for (size_t j = 0; j < layer->objects.size(); j++)
+        for (const auto& pairData : layer->objects)
         {
-            const MapObject* object = &layer->objects[j];
+            const MapObject* object = &pairData.second;
             const Tileset* tileset = GetTileset(object->gid);
             int local_gid = 0; 
             if(tileset!=nullptr)
@@ -141,7 +141,26 @@ void Tilemap::CreateObjects()
                 auto npc = Pooling::Instance().AcquireObject<NpcCharacter>();
 
                 Vector2 position = { object->x ,object->y };
-                npc->SetPosition(position);   
+                npc->SetPosition(position);  
+
+                if (object->properties.count("NpcId"))
+                {
+                    npc->SetNpcId(stoi(object->properties.at("NpcId").value));
+                }
+                if (object->properties.count("Path"))
+                {
+                    int pathId = stoi(object->properties.at("Path").value);
+                    const MapObject* pathObject = &layer->objects.at(pathId);
+                    vector<Vector2> pathData = pathObject->shapes[0].points;
+
+                    for (size_t i = 0; i < pathData.size(); i++)
+                    {
+                        pathData[i] += {pathObject->x, pathObject->y};
+                    }
+
+                    npc->SetNpcPath(move(pathData));
+                    printf("");
+                }
             }
             else if (type == "spawnPoint") {
                 if (!spawnPointSaved) {
@@ -275,7 +294,7 @@ void Tilemap::ParseLayer(const xml_node& layerNode, const  path& baseDir) {
         for (xml_node objNode : layerNode.children("object")) {
             MapObject obj;
             ParseObject(objNode, obj, baseDir);
-            objLayer.objects.push_back(obj);
+            objLayer.objects[obj.id] = obj;
         }
         currentMap.objectLayers.push_back(objLayer);
     }
