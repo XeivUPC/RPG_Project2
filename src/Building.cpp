@@ -1,12 +1,16 @@
 #include "Building.h"
 #include "Pooling.h"
+#include "Tilemap.h"
 
 #include "Engine.h"
+#include "ModulePhysics.h"
+#include "PhysicFactory.h"
 #include "ModuleAssetDatabase.h"
 #include "TextureAtlas.h"
 #include "ModuleRender.h"
 #include "ModuleUpdater.h"
 #include "DrawingTools.h"
+#include "GameScene.h"
 
 Building::Building()
 {
@@ -16,4 +20,57 @@ Building::Building()
 Building::~Building()
 {
 
+}
+
+bool Building::PostUpdate()
+{
+	if (entrySensor.OnTriggerEnter()) {
+		/// Change Tilemap
+		if (targetPath != "") {
+			Engine::Instance().s_game->GetLastTilemap()->SetSpawnPoint(exitPosition);
+			Engine::Instance().s_game->AddTilemap(targetPath);
+		}
+	}
+
+
+	return true;
+}
+
+void Building::SetExitPosition(Vector2 _exitPosition)
+{
+	exitPosition = _exitPosition;
+}
+
+void Building::SetTargetTilemapPath(string _targetPath)
+{
+	targetPath = _targetPath;
+}
+
+void Building::SetEntryTrigger(Vector2 _position, Vector2 size)
+{ 
+	b2FixtureUserData sensorData;
+	sensorData.pointer = (uintptr_t)(&entrySensor);
+	/// set Sensor;
+	entryTrigger = Engine::Instance().m_physics->factory().CreateBevelBox(_position, size.x, size.y, 0.1f, sensorData);
+	entryTrigger->SetType(PhysBody::BodyType::Static);
+	entryTrigger->SetSensor(0, true);
+	entrySensor.SetFixtureToTrack(entryTrigger,0);
+
+	ModulePhysics::Layer category, mask;
+	category.flags.trigger_layer = 1;
+	mask.flags.player_layer = 1;
+	entryTrigger->SetFilter(0, category.rawValue, mask.rawValue, 0);
+}
+
+void Building::InitPoolObject()
+{
+	SimpleMapObject::InitPoolObject();
+	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
+}
+
+void Building::ResetPoolObject()
+{
+	SimpleMapObject::ResetPoolObject();
+	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
+	delete entryTrigger;
 }

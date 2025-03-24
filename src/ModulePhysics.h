@@ -171,6 +171,7 @@ class ModulePhysics : public Module, public IRendereable
 				char ground_layer : 1;
 				char player_layer : 1;
 				char interactable_layer : 1;
+				char trigger_layer : 1;
 			}flags;
 		};
 

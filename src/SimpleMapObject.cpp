@@ -38,6 +38,11 @@ void SimpleMapObject::AddCollision(Vector2 _position, Vector2 size)
 	PhysBody* body = Engine::Instance().m_physics->factory().CreateBevelBox(_position, size.x, size.y,0.1f);
 	bodies.emplace_back(body);
 	body->SetType(PhysBody::BodyType::Static);
+
+	ModulePhysics::Layer category, mask;
+	category.flags.ground_layer = 1;
+	mask.flags.player_layer = 1;
+	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
 	
 }
 

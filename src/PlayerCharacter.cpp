@@ -29,11 +29,18 @@ PlayerCharacter::PlayerCharacter()
 	body = Engine::Instance().m_physics->factory().CreateBox({0,0.2f},0.5f,0.2f);
 	body->SetFriction(0, 0);
 	body->SetFixedRotation(true);
+	ModulePhysics::Layer category, mask;
+	category.flags.player_layer = 1;
+	mask.flags.trigger_layer = 1;
+	mask.flags.ground_layer = 1;
+	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
+
+	category.rawValue = 0;
+	mask.rawValue = 0;
 
 	int fixtureIndex = Engine::Instance().m_physics->factory().AddBox(body, { 0,0 }, 0.5f, 0.5f, sensorData);
 	interactionSensor.SetFixtureToTrack(body, fixtureIndex);
 	body->SetSensor(fixtureIndex, true);
-	ModulePhysics::Layer category, mask;
 	category.flags.interactable_layer = 1;
 	mask.flags.interactable_layer = 1;
 	body->SetFilter(fixtureIndex, category.rawValue, mask.rawValue, 0);

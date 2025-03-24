@@ -41,6 +41,10 @@ public:
 
 	void ExitGame();
 
+	void AddTilemap(string path);
+	Tilemap* GetLastTilemap();
+	void RemoveLastTilemap();
+
 public:
 
 private:

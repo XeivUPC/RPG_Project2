@@ -112,6 +112,10 @@ void Tilemap::CreateObjects()
                 const TileData* tileData = &tileset->tiles.at(local_gid);
                 building->SetData(tileset->name, tileData->textureId, position, scale);
 
+
+                if (object->properties.count("TargetPath"))
+                    building->SetTargetTilemapPath(object->properties.at("TargetPath").value);
+
                 if (tileData->objects.count("collision")) {
                     for (size_t i = 0; i < tileData->objects.at("collision").size(); i++)
                     {
@@ -121,7 +125,15 @@ void Tilemap::CreateObjects()
                 }
                 if (tileData->objects.count("renderPosition")) {
                     const TileObject* tileObject = &tileData->objects.at("renderPosition")[i];
-                    building->renderOffsetSorting = { 0,(int)(tileObject->y - object->height)};
+                    building->renderOffsetSorting = { (int)(cornerPosition.x + tileObject->x) ,(int)(tileObject->y - object->height) };
+                }
+                if (tileData->objects.count("entryCollider")) {
+                    const TileObject* tileObject = &tileData->objects.at("entryCollider")[i];
+                    building->SetEntryTrigger({ PIXEL_TO_METERS(cornerPosition.x + tileObject->width / 2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height / 2 + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) });
+                }
+                if (tileData->objects.count("exitPosition")) {
+                    const TileObject* tileObject = &tileData->objects.at("exitPosition")[i];
+                    building->SetExitPosition({ cornerPosition.x + tileObject->x ,cornerPosition.y + tileObject->y });
                 }
             }
             else if (type == "npc") {
@@ -132,7 +144,10 @@ void Tilemap::CreateObjects()
                 npc->SetPosition(position);   
             }
             else if (type == "spawnPoint") {
-                spawnPoint = { object->x ,object->y };
+                if (!spawnPointSaved) {
+                    spawnPointSaved = true;
+                    spawnPoint = { object->x ,object->y };
+                }
             }
         }
     }

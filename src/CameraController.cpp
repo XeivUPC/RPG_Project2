@@ -71,8 +71,15 @@ void CameraController::Move() {
     const float maxX = bounds.x + bounds.w - cameraRect.w - camera.offset.x / camera.zoom;
     const float maxY = bounds.y + bounds.h - cameraRect.h - camera.offset.y / camera.zoom;
 
-    position.x = std::clamp(position.x, minX, maxX);
-    position.y = std::clamp(position.y, minY, maxY);
+    if (minX>maxX) {
+        position.x = maxX;
+    }else
+        position.x = std::clamp(position.x, minX, maxX);
+    if (minY > maxY) {
+        position.y = maxY;
+    }
+    else
+        position.y = std::clamp(position.y, minY, maxY);
 
     Engine::Instance().m_render->SetCameraPosition(position);
 }

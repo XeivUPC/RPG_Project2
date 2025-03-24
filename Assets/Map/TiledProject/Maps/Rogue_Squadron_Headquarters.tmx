@@ -229,8 +229,16 @@
 </data>
  </layer>
  <objectgroup id="6" name="Objects">
-  <object id="35" template="../Prefabs/Buildings/tent1.tx" x="192" y="272"/>
-  <object id="36" template="../Prefabs/Buildings/tent2.tx" x="320" y="272"/>
+  <object id="35" template="../Prefabs/Buildings/tent1.tx" x="192" y="272">
+   <properties>
+    <property name="TargetPath" value="Assets/Map/Data/Testing_Zone.xml"/>
+   </properties>
+  </object>
+  <object id="36" template="../Prefabs/Buildings/tent2.tx" x="320" y="272">
+   <properties>
+    <property name="TargetPath" value="Assets/Map/Data/Testing_Zone2.xml"/>
+   </properties>
+  </object>
   <object id="37" template="../Prefabs/Buildings/tent3.tx" x="464" y="272"/>
   <object id="38" template="../Prefabs/Buildings/tent3.tx" x="320" y="400"/>
   <object id="39" template="../Prefabs/Buildings/tent3.tx" x="320" y="544"/>

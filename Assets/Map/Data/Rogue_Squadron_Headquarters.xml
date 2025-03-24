@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="54" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="107">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="54" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="107">
  <tileset firstgid="1" source="../TiledProject/Tilesets/Floors_Tiles.tsx"/>
  <tileset firstgid="626" source="../TiledProject/Tilesets/Cave_Tiles.tsx"/>
  <tileset firstgid="915" source="../TiledProject/Tilesets/Building_Atlas.tsx"/>
@@ -228,11 +228,13 @@
  <objectgroup id="6" name="Objects">
   <object id="35" gid="915" x="192" y="272" width="96" height="107">
    <properties>
+    <property name="TargetPath" value="Assets/Map/Data/Testing_Zone.xml"/>
     <property name="Type" value="building"/>
    </properties>
   </object>
   <object id="36" gid="916" x="320" y="272" width="96" height="107">
    <properties>
+    <property name="TargetPath" value="Assets/Map/Data/Testing_Zone2.xml"/>
     <property name="Type" value="building"/>
    </properties>
   </object>

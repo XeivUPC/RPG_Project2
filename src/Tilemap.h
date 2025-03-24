@@ -177,5 +177,6 @@ private:
 
     unordered_map<int, AnimationClip> animations;
 
+    bool spawnPointSaved = false;
     Vector2 spawnPoint = { 0,0 };
 };
