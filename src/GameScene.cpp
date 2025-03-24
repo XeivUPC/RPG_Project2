@@ -96,6 +96,8 @@ bool GameScene::Start()
     player = new PlayerCharacter();
     cameraController->SetTarget(player);
 
+    player->SetPosition(tilemaps[0]->GetSpawnPoint());
+
     return true;
 }
 
@@ -108,10 +110,8 @@ bool GameScene::PreUpdate()
 
 bool GameScene::Update()
 {   
-    for (size_t i = 0; i < tilemaps.size(); i++)
-    {
-        tilemaps[i]->UpdateTilemap();
-    }
+    if(tilemaps.size()!=0)
+        tilemaps[tilemaps.size()-1]->UpdateTilemap();
 
     for (size_t i = 0; i < entities.size(); i++)
     {

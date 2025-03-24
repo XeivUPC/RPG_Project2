@@ -33,10 +33,12 @@ void SimpleMapObject::SetData(string _atlasId, string _textureId, Vector2Int _po
 	anchor = { 0.5f,1 };
 }
 
-void SimpleMapObject::AddCollision(Vector2 position, Vector2 size)
+void SimpleMapObject::AddCollision(Vector2 _position, Vector2 size)
 {
-	body = Engine::Instance().m_physics->factory().CreateBox(position, size.x, size.y);
+	PhysBody* body = Engine::Instance().m_physics->factory().CreateBevelBox(_position, size.x, size.y,0.1f);
+	bodies.emplace_back(body);
 	body->SetType(PhysBody::BodyType::Static);
+	
 }
 
 bool SimpleMapObject::Update()
@@ -68,5 +70,8 @@ void SimpleMapObject::ResetPoolObject()
 {
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
-	delete body;
+	for (size_t i = 0; i < bodies.size(); i++)
+	{
+		delete bodies[i];
+	}bodies.clear();
 }

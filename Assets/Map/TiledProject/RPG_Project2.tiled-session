@@ -3,14 +3,14 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
+    "activeFile": "Tilesets/Building_Atlas.tsx",
     "expandedProjectPaths": [
-        ".",
+        "Objects",
+        "Prefabs",
+        "Prefabs/Buildings",
         "Tilesets",
         "Maps",
-        "Prefabs/Buildings",
-        "Objects",
-        "Prefabs"
+        "."
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -20,10 +20,10 @@
         },
         "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx": {
             "scale": 0.125,
-            "selectedLayer": -1,
+            "selectedLayer": 0,
             "viewCenter": {
                 "x": 6952,
-                "y": 3528
+                "y": 4536
             }
         },
         "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx#MainTileSet": {
@@ -53,10 +53,10 @@
                 6
             ],
             "scale": 1.5,
-            "selectedLayer": 5,
+            "selectedLayer": -1,
             "viewCenter": {
-                "x": 616.6666666666666,
-                "y": 356
+                "x": 220.66666666666669,
+                "y": 60.666666666666686
             }
         },
         "Maps/Testing_Zone.tmx": {
@@ -82,7 +82,7 @@
         "Tilesets/Building_Atlas.tsx": {
             "dynamicWrapping": true,
             "scaleInDock": 0.75,
-            "scaleInEditor": 1
+            "scaleInEditor": 0.25
         },
         "Tilesets/Cave_Tiles.tsx": {
             "dynamicWrapping": false,
@@ -129,16 +129,16 @@
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
-        "Tilesets/Water_tiles.tsx",
+        "Tilesets/Building_Atlas.tsx",
         "Maps/Rogue_Squadron_Headquarters.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
-    "property.type": "file",
+    "property.type": "string",
     "recentFiles": [
-        "Tilesets/Water_tiles.tsx",
         "Maps/Rogue_Squadron_Headquarters.tmx",
-        "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx",
         "Tilesets/Building_Atlas.tsx",
+        "Tilesets/Water_tiles.tsx",
+        "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx",
         "Maps/Testing_Zone.tmx",
         "Tilesets/dsa.tsx",
         "Tilesets/Vegetation_Atlas.tsx",
