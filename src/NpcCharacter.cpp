@@ -103,6 +103,13 @@ void NpcCharacter::Render()
     //Engine::Instance().m_render->painter().RenderTexture(*texture, position, &rect, { 1.f,1.f }, 0, { 0.5f,0.75f });
 	animator->clip()->RenderClip();
 
+	//if (path.size() > 1) {
+	//	for (size_t i = 0; i < path.size()-1; i++)
+	//	{
+	//		Engine::Instance().m_render->painter().RenderLine(path[i], path[i + 1], {255,255,255,255});
+	//	}
+	//}
+
 }
 
 bool NpcCharacter::CleanUp()
