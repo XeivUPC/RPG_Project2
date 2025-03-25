@@ -1,4 +1,5 @@
 #include "PlayerCharacter.h"
+#include "FollowerCharacter.h"
 #include "Engine.h"
 #include "ModuleRender.h"
 #include "ModuleAudio.h"
@@ -153,6 +154,12 @@ PlayerCharacter::PlayerCharacter()
 
 	animator->GetAnimationClip("run-horizontally")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
 	animator->GetAnimationClip("run-horizontally")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+
+
+	followers.emplace_back(new FollowerCharacter(this, 20));
+	followers.emplace_back(new FollowerCharacter(this, 40));
+	followers.emplace_back(new FollowerCharacter(this, 60));
+
 }
 
 PlayerCharacter::~PlayerCharacter()
@@ -178,6 +185,8 @@ bool PlayerCharacter::Update()
 	Move();
 
 	animator->clip()->UpdateClip();
+
+	Character::Update();
 	return true;
 }
 
@@ -192,6 +201,7 @@ void PlayerCharacter::Render()
 
 bool PlayerCharacter::CleanUp()
 {
+	Character::CleanUp();
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 	delete body;

@@ -32,6 +32,9 @@ public:
 
     static bool Approximately(const Vector2& a, const Vector2& b, float epsilon = 1e-5f);
 
+    static float Distance(const Vector2& a, const Vector2& b);
+
+
     bool operator==(const Vector2& other) const;
 
     bool operator!=(const Vector2& other) const;
