@@ -146,6 +146,7 @@
     <ClCompile Include="src\DrawingTools.cpp" />
     <ClCompile Include="src\ExploringGameState.cpp" />
     <ClCompile Include="src\FadeCG.cpp" />
+    <ClCompile Include="src\FollowerCharacter.cpp" />
     <ClCompile Include="src\FontFactory.cpp" />
     <ClCompile Include="src\GameScene.cpp" />
     <ClCompile Include="src\IntroScene.cpp" />
@@ -212,6 +213,7 @@
     <ClInclude Include="src\DrawingTools.h" />
     <ClInclude Include="src\ExploringGameState.h" />
     <ClInclude Include="src\FadeCG.h" />
+    <ClInclude Include="src\FollowerCharacter.h" />
     <ClInclude Include="src\FontFactory.h" />
     <ClInclude Include="src\GameScene.h" />
     <ClInclude Include="src\GameState.h" />
