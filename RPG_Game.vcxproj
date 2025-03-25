@@ -159,8 +159,6 @@
     <ClCompile Include="src\ModuleScene.cpp" />
     <ClCompile Include="src\MusicContainer.cpp" />
     <ClCompile Include="src\NpcCharacter.cpp" />
-    <ClCompile Include="src\Path.cpp" />
-    <ClCompile Include="src\Pathfinding.cpp" />
     <ClCompile Include="src\PauseGameState.cpp" />
     <ClCompile Include="src\PauseMenuCG.cpp" />
     <ClCompile Include="src\PhysicFactory.cpp" />
@@ -232,8 +230,6 @@
     <ClInclude Include="src\ModuleScene.h" />
     <ClInclude Include="src\MusicContainer.h" />
     <ClInclude Include="src\NpcCharacter.h" />
-    <ClInclude Include="src\Path.h" />
-    <ClInclude Include="src\Pathfinding.h" />
     <ClInclude Include="src\PauseGameState.h" />
     <ClInclude Include="src\PauseMenuCG.h" />
     <ClInclude Include="src\PhysicFactory.h" />

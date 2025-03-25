@@ -324,12 +324,6 @@
     <ClCompile Include="src\Sprite.cpp">
       <Filter>Source Files\Utils\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="src\Path.cpp">
-      <Filter>Source Files\Utils\Pathfinding</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Pathfinding.cpp">
-      <Filter>Source Files\Utils\Pathfinding</Filter>
-    </ClCompile>
     <ClCompile Include="src\ModulePathfinding.cpp">
       <Filter>Source Files\Modules\Type %28Module%29</Filter>
     </ClCompile>
@@ -571,12 +565,6 @@
     </ClInclude>
     <ClInclude Include="src\SystemEvent.h">
       <Filter>Source Files\_Core\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Path.h">
-      <Filter>Source Files\Utils\Pathfinding</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Pathfinding.h">
-      <Filter>Source Files\Utils\Pathfinding</Filter>
     </ClInclude>
     <ClInclude Include="src\ModulePathfinding.h">
       <Filter>Source Files\Modules\Type %28Module%29</Filter>
