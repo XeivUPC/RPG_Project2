@@ -83,18 +83,19 @@ bool GameScene::Start()
 
     ////
 
-    tilemaps.emplace_back(new Tilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml",1));
-    tilemaps[0]->CreateObjects();
-
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
 
-    cameraController = new CameraController();
-    cameraController->SetOffset({ -LOGIC_SCREEN_WIDTH / 2, -LOGIC_SCREEN_HEIGHT / 2 });
-    cameraController->SetBounds(tilemaps[0]->GetPosition(), tilemaps[0]->GetTilemapSize());
+   
     player = new PlayerCharacter();
+    cameraController = new CameraController();
     cameraController->SetTarget(player);
+    cameraController->SetOffset({ -LOGIC_SCREEN_WIDTH / 2, -LOGIC_SCREEN_HEIGHT / 2 });
+    
+
+    AddTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
+
 
     return true;
 }
@@ -108,10 +109,8 @@ bool GameScene::PreUpdate()
 
 bool GameScene::Update()
 {   
-    for (size_t i = 0; i < tilemaps.size(); i++)
-    {
-        tilemaps[i]->UpdateTilemap();
-    }
+    if(tilemaps.size()!=0)
+        tilemaps[tilemaps.size()-1]->UpdateTilemap();
 
     for (size_t i = 0; i < entities.size(); i++)
     {
@@ -132,6 +131,9 @@ bool GameScene::Update()
 bool GameScene::PostUpdate()
 {
     game_states[state]->PostUpdateState();
+
+    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
+        RemoveLastTilemap();
     return true;
 }
 
@@ -210,5 +212,45 @@ void GameScene::ExitGame()
 {
     exitGame = true;
     fade->FadeTo(0.5f, 255);
+}
+
+void GameScene::AddTilemap(string path)
+{
+    if (tilemaps.size() != 0) {
+        tilemaps[tilemaps.size() - 1]->isVisible = false;
+        Pooling::Instance().ReturnAllToPool<Building>();
+        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
+        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+    }
+    tilemaps.emplace_back(new Tilemap(path, 1));
+
+    tilemaps[tilemaps.size() - 1]->CreateObjects();
+    player->SetPosition(tilemaps[tilemaps.size() - 1]->GetSpawnPoint());
+    cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
+}
+
+Tilemap* GameScene::GetLastTilemap()
+{
+    if (tilemaps.size() != 0)
+        return  tilemaps[tilemaps.size() - 1];
+    return nullptr;
+}
+
+void GameScene::RemoveLastTilemap()
+{
+    if (tilemaps.size() != 0) {
+        delete tilemaps[tilemaps.size() - 1];
+        tilemaps.pop_back();
+
+        if (tilemaps.size() != 0) {
+            tilemaps[tilemaps.size() - 1]->isVisible = true;
+            tilemaps[tilemaps.size() - 1]->CreateObjects();
+            player->SetPosition(tilemaps[tilemaps.size() - 1]->GetSpawnPoint());
+            cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
+        }
+    }
+
+
+    
 }
 

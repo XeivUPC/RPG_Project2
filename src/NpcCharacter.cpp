@@ -15,6 +15,8 @@
 
 NpcCharacter::NpcCharacter()
 {
+	baseSpeed = 2.5f;
+
     texture = Engine::Instance().m_assetsDB->GetTexture("npc_test");
 
     renderLayer = 3;
@@ -86,6 +88,7 @@ NpcCharacter::~NpcCharacter()
 bool NpcCharacter::Update()
 {
     SearchPath();
+	Animate();
     Move();
 
 	animator->clip()->UpdateClip();
@@ -109,19 +112,72 @@ bool NpcCharacter::CleanUp()
     return true;
 }
 
-void NpcCharacter::SetNpcData(int _npcId, Vector2 _position)
+void NpcCharacter::SetNpcId(int _npcId)
 {
-    npcId = _npcId;
-    SetPosition(position);
+	npcId = _npcId;
 }
+
+void NpcCharacter::SetNpcPath(vector<Vector2> _path, MovementType _movementType)
+{
+	path = _path;
+	movementType = _movementType;
+}
+
 
 void NpcCharacter::SearchPath()
 {
-}
+	if (path.size() <= 1) {
+		moveDirection = { 0, 0 };
+	}
+	else if (Vector2::Approximately(position, path[pathPosition], 2)) {
+		int nextTarget = pathPosition + pathDirection;
+		bool isNextTargetValid = (nextTarget >= 0 && nextTarget < path.size());
 
+		if (!isNextTargetValid) {
+			switch (movementType) {
+			case MovementType::PingPong:
+				pathDirection *= -1;
+				nextTarget = pathPosition + pathDirection;
+				SetPosition(path[pathPosition]);
+				isNextTargetValid = true;
+				break;
+
+			case MovementType::Loop:
+				if (nextTarget >= path.size()) {
+					nextTarget = 0;
+				}
+				else {
+					nextTarget = (int)(path.size() - 1);
+				}
+				isNextTargetValid = true;
+				break;
+
+			case MovementType::StopAtEnd:
+				moveDirection = { 0, 0 };
+				pathPosition = (pathDirection > 0) ? (int)(path.size() - 1) : 0;
+				SetPosition(path[pathPosition]);
+				return;
+			}
+		}
+
+		if (isNextTargetValid) {
+			pathPosition = nextTarget;
+			moveDirection = Vector2::Direction(position, path[pathPosition]);
+		}
+	}
+	else if (moveDirection == Vector2{0,0}) {
+		moveDirection = Vector2::Direction(position, path[pathPosition]);
+	}
+
+}
 void NpcCharacter::Move()
 {
-    position = body->GetPhysicPosition();
+	body->SetVelocity(moveDirection * baseSpeed * speedModifier);
+	position = body->GetPhysicPosition();
+}
+
+void NpcCharacter::Animate()
+{
 
 	bool isMoving = (moveDirection != Vector2{ 0,0 });
 	if (isMoving)
@@ -166,6 +222,8 @@ void NpcCharacter::Interact()
     printf("Ey\n");
     Engine::Instance().s_game->SetState(GameScene::State::Dialogue);
     Engine::Instance().s_game->SetDialogue("Assets/Dialogues/test2.json");
+	moveDirection = { 0,0 };
+	Animate();
 }
 
 void NpcCharacter::InitPoolObject()
@@ -178,12 +236,17 @@ void NpcCharacter::InitPoolObject()
     body->SetType(PhysBody::BodyType::Kinematic);
     body->SetFriction(0, 0);
     body->SetFixedRotation(true);
+	ModulePhysics::Layer category, mask;
+	category.flags.npc_layer = 1;
+	mask.flags.player_layer = 1;
+	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
+
+	category.rawValue = 0;
+	mask.rawValue = 0;
 
     body->data = (uintptr_t)((IInteractuable*)this);
-
     int fixtureIndex = Engine::Instance().m_physics->factory().AddCircle(body, { 0,0.1f }, 1.0f);
     body->SetSensor(fixtureIndex, true);
-    ModulePhysics::Layer category, mask;
     category.flags.interactable_layer = 1;
     mask.flags.interactable_layer = 1;
     body->SetFilter(fixtureIndex, category.rawValue, mask.rawValue, 0);

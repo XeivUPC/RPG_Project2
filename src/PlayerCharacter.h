@@ -21,9 +21,12 @@ private:
 private:
 	CollisionSensor interactionSensor;
 
+	
 protected:
 	// Inherited via Character
 	void Move() override;
+	// Inherited via Character
+	void Animate() override;
 protected:
 	
 };
