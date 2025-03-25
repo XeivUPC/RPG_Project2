@@ -37,6 +37,7 @@ void Tilemap::LoadMapFromXML(const  path& tmxPath)
 {
     //// Clean Animator;
     animations.clear();
+    spawnPoint = { 0,0 };
     currentMap = TiledMap{};
     currentMapPath = tmxPath.parent_path();
 
@@ -60,6 +61,8 @@ void Tilemap::LoadMapFromXML(const  path& tmxPath)
     for (xml_node layerNode : mapNode.children()) {
         ParseLayer(layerNode, currentMapPath);
     }
+
+    onTilemapLoad.Trigger();
 }
 
 void Tilemap::LoadMapFromXML(const  path& tmxPath, float _scale)
@@ -74,9 +77,9 @@ void Tilemap::CreateObjects()
     for (size_t i = 0; i < currentMap.objectLayers.size(); i++)
     {
         const ObjectGroupLayer* layer = &currentMap.objectLayers[i];
-        for (size_t j = 0; j < layer->objects.size(); j++)
+        for (const auto& pairData : layer->objects)
         {
-            const MapObject* object = &layer->objects[j];
+            const MapObject* object = &pairData.second;
             const Tileset* tileset = GetTileset(object->gid);
             int local_gid = 0; 
             if(tileset!=nullptr)
@@ -87,31 +90,50 @@ void Tilemap::CreateObjects()
 
             if (type == "simpleObject") {
                 Vector2 position = { object->x + object->width / 2 ,object->y };
+                Vector2 cornerPosition = { object->x ,object->y - object->height };
 
                 auto simpleObject = Pooling::Instance().AcquireObject<SimpleMapObject>();
                 const TileData* tileData = &tileset->tiles.at(local_gid);
                 simpleObject->SetData(tileset->name, tileData->textureId, position,scale);
 
                 if (tileData->objects.count("collision")) {
-                    const TileObject* tileObject = &tileData->objects.at("collision");
-                    simpleObject->AddCollision({ PIXEL_TO_METERS(position.x + tileObject->x),PIXEL_TO_METERS(position.y - tileObject->height * 1.5f + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) });
+                    for (size_t i = 0; i < tileData->objects.count("collision"); i++)
+                    {
+                        const TileObject* tileObject = &tileData->objects.at("collision")[i];
+                        simpleObject->AddCollision({ PIXEL_TO_METERS(cornerPosition.x + tileObject->width / 2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height / 2 + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) });
+                    }
                 }
             }
             else if (type == "building") {
                 Vector2 position = { object->x + object->width / 2 * scale ,object->y };
+                Vector2 cornerPosition = { object->x ,object->y - object->height };
 
                 auto building = Pooling::Instance().AcquireObject<Building>();
                 const TileData* tileData = &tileset->tiles.at(local_gid);
                 building->SetData(tileset->name, tileData->textureId, position, scale);
 
-                if (tileData->objects.count("collision")){
-                    const TileObject* tileObject = &tileData->objects.at("collision");
-                    building->AddCollision({ PIXEL_TO_METERS(position.x + tileObject->x),PIXEL_TO_METERS(position.y - tileObject->height * 1.5f + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) });
-                }
 
+                if (object->properties.count("TargetPath"))
+                    building->SetTargetTilemapPath(object->properties.at("TargetPath").value);
+
+                if (tileData->objects.count("collision")) {
+                    for (size_t i = 0; i < tileData->objects.at("collision").size(); i++)
+                    {
+                        const TileObject* tileObject = &tileData->objects.at("collision")[i];
+                        building->AddCollision({PIXEL_TO_METERS(cornerPosition.x+ tileObject->width/2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height/2 + tileObject->y)}, {PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height)});
+                    }
+                }
                 if (tileData->objects.count("renderPosition")) {
-                    const TileObject* tileObject = &tileData->objects.at("renderPosition");
-                    building->renderOffsetSorting = { 0,(int)(tileObject->y - object->height)};
+                    const TileObject* tileObject = &tileData->objects.at("renderPosition")[i];
+                    building->renderOffsetSorting = { (int)(cornerPosition.x + tileObject->x) ,(int)(tileObject->y - object->height) };
+                }
+                if (tileData->objects.count("entryCollider")) {
+                    const TileObject* tileObject = &tileData->objects.at("entryCollider")[i];
+                    building->SetEntryTrigger({ PIXEL_TO_METERS(cornerPosition.x + tileObject->width / 2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height / 2 + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) });
+                }
+                if (tileData->objects.count("exitPosition")) {
+                    const TileObject* tileObject = &tileData->objects.at("exitPosition")[i];
+                    building->SetExitPosition({ cornerPosition.x + tileObject->x ,cornerPosition.y + tileObject->y });
                 }
             }
             else if (type == "npc") {
@@ -119,13 +141,52 @@ void Tilemap::CreateObjects()
                 auto npc = Pooling::Instance().AcquireObject<NpcCharacter>();
 
                 Vector2 position = { object->x ,object->y };
-                npc->SetPosition(position);
-                
+                npc->SetPosition(position);  
+
+                if (object->properties.count("NpcId"))
+                {
+                    npc->SetNpcId(stoi(object->properties.at("NpcId").value));
+                }
+                if (object->properties.count("Path"))
+                {
+                    int pathId = stoi(object->properties.at("Path").value);
+                    
+                    const MapObject* pathObject = &layer->objects.at(pathId);
+                    vector<Vector2> pathData = pathObject->shapes[0].points;
+
+                    for (size_t i = 0; i < pathData.size(); i++)
+                    {
+                        pathData[i] += {pathObject->x, pathObject->y};
+                    }
+
+                    if (object->properties.count("PathMovementType")) {
+                        int pathMoveId = stoi(object->properties.at("PathMovementType").value);
+                        npc->SetNpcPath(move(pathData), (NpcCharacter::MovementType)pathMoveId);
+                    }else
+                        npc->SetNpcPath(move(pathData));
+                    printf("");
+                }
+            }
+            else if (type == "spawnPoint") {
+                if (!spawnPointSaved) {
+                    spawnPointSaved = true;
+                    spawnPoint = { object->x ,object->y };
+                }
             }
         }
     }
 }
 
+
+Vector2 Tilemap::GetSpawnPoint()
+{
+    return spawnPoint;
+}
+
+void Tilemap::SetSpawnPoint(Vector2 _spawnPoint)
+{
+    spawnPoint = _spawnPoint;
+}
 
 void Tilemap::ParseTileset(const xml_node& tsNode, const  path& baseDir) {
     Tileset ts;
@@ -189,7 +250,7 @@ void Tilemap::ParseTileData(xml_node& tileNode, TileData& tileData, const Tilese
         for (xml_node objNode : objectGroup.children("object")) {
             TileObject obj;
             ParseObject(objNode, obj, baseDir);
-            tileData.objects[obj.name] = obj;
+            tileData.objects[obj.name].emplace_back(obj);
         }
     }
 }
@@ -238,7 +299,7 @@ void Tilemap::ParseLayer(const xml_node& layerNode, const  path& baseDir) {
         for (xml_node objNode : layerNode.children("object")) {
             MapObject obj;
             ParseObject(objNode, obj, baseDir);
-            objLayer.objects.push_back(obj);
+            objLayer.objects[obj.id] = obj;
         }
         currentMap.objectLayers.push_back(objLayer);
     }
@@ -488,5 +549,10 @@ float Tilemap::GetScale()
 Vector2 Tilemap::GetAnchor()
 {
     return anchor;
+}
+
+Vector2 Tilemap::GetTilemapSize()
+{
+    return { currentMap.width * currentMap.tileWidth * scale, currentMap.height * currentMap.tileHeight * scale };
 }
 

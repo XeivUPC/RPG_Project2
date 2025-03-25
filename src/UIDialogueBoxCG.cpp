@@ -49,9 +49,9 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 
 	dialogue = new DialogueSystem();
 
-	dialogue->onSignalCall.emplace_back([this](Signal* signal) {SignalReader(signal); });
-	dialogue->onDialogNodeChange.emplace_back([this]() {ChangeDialogueNode(); });
-	dialogue->onDialogEnd.emplace_back([this]() {EndDialogue(); });
+	dialogue->onSignalCall.Subscribe([this](Signal* signal) {SignalReader(signal); });
+	dialogue->onDialogNodeChange.Subscribe([this]() {ChangeDialogueNode(); });
+	dialogue->onDialogEnd.Subscribe([this]() {EndDialogue(); });
 
 	dialogue->AddGameStateVariable("friendship", amistad);
 	dialogue->AddGameStateVariable("RodrigoState", (float)rodrigoState);

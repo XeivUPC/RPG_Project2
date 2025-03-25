@@ -3,6 +3,7 @@
 #include "IRendereable.h"
 #include "ITransformable.h"
 #include "AnimationClip.h"
+#include "SystemEvent.h"
 
 #include <pugixml.hpp>
 #include <variant>
@@ -36,7 +37,7 @@ struct TileAnimationFrame {
 struct ObjectShape {
     enum class Type { Rectangle, Ellipse, Polygon, Polyline };
     Type type;
-    std::vector<std::pair<float, float>> points;
+    std::vector<Vector2> points;
 };
 
 struct TileObject {
@@ -53,7 +54,7 @@ struct TileData {
     int id;
     std::unordered_map<std::string, Property> properties;
     std::vector<TileAnimationFrame> animation;
-    std::unordered_map<std::string,TileObject> objects;
+    std::unordered_map<std::string,vector<TileObject>> objects;
     std::string textureId;
 };
 
@@ -100,7 +101,7 @@ struct MapObject {
 
 struct ObjectGroupLayer {
     std::string name;
-    std::vector<MapObject> objects;
+    std::unordered_map<int, MapObject> objects;
     float opacity;
     bool visible;
     std::unordered_map<std::string, Property> properties;
@@ -148,6 +149,14 @@ public:
     // Inherited via ITransformable
     Vector2 GetAnchor() override;
 
+
+    Vector2 GetTilemapSize();
+    Vector2 GetSpawnPoint();
+    void SetSpawnPoint(Vector2 _spawnPoint);
+
+public:
+    SystemEvent<> onTilemapLoad;
+
 private:
     void ParseTileset(const pugi::xml_node& tsNode, const fs::path& baseDir);
     void ParseLayer(const pugi::xml_node& layerNode, const fs::path& baseDir);
@@ -167,4 +176,7 @@ private:
     Tileset* lastTilesetUsed;
 
     unordered_map<int, AnimationClip> animations;
+
+    bool spawnPointSaved = false;
+    Vector2 spawnPoint = { 0,0 };
 };

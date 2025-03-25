@@ -6,9 +6,6 @@ AnimationList(Animations)
 	currentAnimation = &AnimationList[current];
 	currentAnimation->Start();
 }
-Animator::Animator()
-{
-}
 Animator::~Animator()
 {}
 void Animator::AddAnimationClip(AnimationClip clip)
@@ -46,4 +43,16 @@ void Animator::CleanUp()
 		AnimationList[i].CleanUp();
 	}
 	AnimationList.clear();
+}
+
+AnimationClip* Animator::GetAnimationClip(const string& animationName)
+{
+	for (size_t i = 0; i < AnimationList.size(); i++)
+	{
+		if (AnimationList[i].Name() == animationName)
+		{
+			return &AnimationList[i];
+		}
+	}
+	return nullptr;
 }

@@ -28,6 +28,10 @@ public:
 
     static Vector2 Lerp(const Vector2& a, const Vector2& b, float t);
 
+    static Vector2 Direction(const Vector2& from, const Vector2& to);
+
+    static bool Approximately(const Vector2& a, const Vector2& b, float epsilon = 1e-5f);
+
     bool operator==(const Vector2& other) const;
 
     bool operator!=(const Vector2& other) const;
@@ -47,6 +51,15 @@ public:
     Vector2 operator*(float scalar) const;
 
     Vector2 operator/(float scalar) const;
+
+
+    Vector2& operator+=(const Vector2& other);
+
+    Vector2& operator-=(const Vector2& other);
+
+    Vector2& operator*=(float scalar);
+
+    Vector2& operator/=(float scalar);
 
     void operator=(const Vector2& other);
 

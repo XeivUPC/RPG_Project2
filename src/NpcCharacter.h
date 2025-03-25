@@ -4,9 +4,14 @@
 #include "IInteractuable.h"
 
 
+#include <vector>
+
+
 class NpcCharacter : public Character, public IPooleable, public IInteractuable {
 
 public:
+
+	enum class MovementType { PingPong, Loop, StopAtEnd };
 
 	NpcCharacter();
 	~NpcCharacter();
@@ -16,7 +21,8 @@ public:
 
 	bool CleanUp() override;
 
-	void SetNpcData(int _npcId, Vector2 _position);
+	void SetNpcId(int _npcId);
+	void SetNpcPath(vector<Vector2> _path, MovementType _movementType = MovementType::PingPong);
 
 	// Inherited via IInteractuable
 	void Interact() override;
@@ -33,9 +39,16 @@ private:
 private:
 	int npcId = 0;
 
+	vector<Vector2> path;
+	int pathPosition = 0;
+	int pathDirection = 1;
+	MovementType movementType = MovementType::PingPong;
+
 protected:
 	// Inherited via Character
 	void Move() override;
+	// Inherited via Character
+	void Animate() override;
 protected:
 
 };

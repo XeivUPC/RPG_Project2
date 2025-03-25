@@ -21,9 +21,13 @@ private:
 private:
 	CollisionSensor interactionSensor;
 
+	float speedModifier = 1;
+	float runSpeedModifier=1.5f;
 protected:
 	// Inherited via Character
 	void Move() override;
+	// Inherited via Character
+	void Animate() override;
 protected:
 	
 };

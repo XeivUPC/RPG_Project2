@@ -28,7 +28,7 @@ public:
 
 	SDL_Rect& GetAnimationSpace();
 
-
+	Sprite& GetSprite(int index);
 
 public:
 	SystemEvent<> onAnimationFinished;
@@ -38,13 +38,13 @@ private:
 	void SetScale(float* newScale);
 
 private:
-	string animationName;
+	string animationName = "";
 
-	Vector2* position;
-	float* scale;
+	Vector2* position = nullptr;
+	float* scale = nullptr;
 
 	vector<Sprite> spriteList;
-	SDL_Rect animation_space;
+	SDL_Rect animation_space = {0,0,0,0};
 
 	bool loop = true;
 	bool stop = false;

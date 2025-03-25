@@ -33,3 +33,8 @@ Mix_Chunk* AudioContainer::GetNextClip() {
     }
     return nullptr;
 }
+
+void AudioContainer::AddClip(Mix_Chunk* clip)
+{
+    clips.emplace_back(clip);
+}

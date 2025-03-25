@@ -108,6 +108,35 @@ public:
         return true;
     }
 
+    template <typename T>
+    bool ReturnAllToPool() {
+        std::lock_guard<std::mutex> lock(mutex_);
+        auto type = std::type_index(typeid(T));
+        auto it = pools_.find(type);
+
+        if (it == pools_.end()) {
+            std::cout << "Pool for type " << type.name() << " not found.\n";
+            return false;
+        }
+
+        TypePool<T>& pool = static_cast<TypePool<T>&>(*it->second);
+
+        if (!pool.checked_out.empty()) {
+            std::cout << "WARNING: Force returnig to pool with " << pool.checked_out.size()
+                << " active objects. Any existing pointers will become invalid!\n";
+
+            for (T* obj : pool.checked_out) {
+                obj->ResetPoolObject();
+                pool.available.push(obj);
+            }
+        }
+
+        pool.checked_out.clear();
+
+        std::cout << "Pool for type " << type.name() << " returned " << "\n";
+        return true;
+    }
+
     ~Pooling() {
         std::lock_guard lock(mutex_);
         for (auto& entry : pools_) {

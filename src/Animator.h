@@ -8,12 +8,13 @@ class Animator
 
 public:
 	Animator(vector<AnimationClip> Animations, int current);
-	Animator();
 	~Animator();
 	void AddAnimationClip(AnimationClip clip);
 	AnimationClip* clip();
 	void Animate(const string& animation, bool keepTime= false);
 	void CleanUp();
+
+	AnimationClip* GetAnimationClip(const string& animationName);
 
 public:
 	SystemEvent<string> onAnimationChanged;
