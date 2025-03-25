@@ -3,14 +3,14 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Testing_Zone2.tmx",
+    "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
     "expandedProjectPaths": [
-        "Tilesets",
-        "Objects",
-        "Prefabs",
-        ".",
         "Prefabs/Buildings",
-        "Maps"
+        "Prefabs",
+        "Maps",
+        ".",
+        "Objects",
+        "Tilesets"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -52,11 +52,11 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 1,
+            "scale": 1.5,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 198,
-                "y": 616
+                "x": 432.3333333333333,
+                "y": 320.3333333333333
             }
         },
         "Maps/Testing_Zone.tmx": {
@@ -66,8 +66,8 @@
             "scale": 5.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 216.54545454545456,
-                "y": 120.00000000000001
+                "x": 208.09090909090912,
+                "y": 112.0909090909091
             }
         },
         "Maps/Testing_Zone2.tmx": {
@@ -77,8 +77,8 @@
             "scale": 2.121514423076923,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 207.87037561611243,
-                "y": 112.18401223726701
+                "x": 208.10605631408984,
+                "y": 111.94833153928957
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -149,12 +149,12 @@
         "Maps/Testing_Zone2.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
-    "property.type": "int",
+    "property.type": "object",
     "recentFiles": [
         "Tilesets/Building_Atlas.tsx",
-        "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Maps/Testing_Zone.tmx",
         "Maps/Testing_Zone2.tmx",
+        "Maps/Testing_Zone.tmx",
+        "Maps/Rogue_Squadron_Headquarters.tmx",
         "Tilesets/Water_tiles.tsx",
         "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx",
         "Tilesets/dsa.tsx",

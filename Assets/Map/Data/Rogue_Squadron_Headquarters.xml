@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="54" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="113">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="54" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="115">
  <tileset firstgid="1" source="../TiledProject/Tilesets/Floors_Tiles.tsx"/>
  <tileset firstgid="626" source="../TiledProject/Tilesets/Cave_Tiles.tsx"/>
  <tileset firstgid="915" source="../TiledProject/Tilesets/Building_Atlas.tsx"/>
@@ -448,9 +448,10 @@
    </properties>
    <point/>
   </object>
-  <object id="101" x="438.667" y="588">
+  <object id="101" x="27.3337" y="560.667">
    <properties>
     <property name="NpcId" value="3"/>
+    <property name="Path" type="object" value="114"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -470,6 +471,9 @@
   </object>
   <object id="112" x="168" y="168.333">
    <polygon points="0,0 0,255.667 272.333,255.667 272.333,0.333333"/>
+  </object>
+  <object id="114" x="27.3333" y="558.667">
+   <polyline points="0,0 -0.666667,31.3333 8,52 20,55.3333 32.6667,54 35.3333,42.6667 36,28.6667 37.3333,-0.666667 56,52 69.3333,30 82,49.3333 90,32 104.667,0 102.667,20.6667 102,38.6667 105.333,46.6667 113.333,50.6667 123.333,52 134,48.6667 138,38 139.333,27.3333 140.667,12.6667 141.333,-1.33333"/>
   </object>
  </objectgroup>
 </map>

@@ -16,7 +16,7 @@
 
 PlayerCharacter::PlayerCharacter()
 {
-	speed = 4;
+	baseSpeed = 4;
 
 	characterName = "Cassian";
 	Engine::Instance().m_render->AddToRenderQueue(*this, *this);
@@ -163,16 +163,6 @@ bool PlayerCharacter::Update()
 {
 	previousPhysicsPosition = position;
 
-	if (interactionSensor.IsBeingTriggered()) {
-
-		if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_E) == KEY_DOWN){
-				PhysBody* interactor = interactionSensor.GetClosestBodyColliding();
-				IInteractuable* interactuableObj = reinterpret_cast<IInteractuable*>(interactor->data);
-				interactuableObj->Interact();
-		}
-		 
-	}
-
 	GetInput();
 	Animate();
 	Move();
@@ -221,11 +211,26 @@ void PlayerCharacter::GetInput()
 		speedModifier = 1;
 	}
 
+
+	///  Process Actions
+
+	if (interactionSensor.IsBeingTriggered()) {
+
+		if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_E) == KEY_DOWN) {
+			PhysBody* interactor = interactionSensor.GetClosestBodyColliding();
+			IInteractuable* interactuableObj = reinterpret_cast<IInteractuable*>(interactor->data);
+
+			moveDirection = { 0,0 };
+			interactuableObj->Interact();
+		}
+
+	}
+
 }
 
 void PlayerCharacter::Move()
 {
-	body->SetVelocity(moveDirection * speed * speedModifier);
+	body->SetVelocity(moveDirection * baseSpeed * speedModifier);
 	position = body->GetPhysicPosition();
 }
 

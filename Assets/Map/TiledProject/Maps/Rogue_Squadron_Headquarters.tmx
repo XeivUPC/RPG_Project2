@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="54" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="113">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="54" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="115">
  <editorsettings>
   <export target="../../Data/Rogue_Squadron_Headquarters.xml" format="tmx"/>
  </editorsettings>
@@ -421,7 +421,7 @@
    </properties>
    <point/>
   </object>
-  <object id="101" x="438.667" y="588">
+  <object id="101" x="36.667" y="581.333">
    <properties>
     <property name="NpcId" value="3"/>
     <property name="Type" value="npc"/>

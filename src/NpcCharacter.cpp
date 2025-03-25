@@ -15,7 +15,7 @@
 
 NpcCharacter::NpcCharacter()
 {
-	speed = 2.5f;
+	baseSpeed = 2.5f;
 
     texture = Engine::Instance().m_assetsDB->GetTexture("npc_test");
 
@@ -165,10 +165,14 @@ void NpcCharacter::SearchPath()
 			moveDirection = Vector2::Direction(position, path[pathPosition]);
 		}
 	}
+	else if (moveDirection == Vector2{0,0}) {
+		moveDirection = Vector2::Direction(position, path[pathPosition]);
+	}
+
 }
 void NpcCharacter::Move()
 {
-	body->SetVelocity(moveDirection * speed);
+	body->SetVelocity(moveDirection * baseSpeed * speedModifier);
 	position = body->GetPhysicPosition();
 }
 
@@ -218,6 +222,8 @@ void NpcCharacter::Interact()
     printf("Ey\n");
     Engine::Instance().s_game->SetState(GameScene::State::Dialogue);
     Engine::Instance().s_game->SetDialogue("Assets/Dialogues/test2.json");
+	moveDirection = { 0,0 };
+	Animate();
 }
 
 void NpcCharacter::InitPoolObject()
