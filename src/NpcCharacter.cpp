@@ -73,6 +73,33 @@ NpcCharacter::NpcCharacter()
 				Sprite(texture, {3 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
 				Sprite(texture, {4 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
 				Sprite(texture, {5 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+				AnimationClip("run-down", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("run-horizontally", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("run-top", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
 			},&position,&scale)
 
 		}, 0
@@ -201,36 +228,27 @@ void NpcCharacter::Animate()
 
 	bool flip = animationDirection.x < 0;
 	animator->clip()->Flip(flip);
+
+
+	string animationId = isMoving ? (speedModifier == runSpeedModifier ? "run-" : "walk-") : "idle-";
+	string animationDirectionId = "";
+
 	if (std::abs(animationDirection.x) >= std::abs(animationDirection.y)) {
 
-		if (isMoving) {
-			animator->Animate("walk-horizontally");
-		}
-		else {
-			animator->Animate("idle-horizontally");
-		}
+		animationDirectionId = "horizontally";
 	}
 	else if (animationDirection.y > 0) {
-		if (isMoving) {
-			animator->Animate("walk-down");
-		}
-		else {
-			animator->Animate("idle-down");
-		}
+		animationDirectionId = "down";
 	}
 	else {
-		if (isMoving) {
-			animator->Animate("walk-top");
-		}
-		else {
-			animator->Animate("idle-top");
-		}
+		animationDirectionId = "top";
 	}
+	animationId += animationDirectionId;
+	animator->Animate(animationId);
 }
 
 void NpcCharacter::Interact()
 {
-    printf("Ey\n");
     Engine::Instance().s_game->SetState(GameScene::State::Dialogue);
     Engine::Instance().s_game->SetDialogue("Assets/Dialogues/test2.json");
 	moveDirection = { 0,0 };
@@ -268,6 +286,13 @@ void NpcCharacter::InitPoolObject()
 
 void NpcCharacter::ResetPoolObject()
 {
+	moveDirection = { 0,0 };
+	lastDirection = { 0,1 };
+
+	pathPosition = 0;
+	pathDirection = 1;
+	path.clear();
+
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
     Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 

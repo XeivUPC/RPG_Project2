@@ -73,6 +73,33 @@ FollowerCharacter::FollowerCharacter(Character* _characterToFollow, float _delay
 				Sprite(texture, {3 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
 				Sprite(texture, {4 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
 				Sprite(texture, {5 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+				AnimationClip("run-down", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("run-horizontally", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("run-top", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
 			},&position,&scale)
 
 		}, 0
@@ -93,11 +120,14 @@ FollowerCharacter::~FollowerCharacter()
 
 bool FollowerCharacter::Update()
 {
+	
 	SearchPath();
 	Animate();
 	Move();
 
 	animator->clip()->UpdateClip();
+
+	Character::Update();
 	return true;
 }
 
@@ -112,7 +142,7 @@ void FollowerCharacter::Render()
 
 bool FollowerCharacter::CleanUp()
 {
-
+	Character::CleanUp();
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 	return true;
@@ -139,8 +169,12 @@ void FollowerCharacter::SearchPath()
 			float percentaje = 100 - (delayDistance - previousDistance) *100 / (accumulator- previousDistance);
 
 			position = Vector2::Lerp(characterToFollow->pathFollowersData[i+1], characterToFollow->pathFollowersData[i], percentaje/100.f);
-			if(position != characterToFollow->pathFollowersData[i])
-				moveDirection = Vector2::Direction(position, characterToFollow->pathFollowersData[i]);
+			if (position != characterToFollow->pathFollowersData[i]) {
+				moveDirection = Vector2::Direction(characterToFollow->pathFollowersData[i + 1], characterToFollow->pathFollowersData[i]);
+			}
+
+			if (characterToFollow->moveDirection == Vector2{0,0})
+				moveDirection = { 0,0 };
 
 			break;
 		}
@@ -164,30 +198,22 @@ void FollowerCharacter::Animate()
 
 	bool flip = animationDirection.x < 0;
 	animator->clip()->Flip(flip);
-	if (std::abs(animationDirection.x) >= std::abs(animationDirection.y)) {
 
-		if (isMoving) {
-			animator->Animate("walk-horizontally");
-		}
-		else {
-			animator->Animate("idle-horizontally");
-		}
+
+	string animationId = isMoving ? (characterToFollow->speedModifier == characterToFollow->runSpeedModifier ? "run-" : "walk-") : "idle-";
+	string animationDirectionId = "";
+
+	if (std::abs(animationDirection.x) >= 0.5f) {
+
+		animationDirectionId = "horizontally";
 	}
 	else if (animationDirection.y > 0) {
-		if (isMoving) {
-			animator->Animate("walk-down");
-		}
-		else {
-			animator->Animate("idle-down");
-		}
+		animationDirectionId = "down";
 	}
 	else {
-		if (isMoving) {
-			animator->Animate("walk-top");
-		}
-		else {
-			animator->Animate("idle-top");
-		}
+		animationDirectionId = "top";
 	}
+	animationId += animationDirectionId;
+	animator->Animate(animationId);
 }
 
