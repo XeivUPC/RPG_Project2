@@ -37,6 +37,7 @@ public:
 
 	void SetState(State _newState);
 	State GetState();
+	GameState* GetGameState();
 	void SetPreviousState();
 
 	void ExitGame();

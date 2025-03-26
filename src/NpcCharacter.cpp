@@ -23,8 +23,11 @@ NpcCharacter::NpcCharacter()
 
 NpcCharacter::~NpcCharacter()
 {
-	animator->CleanUp();
-	delete animator;
+	if (animator!=nullptr) {
+		animator->CleanUp();
+		delete animator;
+	}
+	
 }
 
 bool NpcCharacter::Update()
@@ -158,7 +161,9 @@ bool NpcCharacter::SetCharacterId(int _charId)
 
 			}, 0
 		);
+		return true;
 	}
+	return false;
 }
 
 

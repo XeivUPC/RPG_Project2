@@ -201,6 +201,11 @@ GameScene::State GameScene::GetState()
     return state;
 }
 
+GameState* GameScene::GetGameState()
+{
+    return game_states[state];
+}
+
 void GameScene::SetPreviousState()
 {
     if (state == previous_state || state == State::NONE___DO_NOT_USE)
