@@ -133,7 +133,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CombatManager.cpp" />
     <ClCompile Include="src\AnimationClip.cpp" />
     <ClCompile Include="src\Animator.cpp" />
     <ClCompile Include="src\AtlasFactory.cpp" />
@@ -143,6 +142,7 @@
     <ClCompile Include="src\CameraController.cpp" />
     <ClCompile Include="src\Character.cpp" />
     <ClCompile Include="src\CombatGameState.cpp" />
+    <ClCompile Include="src\CombatManager.cpp" />
     <ClCompile Include="src\DialogueGameState.cpp" />
     <ClCompile Include="src\DialogueSystem.cpp" />
     <ClCompile Include="src\DrawingTools.cpp" />
@@ -201,7 +201,6 @@
     <ClCompile Include="src\Vector2Int.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CombatManager.h" />
     <ClInclude Include="src\AnimationClip.h" />
     <ClInclude Include="src\Animator.h" />
     <ClInclude Include="src\AtlasFactory.h" />
@@ -212,6 +211,7 @@
     <ClInclude Include="src\CameraController.h" />
     <ClInclude Include="src\Character.h" />
     <ClInclude Include="src\CombatGameState.h" />
+    <ClInclude Include="src\CombatManager.h" />
     <ClInclude Include="src\DialogueGameState.h" />
     <ClInclude Include="src\DialogueSystem.h" />
     <ClInclude Include="src\DrawingTools.h" />

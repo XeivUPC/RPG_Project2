@@ -330,8 +330,11 @@
     <ClCompile Include="src\CombatGameState.cpp">
       <Filter>Source Files\GameState\Types %28GameState%29</Filter>
     </ClCompile>
-    <ClCompile Include="CombatManager.cpp">
+    <ClCompile Include="src\FollowerCharacter.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CombatManager.cpp">
+      <Filter>Source Files\Utils\Combat</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -575,8 +578,11 @@
     <ClInclude Include="src\CombatGameState.h">
       <Filter>Source Files\GameState\Types %28GameState%29</Filter>
     </ClInclude>
-    <ClInclude Include="CombatManager.h">
+    <ClInclude Include="src\FollowerCharacter.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CombatManager.h">
+      <Filter>Source Files\Utils\Combat</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
