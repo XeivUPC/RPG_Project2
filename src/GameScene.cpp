@@ -239,6 +239,11 @@ Tilemap* GameScene::GetLastTilemap()
 void GameScene::RemoveLastTilemap()
 {
     if (tilemaps.size() != 0) {
+
+        Pooling::Instance().ReturnAllToPool<Building>();
+        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
+        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+
         delete tilemaps[tilemaps.size() - 1];
         tilemaps.pop_back();
 
