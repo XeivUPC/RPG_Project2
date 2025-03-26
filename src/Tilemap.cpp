@@ -137,7 +137,6 @@ void Tilemap::CreateObjects()
                 }
             }
             else if (type == "npc") {
-                int npcId = stoi(object->properties.at("NpcId").value);
                 auto npc = Pooling::Instance().AcquireObject<NpcCharacter>();
 
                 Vector2 position = { object->x ,object->y };
@@ -145,8 +144,10 @@ void Tilemap::CreateObjects()
 
                 if (object->properties.count("NpcId"))
                 {
-                    npc->SetNpcId(stoi(object->properties.at("NpcId").value));
-                }
+                    npc->SetCharacterId(stoi(object->properties.at("NpcId").value));
+                }else
+                    npc->SetCharacterId(-1);
+
                 if (object->properties.count("Path"))
                 {
                     int pathId = stoi(object->properties.at("Path").value);

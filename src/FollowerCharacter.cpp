@@ -15,7 +15,7 @@
 FollowerCharacter::FollowerCharacter(Character* _characterToFollow, float _delayDistance, int _npcId)
 {
 	SetCharacterToFollow(_characterToFollow);
-	SetNpcId(_npcId);
+	SetCharacterId(_npcId);
 	delayDistance = _delayDistance;
 	texture = Engine::Instance().m_assetsDB->GetTexture("npc_test");
 
@@ -148,10 +148,6 @@ bool FollowerCharacter::CleanUp()
 	return true;
 }
 
-void FollowerCharacter::SetNpcId(int _npcId)
-{
-	npcId = _npcId;
-}
 
 void FollowerCharacter::SetCharacterToFollow(Character* _characterToFollow)
 {

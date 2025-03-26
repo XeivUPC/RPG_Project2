@@ -441,7 +441,6 @@
   </object>
   <object id="100" x="168.045" y="168.666">
    <properties>
-    <property name="NpcId" value="2"/>
     <property name="Path" type="object" value="112"/>
     <property name="PathMovementType" type="int" value="1"/>
     <property name="Type" value="npc"/>
@@ -450,7 +449,6 @@
   </object>
   <object id="101" x="36.667" y="581.333">
    <properties>
-    <property name="NpcId" value="3"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
