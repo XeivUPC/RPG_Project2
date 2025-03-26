@@ -133,6 +133,9 @@
     <Filter Include="Source Files\Utils\Pathfinding">
       <UniqueIdentifier>{ee77a7f1-87c4-42f1-9951-258a19b0a83e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils\Combat">
+      <UniqueIdentifier>{7cbbbf9f-ae97-45f5-a5be-9d5f05d38fcf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -324,8 +327,11 @@
     <ClCompile Include="src\Sprite.cpp">
       <Filter>Source Files\Utils\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="src\ModulePathfinding.cpp">
-      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    <ClCompile Include="src\CombatGameState.cpp">
+      <Filter>Source Files\GameState\Types %28GameState%29</Filter>
+    </ClCompile>
+    <ClCompile Include="CombatManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -566,8 +572,11 @@
     <ClInclude Include="src\SystemEvent.h">
       <Filter>Source Files\_Core\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\ModulePathfinding.h">
-      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    <ClInclude Include="src\CombatGameState.h">
+      <Filter>Source Files\GameState\Types %28GameState%29</Filter>
+    </ClInclude>
+    <ClInclude Include="CombatManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

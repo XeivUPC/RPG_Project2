@@ -26,6 +26,7 @@
 #include "DialogueGameState.h"
 #include "PauseGameState.h"
 #include "ExploringGameState.h"
+#include "CombatGameState.h"
 ///
 
 GameScene::GameScene(bool start_active) : ModuleScene(start_active)
@@ -78,6 +79,8 @@ bool GameScene::Start()
     game_states[State::Dialogue]->StateDeselected();
     game_states[State::Menu] = new PauseGameState();
     game_states[State::Menu]->StateDeselected();
+    game_states[State::Combat] = new CombatGameState();
+    game_states[State::Combat]->StateDeselected();
 
     SetState(State::Exploring);
 
@@ -86,7 +89,6 @@ bool GameScene::Start()
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
-
    
     player = new PlayerCharacter();
     cameraController = new CameraController();
@@ -115,6 +117,11 @@ bool GameScene::Update()
     for (size_t i = 0; i < entities.size(); i++)
     {
         entities[i]->Update();
+    }
+
+    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_C) == KEY_DOWN)
+    {
+        SetCombat()
     }
 
     Engine::Instance().m_render->SortRenderQueueLayerByPosition(3);
