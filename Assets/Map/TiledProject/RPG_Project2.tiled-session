@@ -5,11 +5,11 @@
     },
     "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
     "expandedProjectPaths": [
+        ".",
+        "Maps",
+        "Objects",
         "Prefabs/Buildings",
         "Prefabs",
-        "Maps",
-        ".",
-        "Objects",
         "Tilesets"
     ],
     "exportAsImage.visibleLayersOnly": false,

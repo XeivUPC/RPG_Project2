@@ -1,5 +1,4 @@
-#include "NpcCharacter.h"
-#include "Pooling.h"
+#include "FollowerCharacter.h"
 
 #include "Engine.h"
 #include "ModuleRender.h"
@@ -13,14 +12,15 @@
 #include "Animator.h"
 #include "AnimationClip.h"
 
-NpcCharacter::NpcCharacter()
+FollowerCharacter::FollowerCharacter(Character* _characterToFollow, float _delayDistance, int _npcId)
 {
-	baseSpeed = 2.5f;
+	SetCharacterToFollow(_characterToFollow);
+	SetNpcId(_npcId);
+	delayDistance = _delayDistance;
+	texture = Engine::Instance().m_assetsDB->GetTexture("npc_test");
 
-    texture = Engine::Instance().m_assetsDB->GetTexture("npc_test");
-
-    renderLayer = 3;
-    renderOffsetSorting = { 0,2 };
+	renderLayer = 3;
+	renderOffsetSorting = { 0,2 };
 
 	int spriteSize = 64;
 	animator = new Animator
@@ -104,117 +104,87 @@ NpcCharacter::NpcCharacter()
 
 		}, 0
 	);
+
+	Engine::Instance().m_render->AddToRenderQueue(*this, *this);
+	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+	Engine::Instance().m_updater->AddToUpdateGroup(*this, "Entity");
 }
 
-NpcCharacter::~NpcCharacter()
+
+
+FollowerCharacter::~FollowerCharacter()
 {
 	animator->CleanUp();
 	delete animator;
 }
 
-bool NpcCharacter::Update()
+bool FollowerCharacter::Update()
 {
-    SearchPath();
+	
+	SearchPath();
 	Animate();
-    Move();
-
+	Move();
 
 	animator->clip()->UpdateClip();
 
 	Character::Update();
-
-    return true;
+	return true;
 }
 
-void NpcCharacter::Render()
+void FollowerCharacter::Render()
 {
-    
-    SDL_Rect rect = { 0,0,64,64 };
 
-    //Engine::Instance().m_render->painter().RenderTexture(*texture, position, &rect, { 1.f,1.f }, 0, { 0.5f,0.75f });
+	SDL_Rect rect = { 0,0,64,64 };
+
+	//Engine::Instance().m_render->painter().RenderTexture(*texture, position, &rect, { 1.f,1.f }, 0, { 0.5f,0.75f });
 	animator->clip()->RenderClip();
-
-	//if (path.size() > 1) {
-	//	for (size_t i = 0; i < path.size()-1; i++)
-	//	{
-	//		Engine::Instance().m_render->painter().RenderLine(path[i], path[i + 1], {255,255,255,255});
-	//	}
-	//}
-
 }
 
-bool NpcCharacter::CleanUp()
+bool FollowerCharacter::CleanUp()
 {
-	
-    Pooling::Instance().ReturnObject(this);
-    return true;
+	Character::CleanUp();
+	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+	return true;
 }
 
-void NpcCharacter::SetNpcId(int _npcId)
+void FollowerCharacter::SetNpcId(int _npcId)
 {
 	npcId = _npcId;
 }
 
-void NpcCharacter::SetNpcPath(vector<Vector2> _path, MovementType _movementType)
+void FollowerCharacter::SetCharacterToFollow(Character* _characterToFollow)
 {
-	path = _path;
-	movementType = _movementType;
+	characterToFollow = _characterToFollow;
 }
 
-
-void NpcCharacter::SearchPath()
+void FollowerCharacter::SearchPath()
 {
-	if (path.size() <= 1) {
-		moveDirection = { 0, 0 };
-	}
-	else if (Vector2::Approximately(position, path[pathPosition], 2)) {
-		int nextTarget = pathPosition + pathDirection;
-		bool isNextTargetValid = (nextTarget >= 0 && nextTarget < path.size());
+	float accumulator = 0;
 
-		if (!isNextTargetValid) {
-			switch (movementType) {
-			case MovementType::PingPong:
-				pathDirection *= -1;
-				nextTarget = pathPosition + pathDirection;
-				SetPosition(path[pathPosition]);
-				isNextTargetValid = true;
-				break;
+	for (int i = 0; i < (int)(characterToFollow->pathFollowersData.size())-1; i++) {
+		float previousDistance = accumulator;
+		accumulator += Vector2::Distance(characterToFollow->pathFollowersData[i], characterToFollow->pathFollowersData[i+1]);
+		if (delayDistance < accumulator) {
+			float percentaje = 100 - (delayDistance - previousDistance) *100 / (accumulator- previousDistance);
 
-			case MovementType::Loop:
-				if (nextTarget >= path.size()) {
-					nextTarget = 0;
-				}
-				else {
-					nextTarget = (int)(path.size() - 1);
-				}
-				isNextTargetValid = true;
-				break;
-
-			case MovementType::StopAtEnd:
-				moveDirection = { 0, 0 };
-				pathPosition = (pathDirection > 0) ? (int)(path.size() - 1) : 0;
-				SetPosition(path[pathPosition]);
-				return;
+			position = Vector2::Lerp(characterToFollow->pathFollowersData[i+1], characterToFollow->pathFollowersData[i], percentaje/100.f);
+			if (position != characterToFollow->pathFollowersData[i]) {
+				moveDirection = Vector2::Direction(characterToFollow->pathFollowersData[i + 1], characterToFollow->pathFollowersData[i]);
 			}
-		}
 
-		if (isNextTargetValid) {
-			pathPosition = nextTarget;
-			moveDirection = Vector2::Direction(position, path[pathPosition]);
+			if (characterToFollow->moveDirection == Vector2{0,0})
+				moveDirection = { 0,0 };
+
+			break;
 		}
 	}
-	else if (moveDirection == Vector2{0,0}) {
-		moveDirection = Vector2::Direction(position, path[pathPosition]);
-	}
-
 }
-void NpcCharacter::Move()
+void FollowerCharacter::Move()
 {
-	body->SetVelocity(moveDirection * baseSpeed * speedModifier);
-	position = body->GetPhysicPosition();
 }
 
-void NpcCharacter::Animate()
+void FollowerCharacter::Animate()
 {
 
 	bool isMoving = (moveDirection != Vector2{ 0,0 });
@@ -230,10 +200,10 @@ void NpcCharacter::Animate()
 	animator->clip()->Flip(flip);
 
 
-	string animationId = isMoving ? (speedModifier == runSpeedModifier ? "run-" : "walk-") : "idle-";
+	string animationId = isMoving ? (characterToFollow->speedModifier == characterToFollow->runSpeedModifier ? "run-" : "walk-") : "idle-";
 	string animationDirectionId = "";
 
-	if (std::abs(animationDirection.x) >= std::abs(animationDirection.y)) {
+	if (std::abs(animationDirection.x) >= 0.5f) {
 
 		animationDirectionId = "horizontally";
 	}
@@ -247,55 +217,3 @@ void NpcCharacter::Animate()
 	animator->Animate(animationId);
 }
 
-void NpcCharacter::Interact()
-{
-    Engine::Instance().s_game->SetState(GameScene::State::Dialogue);
-    Engine::Instance().s_game->SetDialogue("Assets/Dialogues/test2.json");
-	moveDirection = { 0,0 };
-	Animate();
-}
-
-void NpcCharacter::InitPoolObject()
-{
-    Engine::Instance().m_render->AddToRenderQueue(*this, *this);
-    Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
-    Engine::Instance().m_updater->AddToUpdateGroup(*this, "Entity");
-
-    body = Engine::Instance().m_physics->factory().CreateBox({ 0,0.2f }, 0.5f, 0.2f);
-    body->SetType(PhysBody::BodyType::Kinematic);
-    body->SetFriction(0, 0);
-    body->SetFixedRotation(true);
-	ModulePhysics::Layer category, mask;
-	category.flags.npc_layer = 1;
-	mask.flags.player_layer = 1;
-	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
-
-	category.rawValue = 0;
-	mask.rawValue = 0;
-
-    body->data = (uintptr_t)((IInteractuable*)this);
-    int fixtureIndex = Engine::Instance().m_physics->factory().AddCircle(body, { 0,0.1f }, 1.0f);
-    body->SetSensor(fixtureIndex, true);
-    category.flags.interactable_layer = 1;
-    mask.flags.interactable_layer = 1;
-    body->SetFilter(fixtureIndex, category.rawValue, mask.rawValue, 0);
-
-
-   
-}
-
-void NpcCharacter::ResetPoolObject()
-{
-	moveDirection = { 0,0 };
-	lastDirection = { 0,1 };
-
-	pathPosition = 0;
-	pathDirection = 1;
-	path.clear();
-
-    Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
-    Engine::Instance().m_render->RemoveFomRenderQueue(*this);
-
-	Character::CleanUp();
-    delete body;
-}

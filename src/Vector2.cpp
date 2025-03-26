@@ -51,6 +51,12 @@ bool Vector2::Approximately(const Vector2& a, const Vector2& b, float epsilon)
     return (std::abs(a.x - b.x) < epsilon) && (std::abs(a.y - b.y) < epsilon);
 }
 
+float Vector2::Distance(const Vector2& a, const Vector2& b) {
+    float dx = a.x - b.x;
+    float dy = a.y - b.y;
+    return sqrt(dx * dx + dy * dy);
+}
+
 bool Vector2::operator==(const Vector2& other) const {
     return (x == other.x && y == other.y);
 }
