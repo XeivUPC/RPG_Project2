@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CombatManager.cpp" />
     <ClCompile Include="src\AnimationClip.cpp" />
     <ClCompile Include="src\Animator.cpp" />
     <ClCompile Include="src\AtlasFactory.cpp" />
@@ -141,6 +142,7 @@
     <ClCompile Include="src\Building.cpp" />
     <ClCompile Include="src\CameraController.cpp" />
     <ClCompile Include="src\Character.cpp" />
+    <ClCompile Include="src\CombatGameState.cpp" />
     <ClCompile Include="src\DialogueGameState.cpp" />
     <ClCompile Include="src\DialogueSystem.cpp" />
     <ClCompile Include="src\DrawingTools.cpp" />
@@ -155,7 +157,6 @@
     <ClCompile Include="src\ModuleAudio.cpp" />
     <ClCompile Include="src\ModuleCursor.cpp" />
     <ClCompile Include="src\ModuleLocalization.cpp" />
-    <ClCompile Include="src\ModulePathfinding.cpp" />
     <ClCompile Include="src\ModuleScene.cpp" />
     <ClCompile Include="src\MusicContainer.cpp" />
     <ClCompile Include="src\NpcCharacter.cpp" />
@@ -199,6 +200,7 @@
     <ClCompile Include="src\Vector2Int.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CombatManager.h" />
     <ClInclude Include="src\AnimationClip.h" />
     <ClInclude Include="src\Animator.h" />
     <ClInclude Include="src\AtlasFactory.h" />
@@ -208,6 +210,7 @@
     <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\CameraController.h" />
     <ClInclude Include="src\Character.h" />
+    <ClInclude Include="src\CombatGameState.h" />
     <ClInclude Include="src\DialogueGameState.h" />
     <ClInclude Include="src\DialogueSystem.h" />
     <ClInclude Include="src\DrawingTools.h" />
@@ -226,7 +229,6 @@
     <ClInclude Include="src\ModuleAudio.h" />
     <ClInclude Include="src\ModuleCursor.h" />
     <ClInclude Include="src\ModuleLocalization.h" />
-    <ClInclude Include="src\ModulePathfinding.h" />
     <ClInclude Include="src\ModuleScene.h" />
     <ClInclude Include="src\MusicContainer.h" />
     <ClInclude Include="src\NpcCharacter.h" />

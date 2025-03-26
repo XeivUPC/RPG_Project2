@@ -16,6 +16,7 @@ class CameraController;
 
 class GameScene : public ModuleScene{
 	friend class Engine;
+	friend class CombatGameState;
 	friend class DialogueGameState;
 	friend class PauseGameState;
 	friend class ExploringGameState;
@@ -34,6 +35,7 @@ public:
 	~GameScene();
 
 	void SetDialogue(string path);
+	void SetCombat(std::vector<int>team, std::vector<int> enemyTeam);
 
 	void SetState(State _newState);
 	State GetState();

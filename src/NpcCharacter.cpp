@@ -219,7 +219,6 @@ void NpcCharacter::Animate()
 
 void NpcCharacter::Interact()
 {
-    printf("Ey\n");
     Engine::Instance().s_game->SetState(GameScene::State::Dialogue);
     Engine::Instance().s_game->SetDialogue("Assets/Dialogues/test2.json");
 	moveDirection = { 0,0 };
