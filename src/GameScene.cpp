@@ -9,6 +9,7 @@
 #include "Tilemap.h"
 #include "PlayerCharacter.h"
 #include "CameraController.h"
+#include "DialogueSystem.h"
 
 ///Pooling
 #include "Pooling.h"
@@ -39,7 +40,8 @@ GameScene::~GameScene()
 
 void GameScene::SetDialogue(string path)
 {
-    dialogueCanvas->SetDialogue(path);
+    dialogueSystem->LoadDialogueFromJSON(path);
+    dialogueSystem->StartDialogue();
 }
 
 bool GameScene::Init()
@@ -60,7 +62,8 @@ bool GameScene::Start()
     //canvas = new UITestingCG();
     //canvas->renderLayer = 6;
 
-    dialogueCanvas = new UIDialogueBoxCG();
+	dialogueSystem = new DialogueSystem();
+    dialogueCanvas = new UIDialogueBoxCG(dialogueSystem);
     dialogueCanvas->renderLayer = 7;
 
     pauseCanvas = new PauseMenuCG();
@@ -144,7 +147,7 @@ bool GameScene::CleanUp()
     delete pauseCanvas;
     //delete canvas;
     delete fade;
-
+    delete dialogueSystem;
    
 
     for (; game_states.size() != 0;)
