@@ -142,6 +142,9 @@
     <ClCompile Include="src\CameraController.cpp" />
     <ClCompile Include="src\Character.cpp" />
     <ClCompile Include="src\CharacterDatabase.cpp" />
+    <ClCompile Include="src\CombatCG.cpp" />
+    <ClCompile Include="src\CombatGameState.cpp" />
+    <ClCompile Include="src\CombatSystem.cpp" />
     <ClCompile Include="src\DialogueGameState.cpp" />
     <ClCompile Include="src\DialogueSystem.cpp" />
     <ClCompile Include="src\DrawingTools.cpp" />
@@ -210,6 +213,10 @@
     <ClInclude Include="src\CameraController.h" />
     <ClInclude Include="src\Character.h" />
     <ClInclude Include="src\CharacterDatabase.h" />
+    <ClInclude Include="src\CombatCG.h" />
+    <ClInclude Include="src\CombatGameState.h" />
+    <ClInclude Include="src\CombatStats.h" />
+    <ClInclude Include="src\CombatSystem.h" />
     <ClInclude Include="src\DialogueGameState.h" />
     <ClInclude Include="src\DialogueSystem.h" />
     <ClInclude Include="src\DrawingTools.h" />
@@ -261,6 +268,7 @@
     <ClInclude Include="src\SettingsCG.h" />
     <ClInclude Include="src\SimpleMapObject.h" />
     <ClInclude Include="src\Sprite.h" />
+    <ClInclude Include="src\Stats.h" />
     <ClInclude Include="src\StepTimer.h" />
     <ClInclude Include="src\Sword.h" />
     <ClInclude Include="src\SystemEvent.h" />

@@ -327,13 +327,19 @@
     <ClCompile Include="src\Sprite.cpp">
       <Filter>Source Files\Utils\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="src\CombatGameState.cpp">
-      <Filter>Source Files\GameState\Types %28GameState%29</Filter>
-    </ClCompile>
     <ClCompile Include="src\FollowerCharacter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\CombatManager.cpp">
+    <ClCompile Include="src\CharacterDatabase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CombatCG.cpp">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CombatGameState.cpp">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CombatSystem.cpp">
       <Filter>Source Files\Utils\Combat</Filter>
     </ClCompile>
   </ItemGroup>
@@ -575,14 +581,26 @@
     <ClInclude Include="src\SystemEvent.h">
       <Filter>Source Files\_Core\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\CombatGameState.h">
-      <Filter>Source Files\GameState\Types %28GameState%29</Filter>
-    </ClInclude>
     <ClInclude Include="src\FollowerCharacter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\CombatManager.h">
+    <ClInclude Include="src\CharacterDatabase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CombatCG.h">
       <Filter>Source Files\Utils\Combat</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CombatGameState.h">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CombatStats.h">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CombatSystem.h">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Stats.h">
+      <Filter>Source Files\Entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
