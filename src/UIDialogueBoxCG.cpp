@@ -15,7 +15,7 @@
 
 #include <sstream>
 
-UIDialogueBoxCG::UIDialogueBoxCG()
+UIDialogueBoxCG::UIDialogueBoxCG(DialogueSystem* _dialogueSystem)
 {
 	SDL_Texture* tex = Engine::Instance().m_assetsDB->GetTexture("dialogue_box");
 	SDL_Texture* tex2 = Engine::Instance().m_assetsDB->GetTexture("dialogue_answerBox");
@@ -47,7 +47,7 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 
 	btns.emplace_back(btn);
 
-	dialogue = new DialogueSystem();
+	dialogue = _dialogueSystem;
 
 	dialogue->onSignalCall.Subscribe([this](Signal* signal) {SignalReader(signal); });
 	dialogue->onDialogNodeChange.Subscribe([this]() {ChangeDialogueNode(); });
@@ -65,7 +65,6 @@ UIDialogueBoxCG::UIDialogueBoxCG()
 
 UIDialogueBoxCG::~UIDialogueBoxCG()
 {
-	delete dialogue;
 	UICanvas::~UICanvas();
 }
 
@@ -140,12 +139,6 @@ void UIDialogueBoxCG::UpdateCanvas()
 	}
 
 	UICanvas::UpdateCanvas();
-}
-
-void UIDialogueBoxCG::SetDialogue(string path)
-{
-	dialogue->LoadDialogueFromJSON(path);
-	dialogue->StartDialogue();
 }
 
 void UIDialogueBoxCG::CreateChoiceButton(string text, int index, float verticalSpacing)

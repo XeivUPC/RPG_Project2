@@ -5,6 +5,7 @@
 
 Character::Character()
 {
+
 }
 
 Character::~Character()
@@ -52,4 +53,15 @@ void Character::SetPosition(Vector2 newPosition)
     position = newPosition;
     if (body != nullptr)
         body->SetPhysicPosition(position.x, position.y);
+}
+
+bool Character::SetCharacterId(int _charId)
+{
+    if (_charId != characterId)
+    {
+        characterId = _charId;
+        characterData = &CharacterDatabase::Instance().GetCharacterData(characterId);
+        return true;
+    }
+    return false;
 }

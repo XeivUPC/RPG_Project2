@@ -19,7 +19,6 @@ public:
 
 	bool CleanUp() override;
 
-	void SetNpcId(int _npcId);
 	void SetCharacterToFollow(Character* _characterToFollow);
 
 public:
@@ -27,8 +26,6 @@ public:
 private:
 	void SearchPath();
 private:
-	int npcId = 0;
-
 	int pathPosition = 0;
 
 	Character* characterToFollow = nullptr;

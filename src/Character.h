@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include "CharacterDatabase.h"
 #include <deque>
 #include "StepTimer.h"
 #include <vector>
@@ -22,9 +23,9 @@ public:
 	bool CleanUp() override;
 
 	void SetPosition(Vector2 newPosition) override;
+	virtual bool SetCharacterId(int _charId);
 
 public:
-
 private:
 
 private:	
@@ -33,9 +34,9 @@ protected:
 	virtual void Animate() = 0;
 	virtual void Move() = 0;
 protected:
-	string characterName = "NO_NAME";
+	int characterId = INT16_MAX;
+	CharacterDatabase::CharacterData* characterData = nullptr;
 
-	string textureId = "";
 	SDL_Texture* texture = nullptr;
 	Animator* animator;
 	PhysBody* body = nullptr;

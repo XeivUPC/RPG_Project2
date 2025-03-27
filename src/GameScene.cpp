@@ -9,6 +9,7 @@
 #include "Tilemap.h"
 #include "PlayerCharacter.h"
 #include "CameraController.h"
+#include "DialogueSystem.h"
 
 ///Pooling
 #include "Pooling.h"
@@ -40,7 +41,8 @@ GameScene::~GameScene()
 
 void GameScene::SetDialogue(string path)
 {
-    dialogueCanvas->SetDialogue(path);
+    dialogueSystem->LoadDialogueFromJSON(path);
+    dialogueSystem->StartDialogue();
 }
 
 bool GameScene::Init()
@@ -61,7 +63,8 @@ bool GameScene::Start()
     //canvas = new UITestingCG();
     //canvas->renderLayer = 6;
 
-    dialogueCanvas = new UIDialogueBoxCG();
+	dialogueSystem = new DialogueSystem();
+    dialogueCanvas = new UIDialogueBoxCG(dialogueSystem);
     dialogueCanvas->renderLayer = 7;
 
     pauseCanvas = new PauseMenuCG();
@@ -151,7 +154,7 @@ bool GameScene::CleanUp()
     delete pauseCanvas;
     //delete canvas;
     delete fade;
-
+    delete dialogueSystem;
    
 
     for (; game_states.size() != 0;)
@@ -208,6 +211,11 @@ GameScene::State GameScene::GetState()
     return state;
 }
 
+GameState* GameScene::GetGameState()
+{
+    return game_states[state];
+}
+
 void GameScene::SetPreviousState()
 {
     if (state == previous_state || state == State::NONE___DO_NOT_USE)
@@ -246,6 +254,11 @@ Tilemap* GameScene::GetLastTilemap()
 void GameScene::RemoveLastTilemap()
 {
     if (tilemaps.size() != 0) {
+
+        Pooling::Instance().ReturnAllToPool<Building>();
+        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
+        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+
         delete tilemaps[tilemaps.size() - 1];
         tilemaps.pop_back();
 

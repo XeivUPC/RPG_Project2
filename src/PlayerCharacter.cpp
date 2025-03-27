@@ -19,7 +19,6 @@ PlayerCharacter::PlayerCharacter()
 {
 	baseSpeed = 4;
 
-	characterName = "Cassian";
 	Engine::Instance().m_render->AddToRenderQueue(*this, *this);
 	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 	Engine::Instance().m_updater->AddToUpdateGroup(*this, "Entity");
