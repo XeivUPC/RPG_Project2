@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Characters>
+    <Character id = "-1" name = "NPC_TEST">
+        <Data   textureId = "npc_test" 
+                dialoguePath = "Assets/Dialogues/test3.json" />
+    </Character>
+
+	<Character id = "0" name = "Cassian">
+        <Data   textureId = "cassian_test" 
+                dialoguePath = "Assets/Dialogues/test3.json" />
+    </Character>
+
+    <Character id = "1" name = "Artis">
+        <Data   textureId = "artis_test" 
+                dialoguePath = "Assets/Dialogues/test4.json" />
+    </Character>
+</Characters>

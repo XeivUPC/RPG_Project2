@@ -40,6 +40,22 @@ Vector2Int Vector2Int::Lerp(const Vector2Int& a, const Vector2Int& b, float t)
     return a + (b - a) * t;
 }
 
+Vector2Int Vector2Int::Direction(const Vector2Int& from, const Vector2Int& to)
+{
+    return (to - from).normalized();
+}
+
+bool Vector2Int::Approximately(const Vector2Int& a, const Vector2Int& b, float epsilon)
+{
+    return (std::abs(a.x - b.x) < epsilon) && (std::abs(a.y - b.y) < epsilon);
+}
+
+float Vector2Int::Distance(const Vector2Int& a, const Vector2Int& b) {
+    int dx = a.x - b.x;
+    int dy = a.y - b.y;
+    return (float)sqrt(dx * dx + dy * dy);
+}
+
 bool Vector2Int::operator==(const Vector2Int& other) const {
     return (x == other.x && y == other.y);
 }
@@ -81,6 +97,31 @@ Vector2Int Vector2Int::operator/(float scalar) const {
         throw invalid_argument("Division by zero");
     }
     return Vector2Int((int)(x / scalar), (int)(y / scalar));
+}
+
+Vector2Int& Vector2Int::operator+=(const Vector2Int& other) {
+    x += other.x;
+    y += other.y;
+    return *this;
+}
+
+
+Vector2Int& Vector2Int::operator-=(const Vector2Int& other) {
+    x -= other.x;
+    y -= other.y;
+    return *this;
+}
+
+Vector2Int& Vector2Int::operator*=(float scalar) {
+    x *= scalar;
+    y *= scalar;
+    return *this;
+}
+
+Vector2Int& Vector2Int::operator/=(float scalar) {
+    x /= scalar;
+    y /= scalar;
+    return *this;
 }
 
 void Vector2Int::operator=(const Vector2Int& other) {

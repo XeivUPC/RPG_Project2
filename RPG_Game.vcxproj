@@ -141,11 +141,13 @@
     <ClCompile Include="src\Building.cpp" />
     <ClCompile Include="src\CameraController.cpp" />
     <ClCompile Include="src\Character.cpp" />
+    <ClCompile Include="src\CharacterDatabase.cpp" />
     <ClCompile Include="src\DialogueGameState.cpp" />
     <ClCompile Include="src\DialogueSystem.cpp" />
     <ClCompile Include="src\DrawingTools.cpp" />
     <ClCompile Include="src\ExploringGameState.cpp" />
     <ClCompile Include="src\FadeCG.cpp" />
+    <ClCompile Include="src\FollowerCharacter.cpp" />
     <ClCompile Include="src\FontFactory.cpp" />
     <ClCompile Include="src\GameScene.cpp" />
     <ClCompile Include="src\IntroScene.cpp" />
@@ -207,11 +209,13 @@
     <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\CameraController.h" />
     <ClInclude Include="src\Character.h" />
+    <ClInclude Include="src\CharacterDatabase.h" />
     <ClInclude Include="src\DialogueGameState.h" />
     <ClInclude Include="src\DialogueSystem.h" />
     <ClInclude Include="src\DrawingTools.h" />
     <ClInclude Include="src\ExploringGameState.h" />
     <ClInclude Include="src\FadeCG.h" />
+    <ClInclude Include="src\FollowerCharacter.h" />
     <ClInclude Include="src\FontFactory.h" />
     <ClInclude Include="src\GameScene.h" />
     <ClInclude Include="src\GameState.h" />

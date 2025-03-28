@@ -58,11 +58,15 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
     file.close();
 
     nodes.clear();
+    dialogue_active = false;
+    previous_node = "";
+    current_node = "";
 
     for (auto& [node_id, node_data] : json_data.items()) {
         if (node_id == "__editor") continue;
 
         if (node_id == "root") {
+            root_node = DialogueNode();
             if(json_data["root"].contains("next"))
                 root_node.next_node = json_data["root"]["next"];
             if (node_data.contains("conditions")) {

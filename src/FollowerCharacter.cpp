@@ -1,54 +1,26 @@
-#include "PlayerCharacter.h"
 #include "FollowerCharacter.h"
+
 #include "Engine.h"
 #include "ModuleRender.h"
-#include "ModuleAudio.h"
+#include "GameScene.h"
 #include "ModuleAssetDataBase.h"
 #include "ModuleUpdater.h"
 #include "ModuleInput.h"
-#include "ModuleTime.h"
 #include "DrawingTools.h"
 #include "ModulePhysics.h"
 #include "PhysicFactory.h"
-#include "IInteractuable.h"
 #include "Animator.h"
 #include "AnimationClip.h"
-#include "AudioContainer.h"
 
-PlayerCharacter::PlayerCharacter()
+FollowerCharacter::FollowerCharacter(Character* _characterToFollow, float _delayDistance, int _npcId)
 {
-	baseSpeed = 4;
+	SetCharacterToFollow(_characterToFollow);
+	SetCharacterId(_npcId);
+	delayDistance = _delayDistance;
+	texture = Engine::Instance().m_assetsDB->GetTexture("npc_test");
 
-	Engine::Instance().m_render->AddToRenderQueue(*this, *this);
-	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
-	Engine::Instance().m_updater->AddToUpdateGroup(*this, "Entity");
 	renderLayer = 3;
 	renderOffsetSorting = { 0,2 };
-
-
-	b2FixtureUserData sensorData;
-	sensorData.pointer = (uintptr_t)(&interactionSensor);
-	body = Engine::Instance().m_physics->factory().CreateBox({0,0.2f},0.5f,0.2f);
-	body->SetFriction(0, 0);
-	body->SetFixedRotation(true);
-	ModulePhysics::Layer category, mask;
-	category.flags.player_layer = 1;
-	mask.flags.trigger_layer = 1;
-	mask.flags.ground_layer = 1;
-	mask.flags.npc_layer = 1;
-	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
-
-	category.rawValue = 0;
-	mask.rawValue = 0;
-
-	int fixtureIndex = Engine::Instance().m_physics->factory().AddBox(body, { 0,0 }, 0.5f, 0.5f, sensorData);
-	interactionSensor.SetFixtureToTrack(body, fixtureIndex);
-	body->SetSensor(fixtureIndex, true);
-	category.flags.interactable_layer = 1;
-	mask.flags.interactable_layer = 1;
-	body->SetFilter(fixtureIndex, category.rawValue, mask.rawValue, 0);
-
-	texture = Engine::Instance().m_assetsDB->GetTexture("pj_test");
 
 	int spriteSize = 64;
 	animator = new Animator
@@ -74,7 +46,7 @@ PlayerCharacter::PlayerCharacter()
 				Sprite(texture, {1 * spriteSize,2 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
 				Sprite(texture, {2 * spriteSize,2 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
 				Sprite(texture, {3 * spriteSize,2 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
-			},& position,& scale),	
+			},&position,&scale),
 			AnimationClip("walk-down", true, false, 0.1f,
 			{
 				Sprite(texture, {0 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
@@ -101,7 +73,7 @@ PlayerCharacter::PlayerCharacter()
 				Sprite(texture, {3 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
 				Sprite(texture, {4 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
 				Sprite(texture, {5 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
-			},& position,& scale),
+			},&position,&scale),
 				AnimationClip("run-down", true, false, 0.1f,
 			{
 				Sprite(texture, {0 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
@@ -129,47 +101,27 @@ PlayerCharacter::PlayerCharacter()
 				Sprite(texture, {4 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
 				Sprite(texture, {5 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
 			},&position,&scale)
-			
+
 		}, 0
 	);
 
-	ModuleAudio* audioRef = Engine::Instance().m_audio;
-	ModuleAssetDatabase* assetsRef = Engine::Instance().m_assetsDB;
-
-	animator->GetAnimationClip("walk-top")->GetSprite(0).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-	animator->GetAnimationClip("walk-top")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-
-	animator->GetAnimationClip("walk-down")->GetSprite(0).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-	animator->GetAnimationClip("walk-down")->GetSprite(3).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-
-	animator->GetAnimationClip("walk-horizontally")->GetSprite(0).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-	animator->GetAnimationClip("walk-horizontally")->GetSprite(3).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-
-	animator->GetAnimationClip("run-top")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-	animator->GetAnimationClip("run-top")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-
-	animator->GetAnimationClip("run-down")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-	animator->GetAnimationClip("run-down")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-
-	animator->GetAnimationClip("run-horizontally")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-	animator->GetAnimationClip("run-horizontally")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-
-
-	followers.emplace_back(new FollowerCharacter(this, 20));
-	followers.emplace_back(new FollowerCharacter(this, 40));
-	followers.emplace_back(new FollowerCharacter(this, 60));
-
+	Engine::Instance().m_render->AddToRenderQueue(*this, *this);
+	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+	Engine::Instance().m_updater->AddToUpdateGroup(*this, "Entity");
 }
 
-PlayerCharacter::~PlayerCharacter()
+
+
+FollowerCharacter::~FollowerCharacter()
 {
+	animator->CleanUp();
+	delete animator;
 }
 
-bool PlayerCharacter::Update()
+bool FollowerCharacter::Update()
 {
-	previousPhysicsPosition = position;
-
-	GetInput();
+	
+	SearchPath();
 	Animate();
 	Move();
 
@@ -179,72 +131,58 @@ bool PlayerCharacter::Update()
 	return true;
 }
 
-void PlayerCharacter::Render()
+void FollowerCharacter::Render()
 {
-	float alpha = Engine::Instance().m_time->GetPhysicsInterpolationAlpha();
-	
-	Vector2 renderPosition = Vector2::Lerp(previousPhysicsPosition, position, alpha);
 
+	SDL_Rect rect = { 0,0,64,64 };
+
+	//Engine::Instance().m_render->painter().RenderTexture(*texture, position, &rect, { 1.f,1.f }, 0, { 0.5f,0.75f });
 	animator->clip()->RenderClip();
 }
 
-bool PlayerCharacter::CleanUp()
+bool FollowerCharacter::CleanUp()
 {
 	Character::CleanUp();
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
-	delete body;
-
-	animator->CleanUp();
-	delete animator;
 	return true;
 }
 
-void PlayerCharacter::GetInput()
+
+void FollowerCharacter::SetCharacterToFollow(Character* _characterToFollow)
 {
-	//// Process Direction
+	characterToFollow = _characterToFollow;
+}
 
-	moveDirection = { 0,0 };
-	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
-		moveDirection.y -= 1;
-	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
-		moveDirection.y += 1;
-	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
-		moveDirection.x -= 1;
-	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
-		moveDirection.x += 1;
+void FollowerCharacter::SearchPath()
+{
+	float accumulator = 0;
 
-	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT) {
-		speedModifier = runSpeedModifier;
-	}else{
-		speedModifier = 1;
-	}
+	for (int i = 0; i < (int)(characterToFollow->pathFollowersData.size())-1; i++) {
+		float previousDistance = accumulator;
+		accumulator += Vector2::Distance(characterToFollow->pathFollowersData[i], characterToFollow->pathFollowersData[i+1]);
+		if (delayDistance < accumulator) {
+			float percentaje = 100 - (delayDistance - previousDistance) *100 / (accumulator- previousDistance);
 
+			position = Vector2::Lerp(characterToFollow->pathFollowersData[i+1], characterToFollow->pathFollowersData[i], percentaje/100.f);
+			if (position != characterToFollow->pathFollowersData[i]) {
+				moveDirection = Vector2::Direction(characterToFollow->pathFollowersData[i + 1], characterToFollow->pathFollowersData[i]);
+			}
 
-	///  Process Actions
+			if (characterToFollow->moveDirection == Vector2{0,0})
+				moveDirection = { 0,0 };
 
-	if (interactionSensor.IsBeingTriggered()) {
-
-		if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_E) == KEY_DOWN) {
-			PhysBody* interactor = interactionSensor.GetClosestBodyColliding();
-			IInteractuable* interactuableObj = reinterpret_cast<IInteractuable*>(interactor->data);
-
-			moveDirection = { 0,0 };
-			interactuableObj->Interact();
+			break;
 		}
-
 	}
-
+}
+void FollowerCharacter::Move()
+{
 }
 
-void PlayerCharacter::Move()
+void FollowerCharacter::Animate()
 {
-	body->SetVelocity(moveDirection * baseSpeed * speedModifier);
-	position = body->GetPhysicPosition();
-}
 
-void PlayerCharacter::Animate()
-{
 	bool isMoving = (moveDirection != Vector2{ 0,0 });
 	if (isMoving)
 		lastDirection = moveDirection;
@@ -258,10 +196,10 @@ void PlayerCharacter::Animate()
 	animator->clip()->Flip(flip);
 
 
-	string animationId = isMoving ? (speedModifier == runSpeedModifier ? "run-" : "walk-") : "idle-";
+	string animationId = isMoving ? (characterToFollow->speedModifier == characterToFollow->runSpeedModifier ? "run-" : "walk-") : "idle-";
 	string animationDirectionId = "";
 
-	if (std::abs(animationDirection.x) >= std::abs(animationDirection.y)) {
+	if (std::abs(animationDirection.x) >= 0.5f) {
 
 		animationDirectionId = "horizontally";
 	}
@@ -274,3 +212,4 @@ void PlayerCharacter::Animate()
 	animationId += animationDirectionId;
 	animator->Animate(animationId);
 }
+

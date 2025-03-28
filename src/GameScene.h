@@ -8,6 +8,7 @@
 class UICanvas;
 class FadeCG;
 class UIDialogueBoxCG;
+class DialogueSystem;
 class PauseMenuCG;
 class GameState;
 class Tilemap;
@@ -37,9 +38,14 @@ public:
 
 	void SetState(State _newState);
 	State GetState();
+	GameState* GetGameState();
 	void SetPreviousState();
 
 	void ExitGame();
+
+	void AddTilemap(string path);
+	Tilemap* GetLastTilemap();
+	void RemoveLastTilemap();
 
 public:
 
@@ -63,6 +69,8 @@ private:
 	State previous_state = State::NONE___DO_NOT_USE;
 	unordered_map<State, GameState*> game_states;
 	bool exitGame = false;
+
+	DialogueSystem* dialogueSystem = nullptr;
 
 	/// UI
 	UICanvas* canvas = nullptr;

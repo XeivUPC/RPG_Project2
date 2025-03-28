@@ -49,7 +49,8 @@ public:
             auto new_obj = std::make_unique<T>();
             raw_ptr = new_obj.get();
             pool.all_objects.push_back(std::move(new_obj));
-            std::cout << "Pool expanded for " << typeid(T).name() << "\n";
+            if (debug)
+                std::cout << "Pool expanded for " << typeid(T).name() << "\n";
         }
         pool.checked_out.insert(raw_ptr);
         raw_ptr->InitPoolObject();
@@ -67,7 +68,8 @@ public:
             pool.available.push(obj);
         }
         else {
-            std::cerr << "Object not from this pool!\n";
+            if (debug)
+                std::cerr << "Object not from this pool!\n";
         }
     }
 
@@ -78,21 +80,22 @@ public:
         auto it = pools_.find(type);
 
         if (it == pools_.end()) {
-            std::cout << "Pool for type " << type.name() << " not found.\n";
+            if (debug)
+                std::cout << "Pool for type " << type.name() << " not found.\n";
             return false;
         }
 
         TypePool<T>& pool = static_cast<TypePool<T>&>(*it->second);
 
         if (!force && !pool.checked_out.empty()) {
-            std::cout << "Cannot delete pool - " << pool.checked_out.size()
-                << " objects still checked out. Use force=true to override.\n";
+            if (debug)
+                std::cout << "Cannot delete pool - " << pool.checked_out.size() << " objects still checked out. Use force=true to override.\n";
             return false;
         }
 
         if (force && !pool.checked_out.empty()) {
-            std::cout << "WARNING: Force deleting pool with " << pool.checked_out.size()
-                << " active objects. Any existing pointers will become invalid!\n";
+            if (debug)
+                std::cout << "WARNING: Force deleting pool with " << pool.checked_out.size() << " active objects. Any existing pointers will become invalid!\n";
 
             for (T* obj : pool.checked_out) {
                 obj->ResetPoolObject();
@@ -102,9 +105,39 @@ public:
         pool.Clear();
 
         pools_.erase(it);
+        if (debug)
+            std::cout << "Pool for type " << type.name() << " deleted " << (force ? "(forced)" : "(normal)") << "\n";
+        return true;
+    }
 
-        std::cout << "Pool for type " << type.name() << " deleted "
-            << (force ? "(forced)" : "(normal)") << "\n";
+    template <typename T>
+    bool ReturnAllToPool() {
+        std::lock_guard<std::mutex> lock(mutex_);
+        auto type = std::type_index(typeid(T));
+        auto it = pools_.find(type);
+
+        if (it == pools_.end()) {
+            if (debug)
+                std::cout << "Pool for type " << type.name() << " not found.\n";
+            return false;
+        }
+
+        TypePool<T>& pool = static_cast<TypePool<T>&>(*it->second);
+
+        if (!pool.checked_out.empty()) {
+            if (debug)
+                std::cout << "WARNING: Force returnig to pool with " << pool.checked_out.size() << " active objects. Any existing pointers will become invalid!\n";
+
+            for (T* obj : pool.checked_out) {
+                obj->ResetPoolObject();
+                pool.available.push(obj);
+            }
+        }
+
+        pool.checked_out.clear();
+
+        if(debug)
+            std::cout << "Pool for type " << type.name() << " returned " << "\n";
         return true;
     }
 
@@ -115,7 +148,8 @@ public:
             pool.Clear();
         }
     }
-
+public:
+        bool debug = false;
 private:
     struct TypePoolBase {
         virtual ~TypePoolBase() = default;
@@ -135,9 +169,6 @@ private:
         }
     };
 
-    std::unordered_map<std::type_index, std::unique_ptr<TypePoolBase>> pools_;
-    std::mutex mutex_;
-
     template <typename T>
     TypePool<T>& GetPool() {
         auto type = std::type_index(typeid(T));
@@ -152,4 +183,7 @@ private:
 
         return *static_cast<TypePool<T>*>(it->second.get());
     }
+    private:
+        std::unordered_map<std::type_index, std::unique_ptr<TypePoolBase>> pools_;
+        std::mutex mutex_;
 };

@@ -321,6 +321,9 @@
     <ClCompile Include="src\Sprite.cpp">
       <Filter>Source Files\Utils\Animation</Filter>
     </ClCompile>
+    <ClCompile Include="src\FollowerCharacter.cpp">
+      <Filter>Source Files\Entities\Type %28Entity%29\Character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -559,6 +562,9 @@
     </ClInclude>
     <ClInclude Include="src\SystemEvent.h">
       <Filter>Source Files\_Core\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FollowerCharacter.h">
+      <Filter>Source Files\Entities\Type %28Entity%29\Character</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
