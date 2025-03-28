@@ -67,11 +67,6 @@ UIDialogueBoxCG::UIDialogueBoxCG(DialogueSystem* _dialogueSystem)
 
 }
 
-UIDialogueBoxCG::~UIDialogueBoxCG()
-{
-	UICanvas::~UICanvas();
-}
-
 void UIDialogueBoxCG::UpdateCanvas()
 {
 
