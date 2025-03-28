@@ -2,6 +2,7 @@
 
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
+#include "CharacterDatabase.h"
 #include "ModuleTime.h"
 #include "TextureAtlas.h"
 #include "DialogueSystem.h"
@@ -14,6 +15,7 @@
 #include "Globals.h"
 
 #include <sstream>
+#include <charconv>
 
 UIDialogueBoxCG::UIDialogueBoxCG(DialogueSystem* _dialogueSystem)
 {
@@ -50,6 +52,7 @@ UIDialogueBoxCG::UIDialogueBoxCG(DialogueSystem* _dialogueSystem)
 	dialogue = _dialogueSystem;
 
 	dialogue->onSignalCall.Subscribe([this](Signal* signal) {SignalReader(signal); });
+	dialogue->onDialogLoaded.Subscribe([this]() {SetVariablesOnStart(); });
 	dialogue->onDialogNodeChange.Subscribe([this]() {ChangeDialogueNode(); });
 	dialogue->onDialogEnd.Subscribe([this]() {EndDialogue(); });
 
@@ -191,6 +194,13 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 			dialogue->AddGameStateVariable("RodrigoState", (float)rodrigoState);
 		}
 	}
+	else if (signal->name == "SetNpcStatusByID") {
+		if (holds_alternative<Vector2>(signal->data)) {
+			Vector2 data = get<Vector2>(signal->data);
+			CharacterDatabase::Instance().GetCharacterData(data.x).state = data.y;
+			dialogue->AddGameStateVariable("Char" + to_string(data.x) + "_State", data.y);
+		}
+	}
 
 
 	//Change dialogue box
@@ -246,4 +256,15 @@ void UIDialogueBoxCG::NextDialogue()
 	else {
 		dialogue->ProcessInput(0);
 	}
+}
+
+void UIDialogueBoxCG::SetVariablesOnStart()
+{
+	CharacterDatabase& databaseCharacters = CharacterDatabase::Instance();
+
+	for (const auto& character : databaseCharacters.GetCharacters())
+	{
+		dialogue->AddGameStateVariable("Char" + to_string(character.second.id) + "_State", (float)character.second.state);
+	}
+	
 }

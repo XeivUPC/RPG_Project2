@@ -9,6 +9,11 @@ CharacterDatabase::CharacterData& CharacterDatabase::GetCharacterData(int id)
     return data[id];
 }
 
+const unordered_map<int, CharacterDatabase::CharacterData>& CharacterDatabase::GetCharacters()
+{
+    return data;
+}
+
 bool CharacterDatabase::Exists(int id)
 {
     return data.count(id) > 0;
@@ -47,6 +52,7 @@ void CharacterDatabase::LoadDatabase()
 
             charData.id = charId;
             charData.name = charName;
+            charData.state = charDataNode.attribute("state").as_int();
             charData.textureId = charDataNode.attribute("textureId").as_string();
             charData.dialoguePath = charDataNode.attribute("dialoguePath").as_string();
 

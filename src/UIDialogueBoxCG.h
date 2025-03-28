@@ -27,6 +27,8 @@ private:
 	void EndDialogue();
 
 	void NextDialogue();
+
+	void SetVariablesOnStart();
 private:
 
 	float amistad = 0;

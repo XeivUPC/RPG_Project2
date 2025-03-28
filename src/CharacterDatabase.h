@@ -9,6 +9,7 @@ class CharacterDatabase {
 		struct CharacterData {
 			int id;
 			string name;
+			int state;
 			string textureId;
 			string dialoguePath;
 		};
@@ -19,6 +20,7 @@ class CharacterDatabase {
 		}
 
 		CharacterData& GetCharacterData(int id);
+		const unordered_map<int, CharacterData>& GetCharacters();
 
 		bool Exists(int id);
 
