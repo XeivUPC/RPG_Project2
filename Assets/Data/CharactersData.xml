@@ -1,20 +1,26 @@
 <?xml version="1.0"?>
 <Characters>
     <Character id = "-1" name = "NPC_TEST">
-        <Data   state ="0"
-			    textureId = "npc_test" 
+        <Data   textureId = "npc_test" 
                 dialoguePath = "Assets/Dialogues/test3.json" />
+        <Stats  state ="0"
+                friendship = "0"
+                love = "0"/>
     </Character>
 
 	<Character id = "0" name = "Cassian">
-        <Data   state ="0"
-			    textureId = "cassian_test" 
-                dialoguePath = "Assets/Dialogues/guard_RS_entrance_right.json" />
+        <Data   textureId = "cassian_test" 
+                dialoguePath = "Assets/Dialogues/guard_RS_entrance_right.json" />       
+        <Stats  state ="0"
+                friendship = "0"
+                love = "0"/>
     </Character>
 
     <Character id = "1" name = "Artis">
-        <Data   state ="0"
-			    textureId = "artis_test" 
-                dialoguePath = "Assets/Dialogues/test4.json" />
+        <Data   textureId = "artis_test" 
+                dialoguePath = "Assets/Dialogues/test4.json" />       
+        <Stats  state ="0"
+                friendship = "0"
+                love = "0"/>
     </Character>
 </Characters>

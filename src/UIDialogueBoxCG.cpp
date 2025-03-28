@@ -56,15 +56,7 @@ UIDialogueBoxCG::UIDialogueBoxCG(DialogueSystem* _dialogueSystem)
 	dialogue->onDialogNodeChange.Subscribe([this]() {ChangeDialogueNode(); });
 	dialogue->onDialogEnd.Subscribe([this]() {EndDialogue(); });
 
-	dialogue->AddGameStateVariable("friendship", amistad);
-	dialogue->AddGameStateVariable("GuardState", (float)guardState);
-	dialogue->AddGameStateVariable("RodrigoState", (float)rodrigoState);
-
 	dialogue->LoadDialogueWorkspace("Assets/Dialogues/Workspaces/RPG_Game.json");
-	dialogue->LoadDialogueFromJSON("Assets/Dialogues/test2.json");
-	amistad = 10;
-	dialogue->StartDialogue();
-
 }
 
 void UIDialogueBoxCG::UpdateCanvas()
@@ -156,51 +148,6 @@ void UIDialogueBoxCG::CreateChoiceButton(string text, int index, float verticalS
 	btns.emplace_back(btn);
 }
 
-void UIDialogueBoxCG::SignalReader(Signal* signal)
-{
-	if (signal->name == "ChangeTextColor") {
-		if (holds_alternative<string>(signal->data)) {
-			vector<int> colorsData;
-			string color = get<string>(signal->data);
-			color.erase(remove(color.begin(), color.end(), ' '));
-			stringstream ss(color);
-			string temp;
-			 
-			while (getline(ss, temp, ','))
-			{
-				colorsData.emplace_back(stoi(temp));
-			}
-			contentTextBox->SetColor({ (unsigned char)colorsData[0], (unsigned char)colorsData[1], (unsigned char)colorsData[2], (unsigned char)colorsData[3] });
-		}
-	}
-	else if (signal->name == "SetTypewriterMode") {
-		if (holds_alternative<float>(signal->data)) {
-			typewriterMode = (bool)((int)get<float>(signal->data));
-		}
-	}
-	else if (signal->name == "SetTypewriterSpeed") {
-		if (holds_alternative<float>(signal->data)) {
-			typewriterSpeed = get<float>(signal->data);
-		}
-	}
-	else if (signal->name == "RodrigoStateUpdate") {
-		if (holds_alternative<float>(signal->data)) {
-			rodrigoState = (int)get<float>(signal->data);
-			dialogue->AddGameStateVariable("RodrigoState", (float)rodrigoState);
-		}
-	}
-	else if (signal->name == "SetNpcStatusByID") {
-		if (holds_alternative<Vector2>(signal->data)) {
-			Vector2 data = get<Vector2>(signal->data);
-			CharacterDatabase::Instance().GetCharacterData(data.x).state = data.y;
-			dialogue->AddGameStateVariable("Char" + to_string(data.x) + "_State", data.y);
-		}
-	}
-
-
-	//Change dialogue box
-}
-
 void UIDialogueBoxCG::ChangeDialogueNode()
 {
 
@@ -253,6 +200,7 @@ void UIDialogueBoxCG::NextDialogue()
 	}
 }
 
+
 void UIDialogueBoxCG::SetVariablesOnStart()
 {
 	CharacterDatabase& databaseCharacters = CharacterDatabase::Instance();
@@ -260,6 +208,76 @@ void UIDialogueBoxCG::SetVariablesOnStart()
 	for (const auto& character : databaseCharacters.GetCharacters())
 	{
 		dialogue->AddGameStateVariable("Char" + to_string(character.second.id) + "_State", (float)character.second.state);
+		dialogue->AddGameStateVariable("Char" + to_string(character.second.id) + "_Friendship", (float)character.second.friendShip);
+		dialogue->AddGameStateVariable("Char" + to_string(character.second.id) + "_Love", (float)character.second.love);
 	}
 	
 }
+
+void UIDialogueBoxCG::SignalReader(Signal* signal)
+{
+	if (signal->name == "ChangeTextColor") {
+		if (holds_alternative<string>(signal->data)) {
+			vector<int> colorsData;
+			string color = get<string>(signal->data);
+			color.erase(remove(color.begin(), color.end(), ' '));
+			stringstream ss(color);
+			string temp;
+
+			while (getline(ss, temp, ','))
+			{
+				colorsData.emplace_back(stoi(temp));
+			}
+			contentTextBox->SetColor({ (unsigned char)colorsData[0], (unsigned char)colorsData[1], (unsigned char)colorsData[2], (unsigned char)colorsData[3] });
+		}
+	}
+	else if (signal->name == "SetTypewriterMode") {
+		if (holds_alternative<float>(signal->data)) {
+			typewriterMode = (bool)((int)get<float>(signal->data));
+		}
+	}
+	else if (signal->name == "SetTypewriterSpeed") {
+		if (holds_alternative<float>(signal->data)) {
+			typewriterSpeed = get<float>(signal->data);
+		}
+	}
+	else if (signal->name == "SetNpcStatusByID") {
+		if (holds_alternative<Vector2>(signal->data)) {
+			Vector2 data = get<Vector2>(signal->data);
+			CharacterDatabase::Instance().GetCharacterData((int)data.x).state = (int)data.y;
+			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_State", data.y);
+		}
+	}
+	else if (signal->name == "SetNpcFriendshipByID") {
+		if (holds_alternative<Vector2>(signal->data)) {
+			Vector2 data = get<Vector2>(signal->data);
+			CharacterDatabase::Instance().GetCharacterData((int)data.x).friendShip = (int)data.y;
+			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_Friendship", data.y);
+		}
+	}
+	else if (signal->name == "AddNpcFriendshipByID") {
+		if (holds_alternative<Vector2>(signal->data)) {
+			Vector2 data = get<Vector2>(signal->data);
+			CharacterDatabase::Instance().GetCharacterData((int)data.x).friendShip += (int)data.y;
+			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_Friendship", data.y);
+		}
+	}
+	else if (signal->name == "SetNpcLoveByID") {
+		if (holds_alternative<Vector2>(signal->data)) {
+			Vector2 data = get<Vector2>(signal->data);
+			CharacterDatabase::Instance().GetCharacterData((int)data.x).love = (int)data.y;
+			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_Love", data.y);
+		}
+	}
+	else if (signal->name == "AddNpcLoveByID") {
+		if (holds_alternative<Vector2>(signal->data)) {
+			Vector2 data = get<Vector2>(signal->data);
+			CharacterDatabase::Instance().GetCharacterData((int)data.x).love += (int)data.y;
+			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_Love", data.y);
+		}
+	}
+
+
+	//Change dialogue box
+}
+

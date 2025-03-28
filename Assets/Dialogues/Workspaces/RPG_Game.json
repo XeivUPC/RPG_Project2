@@ -24,42 +24,42 @@
                 "portraits": [
                     {
                         "name": "Cassian-early-idle",
-                        "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-idle.png",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
                         "uuid": "4554b69f-5f52-41fa-b69d-5fcd5e366cfa"
                     },
                     {
                         "name": "Cassian-early-sad-fade",
-                        "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-sad-fade.png",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-sad-fade.png",
                         "uuid": "2fbbee9b-fa1a-4790-96b7-d656f33940e2"
                     },
                     {
                         "name": "Cassian-early-angry-fade",
-                        "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-angry-fade.png",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-angry-fade.png",
                         "uuid": "d03c4513-94af-4ced-8686-cb3617097bcd"
                     },
                     {
                         "name": "Cassian-early-happy",
-                        "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-happy.png",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-happy.png",
                         "uuid": "e5f848c7-bdbe-4171-9512-d5286b6b55a5"
                     },
                     {
                         "name": "Cassian-late-idle",
-                        "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-late-idle.png",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-late-idle.png",
                         "uuid": "bd5242e9-97df-4563-b008-f220e7658966"
                     },
                     {
                         "name": "Cassian-late-sad-fade",
-                        "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-late-sad-fade.png",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-late-sad-fade.png",
                         "uuid": "4cf717fc-0a3b-40a3-b937-92ef0c651e21"
                     },
                     {
                         "name": "Cassian-late-angry-fade",
-                        "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-late-angry-fade.png",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-late-angry-fade.png",
                         "uuid": "400f4605-28f4-4658-92cd-5b2490b5648e"
                     },
                     {
                         "name": "Cassian-late-happy",
-                        "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-late-happy.png",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-late-happy.png",
                         "uuid": "2285c502-a097-414d-8e6d-b3fcbed2e554"
                     }
                 ],
@@ -70,17 +70,17 @@
                 "portraits": [
                     {
                         "name": "Artis-early-idle",
-                        "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
                         "uuid": "4c31dc6e-2dad-4873-8654-5b42cd387e01"
                     },
                     {
                         "name": "Artis-early-happy",
-                        "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-happy.png",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-happy.png",
                         "uuid": "4f126967-df0b-4cba-b72e-c6dd4f50f767"
                     },
                     {
                         "name": "Artis-late-idle",
-                        "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-late-idle.png",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-late-idle.png",
                         "uuid": "f9ed7dec-dbbf-41ff-a60e-86f682483777"
                     }
                 ],
@@ -91,7 +91,7 @@
                 "portraits": [
                     {
                         "name": "CharlesII-idle",
-                        "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
                         "uuid": "e2f13882-e8c3-4450-b177-5d9a2be9cf30"
                     }
                 ],
@@ -101,34 +101,34 @@
         "files": [
             {
                 "name": "test.json",
-                "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Dialogues/test.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/test.json"
             },
             {
                 "name": "test2.json",
-                "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Dialogues/test2.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/test2.json"
             },
             {
                 "name": "test3.json",
-                "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Dialogues/test3.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/test3.json"
             },
             {
                 "name": "test4.json",
-                "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Dialogues/test4.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/test4.json"
             },
             {
                 "name": "foreigner_bard.json",
-                "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Dialogues/foreigner_bard.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/foreigner_bard.json"
             },
             {
                 "name": "guard_RS_entrance_right.json",
-                "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Dialogues/guard_RS_entrance_right.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/guard_RS_entrance_right.json"
             }
         ]
     },
     "cache": {
         "last_opened_file": {
             "name": "guard_RS_entrance_right.json",
-            "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Dialogues/guard_RS_entrance_right.json"
+            "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/guard_RS_entrance_right.json"
         }
     },
     "info": {

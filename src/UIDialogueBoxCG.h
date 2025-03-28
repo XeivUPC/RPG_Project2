@@ -29,8 +29,6 @@ private:
 
 	void SetVariablesOnStart();
 private:
-
-	float amistad = 0;
 	UITextBox* contentTextBox = nullptr;
 	UITextBox* characterNameTextBox = nullptr;
 	UIImage* dialogueChoiceBox = nullptr;
@@ -47,6 +45,4 @@ private:
 
 	///// Btn
 	vector<UIButton*> btns;
-	int rodrigoState = 0;
-	int guardState = 0;
 };

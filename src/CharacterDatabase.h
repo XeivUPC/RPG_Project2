@@ -7,11 +7,18 @@ class CharacterDatabase {
 	public:
 
 		struct CharacterData {
+			///Basic
 			int id;
 			string name;
-			int state;
+
+			///Data
 			string textureId;
 			string dialoguePath;
+
+			///Stats
+			int state;
+			int friendShip;
+			int love;
 		};
 
 		static CharacterDatabase& Instance() {
