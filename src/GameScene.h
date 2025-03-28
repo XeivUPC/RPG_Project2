@@ -9,6 +9,7 @@ class UICanvas;
 class FadeCG;
 class UIDialogueBoxCG;
 class DialogueSystem;
+class CombatSystem;
 class PauseMenuCG;
 class GameState;
 class Tilemap;
@@ -73,6 +74,7 @@ private:
 	bool exitGame = false;
 
 	DialogueSystem* dialogueSystem = nullptr;
+	CombatSystem* combatSystem = nullptr;
 
 	/// UI
 	UICanvas* canvas = nullptr;

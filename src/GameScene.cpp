@@ -10,6 +10,7 @@
 #include "PlayerCharacter.h"
 #include "CameraController.h"
 #include "DialogueSystem.h"
+#include "CombatSystem.h"
 
 ///Pooling
 #include "Pooling.h"
@@ -64,6 +65,10 @@ bool GameScene::Start()
     //canvas->renderLayer = 6;
 
 	dialogueSystem = new DialogueSystem();
+    dialogueCanvas = new UIDialogueBoxCG(dialogueSystem);
+    dialogueCanvas->renderLayer = 7;
+
+    combatSystem = new CombatSystem();
     dialogueCanvas = new UIDialogueBoxCG(dialogueSystem);
     dialogueCanvas->renderLayer = 7;
 

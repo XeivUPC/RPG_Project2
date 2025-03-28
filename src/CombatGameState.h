@@ -1,10 +1,8 @@
 #pragma once
 #include "GameState.h"
+#include <vector>
 
 class CombatGameState : public GameState {
-private:
-	int turn = 0;
-	std::vector<pair<int, bool>> npcActionCompletedList;
 public:
 	CombatGameState();
 	bool PreUpdateState() override;
