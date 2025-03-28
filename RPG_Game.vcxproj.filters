@@ -602,6 +602,9 @@
     <ClInclude Include="src\Stats.h">
       <Filter>Source Files\Entities</Filter>
     </ClInclude>
+    <ClInclude Include="src\Attack.h">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Assets\Data\UserPrefs.xml">

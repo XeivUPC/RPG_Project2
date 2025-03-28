@@ -13,7 +13,6 @@ struct Signal;
 class UIDialogueBoxCG : public UICanvas {
 public:
 	UIDialogueBoxCG(DialogueSystem* _dialogueSystem);
-	~UIDialogueBoxCG() override;
 
 	void UpdateCanvas();
 

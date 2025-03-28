@@ -206,6 +206,7 @@
     <ClInclude Include="src\AnimationClip.h" />
     <ClInclude Include="src\Animator.h" />
     <ClInclude Include="src\AtlasFactory.h" />
+    <ClInclude Include="src\Attack.h" />
     <ClInclude Include="src\AudioContainer.h" />
     <ClInclude Include="src\AudioFactory.h" />
     <ClInclude Include="src\Building.h" />
