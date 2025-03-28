@@ -54,6 +54,7 @@ UIDialogueBoxCG::UIDialogueBoxCG(DialogueSystem* _dialogueSystem)
 	dialogue->onDialogEnd.Subscribe([this]() {EndDialogue(); });
 
 	dialogue->AddGameStateVariable("friendship", amistad);
+	dialogue->AddGameStateVariable("GuardState", (float)guardState);
 	dialogue->AddGameStateVariable("RodrigoState", (float)rodrigoState);
 
 	dialogue->LoadDialogueWorkspace("Assets/Dialogues/Workspaces/RPG_Game.json");

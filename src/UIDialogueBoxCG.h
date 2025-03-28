@@ -47,4 +47,5 @@ private:
 	///// Btn
 	vector<UIButton*> btns;
 	int rodrigoState = 0;
+	int guardState = 0;
 };

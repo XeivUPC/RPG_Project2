@@ -88,13 +88,7 @@
             },
             {
                 "name": "guard_RS_right",
-                "portraits": [
-                    {
-                        "name": "CharlesII-idle",
-                        "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
-                        "uuid": "e2f13882-e8c3-4450-b177-5d9a2be9cf30"
-                    }
-                ],
+                "portraits": [],
                 "uuid": "fe750287-6cfa-424a-a12f-da4536409d60"
             }
         ],

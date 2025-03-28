@@ -166,6 +166,10 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
                     signal.data = stof(signal_data.begin()->get<string>());
                     signal.type = SignalType::Number;
                 }
+                else if (key == "Vector2") {
+                   /* signal.data = stof(signal_data.begin()->get<string>());
+                    signal.type = SignalType::Vector2;*/
+                }
                 else if (key == "Empty") {
                     signal.data = monostate{};
                     signal.type = SignalType::Empty;

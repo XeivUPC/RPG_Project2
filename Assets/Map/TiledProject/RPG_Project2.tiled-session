@@ -5,12 +5,12 @@
     },
     "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
     "expandedProjectPaths": [
+        "Prefabs/Buildings",
         "Objects",
-        "Maps",
-        "Prefabs",
-        ".",
         "Tilesets",
-        "Prefabs/Buildings"
+        "Maps",
+        ".",
+        "Prefabs"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -55,8 +55,8 @@
             "scale": 1.5,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 622,
-                "y": 287.33333333333326
+                "x": 185.66666666666666,
+                "y": 304
             }
         },
         "Maps/Testing_Zone.tmx": {

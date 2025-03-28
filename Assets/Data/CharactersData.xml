@@ -7,7 +7,7 @@
 
 	<Character id = "0" name = "Cassian">
         <Data   textureId = "cassian_test" 
-                dialoguePath = "Assets/Dialogues/test3.json" />
+                dialoguePath = "Assets/Dialogues/guard_RS_entrance_right.json" />
     </Character>
 
     <Character id = "1" name = "Artis">
