@@ -15,6 +15,7 @@ public:
 	void CleanUp();
 
 	AnimationClip* GetAnimationClip(const string& animationName);
+	vector<AnimationClip>& GetAnimationClips();
 
 public:
 	SystemEvent<string> onAnimationChanged;
