@@ -72,11 +72,6 @@ PlayerCharacter::PlayerCharacter()
 	animator->GetAnimationClip("run-horizontally")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
 	animator->GetAnimationClip("run-horizontally")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
 
-
-	followers.emplace_back(new FollowerCharacter(this, 20,-1));
-	followers.emplace_back(new FollowerCharacter(this, 40, -1));
-	followers.emplace_back(new FollowerCharacter(this, 60, -1));
-
 }
 
 PlayerCharacter::~PlayerCharacter()
@@ -134,6 +129,16 @@ bool PlayerCharacter::SetCharacterId(int _charId)
 	return false;
 }
 
+void PlayerCharacter::AddToActiveParty(int _charId)
+{
+	AddFollower(_charId, distanceBetweenFollowers);
+}
+
+void PlayerCharacter::RemoveFromActiveParty(int _charId)
+{
+	RemoveFollower(_charId);
+}
+
 void PlayerCharacter::GetInput()
 {
 	//// Process Direction
@@ -167,6 +172,20 @@ void PlayerCharacter::GetInput()
 			interactuableObj->Interact();
 		}
 
+	}
+
+	/// Party Testing
+
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_J) == KEY_DOWN) {
+		AddToActiveParty(0);
+	}
+
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_K) == KEY_DOWN) {
+		AddToActiveParty(1);
+	}
+
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_L) == KEY_DOWN) {
+		RemoveFromActiveParty(1);
 	}
 
 }

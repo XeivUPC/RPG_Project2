@@ -149,3 +149,42 @@ bool Character::SetCharacterId(int _charId)
     }
     return false;
 }
+
+bool Character::GetCharacterId() const
+{
+	return characterId;
+}
+
+void Character::AddFollower(int _charId, float distance)
+{
+	if (followers.size() < maxFollowers) {
+		followers.emplace_back(new FollowerCharacter(this, totalFollowerDistance + distance, _charId));
+		currentFollowers++;
+		totalFollowerDistance += distance;
+	}
+}
+
+void Character::RemoveFollower(int _charId)
+{
+	int charPos = 0;
+	for (auto it = followers.begin(); it != followers.end(); ++it) {
+		if ((*it)->GetCharacterId() == _charId) {
+			int distanceDifference = (*it)->GetDelayDistance() - (charPos > 0 ? followers[charPos - 1]->GetDelayDistance() : 0);
+			totalFollowerDistance -= distanceDifference;
+			for (int i = charPos + 1; i < followers.size(); ++i) {
+				followers[i]->SetDelayDistance(followers[i]->GetDelayDistance() - distanceDifference);
+			}
+			(*it)->CleanUp();
+			followers.erase(it);
+			currentFollowers--;
+			return;
+		}
+		charPos++;
+	}
+
+	printf("Follower with ID %d not found", _charId);
+}
+
+void Character::GetFollowers() const
+{
+}
