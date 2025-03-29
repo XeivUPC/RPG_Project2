@@ -342,6 +342,9 @@
     <ClCompile Include="src\CombatSystem.cpp">
       <Filter>Source Files\Utils\Combat</Filter>
     </ClCompile>
+    <ClCompile Include="src\Attack.cpp">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">

@@ -136,6 +136,7 @@
     <ClCompile Include="src\AnimationClip.cpp" />
     <ClCompile Include="src\Animator.cpp" />
     <ClCompile Include="src\AtlasFactory.cpp" />
+    <ClCompile Include="src\Attack.cpp" />
     <ClCompile Include="src\AudioContainer.cpp" />
     <ClCompile Include="src\AudioFactory.cpp" />
     <ClCompile Include="src\Building.cpp" />

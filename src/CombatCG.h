@@ -14,6 +14,12 @@ class Animator;
 
 class CombatCG : public UICanvas
 {
+public:
+	CombatCG(CombatSystem* _combatSystem);
+	void UpdateCanvas();
+
+private:
+	CombatSystem* combatSystem;
 	struct OverworldCharacter
 	{
 		int CharacterId;
@@ -28,7 +34,4 @@ class CombatCG : public UICanvas
 		UITextBox* btn_text;
 		EventId onClick;
 	};
-public:
-	CombatCG(CombatSystem* _combatSystem);
-	void UpdateCanvas();
 };

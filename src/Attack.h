@@ -1,15 +1,8 @@
+#include "CombatSystem.h"
+
 class Attack
 {
-	enum Target_Type
-	{
-		Enemy,
-		Ally
-	};
-private:
-	int damage;
-	int stamina;
-	int accuracity;
-	int targetAmmount;
-	Target_Type attackTarget;
 public:
+	int priority = 0;
+	virtual void DoAttack(CombatSystem::CharacterCombatStats& attacker, std::vector<CombatSystem::CharacterCombatStats&>& target);
 };
