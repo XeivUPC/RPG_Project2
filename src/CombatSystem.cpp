@@ -28,9 +28,9 @@ void CombatSystem::AddAttack(Attack* attack, CharacterReference& attacker, vecto
 	{
 		CharacterReference& reference = *targets[i];
 		CharacterCombatStats& tempData = charactersInCombat[reference.team][reference.position];
-		targetData.emplace_back(tempData);
+		targetData.emplace_back(&tempData);
 	}
-	attackList.emplace_back(pair<CharacterCombatStats&, TurnAttack>(attackerData, TurnAttack{ attack,targetData }));
+	attackList.emplace_back(pair<CharacterCombatStats*, TurnAttack>(&attackerData, TurnAttack{ attack,targetData }));
 }
 
 CombatSystem::CombatState CombatSystem::GetCombatState()
@@ -146,16 +146,16 @@ CombatSystem::~CombatSystem()
 
 void CombatSystem::CheckDeadCharacters()
 {
-	for (auto& team : charactersInCombat)
-	{
-		for (auto& character : team.second)
-		{
-			if (character.health <= 0)
-			{
-				//Puede dar error APT APT APT APT
-				team.second.erase(std::remove(team.second.begin(), team.second.end(), character), team.second.end());
-			}
-		}
+	for (auto& team : charactersInCombat) {
+		auto& characters = team.second;
+		characters.erase(
+			std::remove_if(
+				characters.begin(),
+				characters.end(),
+				[](const CharacterCombatStats& c) { return c.health <= 0; }
+			),
+			characters.end()
+		);
 	}
 }
 

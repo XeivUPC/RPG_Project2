@@ -26,3 +26,7 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 
 	AddElementToCanvas(attackSelectionBackground);
 }
+
+void CombatCG::UpdateCanvas()
+{
+}

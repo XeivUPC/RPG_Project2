@@ -156,11 +156,12 @@ bool GameScene::PostUpdate()
 bool GameScene::CleanUp()
 {
     delete dialogueCanvas;
+    delete combatCanvas;
     delete pauseCanvas;
     //delete canvas;
     delete fade;
     delete dialogueSystem;
-   
+    delete combatSystem;
 
     for (; game_states.size() != 0;)
     {
