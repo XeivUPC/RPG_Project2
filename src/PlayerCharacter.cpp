@@ -131,12 +131,77 @@ bool PlayerCharacter::SetCharacterId(int _charId)
 
 void PlayerCharacter::AddToActiveParty(int _charId)
 {
-	AddFollower(_charId, distanceBetweenFollowers);
+	if (!AddFollower(_charId, distanceBetweenFollowers))
+		return;
+	activeParty.emplace_back(_charId);
+	for (const auto& member : activeParty) {
+		printf("%d ", member);
+	}
+	printf("\n");
 }
 
-void PlayerCharacter::RemoveFromActiveParty(int _charId)
+void PlayerCharacter::RemoveFromActivePartyById(int _charId)
 {
-	RemoveFollower(_charId);
+	if (!RemoveFollowerById(_charId))
+		return;
+	for (int pos = 0; pos < activeParty.size(); ++pos) {
+		if (activeParty[pos] == _charId)
+		{
+			activeParty.erase(activeParty.begin() + pos);
+		}	
+	}
+	for (const auto& member : activeParty) {
+		printf("%d ", member);
+	}
+	printf("\n");
+}
+
+void PlayerCharacter::RemoveFromActivePartyByIndex(int _charPos)
+{
+	if (!RemoveFollowerByIndex(_charPos))
+		return;
+	activeParty.erase(activeParty.begin() + _charPos);
+	for (const auto& member : activeParty) {
+		printf("%d ", member);
+	}
+	printf("\n");
+}
+
+vector<int> PlayerCharacter::GetActiveParty() const
+{
+	return activeParty;
+}
+
+void PlayerCharacter::EditActiveParty(int _charId, int _charPos)
+{
+	if (!EditFollower(_charId, _charPos)) {
+		return;
+	}
+	activeParty.at(_charPos) = _charId;
+	for (const auto& member : activeParty) {
+		printf("%d ", member);
+	}
+	printf("\n");
+}
+
+void PlayerCharacter::AddToFullParty(int _charId)
+{
+	fullParty.emplace_back(_charId);
+}
+
+void PlayerCharacter::RemoveFromFullParty(int _charId)
+{
+	for (int pos = 0; pos < fullParty.size(); ++pos) {
+		if (fullParty[pos] == _charId)
+		{
+			fullParty.erase(fullParty.begin() + pos);
+		}
+	}
+}
+
+vector<int> PlayerCharacter::GetFullParty() const
+{
+	return fullParty;
 }
 
 void PlayerCharacter::GetInput()
@@ -185,7 +250,15 @@ void PlayerCharacter::GetInput()
 	}
 
 	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_L) == KEY_DOWN) {
-		RemoveFromActiveParty(1);
+		RemoveFromActivePartyById(1);
+	}
+
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_H) == KEY_DOWN) {
+		RemoveFromActivePartyByIndex(0);
+	}
+
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_U) == KEY_DOWN) {
+		EditActiveParty(-1,0);
 	}
 
 }

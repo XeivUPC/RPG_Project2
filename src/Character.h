@@ -52,9 +52,11 @@ protected:
 	Vector2 previousPhysicsPosition = { 0,0 };
 
 	
-	void AddFollower(int _charId, float distance);
-	void RemoveFollower(int _charId);
-	void GetFollowers() const;
+	bool AddFollower(int _charId, float distance);
+	bool RemoveFollowerById(int _charId);
+	bool RemoveFollowerByIndex(int _charIndex);
+	bool EditFollower(int _charId, int _charIndex);
+	bool GetFollowers() const;
 
 	vector<FollowerCharacter*> followers;
 	deque<Vector2> pathFollowersData;

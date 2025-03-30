@@ -155,16 +155,18 @@ bool Character::GetCharacterId() const
 	return characterId;
 }
 
-void Character::AddFollower(int _charId, float distance)
+bool Character::AddFollower(int _charId, float distance)
 {
 	if (followers.size() < maxFollowers) {
 		followers.emplace_back(new FollowerCharacter(this, totalFollowerDistance + distance, _charId));
 		currentFollowers++;
 		totalFollowerDistance += distance;
+		return true;
 	}
+	return false;
 }
 
-void Character::RemoveFollower(int _charId)
+bool Character::RemoveFollowerById(int _charId)
 {
 	int charPos = 0;
 	for (auto it = followers.begin(); it != followers.end(); ++it) {
@@ -175,16 +177,48 @@ void Character::RemoveFollower(int _charId)
 				followers[i]->SetDelayDistance(followers[i]->GetDelayDistance() - distanceDifference);
 			}
 			(*it)->CleanUp();
+			delete (*it);
 			followers.erase(it);
 			currentFollowers--;
-			return;
+			return true;
 		}
 		charPos++;
 	}
 
-	printf("Follower with ID %d not found", _charId);
+	printf("Follower with ID %d not found\n", _charId);
+	return false;
 }
 
-void Character::GetFollowers() const
+bool Character::RemoveFollowerByIndex(int followerPos)
 {
+	if (followerPos < followers.size()) {
+		int distanceDifference = followers[followerPos]->GetDelayDistance() - (followerPos > 0 ? followers[followerPos - 1]->GetDelayDistance() : 0);
+		totalFollowerDistance -= distanceDifference;
+		for (int i = followerPos + 1; i < followers.size(); ++i) {
+			followers[i]->SetDelayDistance(followers[i]->GetDelayDistance() - distanceDifference);
+		}
+		followers[followerPos]->CleanUp();
+		delete (followers[followerPos]);
+		followers.erase(followers.begin() + followerPos);
+		currentFollowers--;
+		return true;
+	}
+
+	printf("No follower in position %d\n", followerPos);
+	return false;
+}
+
+bool Character::EditFollower(int _charId, int _charIndex)
+{
+	if (_charIndex < followers.size()) {
+		followers[_charIndex]->SetCharacterId(_charId);
+		return true;
+	}
+	return false;
+}
+
+bool Character::GetFollowers() const
+{
+	return true;
+	return false;
 }
