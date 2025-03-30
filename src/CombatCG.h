@@ -25,6 +25,7 @@ private:
 	{
 		CombatSystem::CharacterReference CharacterId;
 		Animator* animator;
+		UIButton* btn;
 		UITextBox* name;
 		UISlider* health;
 	};
@@ -36,8 +37,12 @@ private:
 		EventId onClick;
 	};
 
+	UIImage* combatBackground = nullptr;
 	UIImage* attackSelectionBackground = nullptr;
 	UITextBox* description = nullptr;
 	vector<AttackSelectionButtonData> availableAttacks;
 	vector<OverworldCharacter> availableTargets;
+
+	void EnableAttackDescription(int attackIndex);
+	void DisableAttackDescription();
 };
