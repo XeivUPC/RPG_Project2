@@ -21,6 +21,7 @@
 
 #include "FadeCG.h"
 #include "UIDialogueBoxCG.h"
+#include "CombatCG.h"
 #include "PauseMenuCG.h"
 
 /// States
@@ -63,12 +64,11 @@ bool GameScene::Start()
 
     //canvas = new UITestingCG();
     //canvas->renderLayer = 6;
+    combatSystem = new CombatSystem();
+    combatCanvas = new CombatCG(combatSystem);
+    combatCanvas->renderLayer = 7;
 
 	dialogueSystem = new DialogueSystem();
-    dialogueCanvas = new UIDialogueBoxCG(dialogueSystem);
-    dialogueCanvas->renderLayer = 7;
-
-    combatSystem = new CombatSystem();
     dialogueCanvas = new UIDialogueBoxCG(dialogueSystem);
     dialogueCanvas->renderLayer = 7;
 
@@ -90,7 +90,7 @@ bool GameScene::Start()
     game_states[State::Combat] = new CombatGameState();
     game_states[State::Combat]->StateDeselected();
 
-    SetState(State::Exploring);
+    SetState(State::Combat);
 
     ////
 
@@ -129,7 +129,7 @@ bool GameScene::Update()
 
     if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_C) == KEY_DOWN)
     {
-        SetCombat()
+        //SetCombat();
     }
 
     Engine::Instance().m_render->SortRenderQueueLayerByPosition(3);

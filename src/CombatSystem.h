@@ -55,12 +55,12 @@ public:
 	struct TurnAttack
 	{
 		Attack* attack;
-		vector<CharacterCombatStats&> targets;
+		vector<CharacterCombatStats*> targets;
 	};
 
 	CombatSystem();
 	void AddPartyToCombat(vector<int> party, CharacterType party_type);
-	void AddAttack(Attack* attack, CharacterReference& attacker, vector<CharacterReference&> targets);
+	void AddAttack(Attack* attack, CharacterReference& attacker, vector<CharacterReference*> targets);
 	CombatState GetCombatState();
 	void StartCombat();
 	void UpdateCombat();
@@ -73,5 +73,5 @@ private:
 	unordered_map <CharacterType, vector<CharacterCombatStats>> charactersInCombat;
 	int turn = 0;
 	CombatState state = CombatState::START;
-	vector<pair<CharacterCombatStats&, TurnAttack>> attackList;
+	vector<pair<CharacterCombatStats*, TurnAttack>> attackList;
 };

@@ -8,6 +8,7 @@
 class UICanvas;
 class FadeCG;
 class UIDialogueBoxCG;
+class CombatCG;
 class DialogueSystem;
 class CombatSystem;
 class PauseMenuCG;
@@ -81,6 +82,7 @@ private:
 	PauseMenuCG* pauseCanvas = nullptr;
 	FadeCG* fade = nullptr;
 	UIDialogueBoxCG* dialogueCanvas = nullptr;
+	CombatCG* combatCanvas = nullptr;
 
 	/// Map
 	vector<Tilemap*> tilemaps;

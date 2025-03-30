@@ -20,13 +20,13 @@ void CombatSystem::AddPartyToCombat(vector<int> party, CharacterType party_type)
 	}
 }
 
-void CombatSystem::AddAttack(Attack* attack, CharacterReference& attacker, vector<CharacterReference&> targets)
+void CombatSystem::AddAttack(Attack* attack, CharacterReference& attacker, vector<CharacterReference*> targets)
 {
 	CharacterCombatStats& attackerData = charactersInCombat[attacker.team][attacker.position];
-	vector<CharacterCombatStats&> targetData;
+	vector<CharacterCombatStats*> targetData;
 	for (size_t i = 0; i < targets.size(); i++)
 	{
-		CharacterReference& reference = targets[i];
+		CharacterReference& reference = *targets[i];
 		CharacterCombatStats& tempData = charactersInCombat[reference.team][reference.position];
 		targetData.emplace_back(tempData);
 	}
@@ -41,7 +41,6 @@ CombatSystem::CombatState CombatSystem::GetCombatState()
 void CombatSystem::StartCombat()
 {
 	state = CombatState::START;
-	
 }
 
 void CombatSystem::UpdateCombat()
@@ -61,9 +60,9 @@ void CombatSystem::UpdateCombat()
 		break;
 	case CombatSystem::ATTACKS:
 		sort(attackList.begin(), attackList.end(),
-		[](pair< CharacterCombatStats&, Attack*>& a, pair< CharacterCombatStats&, Attack*>& b) {
-			Stat as = a.first.speed;
-			Stat bs = b.first.speed;
+		[](pair< CharacterCombatStats*, TurnAttack>& a, pair< CharacterCombatStats*, TurnAttack>& b) {
+			Stat as = a.first->speed;
+			Stat bs = b.first->speed;
 			float aSpeed = as.defaultValue * as.multiplier;
 			float bSpeed = bs.defaultValue * bs.multiplier;
 
@@ -73,23 +72,23 @@ void CombatSystem::UpdateCombat()
 				return 3;                      
 			};
 
-			int group_a = getGroup(a.second->priority);
-			int group_b = getGroup(b.second->priority);
+			int group_a = getGroup(a.second.attack->priority);
+			int group_b = getGroup(b.second.attack->priority);
 
 			if (group_a != group_b) {
 				return group_a < group_b; 
 			}
 
-			if (a.second->priority != b.second->priority) {
-				return a.second->priority > b.second->priority;
+			if (a.second.attack->priority != b.second.attack->priority) {
+				return a.second.attack->priority > b.second.attack->priority;
 			}
 			return aSpeed > bSpeed;
 		});
 		for (auto& attack : attackList)
 		{
-			if (attack.first.health <= 0)
+			if (attack.first->health <= 0)
 				continue;
-			attack.second.attack->DoAttack(attack.first,attack.second.targets);
+			attack.second.attack->DoAttack(*attack.first,attack.second.targets);
 			
 		}
 		CheckDeadCharacters();

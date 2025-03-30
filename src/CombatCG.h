@@ -2,6 +2,7 @@
 #include "UICanvas.h"
 #include "StepTimer.h"
 #include "SystemEvent.h"
+#include "CombatSystem.h"
 #include <string>
 #include <vector>
 
@@ -17,21 +18,26 @@ class CombatCG : public UICanvas
 public:
 	CombatCG(CombatSystem* _combatSystem);
 	void UpdateCanvas();
+	CombatSystem* combatSystem;
 
 private:
-	CombatSystem* combatSystem;
 	struct OverworldCharacter
 	{
-		int CharacterId;
+		CombatSystem::CharacterReference CharacterId;
 		Animator* animator;
 		UITextBox* name;
 		UISlider* health;
 	};
 
 	struct AttackSelectionButtonData {
-		int AttackId;
+		Attack* attack;
 		UIButton* btn;
 		UITextBox* btn_text;
 		EventId onClick;
 	};
+
+	UIImage* attackSelectionBackground = nullptr;
+	UITextBox* description = nullptr;
+	vector<AttackSelectionButtonData> availableAttacks;
+	vector<OverworldCharacter> availableTargets;
 };
