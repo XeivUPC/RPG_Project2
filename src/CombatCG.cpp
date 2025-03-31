@@ -86,8 +86,14 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 	returnToSelectCharacterButton->interactable = false;
 	returnToSelectCharacterButton->onMouseClick.Subscribe([this]() {	SetSelectingTargetMode(false); });
 
+	confirmAtackButton = new UIButton(*tex4, { LOGIC_SCREEN_WIDTH - 20,LOGIC_SCREEN_HEIGHT - 100 }, { 19, 19 }, { 19,0,19,19 }, { 0.5f,0.5f });
+	confirmAtackButton->localVisible = false;
+	confirmAtackButton->interactable = false;
+	confirmAtackButton->onMouseClick.Subscribe([this]() {	AddAttack(); });
+
 	AddElementToCanvas(endTurnButton);
 	AddElementToCanvas(returnToSelectCharacterButton);
+	AddElementToCanvas(confirmAtackButton);
 }
 
 void CombatCG::SetUpCanvas()
@@ -277,9 +283,18 @@ void CombatCG::SetSelectingTargetMode(bool mode)
 {
 	returnToSelectCharacterButton->interactable = mode;
 	returnToSelectCharacterButton->localVisible = mode;
+
+	confirmAtackButton->interactable = mode;
+	confirmAtackButton->localVisible = mode;
+
 	selectingTarget = mode;
 
 	//// Hide or disable buttons attack
+
+	for (size_t i = 0; i < attackButtons.size(); i++)
+	{
+		attackButtons[i].btn->interactable = !mode;
+	}
 }
 
 void CombatCG::SelectTarget(OverworldCharacter& character)

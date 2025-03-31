@@ -84,6 +84,7 @@ private:
 	UIImage* selectedCharacterIndicator = nullptr;
 
 	UIButton* endTurnButton = nullptr;
+	UIButton* confirmAtackButton = nullptr;
 
 
 
@@ -111,6 +112,3 @@ private:
 
 	void OnStateChanged();
 };
-
-//
-//Attack* attack, CharacterReference& attacker, vector<CharacterReference*> targets
