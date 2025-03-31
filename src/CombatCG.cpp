@@ -4,6 +4,7 @@
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
 #include "ModuleTime.h"
+#include "ModuleInput.h"
 #include "TextureAtlas.h"
 #include "DialogueSystem.h"
 #include "DrawingTools.h"
@@ -16,12 +17,20 @@
 #include "Globals.h"
 #include "Attack.h"
 
+#include "math.h"
+
 CombatCG::CombatCG(CombatSystem* _combatSystem)
 {
 	combat = _combatSystem;
 
 	availableAttacks = vector<AttackSelectionButtonData>(4);
-	availableTargets = vector<OverworldCharacter>(8);
+	availableTargets = vector<OverworldCharacter>{
+		OverworldCharacter(0, CombatSystem::CharacterType::Ally),
+		OverworldCharacter(1, CombatSystem::CharacterType::Ally),
+		OverworldCharacter(2, CombatSystem::CharacterType::Ally),
+		OverworldCharacter(0, CombatSystem::CharacterType::Enemy),
+		OverworldCharacter(1, CombatSystem::CharacterType::Enemy)
+	};
 
 	_TTF_Font* font = Engine::Instance().m_assetsDB->GetFont("alagard");
 
@@ -54,22 +63,23 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 
 	for (int i = 0; i < availableTargets.size(); i++)
 	{
-		Vector2Int position = { 0,0 };
-		position.x = LOGIC_SCREEN_WIDTH / 4 + LOGIC_SCREEN_WIDTH / 2 * (i / 4);
-		if (i % 2 == 0)
-		{
-			int i2 = i;
-			if(i2 > 3)i2 -= 4;
-			position.x += 48 - 96 * (i2 / 2);
-		}
+		int teamMember = i;
+		if(teamMember > TeamMembersQuantity(CombatSystem::Ally))
+			teamMember -= TeamMembersQuantity(CombatSystem::Ally);
+		Vector2 position = { 0,LOGIC_SCREEN_HEIGHT/2 };
+		Vector2 offset = { 0,0 };
+		Vector2 displacement = { 30,10 };
+		if (availableTargets[i].CharacterId.team == CombatSystem::Ally)
+			position.x = LOGIC_SCREEN_WIDTH / 4;
 		else
-		{
-			int i2 = i;
-			if (i2 > 3)i2 -= 4;
-			position.y += 48 - 96 * (i2 / 3);
-		}
-		Vector2Int offset = { 0, 150 };
-		availableTargets[i].btn = new UIButton(position+offset, {32, 62}, {0,0,0,0},{0.5f,0.5f},{255,255,255,0});
+			position.x = LOGIC_SCREEN_WIDTH / 4 * 3;
+
+		offset.x = cosf((360 / TeamMembersQuantity(availableTargets[i].CharacterId.team)) * teamMember);
+		if (availableTargets[i].CharacterId.team == CombatSystem::Enemy)
+			offset *= -1;
+		offset.y = sinf((360 / TeamMembersQuantity(availableTargets[i].CharacterId.team)) * teamMember);
+
+		availableTargets[i].btn = new UIButton(position + Vector2{offset.x* displacement.x,offset.y*displacement.y}, { 32, 62 }, { 0,0,0,0 }, { 0.5f,0.5f }, { 255,255,255,0 });
 		availableTargets[i].btn->debug = true;
 		AddElementToCanvas(availableTargets[i].btn);
 
@@ -83,12 +93,30 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 	attackConfirm = new UIButton(*tex3, {LOGIC_SCREEN_WIDTH/2,0}, { 19, 19 }, { 0,0,19,19 }, { 0.5f,0.5f });
 	attackConfirm->AddRect(UIButton::ButtonStates::HOVER, { 19,0,19,19 });
 	attackConfirm->SetParent(attackSelectionBackground);
+	attackConfirm->onMouseClick.Subscribe([this]() {SwitchCharacter(); });
+
+	currentCharacter = new UIImage(*tex3,{0,-60},{19,19},{0.5f,0.5f}, true, {19,0,19,19});
+	currentCharacter->SetParent(availableTargets[currentCombatCharacter].btn);
 }
 
 void CombatCG::UpdateCanvas()
 {
 	combat->UpdateCombat();
-	
+	//1er jugador (currentCombatCharacter == 0)
+	switch (combat->GetCombatState())
+	{
+	case CombatSystem::START:
+		currentCombatCharacter = 0;
+
+		break;
+	case CombatSystem::PLAYER_TURN:
+
+		break;
+	default:
+		break;
+	}
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_A)==KEY_DOWN)
+		SwitchCharacter();
 	UICanvas::UpdateCanvas();
 }
 
@@ -104,4 +132,23 @@ void CombatCG::DisableAttackDescription(int attackIndex)
 	if (currentAttackDescription != attackIndex)
 		return;
 	description->SetText("");
+}
+
+void CombatCG::SwitchCharacter()
+{
+	currentCombatCharacter++;
+	if (currentCombatCharacter == 4)
+		combat->ChangeState(CombatSystem::CombatState::ENEMY_TURN);
+	currentCharacter->SetParent(availableTargets[currentCombatCharacter].btn);
+}
+
+int CombatCG::TeamMembersQuantity(CombatSystem::CharacterType _type)
+{
+	int quantity = 0;
+	for (size_t i = 0; i < availableTargets.size(); i++)
+	{
+		if (availableTargets[i].CharacterId.team == _type)
+			quantity++;
+	}
+	return quantity;
 }
