@@ -6,5 +6,5 @@ public:
 	string name = "Default";
 	string description;
 	int priority = 0;
-	virtual void DoAttack(CombatSystem::CharacterCombatStats& attacker, std::vector<CombatSystem::CharacterCombatStats*>& target);
+	virtual void DoAttack(CombatSystem::CharacterReference& attacker, std::vector<CombatSystem::CharacterReference*>& target);
 };

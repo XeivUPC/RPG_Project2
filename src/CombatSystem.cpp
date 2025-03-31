@@ -6,31 +6,18 @@ CombatSystem::CombatSystem()
 {
 }
 
-void CombatSystem::AddPartyToCombat(vector<int> party, CharacterType party_type)
+void CombatSystem::AddPartyToCombat(const vector<int>& party, CharacterType party_type)
 {
 	charactersInCombat[party_type].clear();
 	for (size_t i = 0; i < party.size(); i++)
 	{
-		charactersInCombat[party_type].emplace_back(
-			CharacterCombatStats
-			{
-				party[i]
-			});
-		charactersInCombat[party_type][i].GetBaseStatsById();
+		charactersInCombat[party_type].emplace_back(CharacterReference(party[i], party_type));
 	}
 }
 
 void CombatSystem::AddAttack(Attack* attack, CharacterReference& attacker, vector<CharacterReference*> targets)
 {
-	CharacterCombatStats& attackerData = charactersInCombat[attacker.team][attacker.position];
-	vector<CharacterCombatStats*> targetData;
-	for (size_t i = 0; i < targets.size(); i++)
-	{
-		CharacterReference& reference = *targets[i];
-		CharacterCombatStats& tempData = charactersInCombat[reference.team][reference.position];
-		targetData.emplace_back(&tempData);
-	}
-	attackList.emplace_back(pair<CharacterCombatStats*, TurnAttack>(&attackerData, TurnAttack{ attack,targetData }));
+	attackList.emplace_back(pair<CharacterReference*, TurnAttack>(&attacker, TurnAttack{ attack,targets }));
 }
 
 CombatSystem::CombatState CombatSystem::GetCombatState()
@@ -55,14 +42,13 @@ void CombatSystem::UpdateCombat()
 
 		break;
 	case CombatSystem::ENEMY_TURN:
-
 		ChangeState(CombatState::ATTACKS);
 		break;
 	case CombatSystem::ATTACKS:
 		sort(attackList.begin(), attackList.end(),
-		[](pair< CharacterCombatStats*, TurnAttack>& a, pair< CharacterCombatStats*, TurnAttack>& b) {
-			Stat as = a.first->speed;
-			Stat bs = b.first->speed;
+		[](pair< CharacterReference*, TurnAttack>& a, pair< CharacterReference*, TurnAttack>& b) {
+			Stat as = a.first->stats.speed;
+			Stat bs = b.first->stats.speed;
 			float aSpeed = as.defaultValue * as.multiplier;
 			float bSpeed = bs.defaultValue * bs.multiplier;
 
@@ -86,7 +72,7 @@ void CombatSystem::UpdateCombat()
 		});
 		for (auto& attack : attackList)
 		{
-			if (attack.first->health <= 0)
+			if (attack.first->stats.health <= 0)
 				continue;
 			attack.second.attack->DoAttack(*attack.first,attack.second.targets);
 			
@@ -99,14 +85,14 @@ void CombatSystem::UpdateCombat()
 		{
 			for (auto& character : team.second)
 			{
-				if (character.health <= 0)
+				if (character.stats.health <= 0)
 					continue;
-				for (auto& effect : character.turnHealthModifier)
+				for (auto& effect : character.stats.turnHealthModifier)
 				{
 					if (effect.second.second > 0)
 					{
 						effect.second.second--;
-						character.health += effect.second.first.defaultValue;
+						character.stats.health += effect.second.first.defaultValue;
 					}
 				}
 			}
@@ -115,6 +101,7 @@ void CombatSystem::UpdateCombat()
 		ChangeState(CombatState::END_CHECK);
 		break;
 	case CombatSystem::END_CHECK:
+		
 		for (auto& team : charactersInCombat)
 		{
 			bool allDead = team.second.size() == 0;
@@ -126,6 +113,8 @@ void CombatSystem::UpdateCombat()
 					ChangeState(VICTORY);
 			}
 		}
+		if(state == END_CHECK)
+			ChangeState(START);
 		break;
 	case CombatSystem::VICTORY:
 		break;
@@ -142,6 +131,7 @@ void CombatSystem::EndCombat()
 
 CombatSystem::~CombatSystem()
 {
+
 }
 
 void CombatSystem::CheckDeadCharacters()
@@ -152,7 +142,7 @@ void CombatSystem::CheckDeadCharacters()
 			std::remove_if(
 				characters.begin(),
 				characters.end(),
-				[](const CharacterCombatStats& c) { return c.health <= 0; }
+				[](const CharacterReference& c) { return c.stats.health <= 0; }
 			),
 			characters.end()
 		);
@@ -166,4 +156,9 @@ void CombatSystem::ChangeState(CombatState newState)
 		state = newState;
 		onCombatStateChanged.Trigger();
 	}
+}
+
+const unordered_map<CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>>& CombatSystem::GetCharactersInCombat()
+{
+	return charactersInCombat;
 }

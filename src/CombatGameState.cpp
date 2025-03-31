@@ -36,6 +36,16 @@ void CombatGameState::StateSelected()
 	Engine::Instance().s_game->combatCanvas->SetInteractable(true);
 	Engine::Instance().s_game->combatCanvas->isVisible = true;
 	Engine::Instance().m_cursor->ShowCustomCursor();
+
+
+
+
+	Engine::Instance().s_game->combatSystem->AddPartyToCombat(vector<int>{1,0,1,1}, CombatSystem::Ally);
+	Engine::Instance().s_game->combatSystem->AddPartyToCombat(vector<int>{1, 0, 1}, CombatSystem::Enemy);
+
+
+	Engine::Instance().s_game->combatSystem->StartCombat();
+	Engine::Instance().s_game->combatCanvas->SetUpCanvas();
 }
 
 void CombatGameState::StateDeselected()

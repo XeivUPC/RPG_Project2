@@ -32,6 +32,8 @@ void UIImage::UpdateElement()
 
 void UIImage::RenderElement()
 {
+	if (!visible)
+		return;
 	if (sprite == nullptr)
 		Engine::Instance().m_render->painter().RenderBox(position, size, { scale,scale }, pivot, true, color);
 	else

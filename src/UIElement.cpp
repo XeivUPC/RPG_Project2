@@ -18,10 +18,16 @@ void UIElement::UpdateElement()
 		scale = localScale*parent->scale;
 		position = localPosition+parent->position;
 		debug = parent->debug;
+		if (!parent->visible) {
+			visible = false;
+		}
+		else
+			visible = localVisible;
 	}
 	else {
 		scale = localScale;
 		position = localPosition;
+		visible = localVisible;
 	}
 
 	if (!interactable) {

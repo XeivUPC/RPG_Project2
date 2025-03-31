@@ -79,6 +79,8 @@ void UIButton::UpdateElement()
 
 void UIButton::RenderElement()
 {
+	if (!visible)
+		return;
 	for (size_t i = 0; i < childs.size(); i++)
 	{
 		childs[i]->RenderElement();

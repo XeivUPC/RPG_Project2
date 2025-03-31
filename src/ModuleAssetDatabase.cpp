@@ -68,6 +68,7 @@ void ModuleAssetDatabase::LoadAssets()
 //// Textures
 	///Menus
 	///UI
+	AddTextureToStorage("arrow_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/arrow1.png"));
 	AddTextureToStorage("btn_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/btn1.png"));
 	AddTextureToStorage("btn_tex2", *textureFactory->CreateTexture("Assets/Textures/UI/btn2.png"));
 	AddTextureToStorage("toggle_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/toggle.png"));

@@ -47,6 +47,7 @@ public:
 
 	bool debug = false;
 	bool interactable = true;
+	bool localVisible = true;
 
 private:
 	
@@ -68,4 +69,5 @@ protected:
 	vector<UIElement*> childs;
 	bool isMouseOver = false;
 
+	bool visible = true;
 };

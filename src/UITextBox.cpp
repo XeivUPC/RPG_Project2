@@ -35,6 +35,8 @@ void UITextBox::UpdateElement()
 
 void UITextBox::RenderElement()
 {
+	if (!visible)
+		return;
 	if (text.length() > 0) {
 		if (dirty){
 			if(texture!=nullptr)

@@ -131,7 +131,8 @@ void UIInputField::UpdateElement()
 
 void UIInputField::RenderElement()
 {
-
+	if (!visible)
+		return;
 	if (textComponent->GetText().length() == 0 && !isSelected) {
 		if (dirty || textComponent->GetIfDirty()) {
 			if (defaultTextTexture != nullptr)

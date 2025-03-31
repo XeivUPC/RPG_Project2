@@ -14,7 +14,9 @@ public:
 	enum CharacterType
 	{
 		Ally,
-		Enemy
+		Enemy,
+		Both,
+		None
 	};
 	enum CombatState
 	{
@@ -34,44 +36,54 @@ public:
 	};
 	struct CharacterCombatStats
 	{
-		int id;
-		int health;
+		int health=100;
 		Stat attack;
 		Stat defense;
 		Stat speed;
 		unordered_map<string,pair<Stat, int>> turnHealthModifier;
-		void GetBaseStatsById()
+		void GetBaseStatsById(int id)
 		{
-
+			/// Get stats
 		};
 	};
 
 	struct CharacterReference
 	{
+		int id;
 		CharacterType team;
-		int position;
+		CharacterCombatStats stats;
+
+		CharacterReference() {};
+		CharacterReference(int _id, CharacterType _team) {
+			id = _id;
+			team = _team;
+			stats = CharacterCombatStats();
+			stats.GetBaseStatsById(id);
+		}
 	};
 
 	struct TurnAttack
 	{
 		Attack* attack;
-		vector<CharacterCombatStats*> targets;
+		vector<CharacterReference*> targets;
 	};
 
 	CombatSystem();
-	void AddPartyToCombat(vector<int> party, CharacterType party_type);
+	void AddPartyToCombat(const vector<int>& party, CharacterType party_type);
 	void AddAttack(Attack* attack, CharacterReference& attacker, vector<CharacterReference*> targets);
 	CombatState GetCombatState();
 	void StartCombat();
 	void UpdateCombat();
 	void EndCombat();
 	void ChangeState(CombatState newState);
+
+	const unordered_map <CharacterType, vector<CharacterReference>>& GetCharactersInCombat();
 	
 	~CombatSystem();
 private:
 	void CheckDeadCharacters();
-	unordered_map <CharacterType, vector<CharacterCombatStats>> charactersInCombat;
+	unordered_map <CharacterType, vector<CharacterReference>> charactersInCombat;
 	int turn = 0;
 	CombatState state = CombatState::START;
-	vector<pair<CharacterCombatStats*, TurnAttack>> attackList;
+	vector<pair<CharacterReference*, TurnAttack>> attackList;
 };
