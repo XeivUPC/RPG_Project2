@@ -17,7 +17,7 @@
 #include "Globals.h"
 #include "Attack.h"
 
-#include "math.h"
+#include <cmath>
 
 CombatCG::CombatCG(CombatSystem* _combatSystem)
 {
@@ -64,21 +64,22 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 	for (int i = 0; i < availableTargets.size(); i++)
 	{
 		int teamMember = i;
-		if(teamMember > TeamMembersQuantity(CombatSystem::Ally))
+		if(teamMember >= TeamMembersQuantity(CombatSystem::Ally))
 			teamMember -= TeamMembersQuantity(CombatSystem::Ally);
 		Vector2 position = { 0,LOGIC_SCREEN_HEIGHT/2 };
 		Vector2 offset = { 0,0 };
-		Vector2 displacement = { 30,10 };
+		Vector2 displacement = { 60,55 };
 		if (availableTargets[i].CharacterId.team == CombatSystem::Ally)
 			position.x = LOGIC_SCREEN_WIDTH / 4;
 		else
 			position.x = LOGIC_SCREEN_WIDTH / 4 * 3;
 
-		offset.x = cosf((360 / TeamMembersQuantity(availableTargets[i].CharacterId.team)) * teamMember);
+		offset.x = std::cos((360 / TeamMembersQuantity(availableTargets[i].CharacterId.team)) * teamMember * M_PI / 180);
 		if (availableTargets[i].CharacterId.team == CombatSystem::Enemy)
-			offset *= -1;
-		offset.y = sinf((360 / TeamMembersQuantity(availableTargets[i].CharacterId.team)) * teamMember);
+			offset.x *= -1;
+		offset.y = std::sin((360 / TeamMembersQuantity(availableTargets[i].CharacterId.team)) * teamMember * M_PI / 180);
 
+		printf("");
 		availableTargets[i].btn = new UIButton(position + Vector2{offset.x* displacement.x,offset.y*displacement.y}, { 32, 62 }, { 0,0,0,0 }, { 0.5f,0.5f }, { 255,255,255,0 });
 		availableTargets[i].btn->debug = true;
 		AddElementToCanvas(availableTargets[i].btn);
@@ -102,7 +103,6 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 void CombatCG::UpdateCanvas()
 {
 	combat->UpdateCombat();
-	//1er jugador (currentCombatCharacter == 0)
 	switch (combat->GetCombatState())
 	{
 	case CombatSystem::START:
