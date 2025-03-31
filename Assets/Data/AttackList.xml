@@ -2,21 +2,22 @@
 	<attack>
 		<name>Shield</name>
 		<description> Shield an ally and receive a reduced amount (75%) of the damage inflicted to them for 1 turn. </description>
-		<target-type>Ally</target-type>
-		<target-selection>User</target-selection>
-		<target-amount>1</target-amount>
-		<stats>
-			<damage-multiplier>0.75</damage-multiplier>
-		</stats>
+		<target-type>0</target-type>
+		<target-selection>0</target-selection>
+		<min-target-amount>1</min-target-amount>
+		<max-target-amount>1</max-target-amount>
+
+		<damage-multiplier>0.75</damage-multiplier>
+
 	</attack>
 	<attack>
 		<name>Stun</name>
 		<description> Knock down an enemy, the enemy cannot perform any action in the following turn. </description>
-		<target-type>Enemy</target-type>
-		<target-selection>User</target-selection>
-		<target-amount>1</target-amount>
-		<stats>
-			<hasTurn>false</hasTurn>
-		</stats>
+		<target-type>1</target-type>
+		<target-selection>0</target-selection>
+		<min-target-amount>1</min-target-amount>
+		<max-target-amount>1</max-target-amount>
+
+		<blockTurn>true</blockTurn>
 	</attack>
 </attackList>

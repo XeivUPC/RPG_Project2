@@ -1,7 +1,7 @@
 #pragma once
 #include "Attack.h"
 #include <string>
-#include <pugixml.hpp>
+
 using namespace std;
 class AttackList
 {
