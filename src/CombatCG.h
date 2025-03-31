@@ -18,7 +18,7 @@ class CombatCG : public UICanvas
 public:
 	CombatCG(CombatSystem* _combatSystem);
 	void UpdateCanvas();
-	CombatSystem* combatSystem;
+	CombatSystem* combat;
 
 private:
 	struct OverworldCharacter
@@ -39,6 +39,7 @@ private:
 
 	UIImage* combatBackground = nullptr;
 	UIImage* attackSelectionBackground = nullptr;
+	UIButton* attackConfirm = nullptr;
 	UITextBox* description = nullptr;
 	vector<AttackSelectionButtonData> availableAttacks;
 	vector<OverworldCharacter> availableTargets;

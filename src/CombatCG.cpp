@@ -18,7 +18,7 @@
 
 CombatCG::CombatCG(CombatSystem* _combatSystem)
 {
-	combatSystem = _combatSystem;
+	combat = _combatSystem;
 
 	availableAttacks = vector<AttackSelectionButtonData>(4);
 	availableTargets = vector<OverworldCharacter>(8);
@@ -27,8 +27,13 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 
 	SDL_Texture* tex = Engine::Instance().m_assetsDB->GetTexture("dialogue_box");
 	SDL_Texture* tex1 = Engine::Instance().m_assetsDB->GetTexture("btn_tex1");
+	SDL_Texture* tex2 = Engine::Instance().m_assetsDB->GetTexture("slider_tex1");
+	SDL_Texture* tex3 = Engine::Instance().m_assetsDB->GetTexture("toggle_tex1");
 
 	Vector2Int textureSize = Engine::Instance().m_assetsDB->GetTextureSize(*tex);
+
+	combatBackground = new UIImage({ 0,0 }, { LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT },{0,0},false,{0,0,0,0},{200,200,200,255});
+	AddElementToCanvas(combatBackground);
 
 	attackSelectionBackground = new UIImage(*tex, {0,0}, textureSize);
 	AddElementToCanvas(attackSelectionBackground);
@@ -64,14 +69,26 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 			position.y += 48 - 96 * (i2 / 3);
 		}
 		Vector2Int offset = { 0, 150 };
-		availableTargets[i].btn = new UIButton(position+offset, {16, 31}, {0,0,0,0},{0.5f,0.5f},{255,255,255,0});
+		availableTargets[i].btn = new UIButton(position+offset, {32, 62}, {0,0,0,0},{0.5f,0.5f},{255,255,255,0});
 		availableTargets[i].btn->debug = true;
 		AddElementToCanvas(availableTargets[i].btn);
+
+		availableTargets[i].name = new UITextBox("Name", *font, 12, { 255,255,255,255 }, { 0,-38 }, { 32,15 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle, false);
+		availableTargets[i].name->SetParent(availableTargets[i].btn);
+
+		availableTargets[i].health = new UISlider(*tex2, { 0,38 }, { 40,4 }, { 3,4,40,4 }, *tex2, { 0,0 }, { 0,0,0,0 }, { 0,0,0,0 }, { 0.5f,0.5f }, 0.5f);
+		availableTargets[i].health->SetParent(availableTargets[i].btn);
 	}
+
+	attackConfirm = new UIButton(*tex3, {LOGIC_SCREEN_WIDTH/2,0}, { 19, 19 }, { 0,0,19,19 }, { 0.5f,0.5f });
+	attackConfirm->AddRect(UIButton::ButtonStates::HOVER, { 19,0,19,19 });
+	attackConfirm->SetParent(attackSelectionBackground);
 }
 
 void CombatCG::UpdateCanvas()
 {
+	combat->UpdateCombat();
+	
 	UICanvas::UpdateCanvas();
 }
 
