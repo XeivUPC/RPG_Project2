@@ -40,7 +40,7 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 
 	for (int i = 0; i < availableAttacks.size(); i++)
 	{
-		availableAttacks[i].btn = new UIButton(*tex1, {9 + 86 * (i / 2) + 1 * (i / 2), 9+ 35 * (i % 2) +1 * (i % 2) }, {86,35}, {0,0,86,35});
+		availableAttacks[i].btn = new UIButton(*tex1, {8 + 86 * (i / 2) + 1 * (i / 2), 9 + 35 * (i % 2) +1 * (i % 2) }, {86,35}, {0,0,86,35});
 		availableAttacks[i].btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 		availableAttacks[i].btn->onMouseEnter.Subscribe([this, i]() {EnableAttackDescription(i); });
 		availableAttacks[i].btn->onMouseExit.Subscribe([this,i]() {DisableAttackDescription(i); });
