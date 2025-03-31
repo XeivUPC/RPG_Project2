@@ -74,6 +74,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("slider_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/slider.png"));
 	AddTextureToStorage("uiBox1", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox1.png"));
 	AddTextureToStorage("uiBox2", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox2.png"));
+	AddTextureToStorage("uiBox3", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox3.png"));
 	AddTextureToStorage("dialogue_box", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_box.png"));
 	AddTextureToStorage("dialogue_answerBox", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_answerBox.png"));
 	///Cursors

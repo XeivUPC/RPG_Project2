@@ -25,31 +25,31 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 
 	_TTF_Font* font = Engine::Instance().m_assetsDB->GetFont("alagard");
 
-	SDL_Texture* tex = Engine::Instance().m_assetsDB->GetTexture("dialogue_box");
+	SDL_Texture* tex = Engine::Instance().m_assetsDB->GetTexture("uiBox3");
 	SDL_Texture* tex1 = Engine::Instance().m_assetsDB->GetTexture("btn_tex1");
 	SDL_Texture* tex2 = Engine::Instance().m_assetsDB->GetTexture("slider_tex1");
 	SDL_Texture* tex3 = Engine::Instance().m_assetsDB->GetTexture("toggle_tex1");
 
-	Vector2Int textureSize = Engine::Instance().m_assetsDB->GetTextureSize(*tex);
 
 	combatBackground = new UIImage({ 0,0 }, { LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT },{0,0},false,{0,0,0,0},{200,200,200,255});
 	AddElementToCanvas(combatBackground);
 
-	attackSelectionBackground = new UIImage(*tex, {0,0}, textureSize);
+	Vector2Int textureSize = Engine::Instance().m_assetsDB->GetTextureSize(*tex);
+	attackSelectionBackground = new UIImage(*tex, {0,LOGIC_SCREEN_HEIGHT  - 88}, textureSize);
 	AddElementToCanvas(attackSelectionBackground);
 
 	for (int i = 0; i < availableAttacks.size(); i++)
 	{
-		availableAttacks[i].btn = new UIButton(*tex1, {86 * (i / 2), 35 * (i % 2) }, {86,35}, {0,0,86,35});
+		availableAttacks[i].btn = new UIButton(*tex1, {9 + 86 * (i / 2) + 1 * (i / 2), 9+ 35 * (i % 2) +1 * (i % 2) }, {86,35}, {0,0,86,35});
 		availableAttacks[i].btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 		availableAttacks[i].btn->onMouseEnter.Subscribe([this, i]() {EnableAttackDescription(i); });
-		availableAttacks[i].btn->onMouseExit.Subscribe([this]() {DisableAttackDescription(); });
+		availableAttacks[i].btn->onMouseExit.Subscribe([this,i]() {DisableAttackDescription(i); });
 		availableAttacks[i].btn->SetParent(attackSelectionBackground);
 		availableAttacks[i].btn_text = new UITextBox(/*availableAttacks[i].attack->name*/"Default", *font, 12, {255,255,255,255}, {43,17}, {86,35}, {0.5f,0.5f}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
 		availableAttacks[i].btn_text->SetParent(availableAttacks[i].btn);
 	}
 
-	description = new UITextBox("", *font, 10, { 255,255,255,255 }, { 172,0 }, { LOGIC_SCREEN_WIDTH - 172, 70 });
+	description = new UITextBox("", *font, 10, { 255,255,255,255 }, { 196,8 }, { 436, 72 });
 	description->SetParent(attackSelectionBackground);
 
 	for (int i = 0; i < availableTargets.size(); i++)
@@ -96,9 +96,12 @@ void CombatCG::EnableAttackDescription(int attackIndex)
 {
 	//description->SetText(availableAttacks[attackIndex].attack->description);
 	description->SetText("Default " + to_string(attackIndex));
+	currentAttackDescription = attackIndex;
 }
 
-void CombatCG::DisableAttackDescription()
+void CombatCG::DisableAttackDescription(int attackIndex)
 {
+	if (currentAttackDescription != attackIndex)
+		return;
 	description->SetText("");
 }

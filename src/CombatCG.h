@@ -45,5 +45,6 @@ private:
 	vector<OverworldCharacter> availableTargets;
 
 	void EnableAttackDescription(int attackIndex);
-	void DisableAttackDescription();
+	void DisableAttackDescription(int attackIndex);
+	int currentAttackDescription = -1;
 };
