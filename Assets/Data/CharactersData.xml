@@ -3,15 +3,27 @@
     <Character id = "-1" name = "NPC_TEST">
         <Data   textureId = "npc_test" 
                 dialoguePath = "Assets/Dialogues/test3.json" />
+        <Stats hp= "100"
+               defense = "20" 
+               attack = "30"
+               speed = "100" />
     </Character>
 
 	<Character id = "0" name = "Cassian">
         <Data   textureId = "cassian_test" 
                 dialoguePath = "Assets/Dialogues/test3.json" />
+        <Stats hp= "150"
+               defense = "40" 
+               attack = "15"
+               speed = "70" />
     </Character>
 
     <Character id = "1" name = "Artis">
         <Data   textureId = "artis_test" 
                 dialoguePath = "Assets/Dialogues/test4.json" />
+        <Stats hp= "70"
+               defense = "10" 
+               attack = "50"
+               speed = "120" />
     </Character>
 </Characters>

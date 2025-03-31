@@ -43,12 +43,18 @@ void CharacterDatabase::LoadDatabase()
             int charId = character.attribute("id").as_int();
             string charName = character.attribute("name").as_string();
             xml_node charDataNode = character.child("Data");
+            xml_node charStatsNode = character.child("Stats");
 
 
             charData.id = charId;
             charData.name = charName;
             charData.textureId = charDataNode.attribute("textureId").as_string();
             charData.dialoguePath = charDataNode.attribute("dialoguePath").as_string();
+
+            charData.health = charStatsNode.attribute("hp").as_int();
+            charData.defense = charStatsNode.attribute("defense").as_int();
+            charData.attack = charStatsNode.attribute("attack").as_int();
+            charData.speed = charStatsNode.attribute("speed").as_int();
 
             data[charId] = charData;
         }

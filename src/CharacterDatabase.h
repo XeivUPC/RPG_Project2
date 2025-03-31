@@ -11,6 +11,14 @@ class CharacterDatabase {
 			string name;
 			string textureId;
 			string dialoguePath;
+
+
+			//// Stats
+			int health;
+			int attack;
+			int defense;
+			int speed;
+
 		};
 
 		static CharacterDatabase& Instance() {
