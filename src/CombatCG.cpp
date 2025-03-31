@@ -30,7 +30,6 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 		OverworldCharacter(2, CombatSystem::CharacterType::Ally),
 		OverworldCharacter(3, CombatSystem::CharacterType::Ally),
 		OverworldCharacter(0, CombatSystem::CharacterType::Enemy),
-		OverworldCharacter(1, CombatSystem::CharacterType::Enemy)
 	};
 
 	_TTF_Font* font = Engine::Instance().m_assetsDB->GetFont("alagard");
@@ -73,12 +72,13 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 			position.x = LOGIC_SCREEN_WIDTH / 4;
 		else
 			position.x = LOGIC_SCREEN_WIDTH / 4 * 3;
-
-		offset.x = std::cos((360 / TeamMembersQuantity(availableTargets[i].CharacterId.team)) * teamMember * M_PI / 180);
-		if (availableTargets[i].CharacterId.team == CombatSystem::Enemy)
-			offset.x *= -1;
-		offset.y = std::sin((360 / TeamMembersQuantity(availableTargets[i].CharacterId.team)) * teamMember * M_PI / 180);
-
+		if (TeamMembersQuantity(availableTargets[i].CharacterId.team) > 1)
+		{
+			offset.x = std::cos((360 / TeamMembersQuantity(availableTargets[i].CharacterId.team)) * teamMember * M_PI / 180);
+			if (availableTargets[i].CharacterId.team == CombatSystem::Enemy)
+				offset.x *= -1;
+			offset.y = std::sin((360 / TeamMembersQuantity(availableTargets[i].CharacterId.team)) * teamMember * M_PI / 180);
+		}
 		availableTargets[i].btn = new UIButton(position + Vector2{offset.x* displacement.x,offset.y*displacement.y}, { 32, 62 }, { 0,0,0,0 }, { 0.5f,0.5f }, { 255,255,255,0 });
 		availableTargets[i].btn->debug = true;
 		AddElementToCanvas(availableTargets[i].btn);
