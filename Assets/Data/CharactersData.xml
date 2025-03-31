@@ -10,7 +10,7 @@
 
 	<Character id = "0" name = "Cassian">
         <Data   textureId = "cassian_test" 
-                dialoguePath = "Assets/Dialogues/guard_RS_entrance_right.json" />       
+                dialoguePath = "Assets/Dialogues/test2.json" />       
         <Stats  state ="0"
                 friendship = "0"
                 love = "0"/>
@@ -19,6 +19,30 @@
     <Character id = "1" name = "Artis">
         <Data   textureId = "artis_test" 
                 dialoguePath = "Assets/Dialogues/test4.json" />       
+        <Stats  state ="0"
+                friendship = "0"
+                love = "0"/>
+    </Character>
+
+    <Character id = "2" name = "Guard_Left">
+        <Data   textureId = "artis_test" 
+                dialoguePath = "Assets/Dialogues/guard_RS_entrance_left.json" />       
+        <Stats  state ="0"
+                friendship = "0"
+                love = "0"/>
+    </Character>
+
+    <Character id = "3" name = "Guard_Right">
+        <Data   textureId = "artis_test" 
+                dialoguePath = "Assets/Dialogues/guard_RS_entrance_right.json" />       
+        <Stats  state ="0"
+                friendship = "0"
+                love = "0"/>
+    </Character>
+
+    <Character id = "4" name = "Sir Gideon Hawthorne">
+        <Data   textureId = "artis_test" 
+                dialoguePath = "Assets/Dialogues/Sir_Gideon_Hawthorne.json" />       
         <Stats  state ="0"
                 friendship = "0"
                 love = "0"/>
