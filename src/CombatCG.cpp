@@ -28,6 +28,7 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 		OverworldCharacter(0, CombatSystem::CharacterType::Ally),
 		OverworldCharacter(1, CombatSystem::CharacterType::Ally),
 		OverworldCharacter(2, CombatSystem::CharacterType::Ally),
+		OverworldCharacter(3, CombatSystem::CharacterType::Ally),
 		OverworldCharacter(0, CombatSystem::CharacterType::Enemy),
 		OverworldCharacter(1, CombatSystem::CharacterType::Enemy)
 	};
@@ -63,9 +64,8 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 
 	for (int i = 0; i < availableTargets.size(); i++)
 	{
-		int teamMember = i;
-		if(teamMember >= TeamMembersQuantity(CombatSystem::Ally))
-			teamMember -= TeamMembersQuantity(CombatSystem::Ally);
+		int teamMember = availableTargets[i].CharacterId.position;
+		
 		Vector2 position = { 0,LOGIC_SCREEN_HEIGHT/2 };
 		Vector2 offset = { 0,0 };
 		Vector2 displacement = { 60,55 };
@@ -79,7 +79,6 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 			offset.x *= -1;
 		offset.y = std::sin((360 / TeamMembersQuantity(availableTargets[i].CharacterId.team)) * teamMember * M_PI / 180);
 
-		printf("");
 		availableTargets[i].btn = new UIButton(position + Vector2{offset.x* displacement.x,offset.y*displacement.y}, { 32, 62 }, { 0,0,0,0 }, { 0.5f,0.5f }, { 255,255,255,0 });
 		availableTargets[i].btn->debug = true;
 		AddElementToCanvas(availableTargets[i].btn);
