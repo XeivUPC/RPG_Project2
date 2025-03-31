@@ -23,6 +23,7 @@ public:
 	float damage = 0;
 	float damage_multiplier = 1;
 	float critical_damage_multiplier = 1;
+	int critical_damage_percentage = 0;
 
 	float defense = 0;
 	float damage_percentage = 1;
@@ -40,7 +41,6 @@ public:
 	int regenerationTurns = 0;
 
 	float healthStolen = 0;
-	float healthStolen_percentage = 0;
 	float healthReceived_percentage = 100;
 
 	bool blockTurn = false;

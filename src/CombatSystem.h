@@ -43,12 +43,17 @@ public:
 			multiplier = _multiplier;
 			turns = _turns;
 		}
+		float GetProcessedValue()
+		{
+			return value * multiplier;
+		}
 	};
 
 	struct CharacterCombatStats
 	{
 		bool turnBlocked = false;
 		float health = 100;
+		float maxHealth = health;
 
 		Stat CriticalHit;
 		Stat Attack;
@@ -62,6 +67,7 @@ public:
 		{
 			CharacterDatabase::CharacterData& reference = CharacterDatabase::Instance().GetCharacterData(id);
 			health = reference.health;
+			maxHealth = reference.health;
 			Attack.value = reference.attack;
 			Defense.value = reference.defense;
 			Speed.value = reference.speed;

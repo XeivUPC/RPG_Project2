@@ -8,7 +8,7 @@ class AttackList
 public:
 	AttackList();
 	~AttackList();
-	Attack* GetAttack(string name);
+	Attack* GetAttack(string _name);
 	Attack* GetAttack(int ID);
 private:
 	void LoadAttacks();
