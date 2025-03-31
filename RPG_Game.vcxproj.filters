@@ -345,6 +345,9 @@
     <ClCompile Include="src\Attack.cpp">
       <Filter>Source Files\Utils\Combat</Filter>
     </ClCompile>
+    <ClCompile Include="src\AttackList.cpp">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -606,6 +609,9 @@
       <Filter>Source Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="src\Attack.h">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AttackList.h">
       <Filter>Source Files\Utils\Combat</Filter>
     </ClInclude>
   </ItemGroup>

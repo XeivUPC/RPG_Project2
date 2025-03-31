@@ -137,6 +137,7 @@
     <ClCompile Include="src\Animator.cpp" />
     <ClCompile Include="src\AtlasFactory.cpp" />
     <ClCompile Include="src\Attack.cpp" />
+    <ClCompile Include="src\AttackList.cpp" />
     <ClCompile Include="src\AudioContainer.cpp" />
     <ClCompile Include="src\AudioFactory.cpp" />
     <ClCompile Include="src\Building.cpp" />
@@ -208,6 +209,7 @@
     <ClInclude Include="src\Animator.h" />
     <ClInclude Include="src\AtlasFactory.h" />
     <ClInclude Include="src\Attack.h" />
+    <ClInclude Include="src\AttackList.h" />
     <ClInclude Include="src\AudioContainer.h" />
     <ClInclude Include="src\AudioFactory.h" />
     <ClInclude Include="src\Building.h" />

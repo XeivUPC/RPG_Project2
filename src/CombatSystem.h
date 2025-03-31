@@ -4,6 +4,7 @@
 #include <string>
 #include <unordered_map>
 #include "SystemEvent.h"
+#include "CharacterDatabase.h"
 
 using namespace std;
 class Attack;
@@ -29,22 +30,43 @@ public:
 		VICTORY,
 		DEFEAT
 	};
+
 	struct Stat
 	{
-		int defaultValue;
-		float multiplier;
+		float value = 0;
+		float multiplier = 1;
+		int turns = 1;
+
+		Stat(float _value, float _multiplier, int _turns)
+		{
+			value = _value;
+			multiplier = _multiplier;
+			turns = _turns;
+		}
 	};
+
 	struct CharacterCombatStats
 	{
-		int health=100;
-		Stat attack;
-		Stat defense;
-		Stat speed;
-		unordered_map<string,pair<Stat, int>> turnHealthModifier;
+		bool turnBlocked = false;
+		float health = 100;
+
+		Stat CriticalHit;
+		Stat Attack;
+		Stat Defense;
+		Stat Speed;
+		Stat Poison;
+		Stat Burn;
+		Stat Regeneration;
+		
 		void GetBaseStatsById(int id)
 		{
-			/// Get stats
+			CharacterDatabase::CharacterData& reference = CharacterDatabase::Instance().GetCharacterData(id);
+			health = reference.health;
+			Attack.value = reference.attack;
+			Defense.value = reference.defense;
+			Speed.value = reference.speed;
 		};
+
 	};
 
 	struct CharacterReference
@@ -57,7 +79,6 @@ public:
 		CharacterReference(int _id, CharacterType _team) {
 			id = _id;
 			team = _team;
-			stats = CharacterCombatStats();
 			stats.GetBaseStatsById(id);
 		}
 	};
