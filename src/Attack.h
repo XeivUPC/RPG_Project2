@@ -10,38 +10,43 @@ public:
 	};
 
 	CombatSystem::CharacterType targetType = CombatSystem::Enemy;
-	TargetSelection selection;
+	TargetSelection selection = Random;
 	int minTargetAmmount = 0;
 	int maxTargetAmmount = 0;
 
+	int id = -1;
 	string name = "Name";
 	string description = "Description";
 
+	/// Stats
 	int priority = 0;
 	int accuracity = 100;
 
-	float damage = 0;
-	float damage_multiplier = 1;
-	float critical_damage_multiplier = 1;
-	int critical_damage_percentage = 0;
+	/// Damage
+	int damage = 0;
+	int critRate = 10;
 
-	float defense = 0;
+	/// Multipliers
+	int damageIncrement = 0;
+	int defenseIncrement = 0;
+	int speedIncrement = 0;
 
-	float extraHealth = 0;
-	float extraHealth_multiplier = 1;
-
-	float poisonDamage = 0;
+	/// Effects
+	int poisonDamage = 0;
 	int poisonTurns = 0;
 
-	float burnDamage = 0;
+	int burnDamage = 0;
 	int burnTurns = 0;
 
-	float regenerationHealth = 0;
+	int regenerationValue = 0;
 	int regenerationTurns = 0;
 
-	float healthStolen = 0;
-	float healthReceived_percentage = 0;
+	/// Life Steal
+	int lifeSteal = 0;
+	int lifeStealPercentage = 0;
+	int lifeStealEffectiveness = 100;
 
+	/// Extra
 	bool blockTurn = false;
 
 	virtual void DoAttack(CombatSystem::CharacterReference& attacker, std::vector<CombatSystem::CharacterReference*>& target);

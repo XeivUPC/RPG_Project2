@@ -33,46 +33,74 @@ public:
 
 	struct Stat
 	{
-		float value = 0;
+		float defaultValue = 0;
+		float currentValue = 0;
+
 		float multiplier = 1;
+
 		int turns = 1;
+		
+		Stat() = default;
 
 		Stat(float _value, float _multiplier, int _turns)
 		{
-			value = _value;
+			defaultValue = _value;
+			currentValue = _value;
+
 			multiplier = _multiplier;
 			turns = _turns;
 		}
 		float GetProcessedValue()
 		{
-			return value * multiplier;
+			float multiplierRealValue = multiplier + 2;
+			if (multiplier < 0) {
+				return defaultValue * (2/ multiplierRealValue);
+			}
+			return defaultValue * (multiplierRealValue/2);
+		}
+
+		void AddMultiplier(float value)
+		{
+			multiplier += value;
+			if (multiplier > 4)
+				multiplier = 4;
+
+			if (multiplier < -4)
+				multiplier = -4;
 		}
 	};
 
 	struct CharacterCombatStats
 	{
 		bool turnBlocked = false;
-		float health = 100;
-		float maxHealth = health;
 
-		Stat CriticalHit;
+		Stat Health;
+
 		Stat Attack;
 		Stat Defense;
 		Stat Speed;
+
 		Stat Poison;
 		Stat Burn;
 		Stat Regeneration;
-		
+
+
+		CharacterCombatStats() = default;
 		void GetBaseStatsById(int id)
 		{
 			CharacterDatabase::CharacterData& reference = CharacterDatabase::Instance().GetCharacterData(id);
-			health = reference.health;
-			maxHealth = reference.health;
-			Attack.value = reference.attack;
-			Defense.value = reference.defense;
-			Speed.value = reference.speed;
+			Health = Stat((float)reference.health, 1.f, 0);
+			Attack = Stat((float)reference.attack, 1.f, 0);
+			Defense = Stat((float)reference.defense, 1.f, 0);
+			Speed = Stat((float)reference.speed, 1.f, 0);
+
+			Poison = Stat(0, 1.f, 0);
+			Burn = Stat(0, 1.f, 0);
+			Regeneration = Stat(0, 1.f, 0);
 		};
 
+
+		
 	};
 
 	struct CharacterReference
@@ -81,12 +109,12 @@ public:
 		CharacterType team;
 		CharacterCombatStats stats;
 
-		CharacterReference() {};
+		CharacterReference() = default;
 		CharacterReference(int _id, CharacterType _team) {
 			id = _id;
 			team = _team;
 			stats.GetBaseStatsById(id);
-		}
+		};
 	};
 
 	struct TurnAttack

@@ -10,6 +10,7 @@ AttackList::AttackList()
 
 AttackList::~AttackList()
 {
+
 	attackList.clear();
 }
 
@@ -27,7 +28,14 @@ Attack* AttackList::GetAttack(string _name)
 
 Attack* AttackList::GetAttack(int ID)
 {
-	return &attackList[ID];
+	for (size_t i = 0; i < attackList.size(); i++)
+	{
+		if (attackList[i].id == ID)
+		{
+			return &attackList[i];
+		}
+	}
+	return nullptr;
 }
 
 void AttackList::LoadAttacks()
@@ -47,31 +55,40 @@ void AttackList::LoadAttacks()
 	{
 		Attack newAttack;
 		newAttack.name = attack.attribute("name").as_string();
-		newAttack.description = attack.attribute("description").as_string();
-		newAttack.targetType = (CombatSystem::CharacterType)attack.attribute("target-type").as_int();
-		newAttack.selection = (Attack::TargetSelection)attack.attribute("target-selection").as_int();
-		newAttack.minTargetAmmount = attack.attribute("min-target-amount").as_int();
-		newAttack.maxTargetAmmount = attack.attribute("max-target-amount").as_int();
+		newAttack.id = attack.attribute("id").as_int();
 
-		newAttack.blockTurn = attack.attribute("blockTurn").as_bool();
+		xml_node descriptionNode = attack.child("description");
+		newAttack.description = descriptionNode.attribute("value").as_string();
 
-		newAttack.priority = attack.attribute("priority").as_int();
-		newAttack.accuracity = attack.attribute("accuracity").as_int();
-		newAttack.damage = attack.attribute("damage").as_float();
-		newAttack.damage_multiplier = attack.attribute("damage_multiplier").as_float();
-		newAttack.critical_damage_multiplier = attack.attribute("critical_damage_multiplier").as_float();
-		newAttack.critical_damage_percentage = attack.attribute("critical_damage_percentage").as_int();
-		newAttack.defense = attack.attribute("defense").as_float();
-		newAttack.extraHealth = attack.attribute("extraHealth").as_float();
-		newAttack.extraHealth_multiplier = attack.attribute("extraHealth_multiplier").as_float();
-		newAttack.poisonDamage = attack.attribute("poisonDamage").as_float();
-		newAttack.poisonTurns = attack.attribute("poisonTurns").as_int();
-		newAttack.burnDamage = attack.attribute("burnDamage").as_float();
-		newAttack.burnTurns = attack.attribute("burnTurns").as_int();
-		newAttack.regenerationHealth = attack.attribute("regenerationHealth").as_float();
-		newAttack.regenerationTurns = attack.attribute("regenerationTurns").as_int();
-		newAttack.healthStolen = attack.attribute("healthStolen").as_float();
-		newAttack.healthReceived_percentage = attack.attribute("healthReceived_percentage").as_int();
+		xml_node dataNode = attack.child("data");
+
+		newAttack.targetType = (CombatSystem::CharacterType)dataNode.attribute("target-type").as_int();
+		newAttack.selection = (Attack::TargetSelection)dataNode.attribute("target-selection").as_int();
+		newAttack.minTargetAmmount = dataNode.attribute("min-target-amount").as_int();
+		newAttack.maxTargetAmmount = dataNode.attribute("max-target-amount").as_int();
+
+		newAttack.priority = dataNode.attribute("priority").as_int();
+		newAttack.accuracity = dataNode.attribute("accuracity").as_int();
+
+		newAttack.damage = dataNode.attribute("damage").as_int();
+		newAttack.critRate = dataNode.attribute("cirt-rate").as_int();
+
+		newAttack.damageIncrement = dataNode.attribute("damage-increment").as_int();
+		newAttack.defenseIncrement = dataNode.attribute("defense-increment").as_int();
+		newAttack.speedIncrement = dataNode.attribute("speed-increment").as_int();
+
+		newAttack.poisonDamage = dataNode.attribute("poison-damage").as_int();
+		newAttack.poisonTurns = dataNode.attribute("poison-turns").as_int();
+		newAttack.burnDamage = dataNode.attribute("burn-damage").as_int();
+		newAttack.burnTurns = dataNode.attribute("burn-turns").as_int();
+		newAttack.regenerationValue = dataNode.attribute("regeneration-value").as_int();
+		newAttack.regenerationTurns = dataNode.attribute("regeneration-turns").as_int();
+
+		newAttack.lifeSteal = dataNode.attribute("life-steal").as_int();
+		newAttack.lifeStealPercentage = dataNode.attribute("life-steal-percentage").as_int();
+		newAttack.lifeStealEffectiveness = dataNode.attribute("life-steal-effectiveness").as_int();
+
+		newAttack.blockTurn = dataNode.attribute("block-turn").as_bool();
 	
 		attackList.emplace_back(newAttack);
 	}

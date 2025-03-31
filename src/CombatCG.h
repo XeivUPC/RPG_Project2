@@ -44,7 +44,7 @@ private:
 	};
 
 	struct AttackSelectionButtonData {
-		Attack* attack;
+		Attack* attack = nullptr;
 		UIButton* btn;
 		UITextBox* btn_text;
 		EventId onClick;
@@ -101,7 +101,8 @@ private:
 
 	void SelectTarget(OverworldCharacter& character);
 	void DeselectTarget(OverworldCharacter& character);
-	int selectionableTargets = 1;
+	int maxSelectionableTargets = 1;
+	int minSelectionableTargets = 1;
 
 	CombatSystem::CharacterType seleccionableTargetsType = CombatSystem::Enemy;
 	vector<OverworldCharacter*> selectedTargets;

@@ -1,4 +1,4 @@
-#pragma once
+
 #include "CombatCG.h"
 
 #include "Engine.h"
@@ -15,7 +15,8 @@
 #include "UISlider.h"
 
 #include "Globals.h"
-#include "Attack.h"
+#include "AttackList.h"
+#include "CharacterDatabase.h"
 
 #include <cmath>
 
@@ -132,10 +133,10 @@ void CombatCG::SetUpCanvas()
 			position.x = LOGIC_SCREEN_WIDTH / 4 * 3;
 		if (TeamMembersQuantity(overworldCharacter.CharacterId->team) > 1)
 		{
-			offset.x = std::cos((360 / TeamMembersQuantity(overworldCharacter.CharacterId->team)) * teamMember * M_PI / 180);
+			offset.x = (float)std::cos((360 / TeamMembersQuantity(overworldCharacter.CharacterId->team)) * teamMember * M_PI / 180);
 			if (overworldCharacter.CharacterId->team == CombatSystem::Enemy)
 				offset.x *= -1;
-			offset.y = std::sin((360 / TeamMembersQuantity(overworldCharacter.CharacterId->team)) * teamMember * M_PI / 180);
+			offset.y = (float)std::sin((360 / TeamMembersQuantity(overworldCharacter.CharacterId->team)) * teamMember * M_PI / 180);
 		}
 		overworldCharacter.btn = new UIButton(position + Vector2{ offset.x * displacement.x,offset.y * displacement.y }, { 32, 62 }, { 0,0,0,0 }, { 0.5f,0.5f }, { 255,255,255,0 });
 		overworldCharacter.btn->debug = true;
@@ -173,8 +174,8 @@ void CombatCG::UpdateCanvas()
 
 void CombatCG::EnableAttackDescription(int attackIndex)
 {
-	//description->SetText(availableAttacks[attackIndex].attack->description);
-	attackDescription->SetText("Default " + to_string(attackIndex));
+	attackDescription->SetText(attackButtons[attackIndex].attack->description);
+	//attackDescription->SetText("Default " + to_string(attackIndex));
 	currentAttackDescription = attackIndex;
 }
 
@@ -228,6 +229,22 @@ void CombatCG::SelectCharacter(int characterIndex)
 
 	////Change Attacks
 
+	CharacterDatabase::CharacterData& charRef = CharacterDatabase::Instance().GetCharacterData(selectedCharacter->CharacterId->id);
+	for (size_t i = charRef.attacks.size(); i < attackButtons.size(); i++)
+	{
+		attackButtons[i].btn->localVisible = false;
+		attackButtons[i].btn->interactable = false;
+	}
+
+	for (size_t i = 0; i < charRef.attacks.size(); i++)
+	{
+		attackButtons[i].attack  = AttackList::Instance().GetAttack(charRef.attacks[i]);
+		attackButtons[i].btn_text->SetText(attackButtons[i].attack->name);
+
+		attackButtons[i].btn->localVisible = true;
+		attackButtons[i].btn->interactable = true;
+	}
+
 }
 
 void CombatCG::SelectAttack(int attackIndex)
@@ -242,7 +259,7 @@ void CombatCG::SelectAttack(int attackIndex)
 	printf("AttackSelected\n");
 
 	//// Select Target of the attack
-	seleccionableTargetsType = CombatSystem::Enemy;
+	seleccionableTargetsType = selectedAttack->attack->targetType;
 	if (seleccionableTargetsType == CombatSystem::None) {
 		selectedTargets.emplace_back(selectedCharacter);
 		AddAttack();
@@ -250,7 +267,8 @@ void CombatCG::SelectAttack(int attackIndex)
 	}
 
 	/// Select Amount of tagets from attack
-	selectionableTargets = 3;
+	maxSelectionableTargets = selectedAttack->attack->maxTargetAmmount;
+	minSelectionableTargets = selectedAttack->attack->maxTargetAmmount;
 	selectedTargets.clear();
 
 	SetSelectingTargetMode(true);
@@ -258,7 +276,9 @@ void CombatCG::SelectAttack(int attackIndex)
 
 void CombatCG::AddAttack()
 {
-
+	if (selectedTargets.size()<minSelectionableTargets) {
+		return;
+	}
 	vector<CombatSystem::CharacterReference*> referenceTargets;
 
 	for (size_t i = 0; i < selectedTargets.size(); i++)
@@ -305,7 +325,7 @@ void CombatCG::SelectTarget(OverworldCharacter& character)
 		return;
 	}
 
-	if (selectedTargets.size() == selectionableTargets)
+	if (selectedTargets.size() == maxSelectionableTargets)
 		return;
 
 	if (seleccionableTargetsType != CombatSystem::Both) {
@@ -314,7 +334,7 @@ void CombatCG::SelectTarget(OverworldCharacter& character)
 			return;
 	}
 	selectedTargets.push_back(&character);
-	printf("Selected Targets amount -> %d\n", selectedTargets.size());
+	printf("Selected Targets amount -> %d\n", (int)selectedTargets.size());
 }
 
 void CombatCG::DeselectTarget(OverworldCharacter& character)
@@ -322,7 +342,7 @@ void CombatCG::DeselectTarget(OverworldCharacter& character)
 	auto it = std::find(selectedTargets.begin(), selectedTargets.end(), &character);
 	if (it != selectedTargets.end())
 		selectedTargets.erase(it);
-	printf("(UnSelected) Selected Targets amount -> %d\n", selectedTargets.size());
+	printf("(UnSelected) Selected Targets amount -> %d\n", (int)selectedTargets.size());
 
 }
 

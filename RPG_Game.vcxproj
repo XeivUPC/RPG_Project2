@@ -295,6 +295,8 @@
     <ClInclude Include="src\Vector2Int.h" />
   </ItemGroup>
   <ItemGroup>
+    <Xml Include="Assets\Data\AttackList.xml" />
+    <Xml Include="Assets\Data\CharactersData.xml" />
     <Xml Include="Assets\Data\UserPrefs.xml" />
   </ItemGroup>
   <ItemGroup>

@@ -47,10 +47,10 @@ void CombatSystem::UpdateCombat()
 	case CombatSystem::ATTACKS:
 		sort(attackList.begin(), attackList.end(),
 		[](pair< CharacterReference*, TurnAttack>& a, pair< CharacterReference*, TurnAttack>& b) {
-			Stat as = a.first->stats.speed;
-			Stat bs = b.first->stats.speed;
-			float aSpeed = as.defaultValue * as.multiplier;
-			float bSpeed = bs.defaultValue * bs.multiplier;
+			Stat& as = a.first->stats.Speed;
+			Stat& bs = b.first->stats.Speed;
+			float aSpeed = as.GetProcessedValue();
+			float bSpeed = bs.GetProcessedValue();
 
 			auto getGroup = [](int priority) {
 				if (priority > 0) return 1;    
@@ -72,7 +72,7 @@ void CombatSystem::UpdateCombat()
 		});
 		for (auto& attack : attackList)
 		{
-			if (attack.first->stats.health <= 0)
+			if (attack.first->stats.Health.currentValue <= 0)
 				continue;
 			attack.second.attack->DoAttack(*attack.first,attack.second.targets);
 			
@@ -85,15 +85,25 @@ void CombatSystem::UpdateCombat()
 		{
 			for (auto& character : team.second)
 			{
-				if (character.stats.health <= 0)
+				if (character.stats.Health.currentValue <= 0)
 					continue;
-				for (auto& effect : character.stats.turnHealthModifier)
+				if (character.stats.Poison.turns > 0)
 				{
-					if (effect.second.second > 0)
-					{
-						effect.second.second--;
-						character.stats.health += effect.second.first.defaultValue;
-					}
+					Stat& stat = character.stats.Poison;
+					stat.turns--;
+					character.stats.Health.currentValue -= stat.currentValue;
+				}
+				if (character.stats.Burn.turns > 0)
+				{
+					Stat& stat = character.stats.Burn;
+					stat.turns--;
+					character.stats.Health.currentValue -= stat.currentValue;
+				}
+				if (character.stats.Regeneration.turns > 0)
+				{
+					Stat& stat = character.stats.Health;
+					stat.turns--;
+					character.stats.Health.currentValue += stat.currentValue;
 				}
 			}
 		}
@@ -142,7 +152,7 @@ void CombatSystem::CheckDeadCharacters()
 			std::remove_if(
 				characters.begin(),
 				characters.end(),
-				[](const CharacterReference& c) { return c.stats.health <= 0; }
+				[](const CharacterReference& c) { return c.stats.Health.currentValue <= 0; }
 			),
 			characters.end()
 		);

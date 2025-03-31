@@ -44,6 +44,7 @@ void CharacterDatabase::LoadDatabase()
             string charName = character.attribute("name").as_string();
             xml_node charDataNode = character.child("Data");
             xml_node charStatsNode = character.child("Stats");
+            xml_node charAttacksNode = character.child("Attacks");
 
 
             charData.id = charId;
@@ -55,6 +56,11 @@ void CharacterDatabase::LoadDatabase()
             charData.defense = charStatsNode.attribute("defense").as_int();
             charData.attack = charStatsNode.attribute("attack").as_int();
             charData.speed = charStatsNode.attribute("speed").as_int();
+
+            for (const auto& attack : charAttacksNode.attributes())
+            {
+                charData.attacks.emplace_back(attack.as_int());
+            }
 
             data[charId] = charData;
         }

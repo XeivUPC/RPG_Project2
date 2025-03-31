@@ -10,35 +10,51 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 	std::uniform_real_distribution<float> random(0.85f, 1.0);
 	std::uniform_int_distribution critical_percentage(0, 100);
 	std::uniform_int_distribution attack_accuracity(0, 100);
+
 	if (attack_accuracity(gen) >= accuracity)
 		return;
-	float totalDamage = 0;
 	for (size_t i = 0; i < target.size(); i++)
 	{
-		target[i]->stats.Attack.multiplier *= damage_multiplier;
-		target[i]->stats.CriticalHit.multiplier *= critical_damage_multiplier;
-
-		float attackDamage = max(1, (int)floor(damage * attacker.stats.Attack.GetProcessedValue() * (attacker.stats.CriticalHit.GetProcessedValue()*(critical_percentage(gen) < critical_damage_percentage ? critical_damage_multiplier:1.f)) / target[i]->stats.Defense.GetProcessedValue() * random(gen)));
-
-		float attackDefense = defense;
-
-		float attackHealth = target[i]->stats.health + extraHealth * extraHealth_multiplier;
-
-		target[i]->stats.Poison.value = poisonDamage;
-		target[i]->stats.Poison.turns = poisonTurns;
-
-		target[i]->stats.Burn.value = burnDamage;
-		target[i]->stats.Burn.turns = burnTurns;
-
-		target[i]->stats.Regeneration.value = regenerationHealth;
-		target[i]->stats.Regeneration.turns = regenerationTurns;
-
-		totalDamage += attackDamage;
-
 		target[i]->stats.turnBlocked = blockTurn;
-		if (target[i]->stats.health > target[i]->stats.maxHealth)target[i]->stats.health = target[i]->stats.maxHealth;
-		target[i]->stats.Defense.multiplier += attackDefense;
-		if (target[i]->stats.Defense.multiplier > 3)target[i]->stats.Defense.multiplier = 3;
+		if (target[i]->stats.Health.currentValue > target[i]->stats.Health.defaultValue)target[i]->stats.Health.currentValue = target[i]->stats.Health.defaultValue;
+
+		//// Check Dmg
+		bool hasCritic = critical_percentage(gen) < (critRate);
+		float criticMultiplier = hasCritic ? 1.5f : 1.f;
+
+		float attackDamage = (float)max(1, (int)floor((damage * attacker.stats.Attack.GetProcessedValue() * criticMultiplier) / target[i]->stats.Defense.GetProcessedValue() * random(gen)));
+
+		float removedHealth = target[i]->stats.Health.currentValue;
+		target[i]->stats.Health.currentValue -= attackDamage;
+		if (target[i]->stats.Health.currentValue < 0)
+			target[i]->stats.Health.currentValue = 0;
+		removedHealth = removedHealth - target[i]->stats.Health.currentValue;
+		
+
+		//// Check LifeSteal
+		attacker.stats.Health.currentValue += removedHealth * (lifeStealPercentage / 100.f) * (lifeStealEffectiveness / 100.f);
+		attacker.stats.Health.currentValue += lifeSteal * (lifeStealEffectiveness / 100.f);
+
+		//// Increase Multipliers
+		attacker.stats.Attack.AddMultiplier(damageIncrement);
+		attacker.stats.Defense.AddMultiplier(defenseIncrement);
+		attacker.stats.Speed.AddMultiplier(speedIncrement);
+
+
+		//// SetEffects
+		attacker.stats.Poison.currentValue = poisonDamage;
+		attacker.stats.Poison.turns = poisonTurns;
+
+		attacker.stats.Burn.currentValue = burnDamage;
+		attacker.stats.Burn.turns = burnTurns;
+
+		attacker.stats.Regeneration.currentValue = regenerationValue;
+		attacker.stats.Regeneration.turns = regenerationTurns;
+
+
+		//// Other
+		if(!target[i]->stats.turnBlocked)
+			target[i]->stats.turnBlocked = blockTurn;
+
 	}
-	attacker.stats.health += healthStolen + totalDamage * healthReceived_percentage;
 }

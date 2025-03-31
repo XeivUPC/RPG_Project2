@@ -7,6 +7,7 @@
                defense = "20" 
                attack = "30"
                speed = "100" />
+		<Attacks attack1 = "2" attack2 = "3" attack3 ="0" attack4 ="1"/>
     </Character>
 
 	<Character id = "0" name = "Cassian">
@@ -16,6 +17,7 @@
                defense = "40" 
                attack = "15"
                speed = "70" />
+		<Attacks attack1 = "3" attack2 = "2" attack3 ="1" attack4 ="0"/>
     </Character>
 
     <Character id = "1" name = "Artis">
@@ -25,5 +27,6 @@
                defense = "10" 
                attack = "50"
                speed = "120" />
+		<Attacks attack1 = "0" attack2 = "1" attack3 ="2" attack4 ="3"/>
     </Character>
 </Characters>

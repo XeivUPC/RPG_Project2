@@ -8,16 +8,18 @@ class CharacterDatabase {
 
 		struct CharacterData {
 			int id;
-			string name;
-			string textureId;
-			string dialoguePath;
+			string name = "";
+			string textureId = "";
+			string dialoguePath = "";
 
 
 			//// Stats
-			int health;
-			int attack;
-			int defense;
-			int speed;
+			int health = 0;
+			int attack = 0;
+			int defense = 0;
+			int speed=0;
+
+			vector<int> attacks;
 
 		};
 
