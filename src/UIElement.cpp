@@ -17,7 +17,6 @@ void UIElement::UpdateElement()
 	if (parent != nullptr) {
 		scale = localScale*parent->scale;
 		position = localPosition+parent->position;
-		debug = parent->debug;
 		if (!parent->visible) {
 			visible = false;
 		}
