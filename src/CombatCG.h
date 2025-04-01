@@ -2,17 +2,20 @@
 #include "UICanvas.h"
 #include "StepTimer.h"
 #include "SystemEvent.h"
-#include "CombatSystem.h"
+#include "CharacterDatabase.h"
+
 #include <string>
 #include <vector>
 #include <unordered_map>
 
 class CombatSystem;
+class Attack;
 class UIElement;
 class UIImage;
 class UIButton;
 class UITextBox;
 class UISlider;
+class UIToggle;
 class Animator;
 
 class CombatCG : public UICanvas
@@ -20,96 +23,54 @@ class CombatCG : public UICanvas
 public:
 	CombatCG(CombatSystem* _combatSystem);
 	void UpdateCanvas();
-	void SetUpCanvas();
-
-	CombatSystem* combat;
+	void LoadCanvas();
+public:
 
 private:
-	struct OverworldCharacter
-	{
-		CombatSystem::CharacterReference* CharacterId;
-		int position;
-		Animator* animator = nullptr;
+	struct UIAttackButton {
 		UIButton* btn = nullptr;
-		UITextBox* name = nullptr;
-		UISlider* health = nullptr;
-
-		bool attackDone = false;
-
-		OverworldCharacter(CombatSystem::CharacterReference* characterReference, int _position)
-		{
-			CharacterId = characterReference;
-			position = _position;
-		}
-	};
-
-	struct AttackSelectionButtonData {
+		UITextBox* text = nullptr;
 		Attack* attack = nullptr;
-		UIButton* btn;
-		UITextBox* btn_text;
-		EventId onClick;
 	};
 
-	CombatSystem::CharacterReference current;
+	struct UIAttackInformation {
+		UITextBox* name = nullptr;
+		UITextBox* description = nullptr;
+		UITextBox* power = nullptr;
+		UITextBox* accuracy = nullptr;
 
-	UIImage* attackSelectionBackground = nullptr;
-	//UIImage* currentCharacter = nullptr;
-	//UIButton* attackConfirm = nullptr;
-	//UITextBox* description = nullptr;
-	//vector<AttackSelectionButtonData> availableAttacks;
+		Attack* currentAttack = nullptr;
+	};
 
+	struct UICharacterSlot {
+		UITextBox* lvl = nullptr;
+		UITextBox* name = nullptr;
 
-	void EnableAttackDescription(int attackIndex);
-	void DisableAttackDescription(int attackIndex);
-	int TeamMembersQuantity(CombatSystem::CharacterType _type);
-	
-	int currentCombatCharacter = 0;
+		UIToggle* posion = nullptr;
+		UIToggle* burn = nullptr;
+		UIToggle* regeneration = nullptr;
 
+		UIImage* hpBar = nullptr;
+		UIImage* overlay = nullptr;
+	};
 
-
-	///////////////NEW
-	vector<OverworldCharacter> charactersInCombat;
-
-	UIImage* combatBackground = nullptr;
-
-	UIImage* mainInfoArea = nullptr;
-
-	UIElement* attackButtonHolder = nullptr;
-	vector<AttackSelectionButtonData> attackButtons;
-	UIImage* attackButtonsCover = nullptr;
-
-	UITextBox* attackDescription = nullptr;
-	int currentAttackDescription = -1;
-
-	UIImage* selectedCharacterIndicator = nullptr;
-
-	UIButton* endTurnButton = nullptr;
-	UIButton* confirmAtackButton = nullptr;
+	/// CreationFunctions
+	UIAttackButton CreateUIAttackButton(Attack* value, Vector2 btn_position);
+	void CreateUIAttackInformation();
+	UICharacterSlot CreateUICharacterSlot(Attack* value, Vector2 btn_position);
 
 
+	void ShowAttackInformation(Attack* attackIndex);
+	void HideAttackInformation(Attack* attackIndex);
 
-	void SelectCharacter(int characterIndex);
-	void SelectAttack(int attackIndex);
-	void AddAttack();
-	OverworldCharacter* selectedCharacter = nullptr;
-	AttackSelectionButtonData* selectedAttack = nullptr;
-	
-	UIButton* returnToSelectCharacterButton = nullptr;
-	bool selectingTarget = false;
-	void SetSelectingTargetMode(bool mode);
+private:
+	CombatSystem* combat = nullptr;
 
+	/// UI
+	UIImage* combatBg = nullptr;
+	UIImage* combatLayout = nullptr;
+	UIAttackInformation attackInfo;
+	vector<UIAttackButton> attackButtons;
 
-	void SelectTarget(OverworldCharacter& character);
-	void DeselectTarget(OverworldCharacter& character);
-	int maxSelectionableTargets = 1;
-	int minSelectionableTargets = 1;
-
-	CombatSystem::CharacterType seleccionableTargetsType = CombatSystem::Enemy;
-	vector<OverworldCharacter*> selectedTargets;
-
-	unordered_map<CombatSystem::CharacterReference*, pair<Attack*,vector<CombatSystem::CharacterReference*>>> attacksToExecute;
-
-	void EndTurn();
-
-	void OnStateChanged();
+	/// TrackingData
 };

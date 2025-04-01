@@ -1,5 +1,6 @@
 #include "CombatGameState.h"
 #include "CombatCG.h"
+#include "CombatSystem.h"
 #include "Engine.h"
 #include "GameScene.h"
 #include "ModuleInput.h"
@@ -38,14 +39,12 @@ void CombatGameState::StateSelected()
 	Engine::Instance().m_cursor->ShowCustomCursor();
 
 
-
-
 	Engine::Instance().s_game->combatSystem->AddPartyToCombat(vector<int>{1,0,1,1}, CombatSystem::Ally);
 	Engine::Instance().s_game->combatSystem->AddPartyToCombat(vector<int>{1, 0, 1}, CombatSystem::Enemy);
 
 
 	Engine::Instance().s_game->combatSystem->StartCombat();
-	Engine::Instance().s_game->combatCanvas->SetUpCanvas();
+	Engine::Instance().s_game->combatCanvas->LoadCanvas();
 }
 
 void CombatGameState::StateDeselected()

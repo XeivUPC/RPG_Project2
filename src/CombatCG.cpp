@@ -6,8 +6,8 @@
 #include "ModuleTime.h"
 #include "ModuleInput.h"
 #include "TextureAtlas.h"
-#include "DialogueSystem.h"
 #include "DrawingTools.h"
+#include "CombatSystem.h"
 
 #include "UIImage.h"
 #include "UIButton.h"
@@ -23,415 +23,118 @@
 CombatCG::CombatCG(CombatSystem* _combatSystem)
 {
 	combat = _combatSystem;
-	combat->onCombatStateChanged.Subscribe([this]() {OnStateChanged();});
-
-	attackButtons = vector<AttackSelectionButtonData>(4);
-
-
-	_TTF_Font* font = Engine::Instance().m_assetsDB->GetFont("alagard");
-
-	SDL_Texture* tex = Engine::Instance().m_assetsDB->GetTexture("uiBox3");
-	SDL_Texture* tex1 = Engine::Instance().m_assetsDB->GetTexture("btn_tex1");
-	SDL_Texture* tex2 = Engine::Instance().m_assetsDB->GetTexture("slider_tex1");
-	SDL_Texture* tex3 = Engine::Instance().m_assetsDB->GetTexture("arrow_tex1");
-	SDL_Texture* tex4 = Engine::Instance().m_assetsDB->GetTexture("toggle_tex1");
-
-
-	combatBackground = new UIImage({ 0,0 }, { LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT },{0,0},false,{0,0,0,0},{200,200,200,255});
-	AddElementToCanvas(combatBackground);
-
-	Vector2Int textureSize = Engine::Instance().m_assetsDB->GetTextureSize(*tex);
-	attackSelectionBackground = new UIImage(*tex, {0,LOGIC_SCREEN_HEIGHT  - 88}, textureSize);
-	AddElementToCanvas(attackSelectionBackground);
-
-	for (int i = 0; i < attackButtons.size(); i++)
-	{
-		attackButtons[i].btn = new UIButton(*tex1, {8 + 86 * (i / 2) + 1 * (i / 2), 9 + 35 * (i % 2) +1 * (i % 2) }, {86,35}, {0,0,86,35});
-		attackButtons[i].btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
-
-		attackButtons[i].btn->onMouseEnter.Subscribe([this, i]() {EnableAttackDescription(i); });
-		attackButtons[i].btn->onMouseExit.Subscribe([this,i]() {DisableAttackDescription(i); });
-		attackButtons[i].btn->onMouseClick.Subscribe([this,i]() {SelectAttack(i); });
-
-		attackButtons[i].btn->SetParent(attackSelectionBackground);
-		attackButtons[i].btn_text = new UITextBox(/*availableAttacks[i].attack->name*/"Default", *font, 16, {255,255,255,255}, {43,17}, {86,35}, {0.5f,0.5f}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
-		attackButtons[i].btn_text->SetParent(attackButtons[i].btn);
-	}
-
-	attackDescription = new UITextBox("", *font, 16, { 255,255,255,255 }, { 196,8 }, { 436, 72 });
-	attackDescription->SetParent(attackSelectionBackground);
-
-
-	SetUpCanvas();
-	
-
-	//attackConfirm = new UIButton(*tex3, {LOGIC_SCREEN_WIDTH/2,0}, { 19, 19 }, { 0,0,19,19 }, { 0.5f,0.5f });
-	//attackConfirm->AddRect(UIButton::ButtonStates::HOVER, { 19,0,19,19 });
-	//attackConfirm->SetParent(attackSelectionBackground);
-	//attackConfirm->onMouseClick.Subscribe([this]() {SwitchCharacter(); });
-
-	selectedCharacterIndicator = new UIImage(*tex3,{0,-60},{19,19},{0.5f,0.5f}, true, {0,0,19,19});
-	selectedCharacterIndicator->localVisible = false;
-
-	selectedCharacterIndicator->SetParent(combatBackground);
-
-
-
-	endTurnButton = new UIButton(*tex4, { LOGIC_SCREEN_WIDTH - 20,LOGIC_SCREEN_HEIGHT - 20 }, { 19, 19 }, { 19,0,19,19 }, { 0.5f,0.5f });
-	endTurnButton->localVisible = false;
-	endTurnButton->onMouseClick.Subscribe([this]() {EndTurn(); });
-
-
-	returnToSelectCharacterButton = new UIButton(*tex4, { LOGIC_SCREEN_WIDTH - 20,LOGIC_SCREEN_HEIGHT - 60 }, { 19, 19 }, { 19,0,19,19 }, { 0.5f,0.5f });
-	returnToSelectCharacterButton->localVisible = false;
-	returnToSelectCharacterButton->interactable = false;
-	returnToSelectCharacterButton->onMouseClick.Subscribe([this]() {	SetSelectingTargetMode(false); });
-
-	confirmAtackButton = new UIButton(*tex4, { LOGIC_SCREEN_WIDTH - 20,LOGIC_SCREEN_HEIGHT - 100 }, { 19, 19 }, { 19,0,19,19 }, { 0.5f,0.5f });
-	confirmAtackButton->localVisible = false;
-	confirmAtackButton->interactable = false;
-	confirmAtackButton->onMouseClick.Subscribe([this]() {	AddAttack(); });
-
-	AddElementToCanvas(endTurnButton);
-	AddElementToCanvas(returnToSelectCharacterButton);
-	AddElementToCanvas(confirmAtackButton);
 }
-
-void CombatCG::SetUpCanvas()
-{
-	for (int i = 0; i < charactersInCombat.size(); i++)
-	{
-		RemoveElementFromCanvas(charactersInCombat[i].btn);
-		delete charactersInCombat[i].btn;
-	}
-	charactersInCombat.clear();
-
-
-	for (const auto& characterTeam : combat->GetCharactersInCombat()) {
-		int index = 0;
-		for (auto& character : characterTeam.second)
-		{
-			charactersInCombat.emplace_back(OverworldCharacter((CombatSystem::CharacterReference*)&character, index));
-			index++;
-		}
-	}
-
-	_TTF_Font* font = Engine::Instance().m_assetsDB->GetFont("alagard");
-	SDL_Texture* tex2 = Engine::Instance().m_assetsDB->GetTexture("slider_tex1");
-
-	for (int i = 0; i < charactersInCombat.size(); i++)
-	{
-		OverworldCharacter& overworldCharacter = charactersInCombat[i];
-		int teamMember = overworldCharacter.position;
-
-		Vector2 position = { 0,LOGIC_SCREEN_HEIGHT / 2 - 20 };
-		Vector2 offset = { 0,0 };
-		Vector2 displacement = { 60,55 };
-		if (overworldCharacter.CharacterId->team == CombatSystem::Ally)
-			position.x = LOGIC_SCREEN_WIDTH / 4;
-		else
-			position.x = LOGIC_SCREEN_WIDTH / 4 * 3;
-		if (TeamMembersQuantity(overworldCharacter.CharacterId->team) > 1)
-		{
-			offset.x = (float)std::cos((360 / TeamMembersQuantity(overworldCharacter.CharacterId->team)) * teamMember * M_PI / 180);
-			if (overworldCharacter.CharacterId->team == CombatSystem::Enemy)
-				offset.x *= -1;
-			offset.y = (float)std::sin((360 / TeamMembersQuantity(overworldCharacter.CharacterId->team)) * teamMember * M_PI / 180);
-		}
-		overworldCharacter.btn = new UIButton(position + Vector2{ offset.x * displacement.x,offset.y * displacement.y }, { 32, 62 }, { 0,0,0,0 }, { 0.5f,0.5f }, { 255,255,255,0 });
-		overworldCharacter.btn->debug = true;
-		overworldCharacter.btn->onMouseClick.Subscribe([this, i]() {SelectCharacter(i); });
-
-		overworldCharacter.name = new UITextBox("Name", *font, 16, { 255,255,255,255 }, { 0,-38 }, { 32,15 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle, false);
-		overworldCharacter.name->SetParent(overworldCharacter.btn);
-
-		overworldCharacter.health = new UISlider(*tex2, { 0,38 }, { 40,4 }, { 3,4,40,4 }, *tex2, { 0,0 }, { 0,0,0,0 }, { 0,0,0,0 }, { 0.5f,0.5f }, 0.5f);
-		overworldCharacter.health->SetParent(overworldCharacter.btn);
-
-
-		AddElementToCanvas(overworldCharacter.btn);
-	}
-}
-
 
 void CombatCG::UpdateCanvas()
 {
-	combat->UpdateCombat();
-	switch (combat->GetCombatState())
-	{
-	case CombatSystem::START:
-		currentCombatCharacter = 0;
-
-		break;
-	case CombatSystem::PLAYER_TURN:
-
-		break;
-	default:
-		break;
-	}
 	UICanvas::UpdateCanvas();
 }
 
-void CombatCG::EnableAttackDescription(int attackIndex)
+void CombatCG::LoadCanvas()
 {
-	attackDescription->SetText(attackButtons[attackIndex].attack->description);
-	//attackDescription->SetText("Default " + to_string(attackIndex));
-	currentAttackDescription = attackIndex;
-}
+	//// SetBackground
+	SDL_Texture* bg_texture = Engine::Instance().m_assetsDB->GetTexture("");
+	//combatBg = new UIImage(*bg_texture, {0,0}, {LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT});
+	combatBg = new UIImage({ 0,0 }, { LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT }, { 0,0 }, false, { 0,0,0,0 }, { 200,200,200,255 });
 
-void CombatCG::DisableAttackDescription(int attackIndex)
-{
-	if (currentAttackDescription != attackIndex)
-		return;
-	attackDescription->SetText("");
-}
+	////CreateCombatLayout
+	SDL_Texture* layout_texture = Engine::Instance().m_assetsDB->GetTexture("uiBox3");
+	combatLayout = new UIImage(*layout_texture, { 0, LOGIC_SCREEN_HEIGHT - 89 }, {640,89});
+	combatLayout->SetParent(combatBg);
 
-int CombatCG::TeamMembersQuantity(CombatSystem::CharacterType _type)
-{
-	int quantity = 0;
-	for (size_t i = 0; i < charactersInCombat.size(); i++)
+	//// Create AttackButtons
+	for (int i = 0; i < 4; i++)
 	{
-		if (charactersInCombat[i].CharacterId->team == _type)
-			quantity++;
+		Vector2Int btn_position = { 8 + 86 * (i / 2) + 1 * (i / 2), 9 + 35 * (i % 2) + 1 * (i % 2) };
+		Attack* attackValue = nullptr;
+		attackButtons.emplace_back(CreateUIAttackButton(attackValue, btn_position));
+
+		attackButtons[i].btn->SetParent(combatLayout);
 	}
-	return quantity;
+
+	/// CreateAttackInformation
+	CreateUIAttackInformation();
+	HideAttackInformation(nullptr);
+	attackInfo.name->SetParent(combatLayout);
+
+	////CreateCharactersUI
+
+
+
+
+	//// Add Elements
+	AddElementToCanvas(combatBg);
 }
 
-void CombatCG::SelectCharacter(int characterIndex)
+CombatCG::UIAttackButton CombatCG::CreateUIAttackButton(Attack* value, Vector2 btn_position)
 {
-	if (selectingTarget) {
-		SelectTarget(charactersInCombat[characterIndex]);
-		return;
-	}
-	if(charactersInCombat[characterIndex].CharacterId->team== CombatSystem::Enemy)
-		return;
-	if (selectedCharacter == &charactersInCombat[characterIndex])
-		return;
+	SDL_Texture* btn_texture = Engine::Instance().m_assetsDB->GetTexture("btn_tex1");
+	TTF_Font* btn_font = Engine::Instance().m_assetsDB->GetFont("alagard");
 
-	if (charactersInCombat[characterIndex].attackDone) {
-		charactersInCombat[characterIndex].attackDone = false;
-		if (attacksToExecute.count(charactersInCombat[characterIndex].CharacterId)) {
-			attacksToExecute.erase(charactersInCombat[characterIndex].CharacterId);
-		}
+	Vector2Int btn_size = { 86,35 };
 
-	}
+	int font_size = 16;
+	SDL_Color font_color = { 255,255,255,255 };
+	UITextBox::HorizontalAlignment hAligment = UITextBox::HorizontalAlignment::Middle;
+	UITextBox::VerticalAlignment vAligment = UITextBox::VerticalAlignment::Middle;
 
-	selectedCharacter = &charactersInCombat[characterIndex];
-	selectedAttack = nullptr;
-	printf("CharacterSelected\n");
-
-	currentAttackDescription = -1;
-
-	if(!selectedCharacterIndicator->localVisible)
-		selectedCharacterIndicator->localVisible = true;
-	selectedCharacterIndicator->SetParent(selectedCharacter->btn);
-
-
-	////Change Attacks
-
-	CharacterDatabase::CharacterData& charRef = CharacterDatabase::Instance().GetCharacterData(selectedCharacter->CharacterId->id);
-	for (size_t i = charRef.attacks.size(); i < attackButtons.size(); i++)
-	{
-		attackButtons[i].btn->localVisible = false;
-		attackButtons[i].btn->interactable = false;
-	}
-
-	for (size_t i = 0; i < charRef.attacks.size(); i++)
-	{
-		attackButtons[i].attack  = AttackList::Instance().GetAttack(charRef.attacks[i]);
-		attackButtons[i].btn_text->SetText(attackButtons[i].attack->name);
-
-		attackButtons[i].btn->localVisible = true;
-		attackButtons[i].btn->interactable = true;
-	}
-
-}
-
-void CombatCG::SelectAttack(int attackIndex)
-{
-	if (selectedCharacter == nullptr)
-		return;
-	if (selectedAttack == &attackButtons[attackIndex])
-		return;
-	selectedAttack = &attackButtons[attackIndex];
-
+	UIButton* button = new UIButton(*btn_texture, btn_position, btn_size, {0,0,btn_size.x,btn_size.y});
+	button->AddRect(UIButton::ButtonStates::HOVER, { btn_size.x,0,btn_size.x,btn_size.y });
+	UITextBox* attackName = new UITextBox(value ? value->name : "", *btn_font, font_size, font_color, btn_size / 2, btn_size, {0.5f,0.5f}, hAligment, vAligment);
 	
-	printf("AttackSelected\n");
+	button->onMouseEnter.Subscribe([this, value]() {ShowAttackInformation(value);});
+	button->onMouseExit.Subscribe([this, value]() {HideAttackInformation(value);});
+	//button->onMouseClick.Subscribe();
 
-	//// Select Target of the attack
-	seleccionableTargetsType = selectedAttack->attack->targetType;
-	if (seleccionableTargetsType == CombatSystem::None) {
-		selectedTargets.emplace_back(selectedCharacter);
-		AddAttack();
+	attackName->SetParent(button);
+	if (!value)
+		button->isEnabled = false;
+	UIAttackButton attackButtonGroup = { button, attackName, value };
+
+	return move(attackButtonGroup);
+}
+
+void CombatCG::CreateUIAttackInformation()
+{
+	TTF_Font* btn_font = Engine::Instance().m_assetsDB->GetFont("alagard");
+
+	int font_size = 16;
+	SDL_Color font_color = { 255,255,255,255 };
+	UITextBox::HorizontalAlignment hAligment = UITextBox::HorizontalAlignment::Left;
+	UITextBox::VerticalAlignment vAligment = UITextBox::VerticalAlignment::Top;
+
+	UITextBox* attackName = new UITextBox("Name", *btn_font, font_size, font_color, {199,10}, { 143,16 }, { 0,0 }, hAligment, vAligment);
+	UITextBox* attackDescription = new UITextBox("Description", *btn_font, font_size, font_color, {0,24}, { 431,46 }, { 0,0 }, hAligment, vAligment);
+	
+	//hAligment = UITextBox::HorizontalAlignment::Right;
+	UITextBox* attackPower = new UITextBox("Pow: 30", *btn_font, font_size, font_color, {299,0}, { 72,16 }, { 0,0 }, hAligment, vAligment,false);
+	UITextBox* attackAccuracy = new UITextBox("Acc: 100%", *btn_font, font_size, font_color, { 361,0 }, { 72,16 }, {0,0}, hAligment, vAligment,false);
+
+	attackDescription->SetParent(attackName);
+	attackPower->SetParent(attackName);
+	attackAccuracy->SetParent(attackName);
+
+	attackInfo = { attackName,attackDescription,attackPower,attackAccuracy };
+}
+
+void CombatCG::ShowAttackInformation(Attack* attackSelected)
+{
+	attackInfo.name->localVisible = true;
+
+	attackInfo.currentAttack = attackSelected;
+
+	attackInfo.name->SetText(attackSelected->name);
+	attackInfo.description->SetText(attackSelected->description);
+	attackInfo.power->SetText("Pow: "+to_string(attackSelected->damage));
+	attackInfo.accuracy->SetText("Acc: " + to_string(attackSelected->accuracity) + "%");
+}
+
+void CombatCG::HideAttackInformation(Attack* attackDeselected)
+{
+	if (attackInfo.currentAttack != attackDeselected)
 		return;
-	}
-
-	/// Select Amount of tagets from attack
-	maxSelectionableTargets = selectedAttack->attack->maxTargetAmmount;
-	minSelectionableTargets = selectedAttack->attack->maxTargetAmmount;
-	selectedTargets.clear();
-
-	SetSelectingTargetMode(true);
-}
-
-void CombatCG::AddAttack()
-{
-	if (selectedTargets.size()<minSelectionableTargets) {
-		return;
-	}
-	vector<CombatSystem::CharacterReference*> referenceTargets;
-
-	for (size_t i = 0; i < selectedTargets.size(); i++)
-	{
-		referenceTargets.emplace_back(selectedTargets[i]->CharacterId);
-	}
-	attacksToExecute[selectedCharacter->CharacterId] = { selectedAttack->attack,referenceTargets };
-
-	selectedCharacter->attackDone = true;
-
-	SetSelectingTargetMode(false);
-
-	selectedCharacterIndicator->localVisible = false;
-
-	selectedCharacter = nullptr;
-	selectedAttack = nullptr;
-
-	printf("AttackAdded\n");
-}
-
-void CombatCG::SetSelectingTargetMode(bool mode)
-{
-	returnToSelectCharacterButton->interactable = mode;
-	returnToSelectCharacterButton->localVisible = mode;
-
-	confirmAtackButton->interactable = mode;
-	confirmAtackButton->localVisible = mode;
-
-	selectingTarget = mode;
-
-	//// Hide or disable buttons attack
-
-	for (size_t i = 0; i < attackButtons.size(); i++)
-	{
-		attackButtons[i].btn->interactable = !mode;
-	}
-}
-
-void CombatCG::SelectTarget(OverworldCharacter& character)
-{
-	bool contains = std::find(selectedTargets.begin(), selectedTargets.end(), &character) != selectedTargets.end();
-	if (contains) {
-		DeselectTarget(character);
-		return;
-	}
-
-	if (selectedTargets.size() == maxSelectionableTargets)
-		return;
-
-	if (seleccionableTargetsType != CombatSystem::Both) {
-
-		if (character.CharacterId->team != seleccionableTargetsType)
-			return;
-	}
-	selectedTargets.push_back(&character);
-	printf("Selected Targets amount -> %d\n", (int)selectedTargets.size());
-}
-
-void CombatCG::DeselectTarget(OverworldCharacter& character)
-{
-	auto it = std::find(selectedTargets.begin(), selectedTargets.end(), &character);
-	if (it != selectedTargets.end())
-		selectedTargets.erase(it);
-	printf("(UnSelected) Selected Targets amount -> %d\n", (int)selectedTargets.size());
-
+	attackInfo.name->localVisible = false;
+	attackInfo.currentAttack = nullptr;
 }
 
 
-
-void CombatCG::EndTurn()
-{
-	for (auto& attackData : attacksToExecute)
-	{
-		combat->AddAttack(attackData.second.first, *attackData.first, attackData.second.second);
-	}
-	combat->ChangeState(CombatSystem::CombatState::ENEMY_TURN);
-}
-
-void CombatCG::OnStateChanged()
-{
-	switch (combat->GetCombatState())
-	{
-		case CombatSystem::START:
-			
-			break;
-		case CombatSystem::PLAYER_TURN:
-			SetSelectingTargetMode(false);
-			currentAttackDescription = -1;
-			attackDescription->SetText("");
-			attackDescription->localVisible = true;
-			attackDescription->interactable = true;
-
-			for (size_t i = 0; i < attackButtons.size(); i++)
-			{
-				attackButtons[i].btn->localVisible = true;
-				attackButtons[i].btn->interactable = true;
-			}
-
-			for (size_t i = 0; i < charactersInCombat.size(); i++)
-			{
-				charactersInCombat[i].btn->interactable = true;
-				charactersInCombat[i].attackDone = false;
-			}
-
-			//attackButtonsCover->visible = false;
-			//attackButtonsCover->interactable = false;
-
-			endTurnButton->localVisible = true;
-			endTurnButton->interactable = true;
-
-			selectedCharacter = nullptr;
-			selectedAttack = nullptr;
-
-			break;
-		case CombatSystem::ENEMY_TURN:
-			SetSelectingTargetMode(false);
-			attackDescription->SetText("");
-			attackDescription->localVisible = false;
-			attackDescription->interactable = false;
-
-			for (size_t i = 0; i < attackButtons.size(); i++)
-			{
-				attackButtons[i].btn->localVisible = true;
-				attackButtons[i].btn->interactable = false;
-			}
-
-			for (size_t i = 0; i < charactersInCombat.size(); i++)
-			{
-				charactersInCombat[i].btn->interactable = false;
-				charactersInCombat[i].attackDone = false;
-			}
-
-			endTurnButton->localVisible = false;
-			endTurnButton->interactable = false;
-
-			//attackButtonsCover->visible = true;
-			//attackButtonsCover->interactable = true;
-
-			selectedCharacterIndicator->localVisible = false;
-
-			selectedCharacter = nullptr;
-			selectedAttack = nullptr;
-
-			break;
-		case CombatSystem::ATTACKS:
-			break;
-		case CombatSystem::EFFECTS:
-			break;
-		case CombatSystem::END_CHECK:
-			break;
-		case CombatSystem::VICTORY:
-			break;
-		case CombatSystem::DEFEAT:
-			break;
-	}
-}
