@@ -52,6 +52,7 @@ void CharacterDatabase::LoadDatabase()
             charData.textureId = charDataNode.attribute("textureId").as_string();
             charData.dialoguePath = charDataNode.attribute("dialoguePath").as_string();
 
+            charData.level = charStatsNode.attribute("level").as_int();
             charData.health = charStatsNode.attribute("hp").as_int();
             charData.defense = charStatsNode.attribute("defense").as_int();
             charData.attack = charStatsNode.attribute("attack").as_int();

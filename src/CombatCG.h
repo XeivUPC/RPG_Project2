@@ -24,6 +24,7 @@ public:
 	CombatCG(CombatSystem* _combatSystem);
 	void UpdateCanvas();
 	void LoadCanvas();
+	void UnloadCanvas();
 public:
 
 private:
@@ -56,18 +57,37 @@ private:
 		UIImage* hpBar = nullptr;
 		UIImage* overlay = nullptr;
 
+		UIImage* attackDone = nullptr;
+
 		UIImage* selectedCharacterIndicator = nullptr;
 		UIImage* selectedCharacterTarget = nullptr;
 	};
 
 	/// CreationFunctions
-	UIAttackButton CreateUIAttackButton(Attack* value, Vector2 btn_position);
+	UIAttackButton CreateUIAttackButton(int attackIndex, Vector2 btn_position);
 	void CreateUIAttackInformation();
 	UICharacterSlot CreateUICharacterSlot(CombatSystem::CharacterReference* value, Vector2 slot_position);
+	void CreateUIExtras();
 
 
-	void ShowAttackInformation(Attack* attackIndex);
-	void HideAttackInformation(Attack* attackIndex);
+	void ShowAttackInformation(int attackIndex);
+	void HideAttackInformation(int attackIndex);
+	void HideAttackInformation();
+
+	void SelectCharacter(UICharacterSlot& character);
+	void DeselectChatacter();
+	void SelectTarget(UICharacterSlot& character);
+	void RemoveAllTargets();
+
+	void SelectAttack(int attackIndex);
+	void ConfirmAttack();
+	void EndTurn();
+
+	void OnCombatStateChanged();
+
+	void SetTargetSelectionMode(bool mode);
+
+	Vector2Int GetSlotPosition(CombatSystem::CharacterType team, int teamMemberIndex, int teamMembersAmount);
 
 private:
 	CombatSystem* combat = nullptr;
@@ -75,9 +95,23 @@ private:
 	/// UI
 	UIImage* combatBg = nullptr;
 	UIImage* combatLayout = nullptr;
+
+	UIButton* confirmAttack = nullptr;
+	UIButton* cancelAttack = nullptr;
+	UIButton* passTurn = nullptr;
+
 	UIAttackInformation attackInfo;
 	vector<UIAttackButton> attackButtons;
 	vector<UICharacterSlot> charactersSlot;
 
 	/// TrackingData
+	UICharacterSlot* selectedCharacter = nullptr;
+	vector<UICharacterSlot*> targetCharacters;
+	UIAttackButton* selectedAttack = nullptr;
+
+	unordered_map<CombatSystem::CharacterReference*, pair<Attack*, vector<CombatSystem::CharacterReference*>>> attacksToExecute;
+
+	/// Condition
+	bool selectingTargets = false;
+	
 };

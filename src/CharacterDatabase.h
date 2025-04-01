@@ -9,11 +9,13 @@ class CharacterDatabase {
 		struct CharacterData {
 			int id;
 			string name = "";
+
 			string textureId = "";
 			string dialoguePath = "";
 
 
 			//// Stats
+			int level = 2;
 			int health = 0;
 			int attack = 0;
 			int defense = 0;

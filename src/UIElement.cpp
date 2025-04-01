@@ -22,6 +22,12 @@ void UIElement::UpdateElement()
 		}
 		else
 			visible = localVisible;
+
+		if(parent->debug) {
+			debug = true;
+		}
+		else
+			debug = localdebug;
 	}
 	else {
 		scale = localScale;

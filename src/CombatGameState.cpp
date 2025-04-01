@@ -22,6 +22,7 @@ bool CombatGameState::UpdateState()
 {
 	CombatCG* combatCanvas = Engine::Instance().s_game->combatCanvas;
 	combatCanvas->UpdateCanvas();
+	Engine::Instance().s_game->combatSystem->UpdateCombat();
 	return true;
 }
 
@@ -54,4 +55,6 @@ void CombatGameState::StateDeselected()
 	}
 	Engine::Instance().s_game->combatCanvas->SetInteractable(false);
 	Engine::Instance().s_game->combatCanvas->UpdateCanvas();
+	Engine::Instance().s_game->combatCanvas->UnloadCanvas();
+
 }

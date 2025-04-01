@@ -94,7 +94,7 @@
 	</attack>
 	<attack id ="3" name ="Name_3">
 		<description value ="Bla bla bla x3"/>
-		<data	target-type="1"
+		<data	target-type="0"
 				selection="0"
 				
 				min-target-amount ="1"
