@@ -49,8 +49,8 @@ void CombatSystem::UpdateCombat()
 		[](pair< CharacterReference*, TurnAttack>& a, pair< CharacterReference*, TurnAttack>& b) {
 			Stat& as = a.first->stats.Speed;
 			Stat& bs = b.first->stats.Speed;
-			float aSpeed = as.GetProcessedValue();
-			float bSpeed = bs.GetProcessedValue();
+			float aSpeed = as.GetProcessedValue(a.first->stats.level);
+			float bSpeed = bs.GetProcessedValue(b.first->stats.level);
 
 			auto getGroup = [](int priority) {
 				if (priority > 0) return 1;    
@@ -146,7 +146,9 @@ CombatSystem::~CombatSystem()
 
 void CombatSystem::CheckDeadCharacters()
 {
-	for (auto& team : charactersInCombat) {
+
+	/// Do not remove, just take in care they are dead
+	/*for (auto& team : charactersInCombat) {
 		auto& characters = team.second;
 		characters.erase(
 			std::remove_if(
@@ -156,7 +158,7 @@ void CombatSystem::CheckDeadCharacters()
 			),
 			characters.end()
 		);
-	}
+	}*/
 }
 
 void CombatSystem::ChangeState(CombatState newState)

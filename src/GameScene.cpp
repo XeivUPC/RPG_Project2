@@ -90,7 +90,7 @@ bool GameScene::Start()
     game_states[State::Combat] = new CombatGameState();
     game_states[State::Combat]->StateDeselected();
 
-    SetState(State::Combat);
+    SetState(State::Exploring);
 
     ////
 
@@ -129,7 +129,7 @@ bool GameScene::Update()
 
     if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_C) == KEY_DOWN)
     {
-        //SetCombat();
+		SetState(State::Combat);
     }
 
     Engine::Instance().m_render->SortRenderQueueLayerByPosition(3);

@@ -68,7 +68,7 @@ void AttackList::LoadAttacks()
 		newAttack.maxTargetAmmount = dataNode.attribute("max-target-amount").as_int();
 
 		newAttack.priority = dataNode.attribute("priority").as_int();
-		newAttack.accuracity = dataNode.attribute("accuracity").as_int();
+		newAttack.accuracity = dataNode.attribute("accuracy").as_int();
 
 		newAttack.damage = dataNode.attribute("damage").as_int();
 		newAttack.critRate = dataNode.attribute("cirt-rate").as_int();

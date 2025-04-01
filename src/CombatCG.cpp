@@ -29,14 +29,25 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 void CombatCG::UpdateCanvas()
 {
 	UICanvas::UpdateCanvas();
+
+	for (size_t i = 0; i < charactersSlot.size(); i++)
+	{
+		CombatSystem::CharacterCombatStats& charStats  = charactersSlot[i].characterRef->stats;
+
+		float maxHealth = charStats.Health.defaultValue;
+		float currentHealth = charStats.Health.currentValue;
+		float healthRatio = currentHealth / maxHealth;
+
+		charactersSlot[i].hpBar->size.x = (int)(charactersSlot[i].hpBarMaxWidth * healthRatio);
+	}
 }
 
 void CombatCG::LoadCanvas()
 {
 	//// SetBackground
-	SDL_Texture* bg_texture = Engine::Instance().m_assetsDB->GetTexture("");
-	//combatBg = new UIImage(*bg_texture, {0,0}, {LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT});
-	combatBg = new UIImage({ 0,0 }, { LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT }, { 0,0 }, false, { 0,0,0,0 }, { 200,200,200,255 });
+	SDL_Texture* bg_texture = Engine::Instance().m_assetsDB->GetTexture("battle_bg");
+	combatBg = new UIImage(*bg_texture, {0,0}, {LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT});
+	//combatBg = new UIImage({ 0,0 }, { LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT }, { 0,0 }, false, { 0,0,0,0 }, { 200,200,200,255 });
 	AddElementToCanvas(combatBg);
 
 	////CreateCombatLayout
@@ -175,6 +186,7 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 
 
 	UIImage* hpBar = new UIImage({ 11,4 }, { 41,3 }, { 0,0 }, false, { 0,0,0,0 }, {255,0,0,255});
+	int hpBarMaxWidth = (int)hpBar->size.x;
 
 	UIImage* attackDone = new UIImage(*charAttackDone_texture, { 60,1 }, { 19,19 }, { 0,1 });
 	attackDone->localVisible = false;
@@ -205,7 +217,7 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 
 	AddElementToCanvas(overlay);
 
-	return { characterBtn, value,slotLvl,slotName, poisonToggle, burnToggle,regenerationToggle, hpBar, overlay, attackDone,selectedCharacterIndicator, selectedCharacterTarget };
+	return { characterBtn, value,slotLvl,slotName, poisonToggle, burnToggle,regenerationToggle, hpBar,hpBarMaxWidth, overlay, attackDone,selectedCharacterIndicator, selectedCharacterTarget };
 }
 
 void CombatCG::CreateUIExtras()
@@ -284,6 +296,8 @@ void CombatCG::HideAttackInformation()
 
 void CombatCG::SelectCharacter(UICharacterSlot& character)
 {
+	if (character.characterRef->stats.Health.currentValue <= 0)
+		return;
 	if(selectingTargets)
 	{
 		SelectTarget(character);
@@ -411,6 +425,7 @@ void CombatCG::OnCombatStateChanged()
 	{
 		case CombatSystem::CombatState::PLAYER_TURN:
 		{
+			attacksToExecute.clear();
 			for (size_t i = 0; i < charactersSlot.size(); i++)
 			{
 				charactersSlot[i].attackDone->localVisible = false;

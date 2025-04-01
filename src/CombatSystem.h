@@ -58,6 +58,16 @@ public:
 			}
 			return defaultValue * (multiplierRealValue/2);
 		}
+		
+		float GetProcessedValue(int level)
+		{
+			float multiplierRealValue = multiplier + 2;
+			float extraByLevel = (1 / 50.f * defaultValue) * (level - 1);
+			if (multiplier < 0) {
+				return (defaultValue+ extraByLevel) * (2/ multiplierRealValue);
+			}
+			return (defaultValue + extraByLevel) * (multiplierRealValue/2);
+		}
 
 		void AddMultiplier(float value)
 		{
@@ -74,6 +84,8 @@ public:
 	{
 		bool turnBlocked = false;
 
+		int level;
+
 		Stat Health;
 
 		Stat Attack;
@@ -89,6 +101,9 @@ public:
 		void GetBaseStatsById(int id)
 		{
 			CharacterDatabase::CharacterData& reference = CharacterDatabase::Instance().GetCharacterData(id);
+
+			level = reference.level;
+
 			Health = Stat((float)reference.health, 1.f, 0);
 			Attack = Stat((float)reference.attack, 1.f, 0);
 			Defense = Stat((float)reference.defense, 1.f, 0);

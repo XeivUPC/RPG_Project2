@@ -49,7 +49,6 @@ void ModuleAssetDatabase::LoadAssets()
 	AddAudioToStorage("ambient_birds1", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds1.wav"));
 	AddAudioToStorage("ambient_birds2", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds2.wav"));
 
-	
 	AudioContainer* footstepContainer = new AudioContainer(AudioContainer::PlayMode::NonRepeatingRandom, { });
 	AddAudioContainerToStorage("footsteps_container", *footstepContainer);
 	for (size_t i = 1; i <= 12; i++)
@@ -68,6 +67,7 @@ void ModuleAssetDatabase::LoadAssets()
 //// Textures
 	///Menus
 	///UI
+	AddTextureToStorage("battle_bg", *textureFactory->CreateTexture("Assets/Textures/UI/battle_bg.png"));
 	AddTextureToStorage("arrow_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/arrow1.png"));
 	AddTextureToStorage("tick_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/tick1.png"));
 	AddTextureToStorage("btn_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/btn1.png"));

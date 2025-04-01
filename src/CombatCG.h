@@ -55,6 +55,8 @@ private:
 		UIToggle* regeneration = nullptr;
 
 		UIImage* hpBar = nullptr;
+		int hpBarMaxWidth = 0;
+
 		UIImage* overlay = nullptr;
 
 		UIImage* attackDone = nullptr;
