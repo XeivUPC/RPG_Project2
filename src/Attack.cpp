@@ -27,10 +27,13 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 		bool hasCritic = critical_percentage(gen) < (critRate);
 		float criticMultiplier = hasCritic ? 1.5f : 1.f;
 
-		int attackStat = attacker.stats.GetStatProcessedValue(attacker.stats.baseStats.attack, attacker.stats.statsStages.attack);
-		int defenseStat = target[i]->stats.GetStatProcessedValue(target[i]->stats.baseStats.defense, target[i]->stats.statsStages.defense);
+		float attackStat = attacker.stats.GetStatProcessedValue(attacker.stats.currentStats.attack, attacker.stats.statsStages.attack);
+		float defenseStat = target[i]->stats.GetStatProcessedValue(target[i]->stats.currentStats.defense, target[i]->stats.statsStages.defense);
 
-		float damageToDo = ((2 * attacker.stats.level / 5 + 2) * power * attackStat / defenseStat / 50 + 2) * random(gen);
+		float damageToDo = ((((2.0f * attacker.stats.level / 5.0f) + 2.0f) * power * attackStat / defenseStat) / 50.0f + 2.0f);
+		damageToDo *= random(gen);
+
+
 
 		int damageDone = target[i]->stats.currentHp;
 		target[i]->stats.currentHp = max(0, target[i]->stats.currentHp - (int)damageToDo);
@@ -101,8 +104,5 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 				}
 			}
 		}
-
-
-
 	}
 }

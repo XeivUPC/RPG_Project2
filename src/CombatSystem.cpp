@@ -27,6 +27,13 @@ CombatSystem::CombatState CombatSystem::GetCombatState()
 
 void CombatSystem::StartCombat()
 {
+	for (auto& team : charactersInCombat)
+	{
+		for (auto& character : team.second)
+		{
+			character.stats.Reset();
+		}
+	}
 	state = CombatState::START;
 }
 
@@ -49,8 +56,8 @@ void CombatSystem::UpdateCombat()
 		[](pair< CharacterReference*, TurnAttack>& a, pair< CharacterReference*, TurnAttack>& b) {
 			CharacterStats& as = a.first->stats;
 			CharacterStats& bs = b.first->stats;
-			float aSpeed = as.GetStatProcessedValue(as.baseStats.speed, as.statsStages.speed);
-			float bSpeed = bs.GetStatProcessedValue(bs.baseStats.speed, bs.statsStages.speed);
+			float aSpeed = as.GetStatProcessedValue(as.currentStats.speed, as.statsStages.speed);
+			float bSpeed = bs.GetStatProcessedValue(bs.currentStats.speed, bs.statsStages.speed);
 
 			auto getGroup = [](int priority) {
 				if (priority > 0) return 1;    
@@ -105,8 +112,8 @@ void CombatSystem::UpdateCombat()
 
 				if (character.stats.currentHp < 0)
 					character.stats.currentHp = 0;
-				if (character.stats.currentHp > character.stats.baseStats.hp)
-					character.stats.currentHp = character.stats.baseStats.hp;
+				if (character.stats.currentHp > character.stats.currentStats.hp)
+					character.stats.currentHp = character.stats.currentStats.hp;
 
 
 			}

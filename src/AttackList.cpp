@@ -72,7 +72,7 @@ void AttackList::LoadAttacks()
 		newAttack.priority = propertiesNode.attribute("priority").as_int();
 		newAttack.accuracy = propertiesNode.attribute("accuracy").as_int();
 
-		newAttack.targetAmount = requirementsNode.attribute("target-amount-type").as_int();
+		newAttack.targetAmount = requirementsNode.attribute("target-amount").as_int();
 		newAttack.targetType = (CombatSystem::CharacterType)requirementsNode.attribute("target-type").as_int();
 
 		newAttack.power = basicStatsNode.child("power").attribute("value").as_int();

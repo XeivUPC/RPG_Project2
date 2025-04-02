@@ -34,8 +34,8 @@ void CombatCG::UpdateCanvas()
 	{
 		CombatSystem::CharacterStats& charStats  = charactersSlot[i].characterRef->stats;
 
-		float maxHealth = charStats.baseStats.hp;
-		float currentHealth = charStats.currentHp;
+		float maxHealth = (float)charStats.currentStats.hp;
+		float currentHealth = (float)charStats.currentHp;
 		float healthRatio = currentHealth / maxHealth;
 
 		charactersSlot[i].hpBar->size.x = (int)(charactersSlot[i].hpBarMaxWidth * healthRatio);
@@ -347,9 +347,17 @@ void CombatCG::DeselectChatacter()
 
 void CombatCG::ShowAllPossibleTargets()
 {
+	if (selectedAttack->attack->targetType == CombatSystem::Self) {
+		selectedCharacter->selectedCharacterTarget->SetColor({ 255,255,255,255 });
+		selectedCharacter->selectedCharacterTarget->localVisible = true;
+	}
 	for (size_t i = 0; i < charactersSlot.size(); i++)
 	{
-		if (selectedAttack->attack->targetType == charactersSlot[i].characterRef->team || selectedAttack->attack->targetType == CombatSystem::Both) {
+		if (charactersSlot[i].characterRef->stats.currentHp <= 0)
+			continue;
+		bool isSameType = (charactersSlot[i].characterRef->team == selectedAttack->attack->targetType || selectedAttack->attack->targetType == CombatSystem::Both);
+
+		if (isSameType) {
 			charactersSlot[i].selectedCharacterTarget->SetColor({ 255,255,255,255 });
 			charactersSlot[i].selectedCharacterTarget->localVisible = true;
 		}
@@ -365,18 +373,61 @@ void CombatCG::HideAllPossibleTargets()
 	}
 }
 
+vector<CombatCG::UICharacterSlot*> CombatCG::GetPossibleTargets()
+{
+	vector<UICharacterSlot*> possibleTargets;
+
+	if (selectedAttack->attack->targetType == CombatSystem::Self) {
+		possibleTargets.emplace_back(selectedCharacter);
+		return possibleTargets;
+	}
+
+	for (size_t i = 0; i < charactersSlot.size(); i++)
+	{
+		if (charactersSlot[i].characterRef->stats.currentHp <= 0)
+			continue;
+		if (charactersSlot[i].characterRef->team == selectedAttack->attack->targetType || selectedAttack->attack->targetType == CombatSystem::Both) {
+			possibleTargets.emplace_back(&charactersSlot[i]);
+		}
+	}
+
+	return possibleTargets;
+}
+
+int CombatCG::GetPossibleTargetsAmount()
+{
+	if (selectedAttack->attack->targetType == CombatSystem::Self) {
+		return 1;
+	}
+
+	int amount = 0;
+	for (size_t i = 0; i < charactersSlot.size(); i++)
+	{
+		if (charactersSlot[i].characterRef->stats.currentHp <= 0)
+			continue;
+		if (charactersSlot[i].characterRef->team == selectedAttack->attack->targetType || selectedAttack->attack->targetType == CombatSystem::Both) {
+			amount++;
+		}
+	}
+	return amount;
+}
+
 void CombatCG::SelectTarget(UICharacterSlot& character)
 {
 	/// Check AutoSelect by numbers of enemies and requiered targets
-	
 
-	if (character.characterRef->team == selectedAttack->attack->targetType || selectedAttack->attack->targetType == CombatSystem::Both) {
+	bool isSameType = (character.characterRef->team == selectedAttack->attack->targetType || selectedAttack->attack->targetType == CombatSystem::Both);
+	bool isSelfAttack = (selectedAttack->attack->targetType == CombatSystem::Self && &character == selectedCharacter);
+
+	if (isSameType || isSelfAttack) {
 		auto it = std::find(targetCharacters.begin(), targetCharacters.end(), &character);
 		if (it != targetCharacters.end()) { /// Remove
 			targetCharacters.erase(it);
 			character.selectedCharacterTarget->SetColor({255,255,255,255});
 		}
 		else { /// Addd
+			if (selectedAttack->attack->targetAmount <= targetCharacters.size())
+				return;
 			targetCharacters.emplace_back(&character);
 			character.selectedCharacterTarget->SetColor({ 255,255,0,255 });
 		}
@@ -408,12 +459,29 @@ void CombatCG::SelectAttack(int attackIndex)
 	selectedAttack = &attackButtons[attackIndex];
 	SetTargetSelectionMode(true);
 	ShowAllPossibleTargets();
+
+	vector<UICharacterSlot*> possibleTargets = GetPossibleTargets();
+	if (selectedAttack->attack->targetAmount >= possibleTargets.size()) {
+		for (size_t i = 0; i < possibleTargets.size(); i++)
+		{
+			possibleTargets[i]->character->onMouseClick.Trigger();
+		}
+	}
+
 }
 
 void CombatCG::ConfirmAttack()
 {
-	//// SaveAttack & Add Tick
+	if (selectedAttack->attack->targetAmount < GetPossibleTargetsAmount()) {
+		if (selectedAttack->attack->targetAmount != targetCharacters.size()) {
+			return;
+		}
+	}
+	else if(GetPossibleTargetsAmount() != targetCharacters.size()){
+		return;
+	}
 
+	
 	selectedCharacter->attackDone->localVisible = true;
 
 	vector<CombatSystem::CharacterReference*> referenceTargets;

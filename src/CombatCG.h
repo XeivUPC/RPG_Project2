@@ -82,6 +82,8 @@ private:
 
 	void ShowAllPossibleTargets();
 	void HideAllPossibleTargets();
+	vector<UICharacterSlot*> GetPossibleTargets();
+	int GetPossibleTargetsAmount();
 
 
 	void SelectTarget(UICharacterSlot& character);

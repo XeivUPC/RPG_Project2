@@ -14,10 +14,10 @@ public:
 	SystemEvent<> onCombatStateChanged;
 	enum CharacterType
 	{
-		Ally,
 		Enemy,
+		Ally,
 		Both,
-		None
+		Self
 	};
 	enum CombatState
 	{
@@ -44,6 +44,7 @@ public:
 		int speed;
 	};
 
+
 	struct StatusEffect {
 		string name;
 		int value;
@@ -57,8 +58,21 @@ public:
 		bool isBlocked = false;
 
 		BaseStats baseStats;
+		BaseStats currentStats;
 		StatStages statsStages;
 		vector<StatusEffect> statusEffects;
+
+		void Reset() {
+			currentStats.hp = (int)GetHpStatValue();
+			currentHp = currentStats.hp;
+
+			currentStats.attack = (int)GetOtherStatValue(baseStats.attack);
+			currentStats.defense = (int)GetOtherStatValue(baseStats.defense);
+			currentStats.speed = (int)GetOtherStatValue(baseStats.speed);
+
+			statsStages = { 0,0,0 };
+			statusEffects.clear();
+		}
 
 		void GetBaseStatsById(int id) {
 			CharacterDatabase::CharacterData& reference = CharacterDatabase::Instance().GetCharacterData(id);
@@ -69,14 +83,22 @@ public:
 			baseStats.hp = reference.health;
 			baseStats.speed = reference.speed;
 
-			currentHp = baseStats.hp;
+			Reset();
+		}
+
+		float GetHpStatValue() {
+			return floor(0.01f * (2 * baseStats.hp) * level) + level + 10;
+		}
+
+		float GetOtherStatValue(int defaultValue) {
+			return floor(0.01f * (2 * defaultValue) * level) + 5;
 		}
 
 		float GetStatProcessedValue(int value, int stage) {
 			float stageExtra = (stage + 2) / 2.f;
 			if (stage < 0)
 				stageExtra = 1 / stageExtra;
-			return (value + value*level/50.f)*stageExtra;
+			return value*stageExtra;
 		}
 	};
 
