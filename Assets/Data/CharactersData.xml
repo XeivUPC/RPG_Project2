@@ -1,35 +1,18 @@
 <?xml version="1.0"?>
 <Characters>
-    <Character id = "-1" name = "NPC_TEST">
-        <Data   textureId = "npc_test" 
-                dialoguePath = "Assets/Dialogues/test3.json" />
-        <Stats level ="1" 
-			   hp= "45"
-               defense = "49" 
-               attack = "49"
-               speed = "45" />
-		<Attacks attack1 = "2" attack2 = "3" attack3 ="0" attack4 ="1"/>
-    </Character>
-
-	<Character id = "0" name = "Cassian">
-        <Data   textureId = "cassian_test" 
-                dialoguePath = "Assets/Dialogues/test3.json" />
-		<Stats level ="10"
-			   hp= "45"
-               defense = "49"
-               attack = "49"
-               speed = "45" /> />
-		<Attacks attack1 = "3" attack2 = "2" attack3 ="1" attack4 ="0"/>
-    </Character>
-
-    <Character id = "1" name = "Artis">
-        <Data   textureId = "artis_test" 
-                dialoguePath = "Assets/Dialogues/test4.json" />
-		<Stats level ="1"
-		       hp= "45"
-               defense = "49"
-               attack = "49"
-               speed = "45" /> />
-		<Attacks attack1 = "0" attack2 = "1" attack3 ="2" attack4 ="3"/>
-    </Character>
+	<Character id="-1" name="NPC_TEST">
+		<Data textureId="npc_test" dialoguePath="Assets/Dialogues/test3.json" />
+		<Stats level="1" hp="45" defense="49" attack="49" speed="45" />
+		<Attacks attack1="2" attack2="3" attack3="0" attack4="1" />
+	</Character>
+	<Character id="0" name="Cassian">
+		<Data textureId="cassian_test" dialoguePath="Assets/Dialogues/test3.json" />
+		<Stats level="10" hp="45" defense="49" attack="49" speed="45" /> /&gt;
+		<Attacks attack1="3" attack2="2" attack3="1" attack4="0" />
+	</Character>
+	<Character id="1" name="Artis">
+		<Data textureId="artis_test" dialoguePath="Assets/Dialogues/test4.json" />
+		<Stats level="1" hp="45" defense="49" attack="49" speed="45" /> /&gt;
+		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
+	</Character>
 </Characters>

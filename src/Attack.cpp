@@ -33,7 +33,8 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 		float damageToDo = ((((2.0f * attacker.stats.level / 5.0f) + 2.0f) * power * attackStat / defenseStat) / 50.0f + 2.0f);
 		damageToDo *= random(gen);
 
-
+		if (power == 0)
+			damageToDo = 0;
 
 		int damageDone = target[i]->stats.currentHp;
 		target[i]->stats.currentHp = max(0, target[i]->stats.currentHp - (int)damageToDo);
@@ -47,6 +48,8 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 			case 1:
 				attacker.stats.currentHp += damageDone * (lifeDewEffectiveness / 100);
 				break;
+			case 2:
+				attacker.stats.currentHp += target[i]->stats.currentStats.hp * (lifeDewAmount/100) * (lifeDewEffectiveness / 100);
 			default:
 				break;
 		}
@@ -60,47 +63,50 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 		/// 
 		for (const auto& statModification : statsModification)
 		{
-			if (stat_or_status_porbability(gen) >= statModification.second.probability)
+			if (stat_or_status_porbability(gen) > statModification.second.probability)
 				continue;
 
-			CombatSystem::CharacterReference& character = attacker;
+			CombatSystem::CharacterReference* character = &attacker;
 			if (statModification.second.objective == CombatSystem::Enemy) {
-				character = *target[i];
+				character = target[i];
 
 				const string& type = statModification.second.type;
 				if (type=="Attack") {
-					character.stats.statsStages.attack += statModification.second.value;
+					character->stats.statsStages.attack += statModification.second.value;
 				}else if (type == "Defense") {
-					character.stats.statsStages.defense += statModification.second.value;
+					character->stats.statsStages.defense += statModification.second.value;
 				}
 				else if (type == "Speed") {
-					character.stats.statsStages.speed += statModification.second.value;
+					character->stats.statsStages.speed += statModification.second.value;
 				}
 			}
 		}
 
 		for (const auto& statusModification : statusEffects)
 		{
-			if (stat_or_status_porbability(gen) >= statusModification.second.probability)
+			if (stat_or_status_porbability(gen) > statusModification.second.probability)
 				continue;
 
-			CombatSystem::CharacterReference& character = attacker;
+			CombatSystem::CharacterReference* character = &attacker;
 			if (statusModification.second.objective == CombatSystem::Enemy) {
-				character = *target[i];
+				character = target[i];
 
 				const string& type = statusModification.second.type;
 				bool hasEffect = false;
-				for (size_t i = 0; i < character.stats.statusEffects.size(); i++)
+				for (size_t i = 0; i < character->stats.statusEffects.size(); i++)
 				{
-					if (character.stats.statusEffects[i].name == statusModification.second.type) {
-						character.stats.statusEffects[i].turns = statusModification.second.turns;
-						character.stats.statusEffects[i].value = statusModification.second.value;
+					if (character->stats.statusEffects[i].name == statusModification.second.type) {
+						character->stats.statusEffects[i].turns = statusModification.second.turns;
+						if(statusModification.second.mode == 0)
+							character->stats.statusEffects[i].value = statusModification.second.value;
+						else
+							character->stats.statusEffects[i].value = character->stats.currentStats.hp * statusModification.second.value/100.f;
 						hasEffect = true;
 						break;
 					}
 				}
 				if (!hasEffect) {
-					character.stats.statusEffects.emplace_back(CombatSystem::StatusEffect{type ,statusModification.second.turns ,statusModification.second.value});
+					character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{type ,statusModification.second.value ,statusModification.second.turns});
 				}
 			}
 		}

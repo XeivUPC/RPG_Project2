@@ -20,6 +20,7 @@ public:
 
 		int value = 0;
 		int turns = 0;
+		int mode = 0;
 		int probability = 0;
 		CombatSystem::CharacterType objective;
 	};
@@ -38,7 +39,7 @@ public:
 
 	/// Basic Stats
 	int power = 0;
-	int critRate = 10;
+	int critRate = 0;
 
 	/// Stages
 	unordered_map<string, StageModifier> statsModification;

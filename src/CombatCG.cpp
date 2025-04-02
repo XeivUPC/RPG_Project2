@@ -115,7 +115,7 @@ CombatCG::UIAttackButton CombatCG::CreateUIAttackButton(int attackIndex, Vector2
 
 	UIButton* button = new UIButton(*btn_texture, btn_position, btn_size, {0,0,btn_size.x,btn_size.y});
 	button->AddRect(UIButton::ButtonStates::HOVER, { btn_size.x,0,btn_size.x,btn_size.y });
-	UITextBox* attackName = new UITextBox("", *btn_font, font_size, font_color, btn_size / 2, btn_size, {0.5f,0.5f}, hAligment, vAligment);
+	UITextBox* attackName = new UITextBox("", *btn_font, font_size, font_color, btn_size / 2 + Vector2Int{0,3}, btn_size, { 0.5f,0.5f }, hAligment, vAligment);
 	
 	button->onMouseEnter.Subscribe([this, attackIndex]() {ShowAttackInformation(attackIndex);});
 	button->onMouseExit.Subscribe([this, attackIndex]() {HideAttackInformation(attackIndex);});

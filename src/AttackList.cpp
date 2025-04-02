@@ -82,6 +82,7 @@ void AttackList::LoadAttacks()
 			string statType = statModification.attribute("stat").as_string();
 			Attack::StageModifier data = {  statType,
 											statModification.attribute("value").as_int(),
+											statModification.attribute("probability").as_int(),
 											(CombatSystem::CharacterType)statModification.attribute("objective").as_int() };
 			newAttack.statsModification[statType] = data;
 		}
@@ -91,6 +92,8 @@ void AttackList::LoadAttacks()
 			Attack::StatusModifier data = { statusType,
 											statusModification.attribute("value").as_int(),
 											statusModification.attribute("turns").as_int(),
+											statusModification.attribute("mode").as_int(),
+											statusModification.attribute("probability").as_int(),
 											(CombatSystem::CharacterType)statusModification.attribute("objective").as_int() };
 			newAttack.statusEffects[statusType] = data;
 		}

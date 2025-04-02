@@ -3,7 +3,7 @@
 		<description value ="DESCRIPTION"/>
 		<data>
 			<properties priority="0" accuracy ="100"/>
-			<requirements target-amount="1" target-type="1"/> <!--Target Type (0=enemy 1=user, 2=both)-->
+			<requirements target-amount="1" target-type="1"/> <!--Target Type (0=enemy 1=ally, 2=both 3=self)-->
 			
 			<basic-stats>
 				<power value ="10"/>
@@ -14,116 +14,135 @@
 				<stat-increment value="0" objective="0" stat="Attack" probability ="100"/>
 			</stat-modification>
 			
-			<status-modification> <!-- Not necessary to put, or add much as you need // Objective (0=enemy 1=user) // Type (Poison, Burn, Regeneration)-->
-				<status-effect value="0" turns="0" objective="0" type ="Poison" probability ="100"/>
+			<status-modification> <!-- Not necessary to put, or add much as you need // Objective (0=enemy 1=user) // Type (Poison, Burn, Regeneration) // Mode (0=fixed 1=totalLifePercentage)-->
+				<status-effect value="5" turns="0" mode="1" objective="0" type ="Poison" probability ="100"/>
 			</status-modification>
 
 			<extras> <!-- Not necessary to put, or add much as you need-->
-				<extra-effect type="Live Dew" amount="0" mode="0" effectiveness ="100"/><!--Mode (0=fixed 2=damage deal)-->
+				<extra-effect type="Live Dew" amount="0" mode="0" effectiveness ="100"/><!--Mode (0=fixed 1=damage deal 2=totalLifePercentage)-->
 				<extra-effect type="Block Turn" objective="0"/> <!--Objective (0=enemy 1=user)-->
 			</extras>
 		</data>
 
 	</attack>
-	<attack id ="0" name ="Name_0">
-		<description value ="DESCRIPTION"/>
+	<attack id="0" name="Power Strike">
+		<description value="A strong physical strike with increased critical chance"/>
 		<data>
-			<properties priority="0" accuracy ="100"/>
-			<requirements target-amount="1" target-type="0"/><!--Target Type (0=enemy 1=ally, 2=both, 3=user)-->
-
+			<properties priority="0" accuracy="95"/>
+			<requirements target-amount="1" target-type="0"/>
 			<basic-stats>
-				<power value ="10"/>
-				<crit-rate value ="10"/>
+				<power value="45"/>
+				<crit-rate value="20"/>
 			</basic-stats>
-
-			<stat-modification><!-- Not necessary to put, or add much as you need // Objective (0=enemy 1=user) // Stat (Attack, Defense, Speed)-->
-				<stat-increment value="0" objective="0" stat="Attack" probability ="100"/>
-			</stat-modification>
-
-			<status-modification><!-- Not necessary to put, or add much as you need // Objective (0=enemy 1=user) // Type (Poison, Burn, Regeneration)-->
-				<status-effect value="0" turns="0" objective="0" type ="Poison" probability ="100"/>
-			</status-modification>
-
-			<extras><!-- Not necessary to put, or add much as you need-->
-				<extra-effect type="Live Dew" amount="0" mode="0" effectiveness ="100"/><!--Mode (0=fixed 2=damage deal)-->
-				<extra-effect type="Block Turn" objective="0"/><!--Objective (0=enemy 1=user)-->
-			</extras>
 		</data>
-		
 	</attack>
-	<attack id ="1" name ="Name_1">
-		<description value ="DESCRIPTION"/>
+
+	<!-- Poison application -->
+	<attack id="1" name="Toxic Bite">
+		<description value="A venomous attack that poisons the target"/>
 		<data>
-			<properties priority="0" accuracy ="100"/>
-			<requirements target-amount="1" target-type="1"/><!--Target Type (0=enemy 1=user, 2=both)-->
-
+			<properties priority="0" accuracy="85"/>
+			<requirements target-amount="1" target-type="0"/>
 			<basic-stats>
-				<power value ="10"/>
-				<crit-rate value ="10"/>
+				<power value="30"/>
 			</basic-stats>
-
-			<stat-modification><!-- Not necessary to put, or add much as you need // Objective (0=enemy 1=user) // Stat (Attack, Defense, Speed)-->
-				<stat-increment value="0" objective="0" stat="Attack" probability ="100"/>
-			</stat-modification>
-
-			<status-modification><!-- Not necessary to put, or add much as you need // Objective (0=enemy 1=user) // Type (Poison, Burn, Regeneration)-->
-				<status-effect value="0" turns="0" objective="0" type ="Poison" probability ="100"/>
+			<status-modification>
+				<status-effect value="-5" turns="3"  mode="0" objective="0" type="Poison" probability="75"/>
 			</status-modification>
+		</data>
+	</attack>
 
-			<extras><!-- Not necessary to put, or add much as you need-->
-				<extra-effect type="Live Dew" amount="0" mode="0" effectiveness ="100"/><!--Mode (0=fixed 2=damage deal)-->
-				<extra-effect type="Block Turn" objective="0"/><!--Objective (0=enemy 1=user)-->
+	<!-- Healing move -->
+	<attack id="2" name="Healing Wind">
+		<description value="Restores 30% of user's HP"/>
+		<data>
+			<properties priority="0" accuracy="100"/>
+			<requirements target-amount="1" target-type="3"/>
+			<extras>
+				<extra-effect type="Live Dew" amount="30" mode="2" effectiveness ="100"/>
 			</extras>
 		</data>
 	</attack>
-	<attack id ="2" name ="Name_2">
-		<description value ="DESCRIPTION"/>
+
+	<!-- Defense boost -->
+	<attack id="3" name="Stone Shield">
+		<description value="Raises user's defense by 2 stages"/>
 		<data>
-			<properties priority="0" accuracy ="100"/>
-			<requirements target-amount="10" target-type="2"/><!--Target Type (0=enemy 1=user, 2=both)-->
-
-			<basic-stats>
-				<power value ="10"/>
-				<crit-rate value ="10"/>
-			</basic-stats>
-
-			<stat-modification><!-- Not necessary to put, or add much as you need // Objective (0=enemy 1=user) // Stat (Attack, Defense, Speed)-->
-				<stat-increment value="0" objective="0" stat="Attack" probability ="100"/>
+			<properties priority="1" accuracy="100"/>
+			<requirements target-amount="1" target-type="3"/>
+			<stat-modification>
+				<stat-increment value="2" objective="1" stat="Defense" probability="100"/>
 			</stat-modification>
+		</data>
+	</attack>
 
-			<status-modification><!-- Not necessary to put, or add much as you need // Objective (0=enemy 1=user) // Type (Poison, Burn, Regeneration)-->
-				<status-effect value="0" turns="0" objective="0" type ="Poison" probability ="100"/>
+	<!-- Speed boost -->
+	<attack id="4" name="Swift Dash">
+		<description value="Sharply increases user's speed"/>
+		<data>
+			<properties priority="1" accuracy="100"/>
+			<requirements target-amount="1" target-type="3"/>
+			<stat-modification>
+				<stat-increment value="2" objective="1" stat="Speed" probability="100"/>
+			</stat-modification>
+		</data>
+	</attack>
+
+	<!-- Burn effect -->
+	<attack id="5" name="Inferno Blast">
+		<description value="Fiery attack that may cause burns"/>
+		<data>
+			<properties priority="0" accuracy="80"/>
+			<requirements target-amount="1" target-type="0"/>
+			<basic-stats>
+				<power value="35"/>
+			</basic-stats>
+			<status-modification>
+				<status-effect value="-5" turns="3"  mode="0" objective="0" type="Burn" probability="50"/>
 			</status-modification>
+		</data>
+	</attack>
 
-			<extras><!-- Not necessary to put, or add much as you need-->
-				<extra-effect type="Live Dew" amount="0" mode="0" effectiveness ="100"/><!--Mode (0=fixed 2=damage deal)-->
-				<extra-effect type="Block Turn" objective="0"/><!--Objective (0=enemy 1=user)-->
+	<!-- Life steal -->
+	<attack id="6" name="Vampiric Touch">
+		<description value="Steals 50% of damage dealt as HP"/>
+		<data>
+			<properties priority="0" accuracy="100"/>
+			<requirements target-amount="1" target-type="0"/>
+			<basic-stats>
+				<power value="25"/>
+			</basic-stats>
+			<extras>
+				<extra-effect type="Live Dew" amount="0" mode="1" effectiveness="50"/>
 			</extras>
 		</data>
 	</attack>
-	<attack id ="3" name ="Name_3">
-		<description value ="DESCRIPTION"/>
+
+	<!-- Full heal -->
+	<attack id="7" name="Revitalize">
+		<description value="Fully restores user's HP"/>
 		<data>
-			<properties priority="0" accuracy ="100"/>
-			<requirements target-amount="1" target-type="3"/><!--Target Type (0=enemy 1=user, 2=both)-->
-
-			<basic-stats>
-				<power value ="10"/>
-				<crit-rate value ="10"/>
-			</basic-stats>
-
-			<stat-modification><!-- Not necessary to put, or add much as you need // Objective (0=enemy 1=user) // Stat (Attack, Defense, Speed)-->
-				<stat-increment value="0" objective="0" stat="Attack" probability ="100"/>
-			</stat-modification>
-
-			<status-modification><!-- Not necessary to put, or add much as you need // Objective (0=enemy 1=user) // Type (Poison, Burn, Regeneration)-->
-				<status-effect value="0" turns="0" objective="0" type ="Poison" probability ="100"/>
-			</status-modification>
-
-			<extras><!-- Not necessary to put, or add much as you need-->
-				<extra-effect type="Live Dew" amount="0" mode="0" effectiveness ="100"/><!--Mode (0=fixed 2=damage deal)-->
-				<extra-effect type="Block Turn" objective="0"/><!--Objective (0=enemy 1=user)-->
+			<properties priority="0" accuracy="100"/>
+			<requirements target-amount="1" target-type="1"/>
+			<extras>
+				<extra-effect type="Live Dew" amount="1000" mode="0" effectiveness="100"/>
 			</extras>
+		</data>
+	</attack>
+
+	<!-- High risk/reward -->
+	<attack id="8" name="Final Gambit">
+		<description value="Massive power but lowers user's stats"/>
+		<data>
+			<properties priority="0" accuracy="70"/>
+			<requirements target-amount="1" target-type="0"/>
+			<basic-stats>
+				<power value="70"/>
+			</basic-stats>
+			<stat-modification>
+				<stat-increment value="-1" objective="1" stat="Attack" probability="100"/>
+				<stat-increment value="-1" objective="1" stat="Defense" probability="100"/>
+			</stat-modification>
 		</data>
 	</attack>
 </attackList>
