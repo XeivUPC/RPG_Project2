@@ -80,3 +80,8 @@ SDL_Color& UIImage::GetColor()
 {
 	return color;
 }
+
+void UIImage::SetRect(SDL_Rect _rect)
+{
+	rect = _rect;
+}

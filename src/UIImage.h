@@ -20,6 +20,8 @@ public:
 	void SetColor(SDL_Color _color = { 255,255,255,255 });
 	SDL_Color& GetColor();
 
+	void SetRect(SDL_Rect _rect);
+
 public:
 
 private:
