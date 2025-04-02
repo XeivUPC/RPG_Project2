@@ -68,27 +68,39 @@ void AttackList::LoadAttacks()
 		newAttack.maxTargetAmmount = dataNode.attribute("max-target-amount").as_int();
 
 		newAttack.priority = dataNode.attribute("priority").as_int();
-		newAttack.accuracity = dataNode.attribute("accuracy").as_int();
+		newAttack.accuracy = dataNode.attribute("accuracy").as_int();
 
 		newAttack.damage = dataNode.attribute("damage").as_int();
 		newAttack.critRate = dataNode.attribute("cirt-rate").as_int();
 
-		newAttack.damageIncrement = dataNode.attribute("damage-increment").as_int();
-		newAttack.defenseIncrement = dataNode.attribute("defense-increment").as_int();
-		newAttack.speedIncrement = dataNode.attribute("speed-increment").as_int();
+		newAttack.damageIncrementToTarget = dataNode.attribute("damage-increment-to-target").as_int();
+		newAttack.defenseIncrementToTarget = dataNode.attribute("defense-increment-to-target").as_int();
+		newAttack.speedIncrementToTarget = dataNode.attribute("speed-increment-to-target").as_int();
+		newAttack.damageIncrementToAttacker = dataNode.attribute("damage-increment-to-attacker").as_int();
+		newAttack.defenseIncrementToAttacker = dataNode.attribute("defense-increment-to-attacker").as_int();
+		newAttack.speedIncrementToAttacker = dataNode.attribute("speed-increment-to-attacker").as_int();
 
-		newAttack.poisonDamage = dataNode.attribute("poison-damage").as_int();
-		newAttack.poisonTurns = dataNode.attribute("poison-turns").as_int();
-		newAttack.burnDamage = dataNode.attribute("burn-damage").as_int();
-		newAttack.burnTurns = dataNode.attribute("burn-turns").as_int();
-		newAttack.regenerationValue = dataNode.attribute("regeneration-value").as_int();
-		newAttack.regenerationTurns = dataNode.attribute("regeneration-turns").as_int();
+		newAttack.poisonDamageToTarget = dataNode.attribute("poison-damage-to-target").as_int();
+		newAttack.poisonDamageToTarget = dataNode.attribute("poison-damage-to-target").as_int();
+		newAttack.poisonTurnsToAttacker = dataNode.attribute("poison-turns-to-attacker").as_int();
+		newAttack.poisonTurnsToAttacker = dataNode.attribute("poison-turns-to-attacker").as_int();
+
+		newAttack.burnDamageToTarget = dataNode.attribute("burn-damage-to-target").as_int();
+		newAttack.burnDamageToTarget = dataNode.attribute("burn-damage-to-target").as_int();
+		newAttack.burnTurnsToAttacker = dataNode.attribute("burn-turns-to-attacker").as_int();
+		newAttack.burnTurnsToAttacker = dataNode.attribute("burn-turns-to-attacker").as_int();
+
+		newAttack.regenerationValueToTarget = dataNode.attribute("regeneration-value-to-target").as_int();
+		newAttack.regenerationValueToTarget = dataNode.attribute("regeneration-value-to-target").as_int();
+		newAttack.regenerationTurnsToAttacker = dataNode.attribute("regeneration-turns-to-attacker").as_int();
+		newAttack.regenerationTurnsToAttacker = dataNode.attribute("regeneration-turns-to-attacker").as_int();
 
 		newAttack.lifeSteal = dataNode.attribute("life-steal").as_int();
 		newAttack.lifeStealPercentage = dataNode.attribute("life-steal-percentage").as_int();
 		newAttack.lifeStealEffectiveness = dataNode.attribute("life-steal-effectiveness").as_int();
 
-		newAttack.blockTurn = dataNode.attribute("block-turn").as_bool();
+		newAttack.blockTurnToTarget = dataNode.attribute("block-turn-to-target").as_bool();
+		newAttack.blockTurnToAttacker = dataNode.attribute("block-turn-to-attacker").as_bool();
 	
 		attackList.emplace_back(newAttack);
 	}

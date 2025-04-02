@@ -1,4 +1,49 @@
 <attackList>
+	<attack id ="-1" name ="DEFAULT_ATTACK">
+		<description value ="DESCRIPTION"/>
+		<data	target-type="1"
+				selection="0"
+				
+				min-target-amount ="1"
+				max-target-amount ="1"
+				
+				priority ="0"
+				accuracy ="100"
+				
+				damage ="10"
+				crit-rate="20"
+				
+				damage-increment-to-target="0"
+				defense-increment-to-target="0"
+				speed-increment-to-target="0"
+				
+				damage-increment-to-attacker="0"
+				defense-increment-to-attacker="0"
+				speed-increment-to-attacker="0"
+				
+				poison-damage-to-target="0"
+				poison-turns-to-target="0"
+				poison-damage-to-attacker="0"
+				poison-turns-to-attacker="0"
+				
+				burn-damage-to-target="0"
+				burn-turns-to-target="0"
+				burn-damage-to-attacker="0"
+				burn-turns-to-attacker="0"
+				
+				regeneration-value-to-target="0"
+				regeneration-turns-to-target="0"
+				regeneration-value-to-attacker="0"
+				regeneration-turns-to-attacker="0"
+				
+				life-steal="0"
+				life-steal-percentage="0"
+				life-steal-effectiveness="0"
+				
+				block-turn-to-target="0"
+				block-turn-to-attacker="0"	/>
+
+	</attack>
 	<attack id ="0" name ="Name_0">
 		<description value ="Bla bla bla x0"/>
 		<data	target-type="1"
@@ -13,22 +58,36 @@
 				damage ="10"
 				crit-rate="20"
 				
-				damage-increment="0"
-				defense-increment="0"
-				speed-increment="0"
+				damage-increment-to-target="0"
+				defense-increment-to-target="0"
+				speed-increment-to-target="0"
 				
-				poison-damage="0"
-				poison-turns="0"
-				burn-damage="0"
-				burn-turns="0"
-				regeneration-value="0"
-				regeneration-turns="0"
+				damage-increment-to-attacker="0"
+				defense-increment-to-attacker="0"
+				speed-increment-to-attacker="0"
+				
+				poison-damage-to-target="0"
+				poison-turns-to-target="0"
+				poison-damage-to-attacker="0"
+				poison-turns-to-attacker="0"
+				
+				burn-damage-to-target="0"
+				burn-turns-to-target="0"
+				burn-damage-to-attacker="0"
+				burn-turns-to-attacker="0"
+				
+				regeneration-value-to-target="0"
+				regeneration-turns-to-target="0"
+				regeneration-value-to-attacker="0"
+				regeneration-turns-to-attacker="0"
 				
 				life-steal="0"
 				life-steal-percentage="0"
 				life-steal-effectiveness="0"
 				
-				block-turn="0"	/>
+				block-turn-to-target="0"
+				block-turn-to-attacker="0"	/>
+		
 	</attack>
 	<attack id ="1" name ="Name_1">
 		<description value ="Bla bla bla x1"/>
@@ -44,22 +103,35 @@
 				damage ="10"
 				crit-rate="20"
 				
-				damage-increment="0"
-				defense-increment="0"
-				speed-increment="0"
+				damage-increment-to-target="0"
+				defense-increment-to-target="0"
+				speed-increment-to-target="0"
 				
-				poison-damage="0"
-				poison-turns="0"
-				burn-damage="0"
-				burn-turns="0"
-				regeneration-value="0"
-				regeneration-turns="0"
+				damage-increment-to-attacker="0"
+				defense-increment-to-attacker="0"
+				speed-increment-to-attacker="0"
+				
+				poison-damage-to-target="0"
+				poison-turns-to-target="0"
+				poison-damage-to-attacker="0"
+				poison-turns-to-attacker="0"
+				
+				burn-damage-to-target="0"
+				burn-turns-to-target="0"
+				burn-damage-to-attacker="0"
+				burn-turns-to-attacker="0"
+				
+				regeneration-value-to-target="0"
+				regeneration-turns-to-target="0"
+				regeneration-value-to-attacker="0"
+				regeneration-turns-to-attacker="0"
 				
 				life-steal="0"
 				life-steal-percentage="0"
 				life-steal-effectiveness="0"
 				
-				block-turn="0"	/>
+				block-turn-to-target="0"
+				block-turn-to-attacker="0"	/>
 	</attack>
 	<attack id ="2" name ="Name_2">
 		<description value ="Bla bla bla x2"/>
@@ -75,22 +147,35 @@
 				damage ="10"
 				crit-rate="20"
 				
-				damage-increment="0"
-				defense-increment="0"
-				speed-increment="0"
+				damage-increment-to-target="0"
+				defense-increment-to-target="0"
+				speed-increment-to-target="0"
 				
-				poison-damage="0"
-				poison-turns="0"
-				burn-damage="0"
-				burn-turns="0"
-				regeneration-value="0"
-				regeneration-turns="0"
+				damage-increment-to-attacker="0"
+				defense-increment-to-attacker="0"
+				speed-increment-to-attacker="0"
+				
+				poison-damage-to-target="0"
+				poison-turns-to-target="0"
+				poison-damage-to-attacker="0"
+				poison-turns-to-attacker="0"
+				
+				burn-damage-to-target="0"
+				burn-turns-to-target="0"
+				burn-damage-to-attacker="0"
+				burn-turns-to-attacker="0"
+				
+				regeneration-value-to-target="0"
+				regeneration-turns-to-target="0"
+				regeneration-value-to-attacker="0"
+				regeneration-turns-to-attacker="0"
 				
 				life-steal="0"
 				life-steal-percentage="0"
 				life-steal-effectiveness="0"
 				
-				block-turn="0"	/>
+				block-turn-to-target="0"
+				block-turn-to-attacker="0"	/>
 	</attack>
 	<attack id ="3" name ="Name_3">
 		<description value ="Bla bla bla x3"/>
@@ -106,21 +191,34 @@
 				damage ="10"
 				crit-rate="20"
 				
-				damage-increment="0"
-				defense-increment="0"
-				speed-increment="0"
+				damage-increment-to-target="0"
+				defense-increment-to-target="0"
+				speed-increment-to-target="0"
 				
-				poison-damage="0"
-				poison-turns="0"
-				burn-damage="0"
-				burn-turns="0"
-				regeneration-value="0"
-				regeneration-turns="0"
+				damage-increment-to-attacker="0"
+				defense-increment-to-attacker="0"
+				speed-increment-to-attacker="0"
+				
+				poison-damage-to-target="0"
+				poison-turns-to-target="0"
+				poison-damage-to-attacker="0"
+				poison-turns-to-attacker="0"
+				
+				burn-damage-to-target="0"
+				burn-turns-to-target="0"
+				burn-damage-to-attacker="0"
+				burn-turns-to-attacker="0"
+				
+				regeneration-value-to-target="0"
+				regeneration-turns-to-target="0"
+				regeneration-value-to-attacker="0"
+				regeneration-turns-to-attacker="0"
 				
 				life-steal="0"
 				life-steal-percentage="0"
 				life-steal-effectiveness="0"
 				
-				block-turn="0"	/>
+				block-turn-to-target="0"
+				block-turn-to-attacker="0"	/>
 	</attack>
 </attackList>

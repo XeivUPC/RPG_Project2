@@ -105,6 +105,11 @@ void CombatSystem::UpdateCombat()
 					stat.turns--;
 					character.stats.Health.currentValue += stat.currentValue;
 				}
+
+				if (character.stats.Health.currentValue < 0)
+					character.stats.Health.currentValue = 0;
+				if (character.stats.Health.currentValue > character.stats.Health.defaultValue)
+					character.stats.Health.currentValue = character.stats.Health.defaultValue;
 			}
 		}
 		CheckDeadCharacters();

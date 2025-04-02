@@ -9,11 +9,11 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 	std::mt19937 gen(rd());
 	std::uniform_real_distribution<float> random(0.85f, 1.0);
 	std::uniform_int_distribution critical_percentage(0, 100);
-	std::uniform_int_distribution attack_accuracity(0, 100);
+	std::uniform_int_distribution attack_accuracy(0, 100);
 
 
 
-	if (attack_accuracity(gen) > accuracity)
+	if (attack_accuracy(gen) > accuracy)
 		return;
 
 	int attaker_level = attacker.stats.level;
@@ -39,26 +39,36 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 		attacker.stats.Health.currentValue += lifeSteal * (lifeStealEffectiveness / 100.f);
 
 		//// Increase Multipliers
-		attacker.stats.Attack.AddMultiplier(damageIncrement);
-		attacker.stats.Defense.AddMultiplier(defenseIncrement);
-		attacker.stats.Speed.AddMultiplier(speedIncrement);
+		target[i]->stats.Attack.AddMultiplier(damageIncrementToTarget);
+		target[i]->stats.Defense.AddMultiplier(defenseIncrementToTarget);
+		target[i]->stats.Speed.AddMultiplier(speedIncrementToTarget);
+
+		attacker.stats.Attack.AddMultiplier(damageIncrementToAttacker);
+		attacker.stats.Defense.AddMultiplier(defenseIncrementToAttacker);
+		attacker.stats.Speed.AddMultiplier(speedIncrementToAttacker);
 
 		//// SetEffects
-		attacker.stats.Poison.currentValue = poisonDamage;
-		attacker.stats.Poison.turns = poisonTurns;
+		target[i]->stats.Poison.currentValue = poisonDamageToTarget;
+		target[i]->stats.Poison.turns = poisonTurnsToTarget;
+		attacker.stats.Poison.currentValue = poisonDamageToAttacker;
+		attacker.stats.Poison.turns = poisonTurnsToAttacker;
 
-		attacker.stats.Burn.currentValue = burnDamage;
-		attacker.stats.Burn.turns = burnTurns;
+		target[i]->stats.Burn.currentValue = burnDamageToTarget;
+		target[i]->stats.Burn.turns = burnTurnsToTarget;
+		attacker.stats.Burn.currentValue = burnDamageToAttacker;
+		attacker.stats.Burn.turns = burnTurnsToAttacker;
 
-		attacker.stats.Regeneration.currentValue = regenerationValue;
-		attacker.stats.Regeneration.turns = regenerationTurns;
+		target[i]->stats.Regeneration.currentValue = regenerationValueToTarget;
+		target[i]->stats.Regeneration.turns = regenerationTurnsToTarget;
+		attacker.stats.Regeneration.currentValue = regenerationValueToAttacker;
+		attacker.stats.Regeneration.turns = regenerationTurnsToAttacker;
 
 		//// Other
 		if(!target[i]->stats.turnBlocked)
-			target[i]->stats.turnBlocked = blockTurn;
+			target[i]->stats.turnBlocked = blockTurnToTarget;
+
+		if (!attacker.stats.turnBlocked)
+			attacker.stats.turnBlocked = blockTurnToAttacker;
 
 	}
-	if(attacker.stats.Health.currentValue> attacker.stats.Health.defaultValue)
-		attacker.stats.Health.currentValue = attacker.stats.Health.defaultValue;
-
 }

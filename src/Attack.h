@@ -20,26 +20,36 @@ public:
 
 	/// Stats
 	int priority = 0;
-	int accuracity = 100;
+	int accuracy = 100;
 
 	/// Damage
 	int damage = 0;
 	int critRate = 10;
 
 	/// Multipliers
-	int damageIncrement = 0;
-	int defenseIncrement = 0;
-	int speedIncrement = 0;
+	int damageIncrementToTarget = 0;
+	int defenseIncrementToTarget = 0;
+	int speedIncrementToTarget = 0;
+	
+	int damageIncrementToAttacker = 0;
+	int defenseIncrementToAttacker = 0;
+	int speedIncrementToAttacker = 0;
 
 	/// Effects
-	int poisonDamage = 0;
-	int poisonTurns = 0;
+	int poisonDamageToTarget = 0;
+	int poisonTurnsToTarget = 0;
+	int poisonDamageToAttacker = 0;
+	int poisonTurnsToAttacker = 0;
 
-	int burnDamage = 0;
-	int burnTurns = 0;
+	int burnDamageToTarget = 0;
+	int burnTurnsToTarget = 0;
+	int burnDamageToAttacker = 0;
+	int burnTurnsToAttacker = 0;
 
-	int regenerationValue = 0;
-	int regenerationTurns = 0;
+	int regenerationValueToTarget = 0;
+	int regenerationTurnsToTarget = 0;
+	int regenerationValueToAttacker = 0;
+	int regenerationTurnsToAttacker = 0;
 
 	/// Life Steal
 	int lifeSteal = 0;
@@ -47,7 +57,8 @@ public:
 	int lifeStealEffectiveness = 100;
 
 	/// Extra
-	bool blockTurn = false;
+	bool blockTurnToTarget = false;
+	bool blockTurnToAttacker = false;
 
 	virtual void DoAttack(CombatSystem::CharacterReference& attacker, std::vector<CombatSystem::CharacterReference*>& target);
 };
