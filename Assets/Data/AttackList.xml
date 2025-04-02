@@ -29,7 +29,7 @@
 		<description value ="DESCRIPTION"/>
 		<data>
 			<properties priority="0" accuracy ="100"/>
-			<requirements target-amount="1" target-type="1"/><!--Target Type (0=enemy 1=user, 2=both)-->
+			<requirements target-amount="1" target-type="0"/><!--Target Type (0=enemy 1=user, 2=both)-->
 
 			<basic-stats>
 				<power value ="10"/>
@@ -55,7 +55,7 @@
 		<description value ="DESCRIPTION"/>
 		<data>
 			<properties priority="0" accuracy ="100"/>
-			<requirements target-amount="1" target-type="1"/><!--Target Type (0=enemy 1=user, 2=both)-->
+			<requirements target-amount="1" target-type="2"/><!--Target Type (0=enemy 1=user, 2=both)-->
 
 			<basic-stats>
 				<power value ="10"/>

@@ -62,6 +62,7 @@ private:
 		UIImage* attackDone = nullptr;
 
 		UIImage* selectedCharacterIndicator = nullptr;
+
 		UIImage* selectedCharacterTarget = nullptr;
 	};
 
@@ -78,6 +79,11 @@ private:
 
 	void SelectCharacter(UICharacterSlot& character);
 	void DeselectChatacter();
+
+	void ShowAllPossibleTargets();
+	void HideAllPossibleTargets();
+
+
 	void SelectTarget(UICharacterSlot& character);
 	void RemoveAllTargets();
 

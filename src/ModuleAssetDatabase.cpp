@@ -88,8 +88,8 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("mouse_cursor2", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_2.png"));
 	AddTextureToStorage("mouse_cursor3", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_3.png"));
 	///Icons
-	AddTextureToStorage("icons_16", *textureFactory->CreateTexture("Assets/Textures/UI/icons_16.png"));
-	AddTextureToStorage("icons_8", *textureFactory->CreateTexture("Assets/Textures/UI/icons_8.png"));
+	AddTextureToStorage("icons_16", *textureFactory->CreateTexture("Assets/Textures/Icon/icons_16.png"));
+	AddTextureToStorage("icons_8", *textureFactory->CreateTexture("Assets/Textures/Icon/icons_8.png"));
 	///General
 	AddTextureToStorage("team_logo", *textureFactory->CreateTexture("Assets/Textures/General/team_logo.png"));
 	AddTextureToStorage("game_title_pixel", *textureFactory->CreateTexture("Assets/Textures/General/game_title_pixel.png"));

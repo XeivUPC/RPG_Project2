@@ -157,6 +157,7 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 	SDL_Texture* effects_texture = Engine::Instance().m_assetsDB->GetTexture("effects_toggle");
 	SDL_Texture* charSelect_texture = Engine::Instance().m_assetsDB->GetTexture("arrow_tex1");
 	SDL_Texture* charAttackDone_texture = Engine::Instance().m_assetsDB->GetTexture("tick_tex1");
+	SDL_Texture* icons_16_texture = Engine::Instance().m_assetsDB->GetTexture("icons_16");
 
 	TTF_Font* btn_font = Engine::Instance().m_assetsDB->GetFont("alagard");
 
@@ -194,13 +195,16 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 	UIImage* selectedCharacterIndicator = new UIImage(*charSelect_texture, { -1,5 }, {19,19}, { 1,0.5f });
 	selectedCharacterIndicator->localVisible = false;
 	
-	UIImage* selectedCharacterTarget = new UIImage(*overlay_texture, {0,0}, {69,11}, {0,0}, true, {0,11,69,11});
+	UIImage* selectedCharacterTarget = new UIImage(*icons_16_texture, { -8,-80 }, { 16,16 }, { 0,0 }, true, { 0,16,16,16 });
 	selectedCharacterTarget->localVisible = false;
 
 	UIButton* characterBtn = new UIButton({35,-7}, { 32, 62 }, {0,0,0,0}, { 0.5f,1 }, { 255,255,255,0 });
 	characterBtn->localdebug = true;
+	characterBtn->onMouseEnter.Subscribe([selectedCharacterTarget]() {selectedCharacterTarget->SetRect({ 0,32,16,16 }); });
+	characterBtn->onMouseExit.Subscribe([selectedCharacterTarget]() {selectedCharacterTarget->SetRect({ 0,16,16,16 }); });
 
-	selectedCharacterTarget->SetParent(overlay);
+
+	selectedCharacterTarget->SetParent(characterBtn);
 	characterBtn->SetParent(overlay);
 	slotLvl->SetParent(overlay);
 	slotName->SetParent(overlay);
@@ -341,6 +345,26 @@ void CombatCG::DeselectChatacter()
 	}
 }
 
+void CombatCG::ShowAllPossibleTargets()
+{
+	for (size_t i = 0; i < charactersSlot.size(); i++)
+	{
+		if (selectedAttack->attack->targetType == charactersSlot[i].characterRef->team || selectedAttack->attack->targetType == CombatSystem::Both) {
+			charactersSlot[i].selectedCharacterTarget->SetColor({ 255,255,255,255 });
+			charactersSlot[i].selectedCharacterTarget->localVisible = true;
+		}
+	}
+}
+
+void CombatCG::HideAllPossibleTargets()
+{
+	for (size_t i = 0; i < charactersSlot.size(); i++)
+	{
+		charactersSlot[i].selectedCharacterTarget->SetColor({ 255,255,255,255 });
+		charactersSlot[i].selectedCharacterTarget->localVisible = false;
+	}
+}
+
 void CombatCG::SelectTarget(UICharacterSlot& character)
 {
 	/// Check AutoSelect by numbers of enemies and requiered targets
@@ -350,20 +374,22 @@ void CombatCG::SelectTarget(UICharacterSlot& character)
 		auto it = std::find(targetCharacters.begin(), targetCharacters.end(), &character);
 		if (it != targetCharacters.end()) { /// Remove
 			targetCharacters.erase(it);
-			character.selectedCharacterTarget->localVisible = false;
+			character.selectedCharacterTarget->SetColor({255,255,255,255});
 		}
 		else { /// Addd
 			targetCharacters.emplace_back(&character);
-			character.selectedCharacterTarget->localVisible = true;
+			character.selectedCharacterTarget->SetColor({ 255,255,0,255 });
 		}
 	}
 }
 
 void CombatCG::RemoveAllTargets()
 {
+	HideAllPossibleTargets();
+
 	for (size_t i = 0; i < targetCharacters.size(); i++)
 	{
-		targetCharacters[i]->selectedCharacterTarget->localVisible = false;
+		targetCharacters[i]->selectedCharacterTarget->SetColor({ 255,255,255,255 });
 	}
 	targetCharacters.clear();
 }
@@ -378,11 +404,10 @@ void CombatCG::SelectAttack(int attackIndex)
 		selectedCharacter->attackDone->localVisible = false;
 	}
 
-
-
 	RemoveAllTargets();
 	selectedAttack = &attackButtons[attackIndex];
 	SetTargetSelectionMode(true);
+	ShowAllPossibleTargets();
 }
 
 void CombatCG::ConfirmAttack()
