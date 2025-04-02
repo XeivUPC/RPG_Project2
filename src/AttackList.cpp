@@ -63,7 +63,7 @@ void AttackList::LoadAttacks()
 		xml_node dataNode = attack.child("data");
 
 		xml_node propertiesNode = dataNode.child("properties");
-		xml_node requierementsNode = dataNode.child("requierements");
+		xml_node requirementsNode = dataNode.child("requirements");
 		xml_node basicStatsNode = dataNode.child("basic-stats");
 		xml_node statsModificationNode = dataNode.child("stat-modification");
 		xml_node statusModificationNode = dataNode.child("status-modification");
@@ -72,8 +72,8 @@ void AttackList::LoadAttacks()
 		newAttack.priority = propertiesNode.attribute("priority").as_int();
 		newAttack.accuracy = propertiesNode.attribute("accuracy").as_int();
 
-		newAttack.targetAmount = requierementsNode.attribute("target-amount-type").as_int();
-		newAttack.targetType = (CombatSystem::CharacterType)requierementsNode.attribute("target-type").as_int();
+		newAttack.targetAmount = requirementsNode.attribute("target-amount-type").as_int();
+		newAttack.targetType = (CombatSystem::CharacterType)requirementsNode.attribute("target-type").as_int();
 
 		newAttack.power = basicStatsNode.child("power").attribute("value").as_int();
 		newAttack.critRate = basicStatsNode.child("crit-rate").attribute("value").as_int();

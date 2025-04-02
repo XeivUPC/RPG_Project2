@@ -9,6 +9,7 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 	std::mt19937 gen(rd());
 	std::uniform_real_distribution<float> random(0.85f, 1.0);
 	std::uniform_int_distribution critical_percentage(0, 100);
+	std::uniform_int_distribution stat_or_status_porbability(0, 100);
 	std::uniform_int_distribution attack_accuracy(1, 100);
 
 
@@ -56,6 +57,9 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 		/// 
 		for (const auto& statModification : statsModification)
 		{
+			if (stat_or_status_porbability(gen) >= statModification.second.probability)
+				continue;
+
 			CombatSystem::CharacterReference& character = attacker;
 			if (statModification.second.objective == CombatSystem::Enemy) {
 				character = *target[i];
@@ -74,6 +78,9 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 
 		for (const auto& statusModification : statusEffects)
 		{
+			if (stat_or_status_porbability(gen) >= statusModification.second.probability)
+				continue;
+
 			CombatSystem::CharacterReference& character = attacker;
 			if (statusModification.second.objective == CombatSystem::Enemy) {
 				character = *target[i];

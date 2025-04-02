@@ -11,6 +11,7 @@ public:
 		string type;
 
 		int value = 0;
+		int probability = 0;
 		CombatSystem::CharacterType objective;
 	};
 
@@ -19,6 +20,7 @@ public:
 
 		int value = 0;
 		int turns = 0;
+		int probability = 0;
 		CombatSystem::CharacterType objective;
 	};
 
