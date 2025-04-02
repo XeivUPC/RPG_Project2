@@ -158,6 +158,9 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 	SDL_Texture* charSelect_texture = Engine::Instance().m_assetsDB->GetTexture("arrow_tex1");
 	SDL_Texture* charAttackDone_texture = Engine::Instance().m_assetsDB->GetTexture("tick_tex1");
 
+	SDL_Texture* icons_16_texture = Engine::Instance().m_assetsDB->GetTexture("icons_16");
+	SDL_Texture* icons_8_texture = Engine::Instance().m_assetsDB->GetTexture("icons_8");
+
 	TTF_Font* btn_font = Engine::Instance().m_assetsDB->GetFont("alagard");
 
 	CharacterDatabase::CharacterData& charactedData = CharacterDatabase::Instance().GetCharacterData(value->id);
@@ -194,13 +197,15 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 	UIImage* selectedCharacterIndicator = new UIImage(*charSelect_texture, { -1,5 }, {19,19}, { 1,0.5f });
 	selectedCharacterIndicator->localVisible = false;
 	
-	UIImage* selectedCharacterTarget = new UIImage(*overlay_texture, {0,0}, {69,11}, {0,0}, true, {0,11,69,11});
+	UIImage* selectedCharacterTarget = new UIImage(*icons_16_texture, {-8,-80}, {16,16}, {0,0}, true, {0,16,16,16});
 	selectedCharacterTarget->localVisible = false;
 
 	UIButton* characterBtn = new UIButton({35,-7}, { 32, 62 }, {0,0,0,0}, { 0.5f,1 }, { 255,255,255,0 });
 	characterBtn->localdebug = true;
+	characterBtn->onMouseEnter.Subscribe([selectedCharacterTarget]() {selectedCharacterTarget->SetRect({0,32,16,16});});
+	characterBtn->onMouseExit.Subscribe([selectedCharacterTarget]() {selectedCharacterTarget->SetRect({0,16,16,16});});
 
-	selectedCharacterTarget->SetParent(overlay);
+	selectedCharacterTarget->SetParent(characterBtn);
 	characterBtn->SetParent(overlay);
 	slotLvl->SetParent(overlay);
 	slotName->SetParent(overlay);
@@ -224,6 +229,7 @@ void CombatCG::CreateUIExtras()
 {
 	TTF_Font* btn_font = Engine::Instance().m_assetsDB->GetFont("alagard");
 	SDL_Texture* controlBtns_texture = Engine::Instance().m_assetsDB->GetTexture("btn_tex3");
+	SDL_Texture* icons_16_texture = Engine::Instance().m_assetsDB->GetTexture("icons_16");
 
 	Vector2Int btn_size = { 108, 19 };
 	int font_size = 16;
@@ -271,7 +277,7 @@ void CombatCG::ShowAttackInformation(int attackIndex)
 	attackInfo.name->SetText(attackSelected->name);
 	attackInfo.description->SetText(attackSelected->description);
 	attackInfo.power->SetText("Pow: "+to_string(attackSelected->damage));
-	attackInfo.accuracy->SetText("Acc: " + to_string(attackSelected->accuracity) + "%");
+	attackInfo.accuracy->SetText("Acc: " + to_string(attackSelected->accuracy) + "%");
 }
 
 void CombatCG::HideAttackInformation(int attackIndex)
@@ -345,16 +351,16 @@ void CombatCG::SelectTarget(UICharacterSlot& character)
 {
 	/// Check AutoSelect by numbers of enemies and requiered targets
 	
-
 	if (character.characterRef->team == selectedAttack->attack->targetType || selectedAttack->attack->targetType == CombatSystem::Both) {
+		character.selectedCharacterTarget->localVisible = true;
 		auto it = std::find(targetCharacters.begin(), targetCharacters.end(), &character);
 		if (it != targetCharacters.end()) { /// Remove
 			targetCharacters.erase(it);
-			character.selectedCharacterTarget->localVisible = false;
+			//character.selectedCharacterTarget->localVisible = false;
 		}
 		else { /// Addd
 			targetCharacters.emplace_back(&character);
-			character.selectedCharacterTarget->localVisible = true;
+			//character.selectedCharacterTarget->localVisible = true;
 		}
 	}
 }
