@@ -25,8 +25,18 @@ public:
 		CombatSystem::CharacterType objective;
 	};
 
+	enum AttackType
+	{
+		Aggressive,
+		Healing,
+		Buff,
+		Debuff,
+		Affliction
+	};
+
 	int id = -1;
 
+	AttackType type = Aggressive;
 	CombatSystem::CharacterType targetType = CombatSystem::Enemy;
 	int targetAmount = 0;
 

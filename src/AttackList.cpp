@@ -62,12 +62,15 @@ void AttackList::LoadAttacks()
 
 		xml_node dataNode = attack.child("data");
 
+		xml_node infoNode = dataNode.child("info");
 		xml_node propertiesNode = dataNode.child("properties");
 		xml_node requirementsNode = dataNode.child("requirements");
 		xml_node basicStatsNode = dataNode.child("basic-stats");
 		xml_node statsModificationNode = dataNode.child("stat-modification");
 		xml_node statusModificationNode = dataNode.child("status-modification");
 		xml_node extrasNode = dataNode.child("extras");
+
+		newAttack.type = (Attack::AttackType)infoNode.attribute("attack-type").as_int();
 
 		newAttack.priority = propertiesNode.attribute("priority").as_int();
 		newAttack.accuracy = propertiesNode.attribute("accuracy").as_int();
