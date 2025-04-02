@@ -351,6 +351,9 @@
     <ClCompile Include="src\CharacterDatabase.cpp">
       <Filter>Source Files\Others</Filter>
     </ClCompile>
+    <ClCompile Include="src\CombatAI.cpp">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -616,6 +619,9 @@
     </ClInclude>
     <ClInclude Include="src\CharacterDatabase.h">
       <Filter>Source Files\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CombatAI.h">
+      <Filter>Source Files\Utils\Combat</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -54,7 +54,6 @@ public:
 		int speed;
 	};
 
-
 	struct StatusEffect {
 		string name;
 		int value;
