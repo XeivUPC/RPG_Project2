@@ -53,6 +53,8 @@ void CharacterDatabase::SaveDatabase()
 					attackAtr.set_value(value.attacks[index]);
                     index++;
 				}
+
+                entry.child("AttackRole").attribute("type").set_value(value.role);
             }
             else {
                 LOG("CharacterDatabase couldn't find this id %d", key);
@@ -85,6 +87,7 @@ void CharacterDatabase::LoadDatabase()
             xml_node charDataNode = character.child("Data");
             xml_node charStatsNode = character.child("Stats");
             xml_node charAttacksNode = character.child("Attacks");
+            xml_node charAttackRoleNode = character.child("AttackRole");
 
 
             charData.id = charId;
@@ -102,6 +105,8 @@ void CharacterDatabase::LoadDatabase()
             {
                 charData.attacks.emplace_back(attack.as_int());
             }
+
+            charData.role = (CharacterData::CharacterRole)charAttackRoleNode.attribute("type").as_int();
 
             data[charId] = charData;
         }

@@ -7,6 +7,14 @@ class CharacterDatabase {
 	public:
 
 		struct CharacterData {
+
+			enum CharacterRole {
+				DPS,
+				TANK,
+				HEALER,
+				ALCHEMIST
+			};
+
 			int id;
 			string name = "";
 
@@ -23,6 +31,7 @@ class CharacterDatabase {
 
 			vector<int> attacks;
 
+			CharacterRole role = DPS;
 		};
 
 		static CharacterDatabase& Instance() {
