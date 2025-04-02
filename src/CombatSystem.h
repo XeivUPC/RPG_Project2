@@ -31,98 +31,61 @@ public:
 		DEFEAT
 	};
 
-	struct Stat
-	{
-		float defaultValue = 0;
-		float currentValue = 0;
-
-		float multiplier = 1;
-
-		int turns = 1;
-		
-		Stat() = default;
-
-		Stat(float _value, float _multiplier, int _turns)
-		{
-			defaultValue = _value;
-			currentValue = _value;
-
-			multiplier = _multiplier;
-			turns = _turns;
-		}
-		float GetProcessedValue()
-		{
-			float multiplierRealValue = multiplier + 2;
-			if (multiplier < 0) {
-				return defaultValue * (2/ multiplierRealValue);
-			}
-			return defaultValue * (multiplierRealValue/2);
-		}
-		
-		float GetProcessedValue(int level)
-		{
-			float multiplierRealValue = multiplier + 2;
-			float extraByLevel = (1 / 50.f * defaultValue) * (level - 1);
-			if (multiplier < 0) {
-				return (defaultValue+ extraByLevel) * (2/ multiplierRealValue);
-			}
-			return (defaultValue + extraByLevel) * (multiplierRealValue/2);
-		}
-
-		void AddMultiplier(float value)
-		{
-			multiplier += value;
-			if (multiplier > 4)
-				multiplier = 4;
-
-			if (multiplier < -4)
-				multiplier = -4;
-		}
+	struct StatStages {
+		int attack=0;
+		int defense=0;
+		int speed=0;
 	};
 
-	struct CharacterCombatStats
-	{
-		bool turnBlocked = false;
+	struct BaseStats {
+		int hp;
+		int attack;
+		int defense;
+		int speed;
+	};
 
+	struct StatusEffect {
+		string name;
+		int value;
+		int turns;
+	};
+
+	struct CharacterStats {
+		int currentHp;
 		int level;
 
-		Stat Health;
+		bool isBlocked = false;
 
-		Stat Attack;
-		Stat Defense;
-		Stat Speed;
+		BaseStats baseStats;
+		StatStages statsStages;
+		vector<StatusEffect> statusEffects;
 
-		Stat Poison;
-		Stat Burn;
-		Stat Regeneration;
-
-
-		CharacterCombatStats() = default;
-		void GetBaseStatsById(int id)
-		{
+		void GetBaseStatsById(int id) {
 			CharacterDatabase::CharacterData& reference = CharacterDatabase::Instance().GetCharacterData(id);
-
 			level = reference.level;
 
-			Health = Stat((float)reference.health, 1.f, 0);
-			Attack = Stat((float)reference.attack, 1.f, 0);
-			Defense = Stat((float)reference.defense, 1.f, 0);
-			Speed = Stat((float)reference.speed, 1.f, 0);
+			baseStats.attack = reference.attack;
+			baseStats.defense = reference.defense;
+			baseStats.hp = reference.health;
+			baseStats.speed = reference.speed;
 
-			Poison = Stat(0, 1.f, 0);
-			Burn = Stat(0, 1.f, 0);
-			Regeneration = Stat(0, 1.f, 0);
-		};
+			currentHp = baseStats.hp;
+		}
 
-
-		
+		float GetStatProcessedValue(int value, int stage) {
+			float stageExtra = (stage + 2) / 2.f;
+			if (stage < 0)
+				stageExtra = 1 / stageExtra;
+			return (value + value*level/50.f)*stageExtra;
+		}
 	};
+
 
 	struct CharacterReference
 	{
 		int id;
 		CharacterType team;
-		CharacterCombatStats stats;
+		CharacterStats stats;
 
 		CharacterReference() = default;
 		CharacterReference(int _id, CharacterType _team) {

@@ -2,63 +2,56 @@
 
 class Attack
 {
+private:
+	
+
 public:
-	enum TargetSelection
-	{
-		Input,
-		Random,
+
+	struct StageModifier {
+		string type;
+
+		int value = 0;
+		CombatSystem::CharacterType objective;
 	};
 
-	CombatSystem::CharacterType targetType = CombatSystem::Enemy;
-	TargetSelection selection = Random;
-	int minTargetAmmount = 0;
-	int maxTargetAmmount = 0;
+	struct StatusModifier {
+		string type;
+
+		int value = 0;
+		int turns = 0;
+		CombatSystem::CharacterType objective;
+	};
 
 	int id = -1;
+
+	CombatSystem::CharacterType targetType = CombatSystem::Enemy;
+	int targetAmount = 0;
+
 	string name = "Name";
 	string description = "Description";
 
-	/// Stats
+	/// Properties
 	int priority = 0;
 	int accuracy = 100;
 
-	/// Damage
-	int damage = 0;
+	/// Basic Stats
+	int power = 0;
 	int critRate = 10;
 
-	/// Multipliers
-	int damageIncrementToTarget = 0;
-	int defenseIncrementToTarget = 0;
-	int speedIncrementToTarget = 0;
-	
-	int damageIncrementToAttacker = 0;
-	int defenseIncrementToAttacker = 0;
-	int speedIncrementToAttacker = 0;
+	/// Stages
+	unordered_map<string, StageModifier> statsModification;
 
 	/// Effects
-	int poisonDamageToTarget = 0;
-	int poisonTurnsToTarget = 0;
-	int poisonDamageToAttacker = 0;
-	int poisonTurnsToAttacker = 0;
-
-	int burnDamageToTarget = 0;
-	int burnTurnsToTarget = 0;
-	int burnDamageToAttacker = 0;
-	int burnTurnsToAttacker = 0;
-
-	int regenerationValueToTarget = 0;
-	int regenerationTurnsToTarget = 0;
-	int regenerationValueToAttacker = 0;
-	int regenerationTurnsToAttacker = 0;
-
-	/// Life Steal
-	int lifeSteal = 0;
-	int lifeStealPercentage = 0;
-	int lifeStealEffectiveness = 100;
+	unordered_map<string, StatusModifier> statusEffects;
 
 	/// Extra
-	bool blockTurnToTarget = false;
-	bool blockTurnToAttacker = false;
+	int lifeDewMode = 0;
+	int lifeDewAmount = 0;
+	int lifeDewEffectiveness=0;
+
+	bool blocksTurn = false;
+	CombatSystem::CharacterType blockTurnTarget = CombatSystem::Enemy;
+
 
 	virtual void DoAttack(CombatSystem::CharacterReference& attacker, std::vector<CombatSystem::CharacterReference*>& target);
 };

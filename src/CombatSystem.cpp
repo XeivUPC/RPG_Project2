@@ -47,10 +47,10 @@ void CombatSystem::UpdateCombat()
 	case CombatSystem::ATTACKS:
 		sort(attackList.begin(), attackList.end(),
 		[](pair< CharacterReference*, TurnAttack>& a, pair< CharacterReference*, TurnAttack>& b) {
-			Stat& as = a.first->stats.Speed;
-			Stat& bs = b.first->stats.Speed;
-			float aSpeed = as.GetProcessedValue(a.first->stats.level);
-			float bSpeed = bs.GetProcessedValue(b.first->stats.level);
+			CharacterStats& as = a.first->stats;
+			CharacterStats& bs = b.first->stats;
+			float aSpeed = as.GetStatProcessedValue(as.baseStats.speed, as.statsStages.speed);
+			float bSpeed = bs.GetStatProcessedValue(bs.baseStats.speed, bs.statsStages.speed);
 
 			auto getGroup = [](int priority) {
 				if (priority > 0) return 1;    
@@ -72,7 +72,7 @@ void CombatSystem::UpdateCombat()
 		});
 		for (auto& attack : attackList)
 		{
-			if (attack.first->stats.Health.currentValue <= 0)
+			if (attack.first->stats.currentHp <= 0)
 				continue;
 			attack.second.attack->DoAttack(*attack.first,attack.second.targets);
 			
@@ -85,31 +85,30 @@ void CombatSystem::UpdateCombat()
 		{
 			for (auto& character : team.second)
 			{
-				if (character.stats.Health.currentValue <= 0)
+				if (character.stats.currentHp <= 0)
 					continue;
-				if (character.stats.Poison.turns > 0)
+
+				for (size_t i = 0; i < character.stats.statusEffects.size(); i++)
 				{
-					Stat& stat = character.stats.Poison;
-					stat.turns--;
-					character.stats.Health.currentValue -= stat.currentValue;
-				}
-				if (character.stats.Burn.turns > 0)
-				{
-					Stat& stat = character.stats.Burn;
-					stat.turns--;
-					character.stats.Health.currentValue -= stat.currentValue;
-				}
-				if (character.stats.Regeneration.turns > 0)
-				{
-					Stat& stat = character.stats.Health;
-					stat.turns--;
-					character.stats.Health.currentValue += stat.currentValue;
+					character.stats.statusEffects[i].turns--;
+					character.stats.currentHp += character.stats.statusEffects[i].value;
 				}
 
-				if (character.stats.Health.currentValue < 0)
-					character.stats.Health.currentValue = 0;
-				if (character.stats.Health.currentValue > character.stats.Health.defaultValue)
-					character.stats.Health.currentValue = character.stats.Health.defaultValue;
+				character.stats.statusEffects.erase(
+					std::remove_if(
+						character.stats.statusEffects.begin(),
+						character.stats.statusEffects.end(),
+						[](const StatusEffect& c) { return c.turns <= 0; }
+					),
+					character.stats.statusEffects.end()
+				);
+
+				if (character.stats.currentHp < 0)
+					character.stats.currentHp = 0;
+				if (character.stats.currentHp > character.stats.baseStats.hp)
+					character.stats.currentHp = character.stats.baseStats.hp;
+
+
 			}
 		}
 		CheckDeadCharacters();

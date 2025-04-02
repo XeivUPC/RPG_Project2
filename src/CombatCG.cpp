@@ -32,10 +32,10 @@ void CombatCG::UpdateCanvas()
 
 	for (size_t i = 0; i < charactersSlot.size(); i++)
 	{
-		CombatSystem::CharacterCombatStats& charStats  = charactersSlot[i].characterRef->stats;
+		CombatSystem::CharacterStats& charStats  = charactersSlot[i].characterRef->stats;
 
-		float maxHealth = charStats.Health.defaultValue;
-		float currentHealth = charStats.Health.currentValue;
+		float maxHealth = charStats.baseStats.hp;
+		float currentHealth = charStats.currentHp;
 		float healthRatio = currentHealth / maxHealth;
 
 		charactersSlot[i].hpBar->size.x = (int)(charactersSlot[i].hpBarMaxWidth * healthRatio);
@@ -270,8 +270,8 @@ void CombatCG::ShowAttackInformation(int attackIndex)
 
 	attackInfo.name->SetText(attackSelected->name);
 	attackInfo.description->SetText(attackSelected->description);
-	attackInfo.power->SetText("Pow: "+to_string(attackSelected->damage));
-	attackInfo.accuracy->SetText("Acc: " + to_string(attackSelected->accuracity) + "%");
+	attackInfo.power->SetText("Pow: "+to_string(attackSelected->power));
+	attackInfo.accuracy->SetText("Acc: " + to_string(attackSelected->accuracy) + "%");
 }
 
 void CombatCG::HideAttackInformation(int attackIndex)
@@ -296,7 +296,7 @@ void CombatCG::HideAttackInformation()
 
 void CombatCG::SelectCharacter(UICharacterSlot& character)
 {
-	if (character.characterRef->stats.Health.currentValue <= 0)
+	if (character.characterRef->stats.currentHp <= 0)
 		return;
 	if(selectingTargets)
 	{
