@@ -73,11 +73,14 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 				const string& type = statModification.second.type;
 				if (type=="Attack") {
 					character->stats.statsStages.attack += statModification.second.value;
+					character->stats.statsStages.attack = character->stats.statsStages.CheckCap(character->stats.statsStages.attack);
 				}else if (type == "Defense") {
 					character->stats.statsStages.defense += statModification.second.value;
+					character->stats.statsStages.defense = character->stats.statsStages.CheckCap(character->stats.statsStages.defense);
 				}
 				else if (type == "Speed") {
 					character->stats.statsStages.speed += statModification.second.value;
+					character->stats.statsStages.speed = character->stats.statsStages.CheckCap(character->stats.statsStages.speed);
 				}
 			}
 		}

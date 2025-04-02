@@ -35,6 +35,16 @@ public:
 		int attack=0;
 		int defense=0;
 		int speed=0;
+
+		int maxminLevel = 6;
+
+		int CheckCap(int value) {
+			if (value > maxminLevel)
+				return maxminLevel;
+			if (value < -maxminLevel)
+				return -maxminLevel;
+			return value;
+		}
 	};
 
 	struct BaseStats {
