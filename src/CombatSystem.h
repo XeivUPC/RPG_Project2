@@ -32,37 +32,37 @@ public:
 	};
 
 	struct StatStages {
-		int attack=0;
-		int defense=0;
-		int speed=0;
+		float attack=0;
+		float defense=0;
+		float speed=0;
 
 		int maxminLevel = 6;
 
-		int CheckCap(int value) {
+		int CheckCap(float value) {
 			if (value > maxminLevel)
 				return maxminLevel;
 			if (value < -maxminLevel)
 				return -maxminLevel;
-			return value;
+			return (int)value;
 		}
 	};
 
 	struct BaseStats {
-		int hp;
-		int attack;
-		int defense;
-		int speed;
+		int hp=0;
+		int attack = 0;
+		int defense = 0;
+		int speed = 0;
 	};
 
 	struct StatusEffect {
 		string name;
-		int value;
-		int turns;
+		float value = 0;
+		int turns = 0;
 	};
 
 	struct CharacterStats {
-		int currentHp;
-		int level;
+		float currentHp = 0;
+		int level = 0;
 
 		bool isBlocked = false;
 
@@ -73,7 +73,7 @@ public:
 
 		void Reset() {
 			currentStats.hp = (int)GetHpStatValue();
-			currentHp = currentStats.hp;
+			currentHp = (float)currentStats.hp;
 
 			currentStats.attack = (int)GetOtherStatValue(baseStats.attack);
 			currentStats.defense = (int)GetOtherStatValue(baseStats.defense);
@@ -103,7 +103,7 @@ public:
 			return floor(0.01f * (2 * defaultValue) * level) + 5;
 		}
 
-		float GetStatProcessedValue(int value, int stage) {
+		float GetStatProcessedValue(int value, float stage) {
 			float stageExtra = (stage + 2) / 2.f;
 			if (stage < 0)
 				stageExtra = 1 / stageExtra;
@@ -114,7 +114,7 @@ public:
 
 	struct CharacterReference
 	{
-		int id;
+		int id=-1;
 		CharacterType team;
 		CharacterStats stats;
 
@@ -142,6 +142,7 @@ public:
 	void ChangeState(CombatState newState);
 
 	const unordered_map <CharacterType, vector<CharacterReference>>& GetCharactersInCombat();
+	vector<CharacterReference*> GetPosibleTargets(CharacterReference* character, Attack* attack);
 	
 	~CombatSystem();
 private:

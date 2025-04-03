@@ -111,9 +111,9 @@ void CombatSystem::UpdateCombat()
 				);
 
 				if (character.stats.currentHp < 0)
-					character.stats.currentHp = 0;
+					character.stats.currentHp = 0.f;
 				if (character.stats.currentHp > character.stats.currentStats.hp)
-					character.stats.currentHp = character.stats.currentStats.hp;
+					character.stats.currentHp = (float)character.stats.currentStats.hp;
 
 
 			}
@@ -184,4 +184,28 @@ void CombatSystem::ChangeState(CombatState newState)
 const unordered_map<CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>>& CombatSystem::GetCharactersInCombat()
 {
 	return charactersInCombat;
+}
+
+vector<CombatSystem::CharacterReference*> CombatSystem::GetPosibleTargets(CharacterReference* character, Attack* attack)
+{
+	vector<CharacterReference*> possibleTargets;
+
+	if (attack->targetType == CombatSystem::Self) {
+		possibleTargets.emplace_back(character);
+		return possibleTargets;
+	}
+
+	for (auto& team : charactersInCombat)
+	{
+		for (auto& character : team.second)
+		{
+			if (character.stats.currentHp <= 0)
+				continue;
+
+			if (character.team == attack->targetType || attack->targetType == CombatSystem::Both) {
+				possibleTargets.emplace_back(&character);
+			}
+		}
+	}
+	return possibleTargets;
 }

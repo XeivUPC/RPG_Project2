@@ -84,7 +84,7 @@ void AttackList::LoadAttacks()
 		for (const auto& statModification : statsModificationNode.children()) {
 			string statType = statModification.attribute("stat").as_string();
 			Attack::StageModifier data = {  statType,
-											statModification.attribute("value").as_int(),
+											statModification.attribute("value").as_float(),
 											statModification.attribute("probability").as_int(),
 											(CombatSystem::CharacterType)statModification.attribute("objective").as_int() };
 			newAttack.statsModification[statType] = data;
@@ -93,7 +93,7 @@ void AttackList::LoadAttacks()
 		for (const auto& statusModification : statusModificationNode.children()) {
 			string statusType = statusModification.attribute("type").as_string();
 			Attack::StatusModifier data = { statusType,
-											statusModification.attribute("value").as_int(),
+											statusModification.attribute("value").as_float(),
 											statusModification.attribute("turns").as_int(),
 											statusModification.attribute("mode").as_int(),
 											statusModification.attribute("probability").as_int(),

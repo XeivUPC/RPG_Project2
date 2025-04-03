@@ -1,8 +1,8 @@
 #pragma once
+#include "CombatSystem.h"
 #include <vector>
 using namespace std;
 
-class CombatSystem::CharacterReference;
 
 class CombatAI
 {

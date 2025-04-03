@@ -36,8 +36,8 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 		if (power == 0)
 			damageToDo = 0;
 
-		int damageDone = target[i]->stats.currentHp;
-		target[i]->stats.currentHp = max(0, target[i]->stats.currentHp - (int)damageToDo);
+		float damageDone = target[i]->stats.currentHp;
+		target[i]->stats.currentHp = max(0.f, target[i]->stats.currentHp - damageToDo);
 		damageDone = damageDone - target[i]->stats.currentHp;
 
 		switch (lifeDewMode)
@@ -50,6 +50,7 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 				break;
 			case 2:
 				attacker.stats.currentHp += target[i]->stats.currentStats.hp * (lifeDewAmount/100) * (lifeDewEffectiveness / 100);
+				break;
 			default:
 				break;
 		}
@@ -73,14 +74,14 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 				const string& type = statModification.second.type;
 				if (type=="Attack") {
 					character->stats.statsStages.attack += statModification.second.value;
-					character->stats.statsStages.attack = character->stats.statsStages.CheckCap(character->stats.statsStages.attack);
+					character->stats.statsStages.attack = (float)character->stats.statsStages.CheckCap(character->stats.statsStages.attack);
 				}else if (type == "Defense") {
 					character->stats.statsStages.defense += statModification.second.value;
-					character->stats.statsStages.defense = character->stats.statsStages.CheckCap(character->stats.statsStages.defense);
+					character->stats.statsStages.defense = (float)character->stats.statsStages.CheckCap(character->stats.statsStages.defense);
 				}
 				else if (type == "Speed") {
 					character->stats.statsStages.speed += statModification.second.value;
-					character->stats.statsStages.speed = character->stats.statsStages.CheckCap(character->stats.statsStages.speed);
+					character->stats.statsStages.speed = (float)character->stats.statsStages.CheckCap(character->stats.statsStages.speed);
 				}
 			}
 		}
@@ -109,7 +110,11 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 					}
 				}
 				if (!hasEffect) {
-					character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{type ,statusModification.second.value ,statusModification.second.turns});
+					if (statusModification.second.mode == 0)
+						character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type ,statusModification.second.value ,statusModification.second.turns });
+					else
+						character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type , character->stats.currentStats.hp * statusModification.second.value / 100.f,statusModification.second.turns });
+					
 				}
 			}
 		}

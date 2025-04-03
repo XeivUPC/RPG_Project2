@@ -83,7 +83,7 @@ void CombatCG::LoadCanvas()
 		int index = 0;
 		for (auto& character : characterTeam.second)
 		{
-			Vector2Int position= GetSlotPosition(character.team, index, characterTeam.second.size());
+			Vector2Int position= GetSlotPosition(character.team, index, (int)characterTeam.second.size());
 			UICharacterSlot& reference = charactersSlot.emplace_back(CreateUICharacterSlot((CombatSystem::CharacterReference*)&character, position));
 			reference.character->onMouseClick.Subscribe([this, reference]() {SelectCharacter((UICharacterSlot&)reference); });
 			index++;
@@ -376,18 +376,16 @@ void CombatCG::HideAllPossibleTargets()
 vector<CombatCG::UICharacterSlot*> CombatCG::GetPossibleTargets()
 {
 	vector<UICharacterSlot*> possibleTargets;
-
-	if (selectedAttack->attack->targetType == CombatSystem::Self) {
-		possibleTargets.emplace_back(selectedCharacter);
-		return possibleTargets;
-	}
-
-	for (size_t i = 0; i < charactersSlot.size(); i++)
+	vector<CombatSystem::CharacterReference*> referenceTargets = combat->GetPosibleTargets(selectedCharacter->characterRef,selectedAttack->attack);
+	
+	for (size_t i = 0; i < referenceTargets.size(); i++)
 	{
-		if (charactersSlot[i].characterRef->stats.currentHp <= 0)
-			continue;
-		if (charactersSlot[i].characterRef->team == selectedAttack->attack->targetType || selectedAttack->attack->targetType == CombatSystem::Both) {
-			possibleTargets.emplace_back(&charactersSlot[i]);
+		for (size_t j = 0; j < charactersSlot.size(); j++)
+		{
+			if (charactersSlot[j].characterRef == referenceTargets[i]) {
+				possibleTargets.emplace_back(&charactersSlot[j]);
+				break;
+			}
 		}
 	}
 

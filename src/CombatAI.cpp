@@ -52,7 +52,7 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker)
 			/// ------------------------------------ Rules End
 
 			int singleEfficiency = singleDamageEfficiency + singleDefenseEfficiency + singleHealthEfficiency;
-			TargetEfficiencyList.emplace_back(pair<int,int>(j,singleEfficiency));
+			TargetEfficiencyList.emplace_back(pair<int,int>((int)j,singleEfficiency));
 			efficiency += singleEfficiency;
 		}
 		while (TargetEfficiencyList.size() > attack->targetAmount)
@@ -61,7 +61,7 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker)
 			for (size_t j = 1; j < TargetEfficiencyList.size(); j++)
 			{
 				if (TargetEfficiencyList[min].second > TargetEfficiencyList[j].second)
-					min = j;
+					min = (int)j;
 			}
 			efficiency -= TargetEfficiencyList[min].second;
 			TargetEfficiencyList.erase(TargetEfficiencyList.begin() + min);
@@ -69,7 +69,7 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker)
 		if (bestOption.first < efficiency)
 		{
 			bestOption.first = efficiency;
-			bestOption.second.first = i;
+			bestOption.second.first = (int)i;
 			for (size_t i = 0; i < TargetEfficiencyList.size(); i++)
 			{
 				bestOption.second.second.emplace_back(characterStats[i]);

@@ -16,7 +16,7 @@
 			</stat-modification>
 			
 			<status-modification> <!-- Not necessary to put, or add much as you need // Objective (0=enemy 1=user) // Type (Poison, Burn, Regeneration) // Mode (0=fixed 1=totalLifePercentage)-->
-				<status-effect value="5" turns="0" mode="1" objective="0" type ="Poison" probability ="100"/>
+				<status-effect value="-5" turns="0" mode="1" objective="0" type ="Poison" probability ="100"/>
 			</status-modification>
 
 			<extras> <!-- Not necessary to put, or add much as you need-->
@@ -41,13 +41,13 @@
 
 	<!-- Poison application -->
 	<attack id="1" name="Toxic Bite">
-		<description value="A venomous attack that poisons the target"/>
+		<description value="A venomous attack that poisons the target with a 75% probability"/>
 		<data>
 			<info attack-type ="4"/>
-			<properties priority="0" accuracy="85"/>
+			<properties priority="0" accuracy="75"/>
 			<requirements target-amount="1" target-type="0"/>
 			<status-modification>
-				<status-effect value="-5" turns="3"  mode="0" objective="0" type="Poison" probability="75"/>
+				<status-effect value="-5" turns="3"  mode="1" objective="0" type="Poison" probability="100"/>
 			</status-modification>
 		</data>
 	</attack>

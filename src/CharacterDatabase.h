@@ -15,7 +15,7 @@ class CharacterDatabase {
 				ALCHEMIST
 			};
 
-			int id;
+			int id = 0;
 			string name = "";
 
 			string textureId = "";

@@ -10,19 +10,19 @@ public:
 	struct StageModifier {
 		string type;
 
-		int value = 0;
+		float value = 0;
 		int probability = 0;
-		CombatSystem::CharacterType objective;
+		CombatSystem::CharacterType objective = CombatSystem::Ally;
 	};
 
 	struct StatusModifier {
 		string type;
 
-		int value = 0;
+		float value = 0;
 		int turns = 0;
 		int mode = 0;
 		int probability = 0;
-		CombatSystem::CharacterType objective;
+		CombatSystem::CharacterType objective = CombatSystem::Ally;
 	};
 
 	enum AttackType
