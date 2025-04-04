@@ -8,7 +8,7 @@ UIToggle::UIToggle(SDL_Texture& _texture, Vector2Int _position, Vector2Int _size
 	button_component->SetParent(this);
 	SetValue(_isOn);
 
-	button_component->onMouseClick.Subscribe([this]() {SetValue(!isOn); });
+	button_component->onMouseClick.Subscribe([this]() { if(interactable)SetValue(!isOn); });
 }
 
 UIToggle::~UIToggle()
@@ -41,6 +41,8 @@ void UIToggle::UpdateElement()
 
 void UIToggle::RenderElement()
 {
+	if (!visible)
+		return;
 	for (size_t i = 0; i < childs.size(); i++)
 	{
 		childs[i]->RenderElement();

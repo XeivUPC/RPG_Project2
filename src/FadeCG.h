@@ -3,6 +3,7 @@
 #include "StepTimer.h"
 #include "Vector2.h"
 #include "Vector2Int.h"
+#include "SystemEvent.h"
 
 #include "Globals.h"
 
@@ -30,6 +31,11 @@ public:
 	bool IsFading();
 public:
 
+	/// <summary>
+	/// each time is calles, all subscribers get removed
+	/// </summary>
+	SystemEvent<> onFadeEnd;
+
 private:
 	struct Color {
 		int r;
@@ -45,7 +51,6 @@ private:
 
 	float timeToDoFade = 0;
 	StepTimer timer;
-
 
 	Color startingColor;
 	Color targetColor;

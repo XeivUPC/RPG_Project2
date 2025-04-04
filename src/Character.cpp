@@ -149,3 +149,76 @@ bool Character::SetCharacterId(int _charId)
     }
     return false;
 }
+
+bool Character::GetCharacterId() const
+{
+	return characterId;
+}
+
+bool Character::AddFollower(int _charId, float distance)
+{
+	if (followers.size() < maxFollowers) {
+		followers.emplace_back(new FollowerCharacter(this, totalFollowerDistance + distance, _charId));
+		currentFollowers++;
+		totalFollowerDistance += distance;
+		return true;
+	}
+	return false;
+}
+
+bool Character::RemoveFollowerById(int _charId)
+{
+	int charPos = 0;
+	for (auto it = followers.begin(); it != followers.end(); ++it) {
+		if ((*it)->GetCharacterId() == _charId) {
+			int distanceDifference = (*it)->GetDelayDistance() - (charPos > 0 ? followers[charPos - 1]->GetDelayDistance() : 0);
+			totalFollowerDistance -= distanceDifference;
+			for (int i = charPos + 1; i < followers.size(); ++i) {
+				followers[i]->SetDelayDistance(followers[i]->GetDelayDistance() - distanceDifference);
+			}
+			(*it)->CleanUp();
+			delete (*it);
+			followers.erase(it);
+			currentFollowers--;
+			return true;
+		}
+		charPos++;
+	}
+
+	printf("Follower with ID %d not found\n", _charId);
+	return false;
+}
+
+bool Character::RemoveFollowerByIndex(int followerPos)
+{
+	if (followerPos < followers.size()) {
+		int distanceDifference = followers[followerPos]->GetDelayDistance() - (followerPos > 0 ? followers[followerPos - 1]->GetDelayDistance() : 0);
+		totalFollowerDistance -= distanceDifference;
+		for (int i = followerPos + 1; i < followers.size(); ++i) {
+			followers[i]->SetDelayDistance(followers[i]->GetDelayDistance() - distanceDifference);
+		}
+		followers[followerPos]->CleanUp();
+		delete (followers[followerPos]);
+		followers.erase(followers.begin() + followerPos);
+		currentFollowers--;
+		return true;
+	}
+
+	printf("No follower in position %d\n", followerPos);
+	return false;
+}
+
+bool Character::EditFollower(int _charId, int _charIndex)
+{
+	if (_charIndex < followers.size()) {
+		followers[_charIndex]->SetCharacterId(_charId);
+		return true;
+	}
+	return false;
+}
+
+bool Character::GetFollowers() const
+{
+	return true;
+	return false;
+}

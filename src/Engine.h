@@ -3,15 +3,16 @@
 #include "ChronoTimer.h"
 
 class Module;
-class ModuleWindow;
-class ModuleInput;
-class ModuleCursor;
 class ModuleAssetDatabase;
+class ModuleAudio;
+class ModuleCursor;
+class ModuleInput;
+class ModulePathfinding;
 class ModulePhysics;
+class ModuleRender;
 class ModuleTime;
 class ModuleUpdater;
-class ModuleAudio;
-class ModuleRender;
+class ModuleWindow;
 
 //// SCENES /////
 

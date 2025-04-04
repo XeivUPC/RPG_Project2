@@ -10,6 +10,7 @@
 #include "PlayerCharacter.h"
 #include "CameraController.h"
 #include "DialogueSystem.h"
+#include "CombatSystem.h"
 
 ///Pooling
 #include "Pooling.h"
@@ -20,6 +21,7 @@
 
 #include "FadeCG.h"
 #include "UIDialogueBoxCG.h"
+#include "CombatCG.h"
 #include "PauseMenuCG.h"
 
 /// States
@@ -27,6 +29,7 @@
 #include "DialogueGameState.h"
 #include "PauseGameState.h"
 #include "ExploringGameState.h"
+#include "CombatGameState.h"
 ///
 
 GameScene::GameScene(bool start_active) : ModuleScene(start_active)
@@ -61,6 +64,9 @@ bool GameScene::Start()
 
     //canvas = new UITestingCG();
     //canvas->renderLayer = 6;
+    combatSystem = new CombatSystem();
+    combatCanvas = new CombatCG(combatSystem);
+    combatCanvas->renderLayer = 7;
 
 	dialogueSystem = new DialogueSystem();
     dialogueCanvas = new UIDialogueBoxCG(dialogueSystem);
@@ -81,6 +87,8 @@ bool GameScene::Start()
     game_states[State::Dialogue]->StateDeselected();
     game_states[State::Menu] = new PauseGameState();
     game_states[State::Menu]->StateDeselected();
+    game_states[State::Combat] = new CombatGameState();
+    game_states[State::Combat]->StateDeselected();
 
     SetState(State::Exploring);
 
@@ -89,7 +97,6 @@ bool GameScene::Start()
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
-
    
     player = new PlayerCharacter();
     cameraController = new CameraController();
@@ -97,7 +104,7 @@ bool GameScene::Start()
     cameraController->SetOffset({ -LOGIC_SCREEN_WIDTH / 2, -LOGIC_SCREEN_HEIGHT / 2 });
     
 
-    AddTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
+    CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
 
 
     return true;
@@ -120,19 +127,25 @@ bool GameScene::Update()
         entities[i]->Update();
     }
 
+    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_C) == KEY_DOWN)
+    {
+		SetState(State::Combat);
+    }
+
     Engine::Instance().m_render->SortRenderQueueLayerByPosition(3);
 
     //canvas->UpdateCanvas();
 
     game_states[state]->UpdateState();
 
-    fade->UpdateCanvas();
+   
 
     return true;
 }
 
 bool GameScene::PostUpdate()
 {
+    fade->UpdateCanvas();
     game_states[state]->PostUpdateState();
 
     if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
@@ -144,11 +157,12 @@ bool GameScene::PostUpdate()
 bool GameScene::CleanUp()
 {
     delete dialogueCanvas;
+    delete combatCanvas;
     delete pauseCanvas;
     //delete canvas;
     delete fade;
     delete dialogueSystem;
-   
+    delete combatSystem;
 
     for (; game_states.size() != 0;)
     {
@@ -188,6 +202,7 @@ bool GameScene::CleanUp()
     return true;
 }
 
+
 void GameScene::SetState(State _newState)
 {
     if (state == _newState)
@@ -224,6 +239,27 @@ void GameScene::ExitGame()
 
 void GameScene::AddTilemap(string path)
 {
+    fade->FadeTo(0.5f, 255);
+    fade->onFadeEnd.Subscribe([this, path]() {CreateNewTilemap(path); });
+}
+
+Tilemap* GameScene::GetLastTilemap()
+{
+    if (tilemaps.size() != 0)
+        return  tilemaps[tilemaps.size() - 1];
+    return nullptr;
+}
+
+void GameScene::RemoveLastTilemap()
+{
+    fade->FadeTo(0.5f, 255);
+	fade->onFadeEnd.Subscribe([this]() {DeleteLastTilemap(); });
+}
+
+
+void GameScene::CreateNewTilemap(string path)
+{
+    fade->FadeTo(0.5f, 0);
     if (tilemaps.size() != 0) {
         tilemaps[tilemaps.size() - 1]->isVisible = false;
         Pooling::Instance().ReturnAllToPool<Building>();
@@ -237,15 +273,9 @@ void GameScene::AddTilemap(string path)
     cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
 }
 
-Tilemap* GameScene::GetLastTilemap()
+void GameScene::DeleteLastTilemap()
 {
-    if (tilemaps.size() != 0)
-        return  tilemaps[tilemaps.size() - 1];
-    return nullptr;
-}
-
-void GameScene::RemoveLastTilemap()
-{
+    fade->FadeTo(0.5f, 0);
     if (tilemaps.size() != 0) {
 
         Pooling::Instance().ReturnAllToPool<Building>();
@@ -262,8 +292,5 @@ void GameScene::RemoveLastTilemap()
             cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
         }
     }
-
-
-    
 }
 

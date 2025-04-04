@@ -39,8 +39,6 @@ struct DialogueChoice {
     string next_node;
 };
 
-
-
 struct DialogueCharacter {
     string id;
     string name;

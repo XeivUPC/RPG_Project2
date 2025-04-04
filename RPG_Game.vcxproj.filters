@@ -130,6 +130,15 @@
     <Filter Include="Source Files\_Core\Events">
       <UniqueIdentifier>{ba5f00e7-fadc-43b7-98fb-fd41fe7cf0ca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils\Pathfinding">
+      <UniqueIdentifier>{ee77a7f1-87c4-42f1-9951-258a19b0a83e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Combat">
+      <UniqueIdentifier>{7cbbbf9f-ae97-45f5-a5be-9d5f05d38fcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Others">
+      <UniqueIdentifier>{98ed2fd3-57c0-4a1f-bfbd-19ee05e2e471}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -321,8 +330,35 @@
     <ClCompile Include="src\Sprite.cpp">
       <Filter>Source Files\Utils\Animation</Filter>
     </ClCompile>
+    <ClCompile Include="src\CombatCG.cpp">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CombatGameState.cpp">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CombatSystem.cpp">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Attack.cpp">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AttackList.cpp">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClCompile>
     <ClCompile Include="src\FollowerCharacter.cpp">
       <Filter>Source Files\Entities\Type %28Entity%29\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CharacterDatabase.cpp">
+      <Filter>Source Files\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CombatAI.cpp">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UIAnimatedImage.cpp">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AlertDisplayerCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -563,12 +599,51 @@
     <ClInclude Include="src\SystemEvent.h">
       <Filter>Source Files\_Core\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\CombatCG.h">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CombatGameState.h">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CombatStats.h">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CombatSystem.h">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Stats.h">
+      <Filter>Source Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Attack.h">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AttackList.h">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClInclude>
     <ClInclude Include="src\FollowerCharacter.h">
       <Filter>Source Files\Entities\Type %28Entity%29\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CharacterDatabase.h">
+      <Filter>Source Files\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CombatAI.h">
+      <Filter>Source Files\Utils\Combat</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AlertDisplayerCG.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UIAnimatedImage.h">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Assets\Data\UserPrefs.xml">
+      <Filter>Source Files\_DataFiles</Filter>
+    </Xml>
+    <Xml Include="Assets\Data\AttackList.xml">
+      <Filter>Source Files\_DataFiles</Filter>
+    </Xml>
+    <Xml Include="Assets\Data\CharactersData.xml">
       <Filter>Source Files\_DataFiles</Filter>
     </Xml>
   </ItemGroup>

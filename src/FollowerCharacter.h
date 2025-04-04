@@ -11,7 +11,7 @@ class FollowerCharacter : public Character{
 
 public:
 
-	FollowerCharacter(Character* _characterToFollow, float _delayDistance, int _npcId=0);
+	FollowerCharacter(Character* _characterToFollow, float _delayDistance, int _charId);
 	~FollowerCharacter();
 
 	bool Update() override;
@@ -21,6 +21,10 @@ public:
 
 	void SetCharacterToFollow(Character* _characterToFollow);
 	bool SetCharacterId(int _charId) override;
+
+	float GetDelayDistance() const;
+
+	void SetDelayDistance(float _delayDistance);
 
 public:
 

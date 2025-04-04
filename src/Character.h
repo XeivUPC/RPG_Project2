@@ -24,6 +24,7 @@ public:
 
 	void SetPosition(Vector2 newPosition) override;
 	virtual bool SetCharacterId(int _charId);
+	virtual bool GetCharacterId() const;
 
 public:
 private:
@@ -51,6 +52,12 @@ protected:
 	Vector2 previousPhysicsPosition = { 0,0 };
 
 	
+	bool AddFollower(int _charId, float distance);
+	bool RemoveFollowerById(int _charId);
+	bool RemoveFollowerByIndex(int _charIndex);
+	bool EditFollower(int _charId, int _charIndex);
+	bool GetFollowers() const;
+
 	vector<FollowerCharacter*> followers;
 	deque<Vector2> pathFollowersData;
 	StepTimer updateFollowerPathTimer;
@@ -59,5 +66,7 @@ protected:
 	/// </summary>
 	float followerPathSmoothing = 0.2f;
 	float maxFollowersPathDistance = 30;
-
+	int maxFollowers = 3;
+	int currentFollowers = 0;
+	float totalFollowerDistance = 0;
 };

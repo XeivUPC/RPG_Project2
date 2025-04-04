@@ -1,5 +1,9 @@
 #include "Animator.h"
 
+Animator::Animator()
+{
+}
+
 Animator::Animator(vector<AnimationClip> Animations, int current):
 AnimationList(Animations)
 {

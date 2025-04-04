@@ -7,18 +7,35 @@ class CharacterDatabase {
 	public:
 
 		struct CharacterData {
-			///Basic
-			int id;
-			string name;
 
-			///Data
-			string textureId;
-			string dialoguePath;
+			enum CharacterRole {
+				DPS,
+				TANK,
+				HEALER,
+				ALCHEMIST
+			};
 
-			///Stats
-			int state;
-			int friendShip;
-			int love;
+			int id = 0;
+			string name = "";
+
+			string textureId = "";
+			string dialoguePath = "";
+
+			//// Relations
+			int love = 0;
+			int friendShip = 0;
+			int state = 0;
+
+			//// Stats
+			int level = 2;
+			int health = 0;
+			int attack = 0;
+			int defense = 0;
+			int speed=0;
+
+			vector<int> attacks;
+
+			CharacterRole role = DPS;
 		};
 
 		static CharacterDatabase& Instance() {

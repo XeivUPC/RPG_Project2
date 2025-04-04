@@ -12,10 +12,10 @@
 #include "Animator.h"
 #include "AnimationClip.h"
 
-FollowerCharacter::FollowerCharacter(Character* _characterToFollow, float _delayDistance, int _npcId)
+FollowerCharacter::FollowerCharacter(Character* _characterToFollow, float _delayDistance, int _charId)
 {
 	SetCharacterToFollow(_characterToFollow);
-	SetCharacterId(_npcId);
+	SetCharacterId(_charId);
 	delayDistance = _delayDistance;
 	texture = Engine::Instance().m_assetsDB->GetTexture("npc_test");
 
@@ -87,6 +87,11 @@ bool FollowerCharacter::SetCharacterId(int _charId)
 	return false;
 }
 
+float FollowerCharacter::GetDelayDistance() const
+{
+	return delayDistance;
+}
+
 void FollowerCharacter::SearchPath()
 {
 	float accumulator = 0;
@@ -144,5 +149,10 @@ void FollowerCharacter::Animate()
 	}
 	animationId += animationDirectionId;
 	animator->Animate(animationId);
+}
+
+void FollowerCharacter::SetDelayDistance(float _delayDistance)
+{
+	delayDistance = _delayDistance;
 }
 

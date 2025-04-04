@@ -49,7 +49,6 @@ void ModuleAssetDatabase::LoadAssets()
 	AddAudioToStorage("ambient_birds1", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds1.wav"));
 	AddAudioToStorage("ambient_birds2", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds2.wav"));
 
-	
 	AudioContainer* footstepContainer = new AudioContainer(AudioContainer::PlayMode::NonRepeatingRandom, { });
 	AddAudioContainerToStorage("footsteps_container", *footstepContainer);
 	for (size_t i = 1; i <= 12; i++)
@@ -67,14 +66,21 @@ void ModuleAssetDatabase::LoadAssets()
 
 //// Textures
 	///Menus
-	///UI
+	
+	AddTextureToStorage("battle_bg", *textureFactory->CreateTexture("Assets/Textures/UI/battle_bg.png"));
+	AddTextureToStorage("arrow_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/arrow1.png"));
+	AddTextureToStorage("tick_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/tick1.png"));
 	AddTextureToStorage("btn_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/btn1.png"));
 	AddTextureToStorage("btn_tex2", *textureFactory->CreateTexture("Assets/Textures/UI/btn2.png"));
+	AddTextureToStorage("btn_tex3", *textureFactory->CreateTexture("Assets/Textures/UI/btn3.png"));
 	AddTextureToStorage("toggle_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/toggle.png"));
+	AddTextureToStorage("effects_toggle", *textureFactory->CreateTexture("Assets/Textures/UI/effectsToggle.png"));
 	AddTextureToStorage("slider_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/slider.png"));
 	AddTextureToStorage("uiBox1", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox1.png"));
 	AddTextureToStorage("uiBox2", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox2.png"));
+	AddTextureToStorage("uiBox3", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox3.png"));
 	AddTextureToStorage("dialogue_box", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_box.png"));
+	AddTextureToStorage("combat_characterUI", *textureFactory->CreateTexture("Assets/Textures/UI/combatCharacterUI.png"));
 	AddTextureToStorage("dialogue_answerBox", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_answerBox.png"));
 	///Cursors
 	AddTextureToStorage("mouse_cursor0", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_0.png"));
@@ -82,6 +88,8 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("mouse_cursor2", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_2.png"));
 	AddTextureToStorage("mouse_cursor3", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_3.png"));
 	///Icons
+	AddTextureToStorage("icons_16", *textureFactory->CreateTexture("Assets/Textures/Icon/icons_16.png"));
+	AddTextureToStorage("icons_8", *textureFactory->CreateTexture("Assets/Textures/Icon/icons_8.png"));
 	///General
 	AddTextureToStorage("team_logo", *textureFactory->CreateTexture("Assets/Textures/General/team_logo.png"));
 	AddTextureToStorage("game_title_pixel", *textureFactory->CreateTexture("Assets/Textures/General/game_title_pixel.png"));
