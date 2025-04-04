@@ -40,6 +40,7 @@ class CharacterDatabase {
 		}
 
 		CharacterData& GetCharacterData(int id);
+		const unordered_map<int, CharacterData>& GetCharacters();
 
 		bool Exists(int id);
 

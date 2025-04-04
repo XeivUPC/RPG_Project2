@@ -56,3 +56,8 @@ AnimationClip* Animator::GetAnimationClip(const string& animationName)
 	}
 	return nullptr;
 }
+
+vector<AnimationClip>& Animator::GetAnimationClips()
+{
+	return AnimationList;
+}

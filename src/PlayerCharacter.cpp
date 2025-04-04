@@ -48,116 +48,29 @@ PlayerCharacter::PlayerCharacter()
 	mask.flags.interactable_layer = 1;
 	body->SetFilter(fixtureIndex, category.rawValue, mask.rawValue, 0);
 
-	texture = Engine::Instance().m_assetsDB->GetTexture("pj_test");
-
-	int spriteSize = 64;
-	animator = new Animator
-	(
-		{
-			AnimationClip("idle-down", true, false, 0.1f,
-			{
-				Sprite(texture, {0 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {1 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {2 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {3 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
-			},&position,&scale),
-			AnimationClip("idle-horizontally", true, false, 0.1f,
-			{
-				Sprite(texture, {0 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {1 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {2 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {3 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
-			},&position,&scale),
-			AnimationClip("idle-top", true, false, 0.1f,
-			{
-				Sprite(texture, {0 * spriteSize,2 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {1 * spriteSize,2 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {2 * spriteSize,2 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {3 * spriteSize,2 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
-			},& position,& scale),	
-			AnimationClip("walk-down", true, false, 0.1f,
-			{
-				Sprite(texture, {0 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {1 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {2 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {3 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {4 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {5 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
-			},&position,&scale),
-			AnimationClip("walk-horizontally", true, false, 0.1f,
-			{
-				Sprite(texture, {0 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {1 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {2 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {3 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {4 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {5 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
-			},&position,&scale),
-			AnimationClip("walk-top", true, false, 0.1f,
-			{
-				Sprite(texture, {0 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {1 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {2 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {3 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {4 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {5 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
-			},& position,& scale),
-				AnimationClip("run-down", true, false, 0.1f,
-			{
-				Sprite(texture, {0 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {1 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {2 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {3 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {4 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {5 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
-			},&position,&scale),
-			AnimationClip("run-horizontally", true, false, 0.1f,
-			{
-				Sprite(texture, {0 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {1 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {2 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {3 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {4 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {5 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
-			},&position,&scale),
-			AnimationClip("run-top", true, false, 0.1f,
-			{
-				Sprite(texture, {0 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {1 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {2 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {3 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {4 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
-				Sprite(texture, {5 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
-			},&position,&scale)
-			
-		}, 0
-	);
+	SetCharacterId(0);
 
 	ModuleAudio* audioRef = Engine::Instance().m_audio;
 	ModuleAssetDatabase* assetsRef = Engine::Instance().m_assetsDB;
+	AudioContainer* footstepContainer = assetsRef->GetAudioContainer("footsteps_container");
 
-	animator->GetAnimationClip("walk-top")->GetSprite(0).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-	animator->GetAnimationClip("walk-top")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+	animator->GetAnimationClip("walk-top")->GetSprite(0).onSpriteSelected.Subscribe([this,audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
+	animator->GetAnimationClip("walk-top")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
 
-	animator->GetAnimationClip("walk-down")->GetSprite(0).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-	animator->GetAnimationClip("walk-down")->GetSprite(3).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+	animator->GetAnimationClip("walk-down")->GetSprite(0).onSpriteSelected.Subscribe([this,audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
+	animator->GetAnimationClip("walk-down")->GetSprite(3).onSpriteSelected.Subscribe([this,audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
 
-	animator->GetAnimationClip("walk-horizontally")->GetSprite(0).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-	animator->GetAnimationClip("walk-horizontally")->GetSprite(3).onSpriteSelected.Subscribe([this,audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+	animator->GetAnimationClip("walk-horizontally")->GetSprite(0).onSpriteSelected.Subscribe([this,audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
+	animator->GetAnimationClip("walk-horizontally")->GetSprite(3).onSpriteSelected.Subscribe([this,audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
 
-	animator->GetAnimationClip("run-top")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-	animator->GetAnimationClip("run-top")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+	animator->GetAnimationClip("run-top")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
+	animator->GetAnimationClip("run-top")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
 
-	animator->GetAnimationClip("run-down")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-	animator->GetAnimationClip("run-down")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
+	animator->GetAnimationClip("run-down")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
+	animator->GetAnimationClip("run-down")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
 
-	animator->GetAnimationClip("run-horizontally")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-	animator->GetAnimationClip("run-horizontally")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef]() {audioRef->PlaySFX(assetsRef->GetAudioContainer("footsteps_container")->GetNextClip()); });
-
-
-	followers.emplace_back(new FollowerCharacter(this, 20));
-	followers.emplace_back(new FollowerCharacter(this, 40));
-	followers.emplace_back(new FollowerCharacter(this, 60));
+	animator->GetAnimationClip("run-horizontally")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
+	animator->GetAnimationClip("run-horizontally")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
 
 }
 
@@ -200,6 +113,97 @@ bool PlayerCharacter::CleanUp()
 	return true;
 }
 
+bool PlayerCharacter::SetCharacterId(int _charId)
+{
+	if (Character::SetCharacterId(_charId)) {
+
+		texture = Engine::Instance().m_assetsDB->GetTexture(characterData->textureId);
+
+		for (auto& animClip : animator->GetAnimationClips()) {
+			for (auto& sprite : animClip.GetSprites()) {
+				sprite.SetTexture(texture);
+			}
+		}
+		return true;
+	}
+	return false;
+}
+
+void PlayerCharacter::AddToActiveParty(int _charId)
+{
+	if (!AddFollower(_charId, distanceBetweenFollowers))
+		return;
+	activeParty.emplace_back(_charId);
+	for (const auto& member : activeParty) {
+		printf("%d ", member);
+	}
+	printf("\n");
+}
+
+void PlayerCharacter::RemoveFromActivePartyById(int _charId)
+{
+	if (!RemoveFollowerById(_charId))
+		return;
+	for (int pos = 0; pos < activeParty.size(); ++pos) {
+		if (activeParty[pos] == _charId)
+		{
+			activeParty.erase(activeParty.begin() + pos);
+		}	
+	}
+	for (const auto& member : activeParty) {
+		printf("%d ", member);
+	}
+	printf("\n");
+}
+
+void PlayerCharacter::RemoveFromActivePartyByIndex(int _charPos)
+{
+	if (!RemoveFollowerByIndex(_charPos))
+		return;
+	activeParty.erase(activeParty.begin() + _charPos);
+	for (const auto& member : activeParty) {
+		printf("%d ", member);
+	}
+	printf("\n");
+}
+
+vector<int> PlayerCharacter::GetActiveParty() const
+{
+	return activeParty;
+}
+
+void PlayerCharacter::EditActiveParty(int _charId, int _charPos)
+{
+	if (!EditFollower(_charId, _charPos)) {
+		return;
+	}
+	activeParty.at(_charPos) = _charId;
+	for (const auto& member : activeParty) {
+		printf("%d ", member);
+	}
+	printf("\n");
+}
+
+void PlayerCharacter::AddToFullParty(int _charId)
+{
+	fullParty.emplace_back(_charId);
+}
+
+void PlayerCharacter::RemoveFromFullParty(int _charId)
+{
+	for (int pos = 0; pos < fullParty.size(); ++pos) {
+		if (fullParty[pos] == _charId)
+		{
+			fullParty.erase(fullParty.begin() + pos);
+		}
+	}
+}
+
+vector<int> PlayerCharacter::GetFullParty() const
+{
+	return fullParty;
+}
+
 void PlayerCharacter::GetInput()
 {
 	//// Process Direction
@@ -233,6 +237,28 @@ void PlayerCharacter::GetInput()
 			interactuableObj->Interact();
 		}
 
+	}
+
+	/// Party Testing
+
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_J) == KEY_DOWN) {
+		AddToActiveParty(0);
+	}
+
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_K) == KEY_DOWN) {
+		AddToActiveParty(1);
+	}
+
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_L) == KEY_DOWN) {
+		RemoveFromActivePartyById(1);
+	}
+
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_H) == KEY_DOWN) {
+		RemoveFromActivePartyByIndex(0);
+	}
+
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_U) == KEY_DOWN) {
+		EditActiveParty(-1,0);
 	}
 
 }

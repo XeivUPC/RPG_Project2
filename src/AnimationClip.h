@@ -29,6 +29,7 @@ public:
 	SDL_Rect& GetAnimationSpace();
 
 	Sprite& GetSprite(int index);
+	vector<Sprite>& GetSprites();
 
 public:
 	SystemEvent<> onAnimationFinished;

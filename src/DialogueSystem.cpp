@@ -166,6 +166,13 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
                     signal.data = stof(signal_data.begin()->get<string>());
                     signal.type = SignalType::Number;
                 }
+                else if (key == "Vector2") {
+                    auto& vec_data = it.value();
+                    float x = stof(vec_data["x"].get<string>());
+                    float y = stof(vec_data["y"].get<string>());
+                    signal.data = Vector2{ x, y };
+                    signal.type = SignalType::Vector2;
+                }
                 else if (key == "Empty") {
                     signal.data = monostate{};
                     signal.type = SignalType::Empty;
@@ -176,6 +183,8 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
 
         nodes[node_id] = node;
     }
+
+    onDialogLoaded.Trigger();
 
     // Establecer el nodo raíz
     if (json_data.contains("root")) {
@@ -190,9 +199,7 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
             }
         }
 
-        if (current_node != previous_node) {
-            onDialogStart.Trigger();
-            ProcessSignals();
+        if (current_node != previous_node) {        
             previous_node = current_node;
             onDialogNodeChange.Trigger();
         }
@@ -202,6 +209,7 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
 
 void DialogueSystem::StartDialogue() {
     dialogue_active = true;
+    onDialogStart.Trigger();
 }
 
 void DialogueSystem::Update() {
@@ -210,7 +218,7 @@ void DialogueSystem::Update() {
     DialogueNode& node = nodes[current_node];
 
     if (current_node != previous_node) {
-        onDialogStart.Trigger();
+       
         ProcessSignals();
         previous_node = current_node;
         onDialogNodeChange.Trigger();
@@ -231,12 +239,15 @@ void DialogueSystem::ProcessInput(int choice) {
 
     if (!node.choices.empty() && choice >= 0 && choice < node.choices.size()) {
         current_node = node.choices[choice].next_node;
+        if (current_node.empty()) {
+            EndDialogue();
+        }
     }
     else if (!node.next_node.empty()) {
         current_node = node.next_node;
     }
     else {
-        onDialogEnd.Trigger();
+        
         EndDialogue();
     }
 
@@ -301,8 +312,10 @@ bool DialogueSystem::CheckCondition(const Condition& cond) {
 }
 
 void DialogueSystem::EndDialogue() {
+
+    onDialogEnd.Trigger();
     dialogue_active = false;
-    cout << "Diálogo completado!\n";
+    cout << "Dialogue Completed!\n";
 }
 
 void DialogueSystem::ResetDialogue() {
@@ -331,17 +344,17 @@ const DialogueNode& DialogueSystem::GetCurrentDialogue()
 
 void DialogueSystem::AddGameStateVariable(const string& variable_name, const variant<bool, float>& value) {
     game_state[variable_name] = value;
-    cout << "Variable añadida/actualizada: " << variable_name << endl;
+    cout << "Variable added/updated: " << variable_name << endl;
 }
 
 void DialogueSystem::RemoveGameStateVariable(const string& variable_name) {
     auto it = game_state.find(variable_name);
     if (it != game_state.end()) {
         game_state.erase(it);
-        cout << "Variable eliminada: " << variable_name << endl;
+        cout << "Variable deleted: " << variable_name << endl;
     }
     else {
-        cout << "Variable no encontrada: " << variable_name << endl;
+        cout << "Variable not founded: " << variable_name << endl;
     }
 }
 
@@ -351,18 +364,4 @@ bool DialogueSystem::IsDialogueActive() const {
 
 const vector<Signal>& DialogueSystem::GetActiveSignals() const {
     return active_signals;
-}
-
-void DialogueSystem::TriggerCallbacks(vector<function<void()>>& callbacks)
-{
-    for (auto& callback : callbacks) {
-        callback();
-    }
-}
-
-void DialogueSystem::TriggerCallbacks(vector<function<void(Signal*)>>& callbacks, Signal* _value)
-{
-    for (auto& callback : callbacks) {
-        callback(_value);
-    }
 }

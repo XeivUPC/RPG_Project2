@@ -2,7 +2,7 @@
     "0169e41e-1fa8-4571-bca5-e0da0d5ce2c7": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Bienvenido al Tutorial",
             "fr": ""
@@ -10,15 +10,18 @@
         "parent": "b103c060-11b1-4f6e-a7c5-8fd6b30b8f76",
         "signals": {
             "parent": "0169e41e-1fa8-4571-bca5-e0da0d5ce2c7",
-            "RodrigoStateUpdate": {
-                "Number": "1"
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "1",
+                    "y": "1"
+                }
             }
         }
     },
     "d10048df-26b6-4d08-90b1-85f9820e1900": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Hombre, ahora te veo mejor!",
             "fr": ""
@@ -29,7 +32,7 @@
     "909981b6-d8f7-4a9b-93ff-8a4fcff82193": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Quieres follar?",
             "fr": ""
@@ -57,7 +60,7 @@
     "5a339448-2e1c-4e3e-b1cc-8f10c9292064": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Pos vamos",
             "fr": ""
@@ -65,31 +68,37 @@
         "parent": "9be7e044-4e46-47c1-b32a-0d31d19f6a46",
         "signals": {
             "parent": "5a339448-2e1c-4e3e-b1cc-8f10c9292064",
-            "RodrigoStateUpdate": {
-                "Number": "2"
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "1",
+                    "y": "2"
+                }
             }
         }
     },
     "3cfe6ab3-cbe1-4a78-933e-9df41ab05cc7": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
-            "en": "vaya, me cago en tus muerto",
+            "en": "Vaya, me cago en tus muerto",
             "fr": ""
         },
         "parent": "a502730d-141e-4617-b99c-70321ddc2181",
         "signals": {
             "parent": "3cfe6ab3-cbe1-4a78-933e-9df41ab05cc7",
-            "RodrigoStateUpdate": {
-                "Number": "3"
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "1",
+                    "y": "3"
+                }
             }
         }
     },
     "31d4d27a-d14d-4dfe-af69-dccdfefe788a": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Te veo esta noche vd?",
             "fr": ""
@@ -117,7 +126,7 @@
     "8f255ba7-90ce-4473-baa2-24c0b26d635f": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Perfecto",
             "fr": ""
@@ -128,39 +137,39 @@
         "conditions": [
             {
                 "parent": "root",
-                "RodrigoState": {
+                "next": "0169e41e-1fa8-4571-bca5-e0da0d5ce2c7",
+                "Char1_State": {
                     "value": 0,
                     "operator": "equal",
                     "type": "int"
-                },
-                "next": "0169e41e-1fa8-4571-bca5-e0da0d5ce2c7"
+                }
             },
             {
                 "parent": "root",
-                "RodrigoState": {
+                "next": "d10048df-26b6-4d08-90b1-85f9820e1900",
+                "Char1_State": {
                     "value": 1,
                     "operator": "equal",
                     "type": "int"
-                },
-                "next": "d10048df-26b6-4d08-90b1-85f9820e1900"
+                }
             },
             {
                 "parent": "root",
-                "RodrigoState": {
+                "next": "31d4d27a-d14d-4dfe-af69-dccdfefe788a",
+                "Char1_State": {
                     "value": 2,
                     "operator": "equal",
                     "type": "int"
-                },
-                "next": "31d4d27a-d14d-4dfe-af69-dccdfefe788a"
+                }
             },
             {
-                "RodrigoState": {
+                "next": "909981b6-d8f7-4a9b-93ff-8a4fcff82193",
+                "parent": "root",
+                "Char1_State": {
                     "value": 3,
                     "operator": "equal",
                     "type": "int"
-                },
-                "next": "909981b6-d8f7-4a9b-93ff-8a4fcff82193",
-                "parent": "root"
+                }
             }
         ]
     },
@@ -275,8 +284,11 @@
                 "parent": "5a339448-2e1c-4e3e-b1cc-8f10c9292064",
                 "data": {
                     "parent": "5a339448-2e1c-4e3e-b1cc-8f10c9292064",
-                    "RodrigoStateUpdate": {
-                        "Number": "2"
+                    "SetNpcStatusByID": {
+                        "Vector2": {
+                            "x": "1",
+                            "y": "2"
+                        }
                     }
                 }
             },
@@ -289,8 +301,11 @@
                 "parent": "3cfe6ab3-cbe1-4a78-933e-9df41ab05cc7",
                 "data": {
                     "parent": "3cfe6ab3-cbe1-4a78-933e-9df41ab05cc7",
-                    "RodrigoStateUpdate": {
-                        "Number": "3"
+                    "SetNpcStatusByID": {
+                        "Vector2": {
+                            "x": "1",
+                            "y": "3"
+                        }
                     }
                 }
             }

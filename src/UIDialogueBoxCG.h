@@ -26,9 +26,9 @@ private:
 	void EndDialogue();
 
 	void NextDialogue();
-private:
 
-	float amistad = 0;
+	void SetVariablesOnStart();
+private:
 	UITextBox* contentTextBox = nullptr;
 	UITextBox* characterNameTextBox = nullptr;
 	UIImage* dialogueChoiceBox = nullptr;
@@ -45,5 +45,4 @@ private:
 
 	///// Btn
 	vector<UIButton*> btns;
-	int rodrigoState = 0;
 };
