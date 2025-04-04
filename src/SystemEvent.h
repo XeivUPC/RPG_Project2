@@ -46,6 +46,10 @@ class SystemEvent {
                 pair.second(args...);
             }
         }
+
+        inline void UnsubscribeAll() {
+            subscribers_.clear();
+        }
     private:
         EventId next_id_ = { 0 };
         std::map<int, std::function<void(Args...)>> subscribers_;

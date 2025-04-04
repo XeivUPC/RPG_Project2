@@ -10,4 +10,12 @@ public:
 	bool PostUpdateState() override;
 	void StateSelected() override;
 	void StateDeselected() override;
+
+public:
+
+private:
+	void OnLoadingEnd();
+
+private:
+
 };
