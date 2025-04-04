@@ -5,6 +5,7 @@
 #include "ModuleAssetDatabase.h"
 #include "ModuleTime.h"
 #include "ModuleInput.h"
+#include "ModuleAudio.h"
 #include "TextureAtlas.h"
 #include "DrawingTools.h"
 
@@ -30,8 +31,6 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 {
 	combat = _combatSystem;
 	combat->onCombatStateChanged.Subscribe([this]() {OnCombatStateChanged(); });
-
-	
 }
 
 CombatCG::~CombatCG()
@@ -62,8 +61,9 @@ void CombatCG::UpdateCanvas()
 void CombatCG::LoadCanvas()
 {
 
-	alert = new AlertDisplayerCG(1, nullptr, { LOGIC_SCREEN_WIDTH / 2 - 150,0 }, { 300,32 }, {0.f,0.f});
+	alert = new AlertDisplayerCG(1.5f, nullptr, { LOGIC_SCREEN_WIDTH / 2 - 150,0 }, { 300,32 }, {0.f,0.f});
 	alert->renderLayer = 7;
+	alert->onAlertOpened.Subscribe([this]() {Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("alert")); });
 
 	//// SetBackground
 	SDL_Texture* bg_texture = Engine::Instance().m_assetsDB->GetTexture("battle_bg");
@@ -154,6 +154,7 @@ CombatCG::UIAttackButton CombatCG::CreateUIAttackButton(int attackIndex, Vector2
 void CombatCG::CreateUIAttackInformation()
 {
 	TTF_Font* btn_font = Engine::Instance().m_assetsDB->GetFont("alagard");
+	SDL_Texture* icons_16_texture = Engine::Instance().m_assetsDB->GetTexture("icons_16");
 
 	int font_size = 16;
 	SDL_Color font_color = { 184,132,78,255 };
@@ -164,14 +165,20 @@ void CombatCG::CreateUIAttackInformation()
 	UITextBox* attackDescription = new UITextBox("Description", *btn_font, font_size, font_color, {0,24}, { 431,46 }, { 0,0 }, hAligment, vAligment);
 	
 	//hAligment = UITextBox::HorizontalAlignment::Right;
-	UITextBox* attackPower = new UITextBox("Pow: 30", *btn_font, font_size, font_color, {299,0}, { 72,16 }, { 0,0 }, hAligment, vAligment,false);
-	UITextBox* attackAccuracy = new UITextBox("Acc: 100%", *btn_font, font_size, font_color, { 361,0 }, { 72,16 }, {0,0}, hAligment, vAligment,false);
+	UIImage* attackPowerImg = new UIImage(*icons_16_texture, { 240,0 }, { 16,16 }, { 0,0 }, true, { 0,0,16,16 });
+	UITextBox* attackPower = new UITextBox("Pow: 30", *btn_font, font_size, font_color, {24,0}, { 72,16 }, { 0,0 }, hAligment, vAligment,false);
+	attackPower->SetParent(attackPowerImg);
+
+	UIImage* attackAccuracyImg = new UIImage(*icons_16_texture, { 341,0 }, { 16,16 }, { 0,0 }, true, { 16,0,16,16 });
+	UITextBox* attackAccuracy = new UITextBox("Acc: 100%", *btn_font, font_size, font_color, { 24,0 }, { 72,16 }, {0,0}, hAligment, vAligment,false);
+	attackAccuracy->SetParent(attackAccuracyImg);
 
 	attackDescription->SetParent(attackName);
-	attackPower->SetParent(attackName);
-	attackAccuracy->SetParent(attackName);
+	attackPowerImg->SetParent(attackName);
+	attackAccuracyImg->SetParent(attackName);
 
-	attackInfo = { attackName,attackDescription,attackPower,attackAccuracy };
+
+	attackInfo = { attackName,attackDescription,attackPowerImg,attackPower,attackAccuracyImg,attackAccuracy };
 }
 
 CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::CharacterReference* value, Vector2 slot_position)
@@ -493,6 +500,8 @@ void CombatCG::SelectAttack(int attackIndex)
 		attacksToExecute.erase(selectedCharacter->characterRef);
 		selectedCharacter->attackDone->localVisible = false;
 	}
+
+	Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("btn_click2"));
 
 	RemoveAllTargets();
 	selectedAttack = &attackButtons[attackIndex];
