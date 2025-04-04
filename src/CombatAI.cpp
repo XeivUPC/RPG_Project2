@@ -12,75 +12,84 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker)
 	for (size_t i = 0; i < attackerData.attacks.size(); i++)
 	{
 		int efficiency = 0;
-		vector<pair<int,int>> TargetEfficiencyList;
+		vector<pair<int, int>> TargetEfficiencyList;
 		Attack* attack = AttackList::Instance().GetAttack(attackerData.attacks[i]);
-		for (size_t j = 0; j < characterStats.size(); j++)
+
+		int j = 0;
+		for (auto& teamData : characters)
 		{
-			int singleDamageEfficiency = 0;
-			int singleDefenseEfficiency = 0;
-			int singleHealthEfficiency = 0;
-			pair<CombatSystem::CharacterType, CombatSystem::CharacterType> relation = pair<CombatSystem::CharacterType, CombatSystem::CharacterType>(attack->targetType, characterStats[i]->team);
-			if (relation.first == CombatSystem::Enemy && relation.second == CombatSystem::Enemy)
-				continue;
-
-			if (relation.first == CombatSystem::Ally && relation.second == CombatSystem::Ally)
-				continue;
-
-			if (relation.first == CombatSystem::Self && characterStats[j] != attacker)
-				continue;
-
-			if (characterStats[j]->stats.currentHp == 0)
-				continue;
-
-			/// ------------------------------------ Rules Start
-
-			//Damage Efficiency
-			singleDamageEfficiency += (characterStats[j]->stats.currentHp == attack->power ? 2 : 1);
-			singleDamageEfficiency += (characterStats[j]->stats.currentHp == attack->statusEffects["Poison"].value*attack->statusEffects["Poison"].turns ? 2 : 1);
-			singleDamageEfficiency += (characterStats[j]->stats.currentHp == attack->statusEffects["Burn"].value*attack->statusEffects["Burn"].turns ? 2 : 1);
-
-			//Defense Efficiency
-			if (attack->statsModification["Defense"].value < 0)
+			for (auto& characterStats : teamData.second)
 			{
-				singleDefenseEfficiency += (characterStats[j]->stats.currentStats.defense - characterStats[j]->stats.baseStats.defense == attack->statsModification["Defense"].value ? 2:1);
-				singleDefenseEfficiency += (characterStats[j]->stats.currentStats.attack > attacker->stats.currentStats.defense ? 1 : 0);
-				singleDefenseEfficiency += (characterStats[j]->stats.currentHp * 2 == characterStats[j]->stats.currentStats.hp ? 2 : 1);
+
+				int singleDamageEfficiency = 0;
+				int singleDefenseEfficiency = 0;
+				int singleHealthEfficiency = 0;
+				pair<CombatSystem::CharacterType, CombatSystem::CharacterType> relation = pair<CombatSystem::CharacterType, CombatSystem::CharacterType>(attack->targetType, teamData.first);
+				if (relation.first == CombatSystem::Enemy && relation.second == CombatSystem::Enemy)
+					continue;
+
+				if (relation.first == CombatSystem::Ally && relation.second == CombatSystem::Ally)
+					continue;
+
+				if (relation.first == CombatSystem::Self && &characterStats != attacker)
+					continue;
+
+				if (characterStats.stats.currentHp == 0)
+					continue;
+
+				/// ------------------------------------ Rules Start
+
+				//Damage Efficiency
+				singleDamageEfficiency += (characterStats.stats.currentHp == attack->power ? 2 : 1);
+				singleDamageEfficiency += (characterStats.stats.currentHp == attack->statusEffects["Poison"].value * attack->statusEffects["Poison"].turns ? 2 : 1);
+				singleDamageEfficiency += (characterStats.stats.currentHp == attack->statusEffects["Burn"].value * attack->statusEffects["Burn"].turns ? 2 : 1);
+
+				//Defense Efficiency
+				if (attack->statsModification["Defense"].value < 0)
+				{
+					singleDefenseEfficiency += (characterStats.stats.currentStats.defense - characterStats.stats.baseStats.defense == attack->statsModification["Defense"].value ? 2 : 1);
+					singleDefenseEfficiency += (characterStats.stats.currentStats.attack > attacker->stats.currentStats.defense ? 1 : 0);
+					singleDefenseEfficiency += (characterStats.stats.currentHp * 2 == characterStats.stats.currentStats.hp ? 2 : 1);
+				}
+				else
+				{
+					singleDefenseEfficiency += (characterStats.stats.currentHp * 2 == characterStats.stats.currentStats.hp ? 2 : 1);
+					singleDefenseEfficiency += (/*characterStats.stats.statsStages.maxDefense+*/characterStats.stats.currentStats.defense == attack->statsModification["Defense"].value ? 2 : 1);
+				}
+
+				//Health Efficiency
+				singleHealthEfficiency += (characterStats.stats.currentHp == attack->statusEffects["Regeneration"].value * attack->statusEffects["Regeneration"].turns ? 2 : 1);
+
+				/// ------------------------------------ Rules End
+
+				int singleEfficiency = singleDamageEfficiency + singleDefenseEfficiency + singleHealthEfficiency;
+				TargetEfficiencyList.emplace_back(pair<int, int>((int)j, singleEfficiency));
+				efficiency += singleEfficiency;
+
+				j++;
 			}
-			else
+			while (TargetEfficiencyList.size() > attack->targetAmount)
 			{
-				singleDefenseEfficiency += (characterStats[j]->stats.currentHp * 2 == characterStats[j]->stats.currentStats.hp ? 2 : 1);
-				singleDefenseEfficiency += (/*characterStats[j]->stats.statsStages.maxDefense+*/characterStats[j]->stats.currentStats.defense == attack->statsModification["Defense"].value ? 2 : 1);
+				int min = 0;
+				for (size_t j = 1; j < TargetEfficiencyList.size(); j++)
+				{
+					if (TargetEfficiencyList[min].second > TargetEfficiencyList[j].second)
+						min = (int)j;
+				}
+				efficiency -= TargetEfficiencyList[min].second;
+				TargetEfficiencyList.erase(TargetEfficiencyList.begin() + min);
 			}
-
-			//Health Efficiency
-			singleHealthEfficiency += (characterStats[j]->stats.currentHp == attack->statusEffects["Regeneration"].value * attack->statusEffects["Regeneration"].turns ? 2 : 1);
-			
-			/// ------------------------------------ Rules End
-
-			int singleEfficiency = singleDamageEfficiency + singleDefenseEfficiency + singleHealthEfficiency;
-			TargetEfficiencyList.emplace_back(pair<int,int>((int)j,singleEfficiency));
-			efficiency += singleEfficiency;
+			if (bestOption.first <= efficiency)
+			{
+				bestOption.first = efficiency;
+				bestOption.second.first = (int)i;
+				for (size_t i = 0; i < TargetEfficiencyList.size(); i++)
+				{
+					bestOption.second.second.emplace_back(&teamData.second[i]);
+				}
+			}
 		}
-		while (TargetEfficiencyList.size() > attack->targetAmount)
-		{
-			int min = 0;
-			for (size_t j = 1; j < TargetEfficiencyList.size(); j++)
-			{
-				if (TargetEfficiencyList[min].second > TargetEfficiencyList[j].second)
-					min = (int)j;
-			}
-			efficiency -= TargetEfficiencyList[min].second;
-			TargetEfficiencyList.erase(TargetEfficiencyList.begin() + min);
-		}
-		if (bestOption.first < efficiency)
-		{
-			bestOption.first = efficiency;
-			bestOption.second.first = (int)i;
-			for (size_t i = 0; i < TargetEfficiencyList.size(); i++)
-			{
-				bestOption.second.second.emplace_back(characterStats[i]);
-			}
-		}
+		
 	}
 }
 
@@ -93,16 +102,20 @@ CombatAI::~CombatAI()
 {
 }
 
-void CombatAI::CalculateAI(vector<CombatSystem::CharacterReference*> charactersInCombat)
+void CombatAI::CalculateAI(unordered_map <CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>>& charactersInCombat)
 {
-	characterStats = charactersInCombat;
-	for (size_t i = 0; i < characterStats.size(); i++)
+	characters = charactersInCombat;
+
+	for (auto& teamData : characters)
 	{
-		if (characterStats[i]->stats.currentHp == 0)
-			continue;
-		CalculateBestOption(characterStats[i]);
-		Attack* attack = AttackList::Instance().GetAttack(bestOption.second.first);
-		combatSystem->AddAttack(attack, *characterStats[i], bestOption.second.second);
+		for (auto& attackerData : teamData.second)
+		{
+			if (attackerData.stats.currentHp == 0)
+				continue;
+			CalculateBestOption(&attackerData);
+			Attack* attack = AttackList::Instance().GetAttack(bestOption.second.first);
+			combatSystem->AddAttack(attack, attackerData, bestOption.second.second);
+		}
 	}
 
 	

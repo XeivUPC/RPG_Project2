@@ -51,7 +51,7 @@ void CombatSystem::UpdateCombat()
 
 		break;
 	case CombatSystem::ENEMY_TURN:
-		//ai->CalculateAI();
+		ai->CalculateAI(charactersInCombat);
 		ChangeState(CombatState::ATTACKS);
 		break;
 	case CombatSystem::ATTACKS:
