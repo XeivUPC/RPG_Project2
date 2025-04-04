@@ -8,10 +8,12 @@ class CombatAI
 {
 private:
 	pair<int,pair<int, vector<CombatSystem::CharacterReference*>>> bestOption;
-	vector<CombatSystem::CharacterReference*> characterStats;
+	unordered_map <CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>> characters;
 	void CalculateBestOption(CombatSystem::CharacterReference* attacker);
+
+	CombatSystem* combatSystem;
 public:
-	CombatAI();
+	CombatAI(CombatSystem* system);
 	~CombatAI();
-	pair<int, vector<CombatSystem::CharacterReference*>> GetBestOption(CombatSystem::CharacterReference* attacker, vector<CombatSystem::CharacterReference*> charactersInCombat);
+	void CalculateAI(unordered_map <CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>>& charactersInCombat);
 };

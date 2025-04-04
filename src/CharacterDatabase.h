@@ -21,6 +21,10 @@ class CharacterDatabase {
 			string textureId = "";
 			string dialoguePath = "";
 
+			//// Relations
+			int love = 0;
+			int friendShip = 0;
+			int state = 0;
 
 			//// Stats
 			int level = 2;

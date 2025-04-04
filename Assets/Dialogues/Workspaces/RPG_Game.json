@@ -90,12 +90,34 @@
                 "name": "guard_RS_right",
                 "portraits": [
                     {
-                        "name": "CharlesII-idle",
-                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
-                        "uuid": "e2f13882-e8c3-4450-b177-5d9a2be9cf30"
+                        "name": "Guard1-idle",
+                        "path": "/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+                        "uuid": "cf4f9940-1138-4811-afe4-1428a688a807"
                     }
                 ],
                 "uuid": "fe750287-6cfa-424a-a12f-da4536409d60"
+            },
+            {
+                "name": "guard_RS_left",
+                "portraits": [
+                    {
+                        "name": "Guard1-idle",
+                        "path": "/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+                        "uuid": "7240b260-f226-4179-b952-3b45dcca8a7f"
+                    }
+                ],
+                "uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779"
+            },
+            {
+                "name": "Sir_Gideon_Hawthorne",
+                "portraits": [
+                    {
+                        "name": "Guideon-idle",
+                        "path": "/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+                        "uuid": "c342b42b-5568-48ed-bffb-b8740e4111a6"
+                    }
+                ],
+                "uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1"
             }
         ],
         "files": [
@@ -122,6 +144,14 @@
             {
                 "name": "guard_RS_entrance_right.json",
                 "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/guard_RS_entrance_right.json"
+            },
+            {
+                "name": "guard_RS_entrance_left.json",
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/guard_RS_entrance_left.json"
+            },
+            {
+                "name": "Sir_Gideon_Hawthorne.json",
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/Sir_Gideon_Hawthorne.json"
             }
         ]
     },

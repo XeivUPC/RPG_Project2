@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\AlertDisplayerCG.cpp" />
     <ClCompile Include="src\AnimationClip.cpp" />
     <ClCompile Include="src\Animator.cpp" />
     <ClCompile Include="src\AtlasFactory.cpp" />
@@ -190,6 +191,7 @@
     <ClCompile Include="src\StepTimer.cpp" />
     <ClCompile Include="src\TitleMenuCG.cpp" />
     <ClCompile Include="src\TitleScene.cpp" />
+    <ClCompile Include="src\UIAnimatedImage.cpp" />
     <ClCompile Include="src\UIDialogueBoxCG.cpp" />
     <ClCompile Include="src\UIInputField.cpp" />
     <ClCompile Include="src\TextureFactory.cpp" />
@@ -206,6 +208,7 @@
     <ClCompile Include="src\Vector2Int.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\AlertDisplayerCG.h" />
     <ClInclude Include="src\AnimationClip.h" />
     <ClInclude Include="src\Animator.h" />
     <ClInclude Include="src\AtlasFactory.h" />
@@ -281,6 +284,7 @@
     <ClInclude Include="src\TextureAtlas.h" />
     <ClInclude Include="src\TitleMenuCG.h" />
     <ClInclude Include="src\TitleScene.h" />
+    <ClInclude Include="src\UIAnimatedImage.h" />
     <ClInclude Include="src\UIDialogueBoxCG.h" />
     <ClInclude Include="src\TextureFactory.h" />
     <ClInclude Include="src\Tilemap.h" />

@@ -1,9 +1,11 @@
 #include "CombatSystem.h"
 #include "Attack.h"
+#include "CombatAI.h"
 #include <algorithm>
 
 CombatSystem::CombatSystem()
 {
+	ai = new CombatAI(this);
 }
 
 void CombatSystem::AddPartyToCombat(const vector<int>& party, CharacterType party_type)
@@ -49,6 +51,7 @@ void CombatSystem::UpdateCombat()
 
 		break;
 	case CombatSystem::ENEMY_TURN:
+		ai->CalculateAI(charactersInCombat);
 		ChangeState(CombatState::ATTACKS);
 		break;
 	case CombatSystem::ATTACKS:
@@ -152,7 +155,7 @@ void CombatSystem::EndCombat()
 
 CombatSystem::~CombatSystem()
 {
-
+	delete ai;
 }
 
 void CombatSystem::CheckDeadCharacters()

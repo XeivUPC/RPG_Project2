@@ -4,6 +4,7 @@
 #include "ModuleAudio.h"
 #include <fstream>
 
+
 DialogueSystem::DialogueSystem()
 {
 }
@@ -44,10 +45,10 @@ void DialogueSystem::LoadDialogueWorkspace(const string& path)
 
 }
 
-void DialogueSystem::LoadDialogueFromJSON(const string& path)
+void DialogueSystem::LoadDialogueFromJSON(const string& pathToFile)
 {
 
-    ifstream file(path);
+    ifstream file(pathToFile);
     if (!file.is_open()) {
         cerr << "Error al abrir el archivo JSON." << endl;
         return;
@@ -107,6 +108,9 @@ void DialogueSystem::LoadDialogueFromJSON(const string& path)
         string characterID = node_data["character_uuid"];
         node.character = characters[characterID];
         node.portraitId = node_data["portrait"];
+
+        path sourcePath = node.portraitId;
+		node.portraitId = sourcePath.filename().string();
 
         if (node_data.contains("choices")) {
             for (auto& choice_data : node_data["choices"]) {

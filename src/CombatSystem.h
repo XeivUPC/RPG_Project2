@@ -8,6 +8,8 @@
 
 using namespace std;
 class Attack;
+class CombatAI;
+
 class CombatSystem
 {
 public:
@@ -151,4 +153,6 @@ private:
 	int turn = 0;
 	CombatState state = CombatState::START;
 	vector<pair<CharacterReference*, TurnAttack>> attackList;
+
+	CombatAI* ai;
 };

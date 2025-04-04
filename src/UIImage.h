@@ -23,7 +23,7 @@ public:
 	void SetRect(SDL_Rect _rect);
 
 public:
-
+	bool flip = false;
 private:
 
 private:
