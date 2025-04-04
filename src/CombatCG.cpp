@@ -14,6 +14,8 @@
 #include "UISlider.h"
 #include "UIToggle.h"
 
+#include "AlertDisplayerCG.h"
+
 #include "Globals.h"
 #include "AttackList.h"
 #include "CharacterDatabase.h"
@@ -24,6 +26,15 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 {
 	combat = _combatSystem;
 	combat->onCombatStateChanged.Subscribe([this]() {OnCombatStateChanged(); });
+
+	
+}
+
+CombatCG::~CombatCG()
+{
+	UICanvas::~UICanvas();
+	if (alert != nullptr)
+		delete alert;
 }
 
 void CombatCG::UpdateCanvas()
@@ -40,10 +51,16 @@ void CombatCG::UpdateCanvas()
 
 		charactersSlot[i].hpBar->size.x = (int)(charactersSlot[i].hpBarMaxWidth * healthRatio);
 	}
+	if(alert!=nullptr)
+		alert->UpdateCanvas();
 }
 
 void CombatCG::LoadCanvas()
 {
+
+	alert = new AlertDisplayerCG(1, nullptr, { LOGIC_SCREEN_WIDTH / 2 - 150,0 }, { 300,32 }, {0.f,0.f});
+	alert->renderLayer = 7;
+
 	//// SetBackground
 	SDL_Texture* bg_texture = Engine::Instance().m_assetsDB->GetTexture("battle_bg");
 	combatBg = new UIImage(*bg_texture, {0,0}, {LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT});
@@ -74,8 +91,8 @@ void CombatCG::LoadCanvas()
 
 	for (int i = 0; i < charactersSlot.size(); i++)
 	{
-		RemoveElementFromCanvas(charactersSlot[i].character);
-		delete charactersSlot[i].character;
+		RemoveElementFromCanvas(charactersSlot[i].characterClick);
+		delete charactersSlot[i].characterClick;
 	}
 	charactersSlot.clear();
 
@@ -85,7 +102,7 @@ void CombatCG::LoadCanvas()
 		{
 			Vector2Int position= GetSlotPosition(character.team, index, (int)characterTeam.second.size());
 			UICharacterSlot& reference = charactersSlot.emplace_back(CreateUICharacterSlot((CombatSystem::CharacterReference*)&character, position));
-			reference.character->onMouseClick.Subscribe([this, reference]() {SelectCharacter((UICharacterSlot&)reference); });
+			reference.characterClick->onMouseClick.Subscribe([this, reference]() {SelectCharacter((UICharacterSlot&)reference); });
 			index++;
 		}
 	}
@@ -97,6 +114,8 @@ void CombatCG::LoadCanvas()
 
 void CombatCG::UnloadCanvas()
 {
+	if (alert != nullptr)
+		delete alert;
 	if (combatBg != nullptr)
 		delete combatBg;
 }
@@ -199,12 +218,18 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 	selectedCharacterTarget->localVisible = false;
 
 	UIButton* characterBtn = new UIButton({35,-7}, { 32, 62 }, {0,0,0,0}, { 0.5f,1 }, { 255,255,255,0 });
-	characterBtn->localdebug = true;
 	characterBtn->onMouseEnter.Subscribe([selectedCharacterTarget]() {selectedCharacterTarget->SetRect({ 0,32,16,16 }); });
 	characterBtn->onMouseExit.Subscribe([selectedCharacterTarget]() {selectedCharacterTarget->SetRect({ 0,16,16,16 }); });
 
 
+	SDL_Texture* characterTexture = Engine::Instance().m_assetsDB->GetTexture(charactedData.textureId);
+	UIImage* characterImage = new UIImage(*characterTexture, { 0,-30 }, { 64,64 }, { 0.5f,0.5f }, true, {0,64,64,64});
+	characterImage->SetLocalScale(1.7f);
+	characterImage->flip = value->team == CombatSystem::Enemy;
+
+
 	selectedCharacterTarget->SetParent(characterBtn);
+	characterImage->SetParent(characterBtn);
 	characterBtn->SetParent(overlay);
 	slotLvl->SetParent(overlay);
 	slotName->SetParent(overlay);
@@ -221,7 +246,7 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 
 	AddElementToCanvas(overlay);
 
-	return { characterBtn, value,slotLvl,slotName, poisonToggle, burnToggle,regenerationToggle, hpBar,hpBarMaxWidth, overlay, attackDone,selectedCharacterIndicator, selectedCharacterTarget };
+	return { characterBtn,characterImage, value,slotLvl,slotName, poisonToggle, burnToggle,regenerationToggle, hpBar,hpBarMaxWidth, overlay, attackDone,selectedCharacterIndicator, selectedCharacterTarget };
 }
 
 void CombatCG::CreateUIExtras()
@@ -462,7 +487,7 @@ void CombatCG::SelectAttack(int attackIndex)
 	if (selectedAttack->attack->targetAmount >= possibleTargets.size()) {
 		for (size_t i = 0; i < possibleTargets.size(); i++)
 		{
-			possibleTargets[i]->character->onMouseClick.Trigger();
+			possibleTargets[i]->characterClick->onMouseClick.Trigger();
 		}
 	}
 
@@ -472,10 +497,15 @@ void CombatCG::ConfirmAttack()
 {
 	if (selectedAttack->attack->targetAmount < GetPossibleTargetsAmount()) {
 		if (selectedAttack->attack->targetAmount != targetCharacters.size()) {
+
+			alert->SetAlertData("Not enough targets selected");
+			alert->OpenAlert();
 			return;
 		}
 	}
 	else if(GetPossibleTargetsAmount() != targetCharacters.size()){
+		alert->SetAlertData("Not enough targets selected");
+		alert->OpenAlert();
 		return;
 	}
 
@@ -520,6 +550,11 @@ void CombatCG::OnCombatStateChanged()
 			for (size_t i = 0; i < charactersSlot.size(); i++)
 			{
 				charactersSlot[i].attackDone->localVisible = false;
+
+				if(charactersSlot[i].characterRef->stats.currentHp==0)
+					charactersSlot[i].characterImage->localVisible = false;
+				else
+					charactersSlot[i].characterImage->localVisible = true;
 			}
 			break;
 		}

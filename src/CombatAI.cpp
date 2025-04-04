@@ -5,6 +5,9 @@
 
 void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker)
 {
+	bestOption.second.second.clear();
+
+
 	CharacterDatabase::CharacterData& attackerData = CharacterDatabase::Instance().GetCharacterData(attacker->id);
 	for (size_t i = 0; i < attackerData.attacks.size(); i++)
 	{
@@ -24,6 +27,9 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker)
 				continue;
 
 			if (relation.first == CombatSystem::Self && characterStats[j] != attacker)
+				continue;
+
+			if (characterStats[j]->stats.currentHp == 0)
 				continue;
 
 			/// ------------------------------------ Rules Start
@@ -78,17 +84,27 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker)
 	}
 }
 
-CombatAI::CombatAI()
+CombatAI::CombatAI(CombatSystem* system)
 {
+	combatSystem = system;
 }
 
 CombatAI::~CombatAI()
 {
 }
 
-pair<int, vector<CombatSystem::CharacterReference*>> CombatAI::GetBestOption(CombatSystem::CharacterReference* attacker, vector<CombatSystem::CharacterReference*> charactersInCombat)
+void CombatAI::CalculateAI(vector<CombatSystem::CharacterReference*> charactersInCombat)
 {
 	characterStats = charactersInCombat;
-	CalculateBestOption(attacker);
-	return bestOption.second;
+	for (size_t i = 0; i < characterStats.size(); i++)
+	{
+		if (characterStats[i]->stats.currentHp == 0)
+			continue;
+		CalculateBestOption(characterStats[i]);
+		Attack* attack = AttackList::Instance().GetAttack(bestOption.second.first);
+		combatSystem->AddAttack(attack, *characterStats[i], bestOption.second.second);
+	}
+
+	
+	
 }

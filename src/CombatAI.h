@@ -10,8 +10,10 @@ private:
 	pair<int,pair<int, vector<CombatSystem::CharacterReference*>>> bestOption;
 	vector<CombatSystem::CharacterReference*> characterStats;
 	void CalculateBestOption(CombatSystem::CharacterReference* attacker);
+
+	CombatSystem* combatSystem;
 public:
-	CombatAI();
+	CombatAI(CombatSystem* system);
 	~CombatAI();
-	pair<int, vector<CombatSystem::CharacterReference*>> GetBestOption(CombatSystem::CharacterReference* attacker, vector<CombatSystem::CharacterReference*> charactersInCombat);
+	void CalculateAI(vector<CombatSystem::CharacterReference*> charactersInCombat);
 };

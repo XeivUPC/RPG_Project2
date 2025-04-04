@@ -17,11 +17,14 @@ class UITextBox;
 class UISlider;
 class UIToggle;
 class Animator;
+class AlertDisplayerCG;
 
 class CombatCG : public UICanvas
 {
 public:
 	CombatCG(CombatSystem* _combatSystem);
+	~CombatCG();
+
 	void UpdateCanvas();
 	void LoadCanvas();
 	void UnloadCanvas();
@@ -44,7 +47,8 @@ private:
 	};
 
 	struct UICharacterSlot {
-		UIButton* character = nullptr;
+		UIButton* characterClick = nullptr;
+		UIImage* characterImage = nullptr;
 		CombatSystem::CharacterReference* characterRef=nullptr;
 
 		UITextBox* lvl = nullptr;
@@ -123,5 +127,9 @@ private:
 
 	/// Condition
 	bool selectingTargets = false;
+
+
+	/// Extra
+	AlertDisplayerCG* alert;
 	
 };
