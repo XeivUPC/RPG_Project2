@@ -2,7 +2,7 @@
     "505d16fd-875d-4db1-99d1-428ce026fc36": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-happy.png",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-happy.png",
         "text": {
             "en": "Hola Cassian!",
             "fr": ""
@@ -13,7 +13,7 @@
     "a52f83ff-7154-47ef-9b46-fb82c742b9b8": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-happy.png",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-happy.png",
         "text": {
             "en": "Hola!",
             "fr": ""
@@ -30,7 +30,7 @@
     "b32ab88a-cae5-41d6-b76d-6178e4de328b": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Quieres quedar para comer el proximo dia?",
             "fr": ""
@@ -58,7 +58,7 @@
     "0f7c7f5a-f5db-4457-896e-d405e0a1022a": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Vaya, pos nada! Nos vemos",
             "fr": ""
@@ -68,7 +68,7 @@
     "2afdefad-5da6-499f-bf2e-b047fbb60c8d": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Vamos perfecto!",
             "fr": ""
@@ -99,7 +99,7 @@
     "bfb58c13-2ea2-4631-91d8-c459c7024ef0": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Bueno, ven a mi casa entoces",
             "fr": ""
@@ -109,7 +109,7 @@
     "c6fbba33-976d-43d4-9f77-578294b2173a": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Vamos al McDonalds",
             "fr": ""
@@ -120,7 +120,7 @@
     "c934ab38-585a-438a-a3e0-1f19f20fb363": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-angry-fade.png",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-angry-fade.png",
         "text": {
             "en": "Q U E !",
             "fr": ""
@@ -140,7 +140,7 @@
     "47eb8dc2-3414-403d-a3e4-a8690aaa22fa": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Lo siento, no me caes muy bien ultimamente",
             "fr": ""
@@ -160,7 +160,7 @@
     "a616627d-6839-4827-b8bf-b2aa21863988": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-sad-fade.png",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-sad-fade.png",
         "text": {
             "en": "Pense que eramos mas cercanos que esto",
             "fr": ""
