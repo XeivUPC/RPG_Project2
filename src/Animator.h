@@ -7,6 +7,7 @@ class Animator
 {
 
 public:
+	Animator();
 	Animator(vector<AnimationClip> Animations, int current);
 	~Animator();
 	void AddAnimationClip(AnimationClip clip);
@@ -24,7 +25,7 @@ private:
 
 private:
 	vector<AnimationClip> AnimationList;
-	AnimationClip* currentAnimation;
+	AnimationClip* currentAnimation = nullptr;
 
 };
 

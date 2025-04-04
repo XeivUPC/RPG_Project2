@@ -9,10 +9,14 @@
 #include "DrawingTools.h"
 
 #include "UIImage.h"
+#include "UIAnimatedImage.h"
 #include "UIButton.h"
 #include "UITextBox.h"
 #include "UISlider.h"
 #include "UIToggle.h"
+
+#include "Animator.h"
+#include "AnimationClip.h"
 
 #include "AlertDisplayerCG.h"
 
@@ -223,9 +227,21 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 
 
 	SDL_Texture* characterTexture = Engine::Instance().m_assetsDB->GetTexture(charactedData.textureId);
-	UIImage* characterImage = new UIImage(*characterTexture, { 0,-30 }, { 64,64 }, { 0.5f,0.5f }, true, {0,64,64,64});
+
+	UIAnimatedImage* characterImage = new UIAnimatedImage({ 0,-30 }, { 64,64 }, { 0.5f,0.5f });
 	characterImage->SetLocalScale(1.7f);
 	characterImage->flip = value->team == CombatSystem::Enemy;
+
+
+	int spriteSize = 64;
+	characterImage->GetAnimator()->AddAnimationClip(AnimationClip("combat-idle", true, false, 0.1f,
+			{
+				Sprite(characterTexture, {0 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+				Sprite(characterTexture, {1 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+				Sprite(characterTexture, {2 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+				Sprite(characterTexture, {3 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
+			}, nullptr, nullptr));
+
 
 
 	selectedCharacterTarget->SetParent(characterBtn);

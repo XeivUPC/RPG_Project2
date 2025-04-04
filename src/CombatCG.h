@@ -12,6 +12,7 @@ class CombatSystem;
 class Attack;
 class UIElement;
 class UIImage;
+class UIAnimatedImage;
 class UIButton;
 class UITextBox;
 class UISlider;
@@ -48,7 +49,7 @@ private:
 
 	struct UICharacterSlot {
 		UIButton* characterClick = nullptr;
-		UIImage* characterImage = nullptr;
+		UIAnimatedImage* characterImage = nullptr;
 		CombatSystem::CharacterReference* characterRef=nullptr;
 
 		UITextBox* lvl = nullptr;
