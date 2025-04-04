@@ -9,7 +9,11 @@
 #include <variant>
 #include <nlohmann/json.hpp>
 #include <functional>
+#include <filesystem>
 
+
+namespace fs = std::filesystem;
+using namespace fs;
 using namespace std;
 using json = nlohmann::json;
 
