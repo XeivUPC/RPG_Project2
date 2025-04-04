@@ -104,7 +104,7 @@ bool GameScene::Start()
     cameraController->SetOffset({ -LOGIC_SCREEN_WIDTH / 2, -LOGIC_SCREEN_HEIGHT / 2 });
     
 
-    AddTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
+    CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
 
 
     return true;
@@ -138,13 +138,14 @@ bool GameScene::Update()
 
     game_states[state]->UpdateState();
 
-    fade->UpdateCanvas();
+   
 
     return true;
 }
 
 bool GameScene::PostUpdate()
 {
+    fade->UpdateCanvas();
     game_states[state]->PostUpdateState();
 
     if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
@@ -201,6 +202,7 @@ bool GameScene::CleanUp()
     return true;
 }
 
+
 void GameScene::SetState(State _newState)
 {
     if (state == _newState)
@@ -237,6 +239,27 @@ void GameScene::ExitGame()
 
 void GameScene::AddTilemap(string path)
 {
+    fade->FadeTo(0.5f, 255);
+    fade->onFadeEnd.Subscribe([this, path]() {CreateNewTilemap(path); });
+}
+
+Tilemap* GameScene::GetLastTilemap()
+{
+    if (tilemaps.size() != 0)
+        return  tilemaps[tilemaps.size() - 1];
+    return nullptr;
+}
+
+void GameScene::RemoveLastTilemap()
+{
+    fade->FadeTo(0.5f, 255);
+	fade->onFadeEnd.Subscribe([this]() {DeleteLastTilemap(); });
+}
+
+
+void GameScene::CreateNewTilemap(string path)
+{
+    fade->FadeTo(0.5f, 0);
     if (tilemaps.size() != 0) {
         tilemaps[tilemaps.size() - 1]->isVisible = false;
         Pooling::Instance().ReturnAllToPool<Building>();
@@ -250,15 +273,9 @@ void GameScene::AddTilemap(string path)
     cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
 }
 
-Tilemap* GameScene::GetLastTilemap()
+void GameScene::DeleteLastTilemap()
 {
-    if (tilemaps.size() != 0)
-        return  tilemaps[tilemaps.size() - 1];
-    return nullptr;
-}
-
-void GameScene::RemoveLastTilemap()
-{
+    fade->FadeTo(0.5f, 0);
     if (tilemaps.size() != 0) {
 
         Pooling::Instance().ReturnAllToPool<Building>();
@@ -275,8 +292,5 @@ void GameScene::RemoveLastTilemap()
             cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
         }
     }
-
-
-    
 }
 
