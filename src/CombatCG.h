@@ -41,7 +41,11 @@ private:
 	struct UIAttackInformation {
 		UITextBox* name = nullptr;
 		UITextBox* description = nullptr;
+
+		UIImage* powerImg = nullptr;
 		UITextBox* power = nullptr;
+
+		UIImage* accuracyImg = nullptr;
 		UITextBox* accuracy = nullptr;
 
 		Attack* currentAttack = nullptr;

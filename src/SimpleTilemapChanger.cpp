@@ -1,4 +1,4 @@
-#include "Building.h"
+#include "SimpleTilemapChanger.h"
 #include "Pooling.h"
 #include "Tilemap.h"
 
@@ -12,23 +12,23 @@
 #include "DrawingTools.h"
 #include "GameScene.h"
 
-Building::Building()
+SimpleTilemapChanger::SimpleTilemapChanger()
 {
-
 }
 
-Building::~Building()
+SimpleTilemapChanger::~SimpleTilemapChanger()
 {
-
 }
 
-bool Building::PostUpdate()
+bool SimpleTilemapChanger::PostUpdate()
 {
 	if (entrySensor.OnTriggerEnter()) {
-		/// Change Tilemap
 		if (targetPath != "") {
 			Engine::Instance().s_game->GetLastTilemap()->SetSpawnPoint(exitPosition);
 			Engine::Instance().s_game->AddTilemap(targetPath);
+		}
+		else {
+			Engine::Instance().s_game->RemoveLastTilemap();
 		}
 	}
 
@@ -36,25 +36,25 @@ bool Building::PostUpdate()
 	return true;
 }
 
-void Building::SetExitPosition(Vector2 _exitPosition)
+void SimpleTilemapChanger::SetExitPosition(Vector2 _exitPosition)
 {
 	exitPosition = _exitPosition;
 }
 
-void Building::SetTargetTilemapPath(string _targetPath)
+void SimpleTilemapChanger::SetTargetTilemapPath(string _targetPath)
 {
 	targetPath = _targetPath;
 }
 
-void Building::SetEntryTrigger(Vector2 _position, Vector2 size)
-{ 
+void SimpleTilemapChanger::SetEntryTrigger(Vector2 _position, Vector2 size)
+{
 	b2FixtureUserData sensorData;
 	sensorData.pointer = (uintptr_t)(&entrySensor);
 	/// set Sensor;
-	entryTrigger = Engine::Instance().m_physics->factory().CreateBevelBox(_position, size.x, size.y, 0.1f, sensorData);
+	entryTrigger = Engine::Instance().m_physics->factory().CreateBox(_position, size.x, size.y, sensorData);
 	entryTrigger->SetType(PhysBody::BodyType::Static);
 	entryTrigger->SetSensor(0, true);
-	entrySensor.SetFixtureToTrack(entryTrigger,0);
+	entrySensor.SetFixtureToTrack(entryTrigger, 0);
 
 	ModulePhysics::Layer category, mask;
 	category.flags.trigger_layer = 1;
@@ -62,15 +62,16 @@ void Building::SetEntryTrigger(Vector2 _position, Vector2 size)
 	entryTrigger->SetFilter(0, category.rawValue, mask.rawValue, 0);
 }
 
-void Building::InitPoolObject()
+void SimpleTilemapChanger::InitPoolObject()
 {
 	SimpleMapObject::InitPoolObject();
 	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
 }
 
-void Building::ResetPoolObject()
+void SimpleTilemapChanger::ResetPoolObject()
 {
 	SimpleMapObject::ResetPoolObject();
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
-	delete entryTrigger;
+	if(entryTrigger!=nullptr)
+		delete entryTrigger;
 }

@@ -25,7 +25,8 @@ public:
 	void CloseAlert();
 
 public:
-
+	SystemEvent<> onAlertOpened;
+	SystemEvent<> onAlertClosed;
 
 private:
 

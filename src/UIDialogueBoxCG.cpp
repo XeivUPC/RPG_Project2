@@ -136,11 +136,19 @@ void UIDialogueBoxCG::CreateChoiceButton(string text, int index, float verticalS
 {
 	_TTF_Font* font = Engine::Instance().m_assetsDB->GetFont("alagard");
 
-	UIButton* btn = new UIButton({ 388 ,(int)(123 + verticalSpacing + (22 + verticalSpacing) * index) }, { 235,22 }, { 0,0,0,0 }, { 0,0 }, {148,112,75,255});
+	UITextBox* textBox = new UITextBox(text, *font, 16, { 184,132,78,255 }, { 0,2 }, { 235,32 }, { 0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle, true);
+	Vector2Int textSize = textBox->ProccesTextSize();
+	textBox->size.y = textSize.y;
+
+	int verticalPositionToPlace = 123 + verticalSpacing;
+	if (index != 0) {
+		verticalPositionToPlace = btns[index]->GetPosition().y + btns[index]->size.y + verticalSpacing;
+	}
+
+	UIButton* btn = new UIButton({ 388 ,(int)(verticalPositionToPlace)}, { 235,textSize.y }, { 0,0,0,0 }, { 0,0 }, {148,112,75,255});
 
 	btn->onMouseClick.Subscribe([this, index]() {dialogue->ProcessInput(index); });
 
-	UITextBox* textBox = new UITextBox(text, *font, 16, { 184,132,78,255 }, { 0,2 }, { 235,22 }, { 0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle, true);
 	textBox->SetParent(btn);
 
 	AddElementToCanvas(btn);
