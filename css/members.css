@@ -98,6 +98,54 @@ ul
     transition: all 0.3s ease;
 }
 
+.postmortem
+{
+    height: 48px;
+}
+
+.member-info:hover .postmortem
+{
+    display: block;
+}
+
+.member-info:not(:hover) .postmortem
+{
+    display: none;
+}
+
+.member-info:hover .roles
+{
+    height:80px;
+}
+
+.member-info:not(:hover) .roles
+{
+    height:100px;
+}
+
+.postmortem a
+{
+    color: #373b41;
+    padding: 5px;
+    padding-bottom: 2px;
+    border-radius: 5px;
+    outline: none;
+    text-decoration: none;
+}
+
+.postmortem a:hover
+{
+    color: var(--background-color5);
+    background-color: #373b41;
+    transition: all 0.3s ease;
+}
+.postmortem :not(:hover)
+{
+    color: #373b41;
+    background-color: var(--background-color5);
+    transition: all 0.3s ease;
+}
+
 .name
 {
     height: 75px;
