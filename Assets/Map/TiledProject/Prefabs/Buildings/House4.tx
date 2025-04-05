@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <tileset firstgid="1" source="../../Tilesets/Building_Atlas.tsx"/>
+ <object gid="6" width="256" height="144">
+  <properties>
+   <property name="Type" value="building"/>
+  </properties>
+ </object>
+</template>
