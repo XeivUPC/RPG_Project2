@@ -69,20 +69,21 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 
 			CombatSystem::CharacterReference* character = &attacker;
 			if (statModification.second.objective == CombatSystem::Enemy) {
-				character = target[i];
+				character = target[i];	
+			}
 
-				const string& type = statModification.second.type;
-				if (type=="Attack") {
-					character->stats.statsStages.attack += statModification.second.value;
-					character->stats.statsStages.attack = (float)character->stats.statsStages.CheckCap(character->stats.statsStages.attack);
-				}else if (type == "Defense") {
-					character->stats.statsStages.defense += statModification.second.value;
-					character->stats.statsStages.defense = (float)character->stats.statsStages.CheckCap(character->stats.statsStages.defense);
-				}
-				else if (type == "Speed") {
-					character->stats.statsStages.speed += statModification.second.value;
-					character->stats.statsStages.speed = (float)character->stats.statsStages.CheckCap(character->stats.statsStages.speed);
-				}
+			const string& type = statModification.second.type;
+			if (type == "Attack") {
+				character->stats.statsStages.attack += statModification.second.value;
+				character->stats.statsStages.attack = (float)character->stats.statsStages.CheckCap(character->stats.statsStages.attack);
+			}
+			else if (type == "Defense") {
+				character->stats.statsStages.defense += statModification.second.value;
+				character->stats.statsStages.defense = (float)character->stats.statsStages.CheckCap(character->stats.statsStages.defense);
+			}
+			else if (type == "Speed") {
+				character->stats.statsStages.speed += statModification.second.value;
+				character->stats.statsStages.speed = (float)character->stats.statsStages.CheckCap(character->stats.statsStages.speed);
 			}
 		}
 
@@ -93,29 +94,29 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 
 			CombatSystem::CharacterReference* character = &attacker;
 			if (statusModification.second.objective == CombatSystem::Enemy) {
-				character = target[i];
+				character = target[i];	
+			}
 
-				const string& type = statusModification.second.type;
-				bool hasEffect = false;
-				for (size_t i = 0; i < character->stats.statusEffects.size(); i++)
-				{
-					if (character->stats.statusEffects[i].name == statusModification.second.type) {
-						character->stats.statusEffects[i].turns = statusModification.second.turns;
-						if(statusModification.second.mode == 0)
-							character->stats.statusEffects[i].value = statusModification.second.value;
-						else
-							character->stats.statusEffects[i].value = character->stats.currentStats.hp * statusModification.second.value/100.f;
-						hasEffect = true;
-						break;
-					}
-				}
-				if (!hasEffect) {
+			const string& type = statusModification.second.type;
+			bool hasEffect = false;
+			for (size_t i = 0; i < character->stats.statusEffects.size(); i++)
+			{
+				if (character->stats.statusEffects[i].name == statusModification.second.type) {
+					character->stats.statusEffects[i].turns = statusModification.second.turns;
 					if (statusModification.second.mode == 0)
-						character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type ,statusModification.second.value ,statusModification.second.turns });
+						character->stats.statusEffects[i].value = statusModification.second.value;
 					else
-						character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type , character->stats.currentStats.hp * statusModification.second.value / 100.f,statusModification.second.turns });
-					
+						character->stats.statusEffects[i].value = character->stats.currentStats.hp * statusModification.second.value / 100.f;
+					hasEffect = true;
+					break;
 				}
+			}
+			if (!hasEffect) {
+				if (statusModification.second.mode == 0)
+					character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type ,statusModification.second.value ,statusModification.second.turns });
+				else
+					character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type , character->stats.currentStats.hp * statusModification.second.value / 100.f,statusModification.second.turns });
+
 			}
 		}
 	}

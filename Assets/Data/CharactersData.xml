@@ -2,37 +2,43 @@
 <Characters>
 	<Character id="-1" name="NPC_TEST">
 		<Data textureId="npc_test" dialoguePath="Assets/Dialogues/test3.json" />
-		<Stats level="1" hp="45" defense="49" attack="49" speed="45" />
+		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="1" hp="45" defense="49" attack="49" speed="45" />
 		<Attacks attack1="2" attack2="3" attack3="0" attack4="1" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="0" name="Cassian">
 		<Data textureId="cassian_test" dialoguePath="Assets/Dialogues/test3.json" />
-		<Stats level="10" hp="45" defense="49" attack="49" speed="45" />
+		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="10" hp="45" defense="49" attack="49" speed="45" />
 		<Attacks attack1="3" attack2="2" attack3="1" attack4="0" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="1" name="Artis">
 		<Data textureId="artis_test" dialoguePath="Assets/Dialogues/test4.json" />
-		<Stats level="1" hp="45" defense="49" attack="49" speed="45" />
+		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="1" hp="45" defense="49" attack="49" speed="45" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="2" />
 	</Character>
 	<Character id="2" name="Guard_Left">
 		<Data textureId="artis_test" dialoguePath="Assets/Dialogues/guard_RS_entrance_left.json" />
 		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="1" hp="45" defense="49" attack="49" speed="45" />
 		<Attacks attack1="2" attack2="3" attack3="0" attack4="1" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="3" name="Guard_Right">
 		<Data textureId="artis_test" dialoguePath="Assets/Dialogues/guard_RS_entrance_right.json" />
 		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="1" hp="45" defense="49" attack="49" speed="45" />
 		<Attacks attack1="2" attack2="3" attack3="0" attack4="1" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="4" name="Sir Gideon Hawthorne">
 		<Data textureId="artis_test" dialoguePath="Assets/Dialogues/Sir_Gideon_Hawthorne.json" />
 		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="1" hp="45" defense="49" attack="49" speed="45" />
 		<Attacks attack1="2" attack2="3" attack3="0" attack4="1" />
 		<AttackRole type="0" />
 	</Character>

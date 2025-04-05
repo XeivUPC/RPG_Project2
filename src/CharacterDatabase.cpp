@@ -45,11 +45,15 @@ void CharacterDatabase::SaveDatabase()
                 entry.child("Data").attribute("textureId").set_value(value.textureId.c_str());
 				entry.child("Data").attribute("dialoguePath").set_value(value.dialoguePath.c_str());
 
-				entry.child("Stats").attribute("level").set_value(value.level);
-				entry.child("Stats").attribute("hp").set_value(value.health);
-				entry.child("Stats").attribute("defense").set_value(value.defense);
-				entry.child("Stats").attribute("attack").set_value(value.attack);
-				entry.child("Stats").attribute("speed").set_value(value.speed);
+				entry.child("Stats").attribute("state").set_value(value.state);
+				entry.child("Stats").attribute("friendship").set_value(value.friendShip);
+				entry.child("Stats").attribute("love").set_value(value.love);
+
+				entry.child("CombatStats").attribute("level").set_value(value.level);
+				entry.child("CombatStats").attribute("hp").set_value(value.health);
+				entry.child("CombatStats").attribute("defense").set_value(value.defense);
+				entry.child("CombatStats").attribute("attack").set_value(value.attack);
+				entry.child("CombatStats").attribute("speed").set_value(value.speed);
 
 				xml_node attacksNode = entry.child("Attacks");
                 int index = 0;
@@ -91,6 +95,7 @@ void CharacterDatabase::LoadDatabase()
             string charName = character.attribute("name").as_string();
             xml_node charDataNode = character.child("Data");
             xml_node charStatsNode = character.child("Stats");
+            xml_node charCombatStatsNode = character.child("CombatStats");
             xml_node charAttacksNode = character.child("Attacks");
             xml_node charAttackRoleNode = character.child("AttackRole");
 
@@ -107,11 +112,11 @@ void CharacterDatabase::LoadDatabase()
             charData.textureId = charDataNode.attribute("textureId").as_string();
             charData.dialoguePath = charDataNode.attribute("dialoguePath").as_string();
 
-            charData.level = charStatsNode.attribute("level").as_int();
-            charData.health = charStatsNode.attribute("hp").as_int();
-            charData.defense = charStatsNode.attribute("defense").as_int();
-            charData.attack = charStatsNode.attribute("attack").as_int();
-            charData.speed = charStatsNode.attribute("speed").as_int();
+            charData.level = charCombatStatsNode.attribute("level").as_int();
+            charData.health = charCombatStatsNode.attribute("hp").as_int();
+            charData.defense = charCombatStatsNode.attribute("defense").as_int();
+            charData.attack = charCombatStatsNode.attribute("attack").as_int();
+            charData.speed = charCombatStatsNode.attribute("speed").as_int();
 
             for (const auto& attack : charAttacksNode.attributes())
             {

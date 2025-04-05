@@ -7,9 +7,9 @@ using namespace std;
 class CombatAI
 {
 private:
+
 	pair<int,pair<int, vector<CombatSystem::CharacterReference*>>> bestOption;
-	unordered_map <CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>> characters;
-	void CalculateBestOption(CombatSystem::CharacterReference* attacker);
+	void CalculateBestOption(CombatSystem::CharacterReference* attacker, unordered_map <CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>>& charactersInCombat);
 
 	CombatSystem* combatSystem;
 public:
