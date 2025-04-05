@@ -69,13 +69,15 @@
    <object id="2" name="collision" x="112.136" y="83" width="31.5909" height="81.8182"/>
    <object id="3" name="collision" x="16" y="246.375" width="24" height="15"/>
    <object id="4" name="collision" x="71.75" y="246.375" width="24" height="14.875"/>
-   <object id="6" name="entryCollider" x="40.3438" y="246.219" width="31.0625" height="3.625"/>
+   <object id="6" name="entryCollider" x="46.3438" y="246.219" width="19.5" height="3.625"/>
    <object id="7" name="renderPosition" x="55.75" y="153.5">
     <point/>
    </object>
    <object id="8" name="exitPosition" x="55.8125" y="257.574">
     <point/>
    </object>
+   <object id="9" name="collision" x="40.375" y="246.375" width="5.5" height="8.75"/>
+   <object id="10" name="collision" x="66.0625" y="246.375" width="5.375" height="8.75"/>
   </objectgroup>
  </tile>
  <tile id="5">
@@ -84,13 +86,13 @@
    <object id="1" name="renderPosition" x="127.5" y="113.75">
     <point/>
    </object>
-   <object id="4" name="collider" x="32.75" y="50" width="31.25" height="72.25"/>
-   <object id="5" name="collider" x="20.25" y="115.75" width="7.5" height="13"/>
-   <object id="6" name="collider" x="227.813" y="117" width="8.125" height="12.1875"/>
-   <object id="7" name="collider" x="191.25" y="50" width="32" height="71"/>
-   <object id="8" name="collider" x="64.0909" y="34.25" width="51.9091" height="104.75"/>
-   <object id="10" name="collider" x="139.795" y="34.25" width="51.9091" height="104.75"/>
-   <object id="12" name="collider" x="116.182" y="34.1818" width="23.2727" height="96"/>
+   <object id="4" name="collision" x="32.75" y="50" width="31.25" height="72.25"/>
+   <object id="5" name="collision" x="20.25" y="115.75" width="7.5" height="13"/>
+   <object id="6" name="collision" x="227.813" y="117" width="8.125" height="12.1875"/>
+   <object id="7" name="collision" x="191.25" y="50" width="32" height="71"/>
+   <object id="8" name="collision" x="64.0909" y="34.25" width="51.9091" height="104.75"/>
+   <object id="10" name="collision" x="139.795" y="34.25" width="51.9091" height="104.75"/>
+   <object id="12" name="collision" x="116.182" y="34.1818" width="23.2727" height="96"/>
    <object id="13" name="entryCollider" x="116.063" y="130.375" width="23.5" height="4.375"/>
    <object id="14" name="exitPosition" x="127.938" y="141">
     <point/>

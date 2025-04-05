@@ -52,11 +52,11 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 1,
+            "scale": 2,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 213,
-                "y": 353
+                "x": 269,
+                "y": 201.5
             }
         },
         "Maps/Testing_Zone.tmx": {
@@ -95,8 +95,8 @@
         },
         "Tilesets/Building_Atlas.tsx": {
             "dynamicWrapping": true,
-            "scaleInDock": 0.75,
-            "scaleInEditor": 2
+            "scaleInDock": 0.33,
+            "scaleInEditor": 0.75
         },
         "Tilesets/Cave_Tiles.tsx": {
             "dynamicWrapping": false,
@@ -144,14 +144,15 @@
     "map.width": 20,
     "openFiles": [
         "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Maps/Testing_Zone2.tmx"
+        "Maps/Testing_Zone2.tmx",
+        "Tilesets/Building_Atlas.tsx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "string",
     "recentFiles": [
+        "Tilesets/Building_Atlas.tsx",
         "Maps/Testing_Zone2.tmx",
         "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Tilesets/Building_Atlas.tsx",
         "Maps/Testing_Zone.tmx",
         "Tilesets/Water_tiles.tsx",
         "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx",

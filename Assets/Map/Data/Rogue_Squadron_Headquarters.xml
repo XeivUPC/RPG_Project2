@@ -226,23 +226,53 @@
 </data>
  </layer>
  <objectgroup id="6" name="Objects">
-  <object id="35" template="../TiledProject/Prefabs/Buildings/tent1.tx" x="192" y="272">
+  <object id="35" gid="915" x="192" y="272" width="96" height="107">
    <properties>
     <property name="TargetPath" value="Assets/Map/Data/Testing_Zone.xml"/>
+    <property name="Type" value="building"/>
    </properties>
   </object>
-  <object id="36" template="../TiledProject/Prefabs/Buildings/tent2.tx" x="320" y="272">
+  <object id="36" gid="916" x="320" y="272" width="96" height="107">
    <properties>
     <property name="TargetPath" value="Assets/Map/Data/Testing_Zone2.xml"/>
+    <property name="Type" value="building"/>
    </properties>
   </object>
-  <object id="37" template="../TiledProject/Prefabs/Buildings/tent3.tx" x="464" y="272"/>
-  <object id="38" template="../TiledProject/Prefabs/Buildings/tent3.tx" x="320" y="400"/>
-  <object id="39" template="../TiledProject/Prefabs/Buildings/tent3.tx" x="320" y="544"/>
-  <object id="40" template="../TiledProject/Prefabs/Buildings/tent1.tx" x="464" y="400"/>
-  <object id="41" template="../TiledProject/Prefabs/Buildings/tent1.tx" x="192" y="544"/>
-  <object id="42" template="../TiledProject/Prefabs/Buildings/tent2.tx" x="192" y="400"/>
-  <object id="43" template="../TiledProject/Prefabs/Buildings/tent2.tx" x="464" y="544"/>
+  <object id="37" gid="917" x="464" y="272" width="96" height="107">
+   <properties>
+    <property name="Type" value="building"/>
+   </properties>
+  </object>
+  <object id="38" gid="917" x="320" y="400" width="96" height="107">
+   <properties>
+    <property name="Type" value="building"/>
+   </properties>
+  </object>
+  <object id="39" gid="917" x="320" y="544" width="96" height="107">
+   <properties>
+    <property name="Type" value="building"/>
+   </properties>
+  </object>
+  <object id="40" gid="915" x="464" y="400" width="96" height="107">
+   <properties>
+    <property name="Type" value="building"/>
+   </properties>
+  </object>
+  <object id="41" gid="915" x="192" y="544" width="96" height="107">
+   <properties>
+    <property name="Type" value="building"/>
+   </properties>
+  </object>
+  <object id="42" gid="916" x="192" y="400" width="96" height="107">
+   <properties>
+    <property name="Type" value="building"/>
+   </properties>
+  </object>
+  <object id="43" gid="916" x="464" y="544" width="96" height="107">
+   <properties>
+    <property name="Type" value="building"/>
+   </properties>
+  </object>
   <object id="47" gid="932" x="319.091" y="273.818" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
@@ -460,12 +490,21 @@
    </properties>
    <point/>
   </object>
-  <object id="118" template="../TiledProject/Prefabs/Buildings/House2.tx" x="16" y="544.25">
+  <object id="118" gid="918" x="16" y="544.25" width="112" height="160">
    <properties>
     <property name="TargetPath" value="Assets/Map/Data/Testing_Zone.xml"/>
+    <property name="Type" value="building"/>
    </properties>
   </object>
-  <object id="122" template="../TiledProject/Prefabs/Buildings/House3.tx" x="16" y="352"/>
-  <object id="123" template="../TiledProject/Prefabs/Buildings/House4.tx" x="162.5" y="152"/>
+  <object id="122" gid="919" x="16" y="352" width="160" height="272">
+   <properties>
+    <property name="Type" value="building"/>
+   </properties>
+  </object>
+  <object id="123" gid="920" x="162.5" y="152" width="256" height="144">
+   <properties>
+    <property name="Type" value="building"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
