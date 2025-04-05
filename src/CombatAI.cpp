@@ -12,7 +12,7 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker)
 	for (size_t i = 0; i < attackerData.attacks.size(); i++)
 	{
 		int efficiency = 0;
-		vector<pair<int, int>> TargetEfficiencyList;
+		vector<pair<CombatSystem::CharacterReference&, int>> TargetEfficiencyList;
 		Attack* attack = AttackList::Instance().GetAttack(attackerData.attacks[i]);
 
 		int j = 0;
@@ -63,33 +63,34 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker)
 				/// ------------------------------------ Rules End
 
 				int singleEfficiency = singleDamageEfficiency + singleDefenseEfficiency + singleHealthEfficiency;
-				TargetEfficiencyList.emplace_back(pair<int, int>((int)j, singleEfficiency));
+				TargetEfficiencyList.emplace_back(pair<CombatSystem::CharacterReference&, int>(characterStats, singleEfficiency));
 				efficiency += singleEfficiency;
 
 				j++;
 			}
-			while (TargetEfficiencyList.size() > attack->targetAmount)
+			
+		}
+
+		while (TargetEfficiencyList.size() > attack->targetAmount)
+		{
+			int min = 0;
+			for (size_t j = 1; j < TargetEfficiencyList.size(); j++)
 			{
-				int min = 0;
-				for (size_t j = 1; j < TargetEfficiencyList.size(); j++)
-				{
-					if (TargetEfficiencyList[min].second > TargetEfficiencyList[j].second)
-						min = (int)j;
-				}
-				efficiency -= TargetEfficiencyList[min].second;
-				TargetEfficiencyList.erase(TargetEfficiencyList.begin() + min);
+				if (TargetEfficiencyList[min].second > TargetEfficiencyList[j].second)
+					min = (int)j;
 			}
-			if (bestOption.first <= efficiency)
+			efficiency -= TargetEfficiencyList[min].second;
+			TargetEfficiencyList.erase(TargetEfficiencyList.begin() + min);
+		}
+		if (bestOption.first <= efficiency)
+		{
+			bestOption.first = efficiency;
+			bestOption.second.first = (int)i;
+			for (size_t i = 0; i < TargetEfficiencyList.size(); i++)
 			{
-				bestOption.first = efficiency;
-				bestOption.second.first = (int)i;
-				for (size_t i = 0; i < TargetEfficiencyList.size(); i++)
-				{
-					bestOption.second.second.emplace_back(&teamData.second[i]);
-				}
+				bestOption.second.second.emplace_back(&TargetEfficiencyList[i].first);
 			}
 		}
-		
 	}
 }
 
