@@ -8,16 +8,18 @@
 
 using namespace std;
 class Attack;
+class CombatAI;
+
 class CombatSystem
 {
 public:
 	SystemEvent<> onCombatStateChanged;
 	enum CharacterType
 	{
-		Ally,
 		Enemy,
+		Ally,
 		Both,
-		None
+		Self
 	};
 	enum CombatState
 	{
@@ -31,83 +33,92 @@ public:
 		DEFEAT
 	};
 
-	struct Stat
-	{
-		float defaultValue = 0;
-		float currentValue = 0;
+	struct StatStages {
+		float attack=0;
+		float defense=0;
+		float speed=0;
 
-		float multiplier = 1;
+		int maxminLevel = 6;
 
-		int turns = 1;
-		
-		Stat() = default;
-
-		Stat(float _value, float _multiplier, int _turns)
-		{
-			defaultValue = _value;
-			currentValue = _value;
-
-			multiplier = _multiplier;
-			turns = _turns;
-		}
-		float GetProcessedValue()
-		{
-			float multiplierRealValue = multiplier + 2;
-			if (multiplier < 0) {
-				return defaultValue * (2/ multiplierRealValue);
-			}
-			return defaultValue * (multiplierRealValue/2);
-		}
-
-		void AddMultiplier(float value)
-		{
-			multiplier += value;
-			if (multiplier > 4)
-				multiplier = 4;
-
-			if (multiplier < -4)
-				multiplier = -4;
+		int CheckCap(float value) {
+			if (value > maxminLevel)
+				return maxminLevel;
+			if (value < -maxminLevel)
+				return -maxminLevel;
+			return (int)value;
 		}
 	};
 
-	struct CharacterCombatStats
-	{
-		bool turnBlocked = false;
+	struct BaseStats {
+		int hp=0;
+		int attack = 0;
+		int defense = 0;
+		int speed = 0;
+	};
 
-		Stat Health;
+	struct StatusEffect {
+		string name;
+		float value = 0;
+		int turns = 0;
+	};
 
-		Stat Attack;
-		Stat Defense;
-		Stat Speed;
+	struct CharacterStats {
+		float currentHp = 0;
+		int level = 0;
 
-		Stat Poison;
-		Stat Burn;
-		Stat Regeneration;
+		bool isBlocked = false;
 
+		BaseStats baseStats;
+		BaseStats currentStats;
+		StatStages statsStages;
+		vector<StatusEffect> statusEffects;
 
-		CharacterCombatStats() = default;
-		void GetBaseStatsById(int id)
-		{
+		void Reset() {
+			currentStats.hp = (int)GetHpStatValue();
+			currentHp = (float)currentStats.hp;
+
+			currentStats.attack = (int)GetOtherStatValue(baseStats.attack);
+			currentStats.defense = (int)GetOtherStatValue(baseStats.defense);
+			currentStats.speed = (int)GetOtherStatValue(baseStats.speed);
+
+			statsStages = { 0,0,0 };
+			statusEffects.clear();
+		}
+
+		void GetBaseStatsById(int id) {
 			CharacterDatabase::CharacterData& reference = CharacterDatabase::Instance().GetCharacterData(id);
-			Health = Stat((float)reference.health, 1.f, 0);
-			Attack = Stat((float)reference.attack, 1.f, 0);
-			Defense = Stat((float)reference.defense, 1.f, 0);
-			Speed = Stat((float)reference.speed, 1.f, 0);
+			level = reference.level;
 
-			Poison = Stat(0, 1.f, 0);
-			Burn = Stat(0, 1.f, 0);
-			Regeneration = Stat(0, 1.f, 0);
-		};
+			baseStats.attack = reference.attack;
+			baseStats.defense = reference.defense;
+			baseStats.hp = reference.health;
+			baseStats.speed = reference.speed;
 
+			Reset();
+		}
 
-		
+		float GetHpStatValue() {
+			return floor(0.01f * (2 * baseStats.hp) * level) + level + 10;
+		}
+
+		float GetOtherStatValue(int defaultValue) {
+			return floor(0.01f * (2 * defaultValue) * level) + 5;
+		}
+
+		float GetStatProcessedValue(int value, float stage) {
+			float stageExtra = (stage + 2) / 2.f;
+			if (stage < 0)
+				stageExtra = 1 / stageExtra;
+			return value*stageExtra;
+		}
 	};
+
 
 	struct CharacterReference
 	{
-		int id;
+		int id=-1;
 		CharacterType team;
-		CharacterCombatStats stats;
+		CharacterStats stats;
 
 		CharacterReference() = default;
 		CharacterReference(int _id, CharacterType _team) {
@@ -133,6 +144,7 @@ public:
 	void ChangeState(CombatState newState);
 
 	const unordered_map <CharacterType, vector<CharacterReference>>& GetCharactersInCombat();
+	vector<CharacterReference*> GetPosibleTargets(CharacterReference* character, Attack* attack);
 	
 	~CombatSystem();
 private:
@@ -141,4 +153,6 @@ private:
 	int turn = 0;
 	CombatState state = CombatState::START;
 	vector<pair<CharacterReference*, TurnAttack>> attackList;
+
+	CombatAI* ai;
 };

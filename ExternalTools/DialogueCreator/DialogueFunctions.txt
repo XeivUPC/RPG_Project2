@@ -1,0 +1,19 @@
+ChangeDialogue(string Path)
+PlaySFX(string sfxId)
+PlayMusic(string musicId)
+ChangeTextColor(string rgba) --> example 255,255,255,255
+SetTypewriterMode(int value) --> 0 = false / 1 = true
+SetTypewriterSpeed(float speed) --> in sec
+SetNpcStatusByID(Vector2 data) --> x = characterId / y = characterState
+SetNpcFriendshipByID(Vector2 data) --> x = characterId / y = characterFriendShip
+AddNpcFriendshipByID(Vector2 data) --> x = characterId / y = characterFriendshipToAdd
+SetNpcLoveByID(Vector2 data) --> x = characterId / y = characterLove
+AddNpcLoveByID(Vector2 data) --> x = characterId / y = characterLoveToAdd
+
+
+///////////////////////
+
+
+How to acces to a characterState? Use Char{Id}_State ---> Just replace {Id} by the number
+How to acces to a characterFriendship? Use Char{Id}_Friendship ---> Just replace {Id} by the number
+How to acces to a characterLove? Use Char{Id}_Love ---> Just replace {Id} by the number

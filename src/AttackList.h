@@ -13,7 +13,6 @@ public:
 		static AttackList instance;
 		return instance;
 	}
-
 	
 	Attack* GetAttack(string _name);
 	Attack* GetAttack(int ID);

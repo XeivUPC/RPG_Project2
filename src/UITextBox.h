@@ -50,6 +50,9 @@ public:
 	void SetDirty();
 	bool GetIfDirty();
 
+	Vector2 ProccesTextSize();
+	Vector2 ProccesTextSize(string& _text);
+
 public:
 	
 private:

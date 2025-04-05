@@ -3,9 +3,93 @@
 #include "ModulePhysics.h"
 #include "ModuleTime.h"
 
+#include "Animator.h"
+#include "AnimationClip.h"
+
 Character::Character()
 {
+	int spriteSize = 64;
+	animator = new Animator
+	(
+		{
+			AnimationClip("idle-down", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("idle-horizontally", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("idle-top", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,2 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,2 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,2 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,2 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("walk-down", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,3 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("walk-horizontally", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,4 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("walk-top", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,5 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+				AnimationClip("run-down", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,6 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("run-horizontally", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,7 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale),
+			AnimationClip("run-top", true, false, 0.1f,
+			{
+				Sprite(texture, {0 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {1 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {2 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {3 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {4 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f }),
+				Sprite(texture, {5 * spriteSize,8 * spriteSize,spriteSize,spriteSize},{0.5f,0.75f })
+			},&position,&scale)
 
+		}, 0
+	);
 }
 
 Character::~Character()
@@ -64,4 +148,77 @@ bool Character::SetCharacterId(int _charId)
         return true;
     }
     return false;
+}
+
+bool Character::GetCharacterId() const
+{
+	return characterId;
+}
+
+bool Character::AddFollower(int _charId, float distance)
+{
+	if (followers.size() < maxFollowers) {
+		followers.emplace_back(new FollowerCharacter(this, totalFollowerDistance + distance, _charId));
+		currentFollowers++;
+		totalFollowerDistance += distance;
+		return true;
+	}
+	return false;
+}
+
+bool Character::RemoveFollowerById(int _charId)
+{
+	int charPos = 0;
+	for (auto it = followers.begin(); it != followers.end(); ++it) {
+		if ((*it)->GetCharacterId() == _charId) {
+			int distanceDifference = (*it)->GetDelayDistance() - (charPos > 0 ? followers[charPos - 1]->GetDelayDistance() : 0);
+			totalFollowerDistance -= distanceDifference;
+			for (int i = charPos + 1; i < followers.size(); ++i) {
+				followers[i]->SetDelayDistance(followers[i]->GetDelayDistance() - distanceDifference);
+			}
+			(*it)->CleanUp();
+			delete (*it);
+			followers.erase(it);
+			currentFollowers--;
+			return true;
+		}
+		charPos++;
+	}
+
+	printf("Follower with ID %d not found\n", _charId);
+	return false;
+}
+
+bool Character::RemoveFollowerByIndex(int followerPos)
+{
+	if (followerPos < followers.size()) {
+		int distanceDifference = followers[followerPos]->GetDelayDistance() - (followerPos > 0 ? followers[followerPos - 1]->GetDelayDistance() : 0);
+		totalFollowerDistance -= distanceDifference;
+		for (int i = followerPos + 1; i < followers.size(); ++i) {
+			followers[i]->SetDelayDistance(followers[i]->GetDelayDistance() - distanceDifference);
+		}
+		followers[followerPos]->CleanUp();
+		delete (followers[followerPos]);
+		followers.erase(followers.begin() + followerPos);
+		currentFollowers--;
+		return true;
+	}
+
+	printf("No follower in position %d\n", followerPos);
+	return false;
+}
+
+bool Character::EditFollower(int _charId, int _charIndex)
+{
+	if (_charIndex < followers.size()) {
+		followers[_charIndex]->SetCharacterId(_charId);
+		return true;
+	}
+	return false;
+}
+
+bool Character::GetFollowers() const
+{
+	return true;
+	return false;
 }

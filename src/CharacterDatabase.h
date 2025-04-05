@@ -7,13 +7,27 @@ class CharacterDatabase {
 	public:
 
 		struct CharacterData {
-			int id;
+
+			enum CharacterRole {
+				DPS,
+				TANK,
+				HEALER,
+				ALCHEMIST
+			};
+
+			int id = 0;
 			string name = "";
+
 			string textureId = "";
 			string dialoguePath = "";
 
+			//// Relations
+			int love = 0;
+			int friendShip = 0;
+			int state = 0;
 
 			//// Stats
+			int level = 2;
 			int health = 0;
 			int attack = 0;
 			int defense = 0;
@@ -21,6 +35,7 @@ class CharacterDatabase {
 
 			vector<int> attacks;
 
+			CharacterRole role = DPS;
 		};
 
 		static CharacterDatabase& Instance() {
@@ -29,6 +44,7 @@ class CharacterDatabase {
 		}
 
 		CharacterData& GetCharacterData(int id);
+		const unordered_map<int, CharacterData>& GetCharacters();
 
 		bool Exists(int id);
 

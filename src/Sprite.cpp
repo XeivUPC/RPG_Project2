@@ -13,6 +13,11 @@ SDL_Texture* Sprite::Texture() const
 	return texture;
 }
 
+void Sprite::SetTexture(SDL_Texture* _texture)
+{
+	texture = _texture;
+}
+
 const SDL_Rect& Sprite::Section() const
 {
 	return rect;

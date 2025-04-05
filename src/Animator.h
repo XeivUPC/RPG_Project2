@@ -7,6 +7,7 @@ class Animator
 {
 
 public:
+	Animator();
 	Animator(vector<AnimationClip> Animations, int current);
 	~Animator();
 	void AddAnimationClip(AnimationClip clip);
@@ -15,6 +16,7 @@ public:
 	void CleanUp();
 
 	AnimationClip* GetAnimationClip(const string& animationName);
+	vector<AnimationClip>& GetAnimationClips();
 
 public:
 	SystemEvent<string> onAnimationChanged;
@@ -23,7 +25,7 @@ private:
 
 private:
 	vector<AnimationClip> AnimationList;
-	AnimationClip* currentAnimation;
+	AnimationClip* currentAnimation = nullptr;
 
 };
 

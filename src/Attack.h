@@ -2,52 +2,69 @@
 
 class Attack
 {
+private:
+	
+
 public:
-	enum TargetSelection
-	{
-		Input,
-		Random,
+
+	struct StageModifier {
+		string type;
+
+		float value = 0;
+		int probability = 0;
+		CombatSystem::CharacterType objective = CombatSystem::Ally;
 	};
 
-	CombatSystem::CharacterType targetType = CombatSystem::Enemy;
-	TargetSelection selection = Random;
-	int minTargetAmmount = 0;
-	int maxTargetAmmount = 0;
+	struct StatusModifier {
+		string type;
+
+		float value = 0;
+		int turns = 0;
+		int mode = 0;
+		int probability = 0;
+		CombatSystem::CharacterType objective = CombatSystem::Ally;
+	};
+
+	enum AttackType
+	{
+		Aggressive,
+		Healing,
+		Buff,
+		Debuff,
+		Affliction
+	};
 
 	int id = -1;
+
+	AttackType type = Aggressive;
+	CombatSystem::CharacterType targetType = CombatSystem::Enemy;
+	int targetAmount = 0;
+
 	string name = "Name";
 	string description = "Description";
 
-	/// Stats
+	/// Properties
 	int priority = 0;
-	int accuracity = 100;
+	int accuracy = 100;
 
-	/// Damage
-	int damage = 0;
-	int critRate = 10;
+	/// Basic Stats
+	int power = 0;
+	int critRate = 0;
 
-	/// Multipliers
-	int damageIncrement = 0;
-	int defenseIncrement = 0;
-	int speedIncrement = 0;
+	/// Stages
+	unordered_map<string, StageModifier> statsModification;
 
 	/// Effects
-	int poisonDamage = 0;
-	int poisonTurns = 0;
-
-	int burnDamage = 0;
-	int burnTurns = 0;
-
-	int regenerationValue = 0;
-	int regenerationTurns = 0;
-
-	/// Life Steal
-	int lifeSteal = 0;
-	int lifeStealPercentage = 0;
-	int lifeStealEffectiveness = 100;
+	unordered_map<string, StatusModifier> statusEffects;
 
 	/// Extra
-	bool blockTurn = false;
+	int lifeDewMode = 0;
+	int lifeDewAmount = 0;
+	int lifeDewEffectiveness=0;
+
+	bool blocksTurn = false;
+	CombatSystem::CharacterType blockTurnTarget = CombatSystem::Enemy;
+
 
 	virtual void DoAttack(CombatSystem::CharacterReference& attacker, std::vector<CombatSystem::CharacterReference*>& target);
 };

@@ -58,6 +58,11 @@ Sprite& AnimationClip::GetSprite(int index)
 	return spriteList[index];
 }
 
+vector<Sprite>& AnimationClip::GetSprites()
+{
+	return spriteList;
+}
+
 void AnimationClip::SetPosition(Vector2* newPosition)
 {
 	position = newPosition;

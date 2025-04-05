@@ -62,33 +62,60 @@ void AttackList::LoadAttacks()
 
 		xml_node dataNode = attack.child("data");
 
-		newAttack.targetType = (CombatSystem::CharacterType)dataNode.attribute("target-type").as_int();
-		newAttack.selection = (Attack::TargetSelection)dataNode.attribute("target-selection").as_int();
-		newAttack.minTargetAmmount = dataNode.attribute("min-target-amount").as_int();
-		newAttack.maxTargetAmmount = dataNode.attribute("max-target-amount").as_int();
+		xml_node infoNode = dataNode.child("info");
+		xml_node propertiesNode = dataNode.child("properties");
+		xml_node requirementsNode = dataNode.child("requirements");
+		xml_node basicStatsNode = dataNode.child("basic-stats");
+		xml_node statsModificationNode = dataNode.child("stat-modification");
+		xml_node statusModificationNode = dataNode.child("status-modification");
+		xml_node extrasNode = dataNode.child("extras");
 
-		newAttack.priority = dataNode.attribute("priority").as_int();
-		newAttack.accuracity = dataNode.attribute("accuracity").as_int();
+		newAttack.type = (Attack::AttackType)infoNode.attribute("attack-type").as_int();
 
-		newAttack.damage = dataNode.attribute("damage").as_int();
-		newAttack.critRate = dataNode.attribute("cirt-rate").as_int();
+		newAttack.priority = propertiesNode.attribute("priority").as_int();
+		newAttack.accuracy = propertiesNode.attribute("accuracy").as_int();
 
-		newAttack.damageIncrement = dataNode.attribute("damage-increment").as_int();
-		newAttack.defenseIncrement = dataNode.attribute("defense-increment").as_int();
-		newAttack.speedIncrement = dataNode.attribute("speed-increment").as_int();
+		newAttack.targetAmount = requirementsNode.attribute("target-amount").as_int();
+		newAttack.targetType = (CombatSystem::CharacterType)requirementsNode.attribute("target-type").as_int();
 
-		newAttack.poisonDamage = dataNode.attribute("poison-damage").as_int();
-		newAttack.poisonTurns = dataNode.attribute("poison-turns").as_int();
-		newAttack.burnDamage = dataNode.attribute("burn-damage").as_int();
-		newAttack.burnTurns = dataNode.attribute("burn-turns").as_int();
-		newAttack.regenerationValue = dataNode.attribute("regeneration-value").as_int();
-		newAttack.regenerationTurns = dataNode.attribute("regeneration-turns").as_int();
+		newAttack.power = basicStatsNode.child("power").attribute("value").as_int();
+		newAttack.critRate = basicStatsNode.child("crit-rate").attribute("value").as_int();
 
-		newAttack.lifeSteal = dataNode.attribute("life-steal").as_int();
-		newAttack.lifeStealPercentage = dataNode.attribute("life-steal-percentage").as_int();
-		newAttack.lifeStealEffectiveness = dataNode.attribute("life-steal-effectiveness").as_int();
+		for (const auto& statModification : statsModificationNode.children()) {
+			string statType = statModification.attribute("stat").as_string();
+			Attack::StageModifier data = {  statType,
+											statModification.attribute("value").as_float(),
+											statModification.attribute("probability").as_int(),
+											(CombatSystem::CharacterType)statModification.attribute("objective").as_int() };
+			newAttack.statsModification[statType] = data;
+		}
 
-		newAttack.blockTurn = dataNode.attribute("block-turn").as_bool();
+		for (const auto& statusModification : statusModificationNode.children()) {
+			string statusType = statusModification.attribute("type").as_string();
+			Attack::StatusModifier data = { statusType,
+											statusModification.attribute("value").as_float(),
+											statusModification.attribute("turns").as_int(),
+											statusModification.attribute("mode").as_int(),
+											statusModification.attribute("probability").as_int(),
+											(CombatSystem::CharacterType)statusModification.attribute("objective").as_int() };
+			newAttack.statusEffects[statusType] = data;
+		}
+
+		for (const auto& extra : extrasNode.children()) {
+			string extraType = extra.attribute("type").as_string();
+
+			if (extraType == "Live Dew") {
+				newAttack.lifeDewMode = extra.attribute("mode").as_int();
+				newAttack.lifeDewAmount = extra.attribute("amount").as_int();
+				newAttack.lifeDewEffectiveness = extra.attribute("effectiveness").as_int();
+			}
+			else if (extraType == "Block Turn") {
+				newAttack.blocksTurn = true;
+				newAttack.blockTurnTarget = (CombatSystem::CharacterType)extra.attribute("objective").as_int();
+			}
+		}
+
+		
 	
 		attackList.emplace_back(newAttack);
 	}

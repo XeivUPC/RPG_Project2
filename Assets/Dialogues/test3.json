@@ -1,19 +1,19 @@
 {
     "505d16fd-875d-4db1-99d1-428ce026fc36": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-idle.png",
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-happy.png",
         "text": {
-            "en": "Hola Artis!",
+            "en": "Hola Cassian!",
             "fr": ""
         },
         "parent": "root",
         "next": "a52f83ff-7154-47ef-9b46-fb82c742b9b8"
     },
     "a52f83ff-7154-47ef-9b46-fb82c742b9b8": {
-        "name": "Artis",
-        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-happy.png",
         "text": {
             "en": "Hola!",
             "fr": ""
@@ -28,9 +28,9 @@
         }
     },
     "b32ab88a-cae5-41d6-b76d-6178e4de328b": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-happy.png",
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Quieres quedar para comer el proximo dia?",
             "fr": ""
@@ -56,9 +56,9 @@
         ]
     },
     "0f7c7f5a-f5db-4457-896e-d405e0a1022a": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-sad-fade.png",
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Vaya, pos nada! Nos vemos",
             "fr": ""
@@ -66,9 +66,9 @@
         "parent": "612ba11b-c4d9-4b5e-8c4d-2c3b5338993d"
     },
     "2afdefad-5da6-499f-bf2e-b047fbb60c8d": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-happy.png",
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Vamos perfecto!",
             "fr": ""
@@ -76,13 +76,13 @@
         "parent": "34332a9e-81da-4126-9d25-e6b11a60f622",
         "conditions": [
             {
-                "friendship": {
+                "parent": "2afdefad-5da6-499f-bf2e-b047fbb60c8d",
+                "next": "bfb58c13-2ea2-4631-91d8-c459c7024ef0",
+                "Char1_Love": {
                     "value": 10,
                     "operator": "equal",
                     "type": "int"
-                },
-                "parent": "2afdefad-5da6-499f-bf2e-b047fbb60c8d",
-                "next": "bfb58c13-2ea2-4631-91d8-c459c7024ef0"
+                }
             },
             {
                 "parent": "2afdefad-5da6-499f-bf2e-b047fbb60c8d",
@@ -97,9 +97,9 @@
         }
     },
     "bfb58c13-2ea2-4631-91d8-c459c7024ef0": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-happy.png",
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Bueno, ven a mi casa entoces",
             "fr": ""
@@ -107,9 +107,9 @@
         "parent": "7e03c976-f4ee-4a1d-b0b0-a926a92fea63"
     },
     "c6fbba33-976d-43d4-9f77-578294b2173a": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-angry-fade.png",
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Vamos al McDonalds",
             "fr": ""
@@ -118,9 +118,9 @@
         "next": "c934ab38-585a-438a-a3e0-1f19f20fb363"
     },
     "c934ab38-585a-438a-a3e0-1f19f20fb363": {
-        "name": "Artis",
-        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-happy.png",
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-angry-fade.png",
         "text": {
             "en": "Q U E !",
             "fr": ""
@@ -138,9 +138,9 @@
         "next": "47eb8dc2-3414-403d-a3e4-a8690aaa22fa"
     },
     "47eb8dc2-3414-403d-a3e4-a8690aaa22fa": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-sad-fade.png",
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Lo siento, no me caes muy bien ultimamente",
             "fr": ""
@@ -158,9 +158,9 @@
         "next": "a616627d-6839-4827-b8bf-b2aa21863988"
     },
     "a616627d-6839-4827-b8bf-b2aa21863988": {
-        "name": "Artis",
-        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Artis-early-idle.png",
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-sad-fade.png",
         "text": {
             "en": "Pense que eramos mas cercanos que esto",
             "fr": ""
@@ -232,7 +232,7 @@
             {
                 "uuid": "c934ab38-585a-438a-a3e0-1f19f20fb363",
                 "offset": [
-                    3520,
+                    3480,
                     340
                 ]
             },
@@ -260,14 +260,15 @@
                 ],
                 "parent": "2afdefad-5da6-499f-bf2e-b047fbb60c8d",
                 "data": {
-                    "friendship": {
+                    "parent": "2afdefad-5da6-499f-bf2e-b047fbb60c8d",
+                    "next": "bfb58c13-2ea2-4631-91d8-c459c7024ef0",
+                    "Char1_Love": {
                         "value": 10,
                         "operator": "equal",
                         "type": "int"
-                    },
-                    "parent": "2afdefad-5da6-499f-bf2e-b047fbb60c8d",
-                    "next": "bfb58c13-2ea2-4631-91d8-c459c7024ef0"
-                }
+                    }
+                },
+                "folded": false
             },
             {
                 "uuid": "17d9039d-480d-421f-9e2f-ff6c3dba7dfa",

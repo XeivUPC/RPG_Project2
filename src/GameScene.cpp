@@ -14,7 +14,7 @@
 
 ///Pooling
 #include "Pooling.h"
-#include "Building.h"
+#include "SimpleTilemapChanger.h"
 #include "NpcCharacter.h"
 #include "SimpleMapObject.h"
 ///
@@ -54,7 +54,7 @@ bool GameScene::Init()
 
 bool GameScene::Start()
 {
-    Pooling::Instance().CreatePool<Building>(10);
+    Pooling::Instance().CreatePool<SimpleTilemapChanger>(10);
     Pooling::Instance().CreatePool<SimpleMapObject>(30);
     Pooling::Instance().CreatePool<NpcCharacter>(10);
 
@@ -90,7 +90,7 @@ bool GameScene::Start()
     game_states[State::Combat] = new CombatGameState();
     game_states[State::Combat]->StateDeselected();
 
-    SetState(State::Combat);
+    SetState(State::Exploring);
 
     ////
 
@@ -104,7 +104,7 @@ bool GameScene::Start()
     cameraController->SetOffset({ -LOGIC_SCREEN_WIDTH / 2, -LOGIC_SCREEN_HEIGHT / 2 });
     
 
-    AddTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
+    CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
 
 
     return true;
@@ -129,7 +129,7 @@ bool GameScene::Update()
 
     if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_C) == KEY_DOWN)
     {
-        //SetCombat();
+		SetState(State::Combat);
     }
 
     Engine::Instance().m_render->SortRenderQueueLayerByPosition(3);
@@ -138,17 +138,16 @@ bool GameScene::Update()
 
     game_states[state]->UpdateState();
 
-    fade->UpdateCanvas();
+   
 
     return true;
 }
 
 bool GameScene::PostUpdate()
 {
+    fade->UpdateCanvas();
     game_states[state]->PostUpdateState();
 
-    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
-        RemoveLastTilemap();
     return true;
 }
 
@@ -192,7 +191,7 @@ bool GameScene::CleanUp()
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
 
-    Pooling::Instance().DeletePool<Building>(true);
+    Pooling::Instance().DeletePool<SimpleTilemapChanger>(true);
     Pooling::Instance().DeletePool<SimpleMapObject>(true);
     Pooling::Instance().DeletePool<NpcCharacter>(true);
 
@@ -200,6 +199,7 @@ bool GameScene::CleanUp()
 
     return true;
 }
+
 
 void GameScene::SetState(State _newState)
 {
@@ -237,17 +237,8 @@ void GameScene::ExitGame()
 
 void GameScene::AddTilemap(string path)
 {
-    if (tilemaps.size() != 0) {
-        tilemaps[tilemaps.size() - 1]->isVisible = false;
-        Pooling::Instance().ReturnAllToPool<Building>();
-        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
-        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
-    }
-    tilemaps.emplace_back(new Tilemap(path, 1));
-
-    tilemaps[tilemaps.size() - 1]->CreateObjects();
-    player->SetPosition(tilemaps[tilemaps.size() - 1]->GetSpawnPoint());
-    cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
+    fade->FadeTo(0.5f, 255);
+    fade->onFadeEnd.Subscribe([this, path]() {CreateNewTilemap(path); });
 }
 
 Tilemap* GameScene::GetLastTilemap()
@@ -259,9 +250,33 @@ Tilemap* GameScene::GetLastTilemap()
 
 void GameScene::RemoveLastTilemap()
 {
+    fade->FadeTo(0.5f, 255);
+	fade->onFadeEnd.Subscribe([this]() {DeleteLastTilemap(); });
+}
+
+
+void GameScene::CreateNewTilemap(string path)
+{
+    fade->FadeTo(0.5f, 0);
+    if (tilemaps.size() != 0) {
+        tilemaps[tilemaps.size() - 1]->isVisible = false;
+        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
+        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
+        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+    }
+    tilemaps.emplace_back(new Tilemap(path, 1));
+
+    tilemaps[tilemaps.size() - 1]->CreateObjects();
+    player->SetPosition(tilemaps[tilemaps.size() - 1]->GetSpawnPoint());
+    cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
+}
+
+void GameScene::DeleteLastTilemap()
+{
+    fade->FadeTo(0.5f, 0);
     if (tilemaps.size() != 0) {
 
-        Pooling::Instance().ReturnAllToPool<Building>();
+        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
         Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
         Pooling::Instance().ReturnAllToPool<NpcCharacter>();
 
@@ -275,8 +290,5 @@ void GameScene::RemoveLastTilemap()
             cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
         }
     }
-
-
-    
 }
 

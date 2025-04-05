@@ -45,7 +45,7 @@ public:
 	Vector2 pivot = {0,0};
 	Vector2Int size = {100,50};
 
-	bool debug = false;
+	bool localdebug = false;
 	bool interactable = true;
 	bool localVisible = true;
 
@@ -70,4 +70,5 @@ protected:
 	bool isMouseOver = false;
 
 	bool visible = true;
+	bool debug = false;
 };

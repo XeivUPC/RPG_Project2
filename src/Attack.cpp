@@ -9,52 +9,114 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 	std::mt19937 gen(rd());
 	std::uniform_real_distribution<float> random(0.85f, 1.0);
 	std::uniform_int_distribution critical_percentage(0, 100);
-	std::uniform_int_distribution attack_accuracity(0, 100);
+	std::uniform_int_distribution stat_or_status_porbability(0, 100);
+	std::uniform_int_distribution attack_accuracy(1, 100);
 
-	if (attack_accuracity(gen) >= accuracity)
+
+
+	if (attack_accuracy(gen) > accuracy)
 		return;
+
+	int attaker_level = attacker.stats.level;
 	for (size_t i = 0; i < target.size(); i++)
 	{
-		target[i]->stats.turnBlocked = blockTurn;
-		if (target[i]->stats.Health.currentValue > target[i]->stats.Health.defaultValue)target[i]->stats.Health.currentValue = target[i]->stats.Health.defaultValue;
+
+		int target_level = target[i]->stats.level;
 
 		//// Check Dmg
 		bool hasCritic = critical_percentage(gen) < (critRate);
 		float criticMultiplier = hasCritic ? 1.5f : 1.f;
 
-		float attackDamage = (float)max(1, (int)floor((damage * attacker.stats.Attack.GetProcessedValue() * criticMultiplier) / target[i]->stats.Defense.GetProcessedValue() * random(gen)));
+		float attackStat = attacker.stats.GetStatProcessedValue(attacker.stats.currentStats.attack, attacker.stats.statsStages.attack);
+		float defenseStat = target[i]->stats.GetStatProcessedValue(target[i]->stats.currentStats.defense, target[i]->stats.statsStages.defense);
 
-		float removedHealth = target[i]->stats.Health.currentValue;
-		target[i]->stats.Health.currentValue -= attackDamage;
-		if (target[i]->stats.Health.currentValue < 0)
-			target[i]->stats.Health.currentValue = 0;
-		removedHealth = removedHealth - target[i]->stats.Health.currentValue;
-		
+		float damageToDo = ((((2.0f * attacker.stats.level / 5.0f) + 2.0f) * power * attackStat / defenseStat) / 50.0f + 2.0f);
+		damageToDo *= random(gen);
 
-		//// Check LifeSteal
-		attacker.stats.Health.currentValue += removedHealth * (lifeStealPercentage / 100.f) * (lifeStealEffectiveness / 100.f);
-		attacker.stats.Health.currentValue += lifeSteal * (lifeStealEffectiveness / 100.f);
+		if (power == 0)
+			damageToDo = 0;
 
-		//// Increase Multipliers
-		attacker.stats.Attack.AddMultiplier(damageIncrement);
-		attacker.stats.Defense.AddMultiplier(defenseIncrement);
-		attacker.stats.Speed.AddMultiplier(speedIncrement);
+		float damageDone = target[i]->stats.currentHp;
+		target[i]->stats.currentHp = max(0.f, target[i]->stats.currentHp - damageToDo);
+		damageDone = damageDone - target[i]->stats.currentHp;
 
+		switch (lifeDewMode)
+		{
+			case 0:
+				attacker.stats.currentHp += lifeDewAmount * (lifeDewEffectiveness/100);
+				break;
+			case 1:
+				attacker.stats.currentHp += damageDone * (lifeDewEffectiveness / 100);
+				break;
+			case 2:
+				attacker.stats.currentHp += target[i]->stats.currentStats.hp * (lifeDewAmount/100) * (lifeDewEffectiveness / 100);
+				break;
+			default:
+				break;
+		}
 
-		//// SetEffects
-		attacker.stats.Poison.currentValue = poisonDamage;
-		attacker.stats.Poison.turns = poisonTurns;
+		if (blockTurnTarget == CombatSystem::Enemy) {
+			target[i]->stats.isBlocked = blocksTurn;
+		}
+		else
+			attacker.stats.isBlocked = blocksTurn;
 
-		attacker.stats.Burn.currentValue = burnDamage;
-		attacker.stats.Burn.turns = burnTurns;
+		/// 
+		for (const auto& statModification : statsModification)
+		{
+			if (stat_or_status_porbability(gen) > statModification.second.probability)
+				continue;
 
-		attacker.stats.Regeneration.currentValue = regenerationValue;
-		attacker.stats.Regeneration.turns = regenerationTurns;
+			CombatSystem::CharacterReference* character = &attacker;
+			if (statModification.second.objective == CombatSystem::Enemy) {
+				character = target[i];
 
+				const string& type = statModification.second.type;
+				if (type=="Attack") {
+					character->stats.statsStages.attack += statModification.second.value;
+					character->stats.statsStages.attack = (float)character->stats.statsStages.CheckCap(character->stats.statsStages.attack);
+				}else if (type == "Defense") {
+					character->stats.statsStages.defense += statModification.second.value;
+					character->stats.statsStages.defense = (float)character->stats.statsStages.CheckCap(character->stats.statsStages.defense);
+				}
+				else if (type == "Speed") {
+					character->stats.statsStages.speed += statModification.second.value;
+					character->stats.statsStages.speed = (float)character->stats.statsStages.CheckCap(character->stats.statsStages.speed);
+				}
+			}
+		}
 
-		//// Other
-		if(!target[i]->stats.turnBlocked)
-			target[i]->stats.turnBlocked = blockTurn;
+		for (const auto& statusModification : statusEffects)
+		{
+			if (stat_or_status_porbability(gen) > statusModification.second.probability)
+				continue;
 
+			CombatSystem::CharacterReference* character = &attacker;
+			if (statusModification.second.objective == CombatSystem::Enemy) {
+				character = target[i];
+
+				const string& type = statusModification.second.type;
+				bool hasEffect = false;
+				for (size_t i = 0; i < character->stats.statusEffects.size(); i++)
+				{
+					if (character->stats.statusEffects[i].name == statusModification.second.type) {
+						character->stats.statusEffects[i].turns = statusModification.second.turns;
+						if(statusModification.second.mode == 0)
+							character->stats.statusEffects[i].value = statusModification.second.value;
+						else
+							character->stats.statusEffects[i].value = character->stats.currentStats.hp * statusModification.second.value/100.f;
+						hasEffect = true;
+						break;
+					}
+				}
+				if (!hasEffect) {
+					if (statusModification.second.mode == 0)
+						character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type ,statusModification.second.value ,statusModification.second.turns });
+					else
+						character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type , character->stats.currentStats.hp * statusModification.second.value / 100.f,statusModification.second.turns });
+					
+				}
+			}
+		}
 	}
 }

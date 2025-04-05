@@ -17,12 +17,17 @@ void UIElement::UpdateElement()
 	if (parent != nullptr) {
 		scale = localScale*parent->scale;
 		position = localPosition+parent->position;
-		debug = parent->debug;
 		if (!parent->visible) {
 			visible = false;
 		}
 		else
 			visible = localVisible;
+
+		if(parent->debug) {
+			debug = true;
+		}
+		else
+			debug = localdebug;
 	}
 	else {
 		scale = localScale;

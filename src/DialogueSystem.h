@@ -9,7 +9,11 @@
 #include <variant>
 #include <nlohmann/json.hpp>
 #include <functional>
+#include <filesystem>
 
+
+namespace fs = std::filesystem;
+using namespace fs;
 using namespace std;
 using json = nlohmann::json;
 
@@ -83,6 +87,7 @@ public:
 public:
     SystemEvent<Signal*> onSignalCall;
 
+    SystemEvent<> onDialogLoaded;
     SystemEvent<> onDialogStart;
     SystemEvent<> onDialogEnd;
     SystemEvent<> onDialogNodeChange;
@@ -106,8 +111,6 @@ private:
     bool dialogue_active = false;
     unordered_map<string, variant<bool, float>> game_state;
 protected:
-    void TriggerCallbacks(vector<function<void()>>& callbacks);
-    void TriggerCallbacks(vector<function<void(Signal*)>>& callbacks, Signal* _value);
 
 protected:
 

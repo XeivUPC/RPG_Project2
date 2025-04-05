@@ -1,5 +1,7 @@
 #include "CombatGameState.h"
 #include "CombatCG.h"
+#include "FadeCG.h"
+#include "CombatSystem.h"
 #include "Engine.h"
 #include "GameScene.h"
 #include "ModuleInput.h"
@@ -21,6 +23,7 @@ bool CombatGameState::UpdateState()
 {
 	CombatCG* combatCanvas = Engine::Instance().s_game->combatCanvas;
 	combatCanvas->UpdateCanvas();
+	Engine::Instance().s_game->combatSystem->UpdateCombat();
 	return true;
 }
 
@@ -38,14 +41,12 @@ void CombatGameState::StateSelected()
 	Engine::Instance().m_cursor->ShowCustomCursor();
 
 
-
-
 	Engine::Instance().s_game->combatSystem->AddPartyToCombat(vector<int>{1,0,1,1}, CombatSystem::Ally);
 	Engine::Instance().s_game->combatSystem->AddPartyToCombat(vector<int>{1, 0, 1}, CombatSystem::Enemy);
 
+	Engine::Instance().s_game->fade->onFadeEnd.Subscribe([this]() {OnLoadingEnd();});
 
-	Engine::Instance().s_game->combatSystem->StartCombat();
-	Engine::Instance().s_game->combatCanvas->SetUpCanvas();
+	Engine::Instance().s_game->fade->FadeTo(0.5f, 255);
 }
 
 void CombatGameState::StateDeselected()
@@ -55,4 +56,12 @@ void CombatGameState::StateDeselected()
 	}
 	Engine::Instance().s_game->combatCanvas->SetInteractable(false);
 	Engine::Instance().s_game->combatCanvas->UpdateCanvas();
+	Engine::Instance().s_game->combatCanvas->UnloadCanvas();
+}
+
+void CombatGameState::OnLoadingEnd()
+{
+	Engine::Instance().s_game->fade->FadeTo(0.5f, 0);
+	Engine::Instance().s_game->combatSystem->StartCombat();
+	Engine::Instance().s_game->combatCanvas->LoadCanvas();
 }

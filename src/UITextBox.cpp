@@ -159,3 +159,18 @@ bool UITextBox::GetIfDirty()
 	return dirty;
 }
 
+Vector2 UITextBox::ProccesTextSize()
+{	
+
+	return ProccesTextSize(text);
+}
+
+Vector2 UITextBox::ProccesTextSize(string& _text)
+{
+	SDL_Texture* textureToCheck = Engine::Instance().m_render->painter().RenderText(text, *font, fontSize, position, size, true, { scale, scale }, (int)horizontalAligment, (int)verticalAligment, wrap, pivot, color);
+	Vector2Int size = { 0,0 };
+	SDL_QueryTexture(textureToCheck, NULL, NULL, &size.x, &size.y);
+	SDL_DestroyTexture(texture);
+	return size;
+}
+

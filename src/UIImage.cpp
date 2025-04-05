@@ -37,7 +37,7 @@ void UIImage::RenderElement()
 	if (sprite == nullptr)
 		Engine::Instance().m_render->painter().RenderBox(position, size, { scale,scale }, pivot, true, color);
 	else
-		Engine::Instance().m_render->painter().RenderTexture(*sprite, position, useRect ? &rect : NULL, { scale,scale }, 0, pivot,SDL_FLIP_NONE,color);
+		Engine::Instance().m_render->painter().RenderTexture(*sprite, position, useRect ? &rect : NULL, { scale,scale }, 0, pivot, flip ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE,color);
 
 	for (size_t i = 0; i < childs.size(); i++)
 	{
@@ -79,4 +79,9 @@ void UIImage::SetColor(SDL_Color _color)
 SDL_Color& UIImage::GetColor()
 {
 	return color;
+}
+
+void UIImage::SetRect(SDL_Rect _rect)
+{
+	rect = _rect;
 }

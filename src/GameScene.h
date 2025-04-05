@@ -47,9 +47,13 @@ public:
 
 	void ExitGame();
 
+
 	void AddTilemap(string path);
-	Tilemap* GetLastTilemap();
 	void RemoveLastTilemap();
+	Tilemap* GetLastTilemap();
+
+
+	
 
 public:
 
@@ -66,6 +70,11 @@ private:
 	bool PostUpdate() override;
 	// Inherited via ICleanable
 	bool CleanUp() override;
+
+
+
+	void CreateNewTilemap(string path);
+	void DeleteLastTilemap();
 
 private:
 	/// Core

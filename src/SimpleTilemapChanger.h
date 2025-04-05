@@ -1,12 +1,13 @@
 #pragma once
 #include "SimpleMapObject.h"
 #include "CollisionSensor.h"
+
 class PhysBody;
 
-class Building : public SimpleMapObject {
+class SimpleTilemapChanger : public SimpleMapObject {
 public:
-	Building();
-	~Building();
+	SimpleTilemapChanger();
+	~SimpleTilemapChanger();
 
 	bool PostUpdate() override;
 
@@ -21,10 +22,11 @@ public:
 private:
 
 private:
+
+protected:
 	Vector2 exitPosition = { 0,0 };
 
 	string targetPath = "";
-
 	CollisionSensor entrySensor;
 	PhysBody* entryTrigger = nullptr;
 };

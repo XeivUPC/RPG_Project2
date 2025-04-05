@@ -38,6 +38,8 @@ void FadeCG::UpdateCanvas()
 		if (currentTime > timeToDoFade) {
 			SetColor(targetColor.r, targetColor.g, targetColor.b, targetColor.a);
 			fading = false;
+			onFadeEnd.Trigger();
+			onFadeEnd.UnsubscribeAll();
 		}
 	}
 	UICanvas::UpdateCanvas();

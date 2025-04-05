@@ -1,9 +1,11 @@
 #include "CombatSystem.h"
 #include "Attack.h"
+#include "CombatAI.h"
 #include <algorithm>
 
 CombatSystem::CombatSystem()
 {
+	ai = new CombatAI(this);
 }
 
 void CombatSystem::AddPartyToCombat(const vector<int>& party, CharacterType party_type)
@@ -27,6 +29,13 @@ CombatSystem::CombatState CombatSystem::GetCombatState()
 
 void CombatSystem::StartCombat()
 {
+	for (auto& team : charactersInCombat)
+	{
+		for (auto& character : team.second)
+		{
+			character.stats.Reset();
+		}
+	}
 	state = CombatState::START;
 }
 
@@ -42,15 +51,16 @@ void CombatSystem::UpdateCombat()
 
 		break;
 	case CombatSystem::ENEMY_TURN:
+		ai->CalculateAI(charactersInCombat);
 		ChangeState(CombatState::ATTACKS);
 		break;
 	case CombatSystem::ATTACKS:
 		sort(attackList.begin(), attackList.end(),
 		[](pair< CharacterReference*, TurnAttack>& a, pair< CharacterReference*, TurnAttack>& b) {
-			Stat& as = a.first->stats.Speed;
-			Stat& bs = b.first->stats.Speed;
-			float aSpeed = as.GetProcessedValue();
-			float bSpeed = bs.GetProcessedValue();
+			CharacterStats& as = a.first->stats;
+			CharacterStats& bs = b.first->stats;
+			float aSpeed = as.GetStatProcessedValue(as.currentStats.speed, as.statsStages.speed);
+			float bSpeed = bs.GetStatProcessedValue(bs.currentStats.speed, bs.statsStages.speed);
 
 			auto getGroup = [](int priority) {
 				if (priority > 0) return 1;    
@@ -72,7 +82,7 @@ void CombatSystem::UpdateCombat()
 		});
 		for (auto& attack : attackList)
 		{
-			if (attack.first->stats.Health.currentValue <= 0)
+			if (attack.first->stats.currentHp <= 0)
 				continue;
 			attack.second.attack->DoAttack(*attack.first,attack.second.targets);
 			
@@ -85,26 +95,30 @@ void CombatSystem::UpdateCombat()
 		{
 			for (auto& character : team.second)
 			{
-				if (character.stats.Health.currentValue <= 0)
+				if (character.stats.currentHp <= 0)
 					continue;
-				if (character.stats.Poison.turns > 0)
+
+				for (size_t i = 0; i < character.stats.statusEffects.size(); i++)
 				{
-					Stat& stat = character.stats.Poison;
-					stat.turns--;
-					character.stats.Health.currentValue -= stat.currentValue;
+					character.stats.statusEffects[i].turns--;
+					character.stats.currentHp += character.stats.statusEffects[i].value;
 				}
-				if (character.stats.Burn.turns > 0)
-				{
-					Stat& stat = character.stats.Burn;
-					stat.turns--;
-					character.stats.Health.currentValue -= stat.currentValue;
-				}
-				if (character.stats.Regeneration.turns > 0)
-				{
-					Stat& stat = character.stats.Health;
-					stat.turns--;
-					character.stats.Health.currentValue += stat.currentValue;
-				}
+
+				character.stats.statusEffects.erase(
+					std::remove_if(
+						character.stats.statusEffects.begin(),
+						character.stats.statusEffects.end(),
+						[](const StatusEffect& c) { return c.turns <= 0; }
+					),
+					character.stats.statusEffects.end()
+				);
+
+				if (character.stats.currentHp < 0)
+					character.stats.currentHp = 0.f;
+				if (character.stats.currentHp > character.stats.currentStats.hp)
+					character.stats.currentHp = (float)character.stats.currentStats.hp;
+
+
 			}
 		}
 		CheckDeadCharacters();
@@ -141,12 +155,14 @@ void CombatSystem::EndCombat()
 
 CombatSystem::~CombatSystem()
 {
-
+	delete ai;
 }
 
 void CombatSystem::CheckDeadCharacters()
 {
-	for (auto& team : charactersInCombat) {
+
+	/// Do not remove, just take in care they are dead
+	/*for (auto& team : charactersInCombat) {
 		auto& characters = team.second;
 		characters.erase(
 			std::remove_if(
@@ -156,7 +172,7 @@ void CombatSystem::CheckDeadCharacters()
 			),
 			characters.end()
 		);
-	}
+	}*/
 }
 
 void CombatSystem::ChangeState(CombatState newState)
@@ -171,4 +187,28 @@ void CombatSystem::ChangeState(CombatState newState)
 const unordered_map<CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>>& CombatSystem::GetCharactersInCombat()
 {
 	return charactersInCombat;
+}
+
+vector<CombatSystem::CharacterReference*> CombatSystem::GetPosibleTargets(CharacterReference* character, Attack* attack)
+{
+	vector<CharacterReference*> possibleTargets;
+
+	if (attack->targetType == CombatSystem::Self) {
+		possibleTargets.emplace_back(character);
+		return possibleTargets;
+	}
+
+	for (auto& team : charactersInCombat)
+	{
+		for (auto& character : team.second)
+		{
+			if (character.stats.currentHp <= 0)
+				continue;
+
+			if (character.team == attack->targetType || attack->targetType == CombatSystem::Both) {
+				possibleTargets.emplace_back(&character);
+			}
+		}
+	}
+	return possibleTargets;
 }
