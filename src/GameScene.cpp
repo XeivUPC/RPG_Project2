@@ -14,7 +14,7 @@
 
 ///Pooling
 #include "Pooling.h"
-#include "Building.h"
+#include "SimpleTilemapChanger.h"
 #include "NpcCharacter.h"
 #include "SimpleMapObject.h"
 ///
@@ -54,7 +54,7 @@ bool GameScene::Init()
 
 bool GameScene::Start()
 {
-    Pooling::Instance().CreatePool<Building>(10);
+    Pooling::Instance().CreatePool<SimpleTilemapChanger>(10);
     Pooling::Instance().CreatePool<SimpleMapObject>(30);
     Pooling::Instance().CreatePool<NpcCharacter>(10);
 
@@ -148,8 +148,6 @@ bool GameScene::PostUpdate()
     fade->UpdateCanvas();
     game_states[state]->PostUpdateState();
 
-    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
-        RemoveLastTilemap();
     return true;
 }
 
@@ -193,7 +191,7 @@ bool GameScene::CleanUp()
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
 
-    Pooling::Instance().DeletePool<Building>(true);
+    Pooling::Instance().DeletePool<SimpleTilemapChanger>(true);
     Pooling::Instance().DeletePool<SimpleMapObject>(true);
     Pooling::Instance().DeletePool<NpcCharacter>(true);
 
@@ -262,7 +260,7 @@ void GameScene::CreateNewTilemap(string path)
     fade->FadeTo(0.5f, 0);
     if (tilemaps.size() != 0) {
         tilemaps[tilemaps.size() - 1]->isVisible = false;
-        Pooling::Instance().ReturnAllToPool<Building>();
+        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
         Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
         Pooling::Instance().ReturnAllToPool<NpcCharacter>();
     }
@@ -278,7 +276,7 @@ void GameScene::DeleteLastTilemap()
     fade->FadeTo(0.5f, 0);
     if (tilemaps.size() != 0) {
 
-        Pooling::Instance().ReturnAllToPool<Building>();
+        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
         Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
         Pooling::Instance().ReturnAllToPool<NpcCharacter>();
 

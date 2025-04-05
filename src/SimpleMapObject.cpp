@@ -33,6 +33,12 @@ void SimpleMapObject::SetData(string _atlasId, string _textureId, Vector2Int _po
 	anchor = { 0.5f,1 };
 }
 
+void SimpleMapObject::SetData(Vector2Int _position, float _scale)
+{
+	SetPosition(move(_position));
+	SetScale(move(_scale));
+}
+
 void SimpleMapObject::AddCollision(Vector2 _position, Vector2 size)
 {
 	PhysBody* body = Engine::Instance().m_physics->factory().CreateBevelBox(_position, size.x, size.y,0.1f);
@@ -53,6 +59,8 @@ bool SimpleMapObject::Update()
 
 void SimpleMapObject::Render()
 {
+	if (texture == nullptr)
+		return;
 	SDL_Rect positionRect = { (int)(position.x - rect.w * anchor.x),(int)(position.y - rect.h * anchor.y), rect.w,rect.h };
 	if (Engine::Instance().m_render->IsRectCameraVisible(positionRect))
 		Engine::Instance().m_render->painter().RenderTexture(*texture, position, &rect, { scale, scale }, 0, anchor);

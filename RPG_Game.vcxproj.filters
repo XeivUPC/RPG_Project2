@@ -303,9 +303,6 @@
     <ClCompile Include="src\ExploringGameState.cpp">
       <Filter>Source Files\GameState\Types %28GameState%29</Filter>
     </ClCompile>
-    <ClCompile Include="src\Building.cpp">
-      <Filter>Source Files\Entities\Type %28Entity%29\MapObject</Filter>
-    </ClCompile>
     <ClCompile Include="src\SimpleMapObject.cpp">
       <Filter>Source Files\Entities\Type %28Entity%29\MapObject</Filter>
     </ClCompile>
@@ -359,6 +356,9 @@
     </ClCompile>
     <ClCompile Include="src\AlertDisplayerCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SimpleTilemapChanger.cpp">
+      <Filter>Source Files\Entities\Type %28Entity%29\MapObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -566,9 +566,6 @@
     <ClInclude Include="src\ExploringGameState.h">
       <Filter>Source Files\GameState\Types %28GameState%29</Filter>
     </ClInclude>
-    <ClInclude Include="src\Building.h">
-      <Filter>Source Files\Entities\Type %28Entity%29\MapObject</Filter>
-    </ClInclude>
     <ClInclude Include="src\SimpleMapObject.h">
       <Filter>Source Files\Entities\Type %28Entity%29\MapObject</Filter>
     </ClInclude>
@@ -634,6 +631,9 @@
     </ClInclude>
     <ClInclude Include="src\UIAnimatedImage.h">
       <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SimpleTilemapChanger.h">
+      <Filter>Source Files\Entities\Type %28Entity%29\MapObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="26" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="30">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="26" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="31">
  <editorsettings>
-  <export target="../../Data/Testing_Zone.xml" format="tmx"/>
+  <export target="../../Data/Testing_Zone2.xml" format="tmx"/>
  </editorsettings>
  <tileset firstgid="1" source="../Tilesets/Cave_Tiles.tsx"/>
  <tileset firstgid="290" source="../Tilesets/Floors_Tiles.tsx"/>
@@ -80,11 +80,16 @@
 </data>
  </layer>
  <objectgroup id="7" name="Objects">
-  <object id="28" x="201" y="98">
+  <object id="28" x="200.636" y="146.727">
    <properties>
     <property name="Type" value="spawnPoint"/>
    </properties>
    <point/>
+  </object>
+  <object id="30" x="187.727" y="155" width="24.5455" height="4.18182">
+   <properties>
+    <property name="Type" value="tilemapChanger"/>
+   </properties>
   </object>
  </objectgroup>
 </map>

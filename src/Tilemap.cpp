@@ -12,7 +12,7 @@
 #include "Animator.h"
 #include "AnimationClip.h"
 
-#include "Building.h"
+#include "SimpleTilemapChanger.h"
 #include "SimpleMapObject.h"
 #include "NpcCharacter.h"
 
@@ -104,36 +104,54 @@ void Tilemap::CreateObjects()
                     }
                 }
             }
+            else if (type == "tilemapChanger") {
+                Vector2 position = { object->x + object->width / 2 * scale ,object->y };
+                Vector2 cornerPosition = { object->x ,object->y - object->height };
+
+                auto tilemapChanger = Pooling::Instance().AcquireObject<SimpleTilemapChanger>();
+                tilemapChanger->SetData(position, scale);
+
+                if (object->properties.count("TargetPath")) {
+                    tilemapChanger->SetTargetTilemapPath(object->properties.at("TargetPath").value);
+                }
+     
+                tilemapChanger->SetEntryTrigger({ PIXEL_TO_METERS(cornerPosition.x + object->width / 2),PIXEL_TO_METERS(cornerPosition.y + object->height / 2 ) }, { PIXEL_TO_METERS(object->width),PIXEL_TO_METERS(object->height) });
+            }
             else if (type == "building") {
                 Vector2 position = { object->x + object->width / 2 * scale ,object->y };
                 Vector2 cornerPosition = { object->x ,object->y - object->height };
 
-                auto building = Pooling::Instance().AcquireObject<Building>();
+                auto tilemapChanger = Pooling::Instance().AcquireObject<SimpleTilemapChanger>();
                 const TileData* tileData = &tileset->tiles.at(local_gid);
-                building->SetData(tileset->name, tileData->textureId, position, scale);
+                tilemapChanger->SetData(tileset->name, tileData->textureId, position, scale);
 
 
-                if (object->properties.count("TargetPath"))
-                    building->SetTargetTilemapPath(object->properties.at("TargetPath").value);
+				string targetPath = "";
+                if (object->properties.count("TargetPath")) {
+                    targetPath = object->properties.at("TargetPath").value;
+                    tilemapChanger->SetTargetTilemapPath(targetPath);
+                }
 
                 if (tileData->objects.count("collision")) {
                     for (size_t i = 0; i < tileData->objects.at("collision").size(); i++)
                     {
                         const TileObject* tileObject = &tileData->objects.at("collision")[i];
-                        building->AddCollision({PIXEL_TO_METERS(cornerPosition.x+ tileObject->width/2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height/2 + tileObject->y)}, {PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height)});
+                        tilemapChanger->AddCollision({PIXEL_TO_METERS(cornerPosition.x+ tileObject->width/2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height/2 + tileObject->y)}, {PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height)});
                     }
                 }
                 if (tileData->objects.count("renderPosition")) {
                     const TileObject* tileObject = &tileData->objects.at("renderPosition")[i];
-                    building->renderOffsetSorting = { (int)(cornerPosition.x + tileObject->x) ,(int)(tileObject->y - object->height) };
+                    tilemapChanger->renderOffsetSorting = { (int)(cornerPosition.x + tileObject->x) ,(int)(tileObject->y - object->height) };
                 }
-                if (tileData->objects.count("entryCollider")) {
-                    const TileObject* tileObject = &tileData->objects.at("entryCollider")[i];
-                    building->SetEntryTrigger({ PIXEL_TO_METERS(cornerPosition.x + tileObject->width / 2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height / 2 + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) });
-                }
+                if (targetPath != "") {
+                    if (tileData->objects.count("entryCollider")) {
+                        const TileObject* tileObject = &tileData->objects.at("entryCollider")[i];
+                        tilemapChanger->SetEntryTrigger({ PIXEL_TO_METERS(cornerPosition.x + tileObject->width / 2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height / 2 + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) });
+                    }
+                } 
                 if (tileData->objects.count("exitPosition")) {
                     const TileObject* tileObject = &tileData->objects.at("exitPosition")[i];
-                    building->SetExitPosition({ cornerPosition.x + tileObject->x ,cornerPosition.y + tileObject->y });
+                    tilemapChanger->SetExitPosition({ cornerPosition.x + tileObject->x ,cornerPosition.y + tileObject->y });
                 }
             }
             else if (type == "npc") {
