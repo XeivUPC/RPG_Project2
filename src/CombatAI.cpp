@@ -25,10 +25,10 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, u
 		{
 			for (auto& characterStats : teamData.second)
 			{
-
 				int singleDamageEfficiency = 0;
 				int singleDefenseEfficiency = 0;
 				int singleHealthEfficiency = 0;
+				int singleAccuracyEfficiency = 0;
 				pair<CombatSystem::CharacterType, CombatSystem::CharacterType> relation = pair<CombatSystem::CharacterType, CombatSystem::CharacterType>(attack->targetType, teamData.first);
 				if (relation.first == CombatSystem::Enemy && relation.second == CombatSystem::Enemy)
 					continue;
@@ -47,31 +47,33 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, u
 				//Damage Efficiency
 				if (attack->power != 0 || attack->statusEffects["Poison"].value != 0 || attack->statusEffects["Burn"].value != 0)
 				{
-					singleDamageEfficiency += (characterStats.stats.currentHp == attack->power ? 2 : 1);
-					singleDamageEfficiency += (characterStats.stats.currentHp == attack->statusEffects["Poison"].value * attack->statusEffects["Poison"].turns ? 2 : 1);
-					singleDamageEfficiency += (characterStats.stats.currentHp == attack->statusEffects["Burn"].value * attack->statusEffects["Burn"].turns ? 2 : 1);
+					singleDamageEfficiency += attack->power;
+					if(characterStats.stats.HasStatusEffect("Poison"))
+						singleDamageEfficiency += attack->statusEffects["Poison"].value * attack->statusEffects["Poison"].turns;
+					if (characterStats.stats.HasStatusEffect("Burn"))
+						singleDamageEfficiency += attack->statusEffects["Burn"].value * attack->statusEffects["Burn"].turns;
 				}
 				//Defense Efficiency
 				if (attack->statsModification["Defense"].value < 0)
 				{
-					singleDefenseEfficiency += (characterStats.stats.currentStats.defense - characterStats.stats.baseStats.defense == attack->statsModification["Defense"].value ? 2 : 1);
-					singleDefenseEfficiency += (characterStats.stats.currentStats.attack > attacker->stats.currentStats.defense ? 1 : 0);
-					singleDefenseEfficiency += (characterStats.stats.currentHp * 2 == characterStats.stats.currentStats.hp ? 2 : 1);
+					singleDefenseEfficiency += attack->statsModification["Defense"].value;
+					singleDefenseEfficiency += attacker->stats.currentStats.defense;
+					singleDefenseEfficiency += characterStats.stats.currentStats.hp/2;
 				}
 				else if (attack->statsModification["Defense"].value > 0)
 				{
-					singleDefenseEfficiency += (characterStats.stats.currentHp * 2 == characterStats.stats.currentStats.hp ? 2 : 1);
-					singleDefenseEfficiency += (/*characterStats.stats.statsStages.maxDefense+*/characterStats.stats.currentStats.defense == attack->statsModification["Defense"].value ? 2 : 1);
+					singleDefenseEfficiency += characterStats.stats.currentStats.hp;
+					singleDefenseEfficiency += attack->statsModification["Defense"].value;
 				}
 				//Health Efficiency
 				if (attack->statusEffects["Regeneration"].value != 0)
 				{
-					singleHealthEfficiency += (characterStats.stats.currentHp == attack->statusEffects["Regeneration"].value * attack->statusEffects["Regeneration"].turns ? 2 : 1);
+					singleHealthEfficiency += attack->statusEffects["Regeneration"].value * attack->statusEffects["Regeneration"].turns;
 				}
-
+				singleAccuracyEfficiency += attack->accuracy;
 				/// ------------------------------------ Rules End
 
-				int singleEfficiency = singleDamageEfficiency + singleDefenseEfficiency + singleHealthEfficiency;
+				int singleEfficiency = singleDamageEfficiency + singleDefenseEfficiency + singleHealthEfficiency + singleAccuracyEfficiency;
 				TargetEfficiencyList.emplace_back(pair<CombatSystem::CharacterReference&, int>(characterStats, singleEfficiency));
 				efficiency += singleEfficiency;
 
@@ -94,7 +96,7 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, u
 			TargetEfficiencyList.erase(TargetEfficiencyList.begin() + min);
 		}
 
-		if (bestOption.first <= efficiency)
+		if (bestOption.first < efficiency)
 		{
 			bestOption.first = efficiency;
 			bestOption.second.first = attack->id;	
@@ -105,6 +107,13 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, u
 			}
 		}
 	}
+	printf("Attacker: %d %d, Attack %s ", attacker->team, attacker->id, AttackList::Instance().GetAttack(bestOption.second.first)->name.c_str());
+	for (size_t x = 0; x < bestOption.second.second.size(); x++)
+	{
+		printf("Target %d %d ", bestOption.second.second[x]->team, bestOption.second.second[x]->id);
+		
+	}
+	printf("\n");
 }
 
 CombatAI::CombatAI(CombatSystem* system)

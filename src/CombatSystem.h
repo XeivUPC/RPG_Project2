@@ -73,6 +73,15 @@ public:
 		StatStages statsStages;
 		vector<StatusEffect> statusEffects;
 
+		bool HasStatusEffect(string type) {
+			for (size_t i = 0; i < statusEffects.size(); i++)
+			{
+				if (statusEffects[i].name == type)
+					return true;
+			}
+			return false;
+		}
+
 		void Reset() {
 			currentStats.hp = (int)GetHpStatValue();
 			currentHp = (float)currentStats.hp;
