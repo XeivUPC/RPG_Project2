@@ -21,14 +21,14 @@
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="2" />
 	</Character>
-	<Character id="2" name="Guard_Left">
+	<Character id="2" name="Guard Left">
 		<Data textureId="artis_test" dialoguePath="Assets/Dialogues/guard_RS_entrance_left.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="1" hp="45" defense="49" attack="49" speed="45" />
 		<Attacks attack1="2" attack2="3" attack3="0" attack4="1" />
 		<AttackRole type="0" />
 	</Character>
-	<Character id="3" name="Guard_Right">
+	<Character id="3" name="Guard Right">
 		<Data textureId="artis_test" dialoguePath="Assets/Dialogues/guard_RS_entrance_right.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="1" hp="45" defense="49" attack="49" speed="45" />

@@ -58,7 +58,7 @@ public:
 	unordered_map<string, StatusModifier> statusEffects;
 
 	/// Extra
-	int lifeDewMode = 0;
+	int lifeDewMode = -1;
 	int lifeDewAmount = 0;
 	int lifeDewEffectiveness=0;
 

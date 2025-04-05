@@ -15,7 +15,7 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, u
 
 
 		//// Por cada pj, que tan efficiente es el ataque
-		vector<pair<CombatSystem::CharacterReference&, int>> TargetEfficiencyList;
+		vector<pair<CombatSystem::CharacterReference*, int>> TargetEfficiencyList;
 
 
 		Attack* attack = AttackList::Instance().GetAttack(attackerData.attacks[i]);
@@ -74,7 +74,7 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, u
 				/// ------------------------------------ Rules End
 
 				int singleEfficiency = singleDamageEfficiency + singleDefenseEfficiency + singleHealthEfficiency + singleAccuracyEfficiency;
-				TargetEfficiencyList.emplace_back(pair<CombatSystem::CharacterReference&, int>(characterStats, singleEfficiency));
+				TargetEfficiencyList.emplace_back(pair<CombatSystem::CharacterReference*, int>(&characterStats, singleEfficiency));
 				efficiency += singleEfficiency;
 
 				j++;
@@ -103,7 +103,7 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, u
 			bestOption.second.second.clear();
 			for (size_t x = 0; x < TargetEfficiencyList.size(); x++)
 			{
-				bestOption.second.second.emplace_back(&TargetEfficiencyList[x].first);
+				bestOption.second.second.emplace_back(TargetEfficiencyList[x].first);
 			}
 		}
 	}
