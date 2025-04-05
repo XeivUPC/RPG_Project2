@@ -72,6 +72,12 @@ void SimpleTilemapChanger::ResetPoolObject()
 {
 	SimpleMapObject::ResetPoolObject();
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
-	if(entryTrigger!=nullptr)
+	targetPath = "";
+	exitPosition = { 0,0 };
+	entrySensor.Reset();
+
+	if (entryTrigger != nullptr) {
 		delete entryTrigger;
+		entryTrigger = nullptr;
+	}
 }

@@ -134,6 +134,20 @@ PhysBody* CollisionSensor::GetClosestBodyColliding()
     return closestBody;
 }
 
+void CollisionSensor::Reset()
+{
+    physBodyToTrack = nullptr;
+    fixture = nullptr;
+
+    bodiesInside = 0;
+    onlyTriggers = true;
+
+    lastBodyEnter = nullptr;
+    lastBodyExit = nullptr;
+
+    bodiesColliding.clear();
+}
+
 PhysBody* CollisionSensor::GetDifferentBody(PhysBody* body1, PhysBody* body2, PhysBody* bodyToBeDifferentFrom)
 {
     if (body1 != bodyToBeDifferentFrom)
