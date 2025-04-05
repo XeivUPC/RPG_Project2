@@ -47,10 +47,12 @@ public:
         }
         else {
             auto new_obj = std::make_unique<T>();
+            new_obj->ResetPoolObject();
             raw_ptr = new_obj.get();
             pool.all_objects.push_back(std::move(new_obj));
             if (debug)
                 std::cout << "Pool expanded for " << typeid(T).name() << "\n";
+
         }
         pool.checked_out.insert(raw_ptr);
         raw_ptr->InitPoolObject();
@@ -149,7 +151,7 @@ public:
         }
     }
 public:
-        bool debug = false;
+        bool debug = true;
 private:
     struct TypePoolBase {
         virtual ~TypePoolBase() = default;
