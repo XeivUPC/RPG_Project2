@@ -5,8 +5,9 @@
 
 void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, unordered_map <CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>>& charactersInCombat)
 {
+	bestOption.first = 0;
+	bestOption.second.first = 0;
 	bestOption.second.second.clear();
-
 
 	CharacterDatabase::CharacterData& attackerData = CharacterDatabase::Instance().GetCharacterData(attacker->id);
 	for (size_t i = 0; i < attackerData.attacks.size(); i++)
@@ -45,7 +46,7 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, u
 				/// ------------------------------------ Rules Start
 
 				//Damage Efficiency
-				if (attack->power != 0 || attack->statusEffects["Poison"].value != 0 || attack->statusEffects["Burn"].value != 0)
+				if (attack->power != 0 || attack->statusEffects["Poison"].value != 0 || attack->statusEffects["Burn"].value != 0 || characterStats.stats.currentHp <= 0)
 				{
 					singleDamageEfficiency += attack->power;
 					if(characterStats.stats.HasStatusEffect("Poison"))
@@ -79,7 +80,6 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, u
 
 				j++;
 			}
-			
 		}
 
 		////// De estos pj que puedo atacar, cuales me rentan mas, seleccionamos los mas altos -> Nos da los mejores para este ataque
@@ -107,10 +107,10 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, u
 			}
 		}
 	}
-	printf("Attacker: %d %d, Attack %s ", attacker->team, attacker->id, AttackList::Instance().GetAttack(bestOption.second.first)->name.c_str());
+	printf("Attacker: { %d %d }, Attack %s ", attacker->team, attacker->id, AttackList::Instance().GetAttack(bestOption.second.first)->name.c_str());
 	for (size_t x = 0; x < bestOption.second.second.size(); x++)
 	{
-		printf("Target %d %d ", bestOption.second.second[x]->team, bestOption.second.second[x]->id);
+		printf("Target { %d %d } ", bestOption.second.second[x]->team, bestOption.second.second[x]->id);
 		
 	}
 	printf("\n");
@@ -135,7 +135,7 @@ void CombatAI::CalculateAI(unordered_map <CombatSystem::CharacterType, vector<Co
 		CalculateBestOption(&attackerData, charactersInCombat);
 		Attack* attack = AttackList::Instance().GetAttack(bestOption.second.first);
 
-		printf("Level: %d  Id: %d  AttackName:  %s\n", attackerData.stats.level, attackerData.id, attack->name.c_str());
+		//printf("Level: %d  Id: %d  AttackName:  %s\n", attackerData.stats.level, attackerData.id, attack->name.c_str());
 		combatSystem->AddAttack(attack, attackerData, bestOption.second.second);
 	}
 }
