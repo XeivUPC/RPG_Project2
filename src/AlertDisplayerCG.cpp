@@ -57,10 +57,12 @@ void AlertDisplayerCG::OpenAlert()
 {
 	timer.Start();
 	alert->localVisible = true;
+	onAlertOpened.Trigger();
 }
 
 void AlertDisplayerCG::CloseAlert()
 {
 	timer.Start();
 	alert->localVisible = false;
+	onAlertClosed.Trigger();
 }
