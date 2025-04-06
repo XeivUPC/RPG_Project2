@@ -9,9 +9,9 @@
 #include "CollisionsDispatcher.h"
 #include "PhysicFactory.h"
 #include "Globals.h"
-#include "ModuleTime.h"
 #include "Log.h"
 #include "DrawingTools.h"
+#include "GameScene.h"
 
 #include <math.h>
 
@@ -60,7 +60,8 @@ bool ModulePhysics::PreUpdate()
 
 bool ModulePhysics::Update()
 {	
-	debug = Engine::Instance().m_debug->godmode;
+	if(Engine::Instance().s_game->GetState() == GameScene::State::Exploring)
+		debug = Engine::Instance().m_debug->godmode;
 	return true;
 }
 
