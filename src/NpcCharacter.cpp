@@ -159,7 +159,7 @@ void NpcCharacter::Animate()
 	string animationId = isMoving ? (speedModifier == runSpeedModifier ? "run-" : "walk-") : "idle-";
 	string animationDirectionId = "";
 
-	if (std::abs(animationDirection.x) >= std::abs(animationDirection.y)) {
+	if (std::abs(animationDirection.x) > 0) {
 
 		animationDirectionId = "horizontally";
 	}
