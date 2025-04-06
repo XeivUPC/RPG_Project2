@@ -303,6 +303,7 @@
   <ItemGroup>
     <Xml Include="Assets\Data\AttackList.xml" />
     <Xml Include="Assets\Data\CharactersData.xml" />
+    <Xml Include="Assets\Data\CharactersData_Default.xml" />
     <Xml Include="Assets\Data\UserPrefs.xml" />
   </ItemGroup>
   <ItemGroup>
