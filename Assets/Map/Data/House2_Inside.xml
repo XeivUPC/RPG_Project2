@@ -100,8 +100,16 @@
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>
-  <object id="33" gid="1571" x="176" y="144" width="32" height="32"/>
-  <object id="34" gid="1569" x="224" y="128" width="32" height="16"/>
+  <object id="33" gid="1571" x="176" y="144" width="32" height="32">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="34" gid="1569" x="224" y="128" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="10" name="Collisions">
   <object id="39" x="144" y="16" width="144" height="16"/>

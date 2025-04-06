@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="653">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="656">
  <editorsettings>
   <export target="../../Data/Rogue_Squadron_Headquarters.xml" format="tmx"/>
  </editorsettings>
@@ -1648,7 +1648,7 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="563" gid="2363" x="944" y="192" width="16" height="16">
+  <object id="563" gid="2363" x="960" y="176" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
@@ -1889,12 +1889,22 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="634" gid="2366" x="800" y="224" width="16" height="16">
+  <object id="636" gid="2356" x="800" y="272" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="636" gid="2356" x="800" y="272" width="16" height="16">
+  <object id="653" gid="2360" x="800" y="224" width="16" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="654" gid="2362" x="896" y="592" width="16" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="655" gid="2361" x="944" y="592" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>

@@ -45,11 +45,11 @@
                 10,
                 7
             ],
-            "scale": 3,
+            "scale": 2,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 223.66666666666666,
-                "y": 147.99999999999997
+                "x": 222,
+                "y": 150.5
             }
         },
         "Maps/Map1.tmx": {
@@ -64,11 +64,11 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 1,
+            "scale": 4,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 869,
-                "y": 278
+                "x": 792.25,
+                "y": 202.25
             }
         },
         "Maps/Testing_Zone.tmx": {
@@ -120,7 +120,7 @@
         "Tilesets/Floors_Tiles.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 2,
-            "scaleInEditor": 3
+            "scaleInEditor": 5.5
         },
         "Tilesets/Furniture_Atlas.tsx": {
             "dynamicWrapping": false,
@@ -167,25 +167,27 @@
     "map.width": 20,
     "openFiles": [
         "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Maps/Testing_Zone2.tmx",
-        "Tilesets/Building_Atlas.tsx",
-        "Maps/Testing_Zone.tmx"
+        "Maps/House2_Inside.tmx",
+        "Maps/Testing_Zone.tmx",
+        "Tilesets/Floors_Tiles.tsx",
+        "Tilesets/Vegetation_Atlas.tsx",
+        "Tilesets/Furniture_Atlas.tsx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "string",
     "recentFiles": [
         "Tilesets/Furniture_Atlas.tsx",
+        "Tilesets/Vegetation_Atlas.tsx",
+        "Tilesets/Floors_Tiles.tsx",
+        "Maps/Testing_Zone.tmx",
+        "Maps/House2_Inside.tmx",
+        "Maps/Rogue_Squadron_Headquarters.tmx",
         "Tilesets/Building_Atlas.tsx",
         "Maps/Testing_Zone2.tmx",
-        "Maps/Testing_Zone.tmx",
-        "Maps/Rogue_Squadron_Headquarters.tmx",
         "Tilesets/Water_tiles.tsx",
         "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx",
         "Tilesets/dsa.tsx",
-        "Tilesets/Vegetation_Atlas.tsx",
-        "Tilesets/Floors_Tiles.tsx",
-        "Tilesets/Cave_Tiles.tsx",
-        "G:/GitHub/RPG_Project2/Assets/Map/Data/Testing_Zone.tmx"
+        "Tilesets/Cave_Tiles.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,
