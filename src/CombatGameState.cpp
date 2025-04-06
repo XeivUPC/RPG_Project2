@@ -51,7 +51,7 @@ void CombatGameState::StateSelected()
 
 
 	Engine::Instance().s_game->combatSystem->AddPartyToCombat(vector<int>{1,2,3,4}, CombatSystem::Ally);
-	Engine::Instance().s_game->combatSystem->AddPartyToCombat(vector<int>{2, 3, 4}, CombatSystem::Enemy);
+	Engine::Instance().s_game->combatSystem->AddPartyToCombat(vector<int>{5,6, 2}, CombatSystem::Enemy);
 
 	Engine::Instance().s_game->fade->onFadeEnd.Subscribe([this]() {OnLoadingEnd();});
 
