@@ -132,10 +132,10 @@ void Tilemap::CreateObjects()
                 simpleObject->SetData(tileset->name, tileData->textureId, position,scale);
 
                 if (tileData->objects.count("collision")) {
-                    for (size_t i = 0; i < tileData->objects.count("collision"); i++)
+                    for (size_t i = 0; i < tileData->objects.at("collision").size(); i++)
                     {
                         const TileObject* tileObject = &tileData->objects.at("collision")[i];
-                        simpleObject->AddBoxCollision({ PIXEL_TO_METERS(cornerPosition.x + tileObject->width / 2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height / 2 + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) }, false);
+                        simpleObject->AddBoxCollision({ PIXEL_TO_METERS(cornerPosition.x + tileObject->width / 2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height / 2 + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) });
                     }
                 }
             }

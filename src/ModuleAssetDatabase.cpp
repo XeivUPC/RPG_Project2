@@ -121,7 +121,8 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("vegetation_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/MapObjects/Vegetation/VegetationAtlas.png"));
 	AddAtlasToStorage("vegetation_atlas", *atlasFactory->CreateAtlas(*GetTexture("vegetation_atlas"), "Assets/Textures/Atlas/MapObjects/Vegetation/VegetationAtlas.xml"));
 
-
+	AddTextureToStorage("furniture_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/MapObjects/Furniture/FurnitureAtlas.png"));
+	AddAtlasToStorage("furniture_atlas", *atlasFactory->CreateAtlas(*GetTexture("furniture_atlas"), "Assets/Textures/Atlas/MapObjects/Furniture/FurnitureAtlas.xml"));
 
 	
 

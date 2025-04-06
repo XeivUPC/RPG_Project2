@@ -119,5 +119,17 @@
    <wangtile tileid="262" wangid="0,2,0,2,0,2,0,2"/>
    <wangtile tileid="263" wangid="0,2,0,2,0,2,0,2"/>
   </wangset>
+  <wangset name="WoodFloor" type="corner" tile="-1">
+   <wangcolor name="Wood" color="#ff0000" tile="-1" probability="1"/>
+   <wangtile tileid="46" wangid="0,0,0,1,0,0,0,0"/>
+   <wangtile tileid="47" wangid="0,0,0,1,0,1,0,0"/>
+   <wangtile tileid="48" wangid="0,0,0,0,0,1,0,0"/>
+   <wangtile tileid="71" wangid="0,1,0,1,0,0,0,0"/>
+   <wangtile tileid="72" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="73" wangid="0,0,0,0,0,1,0,1"/>
+   <wangtile tileid="96" wangid="0,1,0,0,0,0,0,0"/>
+   <wangtile tileid="97" wangid="0,1,0,0,0,0,0,1"/>
+   <wangtile tileid="98" wangid="0,0,0,0,0,0,0,1"/>
+  </wangset>
  </wangsets>
 </tileset>
