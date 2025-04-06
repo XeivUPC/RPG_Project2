@@ -32,6 +32,9 @@ public:
 public:
 
 private:
+
+	
+
 	struct UIAttackButton {
 		UIButton* btn = nullptr;
 		UITextBox* text = nullptr;
@@ -136,5 +139,6 @@ private:
 
 	/// Extra
 	AlertDisplayerCG* alert;
+	UITextBox* debug_immortalEnabled = nullptr;
 	
 };

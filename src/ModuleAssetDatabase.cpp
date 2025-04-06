@@ -100,6 +100,7 @@ void ModuleAssetDatabase::LoadAssets()
 	///General
 	AddTextureToStorage("team_logo", *textureFactory->CreateTexture("Assets/Textures/General/team_logo.png"));
 	AddTextureToStorage("game_title_pixel", *textureFactory->CreateTexture("Assets/Textures/General/game_title_pixel.png"));
+	AddTextureToStorage("game_title_&_logo", *textureFactory->CreateTexture("Assets/Textures/General/game_title_&_logo.png"));
 	AddTextureToStorage("top_fade", *textureFactory->CreateTexture("Assets/Textures/General/top_fade.png"));
 	///Characters --> Make Atlas later
 	AddTextureToStorage("character_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/Characters/CharactersAtlas.png"));
