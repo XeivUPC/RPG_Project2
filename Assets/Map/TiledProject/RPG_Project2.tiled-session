@@ -41,19 +41,27 @@
             }
         },
         "Maps/House2_Inside.tmx": {
-            "scale": 2.8088942307692304,
-            "selectedLayer": 0,
+            "expandedObjectLayers": [
+                10,
+                7
+            ],
+            "scale": 8,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 207.91099700470693,
-                "y": 112.14377406931966
+                "x": 221.1875,
+                "y": 138.75
             }
         },
         "Maps/House3_Inside.tmx": {
-            "scale": 2.4779166666666668,
+            "expandedObjectLayers": [
+                10,
+                7
+            ],
+            "scale": 8,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 207.8358836388095,
-                "y": 387.8257945182445
+                "x": 236.5625,
+                "y": 363.75
             }
         },
         "Maps/Map1.tmx": {
@@ -68,35 +76,35 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 1.5,
+            "scale": 2,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 463.99999999999994,
-                "y": 608
+                "x": 334.75,
+                "y": 224
             }
         },
         "Maps/Testing_Zone.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
-            "scale": 4,
-            "selectedLayer": 5,
+            "scale": 5.5,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 208.125,
-                "y": 112
+                "x": 203.1818181818182,
+                "y": 133.0909090909091
             }
         },
         "Maps/Testing_Zone2.tmx": {
             "expandedObjectLayers": [
-                7,
-                11
+                11,
+                7
             ],
-            "scale": 3,
-            "selectedLayer": 5,
+            "scale": 5.5,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 208.16666666666663,
-                "y": 112
+                "x": 197,
+                "y": 96.72727272727272
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -128,7 +136,8 @@
         },
         "Tilesets/Furniture_Atlas.tsx": {
             "dynamicWrapping": true,
-            "scaleInDock": 1
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "Tilesets/Grass_Tiles.tsx": {
             "dynamicWrapping": false,
@@ -174,18 +183,18 @@
     "project": "RPG_Project2.tiled-project",
     "property.type": "string",
     "recentFiles": [
+        "Maps/Testing_Zone2.tmx",
+        "Maps/Testing_Zone.tmx",
+        "Tilesets/Furniture_Atlas.tsx",
         "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/House2_Inside.tmx",
-        "Maps/Testing_Zone.tmx",
         "Tilesets/Building_Atlas.tsx",
-        "Maps/Testing_Zone2.tmx",
         "Tilesets/Water_tiles.tsx",
         "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx",
         "Tilesets/dsa.tsx",
         "Tilesets/Vegetation_Atlas.tsx",
         "Tilesets/Floors_Tiles.tsx",
-        "Tilesets/Cave_Tiles.tsx",
-        "G:/GitHub/RPG_Project2/Assets/Map/Data/Testing_Zone.tmx"
+        "Tilesets/Cave_Tiles.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,

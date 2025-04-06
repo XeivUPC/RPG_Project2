@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="656">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="657">
  <editorsettings>
   <export target="../../Data/Rogue_Squadron_Headquarters.xml" format="tmx"/>
  </editorsettings>
@@ -388,16 +388,16 @@
   <object id="41" template="../Prefabs/Buildings/tent1.tx" x="336" y="736"/>
   <object id="42" template="../Prefabs/Buildings/tent2.tx" x="336" y="576"/>
   <object id="43" template="../Prefabs/Buildings/tent2.tx" x="624" y="736"/>
-  <object id="98" x="543.958" y="216.167">
+  <object id="98" x="681.291" y="610.167">
    <properties>
-    <property name="NpcId" value="0"/>
+    <property name="NpcId" value="5"/>
     <property name="Path" type="object" value="108"/>
     <property name="PathMovementType" type="int" value="0"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
-  <object id="99" x="418" y="428.833">
+  <object id="99" x="400" y="256">
    <properties>
     <property name="NpcId" value="1"/>
     <property name="Type" value="npc"/>
@@ -412,19 +412,13 @@
    </properties>
    <point/>
   </object>
-  <object id="101" x="109" y="788">
-   <properties>
-    <property name="Type" value="npc"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="106" x="281.666" y="829">
+  <object id="106" x="280.211" y="831.909">
    <properties>
     <property name="Type" value="spawnPoint"/>
    </properties>
    <point/>
   </object>
-  <object id="108" x="543.833" y="216.167">
+  <object id="108" x="681.166" y="610.167">
    <polyline points="0,0 95,0"/>
   </object>
   <object id="112" x="303" y="294.333">
@@ -1912,6 +1906,13 @@
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
+  </object>
+  <object id="656" x="336" y="256">
+   <properties>
+    <property name="NpcId" value="0"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
  <objectgroup id="9" name="Collisions">

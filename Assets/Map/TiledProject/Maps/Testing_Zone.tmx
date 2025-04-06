@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="26" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="37">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="26" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="47">
  <editorsettings>
   <export target="../../Data/Testing_Zone.xml" format="tmx"/>
  </editorsettings>
@@ -18,7 +18,7 @@
 0,0,0,0,0,0,0,380,361,362,362,362,362,362,362,362,362,363,384,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,330,386,387,387,387,387,387,387,387,362,388,334,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,355,386,362,362,362,362,362,362,362,362,388,359,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,380,406,407,408,408,406,407,408,406,407,408,384,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,380,406,407,408,408,406,362,408,406,407,408,384,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -80,7 +80,7 @@
 </data>
  </layer>
  <objectgroup id="7" name="Objects">
-  <object id="28" x="216" y="147.5">
+  <object id="28" x="216.182" y="141.136">
    <properties>
     <property name="Type" value="spawnPoint"/>
    </properties>
@@ -88,7 +88,7 @@
   </object>
   <object id="29" x="144.045" y="96.5">
    <properties>
-    <property name="NpcId" value="1"/>
+    <property name="NpcId" value="-1"/>
     <property name="Path" type="object" value="31"/>
     <property name="Type" value="npc"/>
    </properties>
@@ -104,9 +104,11 @@
   </object>
  </objectgroup>
  <objectgroup id="10" name="Collisions">
-  <object id="33" x="96" y="64.25" width="16" height="95.75"/>
-  <object id="34" x="112" y="160" width="192" height="16"/>
-  <object id="35" x="304" y="64" width="16" height="96"/>
-  <object id="36" x="112" y="48" width="192" height="16"/>
+  <object id="34" x="201.667" y="160" width="27.3333" height="16"/>
+  <object id="38" x="128" y="144" width="80" height="16"/>
+  <object id="39" x="224" y="144" width="80" height="16"/>
+  <object id="44" x="112" y="80" width="16" height="64"/>
+  <object id="45" x="128" y="64" width="160" height="16"/>
+  <object id="46" x="288" y="80" width="16" height="64"/>
  </objectgroup>
 </map>
