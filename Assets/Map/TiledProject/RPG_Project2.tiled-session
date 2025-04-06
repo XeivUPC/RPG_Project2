@@ -48,7 +48,7 @@
             "scale": 2,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208,
+                "x": 207.5,
                 "y": 112.5
             }
         },
@@ -60,8 +60,20 @@
             "scale": 1.5,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 255.99999999999997,
-                "y": 225.99999999999997
+                "x": 254.66666666666669,
+                "y": 225.33333333333331
+            }
+        },
+        "Maps/House4_Inside.tmx": {
+            "expandedObjectLayers": [
+                7,
+                10
+            ],
+            "scale": 1.5,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 321.3333333333333,
+                "y": 203.33333333333331
             }
         },
         "Maps/Map1.tmx": {
@@ -76,11 +88,11 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 1.5,
+            "scale": 0.75,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 180.66666666666669,
-                "y": 450
+                "x": 620,
+                "y": 349.33333333333337
             }
         },
         "Maps/Testing_Zone.tmx": {
