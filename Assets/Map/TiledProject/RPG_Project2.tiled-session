@@ -42,20 +42,20 @@
         },
         "Maps/House2_Inside.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
             "scale": 3,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208.16666666666666,
-                "y": 111.83333333333334
+                "x": 208.16666666666663,
+                "y": 111.66666666666664
             }
         },
         "Maps/House3_Inside.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
             "scale": 8,
             "selectedLayer": 4,
@@ -68,8 +68,8 @@
             "scale": 1,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 158.5,
-                "y": 352
+                "x": 248,
+                "y": 167.5
             }
         },
         "Maps/Map1.tmx": {
@@ -87,26 +87,26 @@
             "scale": 2,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 334.75,
-                "y": 224
+                "x": 501,
+                "y": 448.25
             }
         },
         "Maps/Testing_Zone.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
             "scale": 5.5,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208.0909090909091,
-                "y": 112.0909090909091
+                "x": 208.09090909090907,
+                "y": 112.00000000000001
             }
         },
         "Maps/Testing_Zone2.tmx": {
             "expandedObjectLayers": [
-                7,
-                11
+                11,
+                7
             ],
             "scale": 5.5,
             "selectedLayer": 4,
