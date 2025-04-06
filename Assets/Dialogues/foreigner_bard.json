@@ -1,1 +1,67 @@
-{"6dc44de5-b100-424f-b86b-6dddd296f1ba":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"","fr":""}},"root":{},"__editor":{"root":{"uuid":"root","offset":[40,100]},"dialogues":[{"uuid":"6dc44de5-b100-424f-b86b-6dddd296f1ba","offset":[260,-140]}],"conditions":[{"uuid":"5317e18f-42dd-4ae9-94b5-35b9b63aad33","offset":[660,140],"collapsed":false,"data":{}}],"signals":[{"uuid":"8087e90a-6d9f-4521-9877-6bac6cb91bc1","offset":[280,280],"data":{}}],"choices":[{"uuid":"818b45c8-a673-4c66-b71d-7677c572232a","offset":[660,-140],"data":{"text":{"en":"","fr":""},"next":""}}]}}
+{
+    "6dc44de5-b100-424f-b86b-6dddd296f1ba": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Characters/Cassian-early-idle.png",
+        "text": {
+            "en": "",
+            "fr": ""
+        }
+    },
+    "root": {},
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                40,
+                100
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "6dc44de5-b100-424f-b86b-6dddd296f1ba",
+                "offset": [
+                    260,
+                    -140
+                ]
+            }
+        ],
+        "conditions": [
+            {
+                "uuid": "5317e18f-42dd-4ae9-94b5-35b9b63aad33",
+                "offset": [
+                    660,
+                    140
+                ],
+                "collapsed": false,
+                "data": {}
+            }
+        ],
+        "signals": [
+            {
+                "uuid": "8087e90a-6d9f-4521-9877-6bac6cb91bc1",
+                "offset": [
+                    280,
+                    280
+                ],
+                "data": {}
+            }
+        ],
+        "choices": [
+            {
+                "uuid": "818b45c8-a673-4c66-b71d-7677c572232a",
+                "offset": [
+                    660,
+                    -140
+                ],
+                "data": {
+                    "text": {
+                        "en": "",
+                        "fr": ""
+                    },
+                    "next": ""
+                }
+            }
+        ]
+    }
+}

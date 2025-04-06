@@ -52,8 +52,8 @@
             "scale": 1,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 511.5,
-                "y": 447
+                "x": 533,
+                "y": 447.5
             }
         },
         "Maps/Testing_Zone.tmx": {
@@ -64,20 +64,20 @@
             "scale": 4,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 208.125,
-                "y": 112
+                "x": 208,
+                "y": 112.125
             }
         },
         "Maps/Testing_Zone2.tmx": {
             "expandedObjectLayers": [
-                7,
-                11
+                11,
+                7
             ],
             "scale": 3,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 208.16666666666663,
-                "y": 112
+                "x": 208,
+                "y": 111.83333333333334
             }
         },
         "Maps/Water_tiles.tsx": {

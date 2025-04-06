@@ -122,7 +122,7 @@
             {
                 "name": "Narrator",
                 "portraits": [],
-                "uuid": "0d105344-aba2-4be7-a28b-b06dd0cfe76e"
+                "uuid": "862ae6ac-2554-49f7-8d4d-f4039abf8ad6"
             },
             {
                 "name": "Artis Guard",
@@ -133,7 +133,7 @@
                         "uuid": "6670920f-ac69-43f9-ad59-a41d203b4301"
                     }
                 ],
-                "uuid": "c444ea54-0663-41f9-b317-f6f739c22a7a"
+                "uuid": "6dc17b34-5435-4339-8b21-48334a1e5931"
             }
         ],
         "files": [
@@ -172,13 +172,17 @@
             {
                 "name": "guard_Artis_left.json",
                 "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/guard_Artis_left.json"
+            },
+            {
+                "name": "guard_Artis_right.json",
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/guard_Artis_right.json"
             }
         ]
     },
     "cache": {
         "last_opened_file": {
-            "name": "test.json",
-            "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/test.json"
+            "name": "Sir_Gideon_Hawthorne.json",
+            "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/Sir_Gideon_Hawthorne.json"
         }
     },
     "info": {
