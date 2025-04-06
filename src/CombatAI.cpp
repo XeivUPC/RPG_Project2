@@ -2,9 +2,15 @@
 #include "CombatSystem.h"
 #include "CharacterDatabase.h"
 #include "AttackList.h"
+#include <random>
+
+using namespace std;
 
 void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, unordered_map <CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>>& charactersInCombat)
 {
+	std::random_device rd;
+	std::mt19937 gen(rd());
+
 	bestOption.first = 0;
 	bestOption.second.first = 0;
 	bestOption.second.second.clear();
@@ -89,13 +95,20 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, u
 			int min = 0;
 			for (size_t j = 1; j < TargetEfficiencyList.size(); j++)
 			{
-				if (TargetEfficiencyList[min].second > TargetEfficiencyList[j].second)
+				if (TargetEfficiencyList[min].second == TargetEfficiencyList[j].second)
+				{
+					uniform_int_distribution preferenceToAttack(0, 1);
+					bool equalEfficiencyRandom = (bool)preferenceToAttack(gen);
+					if(equalEfficiencyRandom)
+						min = (int)j;
+				}
+				else if (TargetEfficiencyList[min].second > TargetEfficiencyList[j].second)
 					min = (int)j;
 			}
 			efficiency -= TargetEfficiencyList[min].second;
 			TargetEfficiencyList.erase(TargetEfficiencyList.begin() + min);
 		}
-
+		
 		if (bestOption.first < efficiency)
 		{
 			bestOption.first = efficiency;
@@ -107,13 +120,6 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, u
 			}
 		}
 	}
-	printf("Attacker: { %d %d }, Attack %s ", attacker->team, attacker->id, AttackList::Instance().GetAttack(bestOption.second.first)->name.c_str());
-	for (size_t x = 0; x < bestOption.second.second.size(); x++)
-	{
-		printf("Target { %d %d } ", bestOption.second.second[x]->team, bestOption.second.second[x]->id);
-		
-	}
-	printf("\n");
 }
 
 CombatAI::CombatAI(CombatSystem* system)

@@ -10,7 +10,6 @@ private:
 
 	pair<int,pair<int, vector<CombatSystem::CharacterReference*>>> bestOption;
 	void CalculateBestOption(CombatSystem::CharacterReference* attacker, unordered_map <CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>>& charactersInCombat);
-
 	CombatSystem* combatSystem;
 public:
 	CombatAI(CombatSystem* system);
