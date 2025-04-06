@@ -18,62 +18,194 @@
         "custom": "[  ]"
     },
     "variables": {
-        "characters": "[ {\"name\": \"Cassian\",\"portraits\": [ {\"name\": \"Cassian-early-idle\",\"path\": \"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png\",\"uuid\": \"4554b69f-5f52-41fa-b69d-5fcd5e366cfa\"}, {\"name\": \"Cassian-early-sad-fade\",\"path\": \"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-sad-fade.png\",\"uuid\": \"2fbbee9b-fa1a-4790-96b7-d656f33940e2\"}, {\"name\": \"Cassian-early-angry-fade\",\"path\": \"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-angry-fade.png\",\"uuid\": \"d03c4513-94af-4ced-8686-cb3617097bcd\"}, {\"name\": \"Cassian-early-happy\",\"path\": \"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-happy.png\",\"uuid\": \"e5f848c7-bdbe-4171-9512-d5286b6b55a5\"}, {\"name\": \"Cassian-late-idle\",\"path\": \"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-late-idle.png\",\"uuid\": \"bd5242e9-97df-4563-b008-f220e7658966\"}, {\"name\": \"Cassian-late-sad-fade\",\"path\": \"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-late-sad-fade.png\",\"uuid\": \"4cf717fc-0a3b-40a3-b937-92ef0c651e21\"}, {\"name\": \"Cassian-late-angry-fade\",\"path\": \"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-late-angry-fade.png\",\"uuid\": \"400f4605-28f4-4658-92cd-5b2490b5648e\"}, {\"name\": \"Cassian-late-happy\",\"path\": \"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-late-happy.png\",\"uuid\": \"2285c502-a097-414d-8e6d-b3fcbed2e554\"} ],\"uuid\": \"9e488680-eba3-4172-8361-67b08867e5ab\"}, {\"name\": \"Artis\",\"portraits\": [ {\"name\": \"Artis-early-idle\",\"path\": \"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png\",\"uuid\": \"4c31dc6e-2dad-4873-8654-5b42cd387e01\"}, {\"name\": \"Artis-early-happy\",\"path\": \"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-happy.png\",\"uuid\": \"4f126967-df0b-4cba-b72e-c6dd4f50f767\"}, {\"name\": \"Artis-late-idle\",\"path\": \"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-late-idle.png\",\"uuid\": \"f9ed7dec-dbbf-41ff-a60e-86f682483777\"} ],\"uuid\": \"66658753-5bc8-4f86-ad55-c5607a3fd336\"}, {\"name\": \"Rogue Squadron Army\",\"portraits\": [  ],\"uuid\": \"fe750287-6cfa-424a-a12f-da4536409d60\"}, {\"name\": \"Rogue Squadron Soldier\",\"portraits\": [ {\"name\": \"Guard1-idle\",\"path\": \"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png\",\"uuid\": \"7240b260-f226-4179-b952-3b45dcca8a7f\"} ],\"uuid\": \"23095ecd-ae6c-45b5-a31e-64ad132e5779\"}, {\"name\": \"Sir Gideon Hawthorne\",\"portraits\": [ {\"name\": \"Guideon-idle\",\"path\": \"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png\",\"uuid\": \"c342b42b-5568-48ed-bffb-b8740e4111a6\"} ],\"uuid\": \"59baaa05-176b-49c2-b5aa-41b38f2c78d1\"}, {\"name\": \"Narrator\",\"portraits\": [  ],\"uuid\": \"5d11a270-1220-4edc-91ea-9a9087253382\"}, {\"name\": \"Artis Guard\",\"portraits\": [  ],\"uuid\": \"8b735186-8435-43a8-b771-3b7dcd6a3456\"}, {\"name\": \"Emperor Charles II\",\"portraits\": [ {\"name\": \"CharlesII-idle.png\",\"path\": \"/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png\",\"uuid\": \"748f3478-b38f-4680-88a4-4e1adef959da\"}, {\"name\": \"CharlesII-poisoned.png\",\"path\": \"/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-poisoned.png\",\"uuid\": \"2c2d75bb-8fe8-4bde-800c-19020e0379f2\"} ],\"uuid\": \"fbfa7b91-5f36-4b76-b697-8e0e07bd80c0\"}, {\"name\": \"Zeryn\",\"portraits\": [ {\"name\": \"Zeryn-early-idle\",\"path\": \"/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png\",\"uuid\": \"e72d0c87-6a3f-420e-a3ce-988da32e5ecf\"} ]",
+        "characters": [
+            {
+                "name": "Cassian",
+                "portraits": [
+                    {
+                        "name": "Cassian-early-idle",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+                        "uuid": "4554b69f-5f52-41fa-b69d-5fcd5e366cfa"
+                    },
+                    {
+                        "name": "Cassian-early-sad-fade",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-sad-fade.png",
+                        "uuid": "2fbbee9b-fa1a-4790-96b7-d656f33940e2"
+                    },
+                    {
+                        "name": "Cassian-early-angry-fade",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-angry-fade.png",
+                        "uuid": "d03c4513-94af-4ced-8686-cb3617097bcd"
+                    },
+                    {
+                        "name": "Cassian-early-happy",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-happy.png",
+                        "uuid": "e5f848c7-bdbe-4171-9512-d5286b6b55a5"
+                    },
+                    {
+                        "name": "Cassian-late-idle",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-late-idle.png",
+                        "uuid": "bd5242e9-97df-4563-b008-f220e7658966"
+                    },
+                    {
+                        "name": "Cassian-late-sad-fade",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-late-sad-fade.png",
+                        "uuid": "4cf717fc-0a3b-40a3-b937-92ef0c651e21"
+                    },
+                    {
+                        "name": "Cassian-late-angry-fade",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-late-angry-fade.png",
+                        "uuid": "400f4605-28f4-4658-92cd-5b2490b5648e"
+                    },
+                    {
+                        "name": "Cassian-late-happy",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-late-happy.png",
+                        "uuid": "2285c502-a097-414d-8e6d-b3fcbed2e554"
+                    }
+                ],
+                "uuid": "9e488680-eba3-4172-8361-67b08867e5ab"
+            },
+            {
+                "name": "Artis",
+                "portraits": [
+                    {
+                        "name": "Artis-early-idle",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+                        "uuid": "4c31dc6e-2dad-4873-8654-5b42cd387e01"
+                    },
+                    {
+                        "name": "Artis-early-happy",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-happy.png",
+                        "uuid": "4f126967-df0b-4cba-b72e-c6dd4f50f767"
+                    },
+                    {
+                        "name": "Artis-late-idle",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-late-idle.png",
+                        "uuid": "f9ed7dec-dbbf-41ff-a60e-86f682483777"
+                    }
+                ],
+                "uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336"
+            },
+            {
+                "name": "Rogue Squadron Army",
+                "portraits": [],
+                "uuid": "fe750287-6cfa-424a-a12f-da4536409d60"
+            },
+            {
+                "name": "Rogue Squadron Soldier",
+                "portraits": [
+                    {
+                        "name": "Guard1-idle",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+                        "uuid": "7240b260-f226-4179-b952-3b45dcca8a7f"
+                    }
+                ],
+                "uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779"
+            },
+            {
+                "name": "Sir Gideon Hawthorne",
+                "portraits": [
+                    {
+                        "name": "Guideon-idle",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+                        "uuid": "c342b42b-5568-48ed-bffb-b8740e4111a6"
+                    }
+                ],
+                "uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1"
+            },
+            {
+                "name": "Narrator",
+                "portraits": [],
+                "uuid": "5d11a270-1220-4edc-91ea-9a9087253382"
+            },
+            {
+                "name": "Artis Guard",
+                "portraits": [],
+                "uuid": "8b735186-8435-43a8-b771-3b7dcd6a3456"
+            },
+            {
+                "name": "Emperor Charles II",
+                "portraits": [
+                    {
+                        "name": "CharlesII-idle.png",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+                        "uuid": "748f3478-b38f-4680-88a4-4e1adef959da"
+                    },
+                    {
+                        "name": "CharlesII-poisoned.png",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-poisoned.png",
+                        "uuid": "2c2d75bb-8fe8-4bde-800c-19020e0379f2"
+                    }
+                ],
+                "uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0"
+            },
+            {
+                "name": "Zeryn",
+                "portraits": [
+                    {
+                        "name": "Zeryn-early-idle",
+                        "path": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+                        "uuid": "e72d0c87-6a3f-420e-a3ce-988da32e5ecf"
+                    }
+                ],
+                "uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0"
+            }
+        ],
         "files": [
             {
                 "name": "test.json",
-                "path": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Dialogues/test.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/test.json"
             },
             {
                 "name": "test2.json",
-                "path": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Dialogues/test2.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/test2.json"
             },
             {
                 "name": "test3.json",
-                "path": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Dialogues/test3.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/test3.json"
             },
             {
                 "name": "test4.json",
-                "path": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Dialogues/test4.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/test4.json"
             },
             {
                 "name": "foreigner_bard.json",
-                "path": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Dialogues/foreigner_bard.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/foreigner_bard.json"
             },
             {
                 "name": "guard_RS_entrance_right.json",
-                "path": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Dialogues/guard_RS_entrance_right.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/guard_RS_entrance_right.json"
             },
             {
                 "name": "guard_RS_entrance_left.json",
-                "path": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Dialogues/guard_RS_entrance_left.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/guard_RS_entrance_left.json"
             },
             {
                 "name": "Sir_Gideon_Hawthorne.json",
-                "path": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Dialogues/Sir_Gideon_Hawthorne.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/Sir_Gideon_Hawthorne.json"
             },
             {
                 "name": "guard_Artis_left.json",
-                "path": "/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Dialogues/guard_Artis_left.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/guard_Artis_left.json"
             },
             {
                 "name": "guard_Artis_right.json",
-                "path": "/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Dialogues/guard_Artis_right.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/guard_Artis_right.json"
             },
             {
                 "name": "empty_dialog.json",
-                "path": "/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Dialogues/empty_dialog.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/empty_dialog.json"
             },
             {
                 "name": "zeryn_early.json",
-                "path": "/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Dialogues/zeryn_early.json"
+                "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/zeryn_early.json"
             }
         ]
     },
     "cache": {
         "last_opened_file": {
-            "name": "zeryn_early.json",
-            "path": "/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Dialogues/zeryn_early.json"
+            "name": "test.json",
+            "path": "G:/GitHub/RPG_Project2/Assets/Dialogues/test.json"
         }
     },
     "info": {
