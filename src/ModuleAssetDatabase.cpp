@@ -50,6 +50,9 @@ void ModuleAssetDatabase::LoadAssets()
 	AddAudioToStorage("miau", *audioFactory->CreateAudio("Assets/Sounds/SFX/Miau.wav"));
 	AddAudioToStorage("ambient_birds1", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds1.wav"));
 	AddAudioToStorage("ambient_birds2", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds2.wav"));
+	AddAudioToStorage("enter_tent", *audioFactory->CreateAudio("Assets/Sounds/SFX/enter_tent.wav"));
+	AddAudioToStorage("open_door", *audioFactory->CreateAudio("Assets/Sounds/SFX/open_door.wav"));
+	AddAudioToStorage("close_door", *audioFactory->CreateAudio("Assets/Sounds/SFX/close_door.wav"));
 
 	AudioContainer* footstepContainer = new AudioContainer(AudioContainer::PlayMode::NonRepeatingRandom, { });
 	AddAudioContainerToStorage("footsteps_container", *footstepContainer);

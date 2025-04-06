@@ -257,7 +257,13 @@ void GameScene::RemoveLastTilemap()
 
 void GameScene::CreateNewTilemap(string path)
 {
+    if (path != "Assets/Map/Data/Rogue_Squadron_Headquarters.xml")
+    {
+        Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("open_door"));
+    }
+
     fade->FadeTo(0.5f, 0);
+
     if (tilemaps.size() != 0) {
         tilemaps[tilemaps.size() - 1]->isVisible = false;
         Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
@@ -273,7 +279,10 @@ void GameScene::CreateNewTilemap(string path)
 
 void GameScene::DeleteLastTilemap()
 {
+    Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("close_door"));
+    
     fade->FadeTo(0.5f, 0);
+
     if (tilemaps.size() != 0) {
 
         Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
