@@ -21,6 +21,8 @@ public:
 
 	bool IsInteractable();
 
+	void ClearCanvas();
+
 public:
 
 protected:

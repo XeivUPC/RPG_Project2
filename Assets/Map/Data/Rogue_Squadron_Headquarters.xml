@@ -486,6 +486,7 @@
   </object>
   <object id="123" gid="920" x="240" y="240" width="256" height="144">
    <properties>
+    <property name="TargetPath" value="Assets/Map/Data/House4_Inside.xml"/>
     <property name="Type" value="building"/>
    </properties>
   </object>

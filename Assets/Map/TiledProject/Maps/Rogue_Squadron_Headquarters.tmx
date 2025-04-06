@@ -455,7 +455,11 @@
     <property name="TargetPath" value="Assets/Map/Data/House3_Inside.xml"/>
    </properties>
   </object>
-  <object id="123" template="../Prefabs/Buildings/House4.tx" x="240" y="240"/>
+  <object id="123" template="../Prefabs/Buildings/House4.tx" x="240" y="240">
+   <properties>
+    <property name="TargetPath" value="Assets/Map/Data/House4_Inside.xml"/>
+   </properties>
+  </object>
   <object id="238" gid="921" x="90" y="854" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>

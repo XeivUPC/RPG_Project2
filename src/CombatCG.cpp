@@ -36,8 +36,10 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 CombatCG::~CombatCG()
 {
 	UICanvas::~UICanvas();
-	if (alert != nullptr)
+	if (alert != nullptr) {
 		delete alert;
+		alert = nullptr;
+	}
 }
 
 void CombatCG::UpdateCanvas()
@@ -60,6 +62,11 @@ void CombatCG::UpdateCanvas()
 
 void CombatCG::LoadCanvas()
 {
+
+	attackButtons.clear();
+	charactersSlot.clear();
+	attacksToExecute.clear();
+
 
 	alert = new AlertDisplayerCG(1.5f, nullptr, { LOGIC_SCREEN_WIDTH / 2 - 150,0 }, { 300,32 }, {0.f,0.f});
 	alert->renderLayer = 7;
@@ -118,10 +125,11 @@ void CombatCG::LoadCanvas()
 
 void CombatCG::UnloadCanvas()
 {
-	if (alert != nullptr)
+	if (alert != nullptr) {
 		delete alert;
-	if (combatBg != nullptr)
-		delete combatBg;
+		alert = nullptr;
+	}
+	ClearCanvas();
 }
 
 CombatCG::UIAttackButton CombatCG::CreateUIAttackButton(int attackIndex, Vector2 btn_position)
