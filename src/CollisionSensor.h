@@ -24,6 +24,8 @@ class CollisionSensor
 
         const std::vector<PhysBody*>& GetBodiesColliding();
         PhysBody* GetClosestBodyColliding();
+
+        void Reset();
     
     private:
         PhysBody* GetDifferentBody(PhysBody* body1, PhysBody* body2, PhysBody* bodyToBeDifferentFrom);

@@ -108,6 +108,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("floors_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Floors_Tiles.png"));
 	AddTextureToStorage("water_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Water_Tiles.png"));
 	AddTextureToStorage("cave_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Cave_Tiles.png"));
+	AddTextureToStorage("grass_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Grass_Tiles.png"));
 
 	AddTextureToStorage("building_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/MapObjects/Buildings/BuildingsAtlas.png"));
 	AddAtlasToStorage("building_atlas", *atlasFactory->CreateAtlas(*GetTexture("building_atlas"), "Assets/Textures/Atlas/MapObjects/Buildings/BuildingsAtlas.xml"));
