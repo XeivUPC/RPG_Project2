@@ -128,7 +128,18 @@ void CombatSystem::UpdateCombat()
 		
 		for (auto& team : charactersInCombat)
 		{
-			bool allDead = team.second.size() == 0;
+
+			bool allDead = true;
+
+			for (auto& character : team.second)
+			{
+				if (character.stats.currentHp != 0)
+				{
+					allDead = false;
+					break;
+				}
+			}
+
 			if (allDead)
 			{
 				if (team.first == Ally)
@@ -141,8 +152,10 @@ void CombatSystem::UpdateCombat()
 			ChangeState(START);
 		break;
 	case CombatSystem::VICTORY:
+		/// End
 		break;
 	case CombatSystem::DEFEAT:
+		/// End
 		break;
 	default:
 		break;

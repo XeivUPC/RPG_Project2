@@ -13,10 +13,7 @@ UICanvas::~UICanvas()
 {
 	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 
-	for (const auto& element : elements)
-		delete element;
-
-	elements.clear();
+	ClearCanvas();
 }
 
 void UICanvas::AddElementToCanvas(UIElement* element)
@@ -39,6 +36,14 @@ void UICanvas::SetInteractable(bool mode)
 bool UICanvas::IsInteractable()
 {
 	return interactable;
+}
+
+void UICanvas::ClearCanvas()
+{
+	for (const auto& element : elements)
+		delete element;
+
+	elements.clear();
 }
 
 void UICanvas::UpdateCanvas()

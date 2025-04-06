@@ -22,8 +22,17 @@ bool CombatGameState::PreUpdateState()
 bool CombatGameState::UpdateState()
 {
 	CombatCG* combatCanvas = Engine::Instance().s_game->combatCanvas;
+	CombatSystem* combatSystem = Engine::Instance().s_game->combatSystem;
 	combatCanvas->UpdateCanvas();
-	Engine::Instance().s_game->combatSystem->UpdateCombat();
+	combatSystem->UpdateCombat();
+
+	if (combatSystem->GetCombatState() == CombatSystem::VICTORY || combatSystem->GetCombatState() == CombatSystem::DEFEAT) {
+		if (!Engine::Instance().s_game->fade->IsFading()) {
+
+			Engine::Instance().s_game->fade->FadeTo(0.5f, 255);
+			Engine::Instance().s_game->fade->onFadeEnd.Subscribe([this]() {Engine::Instance().s_game->fade->FadeTo(0.5f, 0); Engine::Instance().s_game->SetState(GameScene::State::Exploring); });
+		}
+	}
 	return true;
 }
 
@@ -55,7 +64,6 @@ void CombatGameState::StateDeselected()
 		Engine::Instance().m_physics->StartSimulation();
 	}
 	Engine::Instance().s_game->combatCanvas->SetInteractable(false);
-	Engine::Instance().s_game->combatCanvas->UpdateCanvas();
 	Engine::Instance().s_game->combatCanvas->UnloadCanvas();
 }
 
