@@ -212,7 +212,7 @@ SDL_Texture* DrawingTools::RenderText(const string& text, TTF_Font& font, int fo
             }
         }
 
-        maxSize = (int)(maxLength * current_fontSize * scale.x);
+        maxSize = (int)(maxLength * current_fontSize);
     }
 
     TTF_SetFontWrappedAlign(&font, horizonalAlignment);

@@ -129,6 +129,9 @@ CombatCG::UIAttackButton CombatCG::CreateUIAttackButton(int attackIndex, Vector2
 	SDL_Texture* btn_texture = Engine::Instance().m_assetsDB->GetTexture("btn_tex1");
 	TTF_Font* btn_font = Engine::Instance().m_assetsDB->GetFont("alagard");
 
+	Mix_Chunk* btn_enter = Engine::Instance().m_assetsDB->GetAudio("btn_enter");
+	Mix_Chunk* btn_click = Engine::Instance().m_assetsDB->GetAudio("btn_click");
+
 	Vector2Int btn_size = { 86,35 };
 
 	int font_size = 16;
@@ -143,6 +146,9 @@ CombatCG::UIAttackButton CombatCG::CreateUIAttackButton(int attackIndex, Vector2
 	button->onMouseEnter.Subscribe([this, attackIndex]() {ShowAttackInformation(attackIndex);});
 	button->onMouseExit.Subscribe([this, attackIndex]() {HideAttackInformation(attackIndex);});
 	button->onMouseClick.Subscribe([this, attackIndex]() {SelectAttack(attackIndex); });
+	
+	button->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	button->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 
 	attackName->SetParent(button);
 	button->isEnabled = false;
@@ -277,6 +283,10 @@ void CombatCG::CreateUIExtras()
 	TTF_Font* btn_font = Engine::Instance().m_assetsDB->GetFont("alagard");
 	SDL_Texture* controlBtns_texture = Engine::Instance().m_assetsDB->GetTexture("btn_tex3");
 
+
+	Mix_Chunk* btn_enter = Engine::Instance().m_assetsDB->GetAudio("btn_enter");
+	Mix_Chunk* btn_click = Engine::Instance().m_assetsDB->GetAudio("btn_click");
+
 	Vector2Int btn_size = { 108, 19 };
 	int font_size = 16;
 	SDL_Color font_color = { 184,132,78,255 };
@@ -284,22 +294,28 @@ void CombatCG::CreateUIExtras()
 	cancelAttack = new UIButton(*controlBtns_texture, { 80,0 }, btn_size, { 0,0,btn_size.x,btn_size.y }, { 0,1 });
 	UITextBox* cancelAttackText = new UITextBox("Cancel", *btn_font, font_size, font_color, { 6,2 }, { 78,19 }, { 0,1 }, UITextBox::HorizontalAlignment::Right, UITextBox::VerticalAlignment::Middle, false);
 	cancelAttackText->SetParent(cancelAttack);
-	cancelAttack->onMouseClick.Subscribe([this]() {SetTargetSelectionMode(false); });
 	cancelAttack->AddRect(UIButton::ButtonStates::HOVER, { btn_size.x,0,btn_size.x,btn_size.y });
+	cancelAttack->onMouseClick.Subscribe([this]() {SetTargetSelectionMode(false); });
+	cancelAttack->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	cancelAttack->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 
 
 	confirmAttack = new UIButton(*controlBtns_texture, { 190,0 }, btn_size, { 0,btn_size.y,btn_size.x,btn_size.y }, { 0,1 });
 	UITextBox* confirmAttackText = new UITextBox("Confirm", *btn_font, font_size, font_color, { 23,2 }, { 78,19 }, { 0,1 }, UITextBox::HorizontalAlignment::Left, UITextBox::VerticalAlignment::Middle, false);
 	confirmAttackText->SetParent(confirmAttack);
-	confirmAttack->onMouseClick.Subscribe([this]() {ConfirmAttack(); });
 	confirmAttack->AddRect(UIButton::ButtonStates::HOVER, { btn_size.x,btn_size.y * 1,btn_size.x,btn_size.y });
+	confirmAttack->onMouseClick.Subscribe([this]() {ConfirmAttack(); });
+	confirmAttack->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	confirmAttack->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 
 
 	passTurn = new UIButton(*controlBtns_texture, { 532,0 }, btn_size, { 0,btn_size.y * 2,btn_size.x,btn_size.y }, { 0,1 });
 	UITextBox* passTurnText = new UITextBox("Pass Turn", *btn_font, font_size, font_color, { 6,2 }, { 78,19 }, { 0,1 }, UITextBox::HorizontalAlignment::Right, UITextBox::VerticalAlignment::Middle, false);
 	passTurnText->SetParent(passTurn);
-	passTurn->onMouseClick.Subscribe([this]() {EndTurn(); });
 	passTurn->AddRect(UIButton::ButtonStates::HOVER, { btn_size.x,btn_size.y * 2,btn_size.x,btn_size.y });
+	passTurn->onMouseClick.Subscribe([this]() {EndTurn(); });
+	passTurn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	passTurn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	
 
 	confirmAttack->localVisible = false;
@@ -361,6 +377,7 @@ void CombatCG::SelectCharacter(UICharacterSlot& character)
 
 	if (selectedCharacter != nullptr)
 		selectedCharacter->selectedCharacterIndicator->localVisible = false;
+
 
 	selectedCharacter = &character;
 	selectedCharacter->selectedCharacterIndicator->localVisible = true;
@@ -474,6 +491,7 @@ void CombatCG::SelectTarget(UICharacterSlot& character)
 		else { /// Addd
 			if (selectedAttack->attack->targetAmount <= targetCharacters.size())
 				return;
+
 			targetCharacters.emplace_back(&character);
 			character.selectedCharacterTarget->SetColor({ 255,255,0,255 });
 		}
@@ -500,8 +518,6 @@ void CombatCG::SelectAttack(int attackIndex)
 		attacksToExecute.erase(selectedCharacter->characterRef);
 		selectedCharacter->attackDone->localVisible = false;
 	}
-
-	Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("btn_click2"));
 
 	RemoveAllTargets();
 	selectedAttack = &attackButtons[attackIndex];

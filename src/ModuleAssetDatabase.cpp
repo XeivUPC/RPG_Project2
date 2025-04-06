@@ -47,6 +47,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddAudioToStorage("btn_enter", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_enter.wav"));
 	AddAudioToStorage("btn_click", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click1.wav"));
 	AddAudioToStorage("btn_click2", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click2.wav"));
+	AddAudioToStorage("btn_click3", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click3.wav"));
 	AddAudioToStorage("miau", *audioFactory->CreateAudio("Assets/Sounds/SFX/Miau.wav"));
 	AddAudioToStorage("ambient_birds1", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds1.wav"));
 	AddAudioToStorage("ambient_birds2", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds2.wav"));
