@@ -13,6 +13,7 @@ class ModuleRender;
 class ModuleTime;
 class ModuleUpdater;
 class ModuleWindow;
+class ModuleDebug;
 
 //// SCENES /////
 
@@ -43,6 +44,7 @@ public:
 	ModuleUpdater* m_updater = nullptr;
 	ModuleAudio* m_audio = nullptr;
 	ModuleRender* m_render = nullptr;
+	ModuleDebug* m_debug = nullptr;
 
 
 	//// SCENES /////
