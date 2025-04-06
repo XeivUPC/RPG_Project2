@@ -39,11 +39,11 @@ void SimpleMapObject::SetData(Vector2Int _position, float _scale)
 	SetScale(move(_scale));
 }
 
-void SimpleMapObject::AddCollision(Vector2 _position, Vector2 size, bool bevel)
+void SimpleMapObject::AddBoxCollision(Vector2 _position, Vector2 size, bool bevel)
 {
 	PhysBody* body = nullptr;
-	if(bevel)
-		body =Engine::Instance().m_physics->factory().CreateBevelBox(_position, size.x, size.y,0.1f);
+	if (bevel)
+		body = Engine::Instance().m_physics->factory().CreateBevelBox(_position, size.x, size.y, 0.1f);
 	else
 		body = Engine::Instance().m_physics->factory().CreateBox(_position, size.x, size.y);
 
@@ -54,7 +54,36 @@ void SimpleMapObject::AddCollision(Vector2 _position, Vector2 size, bool bevel)
 	category.flags.ground_layer = 1;
 	mask.flags.player_layer = 1;
 	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
-	
+}
+
+void SimpleMapObject::AddChainCollision(Vector2 _position, vector<Vector2> points)
+{
+	PhysBody* body = nullptr;
+	body = Engine::Instance().m_physics->factory().CreateChain(_position, points);
+
+
+	bodies.emplace_back(body);
+	body->SetType(PhysBody::BodyType::Static);
+
+	ModulePhysics::Layer category, mask;
+	category.flags.ground_layer = 1;
+	mask.flags.player_layer = 1;
+	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
+}
+
+void SimpleMapObject::AddCircleCollision(Vector2 _position,	float radius)
+{
+	PhysBody* body = nullptr;
+	body = Engine::Instance().m_physics->factory().CreateCircle(_position, radius);
+
+
+	bodies.emplace_back(body);
+	body->SetType(PhysBody::BodyType::Static);
+
+	ModulePhysics::Layer category, mask;
+	category.flags.ground_layer = 1;
+	mask.flags.player_layer = 1;
+	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
 }
 
 bool SimpleMapObject::Update()

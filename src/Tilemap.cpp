@@ -97,7 +97,30 @@ void Tilemap::CreateObjects()
 
             if (collisionLayerContainer != nullptr) {
                 Vector2 position = { 0,0 };
-                collisionLayerContainer->AddCollision({ PIXEL_TO_METERS(position.x + object->width / 2 + object->x),PIXEL_TO_METERS(position.y + object->height / 2 + object->y) }, { PIXEL_TO_METERS(object->width),PIXEL_TO_METERS(object->height) },false);
+                vector<Vector2> fixedPoints;
+                if (object->shapes.size() != 0) {
+                    for (size_t j = 0; j < object->shapes.size(); j++)
+                    {
+						switch (object->shapes[j].type)
+						{
+						    case ObjectShape::Type::Polyline:
+							case ObjectShape::Type::Polygon:
+								
+                                for (size_t x = 0; x < object->shapes[j].points.size(); x++)
+                                {
+                                    fixedPoints.emplace_back(Vector2{ PIXEL_TO_METERS(object->shapes[j].points[x].x),PIXEL_TO_METERS(object->shapes[j].points[x].y) });
+                                }
+							    collisionLayerContainer->AddChainCollision({ PIXEL_TO_METERS(position.x + object->width / 2 + object->x),PIXEL_TO_METERS(position.y + object->height / 2 + object->y) }, fixedPoints);
+						        break;
+						    case ObjectShape::Type::Ellipse:
+							    collisionLayerContainer->AddCircleCollision({ PIXEL_TO_METERS(position.x + object->width / 2 + object->x),PIXEL_TO_METERS(position.y + object->height / 2 + object->y) }, PIXEL_TO_METERS(object->width / 2));
+							    break;
+                            default:
+                                break;
+                        }
+                    }
+                }else
+                    collisionLayerContainer->AddBoxCollision({ PIXEL_TO_METERS(position.x + object->width / 2 + object->x),PIXEL_TO_METERS(position.y + object->height / 2 + object->y) }, { PIXEL_TO_METERS(object->width),PIXEL_TO_METERS(object->height) },false);
             }
 
             if (type == "simpleObject") {
@@ -112,7 +135,7 @@ void Tilemap::CreateObjects()
                     for (size_t i = 0; i < tileData->objects.count("collision"); i++)
                     {
                         const TileObject* tileObject = &tileData->objects.at("collision")[i];
-                        simpleObject->AddCollision({ PIXEL_TO_METERS(cornerPosition.x + tileObject->width / 2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height / 2 + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) }, false);
+                        simpleObject->AddBoxCollision({ PIXEL_TO_METERS(cornerPosition.x + tileObject->width / 2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height / 2 + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) }, false);
                     }
                 }
             }
@@ -148,7 +171,7 @@ void Tilemap::CreateObjects()
                     for (size_t i = 0; i < tileData->objects.at("collision").size(); i++)
                     {
                         const TileObject* tileObject = &tileData->objects.at("collision")[i];
-                        tilemapChanger->AddCollision({PIXEL_TO_METERS(cornerPosition.x+ tileObject->width/2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height/2 + tileObject->y)}, {PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height)});
+                        tilemapChanger->AddBoxCollision({PIXEL_TO_METERS(cornerPosition.x+ tileObject->width/2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height/2 + tileObject->y)}, {PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height)});
                     }
                 }
                 if (tileData->objects.count("renderPosition")) {
