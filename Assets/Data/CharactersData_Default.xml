@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Characters>
 	<Character id="-1" name="NPC_TEST">
-		<Data textureId="npc_test" dialoguePath="Assets/Dialogues/test3.json" />
+		<Data textureId="cassian_test" dialoguePath="Assets/Dialogues/empty_dialog.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="1" hp="45" defense="49" attack="49" speed="45" />
 		<Attacks attack1="2" attack2="3" attack3="0" attack4="1" />
@@ -37,6 +37,13 @@
 	</Character>
 	<Character id="4" name="Sir Gideon Hawthorne">
 		<Data textureId="cassian_test" dialoguePath="Assets/Dialogues/Sir_Gideon_Hawthorne.json" />
+		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="1" hp="45" defense="49" attack="49" speed="45" />
+		<Attacks attack1="2" attack2="3" attack3="0" attack4="1" />
+		<AttackRole type="0" />
+	</Character>
+	<Character id="5" name="Zeryn">
+		<Data textureId="cassian_test" dialoguePath="Assets/Dialogues/zeryn_early.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="1" hp="45" defense="49" attack="49" speed="45" />
 		<Attacks attack1="2" attack2="3" attack3="0" attack4="1" />

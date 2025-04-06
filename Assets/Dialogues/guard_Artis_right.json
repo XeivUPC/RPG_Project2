@@ -1,4 +1,83 @@
 {
+    "11d0fdef-1976-45ff-b7db-b660e106f547": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-happy.png",
+        "text": {
+            "en": "Hi.",
+            "fr": ""
+        },
+        "parent": "4b785274-7282-4aa3-8f1c-7ff8ea4c2cda",
+        "next": "970d0ebf-e4eb-420a-b6f9-1e675feaba44"
+    },
+    "970d0ebf-e4eb-420a-b6f9-1e675feaba44": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "Good morning.",
+            "fr": ""
+        },
+        "parent": "11d0fdef-1976-45ff-b7db-b660e106f547",
+        "choices": [
+            {
+                "text": {
+                    "en": "Who lives here ?",
+                    "fr": ""
+                },
+                "next": "caaa1f26-183f-4aef-9e73-5399fe701184",
+                "parent": "970d0ebf-e4eb-420a-b6f9-1e675feaba44"
+            },
+            {
+                "text": {
+                    "en": "- Leave -",
+                    "fr": ""
+                },
+                "next": "",
+                "parent": "970d0ebf-e4eb-420a-b6f9-1e675feaba44"
+            }
+        ]
+    },
+    "caaa1f26-183f-4aef-9e73-5399fe701184": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "This is a royal property, none other than the Emperor or the prince Artis shall enter.",
+            "fr": ""
+        },
+        "parent": "26691fbd-c203-4d62-b9dc-bab6bab4b43d",
+        "next": "5c334bb1-6fca-432f-9f31-077c30baf7fe"
+    },
+    "5c334bb1-6fca-432f-9f31-077c30baf7fe": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Understood.",
+            "fr": ""
+        },
+        "parent": "caaa1f26-183f-4aef-9e73-5399fe701184",
+        "signals": {
+            "parent": "5c334bb1-6fca-432f-9f31-077c30baf7fe",
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "1",
+                    "y": "1"
+                }
+            }
+        }
+    },
+    "1f58ab00-ecad-4da8-badf-62dfae93212c": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "...",
+            "fr": ""
+        },
+        "parent": "62938fc2-45fb-4816-acc3-2ae4217b388e"
+    },
     "root": {
         "conditions": [
             {
@@ -112,84 +191,5 @@
                 "parent": "970d0ebf-e4eb-420a-b6f9-1e675feaba44"
             }
         ]
-    },
-    "11d0fdef-1976-45ff-b7db-b660e106f547": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-happy.png",
-        "text": {
-            "en": "Hi.",
-            "fr": ""
-        },
-        "parent": "4b785274-7282-4aa3-8f1c-7ff8ea4c2cda",
-        "next": "970d0ebf-e4eb-420a-b6f9-1e675feaba44"
-    },
-    "970d0ebf-e4eb-420a-b6f9-1e675feaba44": {
-        "name": "Artis Guard",
-        "character_uuid": null,
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
-        "text": {
-            "en": "Good morning.",
-            "fr": ""
-        },
-        "parent": "11d0fdef-1976-45ff-b7db-b660e106f547",
-        "choices": [
-            {
-                "text": {
-                    "en": "Who lives here ?",
-                    "fr": ""
-                },
-                "next": "caaa1f26-183f-4aef-9e73-5399fe701184",
-                "parent": "970d0ebf-e4eb-420a-b6f9-1e675feaba44"
-            },
-            {
-                "text": {
-                    "en": "- Leave -",
-                    "fr": ""
-                },
-                "next": "",
-                "parent": "970d0ebf-e4eb-420a-b6f9-1e675feaba44"
-            }
-        ]
-    },
-    "caaa1f26-183f-4aef-9e73-5399fe701184": {
-        "name": "Artis Guard",
-        "character_uuid": null,
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
-        "text": {
-            "en": "This is a royal property, none other than the Emperor or the prince Artis shall enter.",
-            "fr": ""
-        },
-        "parent": "26691fbd-c203-4d62-b9dc-bab6bab4b43d",
-        "next": "5c334bb1-6fca-432f-9f31-077c30baf7fe"
-    },
-    "5c334bb1-6fca-432f-9f31-077c30baf7fe": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
-        "text": {
-            "en": "Understood.",
-            "fr": ""
-        },
-        "parent": "caaa1f26-183f-4aef-9e73-5399fe701184",
-        "signals": {
-            "parent": "5c334bb1-6fca-432f-9f31-077c30baf7fe",
-            "SetNpcStatusByID": {
-                "Vector2": {
-                    "x": "1",
-                    "y": "1"
-                }
-            }
-        }
-    },
-    "1f58ab00-ecad-4da8-badf-62dfae93212c": {
-        "name": "Artis Guard",
-        "character_uuid": null,
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
-        "text": {
-            "en": "...",
-            "fr": ""
-        },
-        "parent": "62938fc2-45fb-4816-acc3-2ae4217b388e"
     }
 }
