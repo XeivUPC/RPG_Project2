@@ -49,7 +49,7 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 				attacker.stats.currentHp += damageDone * (lifeDewEffectiveness / 100);
 				break;
 			case 2:
-				attacker.stats.currentHp += target[i]->stats.currentStats.hp * (lifeDewAmount/100) * (lifeDewEffectiveness / 100);
+				attacker.stats.currentHp += target[i]->stats.currentStats.hp * (lifeDewAmount/100.f) * (lifeDewEffectiveness / 100.f);
 				break;
 			default:
 				break;
