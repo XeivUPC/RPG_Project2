@@ -16,7 +16,7 @@
 	</Character>
 	<Character id="1" name="Artis">
 		<Data textureId="artis_test" dialoguePath="Assets/Dialogues/test4.json" />
-		<Stats state="0" friendship="0" love="0" />
+		<Stats state="2" friendship="0" love="0" />
 		<CombatStats level="1" hp="45" defense="49" attack="49" speed="45" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="2" />
