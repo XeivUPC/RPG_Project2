@@ -102,7 +102,7 @@
 				<power value="35"/>
 			</basic-stats>
 			<status-modification>
-				<status-effect value="-5" turns="3"  mode="0" objective="0" type="Burn" probability="50"/>
+				<status-effect value="-10" turns="3"  mode="1" objective="0" type="Burn" probability="50"/>
 			</status-modification>
 		</data>
 	</attack>
@@ -130,9 +130,9 @@
 			<info attack-type ="1"/>
 			<properties priority="0" accuracy="100"/>
 			<requirements target-amount="1" target-type="1"/>
-			<extras>
-				<extra-effect type="Live Dew" amount="1000" mode="0" effectiveness="100"/>
-			</extras>
+			<status-modification>
+				<status-effect value="10000" turns="1"  mode="0" objective="0" type="Regeneration" probability="100"/>
+			</status-modification>
 		</data>
 	</attack>
 

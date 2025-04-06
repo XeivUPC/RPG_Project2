@@ -115,9 +115,9 @@ public:
 		}
 
 		float GetStatProcessedValue(int value, float stage) {
-			float stageExtra = (stage + 2) / 2.f;
+			float stageExtra = (abs(stage) + 2) / 2.f;
 			if (stage < 0)
-				stageExtra = 1 / stageExtra;
+				stageExtra = 1.f / stageExtra;
 			return value*stageExtra;
 		}
 	};

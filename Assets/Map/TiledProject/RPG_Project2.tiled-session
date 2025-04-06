@@ -3,14 +3,14 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/House4_Inside.tmx",
+    "activeFile": "Maps/Testing_Zone2.tmx",
     "expandedProjectPaths": [
+        "Objects",
         "Prefabs/Buildings",
-        ".",
+        "Tilesets",
         "Prefabs",
         "Maps",
-        "Tilesets",
-        "Objects"
+        "."
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -42,26 +42,26 @@
         },
         "Maps/House2_Inside.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 3,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 248.16666666666666,
-                "y": 165.33333333333334
+                "x": 208.16666666666666,
+                "y": 111.83333333333334
             }
         },
         "Maps/House3_Inside.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 8,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 236.5625,
-                "y": 363.75
+                "x": 208.0625,
+                "y": 239.9375
             }
         },
         "Maps/House4_Inside.tmx": {
@@ -93,23 +93,23 @@
         },
         "Maps/Testing_Zone.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 5.5,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 203.1818181818182,
-                "y": 133.0909090909091
+                "x": 208.0909090909091,
+                "y": 112.0909090909091
             }
         },
         "Maps/Testing_Zone2.tmx": {
             "expandedObjectLayers": [
-                11,
-                7
+                7,
+                11
             ],
             "scale": 5.5,
-            "selectedLayer": 0,
+            "selectedLayer": 4,
             "viewCenter": {
                 "x": 197,
                 "y": 96.72727272727272
@@ -190,7 +190,8 @@
         "Maps/House2_Inside.tmx",
         "Maps/Testing_Zone.tmx",
         "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Maps/House4_Inside.tmx"
+        "Maps/House4_Inside.tmx",
+        "Maps/Testing_Zone2.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "string",

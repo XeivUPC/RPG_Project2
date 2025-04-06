@@ -4,6 +4,7 @@
 #include "ModuleInput.h"
 #include "ModuleTime.h"
 #include "ModuleUpdater.h"
+#include "ModuleDebug.h"
 
 #include "CollisionsDispatcher.h"
 #include "PhysicFactory.h"
@@ -58,10 +59,8 @@ bool ModulePhysics::PreUpdate()
 }
 
 bool ModulePhysics::Update()
-{
-	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN) {
-		debug = !debug;
-	}
+{	
+	debug = Engine::Instance().m_debug->godmode;
 	return true;
 }
 

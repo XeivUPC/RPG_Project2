@@ -57,10 +57,13 @@ void CombatCG::UpdateCanvas()
 
 		charactersSlot[i].hpBar->size.x = (int)(charactersSlot[i].hpBarMaxWidth * healthRatio);
 	}
-	if (Engine::Instance().m_debug->godmode)
-		debug_immortalEnabled->localVisible = true;
-	else
-		debug_immortalEnabled->localVisible = false;
+	if (debug_immortalEnabled != nullptr) {
+		if (Engine::Instance().m_debug->godmode)
+			debug_immortalEnabled->localVisible = true;
+		else
+			debug_immortalEnabled->localVisible = false;
+	}
+
 	if(alert!=nullptr)
 		alert->UpdateCanvas();
 }
@@ -330,9 +333,10 @@ void CombatCG::CreateUIExtras()
 	passTurn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	passTurn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	
-	debug_immortalEnabled = new UITextBox("GOD mode enabled", *btn_font, 20, font_color, { LOGIC_SCREEN_WIDTH / 2, 10 }, { LOGIC_SCREEN_WIDTH, 30 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle, false);
-
+	debug_immortalEnabled = new UITextBox("GOD mode enabled", *btn_font, 16, font_color, { 10, 10 }, { LOGIC_SCREEN_WIDTH, 30 }, { 0,00 }, UITextBox::HorizontalAlignment::Left, UITextBox::VerticalAlignment::Middle, false);
 	debug_immortalEnabled->localVisible = false;
+	debug_immortalEnabled->SetParent(combatBg);
+
 	confirmAttack->localVisible = false;
 	confirmAttack->interactable = false;
 	cancelAttack->localVisible = false;

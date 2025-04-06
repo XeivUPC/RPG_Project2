@@ -52,6 +52,7 @@ Engine::Engine()
 	AddModule(m_window);
 	AddModule(m_physics);
 	AddModule(m_input);
+	AddModule(m_debug);
 	AddModule(m_cursor);
 	AddModule(m_audio);
 	AddModule(m_time);
@@ -68,7 +69,6 @@ Engine::Engine()
 	AddModule(m_updater);
 	AddModule(m_render);
 	AddModule(m_assetsDB);
-	AddModule(m_debug);
 
 }
 

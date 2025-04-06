@@ -17,7 +17,9 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 	if (attack_accuracy(gen) > accuracy)
 		return;
 
-	int attaker_level = attacker.stats.level;
+	CombatSystem::CharacterReference* attackerPtr = &attacker;
+
+	int attaker_level = attackerPtr->stats.level;
 	for (size_t i = 0; i < target.size(); i++)
 	{
 
@@ -27,10 +29,10 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 		bool hasCritic = critical_percentage(gen) < (critRate);
 		float criticMultiplier = hasCritic ? 1.5f : 1.f;
 
-		float attackStat = attacker.stats.GetStatProcessedValue(attacker.stats.currentStats.attack, attacker.stats.statsStages.attack);
+		float attackStat = attackerPtr->stats.GetStatProcessedValue(attackerPtr->stats.currentStats.attack, attackerPtr->stats.statsStages.attack);
 		float defenseStat = target[i]->stats.GetStatProcessedValue(target[i]->stats.currentStats.defense, target[i]->stats.statsStages.defense);
 
-		float damageToDo = ((((2.0f * attacker.stats.level / 5.0f) + 2.0f) * power * attackStat / defenseStat) / 50.0f + 2.0f);
+		float damageToDo = ((((2.0f * attackerPtr->stats.level / 5.0f) + 2.0f) * power * attackStat / defenseStat) / 50.0f + 2.0f);
 		damageToDo *= random(gen);
 
 		if (power == 0)
@@ -43,13 +45,13 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 		switch (lifeDewMode)
 		{
 			case 0:
-				attacker.stats.currentHp += lifeDewAmount * (lifeDewEffectiveness/100);
+				attackerPtr->stats.currentHp += lifeDewAmount * (lifeDewEffectiveness/100.f);
 				break;
 			case 1:
-				attacker.stats.currentHp += damageDone * (lifeDewEffectiveness / 100);
+				attackerPtr->stats.currentHp += damageDone * (lifeDewEffectiveness / 100.f);
 				break;
 			case 2:
-				attacker.stats.currentHp += target[i]->stats.currentStats.hp * (lifeDewAmount/100.f) * (lifeDewEffectiveness / 100.f);
+				attackerPtr->stats.currentHp += target[i]->stats.currentStats.hp * (lifeDewAmount/100.f) * (lifeDewEffectiveness / 100.f);
 				break;
 			default:
 				break;
@@ -59,7 +61,7 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 			target[i]->stats.isBlocked = blocksTurn;
 		}
 		else
-			attacker.stats.isBlocked = blocksTurn;
+			attackerPtr->stats.isBlocked = blocksTurn;
 
 		/// 
 		for (const auto& statModification : statsModification)

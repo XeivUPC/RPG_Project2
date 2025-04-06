@@ -16,7 +16,12 @@ public:
 	ModuleDebug(bool start_active = true);
 	~ModuleDebug();
 
+	// Inherited via IInitializable
+	bool Start() override;
+	// Inherited via IUpdateable
 	bool Update() override;
+	// Inherited via ICleanable
+	bool CleanUp() override;
 
 public:
 	bool godmode = false;

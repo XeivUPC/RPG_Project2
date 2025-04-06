@@ -151,7 +151,7 @@ public:
         }
     }
 public:
-        bool debug = true;
+        bool debug = false;
 private:
     struct TypePoolBase {
         virtual ~TypePoolBase() = default;

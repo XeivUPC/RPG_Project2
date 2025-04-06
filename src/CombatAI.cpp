@@ -141,7 +141,7 @@ void CombatAI::CalculateAI(unordered_map <CombatSystem::CharacterType, vector<Co
 		CalculateBestOption(&attackerData, charactersInCombat);
 		Attack* attack = AttackList::Instance().GetAttack(bestOption.second.first);
 
-		//printf("Level: %d  Id: %d  AttackName:  %s\n", attackerData.stats.level, attackerData.id, attack->name.c_str());
+		printf("Level: %d  Id: %d  AttackName:  %s\n", attackerData.stats.level, attackerData.id, attack->name.c_str());
 		combatSystem->AddAttack(attack, attackerData, bestOption.second.second);
 	}
 }
