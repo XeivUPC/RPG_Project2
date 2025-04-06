@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.9" tiledversion="1.9.2" name="Grass_Tiles" tilewidth="16" tileheight="16" tilecount="625" columns="25">
+<tileset version="1.9" tiledversion="1.9.2" name="grass_tiles" tilewidth="16" tileheight="16" tilecount="625" columns="25">
  <image source="../../../Textures/Tilesets/Grass_Tiles.png" width="400" height="400"/>
  <wangsets>
   <wangset name="Highground" type="mixed" tile="-1">

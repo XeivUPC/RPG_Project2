@@ -83,7 +83,7 @@
  <tile id="5">
   <image width="256" height="144" source="../../../Textures/Atlas/MapObjects/Buildings/Single/House4.png"/>
   <objectgroup draworder="index" id="2">
-   <object id="1" name="renderPosition" x="127.5" y="113.75">
+   <object id="1" name="renderPosition" x="23.9119" y="116.227">
     <point/>
    </object>
    <object id="4" name="collision" x="32.75" y="50" width="31.25" height="72.25"/>
@@ -92,11 +92,11 @@
    <object id="7" name="collision" x="191.25" y="50" width="32" height="71"/>
    <object id="8" name="collision" x="64.0909" y="34.25" width="51.9091" height="104.75"/>
    <object id="10" name="collision" x="139.795" y="34.25" width="51.9091" height="104.75"/>
-   <object id="12" name="collision" x="116.182" y="34.1818" width="23.2727" height="96"/>
    <object id="13" name="entryCollider" x="116.063" y="130.375" width="23.5" height="4.375"/>
    <object id="14" name="exitPosition" x="127.938" y="141">
     <point/>
    </object>
+   <object id="15" name="collision" x="116.462" y="34.25" width="23.0287" height="95.625"/>
   </objectgroup>
  </tile>
 </tileset>
