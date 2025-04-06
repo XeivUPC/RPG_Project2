@@ -1,1 +1,37 @@
-{"a60d0946-fd90-42dc-8370-b1f74ed971ff":{"name":"Rogue Squadron Soldier","character_uuid":"23095ecd-ae6c-45b5-a31e-64ad132e5779","portrait":"G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png","text":{"en":"...","fr":""},"parent":"root"},"root":{"next":"a60d0946-fd90-42dc-8370-b1f74ed971ff"},"__editor":{"root":{"uuid":"root","offset":[40,100]},"dialogues":[{"uuid":"a60d0946-fd90-42dc-8370-b1f74ed971ff","offset":[280,-40],"parent":"root"}],"conditions":[],"signals":[],"choices":[]}}
+{
+    "a60d0946-fd90-42dc-8370-b1f74ed971ff": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "...",
+            "fr": ""
+        },
+        "parent": "root"
+    },
+    "root": {
+        "next": "a60d0946-fd90-42dc-8370-b1f74ed971ff"
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                40,
+                100
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "a60d0946-fd90-42dc-8370-b1f74ed971ff",
+                "offset": [
+                    280,
+                    -40
+                ],
+                "parent": "root"
+            }
+        ],
+        "conditions": [],
+        "signals": [],
+        "choices": []
+    }
+}

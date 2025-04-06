@@ -1,0 +1,1 @@
+{"root":{"conditions":[{"Char6_State":{"value":0,"operator":"equal","type":"int"},"parent":"root"}]},"__editor":{"root":{"uuid":"root","offset":[40,100]},"dialogues":[],"conditions":[{"uuid":"d45d070a-8ed7-4458-aed5-060cd3fb2514","offset":[320,-140],"parent":"root"}],"signals":[],"choices":[]}}
