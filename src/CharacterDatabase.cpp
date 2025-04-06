@@ -19,6 +19,32 @@ bool CharacterDatabase::Exists(int id)
     return data.count(id) > 0;
 }
 
+void CharacterDatabase::ResetDataToDefault()
+{
+    pugi::xml_document sourceDoc;
+    if (!sourceDoc.load_file(pathToCharacterDataDefault.c_str())) {
+        LOG("Failed to load source.xml");
+        return;
+    }
+
+    pugi::xml_document targetDoc;
+    if (!targetDoc.load_file(pathToCharacterData.c_str())) {
+        LOG("Failed to load target.xml");
+        return;
+    }
+
+    targetDoc.reset();
+
+    pugi::xml_node newRoot = targetDoc.append_copy(sourceDoc.document_element());
+
+    if (!targetDoc.save_file(pathToCharacterData.c_str())) {
+        LOG("Failed to save updated target.xml");
+        return;
+    }
+
+    LoadDatabase();
+}
+
 CharacterDatabase::CharacterDatabase()
 {
     LoadDatabase();

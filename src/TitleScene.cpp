@@ -8,6 +8,7 @@
 #include "AudioContainer.h"
 #include "ModuleAssetDatabase.h"
 #include "ModuleUpdater.h"
+#include "CharacterDatabase.h"
 #include "FadeCG.h"
 #include "TitleMenuCG.h"
 #include "SettingsCG.h"
@@ -98,6 +99,10 @@ bool TitleScene::Update()
     fade->UpdateCanvas();
     if (!fade->IsFading() && starting_game) {
        /// Pass to game if needs to be a newGame
+
+       if (newGame) {
+           CharacterDatabase::Instance().ResetDataToDefault();
+       }
        Engine::Instance().s_game->Activate();
        Desactivate();
     }
