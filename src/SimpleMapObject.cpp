@@ -39,9 +39,14 @@ void SimpleMapObject::SetData(Vector2Int _position, float _scale)
 	SetScale(move(_scale));
 }
 
-void SimpleMapObject::AddCollision(Vector2 _position, Vector2 size)
+void SimpleMapObject::AddCollision(Vector2 _position, Vector2 size, bool bevel)
 {
-	PhysBody* body = Engine::Instance().m_physics->factory().CreateBevelBox(_position, size.x, size.y,0.1f);
+	PhysBody* body = nullptr;
+	if(bevel)
+		body =Engine::Instance().m_physics->factory().CreateBevelBox(_position, size.x, size.y,0.1f);
+	else
+		body = Engine::Instance().m_physics->factory().CreateBox(_position, size.x, size.y);
+
 	bodies.emplace_back(body);
 	body->SetType(PhysBody::BodyType::Static);
 

@@ -11,7 +11,7 @@ public:
 	~SimpleMapObject();
 	void SetData(string _atlasId, string _textureId, Vector2Int _position, float _scale);
 	void SetData(Vector2Int _position, float _scale);
-	void AddCollision(Vector2 _position, Vector2 size);
+	void AddCollision(Vector2 _position, Vector2 size,bool bevel =true);
 
 	bool Update() override;
 	void Render() override;

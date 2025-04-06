@@ -77,6 +77,13 @@ void Tilemap::CreateObjects()
     for (size_t i = 0; i < currentMap.objectLayers.size(); i++)
     {
         const ObjectGroupLayer* layer = &currentMap.objectLayers[i];
+
+		shared_ptr<SimpleMapObject> collisionLayerContainer = nullptr;
+        if (layer->name == "Collisions") {
+            collisionLayerContainer = Pooling::Instance().AcquireObject<SimpleMapObject>();
+			collisionLayerContainer->SetData({ 0,0 }, scale);
+        }
+
         for (const auto& pairData : layer->objects)
         {
             const MapObject* object = &pairData.second;
@@ -87,6 +94,11 @@ void Tilemap::CreateObjects()
             string type = "";
             if(object->properties.count("Type"))
                 type = object->properties.at("Type").value;
+
+            if (collisionLayerContainer != nullptr) {
+                Vector2 position = { 0,0 };
+                collisionLayerContainer->AddCollision({ PIXEL_TO_METERS(position.x + object->width / 2 + object->x),PIXEL_TO_METERS(position.y + object->height / 2 + object->y) }, { PIXEL_TO_METERS(object->width),PIXEL_TO_METERS(object->height) },false);
+            }
 
             if (type == "simpleObject") {
                 Vector2 position = { object->x + object->width / 2 ,object->y };
@@ -100,7 +112,7 @@ void Tilemap::CreateObjects()
                     for (size_t i = 0; i < tileData->objects.count("collision"); i++)
                     {
                         const TileObject* tileObject = &tileData->objects.at("collision")[i];
-                        simpleObject->AddCollision({ PIXEL_TO_METERS(cornerPosition.x + tileObject->width / 2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height / 2 + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) });
+                        simpleObject->AddCollision({ PIXEL_TO_METERS(cornerPosition.x + tileObject->width / 2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height / 2 + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) }, false);
                     }
                 }
             }
