@@ -3,6 +3,7 @@
 #include "Engine.h"
 #include "ModuleRender.h"
 #include "ModuleUpdater.h"
+#include "ModuleAudio.h"
 #include "ModuleCursor.h"
 #include "ModuleAssetDatabase.h"
 
@@ -41,6 +42,9 @@ bool IntroScene::Start()
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
+
+    
+
     return true;
 }
 
@@ -66,6 +70,9 @@ bool IntroScene::Update()
         }
         else if (logoTimer.ReadSec() > logoDelay) {
             fade_logo->FadeTo(logoFadeIn,255);
+
+            Mix_Chunk* logo_intro = Engine::Instance().m_assetsDB->GetAudio("logo_intro");
+            Engine::Instance().m_audio->PlaySFX(logo_intro);
         }
     }
     if (timer.ReadSec() > timeToLoad) {

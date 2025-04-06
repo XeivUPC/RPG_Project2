@@ -44,6 +44,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddMusicToStorage("patoGallina", *audioFactory->CreateMusic("Assets/Sounds/Music/PatoGallina.ogg"));
 	///SFX
 	AddAudioToStorage("alert", *audioFactory->CreateAudio("Assets/Sounds/SFX/alert.wav"));
+	AddAudioToStorage("logo_intro", *audioFactory->CreateAudio("Assets/Sounds/SFX/logo_intro.wav"));
 	AddAudioToStorage("btn_enter", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_enter.wav"));
 	AddAudioToStorage("btn_click", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click1.wav"));
 	AddAudioToStorage("btn_click2", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click2.wav"));
@@ -122,7 +123,7 @@ void ModuleAssetDatabase::LoadAssets()
 
 
 
-	Engine::Instance().m_audio->PlayMusicAsync(GetMusic("mainTheme"), 0);
+	
 
 	/////
 }
