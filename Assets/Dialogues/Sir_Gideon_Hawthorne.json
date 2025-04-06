@@ -490,8 +490,8 @@
         "parent": "830bd6dd-0662-454c-9537-e2638650d332"
     },
     "eee5ddb3-66e5-400e-988f-92d70ec9c158": {
-        "name": "Rogue Squadron Army",
-        "character_uuid": "fe750287-6cfa-424a-a12f-da4536409d60",
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
         "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "(Coordinated spears hit the floor once)",

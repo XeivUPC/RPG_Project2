@@ -19,18 +19,18 @@
             },
             {
                 "text": {
-                    "en": "- Leave -",
-                    "fr": ""
-                },
-                "next": "",
-                "parent": "3a9faf6d-5749-401a-9b4f-c7b6e9f0e29d"
-            },
-            {
-                "text": {
                     "en": "- Wave your hand in front of his face -",
                     "fr": ""
                 },
                 "next": "8a0c0331-0ae0-4363-882d-ab571a089bb2",
+                "parent": "3a9faf6d-5749-401a-9b4f-c7b6e9f0e29d"
+            },
+            {
+                "text": {
+                    "en": "- Leave -",
+                    "fr": ""
+                },
+                "next": "",
                 "parent": "3a9faf6d-5749-401a-9b4f-c7b6e9f0e29d"
             }
         ]

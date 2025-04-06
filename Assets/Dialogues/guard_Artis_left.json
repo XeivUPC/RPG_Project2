@@ -11,8 +11,8 @@
         "next": "38deba22-c38d-493f-b677-5756a2e6c1b9"
     },
     "38deba22-c38d-493f-b677-5756a2e6c1b9": {
-        "name": "Artis Guard",
-        "character_uuid": "6dc17b34-5435-4339-8b21-48334a1e5931",
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
         "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Good morning.",
@@ -22,31 +22,31 @@
         "choices": [
             {
                 "text": {
-                    "en": "- Leave -",
-                    "fr": ""
-                },
-                "next": "",
-                "parent": "38deba22-c38d-493f-b677-5756a2e6c1b9"
-            },
-            {
-                "text": {
                     "en": "Can I enter ?",
                     "fr": ""
                 },
                 "next": "c4fe3d9a-462f-4948-8971-3cf64319509b",
                 "parent": "38deba22-c38d-493f-b677-5756a2e6c1b9"
+            },
+            {
+                "text": {
+                    "en": "- Leave -",
+                    "fr": ""
+                },
+                "next": "",
+                "parent": "38deba22-c38d-493f-b677-5756a2e6c1b9"
             }
         ]
     },
     "c4fe3d9a-462f-4948-8971-3cf64319509b": {
-        "name": "Artis Guard",
-        "character_uuid": "6dc17b34-5435-4339-8b21-48334a1e5931",
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
         "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "No.",
             "fr": ""
         },
-        "parent": "58c805c3-5157-4361-9a32-cbfe27000ee5",
+        "parent": "a4463d34-7332-40d6-b850-c3ba8e7232ac",
         "next": "3c1b053b-0555-486a-98ca-16933919f7d1"
     },
     "3c1b053b-0555-486a-98ca-16933919f7d1": {
@@ -69,8 +69,8 @@
         }
     },
     "93a81370-ee45-460f-a9d3-7310c354a583": {
-        "name": "Artis Guard",
-        "character_uuid": "6dc17b34-5435-4339-8b21-48334a1e5931",
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
         "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "You shall not pass.",
@@ -127,7 +127,7 @@
                 "uuid": "c4fe3d9a-462f-4948-8971-3cf64319509b",
                 "offset": [
                     1880,
-                    -500
+                    -480
                 ]
             },
             {

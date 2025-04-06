@@ -387,18 +387,11 @@
   <object id="41" template="../Prefabs/Buildings/tent1.tx" x="336" y="736"/>
   <object id="42" template="../Prefabs/Buildings/tent2.tx" x="336" y="576"/>
   <object id="43" template="../Prefabs/Buildings/tent2.tx" x="624" y="736"/>
-  <object id="98" x="543.958" y="216.167">
+  <object id="98" x="625.291" y="611.5">
    <properties>
     <property name="NpcId" value="5"/>
     <property name="Path" type="object" value="108"/>
     <property name="PathMovementType" type="int" value="0"/>
-    <property name="Type" value="npc"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="99" x="418" y="428.833">
-   <properties>
-    <property name="NpcId" value="6"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -417,7 +410,7 @@
    </properties>
    <point/>
   </object>
-  <object id="108" x="543.833" y="216.167">
+  <object id="108" x="625.166" y="611.5">
    <polyline points="0,0 95,0"/>
   </object>
   <object id="112" x="303" y="294.333">
