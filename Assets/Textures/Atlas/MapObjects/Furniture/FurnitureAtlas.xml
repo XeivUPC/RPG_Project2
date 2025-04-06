@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    rTexPacker XML atlas descriptor file (v2.0)
+    Number of packed sprites:     26
+-->
+<AtlasTexture imagePath='atlas.png' width='128' height='128' spriteCount='26' isFont='0' fontSize='32'>
+    <Sprite nameId='Fence1' originX='0' originY='0' positionX='32' positionY='96' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='6' trimRecY='0' trimRecWidth='10' trimRecHeight='16' />
+    <Sprite nameId='Fence2' originX='0' originY='0' positionX='48' positionY='96' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='16' trimRecHeight='16' />
+    <Sprite nameId='Fence3' originX='0' originY='0' positionX='64' positionY='96' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='10' trimRecHeight='16' />
+    <Sprite nameId='Fence4' originX='0' originY='0' positionX='80' positionY='96' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='6' trimRecY='0' trimRecWidth='10' trimRecHeight='16' />
+    <Sprite nameId='Fence5' originX='0' originY='0' positionX='96' positionY='96' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='10' trimRecHeight='16' />
+    <Sprite nameId='Fence6' originX='0' originY='0' positionX='112' positionY='96' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='6' trimRecY='0' trimRecWidth='10' trimRecHeight='16' />
+    <Sprite nameId='Fence7' originX='0' originY='0' positionX='0' positionY='112' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='10' trimRecHeight='16' />
+    <Sprite nameId='Fence8' originX='0' originY='0' positionX='16' positionY='112' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='6' trimRecY='0' trimRecWidth='4' trimRecHeight='16' />
+    <Sprite nameId='Fence9' originX='0' originY='0' positionX='96' positionY='48' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='6' trimRecY='0' trimRecWidth='4' trimRecHeight='16' />
+    <Sprite nameId='Fence10' originX='0' originY='0' positionX='112' positionY='48' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='6' trimRecY='0' trimRecWidth='10' trimRecHeight='16' />
+    <Sprite nameId='Fence11' originX='0' originY='0' positionX='0' positionY='80' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='10' trimRecHeight='16' />
+    <Sprite nameId='Fence12' originX='0' originY='0' positionX='16' positionY='80' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='6' trimRecY='0' trimRecWidth='10' trimRecHeight='16' />
+    <Sprite nameId='Fence13' originX='0' originY='0' positionX='32' positionY='80' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='10' trimRecHeight='16' />
+    <Sprite nameId='Fence14' originX='0' originY='0' positionX='48' positionY='80' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='6' trimRecY='0' trimRecWidth='10' trimRecHeight='16' />
+    <Sprite nameId='Fence15' originX='0' originY='0' positionX='64' positionY='80' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='16' trimRecHeight='16' />
+    <Sprite nameId='Fence16' originX='0' originY='0' positionX='80' positionY='80' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='10' trimRecHeight='16' />
+    <Sprite nameId='SmallBench' originX='0' originY='0' positionX='96' positionY='80' sourceWidth='32' sourceHeight='16' padding='0' trimmed='0' trimRecX='1' trimRecY='4' trimRecWidth='30' trimRecHeight='12' />
+    <Sprite nameId='PlantPot' originX='0' originY='0' positionX='0' positionY='96' sourceWidth='32' sourceHeight='16' padding='0' trimmed='0' trimRecX='2' trimRecY='0' trimRecWidth='28' trimRecHeight='11' />
+    <Sprite nameId='Furnace' originX='0' originY='0' positionX='0' positionY='0' sourceWidth='32' sourceHeight='48' padding='0' trimmed='0' trimRecX='1' trimRecY='7' trimRecWidth='30' trimRecHeight='41' />
+    <Sprite nameId='SmithTable' originX='0' originY='0' positionX='32' positionY='0' sourceWidth='64' sourceHeight='48' padding='0' trimmed='0' trimRecX='1' trimRecY='5' trimRecWidth='62' trimRecHeight='41' />
+    <Sprite nameId='Table' originX='0' originY='0' positionX='96' positionY='0' sourceWidth='32' sourceHeight='32' padding='0' trimmed='0' trimRecX='0' trimRecY='9' trimRecWidth='32' trimRecHeight='23' />
+    <Sprite nameId='CutLog' originX='0' originY='0' positionX='0' positionY='48' sourceWidth='32' sourceHeight='32' padding='0' trimmed='0' trimRecX='0' trimRecY='6' trimRecWidth='31' trimRecHeight='26' />
+    <Sprite nameId='Bench1' originX='0' originY='0' positionX='32' positionY='48' sourceWidth='16' sourceHeight='32' padding='0' trimmed='0' trimRecX='3' trimRecY='0' trimRecWidth='13' trimRecHeight='32' />
+    <Sprite nameId='Bench2' originX='0' originY='0' positionX='48' positionY='48' sourceWidth='16' sourceHeight='32' padding='0' trimmed='0' trimRecX='0' trimRecY='3' trimRecWidth='16' trimRecHeight='26' />
+    <Sprite nameId='Bench3' originX='0' originY='0' positionX='64' positionY='48' sourceWidth='16' sourceHeight='32' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='16' trimRecHeight='32' />
+    <Sprite nameId='Bench4' originX='0' originY='0' positionX='80' positionY='48' sourceWidth='16' sourceHeight='32' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='13' trimRecHeight='32' />
+</AtlasTexture>
