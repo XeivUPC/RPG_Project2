@@ -1,1 +1,1216 @@
-{"c9809f6d-4b85-4f20-9ad3-53791d4eea48":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Good morning Sir Gideon.","fr":""},"parent":"21b7bfda-4941-43b5-8db7-92680de6aaba","next":"da7fcca4-80d1-4af4-8831-0c2f652d8641"},"da7fcca4-80d1-4af4-8831-0c2f652d8641":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"You are late Cassian, I shouldn't let you sleep at all if you do this.","fr":""},"parent":"c9809f6d-4b85-4f20-9ad3-53791d4eea48","next":"f92611b0-feef-4d34-8352-b79f531c7d06"},"f92611b0-feef-4d34-8352-b79f531c7d06":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Sorry Gideon.","fr":""},"parent":"da7fcca4-80d1-4af4-8831-0c2f652d8641","next":"72a45185-151b-4a0f-91f7-7c2b846a3c60"},"72a45185-151b-4a0f-91f7-7c2b846a3c60":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Do not tell that to me, you will be sorry enough after the trainings that await you.","fr":""},"parent":"f92611b0-feef-4d34-8352-b79f531c7d06","next":"b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"},"b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"And it is Sir Gideon not just Gideon. S-I-R Gideon, Sir Gideon!","fr":""},"parent":"72a45185-151b-4a0f-91f7-7c2b846a3c60","choices":[{"text":{"en":"Yes Sir Gideon.","fr":""},"next":"85615c26-8b8d-4944-812c-6d5a73811cdf","parent":"b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"},{"text":{"en":"- Stay silent -","fr":""},"next":"edee822b-ba5b-4a36-852e-750f2c366aa6","parent":"b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"}]},"edee822b-ba5b-4a36-852e-750f2c366aa6":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Say it !","fr":""},"parent":"0ab84aa0-0790-4493-b674-65a7be33c8fd","choices":[{"text":{"en":"Yes Sir Gideon.","fr":""},"next":"85615c26-8b8d-4944-812c-6d5a73811cdf","parent":"edee822b-ba5b-4a36-852e-750f2c366aa6"},{"text":{"en":"No, I won't satisfy your narcissist ego.","fr":""},"next":"e89f90a4-3fa4-436d-89ff-7123ed978796","parent":"edee822b-ba5b-4a36-852e-750f2c366aa6"}]},"85615c26-8b8d-4944-812c-6d5a73811cdf":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Good, now lets review the basics","fr":""},"parent":"f4269134-4bf3-4e30-9cf3-dcdcf632a867","signals":{"parent":"85615c26-8b8d-4944-812c-6d5a73811cdf","SetNpcStatusByID":{"Vector2":{"x":"4","y":"2"}}}},"e89f90a4-3fa4-436d-89ff-7123ed978796":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Then face me and feel defeat you filthy kid.","fr":""},"parent":"5e384f27-7300-4f04-808f-6c02da1f9895","signals":{"parent":"e89f90a4-3fa4-436d-89ff-7123ed978796","SetNpcStatusByID":{"Vector2":{"x":"4","y":"2"}}}},"a3575057-1d52-43c6-9d3d-1621b45db126":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Now everything's set by my part. Come back once you are ready for the audience and you better arrive on time or you will see what true torture looks like.","fr":""},"parent":"005ac25d-d28e-44e0-8bcb-29fab0a2f4bd","choices":[{"text":{"en":"- Leave -","fr":""},"next":"b26956f6-51a2-4778-92cd-d75d5ecbbddf","parent":"a3575057-1d52-43c6-9d3d-1621b45db126"},{"text":{"en":"Which audience?","fr":""},"next":"ce8e572b-86b5-4a95-9ba9-b4832d16377b","parent":"a3575057-1d52-43c6-9d3d-1621b45db126"}]},"b26956f6-51a2-4778-92cd-d75d5ecbbddf":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Do not forget the basics ! Though you might already know a lot in combat, the proficiency over the basics is what defines an elite soldier from the rest.","fr":""},"parent":"705a3f18-2f80-45ad-9257-0cbbc617c5e9","next":"592716b9-a359-4f01-8c29-ec0a1cd8289e"},"ce8e572b-86b5-4a95-9ba9-b4832d16377b":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Is this some kind of your unpleasant jokes?","fr":""},"parent":"711d9bac-56d0-4927-b825-c112ee6cb487","next":"adaaf8df-e2da-4976-bd46-3f75429f7195"},"adaaf8df-e2da-4976-bd46-3f75429f7195":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Not at all...","fr":""},"parent":"ce8e572b-86b5-4a95-9ba9-b4832d16377b","next":"e76ddcd2-910c-4ae6-84f7-45543dafdc2f"},"e76ddcd2-910c-4ae6-84f7-45543dafdc2f":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Oh my goodness. It's because of people like you that I will stay here working forever.","fr":""},"parent":"aa946099-13fd-403d-a81c-a2bc0d2d4a40","next":"f69e44a1-1b93-4b57-8f62-80a01446eb85"},"f69e44a1-1b93-4b57-8f62-80a01446eb85":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Well, listen. Today you do have an audience with the emperor Charles II, the man leading the whole Zalium empire and his son, the prince Artis.","fr":""},"parent":"e76ddcd2-910c-4ae6-84f7-45543dafdc2f","choices":[],"next":"88c1e69c-3aec-4643-b72c-812062cf57d6"},"592716b9-a359-4f01-8c29-ec0a1cd8289e":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Understood?","fr":""},"parent":"b26956f6-51a2-4778-92cd-d75d5ecbbddf","choices":[{"text":{"en":"Yes Sir Gideon. - Leave -","fr":""},"next":"","parent":"592716b9-a359-4f01-8c29-ec0a1cd8289e"},{"text":{"en":"I still have some questions.","fr":""},"next":"e76ddcd2-910c-4ae6-84f7-45543dafdc2f","parent":"592716b9-a359-4f01-8c29-ec0a1cd8289e"}]},"88c1e69c-3aec-4643-b72c-812062cf57d6":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Anything else?","fr":""},"choices":[{"text":{"en":"What is the Zalium Empire?","fr":""},"next":"ede35739-2cd1-4356-a1ad-8533ec30b4da","parent":"88c1e69c-3aec-4643-b72c-812062cf57d6"},{"text":{"en":"Why am I meeting such powerful people?","fr":""},"next":"1450bca5-9717-4f7d-b5be-691cc8194c3f","parent":"88c1e69c-3aec-4643-b72c-812062cf57d6"},{"text":{"en":"Why it has to be me?","fr":""},"next":"24f28e13-dc36-4520-987e-e78cfeee27e4","parent":"88c1e69c-3aec-4643-b72c-812062cf57d6"},{"text":{"en":"What is your role in all of this?","fr":""},"next":"6d32d392-51e2-4b78-82f2-b988f7d9bf95","parent":"88c1e69c-3aec-4643-b72c-812062cf57d6"},{"text":{"en":"- Leave -","fr":""},"next":"f75ed139-1374-472c-8823-c9ec401f9bb7","parent":"88c1e69c-3aec-4643-b72c-812062cf57d6"}],"parent":"6d32d392-51e2-4b78-82f2-b988f7d9bf95"},"f75ed139-1374-472c-8823-c9ec401f9bb7":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"No, thanks, I will be right back.","fr":""},"parent":"3be2e43c-51dc-4852-9c9d-c0a3850e04d7","signals":{"parent":"f75ed139-1374-472c-8823-c9ec401f9bb7","SetNpcStatusByID":{"Vector2":{"x":"4","y":"3"}}}},"ede35739-2cd1-4356-a1ad-8533ec30b4da":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Did you eat something poisoned? The Zalium empire is the place you live, the place we are standing on right now. It is thanks to the empire that you have been trained by someone like me, if not for that, you might be right now on the streets asking for food.","fr":""},"parent":"de0f45e7-fa90-4389-b8ca-42cf64767240","next":"88c1e69c-3aec-4643-b72c-812062cf57d6"},"1450bca5-9717-4f7d-b5be-691cc8194c3f":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"These \"Powerful people\" are the ones investing the coins onto the Rogue Squad Project, a project founded to replace their previous Royal Guard. They need elite soldiers, people like me or maybe you, in a very far future it seems.","fr":""},"parent":"bf319b29-9db3-4d1b-ada1-eabfc8126796","next":"88c1e69c-3aec-4643-b72c-812062cf57d6"},"24f28e13-dc36-4520-987e-e78cfeee27e4":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"If it was for me I would have placed your comrade Zeryn, she is much more capable than you right now, maybe the only trainee I am proud of. But you know, we cannot place a woman in such a position of power and you are the second best trainee in the Rogue Squadron Project. ","fr":""},"parent":"abccdab9-0a01-4e25-a571-04ac62da9eed","next":"d2d8d438-6893-4f9d-9a1a-24637d5e9a7e"},"d2d8d438-6893-4f9d-9a1a-24637d5e9a7e":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"If all of this goes as expected, you will become the leader of the Royal Guard and you will be tasked with the next step of the Rogue Squadron Project, which will involve training new generations of elite soldiers so every formation of soldiers in the empire has one of such soldiers as a  captain.","fr":""},"parent":"24f28e13-dc36-4520-987e-e78cfeee27e4","next":"0c5bba6d-978b-4446-97c5-bec36f898301"},"0c5bba6d-978b-4446-97c5-bec36f898301":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"But do not get any ilusion, at the pace this is going, you might die from old before any of that happens.","fr":""},"parent":"d2d8d438-6893-4f9d-9a1a-24637d5e9a7e","next":"88c1e69c-3aec-4643-b72c-812062cf57d6"},"6d32d392-51e2-4b78-82f2-b988f7d9bf95":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Well, If you are considered \"capable\" of becoming someone able to uphold a position such as mine right now as well as being the leader of the next Royal Guard in a near future, I will be able to retire in peace.","fr":""},"parent":"1f2fcc6b-01a7-4591-874c-4b600aa284f7","next":"88c1e69c-3aec-4643-b72c-812062cf57d6"},"247e1b70-08c3-4d24-9aa7-cf362fbee249":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"tuto","fr":""},"parent":"6feb6ee6-5a54-465c-b4ab-bf1c2c55c01c"},"07981e34-40c8-41d9-8b25-eb285bea7370":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"I'm back.","fr":""},"parent":"f9f0b856-de14-40df-8c95-e7ad127bf1e9","next":"23828037-2014-4404-96c8-33fcbcea1821"},"23828037-2014-4404-96c8-33fcbcea1821":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Are you ready?","fr":""},"parent":"07981e34-40c8-41d9-8b25-eb285bea7370","choices":[{"text":{"en":"Yes sir !","fr":""},"next":"b7fcdf5a-189f-4379-b2df-f5fc065bd556","parent":"23828037-2014-4404-96c8-33fcbcea1821"},{"text":{"en":" - Leave -","fr":""},"next":"3caa96bd-8699-4af5-82b6-0f2dc8ea1bf9","parent":"23828037-2014-4404-96c8-33fcbcea1821"}]},"b7fcdf5a-189f-4379-b2df-f5fc065bd556":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"When are they arriving ?","fr":""},"parent":"f47c38c1-093f-4622-b024-cefde867b93f","next":"6573ef4b-0643-4603-8f76-91a447df821c"},"6573ef4b-0643-4603-8f76-91a447df821c":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Look behind, they are just entering the arena.","fr":""},"parent":"b7fcdf5a-189f-4379-b2df-f5fc065bd556","next":"12ee7fd2-5cb4-4597-8146-9350ce55a61c"},"12ee7fd2-5cb4-4597-8146-9350ce55a61c":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"THE EMPEROR IS ENTERING THE TRAINING ARENA !","fr":""},"parent":"6573ef4b-0643-4603-8f76-91a447df821c","next":"d530c7f6-3324-4dda-922a-cd5a4d5ef11a"},"d530c7f6-3324-4dda-922a-cd5a4d5ef11a":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Emperor Charles II, the one who's leading Zalium to a bright future ! And Artis, heir to the throne, our prince. Please, feel welcome!","fr":""},"parent":"12ee7fd2-5cb4-4597-8146-9350ce55a61c","next":"eee5ddb3-66e5-400e-988f-92d70ec9c158"},"3caa96bd-8699-4af5-82b6-0f2dc8ea1bf9":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Not yet.","fr":""},"parent":"830bd6dd-0662-454c-9537-e2638650d332"},"eee5ddb3-66e5-400e-988f-92d70ec9c158":{"name":"Rogue Squadron Army","character_uuid":"fe750287-6cfa-424a-a12f-da4536409d60","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png","text":{"en":"(Coordinated spears hit the floor once)","fr":""},"parent":"d530c7f6-3324-4dda-922a-cd5a4d5ef11a","next":"d218a333-1dd8-42ce-b6a4-c81aed1d2137"},"d218a333-1dd8-42ce-b6a4-c81aed1d2137":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Thanks, but there is no need for such flattery today. We aim to see the progress you have been making lately Gideon.","fr":""},"parent":"eee5ddb3-66e5-400e-988f-92d70ec9c158","next":"03a018d5-e7a2-4236-a845-df4029efd2e7"},"03a018d5-e7a2-4236-a845-df4029efd2e7":{"name":"Artis","character_uuid":"66658753-5bc8-4f86-ad55-c5607a3fd336","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png","text":{"en":"...","fr":""},"parent":"d218a333-1dd8-42ce-b6a4-c81aed1d2137","next":"ebb06f02-7c06-4206-9b59-7874cb735891"},"ebb06f02-7c06-4206-9b59-7874cb735891":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Gideon, we planned you to spar with your best trainee in order to observe how the project is going. If you don't mind, I would like you to step out for this one. I want to test your trainee with a guard from Dunhaven, our  capital.","fr":""},"parent":"03a018d5-e7a2-4236-a845-df4029efd2e7","next":"b6e9d98c-8690-4e44-817f-2749b42eeb47"},"b6e9d98c-8690-4e44-817f-2749b42eeb47":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Of course, I assure you won't be disappointed, emperor.","fr":""},"parent":"ebb06f02-7c06-4206-9b59-7874cb735891","next":"854e65e4-c534-4277-acd0-f27a7bbafd82"},"854e65e4-c534-4277-acd0-f27a7bbafd82":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Then let us begin! Come here Cassian !","fr":""},"parent":"b6e9d98c-8690-4e44-817f-2749b42eeb47","next":"6e1fc407-956d-4226-bb6e-d7c93cc3c819"},"6e1fc407-956d-4226-bb6e-d7c93cc3c819":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Yes sir.","fr":""},"parent":"854e65e4-c534-4277-acd0-f27a7bbafd82"},"8d981fe1-3a73-4d5e-9d30-6ff57834bca5":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Fast ! Come here !","fr":""},"parent":"a021262b-175c-4363-90ed-9ef3d82c822b","next":"5fff6584-bb16-4c7c-b949-d5522ddfbe82"},"5fff6584-bb16-4c7c-b949-d5522ddfbe82":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Well, hear me, the soldiers from the capital are mosly low nobles that do a little service as generals only to gain recognition, and they are also trained by nobles with no real experience.","fr":""},"parent":"8d981fe1-3a73-4d5e-9d30-6ff57834bca5","next":"fee1353b-5234-4434-9ef5-6bde6739336e"},"fee1353b-5234-4434-9ef5-6bde6739336e":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"What I am saying, is that their flowery style is decisive and easy to study, but once they are forced out of it they are nothing, force him out of his style and you will win easily.","fr":""},"parent":"5fff6584-bb16-4c7c-b949-d5522ddfbe82","next":"864f4f27-ae18-4e21-85d9-1077b46d7ca4"},"864f4f27-ae18-4e21-85d9-1077b46d7ca4":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Understood.","fr":""},"parent":"fee1353b-5234-4434-9ef5-6bde6739336e","next":"809883d4-f099-443e-8963-93bb14e121df"},"809883d4-f099-443e-8963-93bb14e121df":{"name":"Sir Gideon Hawthorne","character_uuid":"59baaa05-176b-49c2-b5aa-41b38f2c78d1","portrait":"C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png","text":{"en":"Now, go and kick his ass.","fr":""},"parent":"864f4f27-ae18-4e21-85d9-1077b46d7ca4"},"root":{"conditions":[{"parent":"root","next":"c9809f6d-4b85-4f20-9ad3-53791d4eea48","Char4_State":{"value":0,"operator":"equal","type":"int"}},{"parent":"root","Char4_State":{"value":1,"operator":"equal","type":"int"},"next":"247e1b70-08c3-4d24-9aa7-cf362fbee249"},{"parent":"root","next":"a3575057-1d52-43c6-9d3d-1621b45db126","Char4_State":{"value":2,"operator":"equal","type":"int"}},{"Char4_State":{"value":3,"operator":"equal","type":"int"},"parent":"root","next":"07981e34-40c8-41d9-8b25-eb285bea7370"},{"Char4_State":{"value":4,"operator":"equal","type":"int"},"parent":"root","next":"8d981fe1-3a73-4d5e-9d30-6ff57834bca5"}]},"__editor":{"root":{"uuid":"root","offset":[40,100]},"dialogues":[{"uuid":"c9809f6d-4b85-4f20-9ad3-53791d4eea48","offset":[720,-440]},{"uuid":"da7fcca4-80d1-4af4-8831-0c2f652d8641","offset":[1160,-440]},{"uuid":"f92611b0-feef-4d34-8352-b79f531c7d06","offset":[1560,-440]},{"uuid":"72a45185-151b-4a0f-91f7-7c2b846a3c60","offset":[1980,-440]},{"uuid":"b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7","offset":[2380,-440]},{"uuid":"edee822b-ba5b-4a36-852e-750f2c366aa6","offset":[3200,-340]},{"uuid":"85615c26-8b8d-4944-812c-6d5a73811cdf","offset":[4000,-660]},{"uuid":"e89f90a4-3fa4-436d-89ff-7123ed978796","offset":[4000,-100]},{"uuid":"a3575057-1d52-43c6-9d3d-1621b45db126","offset":[660,680]},{"uuid":"b26956f6-51a2-4778-92cd-d75d5ecbbddf","offset":[1460,1020]},{"uuid":"ce8e572b-86b5-4a95-9ba9-b4832d16377b","offset":[1480,500]},{"uuid":"adaaf8df-e2da-4976-bd46-3f75429f7195","offset":[1880,500]},{"uuid":"e76ddcd2-910c-4ae6-84f7-45543dafdc2f","offset":[2620,500]},{"uuid":"f69e44a1-1b93-4b57-8f62-80a01446eb85","offset":[3000,500]},{"uuid":"592716b9-a359-4f01-8c29-ec0a1cd8289e","offset":[1860,1020]},{"uuid":"88c1e69c-3aec-4643-b72c-812062cf57d6","offset":[3580,500]},{"uuid":"f75ed139-1374-472c-8823-c9ec401f9bb7","offset":[4440,1820]},{"uuid":"ede35739-2cd1-4356-a1ad-8533ec30b4da","offset":[4420,300]},{"uuid":"1450bca5-9717-4f7d-b5be-691cc8194c3f","offset":[4420,660]},{"uuid":"24f28e13-dc36-4520-987e-e78cfeee27e4","offset":[4420,1040]},{"uuid":"d2d8d438-6893-4f9d-9a1a-24637d5e9a7e","offset":[4820,1040]},{"uuid":"0c5bba6d-978b-4446-97c5-bec36f898301","offset":[5220,1040]},{"uuid":"6d32d392-51e2-4b78-82f2-b988f7d9bf95","offset":[4440,1420]},{"uuid":"247e1b70-08c3-4d24-9aa7-cf362fbee249","offset":[740,-20]},{"uuid":"07981e34-40c8-41d9-8b25-eb285bea7370","offset":[680,2480]},{"uuid":"23828037-2014-4404-96c8-33fcbcea1821","offset":[1100,2480]},{"uuid":"b7fcdf5a-189f-4379-b2df-f5fc065bd556","offset":[1980,2420]},{"uuid":"6573ef4b-0643-4603-8f76-91a447df821c","offset":[2460,2540]},{"uuid":"12ee7fd2-5cb4-4597-8146-9350ce55a61c","offset":[2880,2540]},{"uuid":"d530c7f6-3324-4dda-922a-cd5a4d5ef11a","offset":[3280,2540]},{"uuid":"3caa96bd-8699-4af5-82b6-0f2dc8ea1bf9","offset":[1980,2820]},{"uuid":"eee5ddb3-66e5-400e-988f-92d70ec9c158","offset":[3680,2540]},{"uuid":"d218a333-1dd8-42ce-b6a4-c81aed1d2137","offset":[4100,2540]},{"uuid":"03a018d5-e7a2-4236-a845-df4029efd2e7","offset":[4500,2540]},{"uuid":"ebb06f02-7c06-4206-9b59-7874cb735891","offset":[4920,2540]},{"uuid":"b6e9d98c-8690-4e44-817f-2749b42eeb47","offset":[5320,2540]},{"uuid":"854e65e4-c534-4277-acd0-f27a7bbafd82","offset":[5720,2540]},{"uuid":"6e1fc407-956d-4226-bb6e-d7c93cc3c819","offset":[6100,2540]},{"uuid":"8d981fe1-3a73-4d5e-9d30-6ff57834bca5","offset":[680,3360]},{"uuid":"5fff6584-bb16-4c7c-b949-d5522ddfbe82","offset":[1080,3360]},{"uuid":"fee1353b-5234-4434-9ef5-6bde6739336e","offset":[1480,3360]},{"uuid":"864f4f27-ae18-4e21-85d9-1077b46d7ca4","offset":[1880,3360]},{"uuid":"809883d4-f099-443e-8963-93bb14e121df","offset":[2280,3360]}],"conditions":[{"uuid":"21b7bfda-4941-43b5-8db7-92680de6aaba","offset":[300,-400],"parent":"root"},{"uuid":"6feb6ee6-5a54-465c-b4ab-bf1c2c55c01c","offset":[300,20],"parent":"root"},{"uuid":"005ac25d-d28e-44e0-8bcb-29fab0a2f4bd","offset":[280,700],"parent":"root"},{"uuid":"f9f0b856-de14-40df-8c95-e7ad127bf1e9","offset":[280,2500],"parent":"root"},{"uuid":"a021262b-175c-4363-90ed-9ef3d82c822b","offset":[280,3380],"parent":"root"}],"signals":[{"uuid":"af42debb-624c-43f1-8771-8bf688c741c8","offset":[4500,-620],"parent":"85615c26-8b8d-4944-812c-6d5a73811cdf","data":{"parent":"85615c26-8b8d-4944-812c-6d5a73811cdf","SetNpcStatusByID":{"Vector2":{"x":"4","y":"2"}}}},{"uuid":"d46d9df1-ff92-4b26-81a9-a9886fae9247","offset":[4500,-60],"parent":"e89f90a4-3fa4-436d-89ff-7123ed978796","data":{"parent":"e89f90a4-3fa4-436d-89ff-7123ed978796","SetNpcStatusByID":{"Vector2":{"x":"4","y":"2"}}}},{"uuid":"e0e4ec4d-cba6-46c1-b509-156770caf54e","offset":[4880,1880],"parent":"f75ed139-1374-472c-8823-c9ec401f9bb7","data":{"parent":"f75ed139-1374-472c-8823-c9ec401f9bb7","SetNpcStatusByID":{"Vector2":{"x":"4","y":"3"}}}}],"choices":[{"uuid":"1a7dc7ee-afcd-435f-8894-0e16e7767f58","offset":[2800,-560],"parent":"b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"},{"uuid":"0ab84aa0-0790-4493-b674-65a7be33c8fd","offset":[2800,-240],"parent":"b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"},{"uuid":"f4269134-4bf3-4e30-9cf3-dcdcf632a867","offset":[3620,-360],"parent":"edee822b-ba5b-4a36-852e-750f2c366aa6","data":{"text":{"en":"Yes Sir Gideon.","fr":""},"next":"85615c26-8b8d-4944-812c-6d5a73811cdf","parent":"edee822b-ba5b-4a36-852e-750f2c366aa6"}},{"uuid":"5e384f27-7300-4f04-808f-6c02da1f9895","offset":[3620,-100],"parent":"edee822b-ba5b-4a36-852e-750f2c366aa6","data":{"text":{"en":"No, I won't satisfy your narcissist ego.","fr":""},"next":"e89f90a4-3fa4-436d-89ff-7123ed978796","parent":"edee822b-ba5b-4a36-852e-750f2c366aa6"}},{"uuid":"705a3f18-2f80-45ad-9257-0cbbc617c5e9","offset":[1080,1060],"parent":"a3575057-1d52-43c6-9d3d-1621b45db126"},{"uuid":"711d9bac-56d0-4927-b825-c112ee6cb487","offset":[1080,560],"parent":"a3575057-1d52-43c6-9d3d-1621b45db126"},{"uuid":"bab838c1-525a-4213-8d6b-d69f4f2770bb","offset":[2240,1260],"parent":"592716b9-a359-4f01-8c29-ec0a1cd8289e"},{"uuid":"aa946099-13fd-403d-a81c-a2bc0d2d4a40","offset":[2240,980],"parent":"592716b9-a359-4f01-8c29-ec0a1cd8289e"},{"uuid":"de0f45e7-fa90-4389-b8ca-42cf64767240","offset":[4020,340],"parent":"88c1e69c-3aec-4643-b72c-812062cf57d6"},{"uuid":"bf319b29-9db3-4d1b-ada1-eabfc8126796","offset":[4000,740],"parent":"88c1e69c-3aec-4643-b72c-812062cf57d6"},{"uuid":"abccdab9-0a01-4e25-a571-04ac62da9eed","offset":[4020,1100],"parent":"88c1e69c-3aec-4643-b72c-812062cf57d6"},{"uuid":"1f2fcc6b-01a7-4591-874c-4b600aa284f7","offset":[4040,1520],"parent":"88c1e69c-3aec-4643-b72c-812062cf57d6"},{"uuid":"3be2e43c-51dc-4852-9c9d-c0a3850e04d7","offset":[4040,1860],"parent":"88c1e69c-3aec-4643-b72c-812062cf57d6"},{"uuid":"f47c38c1-093f-4622-b024-cefde867b93f","offset":[1520,2460],"parent":"23828037-2014-4404-96c8-33fcbcea1821"},{"uuid":"830bd6dd-0662-454c-9537-e2638650d332","offset":[1520,2720],"parent":"23828037-2014-4404-96c8-33fcbcea1821"}]}}
+{
+    "c9809f6d-4b85-4f20-9ad3-53791d4eea48": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Good morning Sir Gideon.",
+            "fr": ""
+        },
+        "parent": "21b7bfda-4941-43b5-8db7-92680de6aaba",
+        "next": "da7fcca4-80d1-4af4-8831-0c2f652d8641"
+    },
+    "da7fcca4-80d1-4af4-8831-0c2f652d8641": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "You are late Cassian, I shouldn't let you sleep at all if you do this.",
+            "fr": ""
+        },
+        "parent": "c9809f6d-4b85-4f20-9ad3-53791d4eea48",
+        "next": "f92611b0-feef-4d34-8352-b79f531c7d06"
+    },
+    "f92611b0-feef-4d34-8352-b79f531c7d06": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Sorry Gideon.",
+            "fr": ""
+        },
+        "parent": "da7fcca4-80d1-4af4-8831-0c2f652d8641",
+        "next": "72a45185-151b-4a0f-91f7-7c2b846a3c60"
+    },
+    "72a45185-151b-4a0f-91f7-7c2b846a3c60": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Do not tell that to me, you will be sorry enough after the trainings that await you.",
+            "fr": ""
+        },
+        "parent": "f92611b0-feef-4d34-8352-b79f531c7d06",
+        "next": "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"
+    },
+    "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "And it is Sir Gideon not just Gideon. S-I-R Gideon, Sir Gideon!",
+            "fr": ""
+        },
+        "parent": "72a45185-151b-4a0f-91f7-7c2b846a3c60",
+        "choices": [
+            {
+                "text": {
+                    "en": "Yes Sir Gideon.",
+                    "fr": ""
+                },
+                "next": "85615c26-8b8d-4944-812c-6d5a73811cdf",
+                "parent": "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"
+            },
+            {
+                "text": {
+                    "en": "- Stay silent -",
+                    "fr": ""
+                },
+                "next": "edee822b-ba5b-4a36-852e-750f2c366aa6",
+                "parent": "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"
+            }
+        ]
+    },
+    "edee822b-ba5b-4a36-852e-750f2c366aa6": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Say it !",
+            "fr": ""
+        },
+        "parent": "0ab84aa0-0790-4493-b674-65a7be33c8fd",
+        "choices": [
+            {
+                "text": {
+                    "en": "Yes Sir Gideon.",
+                    "fr": ""
+                },
+                "next": "85615c26-8b8d-4944-812c-6d5a73811cdf",
+                "parent": "edee822b-ba5b-4a36-852e-750f2c366aa6"
+            },
+            {
+                "text": {
+                    "en": "No, I won't satisfy your narcissist ego.",
+                    "fr": ""
+                },
+                "next": "e89f90a4-3fa4-436d-89ff-7123ed978796",
+                "parent": "edee822b-ba5b-4a36-852e-750f2c366aa6"
+            }
+        ]
+    },
+    "85615c26-8b8d-4944-812c-6d5a73811cdf": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Good, now lets review the basics",
+            "fr": ""
+        },
+        "parent": "f4269134-4bf3-4e30-9cf3-dcdcf632a867",
+        "signals": {
+            "parent": "85615c26-8b8d-4944-812c-6d5a73811cdf",
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "4",
+                    "y": "2"
+                }
+            }
+        }
+    },
+    "e89f90a4-3fa4-436d-89ff-7123ed978796": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Then face me and feel defeat you filthy kid.",
+            "fr": ""
+        },
+        "parent": "5e384f27-7300-4f04-808f-6c02da1f9895",
+        "signals": {
+            "parent": "e89f90a4-3fa4-436d-89ff-7123ed978796",
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "4",
+                    "y": "2"
+                }
+            }
+        }
+    },
+    "a3575057-1d52-43c6-9d3d-1621b45db126": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Now everything's set by my part. Come back once you are ready for the audience and you better arrive on time or you will see what true torture looks like.",
+            "fr": ""
+        },
+        "parent": "005ac25d-d28e-44e0-8bcb-29fab0a2f4bd",
+        "choices": [
+            {
+                "text": {
+                    "en": "- Leave -",
+                    "fr": ""
+                },
+                "next": "b26956f6-51a2-4778-92cd-d75d5ecbbddf",
+                "parent": "a3575057-1d52-43c6-9d3d-1621b45db126"
+            },
+            {
+                "text": {
+                    "en": "Which audience?",
+                    "fr": ""
+                },
+                "next": "ce8e572b-86b5-4a95-9ba9-b4832d16377b",
+                "parent": "a3575057-1d52-43c6-9d3d-1621b45db126"
+            }
+        ]
+    },
+    "b26956f6-51a2-4778-92cd-d75d5ecbbddf": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Do not forget the basics ! Though you might already know a lot in combat, the proficiency over the basics is what defines an elite soldier from the rest.",
+            "fr": ""
+        },
+        "parent": "705a3f18-2f80-45ad-9257-0cbbc617c5e9",
+        "next": "592716b9-a359-4f01-8c29-ec0a1cd8289e"
+    },
+    "ce8e572b-86b5-4a95-9ba9-b4832d16377b": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Is this some kind of your unpleasant jokes?",
+            "fr": ""
+        },
+        "parent": "711d9bac-56d0-4927-b825-c112ee6cb487",
+        "next": "adaaf8df-e2da-4976-bd46-3f75429f7195"
+    },
+    "adaaf8df-e2da-4976-bd46-3f75429f7195": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Not at all...",
+            "fr": ""
+        },
+        "parent": "ce8e572b-86b5-4a95-9ba9-b4832d16377b",
+        "next": "e76ddcd2-910c-4ae6-84f7-45543dafdc2f"
+    },
+    "e76ddcd2-910c-4ae6-84f7-45543dafdc2f": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Oh my goodness. It's because of people like you that I will stay here working forever.",
+            "fr": ""
+        },
+        "parent": "aa946099-13fd-403d-a81c-a2bc0d2d4a40",
+        "next": "f69e44a1-1b93-4b57-8f62-80a01446eb85"
+    },
+    "f69e44a1-1b93-4b57-8f62-80a01446eb85": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Well, listen. Today you do have an audience with the emperor Charles II, the man leading the whole Zalium empire and his son, the prince Artis.",
+            "fr": ""
+        },
+        "parent": "e76ddcd2-910c-4ae6-84f7-45543dafdc2f",
+        "choices": [],
+        "next": "88c1e69c-3aec-4643-b72c-812062cf57d6"
+    },
+    "592716b9-a359-4f01-8c29-ec0a1cd8289e": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Understood?",
+            "fr": ""
+        },
+        "parent": "b26956f6-51a2-4778-92cd-d75d5ecbbddf",
+        "choices": [
+            {
+                "text": {
+                    "en": "Yes Sir Gideon. - Leave -",
+                    "fr": ""
+                },
+                "next": "",
+                "parent": "592716b9-a359-4f01-8c29-ec0a1cd8289e"
+            },
+            {
+                "text": {
+                    "en": "I still have some questions.",
+                    "fr": ""
+                },
+                "next": "e76ddcd2-910c-4ae6-84f7-45543dafdc2f",
+                "parent": "592716b9-a359-4f01-8c29-ec0a1cd8289e"
+            }
+        ]
+    },
+    "88c1e69c-3aec-4643-b72c-812062cf57d6": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Anything else?",
+            "fr": ""
+        },
+        "choices": [
+            {
+                "text": {
+                    "en": "What is the Zalium Empire?",
+                    "fr": ""
+                },
+                "next": "ede35739-2cd1-4356-a1ad-8533ec30b4da",
+                "parent": "88c1e69c-3aec-4643-b72c-812062cf57d6"
+            },
+            {
+                "text": {
+                    "en": "Why am I meeting such powerful people?",
+                    "fr": ""
+                },
+                "next": "1450bca5-9717-4f7d-b5be-691cc8194c3f",
+                "parent": "88c1e69c-3aec-4643-b72c-812062cf57d6"
+            },
+            {
+                "text": {
+                    "en": "Why it has to be me?",
+                    "fr": ""
+                },
+                "next": "24f28e13-dc36-4520-987e-e78cfeee27e4",
+                "parent": "88c1e69c-3aec-4643-b72c-812062cf57d6"
+            },
+            {
+                "text": {
+                    "en": "What is your role in all of this?",
+                    "fr": ""
+                },
+                "next": "6d32d392-51e2-4b78-82f2-b988f7d9bf95",
+                "parent": "88c1e69c-3aec-4643-b72c-812062cf57d6"
+            },
+            {
+                "text": {
+                    "en": "- Leave -",
+                    "fr": ""
+                },
+                "next": "f75ed139-1374-472c-8823-c9ec401f9bb7",
+                "parent": "88c1e69c-3aec-4643-b72c-812062cf57d6"
+            }
+        ],
+        "parent": "6d32d392-51e2-4b78-82f2-b988f7d9bf95"
+    },
+    "f75ed139-1374-472c-8823-c9ec401f9bb7": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "No, thanks, I will be right back.",
+            "fr": ""
+        },
+        "parent": "3be2e43c-51dc-4852-9c9d-c0a3850e04d7",
+        "signals": {
+            "parent": "f75ed139-1374-472c-8823-c9ec401f9bb7",
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "4",
+                    "y": "3"
+                }
+            }
+        }
+    },
+    "ede35739-2cd1-4356-a1ad-8533ec30b4da": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Did you eat something poisoned? The Zalium empire is the place you live, the place we are standing on right now. It is thanks to the empire that you have been trained by someone like me, if not for that, you might be right now on the streets asking for food.",
+            "fr": ""
+        },
+        "parent": "de0f45e7-fa90-4389-b8ca-42cf64767240",
+        "next": "88c1e69c-3aec-4643-b72c-812062cf57d6"
+    },
+    "1450bca5-9717-4f7d-b5be-691cc8194c3f": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "These \"Powerful people\" are the ones investing the coins onto the Rogue Squad Project, a project founded to replace their previous Royal Guard. They need elite soldiers, people like me or maybe you, in a very far future it seems.",
+            "fr": ""
+        },
+        "parent": "bf319b29-9db3-4d1b-ada1-eabfc8126796",
+        "next": "88c1e69c-3aec-4643-b72c-812062cf57d6"
+    },
+    "24f28e13-dc36-4520-987e-e78cfeee27e4": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "If it was for me I would have placed your comrade Zeryn, she is much more capable than you right now, maybe the only trainee I am proud of. But you know, we cannot place a woman in such a position of power and you are the second best trainee in the Rogue Squadron Project. ",
+            "fr": ""
+        },
+        "parent": "abccdab9-0a01-4e25-a571-04ac62da9eed",
+        "next": "d2d8d438-6893-4f9d-9a1a-24637d5e9a7e"
+    },
+    "d2d8d438-6893-4f9d-9a1a-24637d5e9a7e": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "If all of this goes as expected, you will become the leader of the Royal Guard and you will be tasked with the next step of the Rogue Squadron Project, which will involve training new generations of elite soldiers so every formation of soldiers in the empire has one of such soldiers as a  captain.",
+            "fr": ""
+        },
+        "parent": "24f28e13-dc36-4520-987e-e78cfeee27e4",
+        "next": "0c5bba6d-978b-4446-97c5-bec36f898301"
+    },
+    "0c5bba6d-978b-4446-97c5-bec36f898301": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "But do not get any ilusion, at the pace this is going, you might die from old before any of that happens.",
+            "fr": ""
+        },
+        "parent": "d2d8d438-6893-4f9d-9a1a-24637d5e9a7e",
+        "next": "88c1e69c-3aec-4643-b72c-812062cf57d6"
+    },
+    "6d32d392-51e2-4b78-82f2-b988f7d9bf95": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Well, If you are considered \"capable\" of becoming someone able to uphold a position such as mine right now as well as being the leader of the next Royal Guard in a near future, I will be able to retire in peace.",
+            "fr": ""
+        },
+        "parent": "1f2fcc6b-01a7-4591-874c-4b600aa284f7",
+        "next": "88c1e69c-3aec-4643-b72c-812062cf57d6"
+    },
+    "247e1b70-08c3-4d24-9aa7-cf362fbee249": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "tuto",
+            "fr": ""
+        },
+        "parent": "6feb6ee6-5a54-465c-b4ab-bf1c2c55c01c"
+    },
+    "07981e34-40c8-41d9-8b25-eb285bea7370": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "I'm back.",
+            "fr": ""
+        },
+        "parent": "f9f0b856-de14-40df-8c95-e7ad127bf1e9",
+        "next": "23828037-2014-4404-96c8-33fcbcea1821"
+    },
+    "23828037-2014-4404-96c8-33fcbcea1821": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Are you ready?",
+            "fr": ""
+        },
+        "parent": "07981e34-40c8-41d9-8b25-eb285bea7370",
+        "choices": [
+            {
+                "text": {
+                    "en": "Yes sir !",
+                    "fr": ""
+                },
+                "next": "b7fcdf5a-189f-4379-b2df-f5fc065bd556",
+                "parent": "23828037-2014-4404-96c8-33fcbcea1821"
+            },
+            {
+                "text": {
+                    "en": " - Leave -",
+                    "fr": ""
+                },
+                "next": "3caa96bd-8699-4af5-82b6-0f2dc8ea1bf9",
+                "parent": "23828037-2014-4404-96c8-33fcbcea1821"
+            }
+        ]
+    },
+    "b7fcdf5a-189f-4379-b2df-f5fc065bd556": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "When are they arriving ?",
+            "fr": ""
+        },
+        "parent": "f47c38c1-093f-4622-b024-cefde867b93f",
+        "next": "6573ef4b-0643-4603-8f76-91a447df821c"
+    },
+    "6573ef4b-0643-4603-8f76-91a447df821c": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Look behind, they are just entering the arena.",
+            "fr": ""
+        },
+        "parent": "b7fcdf5a-189f-4379-b2df-f5fc065bd556",
+        "next": "12ee7fd2-5cb4-4597-8146-9350ce55a61c"
+    },
+    "12ee7fd2-5cb4-4597-8146-9350ce55a61c": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "THE EMPEROR IS ENTERING THE TRAINING ARENA !",
+            "fr": ""
+        },
+        "parent": "6573ef4b-0643-4603-8f76-91a447df821c",
+        "next": "d530c7f6-3324-4dda-922a-cd5a4d5ef11a"
+    },
+    "d530c7f6-3324-4dda-922a-cd5a4d5ef11a": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Emperor Charles II, the one who's leading Zalium to a bright future ! And Artis, heir to the throne, our prince. Please, feel welcome!",
+            "fr": ""
+        },
+        "parent": "12ee7fd2-5cb4-4597-8146-9350ce55a61c",
+        "next": "eee5ddb3-66e5-400e-988f-92d70ec9c158"
+    },
+    "3caa96bd-8699-4af5-82b6-0f2dc8ea1bf9": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Not yet.",
+            "fr": ""
+        },
+        "parent": "830bd6dd-0662-454c-9537-e2638650d332"
+    },
+    "eee5ddb3-66e5-400e-988f-92d70ec9c158": {
+        "name": "Rogue Squadron Army",
+        "character_uuid": "fe750287-6cfa-424a-a12f-da4536409d60",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "(Coordinated spears hit the floor once)",
+            "fr": ""
+        },
+        "parent": "d530c7f6-3324-4dda-922a-cd5a4d5ef11a",
+        "next": "d218a333-1dd8-42ce-b6a4-c81aed1d2137"
+    },
+    "d218a333-1dd8-42ce-b6a4-c81aed1d2137": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Thanks, but there is no need for such flattery today. We aim to see the progress you have been making lately Gideon.",
+            "fr": ""
+        },
+        "parent": "eee5ddb3-66e5-400e-988f-92d70ec9c158",
+        "next": "03a018d5-e7a2-4236-a845-df4029efd2e7"
+    },
+    "03a018d5-e7a2-4236-a845-df4029efd2e7": {
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "text": {
+            "en": "...",
+            "fr": ""
+        },
+        "parent": "d218a333-1dd8-42ce-b6a4-c81aed1d2137",
+        "next": "ebb06f02-7c06-4206-9b59-7874cb735891"
+    },
+    "ebb06f02-7c06-4206-9b59-7874cb735891": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Gideon, we planned you to spar with your best trainee in order to observe how the project is going. If you don't mind, I would like you to step out for this one. I want to test your trainee with a guard from Dunhaven, our  capital.",
+            "fr": ""
+        },
+        "parent": "03a018d5-e7a2-4236-a845-df4029efd2e7",
+        "next": "b6e9d98c-8690-4e44-817f-2749b42eeb47"
+    },
+    "b6e9d98c-8690-4e44-817f-2749b42eeb47": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Of course, I assure you won't be disappointed, emperor.",
+            "fr": ""
+        },
+        "parent": "ebb06f02-7c06-4206-9b59-7874cb735891",
+        "next": "854e65e4-c534-4277-acd0-f27a7bbafd82"
+    },
+    "854e65e4-c534-4277-acd0-f27a7bbafd82": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Then let us begin! Come here Cassian !",
+            "fr": ""
+        },
+        "parent": "b6e9d98c-8690-4e44-817f-2749b42eeb47",
+        "next": "6e1fc407-956d-4226-bb6e-d7c93cc3c819"
+    },
+    "6e1fc407-956d-4226-bb6e-d7c93cc3c819": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Yes sir.",
+            "fr": ""
+        },
+        "parent": "854e65e4-c534-4277-acd0-f27a7bbafd82"
+    },
+    "8d981fe1-3a73-4d5e-9d30-6ff57834bca5": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Fast ! Come here !",
+            "fr": ""
+        },
+        "parent": "a021262b-175c-4363-90ed-9ef3d82c822b",
+        "next": "5fff6584-bb16-4c7c-b949-d5522ddfbe82"
+    },
+    "5fff6584-bb16-4c7c-b949-d5522ddfbe82": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Well, hear me, the soldiers from the capital are mosly low nobles that do a little service as generals only to gain recognition, and they are also trained by nobles with no real experience.",
+            "fr": ""
+        },
+        "parent": "8d981fe1-3a73-4d5e-9d30-6ff57834bca5",
+        "next": "fee1353b-5234-4434-9ef5-6bde6739336e"
+    },
+    "fee1353b-5234-4434-9ef5-6bde6739336e": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "What I am saying, is that their flowery style is decisive and easy to study, but once they are forced out of it they are nothing, force him out of his style and you will win easily.",
+            "fr": ""
+        },
+        "parent": "5fff6584-bb16-4c7c-b949-d5522ddfbe82",
+        "next": "864f4f27-ae18-4e21-85d9-1077b46d7ca4"
+    },
+    "864f4f27-ae18-4e21-85d9-1077b46d7ca4": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Understood.",
+            "fr": ""
+        },
+        "parent": "fee1353b-5234-4434-9ef5-6bde6739336e",
+        "next": "809883d4-f099-443e-8963-93bb14e121df"
+    },
+    "809883d4-f099-443e-8963-93bb14e121df": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "C:/Users/Usuario/Documents/Uni/3r Quatri/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Now, go and kick his ass.",
+            "fr": ""
+        },
+        "parent": "864f4f27-ae18-4e21-85d9-1077b46d7ca4"
+    },
+    "root": {
+        "conditions": [
+            {
+                "parent": "root",
+                "next": "c9809f6d-4b85-4f20-9ad3-53791d4eea48",
+                "Char4_State": {
+                    "value": 0,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "Char4_State": {
+                    "value": 1,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "next": "247e1b70-08c3-4d24-9aa7-cf362fbee249"
+            },
+            {
+                "parent": "root",
+                "next": "a3575057-1d52-43c6-9d3d-1621b45db126",
+                "Char4_State": {
+                    "value": 2,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "Char4_State": {
+                    "value": 3,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "parent": "root",
+                "next": "07981e34-40c8-41d9-8b25-eb285bea7370"
+            },
+            {
+                "Char4_State": {
+                    "value": 4,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "parent": "root",
+                "next": "8d981fe1-3a73-4d5e-9d30-6ff57834bca5"
+            }
+        ]
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                40,
+                100
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "c9809f6d-4b85-4f20-9ad3-53791d4eea48",
+                "offset": [
+                    720,
+                    -440
+                ]
+            },
+            {
+                "uuid": "da7fcca4-80d1-4af4-8831-0c2f652d8641",
+                "offset": [
+                    1160,
+                    -440
+                ]
+            },
+            {
+                "uuid": "f92611b0-feef-4d34-8352-b79f531c7d06",
+                "offset": [
+                    1560,
+                    -440
+                ]
+            },
+            {
+                "uuid": "72a45185-151b-4a0f-91f7-7c2b846a3c60",
+                "offset": [
+                    1980,
+                    -440
+                ]
+            },
+            {
+                "uuid": "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7",
+                "offset": [
+                    2380,
+                    -440
+                ]
+            },
+            {
+                "uuid": "edee822b-ba5b-4a36-852e-750f2c366aa6",
+                "offset": [
+                    3200,
+                    -340
+                ]
+            },
+            {
+                "uuid": "85615c26-8b8d-4944-812c-6d5a73811cdf",
+                "offset": [
+                    4000,
+                    -660
+                ]
+            },
+            {
+                "uuid": "e89f90a4-3fa4-436d-89ff-7123ed978796",
+                "offset": [
+                    4000,
+                    -100
+                ]
+            },
+            {
+                "uuid": "a3575057-1d52-43c6-9d3d-1621b45db126",
+                "offset": [
+                    660,
+                    680
+                ]
+            },
+            {
+                "uuid": "b26956f6-51a2-4778-92cd-d75d5ecbbddf",
+                "offset": [
+                    1460,
+                    1020
+                ]
+            },
+            {
+                "uuid": "ce8e572b-86b5-4a95-9ba9-b4832d16377b",
+                "offset": [
+                    1480,
+                    500
+                ]
+            },
+            {
+                "uuid": "adaaf8df-e2da-4976-bd46-3f75429f7195",
+                "offset": [
+                    1880,
+                    500
+                ]
+            },
+            {
+                "uuid": "e76ddcd2-910c-4ae6-84f7-45543dafdc2f",
+                "offset": [
+                    2620,
+                    500
+                ]
+            },
+            {
+                "uuid": "f69e44a1-1b93-4b57-8f62-80a01446eb85",
+                "offset": [
+                    3000,
+                    500
+                ]
+            },
+            {
+                "uuid": "592716b9-a359-4f01-8c29-ec0a1cd8289e",
+                "offset": [
+                    1860,
+                    1020
+                ]
+            },
+            {
+                "uuid": "88c1e69c-3aec-4643-b72c-812062cf57d6",
+                "offset": [
+                    3580,
+                    500
+                ]
+            },
+            {
+                "uuid": "f75ed139-1374-472c-8823-c9ec401f9bb7",
+                "offset": [
+                    4440,
+                    1820
+                ]
+            },
+            {
+                "uuid": "ede35739-2cd1-4356-a1ad-8533ec30b4da",
+                "offset": [
+                    4420,
+                    300
+                ]
+            },
+            {
+                "uuid": "1450bca5-9717-4f7d-b5be-691cc8194c3f",
+                "offset": [
+                    4420,
+                    660
+                ]
+            },
+            {
+                "uuid": "24f28e13-dc36-4520-987e-e78cfeee27e4",
+                "offset": [
+                    4420,
+                    1040
+                ]
+            },
+            {
+                "uuid": "d2d8d438-6893-4f9d-9a1a-24637d5e9a7e",
+                "offset": [
+                    4820,
+                    1040
+                ]
+            },
+            {
+                "uuid": "0c5bba6d-978b-4446-97c5-bec36f898301",
+                "offset": [
+                    5220,
+                    1040
+                ]
+            },
+            {
+                "uuid": "6d32d392-51e2-4b78-82f2-b988f7d9bf95",
+                "offset": [
+                    4440,
+                    1420
+                ]
+            },
+            {
+                "uuid": "247e1b70-08c3-4d24-9aa7-cf362fbee249",
+                "offset": [
+                    740,
+                    -20
+                ]
+            },
+            {
+                "uuid": "07981e34-40c8-41d9-8b25-eb285bea7370",
+                "offset": [
+                    680,
+                    2480
+                ]
+            },
+            {
+                "uuid": "23828037-2014-4404-96c8-33fcbcea1821",
+                "offset": [
+                    1100,
+                    2480
+                ]
+            },
+            {
+                "uuid": "b7fcdf5a-189f-4379-b2df-f5fc065bd556",
+                "offset": [
+                    1980,
+                    2420
+                ]
+            },
+            {
+                "uuid": "6573ef4b-0643-4603-8f76-91a447df821c",
+                "offset": [
+                    2460,
+                    2540
+                ]
+            },
+            {
+                "uuid": "12ee7fd2-5cb4-4597-8146-9350ce55a61c",
+                "offset": [
+                    2880,
+                    2540
+                ]
+            },
+            {
+                "uuid": "d530c7f6-3324-4dda-922a-cd5a4d5ef11a",
+                "offset": [
+                    3280,
+                    2540
+                ]
+            },
+            {
+                "uuid": "3caa96bd-8699-4af5-82b6-0f2dc8ea1bf9",
+                "offset": [
+                    1980,
+                    2820
+                ]
+            },
+            {
+                "uuid": "eee5ddb3-66e5-400e-988f-92d70ec9c158",
+                "offset": [
+                    3680,
+                    2540
+                ]
+            },
+            {
+                "uuid": "d218a333-1dd8-42ce-b6a4-c81aed1d2137",
+                "offset": [
+                    4100,
+                    2540
+                ]
+            },
+            {
+                "uuid": "03a018d5-e7a2-4236-a845-df4029efd2e7",
+                "offset": [
+                    4500,
+                    2540
+                ]
+            },
+            {
+                "uuid": "ebb06f02-7c06-4206-9b59-7874cb735891",
+                "offset": [
+                    4920,
+                    2540
+                ]
+            },
+            {
+                "uuid": "b6e9d98c-8690-4e44-817f-2749b42eeb47",
+                "offset": [
+                    5320,
+                    2540
+                ]
+            },
+            {
+                "uuid": "854e65e4-c534-4277-acd0-f27a7bbafd82",
+                "offset": [
+                    5720,
+                    2540
+                ]
+            },
+            {
+                "uuid": "6e1fc407-956d-4226-bb6e-d7c93cc3c819",
+                "offset": [
+                    6100,
+                    2540
+                ]
+            },
+            {
+                "uuid": "8d981fe1-3a73-4d5e-9d30-6ff57834bca5",
+                "offset": [
+                    680,
+                    3360
+                ]
+            },
+            {
+                "uuid": "5fff6584-bb16-4c7c-b949-d5522ddfbe82",
+                "offset": [
+                    1080,
+                    3360
+                ]
+            },
+            {
+                "uuid": "fee1353b-5234-4434-9ef5-6bde6739336e",
+                "offset": [
+                    1480,
+                    3360
+                ]
+            },
+            {
+                "uuid": "864f4f27-ae18-4e21-85d9-1077b46d7ca4",
+                "offset": [
+                    1880,
+                    3360
+                ]
+            },
+            {
+                "uuid": "809883d4-f099-443e-8963-93bb14e121df",
+                "offset": [
+                    2280,
+                    3360
+                ]
+            }
+        ],
+        "conditions": [
+            {
+                "uuid": "21b7bfda-4941-43b5-8db7-92680de6aaba",
+                "offset": [
+                    300,
+                    -400
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "6feb6ee6-5a54-465c-b4ab-bf1c2c55c01c",
+                "offset": [
+                    300,
+                    20
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "005ac25d-d28e-44e0-8bcb-29fab0a2f4bd",
+                "offset": [
+                    280,
+                    700
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "f9f0b856-de14-40df-8c95-e7ad127bf1e9",
+                "offset": [
+                    280,
+                    2500
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "a021262b-175c-4363-90ed-9ef3d82c822b",
+                "offset": [
+                    280,
+                    3380
+                ],
+                "parent": "root"
+            }
+        ],
+        "signals": [
+            {
+                "uuid": "af42debb-624c-43f1-8771-8bf688c741c8",
+                "offset": [
+                    4500,
+                    -620
+                ],
+                "parent": "85615c26-8b8d-4944-812c-6d5a73811cdf",
+                "data": {
+                    "parent": "85615c26-8b8d-4944-812c-6d5a73811cdf",
+                    "SetNpcStatusByID": {
+                        "Vector2": {
+                            "x": "4",
+                            "y": "2"
+                        }
+                    }
+                }
+            },
+            {
+                "uuid": "d46d9df1-ff92-4b26-81a9-a9886fae9247",
+                "offset": [
+                    4500,
+                    -60
+                ],
+                "parent": "e89f90a4-3fa4-436d-89ff-7123ed978796",
+                "data": {
+                    "parent": "e89f90a4-3fa4-436d-89ff-7123ed978796",
+                    "SetNpcStatusByID": {
+                        "Vector2": {
+                            "x": "4",
+                            "y": "2"
+                        }
+                    }
+                }
+            },
+            {
+                "uuid": "e0e4ec4d-cba6-46c1-b509-156770caf54e",
+                "offset": [
+                    4880,
+                    1880
+                ],
+                "parent": "f75ed139-1374-472c-8823-c9ec401f9bb7",
+                "data": {
+                    "parent": "f75ed139-1374-472c-8823-c9ec401f9bb7",
+                    "SetNpcStatusByID": {
+                        "Vector2": {
+                            "x": "4",
+                            "y": "3"
+                        }
+                    }
+                }
+            }
+        ],
+        "choices": [
+            {
+                "uuid": "1a7dc7ee-afcd-435f-8894-0e16e7767f58",
+                "offset": [
+                    2800,
+                    -560
+                ],
+                "parent": "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"
+            },
+            {
+                "uuid": "0ab84aa0-0790-4493-b674-65a7be33c8fd",
+                "offset": [
+                    2800,
+                    -240
+                ],
+                "parent": "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"
+            },
+            {
+                "uuid": "f4269134-4bf3-4e30-9cf3-dcdcf632a867",
+                "offset": [
+                    3620,
+                    -360
+                ],
+                "parent": "edee822b-ba5b-4a36-852e-750f2c366aa6",
+                "data": {
+                    "text": {
+                        "en": "Yes Sir Gideon.",
+                        "fr": ""
+                    },
+                    "next": "85615c26-8b8d-4944-812c-6d5a73811cdf",
+                    "parent": "edee822b-ba5b-4a36-852e-750f2c366aa6"
+                }
+            },
+            {
+                "uuid": "5e384f27-7300-4f04-808f-6c02da1f9895",
+                "offset": [
+                    3620,
+                    -100
+                ],
+                "parent": "edee822b-ba5b-4a36-852e-750f2c366aa6",
+                "data": {
+                    "text": {
+                        "en": "No, I won't satisfy your narcissist ego.",
+                        "fr": ""
+                    },
+                    "next": "e89f90a4-3fa4-436d-89ff-7123ed978796",
+                    "parent": "edee822b-ba5b-4a36-852e-750f2c366aa6"
+                }
+            },
+            {
+                "uuid": "705a3f18-2f80-45ad-9257-0cbbc617c5e9",
+                "offset": [
+                    1080,
+                    1060
+                ],
+                "parent": "a3575057-1d52-43c6-9d3d-1621b45db126"
+            },
+            {
+                "uuid": "711d9bac-56d0-4927-b825-c112ee6cb487",
+                "offset": [
+                    1080,
+                    560
+                ],
+                "parent": "a3575057-1d52-43c6-9d3d-1621b45db126"
+            },
+            {
+                "uuid": "bab838c1-525a-4213-8d6b-d69f4f2770bb",
+                "offset": [
+                    2240,
+                    1260
+                ],
+                "parent": "592716b9-a359-4f01-8c29-ec0a1cd8289e"
+            },
+            {
+                "uuid": "aa946099-13fd-403d-a81c-a2bc0d2d4a40",
+                "offset": [
+                    2240,
+                    980
+                ],
+                "parent": "592716b9-a359-4f01-8c29-ec0a1cd8289e"
+            },
+            {
+                "uuid": "de0f45e7-fa90-4389-b8ca-42cf64767240",
+                "offset": [
+                    4020,
+                    340
+                ],
+                "parent": "88c1e69c-3aec-4643-b72c-812062cf57d6"
+            },
+            {
+                "uuid": "bf319b29-9db3-4d1b-ada1-eabfc8126796",
+                "offset": [
+                    4000,
+                    740
+                ],
+                "parent": "88c1e69c-3aec-4643-b72c-812062cf57d6"
+            },
+            {
+                "uuid": "abccdab9-0a01-4e25-a571-04ac62da9eed",
+                "offset": [
+                    4020,
+                    1100
+                ],
+                "parent": "88c1e69c-3aec-4643-b72c-812062cf57d6"
+            },
+            {
+                "uuid": "1f2fcc6b-01a7-4591-874c-4b600aa284f7",
+                "offset": [
+                    4040,
+                    1520
+                ],
+                "parent": "88c1e69c-3aec-4643-b72c-812062cf57d6"
+            },
+            {
+                "uuid": "3be2e43c-51dc-4852-9c9d-c0a3850e04d7",
+                "offset": [
+                    4040,
+                    1860
+                ],
+                "parent": "88c1e69c-3aec-4643-b72c-812062cf57d6"
+            },
+            {
+                "uuid": "f47c38c1-093f-4622-b024-cefde867b93f",
+                "offset": [
+                    1520,
+                    2460
+                ],
+                "parent": "23828037-2014-4404-96c8-33fcbcea1821"
+            },
+            {
+                "uuid": "830bd6dd-0662-454c-9537-e2638650d332",
+                "offset": [
+                    1520,
+                    2720
+                ],
+                "parent": "23828037-2014-4404-96c8-33fcbcea1821"
+            }
+        ]
+    }
+}

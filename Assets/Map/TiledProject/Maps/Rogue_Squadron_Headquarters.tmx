@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="512">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="514">
  <editorsettings>
   <export target="../../Data/Rogue_Squadron_Headquarters.xml" format="tmx"/>
  </editorsettings>
@@ -389,7 +389,7 @@
   <object id="43" template="../Prefabs/Buildings/tent2.tx" x="624" y="736"/>
   <object id="98" x="543.958" y="216.167">
    <properties>
-    <property name="NpcId" value="0"/>
+    <property name="NpcId" value="5"/>
     <property name="Path" type="object" value="108"/>
     <property name="PathMovementType" type="int" value="0"/>
     <property name="Type" value="npc"/>
@@ -398,7 +398,7 @@
   </object>
   <object id="99" x="418" y="428.833">
    <properties>
-    <property name="NpcId" value="1"/>
+    <property name="NpcId" value="6"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -1495,6 +1495,20 @@
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
+  </object>
+  <object id="512" x="396.273" y="243.818">
+   <properties>
+    <property name="NpcId" value="1"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="513" x="342.182" y="244.909">
+   <properties>
+    <property name="NpcId" value="0"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
  <objectgroup id="9" name="Collisions">
