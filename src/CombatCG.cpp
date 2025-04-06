@@ -5,6 +5,7 @@
 #include "ModuleAssetDatabase.h"
 #include "ModuleTime.h"
 #include "ModuleInput.h"
+#include "ModuleDebug.h"
 #include "ModuleAudio.h"
 #include "TextureAtlas.h"
 #include "DrawingTools.h"
@@ -54,6 +55,10 @@ void CombatCG::UpdateCanvas()
 
 		charactersSlot[i].hpBar->size.x = (int)(charactersSlot[i].hpBarMaxWidth * healthRatio);
 	}
+	if (Engine::Instance().m_debug->godmode)
+		debug_immortalEnabled->localVisible = true;
+	else
+		debug_immortalEnabled->localVisible = false;
 	if(alert!=nullptr)
 		alert->UpdateCanvas();
 }
@@ -301,7 +306,9 @@ void CombatCG::CreateUIExtras()
 	passTurn->onMouseClick.Subscribe([this]() {EndTurn(); });
 	passTurn->AddRect(UIButton::ButtonStates::HOVER, { btn_size.x,btn_size.y * 2,btn_size.x,btn_size.y });
 	
+	debug_immortalEnabled = new UITextBox("GOD mode enabled", *btn_font, 20, font_color, { LOGIC_SCREEN_WIDTH / 2, 10 }, { LOGIC_SCREEN_WIDTH, 30 }, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle, false);
 
+	debug_immortalEnabled->localVisible = false;
 	confirmAttack->localVisible = false;
 	confirmAttack->interactable = false;
 	cancelAttack->localVisible = false;

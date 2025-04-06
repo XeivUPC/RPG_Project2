@@ -10,6 +10,7 @@
 #include "ModuleInput.h"
 #include "ModuleCursor.h"
 #include "ModuleAudio.h"
+#include "ModuleDebug.h"
 
 #include "Globals.h"
 
@@ -40,6 +41,7 @@ Engine::Engine()
 	m_assetsDB = new ModuleAssetDatabase();
 	m_updater = new ModuleUpdater();
 	m_time = new ModuleTime();
+	m_debug = new ModuleDebug();
 
 	s_intro = new IntroScene(true);
 	s_title = new TitleScene(false);
@@ -66,6 +68,7 @@ Engine::Engine()
 	AddModule(m_updater);
 	AddModule(m_render);
 	AddModule(m_assetsDB);
+	AddModule(m_debug);
 
 }
 

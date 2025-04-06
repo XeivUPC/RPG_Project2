@@ -1,6 +1,8 @@
 #include "CombatSystem.h"
 #include "Attack.h"
 #include "CombatAI.h"
+#include "Engine.h"
+#include "ModuleDebug.h"
 #include <algorithm>
 
 CombatSystem::CombatSystem()
@@ -51,7 +53,8 @@ void CombatSystem::UpdateCombat()
 
 		break;
 	case CombatSystem::ENEMY_TURN:
-		ai->CalculateAI(charactersInCombat);
+		if(!Engine::Instance().m_debug->godmode)
+			ai->CalculateAI(charactersInCombat);
 		ChangeState(CombatState::ATTACKS);
 		break;
 	case CombatSystem::ATTACKS:

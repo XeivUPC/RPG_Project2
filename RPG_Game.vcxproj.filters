@@ -360,6 +360,9 @@
     <ClCompile Include="src\SimpleTilemapChanger.cpp">
       <Filter>Source Files\Entities\Type %28Entity%29\MapObject</Filter>
     </ClCompile>
+    <ClCompile Include="src\ModuleDebug.cpp">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -634,6 +637,9 @@
     </ClInclude>
     <ClInclude Include="src\SimpleTilemapChanger.h">
       <Filter>Source Files\Entities\Type %28Entity%29\MapObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ModuleDebug.h">
+      <Filter>Source Files\Modules\Type %28Module%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

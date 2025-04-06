@@ -9,6 +9,7 @@
 #include "ModuleInput.h"
 #include "DrawingTools.h"
 #include "ModulePhysics.h"
+#include "ModuleDebug.h"
 #include "PhysicFactory.h"
 #include "Animator.h"
 #include "AnimationClip.h"
@@ -47,13 +48,15 @@ void NpcCharacter::Render()
 {
 	animator->clip()->RenderClip();
 
-	//if (path.size() > 1) {
-	//	for (size_t i = 0; i < path.size()-1; i++)
-	//	{
-	//		Engine::Instance().m_render->painter().RenderLine(path[i], path[i + 1], {255,255,255,255});
-	//	}
-	//}
-
+	if (!Engine::Instance().m_debug->godmode)
+		return;
+	if (path.size() > 1)
+	{
+		for (size_t i = 0; i < path.size() - 1; i++)
+		{
+			Engine::Instance().m_render->painter().RenderLine(path[i], path[i + 1], { 255,255,255,255 });
+		}
+	}
 }
 
 bool NpcCharacter::CleanUp()
