@@ -5,12 +5,12 @@
     },
     "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
     "expandedProjectPaths": [
-        "Objects",
-        "Tilesets",
-        "Prefabs/Buildings",
         ".",
+        "Objects",
+        "Prefabs",
         "Maps",
-        "Prefabs"
+        "Prefabs/Buildings",
+        "Tilesets"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -42,14 +42,26 @@
         },
         "Maps/House2_Inside.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 2,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 222,
-                "y": 150.5
+                "x": 208,
+                "y": 112.5
+            }
+        },
+        "Maps/House3_Inside.tmx": {
+            "expandedObjectLayers": [
+                7,
+                10
+            ],
+            "scale": 1.5,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 255.99999999999997,
+                "y": 225.99999999999997
             }
         },
         "Maps/Map1.tmx": {
@@ -64,23 +76,23 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 4,
+            "scale": 1.5,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 792.25,
-                "y": 202.25
+                "x": 180.66666666666669,
+                "y": 450
             }
         },
         "Maps/Testing_Zone.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 4,
-            "selectedLayer": 5,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 143.75,
-                "y": 92.75
+                "x": 216,
+                "y": 111.75
             }
         },
         "Maps/Testing_Zone2.tmx": {
@@ -176,8 +188,8 @@
     "project": "RPG_Project2.tiled-project",
     "property.type": "string",
     "recentFiles": [
-        "Tilesets/Furniture_Atlas.tsx",
         "Tilesets/Vegetation_Atlas.tsx",
+        "Tilesets/Furniture_Atlas.tsx",
         "Tilesets/Floors_Tiles.tsx",
         "Maps/Testing_Zone.tmx",
         "Maps/House2_Inside.tmx",
