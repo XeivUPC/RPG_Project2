@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="512">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="512">
  <tileset firstgid="1" source="../TiledProject/Tilesets/Floors_Tiles.tsx"/>
  <tileset firstgid="626" source="../TiledProject/Tilesets/Cave_Tiles.tsx"/>
  <tileset firstgid="915" source="../TiledProject/Tilesets/Building_Atlas.tsx"/>
@@ -434,12 +434,6 @@
    <properties>
     <property name="Path" type="object" value="112"/>
     <property name="PathMovementType" type="int" value="1"/>
-    <property name="Type" value="npc"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="101" x="109" y="788">
-   <properties>
     <property name="Type" value="npc"/>
    </properties>
    <point/>

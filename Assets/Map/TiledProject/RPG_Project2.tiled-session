@@ -50,34 +50,34 @@
         },
         "Maps/Rogue_Squadron_Headquarters.tmx": {
             "scale": 1,
-            "selectedLayer": -1,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 590,
-                "y": 503
+                "x": 511.5,
+                "y": 447
             }
         },
         "Maps/Testing_Zone.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 4,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 161.25,
-                "y": 49.5
+                "x": 208.125,
+                "y": 112
             }
         },
         "Maps/Testing_Zone2.tmx": {
             "expandedObjectLayers": [
-                11,
-                7
+                7,
+                11
             ],
             "scale": 3,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 223.66666666666663,
-                "y": 48.33333333333334
+                "x": 208.16666666666663,
+                "y": 112
             }
         },
         "Maps/Water_tiles.tsx": {
