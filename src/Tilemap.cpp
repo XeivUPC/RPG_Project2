@@ -140,8 +140,7 @@ void Tilemap::CreateObjects()
                 }
             }
             else if (type == "tilemapChanger") {
-                Vector2 position = { object->x + object->width / 2 * scale ,object->y };
-                Vector2 cornerPosition = { object->x ,object->y - object->height };
+                Vector2 position = { object->x ,object->y };
 
                 auto tilemapChanger = Pooling::Instance().AcquireObject<SimpleTilemapChanger>();
                 tilemapChanger->SetData(position, scale);
@@ -150,7 +149,7 @@ void Tilemap::CreateObjects()
                     tilemapChanger->SetTargetTilemapPath(object->properties.at("TargetPath").value);
                 }
      
-                tilemapChanger->SetEntryTrigger({ PIXEL_TO_METERS(cornerPosition.x + object->width / 2),PIXEL_TO_METERS(cornerPosition.y + object->height / 2 ) }, { PIXEL_TO_METERS(object->width),PIXEL_TO_METERS(object->height) });
+                tilemapChanger->SetEntryTrigger({ PIXEL_TO_METERS(position.x + object->width / 2),PIXEL_TO_METERS(position.y + object->height / 2) }, { PIXEL_TO_METERS(object->width),PIXEL_TO_METERS(object->height) });
             }
             else if (type == "building") {
                 Vector2 position = { object->x + object->width / 2 * scale ,object->y };
