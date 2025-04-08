@@ -97,6 +97,7 @@ void AttackList::LoadAttacks()
 											statusModification.attribute("turns").as_int(),
 											statusModification.attribute("mode").as_int(),
 											statusModification.attribute("probability").as_int(),
+											statusModification.attribute("activates-instant").as_bool(),
 											(CombatSystem::CharacterType)statusModification.attribute("objective").as_int() };
 			newAttack.statusEffects[statusType] = data;
 		}

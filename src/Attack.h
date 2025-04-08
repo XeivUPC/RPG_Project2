@@ -22,6 +22,7 @@ public:
 		int turns = 0;
 		int mode = 0;
 		int probability = 0;
+		bool activatesInstantly = false;
 		CombatSystem::CharacterType objective = CombatSystem::Ally;
 	};
 

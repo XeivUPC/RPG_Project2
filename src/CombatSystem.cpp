@@ -103,6 +103,8 @@ void CombatSystem::UpdateCombat()
 
 				for (size_t i = 0; i < character.stats.statusEffects.size(); i++)
 				{
+					if (character.stats.statusEffects[i].turns <= 0)
+						continue;
 					character.stats.statusEffects[i].turns--;
 					character.stats.currentHp += character.stats.statusEffects[i].value;
 				}
