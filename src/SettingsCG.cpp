@@ -32,7 +32,7 @@ SettingsCG::SettingsCG()
 
 	///// Background
 
-	UIImage* bg_image = new UIImage({ 0,0 }, { LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT }, { 0,0 }, true, {0,0,LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT }, { 0,0,0,100 });
+	//UIImage* bg_image = new UIImage({ 0,0 }, { LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT }, { 0,0 }, true, {0,0,LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT }, { 0,0,0,100 });
 
 	Vector2Int textureSize = Engine::Instance().m_assetsDB->GetTextureSize(*bg_texture);
 	UIImage* box_image = new UIImage(*bg_texture, { LOGIC_SCREEN_WIDTH / 2,LOGIC_SCREEN_HEIGHT / 2 }, textureSize, {0.5f,0.5f});
@@ -77,7 +77,7 @@ SettingsCG::SettingsCG()
 	vSync_toggle->onValueChange.Subscribe([this](bool value) {Engine::Instance().m_render->SetVSync(value); });
 
 	///// AddElements
-	AddElementToCanvas(bg_image);
+	//AddElementToCanvas(bg_image);
 	AddElementToCanvas(box_image);
 	AddElementToCanvas(close_btn);
 	AddElementToCanvas(boxTitle_text);

@@ -13,11 +13,14 @@
 #include "UIButton.h"
 #include "UITextBox.h"
 
+#include "SettingsCG.h"
+
 #include "Globals.h"
 
 PauseMenuCG::PauseMenuCG()
 {
-	
+	//// Create SubCanvas
+	settings = new SettingsCG();
 
 	///// AssetsLoading
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
@@ -92,6 +95,7 @@ PauseMenuCG::PauseMenuCG()
 	settingsGame_text->SetParent(settingsGame_btn);
 	settingsGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	settingsGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
+	settingsGame_btn->onMouseClick.Subscribe([this]() {settings->isVisible = true; settings->renderLayer = renderLayer+1;});
 	settingsGame_btn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	settingsGame_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	settingsGame_btn->onMouseEnter.Subscribe([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
@@ -119,4 +123,17 @@ PauseMenuCG::PauseMenuCG()
 	AddElementToCanvas(saveLoadGame_btn);
 	AddElementToCanvas(settingsGame_btn);
 	AddElementToCanvas(mainMenuGame_btn);
+}
+
+PauseMenuCG::~PauseMenuCG()
+{
+	UICanvas::~UICanvas();
+	delete settings;
+}
+
+void PauseMenuCG::UpdateCanvas()
+{
+	settings->UpdateCanvas();
+
+	UICanvas::UpdateCanvas();
 }
