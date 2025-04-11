@@ -21,6 +21,9 @@ PauseMenuCG::PauseMenuCG()
 {
 	//// Create SubCanvas
 	settings = new SettingsCG();
+	submenus["Settings"] = settings;
+
+	settings->SetPosition( Vector2{ 152,0});
 
 	///// AssetsLoading
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
@@ -61,6 +64,7 @@ PauseMenuCG::PauseMenuCG()
 	continueGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	continueGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
 	continueGame_btn->onMouseClick.Subscribe([this]() {Engine::Instance().s_game->SetPreviousState(); });
+	continueGame_btn->onMouseClick.Subscribe([this]() {CloseAllSubmenus(); });
 	continueGame_btn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	continueGame_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	continueGame_btn->onMouseEnter.Subscribe([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
@@ -95,7 +99,7 @@ PauseMenuCG::PauseMenuCG()
 	settingsGame_text->SetParent(settingsGame_btn);
 	settingsGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	settingsGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
-	settingsGame_btn->onMouseClick.Subscribe([this]() {settings->isVisible = true; settings->renderLayer = renderLayer+1;});
+	settingsGame_btn->onMouseClick.Subscribe([this]() {OpenSubmenu("Settings"); });
 	settingsGame_btn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	settingsGame_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	settingsGame_btn->onMouseEnter.Subscribe([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
@@ -127,8 +131,22 @@ PauseMenuCG::PauseMenuCG()
 
 PauseMenuCG::~PauseMenuCG()
 {
-	UICanvas::~UICanvas();
 	delete settings;
+}
+
+void PauseMenuCG::CloseAllSubmenus()
+{
+	for (auto& submenu : submenus)
+	{
+		submenu.second->isVisible = false;
+	}
+}
+
+void PauseMenuCG::OpenSubmenu(string menuName)
+{
+	CloseAllSubmenus();
+	submenus[menuName]->isVisible = true;
+	submenus[menuName]->renderLayer = renderLayer + 1;
 }
 
 void PauseMenuCG::UpdateCanvas()

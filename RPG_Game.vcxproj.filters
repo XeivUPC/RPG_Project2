@@ -363,6 +363,9 @@
     <ClCompile Include="src\ModuleDebug.cpp">
       <Filter>Source Files\Modules\Type %28Module%29</Filter>
     </ClCompile>
+    <ClCompile Include="src\UIEmpty.cpp">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -640,6 +643,9 @@
     </ClInclude>
     <ClInclude Include="src\ModuleDebug.h">
       <Filter>Source Files\Modules\Type %28Module%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UIEmpty.h">
+      <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

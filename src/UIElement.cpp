@@ -16,7 +16,7 @@ void UIElement::UpdateElement()
 {
 	if (parent != nullptr) {
 		scale = localScale*parent->scale;
-		position = localPosition+parent->position;
+		position = localPosition + parent->position;
 		if (!parent->visible) {
 			visible = false;
 		}
@@ -130,6 +130,27 @@ void UIElement::SetParent(UIElement* _parent)
 	}
 
 
+}
+
+bool UIElement::HasParent() const
+{
+	return parent!=nullptr;
+}
+
+UIElement* UIElement::GetParent() const
+{
+	return parent;
+}
+
+void UIElement::ClearChilds()
+{
+	for (size_t i = 0; childs.size()> 0;)
+	{
+		if(childs[i]!=nullptr)
+			childs[i]->SetParent(nullptr);
+	}
+
+	childs.clear();
 }
 
 void UIElement::ForceUpdateTransforms()

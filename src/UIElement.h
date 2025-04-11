@@ -31,6 +31,10 @@ public:
 
 	/// Sets the UIElement from wich it will inherit position and scale
 	void SetParent(UIElement* _parent);
+	bool HasParent() const;
+	UIElement* GetParent() const;
+
+	void ClearChilds();
 
 	void ForceUpdateTransforms();
 

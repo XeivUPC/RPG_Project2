@@ -194,6 +194,7 @@
     <ClCompile Include="src\TitleScene.cpp" />
     <ClCompile Include="src\UIAnimatedImage.cpp" />
     <ClCompile Include="src\UIDialogueBoxCG.cpp" />
+    <ClCompile Include="src\UIEmpty.cpp" />
     <ClCompile Include="src\UIInputField.cpp" />
     <ClCompile Include="src\TextureFactory.cpp" />
     <ClCompile Include="src\Tilemap.cpp" />
@@ -293,6 +294,7 @@
     <ClInclude Include="src\UIButton.h" />
     <ClInclude Include="src\UICanvas.h" />
     <ClInclude Include="src\UIElement.h" />
+    <ClInclude Include="src\UIEmpty.h" />
     <ClInclude Include="src\UIImage.h" />
     <ClInclude Include="src\UIInputField.h" />
     <ClInclude Include="src\UISlider.h" />

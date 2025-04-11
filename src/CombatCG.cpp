@@ -36,7 +36,7 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 
 CombatCG::~CombatCG()
 {
-	UICanvas::~UICanvas();
+	//UICanvas::~UICanvas();
 	if (alert != nullptr) {
 		delete alert;
 		alert = nullptr;

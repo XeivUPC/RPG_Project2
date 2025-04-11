@@ -47,6 +47,7 @@ bool TitleScene::Start()
     settings_canvas->isVisible = false;
     settings_canvas->renderLayer = 7;
 
+
     canvas = new TitleMenuCG(*settings_canvas);
     canvas->renderLayer = 6;
 
