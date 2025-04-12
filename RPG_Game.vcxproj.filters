@@ -366,6 +366,12 @@
     <ClCompile Include="src\UIEmpty.cpp">
       <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
     </ClCompile>
+    <ClCompile Include="src\Party.cpp">
+      <Filter>Source Files\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PartyCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -646,6 +652,12 @@
     </ClInclude>
     <ClInclude Include="src\UIEmpty.h">
       <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Party.h">
+      <Filter>Source Files\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PartyCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

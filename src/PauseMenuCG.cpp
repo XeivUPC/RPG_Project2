@@ -14,6 +14,7 @@
 #include "UITextBox.h"
 
 #include "SettingsCG.h"
+#include "PartyCG.h"
 
 #include "Globals.h"
 
@@ -23,7 +24,11 @@ PauseMenuCG::PauseMenuCG()
 	settings = new SettingsCG();
 	submenus["Settings"] = settings;
 
+	party = new PartyCG();
+	submenus["Party"] = party;
+
 	settings->SetPosition( Vector2{ 152,0});
+	party->SetPosition( Vector2{ 152,0});
 
 	///// AssetsLoading
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
@@ -72,10 +77,11 @@ PauseMenuCG::PauseMenuCG()
 
 
 	UIButton* teamGame_btn = new UIButton(*btn_texture, anchorPoint + Vector2Int{ 0,1 * btnOffset }, btnSize, { 0,0,86,35 }, { 0,0 });
-	UITextBox* teamGame_text = new UITextBox("Team", *textFont, 16, { 184,132,78,255 }, { 0,2 }, btnSize * btnScale, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+	UITextBox* teamGame_text = new UITextBox("Party", *textFont, 16, { 184,132,78,255 }, { 0,2 }, btnSize * btnScale, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
 	teamGame_text->SetParent(teamGame_btn);
 	teamGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	teamGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
+	teamGame_btn->onMouseClick.Subscribe([this]() {OpenSubmenu("Party"); });
 	teamGame_btn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	teamGame_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	teamGame_btn->onMouseEnter.Subscribe([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
@@ -132,6 +138,7 @@ PauseMenuCG::PauseMenuCG()
 PauseMenuCG::~PauseMenuCG()
 {
 	delete settings;
+	delete party;
 }
 
 void PauseMenuCG::CloseAllSubmenus()
@@ -147,11 +154,14 @@ void PauseMenuCG::OpenSubmenu(string menuName)
 	CloseAllSubmenus();
 	submenus[menuName]->isVisible = true;
 	submenus[menuName]->renderLayer = renderLayer + 1;
+
+	currentSubmenu = submenus[menuName];
 }
 
 void PauseMenuCG::UpdateCanvas()
 {
-	settings->UpdateCanvas();
+	if (currentSubmenu != nullptr)
+		currentSubmenu->UpdateCanvas();
 
 	UICanvas::UpdateCanvas();
 }

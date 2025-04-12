@@ -3,6 +3,7 @@
 #include <unordered_map>
 
 class SettingsCG;
+class PartyCG;
 
 class PauseMenuCG : public UICanvas {
 public:
@@ -19,6 +20,8 @@ private:
 
 private:
 	SettingsCG* settings;
+	PartyCG* party;
 
 	unordered_map<string, UICanvas*> submenus;
+	UICanvas* currentSubmenu = nullptr;
 };
