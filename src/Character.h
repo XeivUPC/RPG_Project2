@@ -42,6 +42,7 @@ protected:
 	Animator* animator;
 	PhysBody* body = nullptr;
 
+
 	Vector2 moveDirection = { 0,0 };
 	Vector2 lastDirection = { 0,1 };
 
@@ -57,6 +58,7 @@ protected:
 	bool RemoveFollowerByIndex(int _charIndex);
 	bool EditFollower(int _charId, int _charIndex);
 	bool GetFollowers() const;
+	void SetFollowers(vector<int> ids,float distance);
 
 	vector<FollowerCharacter*> followers;
 	deque<Vector2> pathFollowersData;

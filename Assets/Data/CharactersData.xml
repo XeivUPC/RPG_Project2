@@ -1,56 +1,56 @@
 <?xml version="1.0"?>
 <Characters>
 	<Character id="-1" name="NPC_TEST">
-		<Data textureId="cassian_test" dialoguePath="Assets/Dialogues/empty_dialog.json" />
+		<Data textureId="cassian_test" faceId="Cassian-early-idle" dialoguePath="Assets/Dialogues/empty_dialog.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="12" hp="60" defense="63" attack="72" speed="100" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="0" name="Artis Guard Left">
-		<Data textureId="artis_test" dialoguePath="Assets/Dialogues/guard_Artis_left.json" />
+		<Data textureId="artis_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/guard_Artis_left.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="14" hp="58" defense="58" attack="74" speed="80" />
 		<Attacks attack1="0" attack2="5" attack3="4" attack4="8" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="1" name="Artis Guard Right">
-		<Data textureId="artis_test" dialoguePath="Assets/Dialogues/guard_Artis_right.json" />
+		<Data textureId="artis_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/guard_Artis_right.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="13" hp="59" defense="80" attack="83" speed="68" />
 		<Attacks attack1="3" attack2="6" attack3="7" attack4="1" />
 		<AttackRole type="2" />
 	</Character>
 	<Character id="2" name="R.S Guard Left">
-		<Data textureId="cassian_test" dialoguePath="Assets/Dialogues/guard_RS_entrance_left.json" />
+		<Data textureId="cassian_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/guard_RS_entrance_left.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="15" hp="70" defense="70" attack="84" speed="51" />
 		<Attacks attack1="6" attack2="3" attack3="8" attack4="2" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="3" name="R.S Guard Right">
-		<Data textureId="cassian_test" dialoguePath="Assets/Dialogues/guard_RS_entrance_right.json" />
+		<Data textureId="cassian_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/guard_RS_entrance_right.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="14" hp="68" defense="65" attack="60" speed="74" />
 		<Attacks attack1="0" attack2="4" attack3="6" attack4="8" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="4" name="Sir Gideon Hawthorne">
-		<Data textureId="cassian_test" dialoguePath="Assets/Dialogues/Sir_Gideon_Hawthorne.json" />
+		<Data textureId="cassian_test" faceId="Guideon-idle" dialoguePath="Assets/Dialogues/Sir_Gideon_Hawthorne.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="15" hp="61" defense="65" attack="74" speed="55" />
 		<Attacks attack1="8" attack2="2" attack3="6" attack4="3" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="5" name="Zeryn">
-		<Data textureId="zeryn_test" dialoguePath="Assets/Dialogues/zeryn_early.json" />
+		<Data textureId="zeryn_test" faceId="Zeryn-early-idle" dialoguePath="Assets/Dialogues/zeryn_early.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="15" hp="40" defense="35" attack="78" speed="60" />
 		<Attacks attack1="2" attack2="4" attack3="7" attack4="1" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="6" name="R.S Chef">
-		<Data textureId="cassian_test" dialoguePath="Assets/Dialogues/chef_RS.json" />
+		<Data textureId="cassian_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/chef_RS.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="12" hp="60" defense="63" attack="72" speed="100" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />

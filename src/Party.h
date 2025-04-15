@@ -13,20 +13,28 @@ public:
 	Party(int defaultId);
 	~Party();
 
-	bool AddMember(int id);
-	bool RemoveMember(int id);
-	bool SetLeader(int index);
+	bool AddFollower(int id);
+	bool RemoveFollower(int id);
+	bool SetLeader(int id);
 
 	bool EditMember(int index, int id);
 	bool SwapMembers(int id, int id2);
 	void ClearParty();
 
-	void SetMaxMembers(int max);
-	int GetMaxMembers() const;
-	int GetCurrentMembers() const;
+	void SetMaxPartySize(int max);
+	int GetMaxPartySize() const;
+
+	int GetPartySize() const;
+	int GetFollowersAmount() const;
 
 	CharacterDatabase::CharacterData* GetLeader() const;
-	vector<CharacterDatabase::CharacterData*> GetMembers() const;
+	vector<CharacterDatabase::CharacterData*> GetParty() const;
+	vector<CharacterDatabase::CharacterData*> GetFollowers() const;
+
+	int GetLeaderId() const;
+	vector<int> GetActivePartyIds();
+	vector<int> GetActiveFollowersIds() const;
+
 	CharacterDatabase::CharacterData* GetMember(int index) const;
 
 public:
@@ -37,6 +45,9 @@ private:
 
 private:
 	CharacterDatabase::CharacterData* leader = nullptr;
-	vector<CharacterDatabase::CharacterData*> members;
-	int maxMembers = 3;
+	vector<CharacterDatabase::CharacterData*> followers;
+	int followersMaxAmount = 3;
+
+
+
 };

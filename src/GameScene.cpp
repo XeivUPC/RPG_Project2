@@ -248,6 +248,11 @@ Tilemap* GameScene::GetLastTilemap()
     return nullptr;
 }
 
+PlayerCharacter* GameScene::GetPlayer() const
+{
+    return player;
+}
+
 void GameScene::RemoveLastTilemap()
 {
     fade->FadeTo(0.5f, 255);

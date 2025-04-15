@@ -53,7 +53,7 @@ public:
 	Tilemap* GetLastTilemap();
 
 
-	
+	PlayerCharacter* GetPlayer() const;
 
 public:
 

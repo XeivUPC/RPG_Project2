@@ -8,6 +8,7 @@
 #include "DrawingTools.h"
 
 #include "GameScene.h"
+#include "PlayerCharacter.h"
 
 #include "UIImage.h"
 #include "UIButton.h"
@@ -81,7 +82,7 @@ PauseMenuCG::PauseMenuCG()
 	teamGame_text->SetParent(teamGame_btn);
 	teamGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	teamGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
-	teamGame_btn->onMouseClick.Subscribe([this]() {OpenSubmenu("Party"); });
+	teamGame_btn->onMouseClick.Subscribe([this]() {OpenSubmenu("Party"); party->ChangePartyToTrack(Engine::Instance().s_game->GetPlayer()->party); });
 	teamGame_btn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	teamGame_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	teamGame_btn->onMouseEnter.Subscribe([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });

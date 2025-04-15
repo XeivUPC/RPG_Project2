@@ -33,6 +33,8 @@ FollowerCharacter::~FollowerCharacter()
 {
 	animator->CleanUp();
 	delete animator;
+
+	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 }
 
 bool FollowerCharacter::Update()

@@ -19,6 +19,7 @@ class CharacterDatabase {
 			string name = "";
 
 			string textureId = "";
+			string faceId = "";
 			string dialoguePath = "";
 
 			//// Relations

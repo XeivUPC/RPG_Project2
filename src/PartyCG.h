@@ -1,5 +1,8 @@
 #pragma once
 #include "UICanvas.h"
+#include <vector>
+
+using namespace std;
 
 class Party;
 class UIElement;
@@ -13,25 +16,51 @@ class PartyCG : public UICanvas {
 public:
 	PartyCG();
 	~PartyCG();
+	void UpdatePartySlots();
 
+	void ChangePartyToTrack(Party* partyToTrack);
+
+	void Reset();
+
+	
 public:
 
 private:
 	struct UICharacterSlot {
+		int characterId = -1;
+
 		UIButton* characterSelect = nullptr;
+		UIImage* characterBackground = nullptr;
 
 		UITextBox* charcterName = nullptr;
 		UITextBox* charcterLevel = nullptr;
 
+
 		UIImage* characterProfile = nullptr;
-		UIImage* characterColorFade = nullptr;
+
+		UIToggle* addRemoveToggle = nullptr;
+		UIToggle* switchToggle = nullptr;
+
+
 
 		UIImage* hpBar = nullptr;
-		int hpBarMaxWidth = 0;
+		UITextBox* hpValue = nullptr;
+		int hpBarMaxWidth = 90;
 
 		UIImage* energyBar = nullptr;
-		int energyBarMaxWidth = 0;
+		UITextBox* energyValue = nullptr;
+		int energyBarMaxWidth = 90;
 	};
+
+	void SwitchCharacter(int slot);
+	void CreatePartySlots();
 private:
 	Party* party = nullptr;
+
+	UIImage* container_image = nullptr;
+	vector<UICharacterSlot> slots;
+
+	bool switching = false;
+	int switchingId = -1;
+
 };

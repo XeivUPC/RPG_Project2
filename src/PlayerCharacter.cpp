@@ -14,6 +14,7 @@
 #include "Animator.h"
 #include "AnimationClip.h"
 #include "AudioContainer.h"
+#include "Party.h"
 
 PlayerCharacter::PlayerCharacter()
 {
@@ -49,6 +50,9 @@ PlayerCharacter::PlayerCharacter()
 	body->SetFilter(fixtureIndex, category.rawValue, mask.rawValue, 0);
 
 	SetCharacterId(0);
+	party = new Party(0);
+	party->onPartyChanged.Subscribe([this]() {SetFollowers(party->GetActiveFollowersIds(), distanceBetweenFollowers); });
+	party->onPartyChanged.Subscribe([this]() {SetCharacterId(party->GetLeaderId()); });
 
 	ModuleAudio* audioRef = Engine::Instance().m_audio;
 	ModuleAssetDatabase* assetsRef = Engine::Instance().m_assetsDB;
@@ -108,6 +112,8 @@ bool PlayerCharacter::CleanUp()
 	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 	delete body;
 
+	delete party;
+
 	animator->CleanUp();
 	delete animator;
 	return true;
@@ -115,8 +121,8 @@ bool PlayerCharacter::CleanUp()
 
 bool PlayerCharacter::SetCharacterId(int _charId)
 {
-	if (Character::SetCharacterId(_charId)) {
 
+	if (Character::SetCharacterId(_charId)) {
 		texture = Engine::Instance().m_assetsDB->GetTexture(characterData->textureId);
 
 		for (auto& animClip : animator->GetAnimationClips()) {
@@ -129,80 +135,6 @@ bool PlayerCharacter::SetCharacterId(int _charId)
 	return false;
 }
 
-void PlayerCharacter::AddToActiveParty(int _charId)
-{
-	if (!AddFollower(_charId, distanceBetweenFollowers))
-		return;
-	activeParty.emplace_back(_charId);
-	for (const auto& member : activeParty) {
-		printf("%d ", member);
-	}
-	printf("\n");
-}
-
-void PlayerCharacter::RemoveFromActivePartyById(int _charId)
-{
-	if (!RemoveFollowerById(_charId))
-		return;
-	for (int pos = 0; pos < activeParty.size(); ++pos) {
-		if (activeParty[pos] == _charId)
-		{
-			activeParty.erase(activeParty.begin() + pos);
-		}	
-	}
-	for (const auto& member : activeParty) {
-		printf("%d ", member);
-	}
-	printf("\n");
-}
-
-void PlayerCharacter::RemoveFromActivePartyByIndex(int _charPos)
-{
-	if (!RemoveFollowerByIndex(_charPos))
-		return;
-	activeParty.erase(activeParty.begin() + _charPos);
-	for (const auto& member : activeParty) {
-		printf("%d ", member);
-	}
-	printf("\n");
-}
-
-vector<int> PlayerCharacter::GetActiveParty() const
-{
-	return activeParty;
-}
-
-void PlayerCharacter::EditActiveParty(int _charId, int _charPos)
-{
-	if (!EditFollower(_charId, _charPos)) {
-		return;
-	}
-	activeParty.at(_charPos) = _charId;
-	for (const auto& member : activeParty) {
-		printf("%d ", member);
-	}
-	printf("\n");
-}
-
-void PlayerCharacter::AddToFullParty(int _charId)
-{
-	fullParty.emplace_back(_charId);
-}
-
-void PlayerCharacter::RemoveFromFullParty(int _charId)
-{
-	for (int pos = 0; pos < fullParty.size(); ++pos) {
-		if (fullParty[pos] == _charId)
-		{
-			fullParty.erase(fullParty.begin() + pos);
-		}
-	}
-}
-
-vector<int> PlayerCharacter::GetFullParty() const
-{
-	return fullParty;
-}
 
 void PlayerCharacter::GetInput()
 {
@@ -242,23 +174,19 @@ void PlayerCharacter::GetInput()
 	/// Party Testing
 
 	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_J) == KEY_DOWN) {
-		AddToActiveParty(0);
-	}
-
-	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_K) == KEY_DOWN) {
-		AddToActiveParty(1);
-	}
-
-	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_L) == KEY_DOWN) {
-		RemoveFromActivePartyById(1);
+		party->AddFollower(1);
 	}
 
 	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_H) == KEY_DOWN) {
-		RemoveFromActivePartyByIndex(0);
+		party->RemoveFollower(1);
 	}
 
-	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_U) == KEY_DOWN) {
-		EditActiveParty(-1,0);
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_K) == KEY_DOWN) {
+		party->AddFollower(2);
+	}
+
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_L) == KEY_DOWN) {
+		party->RemoveFollower(2);
 	}
 
 }

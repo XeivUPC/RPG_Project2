@@ -54,5 +54,6 @@ void PauseGameState::StateDeselected()
         Engine::Instance().s_game->pauseCanvas->UpdateCanvas();
         Engine::Instance().s_game->pauseCanvas->isVisible = false;
         Engine::Instance().s_game->pauseCanvas->SetInteractable(true);
+        Engine::Instance().s_game->pauseCanvas->CloseAllSubmenus();
     }
 }
