@@ -120,7 +120,8 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 				else
 					effect = &character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type , character->stats.currentStats.hp * statusModification.second.value / 100.f,statusModification.second.turns });
 			}
-
+			if (effect == nullptr)
+				continue;
 			if (statusModification.second.activatesInstantly) {
 				effect->turns--;
 				character->stats.currentHp += effect->value;
