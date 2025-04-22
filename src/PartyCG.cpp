@@ -75,7 +75,7 @@ void PartyCG::SwitchCharacter(int id)
 	}
 	else {
 		switching = false;
-		party->SwapMembers(id, switchingId);
+		party->SwapPartyMembers(id, switchingId);
 		for (size_t i = 0; i < slots.size(); i++)
 		{
 			slots[i].switchToggle->SetValue(false, false);
