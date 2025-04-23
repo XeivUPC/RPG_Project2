@@ -56,6 +56,11 @@ void CombatCG::UpdateCanvas()
 		float healthRatio = currentHealth / maxHealth;
 
 		charactersSlot[i].hpBar->size.x = (int)(charactersSlot[i].hpBarMaxWidth * healthRatio);
+		/*
+		charactersSlot[i].characterImage->GetAnimator()->GetAnimationClip("")->GetSprite(1).onSpriteSelected.Subscribe...;
+		charactersSlot[i].characterImage->GetAnimator()->GetAnimationClip("")->onAnimationFinished.UnsubscribeAll();
+		charactersSlot[i].characterImage->GetAnimator()->GetAnimationClip("")->onAnimationFinished.Subscribe([this]() {});
+		*/
 	}
 	if (debug_immortalEnabled != nullptr) {
 		if (Engine::Instance().m_debug->godmode)
@@ -63,44 +68,46 @@ void CombatCG::UpdateCanvas()
 		else
 			debug_immortalEnabled->localVisible = false;
 	}
-	if (combat->CurrentAttackEnded())
+	if(combat->GetCombatState() == CombatSystem::ATTACKS)
 	{
-		visualEffects.first = false;
-		visualEffects.second = false;
-		firstTick = true;
-	}
-	if (!visualEffects.first && !visualEffects.second)
-	{
-		if (firstTick)
+		if (combat->CurrentAttackEnded())
 		{
-			//Animate attacker and effects
-			firstTick = false;
-		}
-		if (true /*Animation and effects already animated */)
-		{
-			visualEffects.first = true;
+			visualEffects.first = false;
+			visualEffects.second = false;
 			firstTick = true;
 		}
-	}
+		if (!visualEffects.first && !visualEffects.second)
+		{
+			if (firstTick)
+			{
+				//Animate attacker and effects
+				firstTick = false;
+			}
+			if (true /*Animation and effects already animated */)
+			{
+				visualEffects.first = true;
+				firstTick = true;
+			}
+		}
 
-	if (visualEffects.first && !visualEffects.second)
-	{
-		if (firstTick)
+		if (visualEffects.first && !visualEffects.second)
 		{
-			//Animate targets and effects
-			firstTick = false;
+			if (firstTick)
+			{
+				//Animate targets and effects
+				firstTick = false;
+			}
+			if (true /*Animation and effects already animated */)
+			{
+				visualEffects.second = true;
+				firstTick = true;
+			}
 		}
-		if (true /*Animation and effects already animated */)
+		if (visualEffects.first && visualEffects.second)
 		{
-			visualEffects.second = true;
-			firstTick = true;
+			combat->NextAttack();
 		}
 	}
-	if (visualEffects.first && visualEffects.second)
-	{
-		combat->NextAttack();
-	}
-}
 
 	if(alert!=nullptr)
 		alert->UpdateCanvas();
