@@ -15,6 +15,7 @@ class UIImage;
 class UIAnimatedImage;
 class UIButton;
 class UITextBox;
+class UIAnimatedImage;
 class UISlider;
 class UIToggle;
 class Animator;
@@ -76,6 +77,8 @@ private:
 		UIImage* selectedCharacterIndicator = nullptr;
 
 		UIImage* selectedCharacterTarget = nullptr;
+
+		UIAnimatedImage* combatEffect = nullptr;
 	};
 
 	/// CreationFunctions
@@ -140,5 +143,6 @@ private:
 	/// Extra
 	AlertDisplayerCG* alert;
 	UITextBox* debug_immortalEnabled = nullptr;
-	
+	pair<bool, bool> visualEffects = pair<bool,bool>(false,false);		//First bool = attacker | Second bool = targets
+	bool firstTick = true;
 };

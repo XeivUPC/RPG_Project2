@@ -49,7 +49,7 @@ void CombatCG::UpdateCanvas()
 
 	for (size_t i = 0; i < charactersSlot.size(); i++)
 	{
-		CombatSystem::CharacterStats& charStats  = charactersSlot[i].characterRef->stats;
+		CombatSystem::CharacterStats& charStats = charactersSlot[i].characterRef->stats;
 
 		float maxHealth = (float)charStats.currentStats.hp;
 		float currentHealth = (float)charStats.currentHp;
@@ -63,6 +63,44 @@ void CombatCG::UpdateCanvas()
 		else
 			debug_immortalEnabled->localVisible = false;
 	}
+	if (combat->CurrentAttackEnded())
+	{
+		visualEffects.first = false;
+		visualEffects.second = false;
+		firstTick = true;
+	}
+	if (!visualEffects.first && !visualEffects.second)
+	{
+		if (firstTick)
+		{
+			//Animate attacker and effects
+			firstTick = false;
+		}
+		if (true /*Animation and effects already animated */)
+		{
+			visualEffects.first = true;
+			firstTick = true;
+		}
+	}
+
+	if (visualEffects.first && !visualEffects.second)
+	{
+		if (firstTick)
+		{
+			//Animate targets and effects
+			firstTick = false;
+		}
+		if (true /*Animation and effects already animated */)
+		{
+			visualEffects.second = true;
+			firstTick = true;
+		}
+	}
+	if (visualEffects.first && visualEffects.second)
+	{
+		combat->NextAttack();
+	}
+}
 
 	if(alert!=nullptr)
 		alert->UpdateCanvas();

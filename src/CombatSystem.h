@@ -26,6 +26,7 @@ public:
 		START,
 		PLAYER_TURN,
 		ENEMY_TURN,
+		PREPARE_ATTACKS,
 		ATTACKS,
 		EFFECTS,
 		END_CHECK,
@@ -122,7 +123,6 @@ public:
 		}
 	};
 
-
 	struct CharacterReference
 	{
 		int id=-1;
@@ -151,7 +151,9 @@ public:
 	void UpdateCombat();
 	void EndCombat();
 	void ChangeState(CombatState newState);
-
+	int CurrentAttackIndex();
+	bool CurrentAttackEnded();
+	void NextAttack();
 	const unordered_map <CharacterType, vector<CharacterReference>>& GetCharactersInCombat();
 	vector<CharacterReference*> GetPosibleTargets(CharacterReference* character, Attack* attack);
 	
@@ -162,6 +164,7 @@ private:
 	int turn = 0;
 	CombatState state = CombatState::START;
 	vector<pair<CharacterReference*, TurnAttack>> attackList;
-
+	int currentAttackIndex = 0;
+	bool currentAttackEnded = false;
 	CombatAI* ai;
 };
