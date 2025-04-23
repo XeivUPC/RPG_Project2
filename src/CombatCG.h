@@ -33,9 +33,6 @@ public:
 public:
 
 private:
-
-	
-
 	struct UIAttackButton {
 		UIButton* btn = nullptr;
 		UITextBox* text = nullptr;
@@ -133,8 +130,6 @@ private:
 	UICharacterSlot* selectedCharacter = nullptr;
 	vector<UICharacterSlot*> targetCharacters;
 	UIAttackButton* selectedAttack = nullptr;
-
-	unordered_map<CombatSystem::CharacterReference*, pair<Attack*, vector<CombatSystem::CharacterReference*>>> attacksToExecute;
 
 	/// Condition
 	bool selectingTargets = false;

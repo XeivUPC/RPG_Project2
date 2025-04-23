@@ -232,6 +232,16 @@ void CombatSystem::NextAttack()
 	currentAttackEnded = true;
 }
 
+CombatSystem::CharacterReference* CombatSystem::GetCurrentAttackAttacker()
+{
+	return attackList[currentAttackIndex].first;
+}
+
+vector<CombatSystem::CharacterReference*> CombatSystem::GetCurrentAttackTargetList()
+{
+	return attackList[currentAttackIndex].second.targets;
+}
+
 const unordered_map<CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>>& CombatSystem::GetCharactersInCombat()
 {
 	return charactersInCombat;

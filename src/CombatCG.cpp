@@ -517,7 +517,6 @@ vector<CombatCG::UICharacterSlot*> CombatCG::GetPossibleTargets()
 			}
 		}
 	}
-
 	return possibleTargets;
 }
 
