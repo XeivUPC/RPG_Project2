@@ -34,26 +34,9 @@ private:
 		int characterId = -1;
 
 		UIButton* characterSelect = nullptr;
-		UIImage* characterBackground = nullptr;
-
-		UITextBox* charcterName = nullptr;
-		UITextBox* charcterLevel = nullptr;
-
+		UIButton* chracterOverlay = nullptr;
 
 		UIImage* characterProfile = nullptr;
-
-		UIToggle* addRemoveToggle = nullptr;
-		UIToggle* switchToggle = nullptr;
-
-
-
-		UIImage* hpBar = nullptr;
-		UITextBox* hpValue = nullptr;
-		int hpBarMaxWidth = 90;
-
-		UIImage* energyBar = nullptr;
-		UITextBox* energyValue = nullptr;
-		int energyBarMaxWidth = 90;
 	};
 
 	struct UIMemberCharacterSlot {
@@ -78,6 +61,9 @@ private:
 		UITextBox* energyValue = nullptr;
 		int energyBarMaxWidth = 90;
 	};
+
+	void RemovePartyCharacter(int id);
+	void AddPartyCharacter(int id);
 
 	void SwitchCharacter(int slot);
 	void CreatePartySlots();

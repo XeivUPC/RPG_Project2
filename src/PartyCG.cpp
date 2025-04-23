@@ -83,36 +83,50 @@ PartyCG::~PartyCG()
 
 }
 
+void PartyCG::RemovePartyCharacter(int id)
+{
+	party->RemovePartyMemeber(id);
+	UpdateMemberSlots();
+	UpdatePartySlots();
+}
+
+void PartyCG::AddPartyCharacter(int id)
+{
+	party->AddPartyMemeber(id);
+	UpdateMemberSlots();
+	UpdatePartySlots();
+}
+
 void PartyCG::SwitchCharacter(int id)
 {
-	if (!switching)
-	{
-		switching = true;
-		switchingId = id;
-		for (size_t i = 0; i < partySlots.size(); i++)
-		{
-			if (partySlots[i].characterId == switchingId) {
-				partySlots[i].switchToggle->SetValue(true,false);
-				break;
-			}
-		}
-	}
-	else {
-		switching = false;
-		party->SwapPartyMembers(id, switchingId);
-		for (size_t i = 0; i < partySlots.size(); i++)
-		{
-			partySlots[i].switchToggle->SetValue(false, false);
-		}
-		UpdatePartySlots();
-	}
+	//if (!switching)
+	//{
+	//	switching = true;
+	//	switchingId = id;
+	//	for (size_t i = 0; i < partySlots.size(); i++)
+	//	{
+	//		if (partySlots[i].characterId == switchingId) {
+	//			partySlots[i].switchToggle->SetValue(true,false);
+	//			break;
+	//		}
+	//	}
+	//}
+	//else {
+	//	switching = false;
+	//	party->SwapPartyMembers(id, switchingId);
+	//	for (size_t i = 0; i < partySlots.size(); i++)
+	//	{
+	//		partySlots[i].switchToggle->SetValue(false, false);
+	//	}
+	//	UpdatePartySlots();
+	//}
 }
 
 void PartyCG::CreatePartySlots()
 {
-	Vector2 anchor = { container_image->size.x / 2.f ,59 };
-	Vector2 slotSize = { 180,77 };
-	Vector2 spacing = { 50, 20 };
+	Vector2 anchor = { 65 ,40 };
+	Vector2 slotSize = { 66,66 };
+	Vector2 spacing = { 17, 0 };
 
 	SDL_Texture* bg_texture = Engine::Instance().m_assetsDB->GetTexture("party_characterUI");
 	SDL_Texture* toggle_texture = Engine::Instance().m_assetsDB->GetTexture("toggle_tex2");
@@ -121,13 +135,56 @@ void PartyCG::CreatePartySlots()
 
 	/// Modify
 	const vector<CharacterDatabase::CharacterData*> partyMembers = party->GetParty();
-	for (int i = 0; i < party->GetPartySize(); ++i)
+	for (int i = 0; i < party->GetMaxPartySize(); ++i)
 	{
 		if (partySlots.size() > i)
 			continue;
-		CharacterDatabase::CharacterData* charData = partyMembers[i];
+
+		CharacterDatabase::CharacterData* charData =nullptr;
+		UIPartyCharacterSlot slot;
+
+		if (partyMembers.size() > i) {
+			charData = partyMembers[i];
+			slot.characterId = charData->id;
+		}else
+			slot.characterId = INT8_MAX;
 		
+		Vector2 offset = { (slotSize.x+spacing.x)*i , 0 };
+		Vector2 position = { anchor.x + offset.x, anchor.y + offset.y };
+
 		
+		slot.characterSelect = new UIButton(position, { 66,66 }, { 0,0,0,0 }, { 0,0 }, {0,0,0,0});
+		int id = slot.characterId;
+		slot.characterSelect->onMouseClick.Subscribe([this, id]() {RemovePartyCharacter(id);});
+		if (charData == nullptr)
+			slot.characterSelect->isEnabled = false;
+
+
+		TextureAtlas* characterProfilesAtlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
+		SDL_Texture* character_profile_texture = nullptr;
+		if (charData != nullptr) {
+			character_profile_texture = characterProfilesAtlas->texture;
+			slot.characterProfile = new UIImage(*character_profile_texture, { 1,1 }, { 64,64 }, { 0,0 }, true, characterProfilesAtlas->sprites[charData->faceId].rect);
+		}
+		else {
+			slot.characterProfile = new UIImage(*character_profile_texture, { 1,1 }, { 64,64 }, { 0,0 }, true, {0,0,0,0});
+		}
+		slot.characterProfile->SetParent(slot.characterSelect);
+		if (charData == nullptr)
+			slot.characterProfile->localVisible = false;
+
+
+		slot.chracterOverlay = new UIButton(*bg_texture, {0,0}, { 66,66 }, { 0,0,66,66 }, { 0,0 });
+		slot.chracterOverlay->AddRect(UIButton::ButtonStates::HOVER, { 66,0,66,66 });
+		slot.chracterOverlay->AddRect(UIButton::ButtonStates::PRESSED, { 66*2,0,66,66 });
+		slot.chracterOverlay->AddRect(UIButton::ButtonStates::DISABLED, { 66 * 3,0,66,66 });
+		slot.chracterOverlay->SetParent(slot.characterSelect);
+		if (charData == nullptr)
+			slot.chracterOverlay->isEnabled = false;
+
+		slot.characterSelect->SetParent(container_image);
+
+		partySlots.emplace_back(slot);
 	}
 }
 
@@ -137,7 +194,7 @@ void PartyCG::CreateMemeberSlots()
 	Vector2 slotSize = { 180,77 };
 	Vector2 spacing = { 50, 10 };
 
-	SDL_Texture* bg_texture = Engine::Instance().m_assetsDB->GetTexture("party_characterUI");
+	SDL_Texture* bg_texture = Engine::Instance().m_assetsDB->GetTexture("member_characterUI");
 	SDL_Texture* toggle_texture = Engine::Instance().m_assetsDB->GetTexture("toggle_tex2");
 
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
@@ -212,16 +269,32 @@ void PartyCG::UpdatePartySlots()
 
 	CreatePartySlots();
 	for (int i = 0; i < partySlots.size(); ++i) {
-		partySlots[i].characterSelect->localVisible = false;
+		partySlots[i].characterSelect->isEnabled = false;
+		partySlots[i].characterProfile->localVisible = false;
+		partySlots[i].chracterOverlay->isEnabled = false;
 	}
 
-	/*const vector<CharacterDatabase::CharacterData*> partyMembers = party->GetParty();
+	const vector<CharacterDatabase::CharacterData*> partyMembers = party->GetParty();
 	for (int i = 0; i < party->GetPartySize(); ++i)
 	{
 		CharacterDatabase::CharacterData* charData = partyMembers[i];
 		UIPartyCharacterSlot& slot = partySlots[i];
 
-	}*/
+		slot.characterId = charData->id;
+		int id = slot.characterId;
+
+		TextureAtlas* characterProfilesAtlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
+		SDL_Texture* character_profile_texture = characterProfilesAtlas->texture;
+		slot.characterProfile->SetSprite(*character_profile_texture, true, characterProfilesAtlas->sprites[charData->faceId].rect);
+
+		slot.characterSelect->onMouseClick.UnsubscribeAll();
+		slot.characterSelect->onMouseClick.Subscribe([this, id]() {RemovePartyCharacter(id);});
+
+		slot.characterSelect->isEnabled = true;
+		partySlots[i].characterProfile->localVisible = true;
+		slot.chracterOverlay->isEnabled = true;
+
+	}
 }
 
 void PartyCG::UpdateMemberSlots()
@@ -254,6 +327,12 @@ void PartyCG::UpdateMemberSlots()
 		//// EditLive
 		slot.hpValue->SetText(to_string(charData->health) + "/" + to_string(charData->health));
 		slot.energyValue->SetText(to_string(charData->health) + "/" + to_string(charData->health));
+
+		bool isInParty = party->IsMemberInParty(slot.characterId);
+		slot.addRemoveToggle->SetValue(!isInParty, false);
+
+		slot.addRemoveToggle->onValueChange.UnsubscribeAll();
+		slot.addRemoveToggle->onValueChange.Subscribe([this, slot]() {!slot.addRemoveToggle->IsOn() ? AddPartyCharacter(slot.characterId) : RemovePartyCharacter(slot.characterId); });
 
 		////EditSwitchToggle
 		//slot.switchToggle->onValueChange.UnsubscribeAll();

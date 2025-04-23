@@ -53,6 +53,9 @@ bool Party::RemovePartyMemeber(int id)
 	if (!IsMemberInParty(id))
 		return false;
 
+	if (party.size() <= 1)
+		return false;
+
 	auto it = std::find_if(party.begin(), party.end(), [id](const CharacterDatabase::CharacterData* member) { return member->id == id; });
 	if (it != party.end())
 	{

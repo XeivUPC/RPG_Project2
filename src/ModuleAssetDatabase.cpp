@@ -92,6 +92,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("dialogue_box", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_box.png"));
 	AddTextureToStorage("combat_characterUI", *textureFactory->CreateTexture("Assets/Textures/UI/combatCharacterUI.png"));
 	AddTextureToStorage("party_characterUI", *textureFactory->CreateTexture("Assets/Textures/UI/partyCharacterUI.png"));
+	AddTextureToStorage("member_characterUI", *textureFactory->CreateTexture("Assets/Textures/UI/memberCharacterUI.png"));
 	AddTextureToStorage("dialogue_answerBox", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_answerBox.png"));
 	///Cursors
 	AddTextureToStorage("mouse_cursor0", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_0.png"));

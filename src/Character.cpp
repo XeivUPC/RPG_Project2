@@ -114,6 +114,11 @@ bool Character::Update()
             pathFollowersData.push_front(position);
         else
             pathFollowersData[0] = position;
+
+		for (size_t i = 0; i < followers.size(); i++)
+		{
+			followers[i]->Update();
+		}
     }
     return true;
 }

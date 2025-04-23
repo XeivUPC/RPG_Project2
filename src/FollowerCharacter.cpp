@@ -23,8 +23,6 @@ FollowerCharacter::FollowerCharacter(Character* _characterToFollow, float _delay
 	renderOffsetSorting = { 0,2 };
 
 	Engine::Instance().m_render->AddToRenderQueue(*this, *this);
-	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
-	Engine::Instance().m_updater->AddToUpdateGroup(*this, "Entity");
 }
 
 
@@ -33,8 +31,6 @@ FollowerCharacter::~FollowerCharacter()
 {
 	animator->CleanUp();
 	delete animator;
-
-	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 }
 
 bool FollowerCharacter::Update()
@@ -62,7 +58,6 @@ void FollowerCharacter::Render()
 bool FollowerCharacter::CleanUp()
 {
 	Character::CleanUp();
-	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 	return true;
 }

@@ -30,6 +30,9 @@ public:
 	int GetPartySize() const;
 	int GetMemebersAmount() const;
 
+	bool IsMemberInParty(int id) const;
+	bool IsMemberUnlocked(int id) const;
+
 	CharacterDatabase::CharacterData* GetPartyLeader() const;
 	vector<CharacterDatabase::CharacterData*> GetParty(bool removeLeader = false) const;
 	vector<CharacterDatabase::CharacterData*> GetMemebers() const;
@@ -45,8 +48,7 @@ public:
 
 private:
 	bool IsPartyLeader(int id) const;
-	bool IsMemberInParty(int id) const;
-	bool IsMemberUnlocked(int id) const;
+
 
 private:
 
