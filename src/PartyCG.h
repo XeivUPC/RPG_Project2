@@ -20,6 +20,7 @@ public:
 
 	void UpdateMemberSlots();
 	void GoToMemeberPage(int page);
+	void GoToMemeberPageByCharacterId(int id);
 
 	void ChangePartyToTrack(Party* partyToTrack);
 
@@ -37,6 +38,11 @@ private:
 		UIButton* chracterOverlay = nullptr;
 
 		UIImage* characterProfile = nullptr;
+		UITextBox* charcterName = nullptr;
+
+		UIButton* moveLeftBtn = nullptr;
+		UIButton* searchBtn = nullptr;
+		UIButton* moveRightBtn = nullptr;
 	};
 
 	struct UIMemberCharacterSlot {
@@ -65,7 +71,7 @@ private:
 	void RemovePartyCharacter(int id);
 	void AddPartyCharacter(int id);
 
-	void SwitchCharacter(int slot);
+	void SwitchCharacter(int slot1, int slot2);
 	void CreatePartySlots();
 
 	void CreateMemeberSlots();

@@ -17,7 +17,7 @@ public:
 	bool AddMemeber(int id);
 	bool RemovePartyMemeber(int id);
 	bool RemoveMemeber(int id);
-	bool SetPartyLeader(int id);
+
 
 	bool EditPartyMember(int index, int id);
 	bool SwapPartyMembers(int id, int id2);
@@ -48,7 +48,8 @@ public:
 
 private:
 	bool IsPartyLeader(int id) const;
-
+	void SortMemebers();
+	bool SetPartyLeader();
 
 private:
 

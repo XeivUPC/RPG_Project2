@@ -6,7 +6,7 @@ Party::Party(int defaultId)
 {
 	AddMemeber(defaultId);
 	AddPartyMemeber(defaultId);
-	SetPartyLeader(defaultId);
+	SetPartyLeader();
 }
 
 Party::~Party()
@@ -41,7 +41,7 @@ bool Party::AddMemeber(int id)
 	CharacterDatabase::CharacterData& member = CharacterDatabase::Instance().GetCharacterData(id);
 
 	members.emplace_back(&member);
-
+	SortMemebers();
 	onMembersChanged.Trigger();
 	return true;
 }
@@ -59,12 +59,8 @@ bool Party::RemovePartyMemeber(int id)
 	auto it = std::find_if(party.begin(), party.end(), [id](const CharacterDatabase::CharacterData* member) { return member->id == id; });
 	if (it != party.end())
 	{
-		if (IsPartyLeader(id)) {
-			leader = party[0];
-		}
 		party.erase(it);
-		if (party.size() == 1)
-			leader = party[0];
+		SetPartyLeader();
 		onPartyChanged.Trigger();
 		return true;
 	}
@@ -90,12 +86,11 @@ bool Party::RemoveMemeber(int id)
 		return false;
 }
 
-bool Party::SetPartyLeader(int id)
+bool Party::SetPartyLeader()
 {
-	if (!IsMemberInParty(id))
-		return false;
-
-	leader = &CharacterDatabase::Instance().GetCharacterData(id);
+	if (leader == party[0])
+		return true;
+	leader = party[0];
 	onPartyChanged.Trigger();
 	return true;
 }
@@ -112,9 +107,8 @@ bool Party::EditPartyMember(int index, int id)
 		return false;
 
 	CharacterDatabase::CharacterData& member = CharacterDatabase::Instance().GetCharacterData(id);
-	if (IsPartyLeader(party[index]->id)) 
-		leader = &member;
 	party[index] = &member;
+	SetPartyLeader();
 
 	onPartyChanged.Trigger();
     return true;
@@ -134,14 +128,8 @@ bool Party::SwapPartyMembers(int id, int id2)
 	if (it1 != party.end() && it2 != party.end())
 	{
 
-		if (IsPartyLeader((*it1)->id)) {
-			SetPartyLeader((*it2)->id);
-		}
-		else if (IsPartyLeader((*it2)->id)) {
-			SetPartyLeader((*it1)->id);
-		}
-
 		std::iter_swap(it1, it2);
+		SetPartyLeader();
 		onPartyChanged.Trigger();
 		return true;
 	}
@@ -248,6 +236,13 @@ CharacterDatabase::CharacterData* Party::GetCharacterFromParty(int index) const
 bool Party::IsPartyLeader(int id) const
 {
 	return GetPartyLeader()->id == id;
+}
+
+void Party::SortMemebers()
+{
+	std::sort(members.begin(), members.end(), [](const CharacterDatabase::CharacterData* a, const CharacterDatabase::CharacterData* b) {
+		return a->id < b->id;
+		});
 }
 
 bool Party::IsMemberInParty(int id) const

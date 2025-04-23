@@ -18,6 +18,7 @@
 
 
 #include "Globals.h"
+#include <algorithm>
 
 PartyCG::PartyCG()
 {
@@ -52,7 +53,7 @@ PartyCG::PartyCG()
 	close_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	close_btn->SetParent(container_image);
 
-	prev_pageBtn = new UIButton(*switchPage_texture, { container_image->size.x / 2 ,130 }, { 35,16 }, { 0,0,35,16 }, { 0.5f,0.5f });
+	prev_pageBtn = new UIButton(*switchPage_texture, { container_image->size.x / 2 ,150 }, { 35,16 }, { 0,0,35,16 }, { 0.5f,0.5f });
 	prev_pageBtn->AddRect(UIButton::ButtonStates::HOVER, { 35,0,35,16 });
 	prev_pageBtn->AddRect(UIButton::ButtonStates::PRESSED, { 70,0,35,16 });
 	prev_pageBtn->AddRect(UIButton::ButtonStates::DISABLED, { 105,0,35,16 });
@@ -62,7 +63,7 @@ PartyCG::PartyCG()
 	prev_pageBtn->SetParent(container_image);
 
 
-	next_pageBtn = new UIButton(*switchPage_texture, { container_image->size.x / 2 ,324 }, { 35,16 }, { 0,16,35,16 }, { 0.5f,0.5f });
+	next_pageBtn = new UIButton(*switchPage_texture, { container_image->size.x / 2 ,345 }, { 35,16 }, { 0,16,35,16 }, { 0.5f,0.5f });
 	next_pageBtn->AddRect(UIButton::ButtonStates::HOVER, { 35,16,35,16 });
 	next_pageBtn->AddRect(UIButton::ButtonStates::PRESSED, { 70,16,35,16 });
 	next_pageBtn->AddRect(UIButton::ButtonStates::DISABLED, { 105,16,35,16 });
@@ -72,7 +73,7 @@ PartyCG::PartyCG()
 	next_pageBtn->SetParent(container_image);
 
 
-	pageData = new UITextBox("Page: 0/0", *textFont, 16, { 184,132,78,255 }, { 19 ,324 }, { 100, 16 }, { 0,0.5f }, UITextBox::HorizontalAlignment::Left, UITextBox::VerticalAlignment::Middle);
+	pageData = new UITextBox("Page: 0/0", *textFont, 16, { 184,132,78,255 }, { 19 ,345 }, { 100, 16 }, { 0,0.5f }, UITextBox::HorizontalAlignment::Left, UITextBox::VerticalAlignment::Middle);
 	pageData->SetParent(container_image);
 
 	AddElementToCanvas(container_image);
@@ -97,39 +98,21 @@ void PartyCG::AddPartyCharacter(int id)
 	UpdatePartySlots();
 }
 
-void PartyCG::SwitchCharacter(int id)
+void PartyCG::SwitchCharacter(int slot1, int slot2)
 {
-	//if (!switching)
-	//{
-	//	switching = true;
-	//	switchingId = id;
-	//	for (size_t i = 0; i < partySlots.size(); i++)
-	//	{
-	//		if (partySlots[i].characterId == switchingId) {
-	//			partySlots[i].switchToggle->SetValue(true,false);
-	//			break;
-	//		}
-	//	}
-	//}
-	//else {
-	//	switching = false;
-	//	party->SwapPartyMembers(id, switchingId);
-	//	for (size_t i = 0; i < partySlots.size(); i++)
-	//	{
-	//		partySlots[i].switchToggle->SetValue(false, false);
-	//	}
-	//	UpdatePartySlots();
-	//}
+	party->SwapPartyMembers(partySlots[slot1].characterId, partySlots[slot2].characterId);
+	UpdatePartySlots();
 }
 
 void PartyCG::CreatePartySlots()
 {
-	Vector2 anchor = { 65 ,40 };
+	Vector2 anchor = { 65 ,30 };
 	Vector2 slotSize = { 66,66 };
 	Vector2 spacing = { 17, 0 };
 
 	SDL_Texture* bg_texture = Engine::Instance().m_assetsDB->GetTexture("party_characterUI");
 	SDL_Texture* toggle_texture = Engine::Instance().m_assetsDB->GetTexture("toggle_tex2");
+	SDL_Texture* options_texture = Engine::Instance().m_assetsDB->GetTexture("btn_tex5");
 
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
 
@@ -182,6 +165,47 @@ void PartyCG::CreatePartySlots()
 		if (charData == nullptr)
 			slot.chracterOverlay->isEnabled = false;
 
+
+		string name = "";
+		if (charData != nullptr)
+			name = charData->name;
+		slot.charcterName = new UITextBox(name, *textFont, 16, { 184,132,78,255 }, { -7, 69 }, { 80*2,15*2}, {0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+		slot.charcterName->SetParent(slot.characterSelect);
+		slot.charcterName->SetLocalScale(0.5f);
+		if (charData == nullptr)
+			slot.charcterName->localVisible = false;
+
+
+		slot.moveLeftBtn = new UIButton(*options_texture, { 1,85 }, { 12,12 }, { 12,0,12,12 }, { 0,0 });
+		slot.moveLeftBtn->AddRect(UIButton::ButtonStates::HOVER, { 12,12,12,12 });
+		slot.moveLeftBtn->AddRect(UIButton::ButtonStates::PRESSED, { 12,12*2,12,12 });
+		slot.moveLeftBtn->AddRect(UIButton::ButtonStates::DISABLED, { 12,12*3,12,12 });
+		slot.moveLeftBtn->SetParent(slot.characterSelect);
+		if (charData == nullptr || i == 0)
+			slot.moveLeftBtn->isEnabled = false;
+		else
+			slot.moveLeftBtn->onMouseClick.Subscribe([this, i]() {SwitchCharacter(i, i - 1); });
+
+		slot.searchBtn = new UIButton(*options_texture, { 27,85 }, { 12,12 }, { 0,0,12,12 }, { 0,0 });
+		slot.searchBtn->AddRect(UIButton::ButtonStates::HOVER, { 0,12,12,12 });
+		slot.searchBtn->AddRect(UIButton::ButtonStates::PRESSED, { 0,12*2,12,12 });
+		slot.searchBtn->AddRect(UIButton::ButtonStates::DISABLED, { 0,12*3,12,12 });
+		slot.searchBtn->SetParent(slot.characterSelect);
+		if (charData == nullptr)
+			slot.searchBtn->isEnabled = false;
+		else
+			slot.searchBtn->onMouseClick.Subscribe([this, id]() {GoToMemeberPageByCharacterId(id); });
+
+		slot.moveRightBtn = new UIButton(*options_texture, { 53,85 }, { 12,12 }, { 12*2,0,12,12 }, { 0,0 });
+		slot.moveRightBtn->AddRect(UIButton::ButtonStates::HOVER, { 12*2,12,12,12 });
+		slot.moveRightBtn->AddRect(UIButton::ButtonStates::PRESSED, { 12 * 2,12*2,12,12 });
+		slot.moveRightBtn->AddRect(UIButton::ButtonStates::DISABLED, { 12 * 2,12*3,12,12 });
+		slot.moveRightBtn->SetParent(slot.characterSelect);
+		if (charData == nullptr || i == partyMembers.size() - 1)
+			slot.moveRightBtn->isEnabled = false;
+		else
+			slot.moveRightBtn->onMouseClick.Subscribe([this, i]() {SwitchCharacter(i, i + 1); });
+
 		slot.characterSelect->SetParent(container_image);
 
 		partySlots.emplace_back(slot);
@@ -190,7 +214,7 @@ void PartyCG::CreatePartySlots()
 
 void PartyCG::CreateMemeberSlots()
 {
-	Vector2 anchor = { container_image->size.x / 2.f ,150 };
+	Vector2 anchor = { container_image->size.x / 2.f ,170 };
 	Vector2 slotSize = { 180,77 };
 	Vector2 spacing = { 50, 10 };
 
@@ -272,6 +296,11 @@ void PartyCG::UpdatePartySlots()
 		partySlots[i].characterSelect->isEnabled = false;
 		partySlots[i].characterProfile->localVisible = false;
 		partySlots[i].chracterOverlay->isEnabled = false;
+		partySlots[i].moveLeftBtn->isEnabled = false;
+		partySlots[i].searchBtn->isEnabled = false;
+		partySlots[i].moveRightBtn->isEnabled = false;
+		partySlots[i].charcterName->localVisible = false;
+
 	}
 
 	const vector<CharacterDatabase::CharacterData*> partyMembers = party->GetParty();
@@ -286,6 +315,7 @@ void PartyCG::UpdatePartySlots()
 		TextureAtlas* characterProfilesAtlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
 		SDL_Texture* character_profile_texture = characterProfilesAtlas->texture;
 		slot.characterProfile->SetSprite(*character_profile_texture, true, characterProfilesAtlas->sprites[charData->faceId].rect);
+		slot.charcterName->SetText(charData->name);
 
 		slot.characterSelect->onMouseClick.UnsubscribeAll();
 		slot.characterSelect->onMouseClick.Subscribe([this, id]() {RemovePartyCharacter(id);});
@@ -293,6 +323,24 @@ void PartyCG::UpdatePartySlots()
 		slot.characterSelect->isEnabled = true;
 		partySlots[i].characterProfile->localVisible = true;
 		slot.chracterOverlay->isEnabled = true;
+		slot.charcterName->localVisible = true;
+
+
+		if (i != 0) {
+			slot.moveLeftBtn->isEnabled = true;
+			slot.moveLeftBtn->onMouseClick.UnsubscribeAll();
+			slot.moveLeftBtn->onMouseClick.Subscribe([this, i]() {SwitchCharacter(i, i - 1); });
+		}
+
+		slot.searchBtn->isEnabled = true;
+		slot.searchBtn->onMouseClick.UnsubscribeAll();
+		slot.searchBtn->onMouseClick.Subscribe([this, id]() {GoToMemeberPageByCharacterId(id); });
+
+		if (i != party->GetPartySize() - 1) {
+			slot.moveRightBtn->isEnabled = true;
+			slot.moveRightBtn->onMouseClick.UnsubscribeAll();
+			slot.moveRightBtn->onMouseClick.Subscribe([this, i]() {SwitchCharacter(i, i + 1); });
+		}
 
 	}
 }
@@ -373,6 +421,21 @@ void PartyCG::GoToMemeberPage(int page)
 	pageData->SetText("Page: " + to_string(membersPage + 1) + "/" + to_string(maxPage + 1));
 
 	UpdateMemberSlots();
+}
+
+void PartyCG::GoToMemeberPageByCharacterId(int id)
+{
+	const vector<CharacterDatabase::CharacterData*> memebers = party->GetMemebers();
+
+	auto it = find_if(memebers.begin(), memebers.end(), [id](const CharacterDatabase::CharacterData* slot) {
+		return slot->id == id;
+		});
+
+	if (it != memebers.end()) {
+		int index = distance(memebers.begin(), it);
+		GoToMemeberPage(index/ membersByPage);
+		return;
+	}
 }
 
 void PartyCG::ChangePartyToTrack(Party* partyToTrack)
