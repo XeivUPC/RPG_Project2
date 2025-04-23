@@ -18,6 +18,9 @@ public:
 	~PartyCG();
 	void UpdatePartySlots();
 
+	void UpdateMemberSlots();
+	void GoToMemeberPage(int page);
+
 	void ChangePartyToTrack(Party* partyToTrack);
 
 	void Reset();
@@ -26,7 +29,8 @@ public:
 public:
 
 private:
-	struct UICharacterSlot {
+
+	struct UIPartyCharacterSlot {
 		int characterId = -1;
 
 		UIButton* characterSelect = nullptr;
@@ -52,15 +56,50 @@ private:
 		int energyBarMaxWidth = 90;
 	};
 
+	struct UIMemberCharacterSlot {
+		int characterId = -1;
+
+		UIButton* characterSelect = nullptr;
+		UIImage* characterBackground = nullptr;
+
+		UITextBox* charcterName = nullptr;
+		UITextBox* charcterLevel = nullptr;
+
+
+		UIImage* characterProfile = nullptr;
+
+		UIToggle* addRemoveToggle = nullptr;
+
+		UIImage* hpBar = nullptr;
+		UITextBox* hpValue = nullptr;
+		int hpBarMaxWidth = 90;
+
+		UIImage* energyBar = nullptr;
+		UITextBox* energyValue = nullptr;
+		int energyBarMaxWidth = 90;
+	};
+
 	void SwitchCharacter(int slot);
 	void CreatePartySlots();
+
+	void CreateMemeberSlots();
 private:
 	Party* party = nullptr;
 
 	UIImage* container_image = nullptr;
-	vector<UICharacterSlot> slots;
+
+	UIButton* prev_pageBtn = nullptr;
+	UIButton* next_pageBtn = nullptr;
+
+	UITextBox* pageData = nullptr;
+
+	vector<UIPartyCharacterSlot> partySlots;
+	vector<UIMemberCharacterSlot> memberSlots;
 
 	bool switching = false;
 	int switchingId = -1;
+
+	int membersPage = -1;
+	int membersByPage = 4;
 
 };

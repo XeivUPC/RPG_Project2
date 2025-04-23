@@ -26,6 +26,8 @@ public:
 	virtual bool SetCharacterId(int _charId);
 	virtual bool GetCharacterId() const;
 
+	void ClearFollowerPath();
+
 public:
 private:
 

@@ -155,6 +155,11 @@ bool Character::GetCharacterId() const
 	return characterId;
 }
 
+void Character::ClearFollowerPath()
+{
+	pathFollowersData.clear();
+}
+
 bool Character::AddFollower(int _charId, float distance)
 {
 	if (followers.size() >= maxFollowers)

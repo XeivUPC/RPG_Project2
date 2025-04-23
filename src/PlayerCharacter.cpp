@@ -185,10 +185,16 @@ void PlayerCharacter::GetInput()
 	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_K) == KEY_DOWN) {
 		party->AddMemeber(2);
 		party->AddPartyMemeber(2);
+		party->AddMemeber(3);
+		party->AddMemeber(4);
+		party->AddMemeber(5);
+		party->AddMemeber(6);
+
 	}
 
 	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_L) == KEY_DOWN) {
 		party->RemovePartyMemeber(2);
+
 	}
 
 }

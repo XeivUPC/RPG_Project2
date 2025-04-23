@@ -52,7 +52,8 @@ bool FollowerCharacter::Update()
 
 void FollowerCharacter::Render()
 {
-
+	if (!canBeRendered)
+		return;
 	SDL_Rect rect = { 0,0,64,64 };
 
 	animator->clip()->RenderClip();
@@ -98,10 +99,13 @@ void FollowerCharacter::SearchPath()
 {
 	float accumulator = 0;
 
+	canBeRendered = false;
+
 	for (int i = 0; i < (int)(characterToFollow->pathFollowersData.size())-1; i++) {
 		float previousDistance = accumulator;
 		accumulator += Vector2::Distance(characterToFollow->pathFollowersData[i], characterToFollow->pathFollowersData[i+1]);
 		if (delayDistance < accumulator) {
+			canBeRendered = true;
 			float percentaje = 100 - (delayDistance - previousDistance) *100 / (accumulator- previousDistance);
 
 			position = Vector2::Lerp(characterToFollow->pathFollowersData[i+1], characterToFollow->pathFollowersData[i], percentaje/100.f);

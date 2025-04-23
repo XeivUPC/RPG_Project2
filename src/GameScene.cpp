@@ -280,6 +280,8 @@ void GameScene::CreateNewTilemap(string path)
     tilemaps[tilemaps.size() - 1]->CreateObjects();
     player->SetPosition(tilemaps[tilemaps.size() - 1]->GetSpawnPoint());
     cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
+
+    player->ClearFollowerPath();
 }
 
 void GameScene::DeleteLastTilemap()
@@ -303,6 +305,8 @@ void GameScene::DeleteLastTilemap()
             player->SetPosition(tilemaps[tilemaps.size() - 1]->GetSpawnPoint());
             cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
         }
+
+        player->ClearFollowerPath();
     }
 }
 
