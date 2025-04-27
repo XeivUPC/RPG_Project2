@@ -41,8 +41,8 @@ void ModuleAssetDatabase::LoadAssets()
 	////Music
 	AddMusicToStorage("patoGallina", *audioFactory->CreateMusic("Assets/Sounds/Music/PatoGallina.ogg"));
 
-	AddMusicToStorage("mainTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/Main Theme.ogg"));
-	AddMusicToStorage("townTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/TownTheme.ogg"));
+	AddMusicToStorage("mainTheme", *audioFactory->CreateMusic("Assets/Sounds/Main Menu.ogg"));
+	AddMusicToStorage("townTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/Town Theme.ogg"));
 	
 	AddMusicToStorage("MeetingArtis", *audioFactory->CreateMusic("Assets/Sounds/Music/Artis_Dance.ogg"));
 	AddMusicToStorage("Death_of_Emperor", *audioFactory->CreateMusic("Assets/Sounds/Music/DeathOfAnEmperor.ogg"));
