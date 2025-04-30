@@ -372,6 +372,9 @@
     <ClCompile Include="src\PartyCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClCompile>
+    <ClCompile Include="src\LocatorArrowCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -657,6 +660,9 @@
       <Filter>Source Files\Others</Filter>
     </ClInclude>
     <ClInclude Include="src\PartyCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LocatorArrowCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
   </ItemGroup>
