@@ -109,6 +109,8 @@ private:
 
 	void SetTargetSelectionMode(bool mode);
 
+	UICharacterSlot* GetSlotByCharacter(CombatSystem::CharacterReference* reference);
+
 	Vector2Int GetSlotPosition(CombatSystem::CharacterType team, int teamMemberIndex, int teamMembersAmount);
 
 	void FinishAttackVisuals(UIAnimatedImage* characterImage);

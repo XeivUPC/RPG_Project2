@@ -122,7 +122,6 @@ void CombatCG::LoadCanvas()
 	charactersSlot.clear();
 	attacksToExecute.clear();
 
-
 	alert = new AlertDisplayerCG(1.5f, nullptr, { LOGIC_SCREEN_WIDTH / 2 - 150,0 }, { 300,32 }, {0.f,0.f});
 	alert->renderLayer = 7;
 	alert->onAlertOpened.Subscribe([this]() {Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("alert")); });
@@ -587,11 +586,6 @@ void CombatCG::SelectAttack(int attackIndex)
 	if (selectingTargets)
 		return;
 
-	if (attacksToExecute.count(selectedCharacter->characterRef)) {
-		attacksToExecute.erase(selectedCharacter->characterRef);
-		selectedCharacter->attackDone->localVisible = false;
-	}
-
 	RemoveAllTargets();
 	selectedAttack = &attackButtons[attackIndex];
 	SetTargetSelectionMode(true);
@@ -631,7 +625,6 @@ void CombatCG::ConfirmAttack()
 	{
 		referenceTargets.emplace_back(targetCharacters[i]->characterRef);
 	}
-	attacksToExecute[selectedCharacter->characterRef] = { selectedAttack->attack,referenceTargets };
 
 	HideAttackInformation();
 
@@ -700,6 +693,17 @@ void CombatCG::SetTargetSelectionMode(bool mode)
 		SelectCharacter(*selectedCharacter);
 	}
 
+}
+
+CombatCG::UICharacterSlot* CombatCG::GetSlotByCharacter(CombatSystem::CharacterReference* reference)
+{
+	for (size_t i = 0; i < charactersSlot.size(); i++)
+	{
+		CombatCG::UICharacterSlot slot = charactersSlot[i];
+		if (slot.characterRef == reference)
+			return &slot;
+	}
+	return nullptr;
 }
 
 Vector2Int CombatCG::GetSlotPosition(CombatSystem::CharacterType team, int teamMemberIndex, int teamMembersAmount)
