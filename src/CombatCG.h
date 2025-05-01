@@ -111,6 +111,10 @@ private:
 
 	Vector2Int GetSlotPosition(CombatSystem::CharacterType team, int teamMemberIndex, int teamMembersAmount);
 
+	void FinishAttackVisuals(UIAnimatedImage* characterImage);
+	void FinishHurtVisuals(UIAnimatedImage* characterImage);
+	//void FinishEffectVisuals(UIAnimatedImage* characterImage);
+
 private:
 	CombatSystem* combat = nullptr;
 
@@ -131,6 +135,8 @@ private:
 	vector<UICharacterSlot*> targetCharacters;
 	UIAttackButton* selectedAttack = nullptr;
 
+	unordered_map<CombatSystem::CharacterReference*, pair<Attack*, vector<CombatSystem::CharacterReference*>>> attacksToExecute;
+
 	/// Condition
 	bool selectingTargets = false;
 
@@ -139,5 +145,6 @@ private:
 	AlertDisplayerCG* alert;
 	UITextBox* debug_immortalEnabled = nullptr;
 	pair<bool, bool> visualEffects = pair<bool,bool>(false,false);		//First bool = attacker | Second bool = targets
+	pair<bool, bool> animationEffect = pair<bool,bool>(false,true);	//First bool = animation | Second bool = effect
 	bool firstTick = true;
 };

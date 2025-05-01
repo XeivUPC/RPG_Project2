@@ -83,8 +83,9 @@ void CombatCG::UpdateCanvas()
 				//Animate attacker and effects
 				firstTick = false;
 			}
-			if (true /*Animation and effects already animated */)
+			if (animationEffect == pair<bool, bool>(true, true))
 			{
+				animationEffect = pair<bool, bool>(false, true);
 				visualEffects.first = true;
 				firstTick = true;
 			}
@@ -97,8 +98,9 @@ void CombatCG::UpdateCanvas()
 				//Animate targets and effects
 				firstTick = false;
 			}
-			if (true /*Animation and effects already animated */)
+			if (animationEffect == pair<bool, bool>(true, true))
 			{
+				animationEffect = pair<bool, bool>(false, true);
 				visualEffects.second = true;
 				firstTick = true;
 			}
@@ -316,7 +318,15 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 				Sprite(characterTexture, {3 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
 			}, nullptr, nullptr));
 
+	characterImage->GetAnimator()->AddAnimationClip(AnimationClip("attack", true, false, 0.1f,
+		{
+			Sprite(characterTexture, {0 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {1 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {2 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {3 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
+		}, nullptr, nullptr));
 
+	characterImage->GetAnimator()->GetAnimationClip("attack")->onAnimationFinished.Subscribe([this]() {});
 
 	selectedCharacterTarget->SetParent(characterBtn);
 	characterImage->SetParent(characterBtn);
@@ -712,6 +722,12 @@ Vector2Int CombatCG::GetSlotPosition(CombatSystem::CharacterType team, int teamM
 	}
 
 	return position + Vector2{ offset.x * displacement.x,offset.y * displacement.y };
+}
+
+void CombatCG::FinishAttackVisuals(UIAnimatedImage* characterImage)
+{
+	animationEffect.first = true;
+	characterImage->GetAnimator()->Animate("combat-idle", true);
 }
 
 
