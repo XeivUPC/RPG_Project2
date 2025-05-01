@@ -36,6 +36,8 @@ private:
 	Character* characterToFollow = nullptr;
 	float delayDistance = 0;
 
+	bool canBeRendered = false;
+
 protected:
 	// Inherited via Character
 	void Move() override;

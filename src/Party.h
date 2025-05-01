@@ -13,41 +13,49 @@ public:
 	Party(int defaultId);
 	~Party();
 
-	bool AddFollower(int id);
-	bool RemoveFollower(int id);
-	bool SetLeader(int id);
+	bool AddPartyMemeber(int id);
+	bool AddMemeber(int id);
+	bool RemovePartyMemeber(int id);
+	bool RemoveMemeber(int id);
 
-	bool EditMember(int index, int id);
-	bool SwapMembers(int id, int id2);
+
+	bool EditPartyMember(int index, int id);
+	bool SwapPartyMembers(int id, int id2);
 	void ClearParty();
+	void ClearMemebers();
 
 	void SetMaxPartySize(int max);
 	int GetMaxPartySize() const;
 
 	int GetPartySize() const;
-	int GetFollowersAmount() const;
+	int GetMemebersAmount() const;
 
-	CharacterDatabase::CharacterData* GetLeader() const;
-	vector<CharacterDatabase::CharacterData*> GetParty() const;
-	vector<CharacterDatabase::CharacterData*> GetFollowers() const;
+	bool IsMemberInParty(int id) const;
+	bool IsMemberUnlocked(int id) const;
 
-	int GetLeaderId() const;
-	vector<int> GetActivePartyIds();
-	vector<int> GetActiveFollowersIds() const;
+	CharacterDatabase::CharacterData* GetPartyLeader() const;
+	vector<CharacterDatabase::CharacterData*> GetParty(bool removeLeader = false) const;
+	vector<CharacterDatabase::CharacterData*> GetMemebers() const;
 
-	CharacterDatabase::CharacterData* GetMember(int index) const;
+	int GetPartyLeaderId() const;
+	vector<int> GetPartyIds(bool removeLeader = false) const;
+	vector<int> GetMemebersIds() const;
+	CharacterDatabase::CharacterData* GetCharacterFromParty(int index) const;
 
 public:
 	SystemEvent<> onPartyChanged;
+	SystemEvent<> onMembersChanged;
 
 private:
-	bool IsMemberInParty(int id) const;
+	bool IsPartyLeader(int id) const;
+	void SortMemebers();
+	bool SetPartyLeader();
 
 private:
+
 	CharacterDatabase::CharacterData* leader = nullptr;
-	vector<CharacterDatabase::CharacterData*> followers;
-	int followersMaxAmount = 3;
+	vector<CharacterDatabase::CharacterData*> party;
+	int partyMaxSize = 4;
 
-
-
+	vector<CharacterDatabase::CharacterData*> members;
 };

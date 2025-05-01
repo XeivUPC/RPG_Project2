@@ -51,8 +51,8 @@ PlayerCharacter::PlayerCharacter()
 
 	SetCharacterId(0);
 	party = new Party(0);
-	party->onPartyChanged.Subscribe([this]() {SetFollowers(party->GetActiveFollowersIds(), distanceBetweenFollowers); });
-	party->onPartyChanged.Subscribe([this]() {SetCharacterId(party->GetLeaderId()); });
+	party->onPartyChanged.Subscribe([this]() {SetFollowers(party->GetPartyIds(true), distanceBetweenFollowers); });
+	party->onPartyChanged.Subscribe([this]() {SetCharacterId(party->GetPartyLeaderId()); });
 
 	ModuleAudio* audioRef = Engine::Instance().m_audio;
 	ModuleAssetDatabase* assetsRef = Engine::Instance().m_assetsDB;
@@ -174,19 +174,27 @@ void PlayerCharacter::GetInput()
 	/// Party Testing
 
 	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_J) == KEY_DOWN) {
-		party->AddFollower(1);
+		party->AddMemeber(1);
+		party->AddPartyMemeber(1);
 	}
 
 	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_H) == KEY_DOWN) {
-		party->RemoveFollower(1);
+		party->RemovePartyMemeber(1);
 	}
 
 	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_K) == KEY_DOWN) {
-		party->AddFollower(2);
+		party->AddMemeber(2);
+		party->AddPartyMemeber(2);
+		party->AddMemeber(3);
+		party->AddMemeber(4);
+		party->AddMemeber(5);
+		party->AddMemeber(6);
+
 	}
 
 	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_L) == KEY_DOWN) {
-		party->RemoveFollower(2);
+		party->RemovePartyMemeber(2);
+
 	}
 
 }

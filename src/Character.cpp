@@ -114,6 +114,11 @@ bool Character::Update()
             pathFollowersData.push_front(position);
         else
             pathFollowersData[0] = position;
+
+		for (size_t i = 0; i < followers.size(); i++)
+		{
+			followers[i]->Update();
+		}
     }
     return true;
 }
@@ -153,6 +158,11 @@ bool Character::SetCharacterId(int _charId)
 bool Character::GetCharacterId() const
 {
 	return characterId;
+}
+
+void Character::ClearFollowerPath()
+{
+	pathFollowersData.clear();
 }
 
 bool Character::AddFollower(int _charId, float distance)

@@ -52,7 +52,7 @@ void CombatGameState::StateSelected()
 	Engine::Instance().m_cursor->ShowCustomCursor();
 
 
-	Engine::Instance().s_game->combatSystem->AddPartyToCombat(Engine::Instance().s_game->GetPlayer()->party->GetActivePartyIds(), CombatSystem::Ally);
+	Engine::Instance().s_game->combatSystem->AddPartyToCombat(Engine::Instance().s_game->GetPlayer()->party->GetPartyIds(), CombatSystem::Ally);
 	Engine::Instance().s_game->combatSystem->AddPartyToCombat(vector<int>{5,6, 2}, CombatSystem::Enemy);
 
 	Engine::Instance().s_game->fade->onFadeEnd.Subscribe([this]() {OnLoadingEnd();});
