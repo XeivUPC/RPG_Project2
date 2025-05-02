@@ -242,6 +242,11 @@ vector<CombatSystem::CharacterReference*> CombatSystem::GetCurrentAttackTargetLi
 	return attackList[currentAttackIndex].second.targets;
 }
 
+int CombatSystem::CurrentAttackTargetAmount()
+{
+	return GetCurrentAttackTargetList().size();
+}
+
 const unordered_map<CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>>& CombatSystem::GetCharactersInCombat()
 {
 	return charactersInCombat;

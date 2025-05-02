@@ -80,7 +80,8 @@ void CombatCG::UpdateCanvas()
 		{
 			if (firstTick)
 			{
-				//Animate attacker and effects
+				GetSlotByCharacter(combat->GetCurrentAttackAttacker())->characterImage->GetAnimator()->Animate("attack");
+				//Animate effects
 				firstTick = false;
 			}
 			if (animationEffect == pair<bool, bool>(true, true))
@@ -95,13 +96,18 @@ void CombatCG::UpdateCanvas()
 		{
 			if (firstTick)
 			{
-				//Animate targets and effects
+				for (size_t i = 0; i < combat->CurrentAttackTargetAmount(); i++)
+				{
+					GetSlotByCharacter(combat->GetCurrentAttackTargetList()[i])->characterImage->GetAnimator()->Animate("hurt");
+				}
+				//Animate effects
 				firstTick = false;
 			}
 			if (animationEffect == pair<bool, bool>(true, true))
 			{
 				animationEffect = pair<bool, bool>(false, true);
 				visualEffects.second = true;
+				targetVisualsCompleted = pair<int, int>(0, 0);
 				firstTick = true;
 			}
 		}
@@ -325,7 +331,18 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 			Sprite(characterTexture, {3 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
 		}, nullptr, nullptr));
 
-	characterImage->GetAnimator()->GetAnimationClip("attack")->onAnimationFinished.Subscribe([this]() {});
+	//characterImage->GetAnimator()->AddAnimationClip(AnimationClip("hurt", true, false, 0.1f,
+	//	{
+	//		Sprite(characterTexture, {0 * spriteSize, 2 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+	//		Sprite(characterTexture, {1 * spriteSize, 2 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+	//		Sprite(characterTexture, {2 * spriteSize, 2 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+	//		Sprite(characterTexture, {3 * spriteSize, 2 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
+	//	}, nullptr, nullptr));
+
+	//characterImage->GetAnimator()->GetAnimationClip("attack")->onAnimationFinished.Subscribe([this, characterImage]() {FinishAttackVisuals(characterImage); });
+	//characterImage->GetAnimator()->GetAnimationClip("hurt")->onAnimationFinished.Subscribe([this, characterImage]() {FinishHurtVisuals(characterImage); });
+
+	//characterImage->GetAnimator()->Animate("combat-idle");
 
 	selectedCharacterTarget->SetParent(characterBtn);
 	characterImage->SetParent(characterBtn);
@@ -731,7 +748,15 @@ Vector2Int CombatCG::GetSlotPosition(CombatSystem::CharacterType team, int teamM
 void CombatCG::FinishAttackVisuals(UIAnimatedImage* characterImage)
 {
 	animationEffect.first = true;
-	characterImage->GetAnimator()->Animate("combat-idle", true);
+	characterImage->GetAnimator()->Animate("combat-idle");
+}
+
+void CombatCG::FinishHurtVisuals(UIAnimatedImage* characterImage)
+{
+	targetVisualsCompleted.first++;
+	characterImage->GetAnimator()->Animate("combat-idle");
+	if (targetVisualsCompleted.first == combat->CurrentAttackTargetAmount())
+		animationEffect.second = true;
 }
 
 

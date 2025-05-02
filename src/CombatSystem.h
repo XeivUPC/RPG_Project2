@@ -156,6 +156,7 @@ public:
 	void NextAttack();
 	CharacterReference* GetCurrentAttackAttacker();
 	vector<CharacterReference*> GetCurrentAttackTargetList();
+	int CurrentAttackTargetAmount();
 	const unordered_map <CharacterType, vector<CharacterReference>>& GetCharactersInCombat();
 	vector<CharacterReference*> GetPosibleTargets(CharacterReference* character, Attack* attack);
 	

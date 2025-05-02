@@ -146,7 +146,8 @@ private:
 	/// Extra
 	AlertDisplayerCG* alert;
 	UITextBox* debug_immortalEnabled = nullptr;
-	pair<bool, bool> visualEffects = pair<bool,bool>(false,false);		//First bool = attacker | Second bool = targets
+	pair<bool, bool> visualEffects = pair<bool,bool>(false,false);	//First bool = attacker  | Second bool = targets
 	pair<bool, bool> animationEffect = pair<bool,bool>(false,true);	//First bool = animation | Second bool = effect
+	pair<int, int> targetVisualsCompleted = pair<int, int>(0, 0);	//First bool = animation | Second bool = effect
 	bool firstTick = true;
 };
