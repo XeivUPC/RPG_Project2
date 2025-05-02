@@ -86,7 +86,8 @@ void CombatCG::UpdateCanvas()
 		{
 			if (firstTick)
 			{
-				GetSlotByCharacter(combat->GetCurrentAttackAttacker())->characterImage->GetAnimator()->Animate("attack");
+				UICharacterSlot* slotSelected = GetSlotByCharacter(combat->GetCurrentAttackAttacker());
+				slotSelected->characterImage->GetAnimator()->Animate("attack");
 				//Animate effects
 				firstTick = false;
 			}
@@ -720,9 +721,9 @@ CombatCG::UICharacterSlot* CombatCG::GetSlotByCharacter(CombatSystem::CharacterR
 {
 	for (size_t i = 0; i < charactersSlot.size(); i++)
 	{
-		CombatCG::UICharacterSlot slot = charactersSlot[i];
-		if (slot.characterRef == reference)
-			return &slot;
+		CombatCG::UICharacterSlot* slot = &charactersSlot[i];
+		if (slot->characterRef == reference)
+			return slot;
 	}
 	return nullptr;
 }
