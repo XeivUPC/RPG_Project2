@@ -121,6 +121,7 @@ void CombatCG::UpdateCanvas()
 		if (visualEffects.first && visualEffects.second)
 		{
 			combat->NextAttack();
+			visualEffects = pair<bool, bool>(false, false);
 		}
 	}
 
@@ -347,7 +348,7 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 		}, nullptr, nullptr));
 
 	characterImage->GetAnimator()->GetAnimationClip("attack")->onAnimationFinished.Subscribe([this, characterImage]() {FinishAttackVisuals(characterImage); });
-	characterImage->GetAnimator()->GetAnimationClip("hurt")->onAnimationFinished.Subscribe([this, characterImage]() {FinishHurtVisuals(characterImage); });
+ 	characterImage->GetAnimator()->GetAnimationClip("hurt")->onAnimationFinished.Subscribe([this, characterImage]() {FinishHurtVisuals(characterImage); });
 
 	selectedCharacterTarget->SetParent(characterBtn);
 	characterImage->SetParent(characterBtn);
@@ -761,7 +762,7 @@ void CombatCG::FinishHurtVisuals(UIAnimatedImage* characterImage)
 	targetVisualsCompleted.first++;
 	characterImage->GetAnimator()->Animate("combat-idle");
 	if (targetVisualsCompleted.first == combat->CurrentAttackTargetAmount())
-		animationEffect.second = true;
+		animationEffect.first = true;
 }
 
 

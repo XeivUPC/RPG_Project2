@@ -97,8 +97,8 @@ void CombatSystem::UpdateCombat()
 				if (currentAttackEnded)
 				{
 					attackList[currentAttackIndex].second.attack->DoAttack(*attackList[currentAttackIndex].first, attackList[currentAttackIndex].second.targets);
-					currentAttackIndex++;
 					currentAttackEnded = false;
+					currentAttackIndex++;
 				}
 			}
 		}
