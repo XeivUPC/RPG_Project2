@@ -68,6 +68,12 @@ void CombatCG::UpdateCanvas()
 		else
 			debug_immortalEnabled->localVisible = false;
 	}
+	if (combat->GetCombatState() == CombatSystem::PREPARE_ATTACKS)
+	{
+		visualEffects.first = false;
+		visualEffects.second = false;
+		firstTick = true;
+	}
 	if(combat->GetCombatState() == CombatSystem::ATTACKS)
 	{
 		if (combat->CurrentAttackEnded())
@@ -341,7 +347,6 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 
 	characterImage->GetAnimator()->GetAnimationClip("attack")->onAnimationFinished.Subscribe([this, characterImage]() {FinishAttackVisuals(characterImage); });
 	characterImage->GetAnimator()->GetAnimationClip("hurt")->onAnimationFinished.Subscribe([this, characterImage]() {FinishHurtVisuals(characterImage); });
-
 
 	selectedCharacterTarget->SetParent(characterBtn);
 	characterImage->SetParent(characterBtn);

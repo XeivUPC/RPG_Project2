@@ -59,7 +59,7 @@ void CombatSystem::UpdateCombat()
 		break;
 	case CombatSystem::PREPARE_ATTACKS:
 		currentAttackIndex = 0;
-		currentAttackEnded = true;
+		currentAttackEnded = false;
 		sort(attackList.begin(), attackList.end(),
 		[](pair< CharacterReference*, TurnAttack>& a, pair< CharacterReference*, TurnAttack>& b) {
 			CharacterStats& as = a.first->stats;
@@ -88,9 +88,6 @@ void CombatSystem::UpdateCombat()
 		ChangeState(CombatState::ATTACKS);
 		break;
 	case CombatSystem::ATTACKS:
-		if(currentAttackEnded && currentAttackIndex == 0)
-			attackList[currentAttackIndex].second.attack->DoAttack(*attackList[currentAttackIndex].first, attackList[currentAttackIndex].second.targets);
-
 		if (currentAttackIndex < attackList.size())
 		{
 			if (attackList[currentAttackIndex].first->stats.currentHp <= 0)
