@@ -316,12 +316,12 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 
 	int spriteSize = 64;
 	characterImage->GetAnimator()->AddAnimationClip(AnimationClip("combat-idle", true, false, 0.1f,
-			{
-				Sprite(characterTexture, {0 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
-				Sprite(characterTexture, {1 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
-				Sprite(characterTexture, {2 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
-				Sprite(characterTexture, {3 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
-			}, nullptr, nullptr));
+		{
+			Sprite(characterTexture, {0 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {1 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {2 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {3 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
+		}, nullptr, nullptr));
 
 	characterImage->GetAnimator()->AddAnimationClip(AnimationClip("attack", true, false, 0.1f,
 		{
@@ -331,18 +331,17 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 			Sprite(characterTexture, {3 * spriteSize,0 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
 		}, nullptr, nullptr));
 
-	//characterImage->GetAnimator()->AddAnimationClip(AnimationClip("hurt", true, false, 0.1f,
-	//	{
-	//		Sprite(characterTexture, {0 * spriteSize, 2 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
-	//		Sprite(characterTexture, {1 * spriteSize, 2 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
-	//		Sprite(characterTexture, {2 * spriteSize, 2 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
-	//		Sprite(characterTexture, {3 * spriteSize, 2 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
-	//	}, nullptr, nullptr));
+	characterImage->GetAnimator()->AddAnimationClip(AnimationClip("hurt", true, false, 0.1f,
+		{
+			Sprite(characterTexture, {0 * spriteSize, 2 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {1 * spriteSize, 2 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {2 * spriteSize, 2 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {3 * spriteSize, 2 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
+		}, nullptr, nullptr));
 
-	//characterImage->GetAnimator()->GetAnimationClip("attack")->onAnimationFinished.Subscribe([this, characterImage]() {FinishAttackVisuals(characterImage); });
-	//characterImage->GetAnimator()->GetAnimationClip("hurt")->onAnimationFinished.Subscribe([this, characterImage]() {FinishHurtVisuals(characterImage); });
+	characterImage->GetAnimator()->GetAnimationClip("attack")->onAnimationFinished.Subscribe([this, characterImage]() {FinishAttackVisuals(characterImage); });
+	characterImage->GetAnimator()->GetAnimationClip("hurt")->onAnimationFinished.Subscribe([this, characterImage]() {FinishHurtVisuals(characterImage); });
 
-	//characterImage->GetAnimator()->Animate("combat-idle");
 
 	selectedCharacterTarget->SetParent(characterBtn);
 	characterImage->SetParent(characterBtn);

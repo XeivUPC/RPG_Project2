@@ -7,24 +7,26 @@ Animator::Animator()
 Animator::Animator(vector<AnimationClip> Animations, int current):
 AnimationList(Animations)
 {
-	currentAnimation = &AnimationList[current];
-	currentAnimation->Start();
+	currentAnimationIndex = current;
+	clip()->Start();
 }
 Animator::~Animator()
 {}
 void Animator::AddAnimationClip(AnimationClip clip)
 {
 	AnimationList.emplace_back(clip);
-	if (currentAnimation == nullptr)
-		currentAnimation = &AnimationList[0];
+	if (currentAnimationIndex == -1)
+		currentAnimationIndex = AnimationList.size()-1;
 }
 AnimationClip* Animator::clip()
 {
-	return currentAnimation;
+	return &AnimationList[currentAnimationIndex];
 }
 
 void Animator::Animate(const string& animation, bool keepTime)
 {
+	AnimationClip* currentAnimation = clip();
+
 	if (currentAnimation && currentAnimation->Name() == animation)
 		return;
 	for (size_t i = 0; i < AnimationList.size(); i++)
