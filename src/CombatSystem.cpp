@@ -99,6 +99,8 @@ void CombatSystem::UpdateCombat()
 					attackList[currentAttackIndex].second.attack->DoAttack(*attackList[currentAttackIndex].first, attackList[currentAttackIndex].second.targets);
 					currentAttackEnded = false;
 					currentAttackIndex++;
+					if(currentAttackIndex == attackList.size())
+						ChangeState(CombatState::EFFECTS);
 				}
 			}
 		}

@@ -648,7 +648,8 @@ void CombatCG::ConfirmAttack()
 	{
 		referenceTargets.emplace_back(targetCharacters[i]->characterRef);
 	}
-
+	attacksToExecute[selectedCharacter->characterRef] = { selectedAttack->attack,referenceTargets };
+	
 	HideAttackInformation();
 
 	SetTargetSelectionMode(false);
