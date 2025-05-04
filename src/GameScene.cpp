@@ -17,6 +17,7 @@
 #include "SimpleTilemapChanger.h"
 #include "NpcCharacter.h"
 #include "SimpleMapObject.h"
+#include "OverworldItem.h"
 ///
 
 #include "FadeCG.h"
@@ -57,6 +58,7 @@ bool GameScene::Start()
     Pooling::Instance().CreatePool<SimpleTilemapChanger>(10);
     Pooling::Instance().CreatePool<SimpleMapObject>(30);
     Pooling::Instance().CreatePool<NpcCharacter>(10);
+    Pooling::Instance().CreatePool<OverworldItem>(10);
 
     fade = new FadeCG(33, 25, 17, 255);
     fade->FadeTo(1,0);

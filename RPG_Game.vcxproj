@@ -159,6 +159,8 @@
     <ClCompile Include="src\IntroScene.cpp" />
     <ClCompile Include="src\Inventory.cpp" />
     <ClCompile Include="src\InventoryItem.cpp" />
+    <ClCompile Include="src\Item.cpp" />
+    <ClCompile Include="src\ItemList.cpp" />
     <ClCompile Include="src\ModuleAssetDatabase.cpp" />
     <ClCompile Include="src\ModuleAudio.cpp" />
     <ClCompile Include="src\ModuleCursor.cpp" />
@@ -167,6 +169,7 @@
     <ClCompile Include="src\ModuleScene.cpp" />
     <ClCompile Include="src\MusicContainer.cpp" />
     <ClCompile Include="src\NpcCharacter.cpp" />
+    <ClCompile Include="src\OverworldItem.cpp" />
     <ClCompile Include="src\Party.cpp" />
     <ClCompile Include="src\PartyCG.cpp" />
     <ClCompile Include="src\PauseGameState.cpp" />
@@ -243,6 +246,8 @@
     <ClInclude Include="src\IntroScene.h" />
     <ClInclude Include="src\Inventory.h" />
     <ClInclude Include="src\InventoryItem.h" />
+    <ClInclude Include="src\Item.h" />
+    <ClInclude Include="src\ItemList.h" />
     <ClInclude Include="src\MemLeaks.h" />
     <ClInclude Include="src\ModuleAssetDatabase.h" />
     <ClInclude Include="src\ModuleAudio.h" />
@@ -252,6 +257,7 @@
     <ClInclude Include="src\ModuleScene.h" />
     <ClInclude Include="src\MusicContainer.h" />
     <ClInclude Include="src\NpcCharacter.h" />
+    <ClInclude Include="src\OverworldItem.h" />
     <ClInclude Include="src\Party.h" />
     <ClInclude Include="src\PartyCG.h" />
     <ClInclude Include="src\PauseGameState.h" />
@@ -312,6 +318,7 @@
     <Xml Include="Assets\Data\AttackList.xml" />
     <Xml Include="Assets\Data\CharactersData.xml" />
     <Xml Include="Assets\Data\CharactersData_Default.xml" />
+    <Xml Include="Assets\Data\ItemData.xml" />
     <Xml Include="Assets\Data\UserPrefs.xml" />
   </ItemGroup>
   <ItemGroup>
