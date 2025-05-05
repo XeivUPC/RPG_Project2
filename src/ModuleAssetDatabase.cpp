@@ -95,6 +95,8 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("party_characterUI", *textureFactory->CreateTexture("Assets/Textures/UI/partyCharacterUI.png"));
 	AddTextureToStorage("member_characterUI", *textureFactory->CreateTexture("Assets/Textures/UI/memberCharacterUI.png"));
 	AddTextureToStorage("dialogue_answerBox", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_answerBox.png"));
+	AddTextureToStorage("compass_overlay", *textureFactory->CreateTexture("Assets/Textures/UI/compass_overlay.png"));
+	AddTextureToStorage("compass_arrow", *textureFactory->CreateTexture("Assets/Textures/UI/compass_arrow.png"));
 	///Cursors
 	AddTextureToStorage("mouse_cursor0", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_0.png"));
 	AddTextureToStorage("mouse_cursor1", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_1.png"));

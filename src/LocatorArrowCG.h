@@ -31,6 +31,6 @@ private:
 
 	bool locationInsideScreen = false;
 
-	UIImage* coverlay_image = nullptr;
+	UIImage* overlay_image = nullptr;
 	UIImage* arrow_image = nullptr;
 };
