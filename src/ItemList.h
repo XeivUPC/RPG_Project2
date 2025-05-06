@@ -12,6 +12,7 @@ public:
 		static ItemList instance;
 		return instance;
 	}
+	Item ItemByID(string id);
 private:
 	string path;
 	ItemList();

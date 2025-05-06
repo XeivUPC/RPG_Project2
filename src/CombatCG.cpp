@@ -56,11 +56,6 @@ void CombatCG::UpdateCanvas()
 		float healthRatio = currentHealth / maxHealth;
 
 		charactersSlot[i].hpBar->size.x = (int)(charactersSlot[i].hpBarMaxWidth * healthRatio);
-		/*
-		charactersSlot[i].characterImage->GetAnimator()->GetAnimationClip("")->GetSprite(1).onSpriteSelected.Subscribe...;
-		charactersSlot[i].characterImage->GetAnimator()->GetAnimationClip("")->onAnimationFinished.UnsubscribeAll();
-		charactersSlot[i].characterImage->GetAnimator()->GetAnimationClip("")->onAnimationFinished.Subscribe([this]() {});
-		*/
 	}
 	if (debug_immortalEnabled != nullptr) {
 		if (Engine::Instance().m_debug->godmode)

@@ -11,6 +11,8 @@
 #include "CameraController.h"
 #include "DialogueSystem.h"
 #include "CombatSystem.h"
+#include "ItemList.h"
+#include "Item.h"
 
 ///Pooling
 #include "Pooling.h"
@@ -109,6 +111,10 @@ bool GameScene::Start()
     CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
 
 
+    auto item = Pooling::Instance().AcquireObject<OverworldItem>();
+    item->Initialize(ItemList::Instance().ItemByID("item:null"), 5, {180,250});
+
+
     return true;
 }
 
@@ -196,6 +202,7 @@ bool GameScene::CleanUp()
     Pooling::Instance().DeletePool<SimpleTilemapChanger>(true);
     Pooling::Instance().DeletePool<SimpleMapObject>(true);
     Pooling::Instance().DeletePool<NpcCharacter>(true);
+    Pooling::Instance().DeletePool<OverworldItem>(true);
 
     exitGame = false;
 

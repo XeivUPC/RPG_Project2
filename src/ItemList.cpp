@@ -4,6 +4,11 @@
 #include "Item.h"
 using namespace pugi;
 
+Item ItemList::ItemByID(string id)
+{
+	return itemList[id];
+}
+
 ItemList::ItemList()
 {
 	LoadItems();
