@@ -127,12 +127,12 @@
                 "name": "Emperor Charles II",
                 "portraits": [
                     {
-                        "name": "CharlesII-idle.png",
+                        "name": "CharlesII-idle",
                         "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
                         "uuid": "748f3478-b38f-4680-88a4-4e1adef959da"
                     },
                     {
-                        "name": "CharlesII-poisoned.png",
+                        "name": "CharlesII-poisoned",
                         "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-poisoned.png",
                         "uuid": "2c2d75bb-8fe8-4bde-800c-19020e0379f2"
                     }
@@ -203,13 +203,17 @@
             {
                 "name": "chef_RS.json",
                 "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Dialogues/chef_RS.json"
+            },
+            {
+                "name": "guard_duel.json",
+                "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Dialogues/guard_duel.json"
             }
         ]
     },
     "cache": {
         "last_opened_file": {
-            "name": "chef_RS.json",
-            "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Dialogues/chef_RS.json"
+            "name": "guard_duel.json",
+            "path": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Dialogues/guard_duel.json"
         }
     },
     "info": {

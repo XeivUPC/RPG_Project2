@@ -42,20 +42,20 @@
         },
         "Maps/House2_Inside.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 3,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208.16666666666663,
-                "y": 111.66666666666664
+                "x": 208.16666666666666,
+                "y": 112.16666666666666
             }
         },
         "Maps/House3_Inside.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 8,
             "selectedLayer": 4,
@@ -87,20 +87,20 @@
             "scale": 2,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 501,
+                "x": 475,
                 "y": 448.25
             }
         },
         "Maps/Testing_Zone.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 5.5,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208.09090909090907,
-                "y": 112.00000000000001
+                "x": 208.09090909090912,
+                "y": 112.0909090909091
             }
         },
         "Maps/Testing_Zone2.tmx": {
@@ -111,8 +111,8 @@
             "scale": 5.5,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 197,
-                "y": 96.72727272727272
+                "x": 208,
+                "y": 112.0909090909091
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -175,7 +175,7 @@
             }
         }
     },
-    "last.exportedFilePath": "C:/Users/maxpo/OneDrive/Documents/GitHub/RPG_Project2/Assets/Map/Data",
+    "last.exportedFilePath": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Map/Data",
     "last.externalTilesetPath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Tilesets",
     "last.imagePath": "C:/Users/maxpo/OneDrive/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/MapObjects/Furniture/Single",
     "last.objectTemplatePath": "C:/Users/maxpo/OneDrive/Documents/GitHub/RPG_Project2/Assets/Map/TiledProject/Prefabs/Buildings",
