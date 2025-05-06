@@ -3,14 +3,14 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Testing_Zone2.tmx",
+    "activeFile": "Maps/House2_Inside - còpia.tmx",
     "expandedProjectPaths": [
         "Objects",
+        "Prefabs",
         "Prefabs/Buildings",
         "Tilesets",
-        "Prefabs",
-        "Maps",
-        "."
+        ".",
+        "Maps"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -40,10 +40,18 @@
                 "y": 184.0115281685309
             }
         },
+        "Maps/House2_Inside - còpia.tmx": {
+            "scale": 1.5734374999999998,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 208.14299900695138,
+                "y": 111.85700099304867
+            }
+        },
         "Maps/House2_Inside.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
             "scale": 3,
             "selectedLayer": 4,
@@ -54,8 +62,8 @@
         },
         "Maps/House3_Inside.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
             "scale": 8,
             "selectedLayer": 4,
@@ -84,17 +92,17 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 2,
+            "scale": 1,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 475,
-                "y": 448.25
+                "x": 438,
+                "y": 448.5
             }
         },
         "Maps/Testing_Zone.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
             "scale": 5.5,
             "selectedLayer": 4,
@@ -105,14 +113,14 @@
         },
         "Maps/Testing_Zone2.tmx": {
             "expandedObjectLayers": [
-                11,
-                7
+                7,
+                11
             ],
             "scale": 5.5,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208,
-                "y": 112.0909090909091
+                "x": 208.09090909090907,
+                "y": 112.18181818181819
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -191,7 +199,8 @@
         "Maps/Testing_Zone.tmx",
         "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/House4_Inside.tmx",
-        "Maps/Testing_Zone2.tmx"
+        "Maps/Testing_Zone2.tmx",
+        "Maps/House2_Inside - còpia.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "string",
@@ -202,12 +211,12 @@
         "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/House4_Inside.tmx",
         "Maps/Testing_Zone2.tmx",
+        "Maps/House2_Inside - còpia.tmx",
         "Tilesets/Furniture_Atlas.tsx",
         "Tilesets/Building_Atlas.tsx",
         "Tilesets/Water_tiles.tsx",
         "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx",
-        "Tilesets/dsa.tsx",
-        "Tilesets/Vegetation_Atlas.tsx"
+        "Tilesets/dsa.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,
