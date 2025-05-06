@@ -15,7 +15,7 @@ LocatorArrowCG::LocatorArrowCG()
 
 	SDL_Texture* compass_arrow = Engine::Instance().m_assetsDB->GetTexture("compass_arrow");
 	Vector2Int arrowTextureSize = Engine::Instance().m_assetsDB->GetTextureSize(*compass_arrow);
-	arrow_image = new UIImage(*compass_arrow, { 0,5}, arrowTextureSize, { 0.5f,0.5f });
+	arrow_image = new UIImage(*compass_arrow, { 0,-16}, arrowTextureSize, { 0.5f,0.5f });
 	arrow_image->SetLocalScale(1);
 	arrow_image->SetParent(overlay_image);
 
