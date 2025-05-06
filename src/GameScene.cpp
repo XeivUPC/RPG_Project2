@@ -115,10 +115,12 @@ bool GameScene::Start()
     CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
 
     locatorArrowCanvas->SetUser(player);
+   
 
     auto item = Pooling::Instance().AcquireObject<OverworldItem>();
     item->Initialize(ItemList::Instance().ItemByID("item;null"), 5, {180,250});
 
+    locatorArrowCanvas->SetLocation(item->GetPosition());
 
     return true;
 }

@@ -384,6 +384,9 @@
     <ClCompile Include="src\Item.cpp">
       <Filter>Source Files\Utils\Item</Filter>
     </ClCompile>
+    <ClCompile Include="src\LocatorArrowCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -650,9 +653,6 @@
     <ClInclude Include="src\CombatAI.h">
       <Filter>Source Files\Utils\Combat</Filter>
     </ClInclude>
-    <ClInclude Include="src\AlertDisplayerCG.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\UIAnimatedImage.h">
       <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
     </ClInclude>
@@ -680,6 +680,12 @@
     <ClInclude Include="src\Item.h">
       <Filter>Source Files\Utils\Item</Filter>
     </ClInclude>
+    <ClInclude Include="src\AlertDisplayerCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LocatorArrowCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Assets\Data\UserPrefs.xml">
@@ -694,7 +700,7 @@
     <Xml Include="Assets\Data\CharactersData_Default.xml">
       <Filter>Source Files\_DataFiles</Filter>
     </Xml>
-    <Xml Include="Assets\Data\ItemData.xml">
+    <Xml Include="Assets\Data\ItemsData.xml">
       <Filter>Source Files\_DataFiles</Filter>
     </Xml>
   </ItemGroup>

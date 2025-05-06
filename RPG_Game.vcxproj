@@ -161,6 +161,7 @@
     <ClCompile Include="src\InventoryItem.cpp" />
     <ClCompile Include="src\Item.cpp" />
     <ClCompile Include="src\ItemList.cpp" />
+    <ClCompile Include="src\LocatorArrowCG.cpp" />
     <ClCompile Include="src\ModuleAssetDatabase.cpp" />
     <ClCompile Include="src\ModuleAudio.cpp" />
     <ClCompile Include="src\ModuleCursor.cpp" />
@@ -248,6 +249,7 @@
     <ClInclude Include="src\InventoryItem.h" />
     <ClInclude Include="src\Item.h" />
     <ClInclude Include="src\ItemList.h" />
+    <ClInclude Include="src\LocatorArrowCG.h" />
     <ClInclude Include="src\MemLeaks.h" />
     <ClInclude Include="src\ModuleAssetDatabase.h" />
     <ClInclude Include="src\ModuleAudio.h" />

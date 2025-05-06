@@ -40,8 +40,6 @@ void LocatorArrowCG::UpdateOutsideScreen()
 {
 	Vector2 direction = Vector2::Direction(user->GetPosition(), targetLocation);
 	direction.Angle();
-
-	printf("Angle: %f\n", RADTODEG*(direction.Angle()));
 	
 	arrow_image->SetLocalAngle(RADTODEG*direction.Angle() + 180);
 }
