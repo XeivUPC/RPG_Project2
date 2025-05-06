@@ -11,9 +11,7 @@ public:
 	string description = "";
 	int stackable_quantity = 0;
 
-	string texture_id = "";
-
-	unordered_map<string, float> properties;
+	unordered_map<string, string> properties;
 
 	Item();
 	~Item();

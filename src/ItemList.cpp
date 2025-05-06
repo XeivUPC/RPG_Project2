@@ -22,7 +22,7 @@ ItemList::~ItemList()
 void ItemList::LoadItems()
 {
 	LOG("Loading");
-	LOG("Loading attacks data from XML");
+	LOG("Loading items data from XML");
 	itemList.clear();
 	xml_document file;
 	xml_parse_result result = file.load_file(path.c_str());
@@ -32,20 +32,19 @@ void ItemList::LoadItems()
 		return;
 	}
 	xml_node rootNode = file.child("itemList");
-	for (xml_node item : rootNode.children("item"))
+	for (xml_node item_node : rootNode.children("item"))
 	{
 		Item newItem = Item();
-		newItem.id = item.attribute("id").as_string();
-		newItem.name = item.attribute("name").as_string();
-		newItem.description = item.attribute("description").as_string();
-		newItem.stackable_quantity = item.attribute("stackable-quantity").as_int();
+		newItem.id = item_node.child("id").text().as_string();
+		newItem.name = item_node.child("name").text().as_string();
+		newItem.description = item_node.child("description").text().as_int();
+		newItem.stackable_quantity = item_node.child("stackable-quantity").text().as_int();
 
-		newItem.texture_id = item.attribute("texture-id").as_string();
-		xml_node properties = item.child("properties");
+		xml_node properties = item_node.child("properties");
 		for (xml_node property : properties.children())
 		{
-			newItem.properties.emplace(property.name(), std::stof(property.child_value()));
+			newItem.properties.emplace(property.name(),property.text().as_string());
 		}
-		itemList.emplace(newItem.name, newItem);
+		itemList.emplace(newItem.id, newItem);
 	}
 }

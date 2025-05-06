@@ -1,13 +1,10 @@
 <?xml version="1.0"?>
 <itemList>
 	<item>
-		<id>item:null</id>
+		<id>item;null</id>
 		<name>null</name>
 		<description>0</description>
 		<stackable-quantity>64</stackable-quantity>
-
-		<texture-id>items_16</texture-id>
-
 		<properties>
 			<type>default</type>
 		</properties>

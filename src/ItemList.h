@@ -14,7 +14,7 @@ public:
 	}
 	Item ItemByID(string id);
 private:
-	string path;
+	string path = "Assets/Data/ItemsData.xml";
 	ItemList();
 	~ItemList();
 

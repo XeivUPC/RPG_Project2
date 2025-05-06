@@ -112,7 +112,7 @@ bool GameScene::Start()
 
 
     auto item = Pooling::Instance().AcquireObject<OverworldItem>();
-    item->Initialize(ItemList::Instance().ItemByID("item:null"), 5, {180,250});
+    item->Initialize(ItemList::Instance().ItemByID("item;null"), 5, {180,250});
 
 
     return true;

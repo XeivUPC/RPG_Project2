@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "Pooling.h"
 #include "Item.h"
+#include "TextureAtlas.h"
 #include "DrawingTools.h"
 
 #include "ModulePhysics.h"
@@ -35,13 +36,17 @@ bool OverworldItem::Update()
 
 void OverworldItem::Render()
 {
-	Engine::Instance().m_render->painter().RenderBox(position,{16,16},{1,1},{0.5f,0.5f}, true, {255,255,255,255});
+	Engine::Instance().m_render->painter().RenderTexture(*texture,position,&rectangle,{1,1},0,{0.5f,0.5f});
 }
 
 void OverworldItem::Initialize(Item item, int q, Vector2 position)
 {
 	id = item.id;
-	//texture = 
+
+	TextureAtlas* atlas = Engine::Instance().m_assetsDB->GetAtlas("items_atlas");
+	texture = atlas->texture;
+	rectangle = atlas->sprites[item.id].rect;
+
 	quantity = q;
 	this->position = position;
 
