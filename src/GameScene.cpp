@@ -23,6 +23,7 @@
 #include "UIDialogueBoxCG.h"
 #include "CombatCG.h"
 #include "PauseMenuCG.h"
+#include "LocatorArrowCG.h"
 
 /// States
 #include "GameState.h"
@@ -75,6 +76,9 @@ bool GameScene::Start()
     pauseCanvas = new PauseMenuCG();
     pauseCanvas->renderLayer = 7;
 
+    locatorArrowCanvas = new LocatorArrowCG();
+    locatorArrowCanvas->renderLayer = 6;
+
     Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("townTheme"), 1000);
     Engine::Instance().m_render->SetCameraZoom(1.5f);
     Engine::Instance().m_render->SetCameraPosition(Vector2{0, 0});
@@ -106,6 +110,7 @@ bool GameScene::Start()
 
     CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
 
+    locatorArrowCanvas->SetUser(player);
 
     return true;
 }
@@ -157,6 +162,7 @@ bool GameScene::CleanUp()
     delete dialogueCanvas;
     delete combatCanvas;
     delete pauseCanvas;
+    delete locatorArrowCanvas;
     //delete canvas;
     delete fade;
     delete dialogueSystem;

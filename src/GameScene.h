@@ -12,6 +12,7 @@ class CombatCG;
 class DialogueSystem;
 class CombatSystem;
 class PauseMenuCG;
+class LocatorArrowCG;
 class GameState;
 class Tilemap;
 class PlayerCharacter;
@@ -89,6 +90,7 @@ private:
 	/// UI
 	UICanvas* canvas = nullptr;
 	PauseMenuCG* pauseCanvas = nullptr;
+	LocatorArrowCG* locatorArrowCanvas = nullptr;
 	FadeCG* fade = nullptr;
 	UIDialogueBoxCG* dialogueCanvas = nullptr;
 	CombatCG* combatCanvas = nullptr;

@@ -34,6 +34,8 @@ public:
 
     static float Distance(const Vector2& a, const Vector2& b);
 
+    float Angle() const;
+
 
     bool operator==(const Vector2& other) const;
 
