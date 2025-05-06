@@ -11,12 +11,15 @@
 #include "CameraController.h"
 #include "DialogueSystem.h"
 #include "CombatSystem.h"
+#include "ItemList.h"
+#include "Item.h"
 
 ///Pooling
 #include "Pooling.h"
 #include "SimpleTilemapChanger.h"
 #include "NpcCharacter.h"
 #include "SimpleMapObject.h"
+#include "OverworldItem.h"
 ///
 
 #include "FadeCG.h"
@@ -58,6 +61,7 @@ bool GameScene::Start()
     Pooling::Instance().CreatePool<SimpleTilemapChanger>(10);
     Pooling::Instance().CreatePool<SimpleMapObject>(30);
     Pooling::Instance().CreatePool<NpcCharacter>(10);
+    Pooling::Instance().CreatePool<OverworldItem>(10);
 
     fade = new FadeCG(33, 25, 17, 255);
     fade->FadeTo(1,0);
@@ -111,6 +115,10 @@ bool GameScene::Start()
     CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
 
     locatorArrowCanvas->SetUser(player);
+
+    auto item = Pooling::Instance().AcquireObject<OverworldItem>();
+    item->Initialize(ItemList::Instance().ItemByID("item;null"), 5, {180,250});
+
 
     return true;
 }
@@ -200,6 +208,7 @@ bool GameScene::CleanUp()
     Pooling::Instance().DeletePool<SimpleTilemapChanger>(true);
     Pooling::Instance().DeletePool<SimpleMapObject>(true);
     Pooling::Instance().DeletePool<NpcCharacter>(true);
+    Pooling::Instance().DeletePool<OverworldItem>(true);
 
     exitGame = false;
 

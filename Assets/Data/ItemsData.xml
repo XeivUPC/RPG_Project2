@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<itemList>
+	<item>
+		<id>item;null</id>
+		<name>null</name>
+		<description>0</description>
+		<stackable-quantity>64</stackable-quantity>
+		<properties>
+			<type>default</type>
+		</properties>
+	</item>
+</itemList> 
