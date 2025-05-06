@@ -641,9 +641,6 @@
     <ClInclude Include="src\CombatAI.h">
       <Filter>Source Files\Utils\Combat</Filter>
     </ClInclude>
-    <ClInclude Include="src\AlertDisplayerCG.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\UIAnimatedImage.h">
       <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
     </ClInclude>
@@ -660,6 +657,9 @@
       <Filter>Source Files\Others</Filter>
     </ClInclude>
     <ClInclude Include="src\PartyCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AlertDisplayerCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
     <ClInclude Include="src\LocatorArrowCG.h">
