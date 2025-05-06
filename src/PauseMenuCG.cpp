@@ -106,7 +106,7 @@ PauseMenuCG::PauseMenuCG()
 	settingsGame_text->SetParent(settingsGame_btn);
 	settingsGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	settingsGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
-	settingsGame_btn->onMouseClick.Subscribe([this]() {OpenSubmenu("Settings"); });
+	settingsGame_btn->onMouseClick.Subscribe([this]() {OpenSubmenu("Settings"); Engine::Instance().m_audio->SetAudioBoost(1); });
 	settingsGame_btn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	settingsGame_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	settingsGame_btn->onMouseEnter.Subscribe([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
@@ -142,6 +142,11 @@ PauseMenuCG::~PauseMenuCG()
 	delete party;
 }
 
+void PauseMenuCG::Init()
+{
+	Engine::Instance().m_audio->SetAudioBoost(audio_boost);
+}
+
 void PauseMenuCG::CloseAllSubmenus()
 {
 	for (auto& submenu : submenus)
@@ -163,6 +168,9 @@ void PauseMenuCG::UpdateCanvas()
 {
 	if (currentSubmenu != nullptr)
 		currentSubmenu->UpdateCanvas();
+
+	if(Engine::Instance().m_audio->GetAudioBoost() != audio_boost && !settings->isVisible)
+		Engine::Instance().m_audio->SetAudioBoost(audio_boost);
 
 	UICanvas::UpdateCanvas();
 }

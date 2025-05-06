@@ -69,7 +69,7 @@ void ModuleAudio::SetGeneralVolume(float volume)
 void ModuleAudio::SetSfxVolume(float volume)
 {
     sfx_volume = clamp(volume, 0.0f, 1.0f);
-    float realVolume = ConvertFromLinearToLogarithmic(general_volume*sfx_volume);
+    float realVolume = ConvertFromLinearToLogarithmic(general_volume*sfx_volume*audio_boost);
     
     for (size_t i = 0; i < MIX_CHANNELS; i++)
     {
@@ -85,7 +85,7 @@ void ModuleAudio::SetSfxVolume(float volume)
 void ModuleAudio::SetMusicVolume(float volume)
 {
     music_volume = clamp(volume, 0.0f, 1.0f);
-    float realVolume = ConvertFromLinearToLogarithmic(general_volume * music_volume);
+    float realVolume = ConvertFromLinearToLogarithmic(general_volume * music_volume * audio_boost);
 
     Mix_VolumeMusic((int)realVolume);
 }
@@ -121,6 +121,20 @@ float ModuleAudio::GetSFXVolume()
 float ModuleAudio::GetMusicVolume()
 {
     return music_volume;
+}
+
+void ModuleAudio::SetAudioBoost(float boost)
+{
+    audio_boost = boost;
+    if (audio_boost < 0)
+        audio_boost = 0;
+
+    SetGeneralVolume(general_volume);
+}
+
+float ModuleAudio::GetAudioBoost()
+{
+    return audio_boost;
 }
 
 void ModuleAudio::PlayMusicAsync(_Mix_Music* music, int fadeTimeMS)

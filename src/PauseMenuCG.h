@@ -10,6 +10,7 @@ public:
 	PauseMenuCG();
 	~PauseMenuCG();
 
+	void Init();
 	void CloseAllSubmenus();
 	void OpenSubmenu(string menuName);
 
@@ -24,4 +25,6 @@ private:
 
 	unordered_map<string, UICanvas*> submenus;
 	UICanvas* currentSubmenu = nullptr;
+
+	float audio_boost = 0.2f;
 };
