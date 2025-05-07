@@ -14,7 +14,7 @@ class PhysBody;
 class OverworldItem : public Entity, public IPooleable
 {
 private:
-	string id = "";
+	Item* itemRef = nullptr;
 	int quantity = 0;
 	SDL_Texture* texture = nullptr;
 	SDL_Rect rectangle = { 0,0,0,0 };
@@ -28,7 +28,7 @@ private:
 public:
 	OverworldItem();
 	~OverworldItem();
-	void Initialize(Item item, int q, Vector2 position);
+	void Initialize(Item* item, int q, Vector2 position);
 	void PickUp();
 
 	// Heredado vía IUpdateable

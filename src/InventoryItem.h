@@ -1,19 +1,21 @@
 #pragma once
 #include <string>
+#include "Item.h"
 
 using namespace std;
 
 class InventoryItem {
 public:
 
-    virtual ~InventoryItem() = default;
+    InventoryItem(Item* _itemRef);
+    ~InventoryItem() = default;
 
     string GetName() const;
     int GetMaxStack() const;
 
-    virtual InventoryItem* clone() const = 0;
+    InventoryItem* clone() const;
 
-    virtual void Use() = 0;
+    void Use();
 
 public:
 	
@@ -24,6 +26,5 @@ private:
 protected:
 
 protected:
-    std::string name;
-    int maxStack = 1;
+    Item* itemRef;
 };

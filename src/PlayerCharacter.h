@@ -2,7 +2,9 @@
 #include "Character.h"
 #include "CollisionSensor.h"
 
+
 class Party;
+class Inventory;
 
 class PlayerCharacter : public Character {
 
@@ -25,6 +27,7 @@ public:
 
 public:
 	Party* party = nullptr;
+	Inventory* inventory = nullptr;
 private:
 	void GetInput();
 private:

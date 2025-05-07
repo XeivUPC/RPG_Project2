@@ -8,6 +8,10 @@
 #include "TextureAtlas.h"
 #include "DrawingTools.h"
 
+#include "GameScene.h"
+#include "PlayerCharacter.h"
+#include "Inventory.h"
+
 #include "ModulePhysics.h"
 #include "PhysicFactory.h"
 
@@ -39,13 +43,13 @@ void OverworldItem::Render()
 	Engine::Instance().m_render->painter().RenderTexture(*texture,position,&rectangle,{1,1},0,{0.5f,0.5f});
 }
 
-void OverworldItem::Initialize(Item item, int q, Vector2 position)
+void OverworldItem::Initialize(Item* item, int q, Vector2 position)
 {
-	id = item.id;
+	itemRef = item;
 
 	TextureAtlas* atlas = Engine::Instance().m_assetsDB->GetAtlas("items_atlas");
 	texture = atlas->texture;
-	rectangle = atlas->sprites[item.id].rect;
+	rectangle = atlas->sprites[itemRef->id].rect;
 
 	quantity = q;
 	this->position = position;
@@ -55,7 +59,12 @@ void OverworldItem::Initialize(Item item, int q, Vector2 position)
 
 void OverworldItem::PickUp()
 {
-	Pooling::Instance().ReturnObject(this);
+	int added = Engine::Instance().s_game->GetPlayer()->inventory->AddItem(*(new InventoryItem(itemRef)),quantity);
+	quantity -= added;
+	if (quantity <= 0) {
+		Pooling::Instance().ReturnObject(this);
+	}
+	Engine::Instance().s_game->GetPlayer()->inventory->displayInventory();
 }
 
 void OverworldItem::InitPoolObject()

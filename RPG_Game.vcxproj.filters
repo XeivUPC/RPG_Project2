@@ -85,9 +85,6 @@
     <Filter Include="Source Files\Utils\Inventory">
       <UniqueIdentifier>{55a3c20d-c09f-4ca1-90e2-049846e90231}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Utils\Inventory\Items">
-      <UniqueIdentifier>{c306b260-f839-44b3-802f-528eb87f9b65}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\_Core\Icon">
       <UniqueIdentifier>{f5afe485-e511-4b21-b9fa-c4359a190599}</UniqueIdentifier>
     </Filter>
@@ -138,9 +135,6 @@
     </Filter>
     <Filter Include="Source Files\Others">
       <UniqueIdentifier>{98ed2fd3-57c0-4a1f-bfbd-19ee05e2e471}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Utils\Item">
-      <UniqueIdentifier>{b137966e-82a4-4bde-942b-ffcc0de918f5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -375,16 +369,19 @@
     <ClCompile Include="src\PartyCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClCompile>
-    <ClCompile Include="src\ItemList.cpp">
-      <Filter>Source Files\Utils\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="src\OverworldItem.cpp">
-      <Filter>Source Files\Utils\Item</Filter>
+    <ClCompile Include="src\LocatorArrowCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClCompile>
     <ClCompile Include="src\Item.cpp">
-      <Filter>Source Files\Utils\Item</Filter>
+      <Filter>Source Files\Utils\Inventory</Filter>
     </ClCompile>
-    <ClCompile Include="src\LocatorArrowCG.cpp">
+    <ClCompile Include="src\ItemList.cpp">
+      <Filter>Source Files\Utils\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OverworldItem.cpp">
+      <Filter>Source Files\Utils\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InventoryCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClCompile>
   </ItemGroup>
@@ -536,12 +533,6 @@
     <ClInclude Include="src\InventoryItem.h">
       <Filter>Source Files\Utils\Inventory</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sword.h">
-      <Filter>Source Files\Utils\Inventory\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="src\HealthPotion.h">
-      <Filter>Source Files\Utils\Inventory\Items</Filter>
-    </ClInclude>
     <ClInclude Include="src\ModuleCursor.h">
       <Filter>Source Files\Modules\Type %28Module%29</Filter>
     </ClInclude>
@@ -671,19 +662,22 @@
     <ClInclude Include="src\PartyCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
-    <ClInclude Include="src\ItemList.h">
-      <Filter>Source Files\Utils\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="src\OverworldItem.h">
-      <Filter>Source Files\Utils\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Item.h">
-      <Filter>Source Files\Utils\Item</Filter>
-    </ClInclude>
     <ClInclude Include="src\AlertDisplayerCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
     <ClInclude Include="src\LocatorArrowCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Item.h">
+      <Filter>Source Files\Utils\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ItemList.h">
+      <Filter>Source Files\Utils\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OverworldItem.h">
+      <Filter>Source Files\Utils\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\InventoryCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
   </ItemGroup>
