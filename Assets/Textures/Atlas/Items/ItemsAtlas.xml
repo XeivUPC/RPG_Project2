@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!--
     rTexPacker XML atlas descriptor file (v5.0)
-    Number of packed sprites:     1
+    Number of packed sprites:     3
 -->
-<AtlasTexture imagePath='atlas.png' width='256' height='256' spriteCount='1' isFont='0' fontSize='32'>
+<AtlasTexture imagePath='atlas.png' width='128' height='128' spriteCount='3' isFont='0' fontSize='32'>
     <Sprite nameId='item;null' tag='' originX='0' originY='0' positionX='0' positionY='0' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='16' trimRecHeight='16' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
+    <Sprite nameId='item;zalium_armor' tag='' originX='0' originY='0' positionX='16' positionY='0' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='16' trimRecHeight='16' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
+    <Sprite nameId='item;zalium_helm' tag='' originX='0' originY='0' positionX='32' positionY='0' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='2' trimRecY='0' trimRecWidth='12' trimRecHeight='16' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
 </AtlasTexture>

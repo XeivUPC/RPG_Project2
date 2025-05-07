@@ -384,7 +384,7 @@
     <ClCompile Include="src\Item.cpp">
       <Filter>Source Files\Utils\Item</Filter>
     </ClCompile>
-    <ClCompile Include="src\LocatorArrowCG.cpp">
+    <ClCompile Include="src\GameplayCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClCompile>
   </ItemGroup>
@@ -683,7 +683,7 @@
     <ClInclude Include="src\AlertDisplayerCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
-    <ClInclude Include="src\LocatorArrowCG.h">
+    <ClInclude Include="src\GameplayCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
   </ItemGroup>

@@ -9,4 +9,22 @@
 			<type>default</type>
 		</properties>
 	</item>
+	<item>
+		<id>item;zalium_armor</id>
+		<name>Zalium armor</name>
+		<description>0</description>
+		<stackable-quantity>1</stackable-quantity>
+		<properties>
+			<type>armor</type>
+		</properties>
+	</item>
+	<item>
+		<id>item;zalium_helm</id>
+		<name>Zalium helmet</name>
+		<description>0</description>
+		<stackable-quantity>1</stackable-quantity>
+		<properties>
+			<type>helmet</type>
+		</properties>
+	</item>
 </itemList> 

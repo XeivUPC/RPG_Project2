@@ -1,5 +1,6 @@
 #pragma once
 #include "UICanvas.h"
+#include "StepTimer.h"
 #include "Entity.h"
 #include "Vector2.h"
 #include <vector>
@@ -7,15 +8,14 @@
 using namespace std;
 
 class UIImage;
+class UITextBox;
 
-class LocatorArrowCG : public UICanvas {
+class GameplayCG : public UICanvas {
 public:
-	LocatorArrowCG();
-	~LocatorArrowCG() override = default;
+	GameplayCG();
+	~GameplayCG() override = default;
 
 	void UpdateCanvas();
-	void UpdateInsideScreen();
-	void UpdateOutsideScreen();
 	
 	void SetUser(Entity* _user);
 	Entity* GetUser() const;
@@ -23,7 +23,9 @@ public:
 	void SetLocation(Vector2 locationTarget);
 	Vector2 GetLocation() const;
 
-public:
+private:
+	void UpdateCompass();
+	void UpdateClock();
 
 private:
 	Entity* user = nullptr;
@@ -33,6 +35,9 @@ private:
 
 	UIImage* overlay_image = nullptr;
 	UIImage* arrow_image = nullptr;
+	UITextBox* clock_text = nullptr;
 
 	Vector2Int border = { 20, 8 };
+
+	StepTimer clock;
 };
