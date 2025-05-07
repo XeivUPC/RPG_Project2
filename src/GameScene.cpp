@@ -26,7 +26,7 @@
 #include "UIDialogueBoxCG.h"
 #include "CombatCG.h"
 #include "PauseMenuCG.h"
-#include "LocatorArrowCG.h"
+#include "GameplayCG.h"
 
 /// States
 #include "GameState.h"
@@ -80,8 +80,8 @@ bool GameScene::Start()
     pauseCanvas = new PauseMenuCG();
     pauseCanvas->renderLayer = 7;
 
-    locatorArrowCanvas = new LocatorArrowCG();
-    locatorArrowCanvas->renderLayer = 6;
+    gameplayCanvas = new GameplayCG();
+    gameplayCanvas->renderLayer = 6;
 
     Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("townTheme"), 1000);
     Engine::Instance().m_render->SetCameraZoom(1.5f);
@@ -114,13 +114,13 @@ bool GameScene::Start()
 
     CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
 
-    locatorArrowCanvas->SetUser(player);
+    gameplayCanvas->SetUser(player);
    
 
     auto item = Pooling::Instance().AcquireObject<OverworldItem>();
-    item->Initialize(ItemList::Instance().ItemByID("item;null"), 5, {180,250});
+    item->Initialize(ItemList::Instance().ItemByID("item;zalium_armor"), 5, {180,250});
 
-    locatorArrowCanvas->SetLocation(item->GetPosition());
+    gameplayCanvas->SetLocation(item->GetPosition());
 
     return true;
 }
@@ -172,7 +172,7 @@ bool GameScene::CleanUp()
     delete dialogueCanvas;
     delete combatCanvas;
     delete pauseCanvas;
-    delete locatorArrowCanvas;
+    delete gameplayCanvas;
     //delete canvas;
     delete fade;
     delete dialogueSystem;
