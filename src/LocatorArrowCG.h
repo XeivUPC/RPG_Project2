@@ -34,5 +34,5 @@ private:
 	UIImage* overlay_image = nullptr;
 	UIImage* arrow_image = nullptr;
 
-	Vector2Int border = { 20, 20 };
+	Vector2Int border = { 20, 8 };
 };
