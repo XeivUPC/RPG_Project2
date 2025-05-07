@@ -3,6 +3,7 @@
 #include "Engine.h"
 #include "ModuleTime.h"
 #include "ModuleAssetDatabase.h"
+#include "GameScene.h"
 
 #include "UIImage.h"
 #include "UITextBox.h"
@@ -51,13 +52,8 @@ void GameplayCG::UpdateCompass()
 
 void GameplayCG::UpdateClock()
 {
-	clock.Step(ModuleTime::deltaTime*60);
-	int timePassed = clock.ReadSec();
-
-	if (timePassed >= 86400.0) {
-		clock.Start();
-		timePassed = 0;
-	}
+	
+	int timePassed = Engine::Instance().s_game->GetTime();
 
 	int hours = (timePassed / 3600) % 24;
 	int minutes = (timePassed / 60) % 60;

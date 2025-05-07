@@ -38,6 +38,4 @@ private:
 	UITextBox* clock_text = nullptr;
 
 	Vector2Int border = { 20, 8 };
-
-	StepTimer clock;
 };

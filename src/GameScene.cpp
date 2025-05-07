@@ -27,6 +27,7 @@
 #include "CombatCG.h"
 #include "PauseMenuCG.h"
 #include "GameplayCG.h"
+#include "ScreenEffectsCG.h"
 
 /// States
 #include "GameState.h"
@@ -82,6 +83,8 @@ bool GameScene::Start()
 
     gameplayCanvas = new GameplayCG();
     gameplayCanvas->renderLayer = 6;
+
+    screenEffectsCanvas = new ScreenEffectsCG(5);
 
     Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("townTheme"), 1000);
     Engine::Instance().m_render->SetCameraZoom(1.5f);
@@ -173,6 +176,7 @@ bool GameScene::CleanUp()
     delete combatCanvas;
     delete pauseCanvas;
     delete gameplayCanvas;
+    delete screenEffectsCanvas;
     //delete canvas;
     delete fade;
     delete dialogueSystem;
@@ -263,6 +267,16 @@ Tilemap* GameScene::GetLastTilemap()
     if (tilemaps.size() != 0)
         return  tilemaps[tilemaps.size() - 1];
     return nullptr;
+}
+
+int GameScene::GetTime()
+{
+    return clock.ReadSec();;
+}
+
+float GameScene::GetTimeScale()
+{
+    return timeScale;
 }
 
 PlayerCharacter* GameScene::GetPlayer() const
