@@ -22,7 +22,7 @@
 		<AttackRole type="2" />
 	</Character>
 	<Character id="2" name="R.S Guard Left">
-		<Data textureId="cassian_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/guard_RS_entrance_left.json" />
+		<Data textureId="pj_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/guard_RS_entrance_left.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="15" hp="70" defense="70" attack="84" speed="51" />
 		<Attacks attack1="6" attack2="3" attack3="8" attack4="2" />
@@ -36,7 +36,7 @@
 		<AttackRole type="0" />
 	</Character>
 	<Character id="4" name="Sir Gideon Hawthorne">
-		<Data textureId="cassian_test" faceId="Guideon-idle" dialoguePath="Assets/Dialogues/Sir_Gideon_Hawthorne.json" />
+		<Data textureId="pj_test" faceId="Guideon-idle" dialoguePath="Assets/Dialogues/Sir_Gideon_Hawthorne.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="15" hp="61" defense="65" attack="74" speed="55" />
 		<Attacks attack1="8" attack2="2" attack3="6" attack4="3" />
