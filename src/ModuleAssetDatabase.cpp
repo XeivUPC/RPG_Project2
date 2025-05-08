@@ -37,11 +37,19 @@ void ModuleAssetDatabase::LoadAssets()
 
 	///// LOAD ASSETS REQUIERED
 
-//// Sounds
+//// Sounds //pepe
 	////Music
-	AddMusicToStorage("mainTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/Main Theme.ogg"));
-	AddMusicToStorage("townTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/Town Theme.ogg"));
 	AddMusicToStorage("patoGallina", *audioFactory->CreateMusic("Assets/Sounds/Music/PatoGallina.ogg"));
+
+	AddMusicToStorage("mainTheme", *audioFactory->CreateMusic("Assets/Sounds/Main Menu.ogg"));
+	AddMusicToStorage("townTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/Town Theme.ogg"));
+	
+	AddMusicToStorage("MeetingArtis", *audioFactory->CreateMusic("Assets/Sounds/Music/Artis_Dance.ogg"));
+	AddMusicToStorage("Death_of_Emperor", *audioFactory->CreateMusic("Assets/Sounds/Music/DeathOfAnEmperor.ogg"));
+
+	AddMusicToStorage("ZaliumAnthemOrchestra", *audioFactory->CreateMusic("Assets/Sounds/Music/ZaliumAnthemOrchetsra.ogg"));
+	AddMusicToStorage("HerosMarch", *audioFactory->CreateMusic("Assets/Sounds/Music/HerosMarch.ogg"));
+
 	///SFX
 	AddAudioToStorage("alert", *audioFactory->CreateAudio("Assets/Sounds/SFX/alert.wav"));
 	AddAudioToStorage("logo_intro", *audioFactory->CreateAudio("Assets/Sounds/SFX/logo_intro.wav"));
