@@ -9,6 +9,7 @@
 using namespace std;
 
 class UIImage;
+class UIAnimatedImage;
 class FadeCG;
 
 class ScreenEffectsCG : public UICanvas {
@@ -18,16 +19,32 @@ public:
 
 	void UpdateCanvas();
 
+	void StartRain();
+	void StopRain();
+	void SwitchRain();
+
 private:
+	void CreateVignette();
+
+
+	void CreateRainEffect();
+
+	void CreateAmbientFade();
 	void UpdateAmbient();
+	int GetAmbientColorIndex();
 private:
 
 	UIImage* vignette = nullptr;
 
+
+	int rainSoundChannel = -1;
+	UIAnimatedImage* rainEffect = nullptr;
+
 	FadeCG* ambientFade = nullptr;
 	FadeCG* ambientFade_support = nullptr;
 
-	int currentAmbientColor = -1;
-	vector<SDL_Color> ambientFadeColors = { {5, 4, 82, 255},{5, 4, 82, 0} };
-	vector<SDL_Color> ambientFadeSupportColors = { {35, 10, 158, 80},{35, 10, 158, 0} };
+	int lastInterval = -1;
+	float intervalTime = 24;
+	vector<SDL_Color> ambientFadeColors = { {5, 4, 82, 255},{5, 4, 82, 255}, {5, 4, 82, 130},{5, 4, 82, 20}, {5, 4, 82, 0}, {5, 4, 82, 0} , {5, 4, 82, 150} , {5, 4, 82, 255}};
+	vector<SDL_Color> ambientFadeSupportColors = { {35, 10, 158, 80}, {35, 10, 158, 80}, {35, 10, 158, 20}, {35, 10, 158, 0}, {35, 10, 158, 0}, {35, 10, 158, 20} , {35, 10, 158, 70} , {35, 10, 158, 80} };
 };

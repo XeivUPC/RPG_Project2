@@ -369,9 +369,6 @@
     <ClCompile Include="src\PartyCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClCompile>
-    <ClCompile Include="src\LocatorArrowCG.cpp">
-      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
-    </ClCompile>
     <ClCompile Include="src\Item.cpp">
       <Filter>Source Files\Utils\Inventory</Filter>
     </ClCompile>
@@ -383,6 +380,15 @@
     </ClCompile>
     <ClCompile Include="src\InventoryCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameplayCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ScreenEffectsCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\JsonAnimator.cpp">
+      <Filter>Source Files\Utils\Animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -665,9 +671,6 @@
     <ClInclude Include="src\AlertDisplayerCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
-    <ClInclude Include="src\LocatorArrowCG.h">
-      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
-    </ClInclude>
     <ClInclude Include="src\Item.h">
       <Filter>Source Files\Utils\Inventory</Filter>
     </ClInclude>
@@ -679,6 +682,15 @@
     </ClInclude>
     <ClInclude Include="src\InventoryCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameplayCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ScreenEffectsCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JsonAnimator.h">
+      <Filter>Source Files\Utils\Animation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

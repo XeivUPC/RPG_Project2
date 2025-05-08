@@ -52,6 +52,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddAudioToStorage("miau", *audioFactory->CreateAudio("Assets/Sounds/SFX/Miau.wav"));
 	AddAudioToStorage("ambient_birds1", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds1.wav"));
 	AddAudioToStorage("ambient_birds2", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds2.wav"));
+	AddAudioToStorage("rain_sfx", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/rain.wav"));
 	AddAudioToStorage("enter_tent", *audioFactory->CreateAudio("Assets/Sounds/SFX/enter_tent.wav"));
 	AddAudioToStorage("open_door", *audioFactory->CreateAudio("Assets/Sounds/SFX/open_door.wav"));
 	AddAudioToStorage("close_door", *audioFactory->CreateAudio("Assets/Sounds/SFX/close_door.wav"));
@@ -111,6 +112,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("game_title_&_logo", *textureFactory->CreateTexture("Assets/Textures/General/game_title_&_logo.png"));
 	AddTextureToStorage("top_fade", *textureFactory->CreateTexture("Assets/Textures/General/top_fade.png"));
 	AddTextureToStorage("vignette", *textureFactory->CreateTexture("Assets/Textures/General/vignette.png"));
+	AddTextureToStorage("rain_effect", *textureFactory->CreateTexture("Assets/Textures/General/rain_effect_spritesheet.png"));
 	///Characters --> Make Atlas later
 	AddTextureToStorage("character_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/Characters/CharactersAtlas.png"));
 	AddAtlasToStorage("character_atlas",*atlasFactory->CreateAtlas(*GetTexture("character_atlas"), "Assets/Textures/Atlas/Characters/CharactersAtlas.xml"));

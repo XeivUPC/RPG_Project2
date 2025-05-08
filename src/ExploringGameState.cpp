@@ -18,9 +18,12 @@ bool ExploringGameState::UpdateState()
     GameScene* game = Engine::Instance().s_game;
 
 
-    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_P))
+    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_P) == KEY_DOWN)
         game->SetState(GameScene::State::Menu);
 
+
+    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
+        game->screenEffectsCanvas->SwitchRain();
 
     game->clock.Step(ModuleTime::deltaTime * game->timeScale);
     int clockTime = game->clock.ReadSec();

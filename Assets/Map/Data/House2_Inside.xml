@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="26" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="51">
+ <properties>
+  <property name="IsInside" type="bool" value="true"/>
+ </properties>
  <tileset firstgid="1" source="../TiledProject/Tilesets/Cave_Tiles.tsx"/>
  <tileset firstgid="290" source="../TiledProject/Tilesets/Floors_Tiles.tsx"/>
  <tileset firstgid="915" source="../TiledProject/Tilesets/Water_tiles.tsx"/>

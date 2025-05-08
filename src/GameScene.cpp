@@ -313,6 +313,17 @@ void GameScene::CreateNewTilemap(string path)
     cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
 
     player->ClearFollowerPath();
+
+	Tilemap* tilemap = tilemaps[tilemaps.size() - 1];
+    if (tilemap->GetTilemap().properties.count("IsInside")) {
+        if (tilemap->GetTilemap().properties.at("IsInside").value == "true") {
+            screenEffectsCanvas->StopRain();
+        }
+        else {
+			/// if was raining
+            screenEffectsCanvas->StartRain();
+        }
+    }
 }
 
 void GameScene::DeleteLastTilemap()
@@ -338,6 +349,18 @@ void GameScene::DeleteLastTilemap()
         }
 
         player->ClearFollowerPath();
+
+        Tilemap* tilemap = tilemaps[tilemaps.size() - 1];
+        if (tilemap->GetTilemap().properties.count("IsInside")) {
+            if (tilemap->GetTilemap().properties.at("IsInside").value == "true") {
+                screenEffectsCanvas->StopRain();
+            }
+            else {
+                /// if was raining
+				screenEffectsCanvas->StartRain();
+            }
+        }
+
     }
 }
 

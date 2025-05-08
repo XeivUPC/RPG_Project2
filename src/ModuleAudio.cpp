@@ -198,12 +198,16 @@ bool ModuleAudio::PlayMusic(_Mix_Music* music, int fadeTimeMS)
     return ret;
 }
 
-bool ModuleAudio::PlaySFX(Mix_Chunk* sfx, int loops)
+int ModuleAudio::PlaySFX(Mix_Chunk* sfx, int loops)
 {
     if (sfx == nullptr)
-        return false;
-    Mix_PlayChannel(-1, sfx, loops);
-    return true;
+        return -1;
+    return Mix_PlayChannel(-1, sfx, loops);
+}
+
+void ModuleAudio::StopSFX(int channel)
+{
+	Mix_HaltChannel(channel);
 }
 
 float ModuleAudio::ConvertFromLinearToLogarithmic(float inputValue)

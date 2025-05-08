@@ -50,6 +50,9 @@ void Animator::CleanUp()
 		AnimationList[i].CleanUp();
 	}
 	AnimationList.clear();
+
+	onAnimationChanged.UnsubscribeAll();
+	currentAnimationIndex = -1;
 }
 
 AnimationClip* Animator::GetAnimationClip(const string& animationName)

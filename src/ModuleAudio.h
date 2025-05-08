@@ -30,7 +30,8 @@ public:
 	float GetAudioBoost();
 
 	void PlayMusicAsync(_Mix_Music* music, int fadeTimeMS = 0);
-	bool PlaySFX(Mix_Chunk* sfx, int loops = 0);
+	int PlaySFX(Mix_Chunk* sfx, int loops = 0);
+	void StopSFX(int channel);
 
 private:
 	// Inherited via IInitializable

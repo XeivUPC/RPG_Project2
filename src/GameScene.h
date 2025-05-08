@@ -108,6 +108,6 @@ private:
 	CameraController* cameraController = nullptr;
 
 	/// Extra
-	StepTimer clock;
-	float timeScale = 6000;
+	StepTimer clock = StepTimer(12 * 3600);
+	float timeScale = 300;
 };

@@ -604,6 +604,11 @@ Vector2 Tilemap::GetAnchor()
     return anchor;
 }
 
+const TiledMap& Tilemap::GetTilemap() const
+{
+    return currentMap; 
+}
+
 Vector2 Tilemap::GetTilemapSize()
 {
     return { currentMap.width * currentMap.tileWidth * scale, currentMap.height * currentMap.tileHeight * scale };
