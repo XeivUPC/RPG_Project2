@@ -108,6 +108,8 @@ void PlayerCharacter::Render()
 	Vector2 renderPosition = Vector2::Lerp(previousPhysicsPosition, position, alpha);
 
 	animator->clip()->RenderClip();
+
+	animator->clip()->RenderClip({0,0,0,30});
 }
 
 bool PlayerCharacter::CleanUp()
