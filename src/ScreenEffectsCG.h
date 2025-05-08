@@ -29,6 +29,8 @@ private:
 
 	void CreateRainEffect();
 
+	void CreateFirefliesEffect();
+
 	void CreateAmbientFade();
 	void UpdateAmbient();
 	int GetAmbientColorIndex();
@@ -39,6 +41,7 @@ private:
 
 	int rainSoundChannel = -1;
 	UIAnimatedImage* rainEffect = nullptr;
+
 
 	FadeCG* ambientFade = nullptr;
 	FadeCG* ambientFade_support = nullptr;

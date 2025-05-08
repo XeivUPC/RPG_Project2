@@ -11,9 +11,9 @@ JsonAnimator::JsonAnimator() : Animator()
 {
 }
 
-JsonAnimator::JsonAnimator(string jsonPath) : Animator()
+JsonAnimator::JsonAnimator(string jsonPath, float speed) : Animator()
 {
-    AddJsonAnimationClip(jsonPath);
+    AddJsonAnimationClip(jsonPath, speed);
 }
 
 JsonAnimator::JsonAnimator(vector<AnimationClip> Animations, int current) : Animator(Animations, current)
@@ -24,7 +24,7 @@ JsonAnimator::~JsonAnimator()
 {
 }
 
-void JsonAnimator::AddJsonAnimationClip(string jsonPath)
+void JsonAnimator::AddJsonAnimationClip(string jsonPath, float speed)
 {
 
     std::ifstream file(jsonPath);
@@ -66,5 +66,5 @@ void JsonAnimator::AddJsonAnimationClip(string jsonPath)
         sprites.emplace_back(Sprite{ texture,rect,{0,0},{0,0} });
 
     }
-	AddAnimationClip(AnimationClip(key,true,false,0.04f,sprites,nullptr,nullptr));
+	AddAnimationClip(AnimationClip(key,true,false, speed,sprites,nullptr,nullptr));
 }

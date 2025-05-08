@@ -17,6 +17,7 @@ ScreenEffectsCG::ScreenEffectsCG(int _renderLayer)
 	CreateAmbientFade();
 	CreateVignette();
 	CreateRainEffect();
+	CreateFirefliesEffect();
 
 	StopRain();
 }
@@ -81,8 +82,13 @@ void ScreenEffectsCG::CreateVignette()
 void ScreenEffectsCG::CreateRainEffect()
 {
 	rainEffect = new UIAnimatedImage({ 0,0 }, { LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT });
-	rainEffect->GetJsonAnimator()->AddJsonAnimationClip("Assets/Textures/Animations/rain_animation.json");
+	rainEffect->GetJsonAnimator()->AddJsonAnimationClip("Assets/Textures/Animations/rain_animation.json",0.04f);
 	AddElementToCanvas(rainEffect);
+}
+
+void ScreenEffectsCG::CreateFirefliesEffect()
+{
+
 }
 
 
