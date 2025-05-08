@@ -50,11 +50,11 @@ PlayerCharacter::PlayerCharacter()
 	mask.flags.interactable_layer = 1;
 	body->SetFilter(fixtureIndex, category.rawValue, mask.rawValue, 0);
 
-	SetCharacterId(0);
+	SetCharacterId(-1);
 
 	inventory = new Inventory();
 
-	party = new Party(0);
+	party = new Party(-1);
 	party->onPartyChanged.Subscribe([this]() {SetFollowers(party->GetPartyIds(true), distanceBetweenFollowers); });
 	party->onPartyChanged.Subscribe([this]() {SetCharacterId(party->GetPartyLeaderId()); });
 
