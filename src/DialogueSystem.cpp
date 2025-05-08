@@ -2,6 +2,7 @@
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
 #include "ModuleAudio.h"
+#include "LOG.h"
 #include <fstream>
 
 
@@ -18,7 +19,7 @@ void DialogueSystem::LoadDialogueWorkspace(const string& path)
 {
     ifstream file(path);
     if (!file.is_open()) {
-        cerr << "Error al abrir el archivo JSON." << endl;
+        LOG("Error opening JSON file -> %s\n", path.c_str());
         return;
     }
 
@@ -50,7 +51,7 @@ void DialogueSystem::LoadDialogueFromJSON(const string& pathToFile)
 
     ifstream file(pathToFile);
     if (!file.is_open()) {
-        cerr << "Error al abrir el archivo JSON." << endl;
+        LOG("Error opening JSON file -> %s\n", pathToFile.c_str());
         return;
     }
 

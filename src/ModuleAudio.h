@@ -26,8 +26,12 @@ public:
 	float GetSFXVolume();
 	float GetMusicVolume();
 
+	void SetAudioBoost(float boost);
+	float GetAudioBoost();
+
 	void PlayMusicAsync(_Mix_Music* music, int fadeTimeMS = 0);
-	bool PlaySFX(Mix_Chunk* sfx, int loops = 0);
+	int PlaySFX(Mix_Chunk* sfx, int loops = 0);
+	void StopSFX(int channel);
 
 private:
 	// Inherited via IInitializable
@@ -43,6 +47,9 @@ private:
 	float general_volume = 1;
 	float sfx_volume = 1;
 	float music_volume = 1;
+
+	float audio_boost = 1.f;
+
 	bool isMuted = false;
 
 	_Mix_Music* currentMusic = nullptr;

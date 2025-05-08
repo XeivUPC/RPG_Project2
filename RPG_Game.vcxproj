@@ -158,7 +158,12 @@
     <ClCompile Include="src\GameScene.cpp" />
     <ClCompile Include="src\IntroScene.cpp" />
     <ClCompile Include="src\Inventory.cpp" />
+    <ClCompile Include="src\InventoryCG.cpp" />
     <ClCompile Include="src\InventoryItem.cpp" />
+    <ClCompile Include="src\Item.cpp" />
+    <ClCompile Include="src\ItemList.cpp" />
+    <ClCompile Include="src\GameplayCG.cpp" />
+    <ClCompile Include="src\JsonAnimator.cpp" />
     <ClCompile Include="src\ModuleAssetDatabase.cpp" />
     <ClCompile Include="src\ModuleAudio.cpp" />
     <ClCompile Include="src\ModuleCursor.cpp" />
@@ -167,6 +172,7 @@
     <ClCompile Include="src\ModuleScene.cpp" />
     <ClCompile Include="src\MusicContainer.cpp" />
     <ClCompile Include="src\NpcCharacter.cpp" />
+    <ClCompile Include="src\OverworldItem.cpp" />
     <ClCompile Include="src\Party.cpp" />
     <ClCompile Include="src\PartyCG.cpp" />
     <ClCompile Include="src\PauseGameState.cpp" />
@@ -187,6 +193,7 @@
     <ClCompile Include="src\ChronoTimer.cpp" />
     <ClCompile Include="src\ModuleWindow.cpp" />
     <ClCompile Include="src\PlayerCharacter.cpp" />
+    <ClCompile Include="src\ScreenEffectsCG.cpp" />
     <ClCompile Include="src\SettingsCG.cpp" />
     <ClCompile Include="src\SimpleMapObject.cpp" />
     <ClCompile Include="src\SimpleTilemapChanger.cpp" />
@@ -238,11 +245,15 @@
     <ClInclude Include="src\FontFactory.h" />
     <ClInclude Include="src\GameScene.h" />
     <ClInclude Include="src\GameState.h" />
-    <ClInclude Include="src\HealthPotion.h" />
     <ClInclude Include="src\IInteractuable.h" />
     <ClInclude Include="src\IntroScene.h" />
     <ClInclude Include="src\Inventory.h" />
+    <ClInclude Include="src\InventoryCG.h" />
     <ClInclude Include="src\InventoryItem.h" />
+    <ClInclude Include="src\Item.h" />
+    <ClInclude Include="src\ItemList.h" />
+    <ClInclude Include="src\GameplayCG.h" />
+    <ClInclude Include="src\JsonAnimator.h" />
     <ClInclude Include="src\MemLeaks.h" />
     <ClInclude Include="src\ModuleAssetDatabase.h" />
     <ClInclude Include="src\ModuleAudio.h" />
@@ -252,6 +263,7 @@
     <ClInclude Include="src\ModuleScene.h" />
     <ClInclude Include="src\MusicContainer.h" />
     <ClInclude Include="src\NpcCharacter.h" />
+    <ClInclude Include="src\OverworldItem.h" />
     <ClInclude Include="src\Party.h" />
     <ClInclude Include="src\PartyCG.h" />
     <ClInclude Include="src\PauseGameState.h" />
@@ -280,13 +292,13 @@
     <ClInclude Include="src\PlayerCharacter.h" />
     <ClInclude Include="src\Pooling.h" />
     <ClInclude Include="src\ChronoTimer.h" />
+    <ClInclude Include="src\ScreenEffectsCG.h" />
     <ClInclude Include="src\SettingsCG.h" />
     <ClInclude Include="src\SimpleMapObject.h" />
     <ClInclude Include="src\SimpleTilemapChanger.h" />
     <ClInclude Include="src\Sprite.h" />
     <ClInclude Include="src\Stats.h" />
     <ClInclude Include="src\StepTimer.h" />
-    <ClInclude Include="src\Sword.h" />
     <ClInclude Include="src\SystemEvent.h" />
     <ClInclude Include="src\TextureAtlas.h" />
     <ClInclude Include="src\TitleMenuCG.h" />
@@ -312,6 +324,7 @@
     <Xml Include="Assets\Data\AttackList.xml" />
     <Xml Include="Assets\Data\CharactersData.xml" />
     <Xml Include="Assets\Data\CharactersData_Default.xml" />
+    <Xml Include="Assets\Data\ItemsData.xml" />
     <Xml Include="Assets\Data\UserPrefs.xml" />
   </ItemGroup>
   <ItemGroup>

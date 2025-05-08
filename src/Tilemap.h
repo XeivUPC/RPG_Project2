@@ -24,7 +24,6 @@ struct SDL_Rect;
 
 
 struct Property {
-
     string value;
 };
 
@@ -148,6 +147,8 @@ public:
     float GetScale() override;
     // Inherited via ITransformable
     Vector2 GetAnchor() override;
+
+    const TiledMap& GetTilemap() const;
 
 
     Vector2 GetTilemapSize();

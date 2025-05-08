@@ -3,14 +3,14 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/House2_Inside - còpia.tmx",
+    "activeFile": "Maps/House3_Inside.tmx",
     "expandedProjectPaths": [
+        ".",
         "Objects",
         "Prefabs",
+        "Maps",
         "Prefabs/Buildings",
-        "Tilesets",
-        ".",
-        "Maps"
+        "Tilesets"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -40,36 +40,28 @@
                 "y": 184.0115281685309
             }
         },
-        "Maps/House2_Inside - còpia.tmx": {
-            "scale": 1.5734374999999998,
-            "selectedLayer": 0,
-            "viewCenter": {
-                "x": 208.14299900695138,
-                "y": 111.85700099304867
-            }
-        },
         "Maps/House2_Inside.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 3,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208.16666666666666,
-                "y": 112.16666666666666
+                "x": 207.99999999999997,
+                "y": 111.66666666666664
             }
         },
         "Maps/House3_Inside.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 8,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208.0625,
-                "y": 239.9375
+                "x": 192.125,
+                "y": 240
             }
         },
         "Maps/House4_Inside.tmx": {
@@ -77,7 +69,7 @@
             "selectedLayer": 0,
             "viewCenter": {
                 "x": 248,
-                "y": 167.5
+                "y": 167
             }
         },
         "Maps/Map1.tmx": {
@@ -90,25 +82,26 @@
         },
         "Maps/Rogue_Squadron_Headquarters.tmx": {
             "expandedObjectLayers": [
-                6
+                6,
+                9
             ],
             "scale": 1,
-            "selectedLayer": 6,
+            "selectedLayer": 7,
             "viewCenter": {
-                "x": 438,
-                "y": 448.5
+                "x": 526,
+                "y": 260
             }
         },
         "Maps/Testing_Zone.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 5.5,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208.09090909090912,
-                "y": 112.0909090909091
+                "x": 242.54545454545456,
+                "y": 160.1818181818182
             }
         },
         "Maps/Testing_Zone2.tmx": {
@@ -119,8 +112,8 @@
             "scale": 5.5,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208.09090909090907,
-                "y": 112.18181818181819
+                "x": 197.09090909090907,
+                "y": 96.72727272727272
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -137,8 +130,8 @@
         },
         "Tilesets/Building_Atlas.tsx": {
             "dynamicWrapping": true,
-            "scaleInDock": 0.75,
-            "scaleInEditor": 0.5
+            "scaleInDock": 0.33,
+            "scaleInEditor": 0.03125
         },
         "Tilesets/Cave_Tiles.tsx": {
             "dynamicWrapping": false,
@@ -183,7 +176,7 @@
             }
         }
     },
-    "last.exportedFilePath": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Map/Data",
+    "last.exportedFilePath": "C:/Users/maxpo/OneDrive/Documents/GitHub/RPG_Project2/Assets/Map/Data",
     "last.externalTilesetPath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Tilesets",
     "last.imagePath": "C:/Users/maxpo/OneDrive/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/MapObjects/Furniture/Single",
     "last.objectTemplatePath": "C:/Users/maxpo/OneDrive/Documents/GitHub/RPG_Project2/Assets/Map/TiledProject/Prefabs/Buildings",
@@ -199,24 +192,23 @@
         "Maps/Testing_Zone.tmx",
         "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/House4_Inside.tmx",
-        "Maps/Testing_Zone2.tmx",
-        "Maps/House2_Inside - còpia.tmx"
+        "Maps/Testing_Zone2.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
-    "property.type": "string",
+    "property.type": "bool",
     "recentFiles": [
-        "Maps/House3_Inside.tmx",
-        "Maps/House2_Inside.tmx",
-        "Maps/Testing_Zone.tmx",
-        "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Maps/House4_Inside.tmx",
         "Maps/Testing_Zone2.tmx",
-        "Maps/House2_Inside - còpia.tmx",
-        "Tilesets/Furniture_Atlas.tsx",
+        "Maps/House4_Inside.tmx",
+        "Maps/Rogue_Squadron_Headquarters.tmx",
+        "Maps/Testing_Zone.tmx",
+        "Maps/House2_Inside.tmx",
+        "Maps/House3_Inside.tmx",
         "Tilesets/Building_Atlas.tsx",
+        "Tilesets/Furniture_Atlas.tsx",
         "Tilesets/Water_tiles.tsx",
         "C:/Users/adriaga1/Desktop/PlatformGame-L18_Optimization_and_Performance/Assets/Maps/MainMap.tmx",
-        "Tilesets/dsa.tsx"
+        "Tilesets/dsa.tsx",
+        "Tilesets/Vegetation_Atlas.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,

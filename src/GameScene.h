@@ -1,6 +1,7 @@
 #pragma once
 #include "ModuleScene.h"
 #include "Entity.h"
+#include "StepTimer.h"
 #include <unordered_map>
 #include <vector>
 
@@ -12,6 +13,8 @@ class CombatCG;
 class DialogueSystem;
 class CombatSystem;
 class PauseMenuCG;
+class GameplayCG;
+class ScreenEffectsCG;
 class GameState;
 class Tilemap;
 class PlayerCharacter;
@@ -52,6 +55,9 @@ public:
 	void RemoveLastTilemap();
 	Tilemap* GetLastTilemap();
 
+	int GetTime();
+	float GetTimeScale();
+
 
 	PlayerCharacter* GetPlayer() const;
 
@@ -89,6 +95,8 @@ private:
 	/// UI
 	UICanvas* canvas = nullptr;
 	PauseMenuCG* pauseCanvas = nullptr;
+	GameplayCG* gameplayCanvas = nullptr;
+	ScreenEffectsCG* screenEffectsCanvas = nullptr;
 	FadeCG* fade = nullptr;
 	UIDialogueBoxCG* dialogueCanvas = nullptr;
 	CombatCG* combatCanvas = nullptr;
@@ -100,4 +108,6 @@ private:
 	CameraController* cameraController = nullptr;
 
 	/// Extra
+	StepTimer clock = StepTimer(12 * 3600);
+	float timeScale = 300;
 };

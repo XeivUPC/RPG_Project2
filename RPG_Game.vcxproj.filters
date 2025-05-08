@@ -85,9 +85,6 @@
     <Filter Include="Source Files\Utils\Inventory">
       <UniqueIdentifier>{55a3c20d-c09f-4ca1-90e2-049846e90231}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Utils\Inventory\Items">
-      <UniqueIdentifier>{c306b260-f839-44b3-802f-528eb87f9b65}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\_Core\Icon">
       <UniqueIdentifier>{f5afe485-e511-4b21-b9fa-c4359a190599}</UniqueIdentifier>
     </Filter>
@@ -372,6 +369,27 @@
     <ClCompile Include="src\PartyCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClCompile>
+    <ClCompile Include="src\Item.cpp">
+      <Filter>Source Files\Utils\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ItemList.cpp">
+      <Filter>Source Files\Utils\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OverworldItem.cpp">
+      <Filter>Source Files\Utils\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InventoryCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameplayCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ScreenEffectsCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\JsonAnimator.cpp">
+      <Filter>Source Files\Utils\Animation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -521,12 +539,6 @@
     <ClInclude Include="src\InventoryItem.h">
       <Filter>Source Files\Utils\Inventory</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sword.h">
-      <Filter>Source Files\Utils\Inventory\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="src\HealthPotion.h">
-      <Filter>Source Files\Utils\Inventory\Items</Filter>
-    </ClInclude>
     <ClInclude Include="src\ModuleCursor.h">
       <Filter>Source Files\Modules\Type %28Module%29</Filter>
     </ClInclude>
@@ -638,9 +650,6 @@
     <ClInclude Include="src\CombatAI.h">
       <Filter>Source Files\Utils\Combat</Filter>
     </ClInclude>
-    <ClInclude Include="src\AlertDisplayerCG.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\UIAnimatedImage.h">
       <Filter>Source Files\UI\Elements %28UIElements%29</Filter>
     </ClInclude>
@@ -659,6 +668,30 @@
     <ClInclude Include="src\PartyCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
+    <ClInclude Include="src\AlertDisplayerCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Item.h">
+      <Filter>Source Files\Utils\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ItemList.h">
+      <Filter>Source Files\Utils\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OverworldItem.h">
+      <Filter>Source Files\Utils\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\InventoryCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameplayCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ScreenEffectsCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JsonAnimator.h">
+      <Filter>Source Files\Utils\Animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Assets\Data\UserPrefs.xml">
@@ -671,6 +704,9 @@
       <Filter>Source Files\_DataFiles</Filter>
     </Xml>
     <Xml Include="Assets\Data\CharactersData_Default.xml">
+      <Filter>Source Files\_DataFiles</Filter>
+    </Xml>
+    <Xml Include="Assets\Data\ItemsData.xml">
       <Filter>Source Files\_DataFiles</Filter>
     </Xml>
   </ItemGroup>

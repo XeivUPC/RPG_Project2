@@ -11,18 +11,23 @@
 #include "CameraController.h"
 #include "DialogueSystem.h"
 #include "CombatSystem.h"
+#include "ItemList.h"
+#include "Item.h"
 
 ///Pooling
 #include "Pooling.h"
 #include "SimpleTilemapChanger.h"
 #include "NpcCharacter.h"
 #include "SimpleMapObject.h"
+#include "OverworldItem.h"
 ///
 
 #include "FadeCG.h"
 #include "UIDialogueBoxCG.h"
 #include "CombatCG.h"
 #include "PauseMenuCG.h"
+#include "GameplayCG.h"
+#include "ScreenEffectsCG.h"
 
 /// States
 #include "GameState.h"
@@ -57,6 +62,7 @@ bool GameScene::Start()
     Pooling::Instance().CreatePool<SimpleTilemapChanger>(10);
     Pooling::Instance().CreatePool<SimpleMapObject>(30);
     Pooling::Instance().CreatePool<NpcCharacter>(10);
+    Pooling::Instance().CreatePool<OverworldItem>(10);
 
     fade = new FadeCG(33, 25, 17, 255);
     fade->FadeTo(1,0);
@@ -74,6 +80,11 @@ bool GameScene::Start()
 
     pauseCanvas = new PauseMenuCG();
     pauseCanvas->renderLayer = 7;
+
+    gameplayCanvas = new GameplayCG();
+    gameplayCanvas->renderLayer = 6;
+
+    screenEffectsCanvas = new ScreenEffectsCG(5);
 
     Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("townTheme"), 1000);
     Engine::Instance().m_render->SetCameraZoom(1.5f);
@@ -106,6 +117,13 @@ bool GameScene::Start()
 
     CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
 
+    gameplayCanvas->SetUser(player);
+   
+
+    auto item = Pooling::Instance().AcquireObject<OverworldItem>();
+    item->Initialize(ItemList::Instance().ItemByID("item;zalium_armor"), 5, {180,250});
+
+    gameplayCanvas->SetLocation(item->GetPosition());
 
     return true;
 }
@@ -157,6 +175,8 @@ bool GameScene::CleanUp()
     delete dialogueCanvas;
     delete combatCanvas;
     delete pauseCanvas;
+    delete gameplayCanvas;
+    delete screenEffectsCanvas;
     //delete canvas;
     delete fade;
     delete dialogueSystem;
@@ -194,6 +214,7 @@ bool GameScene::CleanUp()
     Pooling::Instance().DeletePool<SimpleTilemapChanger>(true);
     Pooling::Instance().DeletePool<SimpleMapObject>(true);
     Pooling::Instance().DeletePool<NpcCharacter>(true);
+    Pooling::Instance().DeletePool<OverworldItem>(true);
 
     exitGame = false;
 
@@ -248,6 +269,16 @@ Tilemap* GameScene::GetLastTilemap()
     return nullptr;
 }
 
+int GameScene::GetTime()
+{
+    return clock.ReadSec();;
+}
+
+float GameScene::GetTimeScale()
+{
+    return timeScale;
+}
+
 PlayerCharacter* GameScene::GetPlayer() const
 {
     return player;
@@ -282,6 +313,17 @@ void GameScene::CreateNewTilemap(string path)
     cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
 
     player->ClearFollowerPath();
+
+	Tilemap* tilemap = tilemaps[tilemaps.size() - 1];
+    if (tilemap->GetTilemap().properties.count("IsInside")) {
+        if (tilemap->GetTilemap().properties.at("IsInside").value == "true") {
+            screenEffectsCanvas->StopRain();
+        }
+        else {
+			/// if was raining
+            screenEffectsCanvas->StartRain();
+        }
+    }
 }
 
 void GameScene::DeleteLastTilemap()
@@ -307,6 +349,18 @@ void GameScene::DeleteLastTilemap()
         }
 
         player->ClearFollowerPath();
+
+        Tilemap* tilemap = tilemaps[tilemaps.size() - 1];
+        if (tilemap->GetTilemap().properties.count("IsInside")) {
+            if (tilemap->GetTilemap().properties.at("IsInside").value == "true") {
+                screenEffectsCanvas->StopRain();
+            }
+            else {
+                /// if was raining
+				screenEffectsCanvas->StartRain();
+            }
+        }
+
     }
 }
 

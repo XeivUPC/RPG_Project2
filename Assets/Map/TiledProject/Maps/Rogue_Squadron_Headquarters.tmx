@@ -3,6 +3,9 @@
  <editorsettings>
   <export target="../../Data/Rogue_Squadron_Headquarters.xml" format="tmx"/>
  </editorsettings>
+ <properties>
+  <property name="IsInside" type="bool" value="false"/>
+ </properties>
  <tileset firstgid="1" source="../Tilesets/Floors_Tiles.tsx"/>
  <tileset firstgid="626" source="../Tilesets/Cave_Tiles.tsx"/>
  <tileset firstgid="915" source="../Tilesets/Building_Atlas.tsx"/>
@@ -1932,16 +1935,16 @@
   </object>
  </objectgroup>
  <objectgroup id="9" name="Collisions">
-  <object id="492" x="507.091" y="86.7273" width="186" height="63.2727"/>
+  <object id="492" x="507.091" y="86.7273" width="186" height="66.1477"/>
   <object id="493" x="617.818" y="56.1818" width="60.3636" height="29.8182"/>
-  <object id="495" x="520.182" y="150.909" width="80.1818" height="16.3636"/>
+  <object id="495" x="520.182" y="153.534" width="80.1818" height="13.7386"/>
   <object id="496" x="534.727" y="168" width="19.4545" height="17.4545"/>
   <object id="497" x="489.318" y="103.273" width="17.0455" height="19.5227"/>
   <object id="498" x="583.636" y="70.1818" width="33.6364" height="15.8182"/>
   <object id="500" x="678.545" y="70.5682" width="32.9261" height="15.4318"/>
   <object id="501" x="711.636" y="86.0909" width="17.0909" height="19.9091"/>
   <object id="502" x="693.636" y="86.8182" width="17.4545" height="50"/>
-  <object id="503" x="633.409" y="150.91" width="47.3068" height="16.3636"/>
+  <object id="503" x="633.409" y="154.16" width="47.3068" height="13.1136"/>
   <object id="507" x="564.667" y="1">
    <polygon points="-0.363636,-0.727273 -1.33333,29.3333 -29.3333,56.3333 -110,55.6667 -128,73 -222,72.6667 -237.667,89 -270,90.3333 -284,104.333 -304,105.667 -319,121.667 -335.667,122 -350,136 -383,137.333 -386,156.667 -409,180.333 -420,194 -420.333,205.333 -429,214.333 -463,217.333 -499.667,256.333 -500.333,271.333 -528.333,300 -528.667,333.667 -512.333,347.667 -513,454.667 -534.25,483.75 -528.25,492.75 -529.333,526.333 -542.833,540.25 -529.5,556.583 -529,619.667 -513.667,636.333 -514,726.333 -517.333,739 -531,749 -530.667,766.333 -544,778 -544,830.333 -526,847 -506.333,852 -495.667,859.667 -496,894.333 -578.333,894.667 -569,-9.66667"/>
   </object>

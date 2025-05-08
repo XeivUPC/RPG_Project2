@@ -15,6 +15,7 @@
 #include "AnimationClip.h"
 #include "AudioContainer.h"
 #include "Party.h"
+#include "Inventory.h"
 
 PlayerCharacter::PlayerCharacter()
 {
@@ -50,6 +51,9 @@ PlayerCharacter::PlayerCharacter()
 	body->SetFilter(fixtureIndex, category.rawValue, mask.rawValue, 0);
 
 	SetCharacterId(0);
+
+	inventory = new Inventory();
+
 	party = new Party(0);
 	party->onPartyChanged.Subscribe([this]() {SetFollowers(party->GetPartyIds(true), distanceBetweenFollowers); });
 	party->onPartyChanged.Subscribe([this]() {SetCharacterId(party->GetPartyLeaderId()); });
@@ -80,6 +84,7 @@ PlayerCharacter::PlayerCharacter()
 
 PlayerCharacter::~PlayerCharacter()
 {
+	delete inventory;
 }
 
 bool PlayerCharacter::Update()
