@@ -136,6 +136,9 @@
     <Filter Include="Source Files\Others">
       <UniqueIdentifier>{98ed2fd3-57c0-4a1f-bfbd-19ee05e2e471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Entities\Type %28Entity%29\Character\Extra">
+      <UniqueIdentifier>{538ddc0a-9a84-4c0b-a3a7-ff11334a156d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -389,6 +392,9 @@
     </ClCompile>
     <ClCompile Include="src\JsonAnimator.cpp">
       <Filter>Source Files\Utils\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CharacterSilhouette.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -691,6 +697,9 @@
     </ClInclude>
     <ClInclude Include="src\JsonAnimator.h">
       <Filter>Source Files\Utils\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CharacterSilhouette.h">
+      <Filter>Source Files\Entities\Type %28Entity%29\Character\Extra</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

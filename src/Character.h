@@ -13,7 +13,7 @@ class Character : public Entity {
 
 	friend class FollowerCharacter;
 public:
-	
+
 	Character();
 	~Character();
 
@@ -27,6 +27,8 @@ public:
 	virtual bool GetCharacterId() const;
 
 	void ClearFollowerPath();
+
+	Animator& GetAnimator() const;
 
 public:
 private:

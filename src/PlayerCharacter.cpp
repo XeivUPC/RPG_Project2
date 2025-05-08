@@ -16,6 +16,7 @@
 #include "AudioContainer.h"
 #include "Party.h"
 #include "Inventory.h"
+#include "CharacterSilhouette.h"
 
 PlayerCharacter::PlayerCharacter()
 {
@@ -80,11 +81,17 @@ PlayerCharacter::PlayerCharacter()
 	animator->GetAnimationClip("run-horizontally")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
 	animator->GetAnimationClip("run-horizontally")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
 
+
+	silhouette = new CharacterSilhouette();
+	silhouette->renderLayer = renderLayer + 1;
+	silhouette->SetCharacter(this);
+
 }
 
 PlayerCharacter::~PlayerCharacter()
 {
 	delete inventory;
+	delete silhouette;
 }
 
 bool PlayerCharacter::Update()
@@ -105,11 +112,7 @@ void PlayerCharacter::Render()
 {
 	float alpha = Engine::Instance().m_time->GetPhysicsInterpolationAlpha();
 	
-	Vector2 renderPosition = Vector2::Lerp(previousPhysicsPosition, position, alpha);
-
 	animator->clip()->RenderClip();
-
-	animator->clip()->RenderClip({0,0,0,30});
 }
 
 bool PlayerCharacter::CleanUp()
