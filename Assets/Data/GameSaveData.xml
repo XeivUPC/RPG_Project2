@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<game>
+	<player>
+		<position x="517" y="80" />
+		<party>
+			<active>
+				<member id="-1" />
+			</active>
+			<inactive>
+				<member id="-1" />
+			</inactive>
+		</party>
+		<inventory />
+	</player>
+	<map>
+		<raining value="false" />
+		<time value="62341.043" />
+		<tilemaps>
+			<tilemap path="Assets/Map/Data/Forest.xml" spawnpoint-x="0" spawnpoint-y="0" />
+		</tilemaps>
+	</map>
+</game>

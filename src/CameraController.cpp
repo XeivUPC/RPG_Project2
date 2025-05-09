@@ -8,20 +8,19 @@
 #include <algorithm> 
 
 CameraController::CameraController() {
-    Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
-    Engine::Instance().m_render->AddToRenderQueue(*this, *this);
 }
 
 CameraController::~CameraController() = default;
 
-bool CameraController::PostUpdate() {
+
+
+bool CameraController::UpdateCamera()
+{
     Move();
     return true;
 }
 
 bool CameraController::CleanUp() {
-    Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
-    Engine::Instance().m_render->RemoveFomRenderQueue(*this);
     return true;
 }
 

@@ -13,6 +13,8 @@ ModuleUpdater::~ModuleUpdater()
 
 bool ModuleUpdater::PreUpdate()
 {
+	RemovePending(UpdateMode::PRE_UPDATE);
+	AddPending(UpdateMode::PRE_UPDATE);
 	SortUpdateTasks();
 	if(!isPaused)
 		return PreUpdateAll();
@@ -21,6 +23,8 @@ bool ModuleUpdater::PreUpdate()
 
 bool ModuleUpdater::Update()
 {
+	RemovePending(UpdateMode::UPDATE);
+	AddPending(UpdateMode::UPDATE);
 	SortUpdateTasks();
 	if (!isPaused)
 		return UpdateAll();
@@ -29,6 +33,8 @@ bool ModuleUpdater::Update()
 
 bool ModuleUpdater::PostUpdate()
 {
+	RemovePending(UpdateMode::POST_UPDATE);
+	AddPending(UpdateMode::POST_UPDATE);
 	SortUpdateTasks();
 	if (!isPaused)
 		return PostUpdateAll();
@@ -42,20 +48,44 @@ bool ModuleUpdater::CleanUp()
 	return true;
 }
 
+void ModuleUpdater::AddPending(UpdateMode mode)
+{
+	if (addPendingQueue[mode].size() > 0) {
+		updateQueueDirty = true;
+	}
+	for (auto& task : addPendingQueue[mode])
+	{
+		updatesQueue[mode].emplace_back(task);
+	}
+	addPendingQueue[mode].clear();
+}
+
+
+void ModuleUpdater::RemovePending(UpdateMode mode)
+{
+	if (removePendingQueue[mode].size()>0) {
+		updateQueueDirty = true;
+	}
+	for (auto& task : removePendingQueue[mode])
+	{
+		updatesQueue[mode].erase(
+			remove(updatesQueue[mode].begin(), updatesQueue[mode].end(), task),
+			updatesQueue[mode].end()
+		);
+	}
+	removePendingQueue[mode].clear();
+}
+
 void ModuleUpdater::AddToUpdateQueue(IUpdateable& updateableObj, UpdateMode mode, const string& groupId)
 {
-	updateQueueDirty = true;
-	updatesQueue[mode].emplace_back(&updateableObj);
+	addPendingQueue[mode].emplace_back(&updateableObj);
 	AddToUpdateGroup(updateableObj, groupId);
 }
 
 void ModuleUpdater::RemoveFromUpdateQueue(IUpdateable& updateableObj, UpdateMode mode, bool removeFromGroups)
 {
-	updateQueueDirty = true;
-	updatesQueue[mode].erase(
-		remove(updatesQueue[mode].begin(), updatesQueue[mode].end(), &updateableObj),
-		updatesQueue[mode].end()
-	);
+	
+	removePendingQueue[mode].emplace_back(&updateableObj);
 	if (removeFromGroups)
 		RemoveFromUpdateGroup(updateableObj);
 }
@@ -195,6 +225,8 @@ bool ModuleUpdater::PreUpdateAll()
 		if (!ret)
 			break;
 	}
+
+	RemovePending(UpdateMode::PRE_UPDATE);
 	return ret;
 }
 
@@ -203,11 +235,13 @@ bool ModuleUpdater::UpdateAll()
 	bool ret = true;
 	for (const auto& updateTask : updatesQueue[UpdateMode::UPDATE])
 	{
-		if (!updateTask->isPaused)
+		if (updateTask && !updateTask->isPaused)
 			ret = updateTask->Update();
 		if (!ret)
 			break;
 	}
+
+	RemovePending(UpdateMode::UPDATE);
 	return ret;
 }
 
@@ -221,6 +255,8 @@ bool ModuleUpdater::PostUpdateAll()
 		if (!ret)
 			break;
 	}
+
+	RemovePending(UpdateMode::POST_UPDATE);
 	return ret;
 }
 

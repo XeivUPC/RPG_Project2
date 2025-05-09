@@ -45,6 +45,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <EnableASAN>false</EnableASAN>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -52,6 +53,7 @@
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <EnableASAN>false</EnableASAN>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -326,6 +328,7 @@
     <Xml Include="Assets\Data\AttackList.xml" />
     <Xml Include="Assets\Data\CharactersData.xml" />
     <Xml Include="Assets\Data\CharactersData_Default.xml" />
+    <Xml Include="Assets\Data\GameSaveData.xml" />
     <Xml Include="Assets\Data\ItemsData.xml" />
     <Xml Include="Assets\Data\UserPrefs.xml" />
   </ItemGroup>
