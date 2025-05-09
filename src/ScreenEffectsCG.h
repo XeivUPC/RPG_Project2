@@ -41,6 +41,7 @@ private:
 
 	int rainSoundChannel = -1;
 	UIAnimatedImage* rainEffect = nullptr;
+	FadeCG* rainFade = nullptr;
 
 
 	FadeCG* ambientFade = nullptr;
