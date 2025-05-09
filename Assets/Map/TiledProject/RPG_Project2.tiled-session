@@ -5,12 +5,12 @@
     },
     "activeFile": "Maps/SecondAreaTest.tmx",
     "expandedProjectPaths": [
-        "Tilesets",
-        "Prefabs/Buildings",
-        "Prefabs",
-        ".",
         "Objects",
-        "Maps"
+        "Maps",
+        "Prefabs/Buildings",
+        "Tilesets",
+        ".",
+        "Prefabs"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -82,14 +82,14 @@
         },
         "Maps/Rogue_Squadron_Headquarters.tmx": {
             "expandedObjectLayers": [
-                6,
-                9
+                9,
+                6
             ],
             "scale": 2,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 462.5,
-                "y": 905.5
+                "x": 548.5,
+                "y": 9
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -97,13 +97,14 @@
         },
         "Maps/SecondAreaTest.tmx": {
             "expandedObjectLayers": [
-                7
+                7,
+                10
             ],
-            "scale": 1,
+            "scale": 1.5,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 468,
-                "y": 455
+                "x": 418,
+                "y": 206
             }
         },
         "Maps/Testing_Zone.tmx": {
@@ -168,7 +169,7 @@
         },
         "Tilesets/Vegetation_Atlas.tsx": {
             "dynamicWrapping": true,
-            "scaleInDock": 0.5,
+            "scaleInDock": 0.33,
             "scaleInEditor": 0.25
         },
         "Tilesets/Water_tiles.tsx": {
@@ -202,18 +203,19 @@
     "map.width": 20,
     "openFiles": [
         "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Maps/SecondAreaTest.tmx"
+        "Maps/SecondAreaTest.tmx",
+        "Tilesets/Vegetation_Atlas.tsx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "object",
     "recentFiles": [
         "Maps/Rogue_Squadron_Headquarters.tmx",
+        "Tilesets/Vegetation_Atlas.tsx",
         "Maps/SecondAreaTest.tmx",
         "Tilesets/Building_Atlas.tsx",
         "Maps/House4_Inside.tmx",
         "Maps/Testing_Zone.tmx",
         "Maps/Testing_Zone2.tmx",
-        "Tilesets/Vegetation_Atlas.tsx",
         "Maps/House2_Inside.tmx",
         "Maps/House3_Inside.tmx",
         "Tilesets/Furniture_Atlas.tsx",
