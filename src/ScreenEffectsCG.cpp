@@ -50,7 +50,7 @@ void ScreenEffectsCG::StartRain()
 	if(rainSoundChannel!=-1)
 		return;
 	rainSoundChannel = Engine::Instance().m_audio->PlaySFXWithFade(Engine::Instance().m_assetsDB->GetAudio("rain_sfx"), rainSoundChannel, -1,1000);
-	rainFade->FadeTo(1000, 50);
+	rainFade->FadeTo(1, 50);
 
 }
 
@@ -63,7 +63,7 @@ void ScreenEffectsCG::StopRain()
 	Engine::Instance().m_audio->StopSFX(rainSoundChannel,1000);
 	rainSoundChannel = -1;
 
-	rainFade->FadeTo(1000,0);
+	rainFade->FadeTo(1,0);
 	
 }
 
@@ -88,6 +88,7 @@ void ScreenEffectsCG::CreateRainEffect()
 {
 
 	rainFade = new FadeCG(0, 0, 0, 0, nullptr, { 0,0 });
+	rainFade->renderLayer = renderLayer;
 
 	rainEffect = new UIAnimatedImage({ 0,0 }, { LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT });
 	rainEffect->GetJsonAnimator()->AddJsonAnimationClip("Assets/Textures/Animations/rain_animation.json",0.04f);
