@@ -23,6 +23,9 @@ public:
 	void StopRain();
 	void SwitchRain();
 
+	void ShowAmbient();
+	void HideAmbient();
+
 private:
 	void CreateVignette();
 
@@ -41,6 +44,7 @@ private:
 
 	int rainSoundChannel = -1;
 	UIAnimatedImage* rainEffect = nullptr;
+	FadeCG* rainFade = nullptr;
 
 
 	FadeCG* ambientFade = nullptr;

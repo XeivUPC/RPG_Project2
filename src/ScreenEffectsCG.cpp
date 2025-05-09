@@ -28,6 +28,7 @@ ScreenEffectsCG::~ScreenEffectsCG()
 		Engine::Instance().m_audio->StopSFX(rainSoundChannel);
 	delete ambientFade;
 	delete ambientFade_support;
+	delete rainFade;
 }
 
 void ScreenEffectsCG::UpdateCanvas()
@@ -36,6 +37,7 @@ void ScreenEffectsCG::UpdateCanvas()
 
 	ambientFade_support->UpdateCanvas();
 	ambientFade->UpdateCanvas();
+	rainFade->UpdateCanvas();
 
 	UICanvas::UpdateCanvas();
 }
@@ -48,6 +50,7 @@ void ScreenEffectsCG::StartRain()
 	if(rainSoundChannel!=-1)
 		return;
 	rainSoundChannel = Engine::Instance().m_audio->PlaySFXWithFade(Engine::Instance().m_assetsDB->GetAudio("rain_sfx"), rainSoundChannel, -1,1000);
+	rainFade->FadeTo(1, 50);
 
 }
 
@@ -59,6 +62,8 @@ void ScreenEffectsCG::StopRain()
 		return;
 	Engine::Instance().m_audio->StopSFX(rainSoundChannel,1000);
 	rainSoundChannel = -1;
+
+	rainFade->FadeTo(1,0);
 	
 }
 
@@ -68,6 +73,18 @@ void ScreenEffectsCG::SwitchRain()
 		StopRain();
 	else
 		StartRain();
+}
+
+void ScreenEffectsCG::ShowAmbient()
+{
+	ambientFade_support->isVisible = true;
+	ambientFade->isVisible = true;
+}
+
+void ScreenEffectsCG::HideAmbient()
+{
+	ambientFade_support->isVisible = false;
+	ambientFade->isVisible = false;
 }
 
 void ScreenEffectsCG::CreateVignette()
@@ -81,6 +98,10 @@ void ScreenEffectsCG::CreateVignette()
 
 void ScreenEffectsCG::CreateRainEffect()
 {
+
+	rainFade = new FadeCG(0, 0, 0, 0, nullptr, { 0,0 });
+	rainFade->renderLayer = renderLayer;
+
 	rainEffect = new UIAnimatedImage({ 0,0 }, { LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT });
 	rainEffect->GetJsonAnimator()->AddJsonAnimationClip("Assets/Textures/Animations/rain_animation.json",0.04f);
 	AddElementToCanvas(rainEffect);

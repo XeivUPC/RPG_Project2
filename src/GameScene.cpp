@@ -127,10 +127,13 @@ bool GameScene::Start()
 
     gameplayCanvas->SetLocation(item->GetPosition());
 
+
+
     if(!isRaining)
 		StopRain();
     else
 		StartRain();
+    CheckTilesetInteriorState();
 
     return true;
 }
@@ -226,6 +229,24 @@ bool GameScene::CleanUp()
     exitGame = false;
 
     return true;
+}
+
+void GameScene::CheckTilesetInteriorState()
+{
+    Tilemap* tilemap = tilemaps[tilemaps.size() - 1];
+    if (tilemap->GetTilemap().properties.count("IsInside")) {
+        if (tilemap->GetTilemap().properties.at("IsInside").value == "true") {
+            isInterior = true;
+            PauseRain();
+            screenEffectsCanvas->HideAmbient();
+        }
+        else {
+            /// if was raining
+            isInterior = false;
+            ResumeRain();
+            screenEffectsCanvas->ShowAmbient();
+        }
+    }
 }
 
 void GameScene::UpdateRain()
@@ -326,11 +347,117 @@ void GameScene::ExitGame()
     fade->FadeTo(0.5f, 255);
 }
 
+void GameScene::ChangeTilemap(string path, int entryPoint)
+{
+    fade->FadeTo(0.5f, 255);
+    fade->onFadeEnd.Subscribe([this, path, entryPoint]() {SwapNewTilemap(path, entryPoint); });
+    Engine::Instance().m_updater->PauseUpdateGroup("Entity");
+}
+
 void GameScene::AddTilemap(string path)
 {
     fade->FadeTo(0.5f, 255);
     fade->onFadeEnd.Subscribe([this, path]() {CreateNewTilemap(path); });
+    Engine::Instance().m_updater->PauseUpdateGroup("Entity");
 }
+
+void GameScene::RemoveLastTilemap()
+{
+    fade->FadeTo(0.5f, 255);
+	fade->onFadeEnd.Subscribe([this]() {DeleteLastTilemap(); });
+    Engine::Instance().m_updater->PauseUpdateGroup("Entity");
+}
+
+void GameScene::CreateNewTilemap(string path)
+{
+    Engine::Instance().m_updater->ResumeUpdateGroup("Entity");
+
+    if (path != "Assets/Map/Data/Rogue_Squadron_Headquarters.xml")
+    {
+        Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("open_door"));
+    }
+
+    fade->FadeTo(0.5f, 0);
+
+    if (tilemaps.size() != 0) {
+        tilemaps[tilemaps.size() - 1]->isVisible = false;
+        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
+        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
+        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+    }
+    tilemaps.emplace_back(new Tilemap(path, 1));
+
+    tilemaps[tilemaps.size() - 1]->CreateObjects();
+    player->SetPosition(tilemaps[tilemaps.size() - 1]->GetSpawnPoint());
+    cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
+
+    player->ClearFollowerPath();
+
+    CheckTilesetInteriorState();
+
+}
+
+void GameScene::SwapNewTilemap(string path, int entryPoint)
+{
+    Engine::Instance().m_updater->ResumeUpdateGroup("Entity");
+
+    Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("change_area"));
+
+    fade->FadeTo(0.5f, 0);
+    if (tilemaps.size() != 0) {
+        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
+        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
+        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+        //// Do Swap
+        delete tilemaps[tilemaps.size() - 1];
+        tilemaps[tilemaps.size() - 1] = new Tilemap(path, 1);
+        tilemaps[tilemaps.size() - 1]->CreateObjects();
+        //// Use Points Connected
+        if (entryPoint != -1)
+            player->SetPosition(tilemaps[tilemaps.size() - 1]->GetEntryPoint(entryPoint));
+        else
+            player->SetPosition(tilemaps[tilemaps.size() - 1]->GetSpawnPoint());
+        cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
+        ////
+
+        player->ClearFollowerPath();
+
+        CheckTilesetInteriorState();
+    }
+
+}
+
+void GameScene::DeleteLastTilemap()
+{
+    Engine::Instance().m_updater->ResumeUpdateGroup("Entity");
+
+    Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("close_door"));
+
+    fade->FadeTo(0.5f, 0);
+
+    if (tilemaps.size() != 0) {
+
+        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
+        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
+        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+
+        delete tilemaps[tilemaps.size() - 1];
+        tilemaps.pop_back();
+
+        if (tilemaps.size() != 0) {
+            tilemaps[tilemaps.size() - 1]->isVisible = true;
+            tilemaps[tilemaps.size() - 1]->CreateObjects();
+            player->SetPosition(tilemaps[tilemaps.size() - 1]->GetSpawnPoint());
+            cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
+        }
+
+        player->ClearFollowerPath();
+
+        CheckTilesetInteriorState();
+
+    }
+}
+
 
 Tilemap* GameScene::GetLastTilemap()
 {
@@ -354,87 +481,6 @@ PlayerCharacter* GameScene::GetPlayer() const
     return player;
 }
 
-void GameScene::RemoveLastTilemap()
-{
-    fade->FadeTo(0.5f, 255);
-	fade->onFadeEnd.Subscribe([this]() {DeleteLastTilemap(); });
-}
 
 
-void GameScene::CreateNewTilemap(string path)
-{
-    if (path != "Assets/Map/Data/Rogue_Squadron_Headquarters.xml")
-    {
-        Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("open_door"));
-    }
-
-    fade->FadeTo(0.5f, 0);
-
-    if (tilemaps.size() != 0) {
-        tilemaps[tilemaps.size() - 1]->isVisible = false;
-        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
-        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
-        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
-    }
-    tilemaps.emplace_back(new Tilemap(path, 1));
-
-    tilemaps[tilemaps.size() - 1]->CreateObjects();
-    player->SetPosition(tilemaps[tilemaps.size() - 1]->GetSpawnPoint());
-    cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
-
-    player->ClearFollowerPath();
-
-	Tilemap* tilemap = tilemaps[tilemaps.size() - 1];
-    if (tilemap->GetTilemap().properties.count("IsInside")) {
-        if (tilemap->GetTilemap().properties.at("IsInside").value == "true") {
-            isInterior = true;
-            PauseRain();
-        }
-        else {
-			/// if was raining
-            isInterior = false;
-            ResumeRain();
-        }
-    }
-}
-
-void GameScene::DeleteLastTilemap()
-{
-    Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("close_door"));
-    
-    fade->FadeTo(0.5f, 0);
-
-    if (tilemaps.size() != 0) {
-
-        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
-        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
-        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
-
-        delete tilemaps[tilemaps.size() - 1];
-        tilemaps.pop_back();
-
-        if (tilemaps.size() != 0) {
-            tilemaps[tilemaps.size() - 1]->isVisible = true;
-            tilemaps[tilemaps.size() - 1]->CreateObjects();
-            player->SetPosition(tilemaps[tilemaps.size() - 1]->GetSpawnPoint());
-            cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
-        }
-
-        player->ClearFollowerPath();
-
-        Tilemap* tilemap = tilemaps[tilemaps.size() - 1];
-        if (tilemap->GetTilemap().properties.count("IsInside")) {
-            if (tilemap->GetTilemap().properties.at("IsInside").value == "true") {
-                isInterior = true;
-                PauseRain();
-            }
-            else {
-                /// if was raining
-                isInterior = false;
-                ResumeRain();
-            }
-        }
-
-    }
-}
 
