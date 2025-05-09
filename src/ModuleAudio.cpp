@@ -123,6 +123,11 @@ float ModuleAudio::GetMusicVolume()
     return music_volume;
 }
 
+const _Mix_Music* ModuleAudio::GetMusic() const
+{
+    return currentMusic;
+}
+
 void ModuleAudio::SetAudioBoost(float boost)
 {
     audio_boost = boost;

@@ -37,7 +37,7 @@
 	</Character>
 	<Character id="4" name="Sir Gideon Hawthorne">
 		<Data textureId="pj_test" faceId="Guideon-idle" dialoguePath="Assets/Dialogues/Sir_Gideon_Hawthorne.json" />
-		<Stats state="0" friendship="0" love="0" />
+		<Stats state="2" friendship="0" love="0" />
 		<CombatStats level="15" hp="61" defense="65" attack="74" speed="55" />
 		<Attacks attack1="8" attack2="2" attack3="6" attack4="3" />
 		<AttackRole type="0" />

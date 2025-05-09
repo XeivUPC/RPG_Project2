@@ -39,16 +39,14 @@ void ModuleAssetDatabase::LoadAssets()
 
 //// Sounds //pepe
 	////Music
-	AddMusicToStorage("patoGallina", *audioFactory->CreateMusic("Assets/Sounds/Music/PatoGallina.ogg"));
-
-	AddMusicToStorage("mainTheme", *audioFactory->CreateMusic("Assets/Sounds/Main Menu.ogg"));
-	AddMusicToStorage("townTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/Town Theme.ogg"));
+	AddMusicToStorage("mainTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/MainMenu.ogg"));
+	AddMusicToStorage("townTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/TownTheme.ogg"));
 	
-	AddMusicToStorage("MeetingArtis", *audioFactory->CreateMusic("Assets/Sounds/Music/Artis_Dance.ogg"));
-	AddMusicToStorage("Death_of_Emperor", *audioFactory->CreateMusic("Assets/Sounds/Music/DeathOfAnEmperor.ogg"));
+	AddMusicToStorage("meetingArtis", *audioFactory->CreateMusic("Assets/Sounds/Music/ArtisDance.ogg"));
+	AddMusicToStorage("deathOfEmperor", *audioFactory->CreateMusic("Assets/Sounds/Music/DeathOfAnEmperor.ogg"));
 
-	AddMusicToStorage("ZaliumAnthemOrchestra", *audioFactory->CreateMusic("Assets/Sounds/Music/ZaliumAnthemOrchetsra.ogg"));
-	AddMusicToStorage("HerosMarch", *audioFactory->CreateMusic("Assets/Sounds/Music/HerosMarch.ogg"));
+	AddMusicToStorage("zaliumAnthemOrchestra", *audioFactory->CreateMusic("Assets/Sounds/Music/ZaliumAnthemOrchestra.ogg"));
+	AddMusicToStorage("herosMarch", *audioFactory->CreateMusic("Assets/Sounds/Music/HerosMarch.ogg"));
 
 	///SFX
 	AddAudioToStorage("alert", *audioFactory->CreateAudio("Assets/Sounds/SFX/alert.wav"));
@@ -57,7 +55,6 @@ void ModuleAssetDatabase::LoadAssets()
 	AddAudioToStorage("btn_click", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click1.wav"));
 	AddAudioToStorage("btn_click2", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click2.wav"));
 	AddAudioToStorage("btn_click3", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click3.wav"));
-	AddAudioToStorage("miau", *audioFactory->CreateAudio("Assets/Sounds/SFX/Miau.wav"));
 	AddAudioToStorage("ambient_birds1", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds1.wav"));
 	AddAudioToStorage("ambient_birds2", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds2.wav"));
 	AddAudioToStorage("rain_sfx", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/rain.wav"));
@@ -121,7 +118,6 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("top_fade", *textureFactory->CreateTexture("Assets/Textures/General/top_fade.png"));
 	AddTextureToStorage("vignette", *textureFactory->CreateTexture("Assets/Textures/General/vignette.png"));
 	AddTextureToStorage("rain_effect", *textureFactory->CreateTexture("Assets/Textures/General/rain_effect_spritesheet.png"));
-	AddTextureToStorage("fireflies_effect", *textureFactory->CreateTexture("Assets/Textures/General/fireflies_effect_spritesheet.png"));
 	///Characters --> Make Atlas later
 	AddTextureToStorage("character_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/Characters/CharactersAtlas.png"));
 	AddAtlasToStorage("character_atlas",*atlasFactory->CreateAtlas(*GetTexture("character_atlas"), "Assets/Textures/Atlas/Characters/CharactersAtlas.xml"));

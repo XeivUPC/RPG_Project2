@@ -1,6 +1,7 @@
 #pragma once
 #include "Module.h" 
 
+#include <string>
 #include <future>
 #include <mutex>
 
@@ -25,6 +26,8 @@ public:
 	float GetGeneralVolume();
 	float GetSFXVolume();
 	float GetMusicVolume();
+
+	const _Mix_Music* GetMusic() const;
 
 	void SetAudioBoost(float boost);
 	float GetAudioBoost();
@@ -53,6 +56,7 @@ private:
 	bool isMuted = false;
 
 	_Mix_Music* currentMusic = nullptr;
+
 	mutex musicMutex;
 	std::thread musicThread;
 	std::atomic<bool> stopRequested{ false };

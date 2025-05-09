@@ -121,7 +121,6 @@ bool PlayerCharacter::CleanUp()
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 	delete body;
-
 	delete party;
 
 	animator->CleanUp();

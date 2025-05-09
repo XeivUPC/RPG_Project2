@@ -6,6 +6,8 @@
 #include "GameScene.h"
 #include "ModuleInput.h"
 #include "ModulePhysics.h"
+#include "ModuleAssetDatabase.h"
+#include "ModuleAudio.h"
 #include "ModuleCursor.h"
 #include "ModuleUpdater.h"
 #include "PlayerCharacter.h"
@@ -45,6 +47,10 @@ bool CombatGameState::PostUpdateState()
 
 void CombatGameState::StateSelected()
 {
+	Engine::Instance().s_game->PauseRain();
+
+	Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("zaliumAnthemOrchestra"), 100);
+
 	Engine::Instance().m_updater->PauseUpdateGroup("Entity");
 	Engine::Instance().m_physics->PauseSimulation();
 	Engine::Instance().s_game->combatCanvas->SetInteractable(true);
@@ -62,6 +68,7 @@ void CombatGameState::StateSelected()
 
 void CombatGameState::StateDeselected()
 {
+	Engine::Instance().s_game->ResumeRain();
 	if (Engine::Instance().m_physics->IsSimulationPaused()) {
 		Engine::Instance().m_physics->StartSimulation();
 	}

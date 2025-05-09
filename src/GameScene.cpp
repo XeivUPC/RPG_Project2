@@ -37,6 +37,8 @@
 #include "CombatGameState.h"
 ///
 
+
+
 GameScene::GameScene(bool start_active) : ModuleScene(start_active)
 {
 }
@@ -86,7 +88,7 @@ bool GameScene::Start()
 
     screenEffectsCanvas = new ScreenEffectsCG(5);
 
-    Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("townTheme"), 1000);
+   
     Engine::Instance().m_render->SetCameraZoom(1.5f);
     Engine::Instance().m_render->SetCameraPosition(Vector2{0, 0});
     
@@ -125,6 +127,11 @@ bool GameScene::Start()
 
     gameplayCanvas->SetLocation(item->GetPosition());
 
+    if(!isRaining)
+		StopRain();
+    else
+		StartRain();
+
     return true;
 }
 
@@ -140,6 +147,8 @@ bool GameScene::Update()
     if(tilemaps.size()!=0)
         tilemaps[tilemaps.size()-1]->UpdateTilemap();
 
+    UpdateRain();
+
     for (size_t i = 0; i < entities.size(); i++)
     {
         entities[i]->Update();
@@ -151,8 +160,6 @@ bool GameScene::Update()
     }
 
     Engine::Instance().m_render->SortRenderQueueLayerByPosition(3);
-
-    //canvas->UpdateCanvas();
 
     game_states[state]->UpdateState();
 
@@ -219,6 +226,69 @@ bool GameScene::CleanUp()
     exitGame = false;
 
     return true;
+}
+
+void GameScene::UpdateRain()
+{
+    //// Rain Logic
+
+    if (isRaining) {
+        rainTimer.Step(ModuleTime::deltaTime * timeScale);
+        if (rainDuration <= rainTimer.ReadSec()) {
+            rainTimer.Start();
+            StopRain();
+        }
+    }
+    else {
+        rainTimer.Step(ModuleTime::deltaTime * timeScale);
+        if (rainCooldown <= rainTimer.ReadSec()) {
+            rainTimer.Start();
+
+           
+            std::uniform_int_distribution<int> chanceDist(1, 100);
+
+            int chance = chanceDist(rng);
+            if (chance <= 30)
+                StartRain();
+            else {
+               
+                std::uniform_real_distribution<float> cooldownDist(minRainCooldown, maxRainCooldown);
+                rainCooldown = cooldownDist(rng);
+
+            }
+        }
+    }
+
+}
+
+void GameScene::PauseRain()
+{
+    screenEffectsCanvas->StopRain();
+}
+
+void GameScene::ResumeRain()
+{
+    if (isRaining && !isInterior)
+        screenEffectsCanvas->StartRain();
+}
+
+void GameScene::StopRain()
+{
+    std::uniform_real_distribution<float> cooldownDist(minRainCooldown, maxRainCooldown);
+    rainCooldown = cooldownDist(rng);
+
+    screenEffectsCanvas->StopRain();
+    isRaining = false;
+}
+
+void GameScene::StartRain()
+{
+    std::uniform_real_distribution<float> durationDist(minRainDuration, maxRainDuration);
+    rainDuration = durationDist(rng);
+
+    isRaining = true;
+    if(!isInterior)
+        screenEffectsCanvas->StartRain();
 }
 
 
@@ -317,11 +387,13 @@ void GameScene::CreateNewTilemap(string path)
 	Tilemap* tilemap = tilemaps[tilemaps.size() - 1];
     if (tilemap->GetTilemap().properties.count("IsInside")) {
         if (tilemap->GetTilemap().properties.at("IsInside").value == "true") {
-            screenEffectsCanvas->StopRain();
+            isInterior = true;
+            PauseRain();
         }
         else {
 			/// if was raining
-            screenEffectsCanvas->StartRain();
+            isInterior = false;
+            ResumeRain();
         }
     }
 }
@@ -353,11 +425,13 @@ void GameScene::DeleteLastTilemap()
         Tilemap* tilemap = tilemaps[tilemaps.size() - 1];
         if (tilemap->GetTilemap().properties.count("IsInside")) {
             if (tilemap->GetTilemap().properties.at("IsInside").value == "true") {
-                screenEffectsCanvas->StopRain();
+                isInterior = true;
+                PauseRain();
             }
             else {
                 /// if was raining
-				screenEffectsCanvas->StartRain();
+                isInterior = false;
+                ResumeRain();
             }
         }
 
