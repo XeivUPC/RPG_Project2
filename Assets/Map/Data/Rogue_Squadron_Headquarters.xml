@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="659">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="661">
  <properties>
   <property name="IsInside" type="bool" value="false"/>
  </properties>
@@ -1955,6 +1955,18 @@
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
+  </object>
+  <object id="659" x="849.125" y="464">
+   <properties>
+    <property name="NpcId" value="7"/>
+    <property name="Path" type="object" value="660"/>
+    <property name="PathMovementType" type="int" value="0"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="660" x="849" y="464">
+   <polyline points="0,0 95,0"/>
   </object>
  </objectgroup>
  <objectgroup id="9" name="Collisions">
