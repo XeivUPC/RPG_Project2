@@ -52,7 +52,6 @@ public:
 	void ExitGame();
 
 
-	void ChangeTilemap(string path, int entryPoint=-1);
 	void AddTilemap(string path);
 	void RemoveLastTilemap();
 	Tilemap* GetLastTilemap();
@@ -79,9 +78,6 @@ private:
 	// Inherited via ICleanable
 	bool CleanUp() override;
 
-
-	void CheckTilesetInteriorState();
-
 	void UpdateRain();
 	void PauseRain();
 	void ResumeRain();
@@ -90,7 +86,6 @@ private:
 
 
 	void CreateNewTilemap(string path);
-	void SwapNewTilemap(string path, int entryPoint=-1);
 	void DeleteLastTilemap();
 
 private:

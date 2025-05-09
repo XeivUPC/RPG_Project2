@@ -26,7 +26,7 @@ public:
 	void SetColor(int r, int g, int b);
 	void SetColor(int r, int g, int b, int a);
 
-	void SetFadeTimer(int time);
+
 
 	bool IsFading();
 public:

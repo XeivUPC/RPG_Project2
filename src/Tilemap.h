@@ -155,8 +155,6 @@ public:
     Vector2 GetSpawnPoint();
     void SetSpawnPoint(Vector2 _spawnPoint);
 
-    Vector2 GetEntryPoint(int id);
-
 public:
     SystemEvent<> onTilemapLoad;
 
@@ -182,5 +180,4 @@ private:
 
     bool spawnPointSaved = false;
     Vector2 spawnPoint = { 0,0 };
-	unordered_map<int, Vector2> entryPoints;
 };

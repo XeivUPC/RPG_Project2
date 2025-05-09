@@ -96,11 +96,6 @@ void FadeCG::SetColor(int r, int g, int b, int a)
 	SetOpacity(a);
 }
 
-void FadeCG::SetFadeTimer(int time)
-{
-	timer = StepTimer(time);
-}
-
 bool FadeCG::IsFading()
 {
 	return fading;
