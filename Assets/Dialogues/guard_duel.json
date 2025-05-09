@@ -2,7 +2,7 @@
     "fae79450-a722-44d1-b233-2eae81efe254": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "Please give me your best version.",
             "fr": ""
@@ -13,7 +13,7 @@
     "41d99f09-e836-4b59-906f-b0168ef2754a": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "I will, lets have an entertaining duel.",
             "fr": ""
@@ -24,7 +24,7 @@
     "cb77a775-5b17-47fd-982b-863e68afb32d": {
         "name": "Emperor Charles II",
         "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
         "text": {
             "en": "Then let the duel...",
             "fr": ""
@@ -35,7 +35,7 @@
     "362e2c36-e898-4048-8bf2-9b038b41e2ca": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Wait !",
             "fr": ""
@@ -46,7 +46,7 @@
     "4e2fd6b2-d9ee-4daa-b279-1eecd7fe0d2f": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "I want to take that duel.",
             "fr": ""
@@ -57,7 +57,7 @@
     "eb213ac8-4619-4f34-978c-e88b86ed1cb9": {
         "name": "Emperor Charles II",
         "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
         "text": {
             "en": "Go on then.",
             "fr": ""
@@ -68,7 +68,7 @@
     "5553dd8c-7007-4b97-ac56-96e8b41b4733": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "( Walks in, turns towards you and nods )",
             "fr": ""
@@ -96,7 +96,7 @@
     "fb543708-06b9-49e5-a639-00312a687b27": {
         "name": "Emperor Charles II",
         "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
         "text": {
             "en": "Then let the duel begin !",
             "fr": ""
@@ -115,7 +115,7 @@
     "add02dc0-6894-4e69-a09c-810d4aea404b": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Good duel boy, next time I will make sure to win you myself.",
             "fr": ""
