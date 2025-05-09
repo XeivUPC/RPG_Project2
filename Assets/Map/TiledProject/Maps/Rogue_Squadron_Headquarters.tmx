@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="659">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="663">
  <editorsettings>
   <export target="../../Data/Rogue_Squadron_Headquarters.xml" format="tmx"/>
  </editorsettings>
@@ -415,7 +415,7 @@
    </properties>
    <point/>
   </object>
-  <object id="106" x="280.211" y="831.909">
+  <object id="106" name="SpawnPoint" x="280.211" y="831.909">
    <properties>
     <property name="Type" value="spawnPoint"/>
    </properties>
@@ -514,11 +514,6 @@
    </properties>
   </object>
   <object id="250" gid="942" x="413.212" y="886.788" width="16" height="16">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="251" gid="942" x="182.909" y="680.727" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
@@ -1926,6 +1921,20 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
+  <object id="659" name="EntryPoint1" x="281" y="882.333">
+   <properties>
+    <property name="Type" value="entryPoint"/>
+    <property name="Value" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="660" name="Zone1" x="259.75" y="901.5" width="41" height="6.25">
+   <properties>
+    <property name="EntryPoint" type="int" value="1"/>
+    <property name="TargetPath" value="Assets/Map/Data/SecondAreaTest.xml"/>
+    <property name="Type" value="tilemapChanger"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="9" name="Collisions">
   <object id="492" x="507.091" y="86.7273" width="186" height="66.1477"/>
@@ -1941,8 +1950,10 @@
   <object id="507" x="564.667" y="1">
    <polygon points="-0.363636,-0.727273 -1.33333,29.3333 -29.3333,56.3333 -110,55.6667 -128,73 -222,72.6667 -237.667,89 -270,90.3333 -284,104.333 -304,105.667 -319,121.667 -335.667,122 -350,136 -383,137.333 -386,156.667 -409,180.333 -420,194 -420.333,205.333 -429,214.333 -463,217.333 -499.667,256.333 -500.333,271.333 -528.333,300 -528.667,333.667 -512.333,347.667 -513,454.667 -534.25,483.75 -528.25,492.75 -529.333,526.333 -542.833,540.25 -529.5,556.583 -529,619.667 -513.667,636.333 -514,726.333 -517.333,739 -531,749 -530.667,766.333 -544,778 -544,830.333 -526,847 -506.333,852 -495.667,859.667 -496,894.333 -578.333,894.667 -569,-9.66667"/>
   </object>
-  <object id="508" x="67.9091" y="896" width="956" height="20"/>
+  <object id="508" x="67.9091" y="896" width="191.242" height="20"/>
+  <object id="661" x="301.364" y="896" width="721.788" height="20"/>
   <object id="509" x="1023.91" y="-0.0909091" width="20" height="896"/>
   <object id="511" x="564.75" y="0" width="458.5" height="30.5"/>
+  <object id="662" x="259.834" y="903.955" width="40.8784" height="11.8636"/>
  </objectgroup>
 </map>

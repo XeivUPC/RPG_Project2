@@ -148,6 +148,10 @@ void Tilemap::CreateObjects()
                 if (object->properties.count("TargetPath")) {
                     tilemapChanger->SetTargetTilemapPath(object->properties.at("TargetPath").value);
                 }
+
+                if (object->properties.count("EntryPoint")) {
+                    tilemapChanger->SetEntryPoint(stoi(object->properties.at("EntryPoint").value));
+                }
      
                 tilemapChanger->SetEntryTrigger({ PIXEL_TO_METERS(position.x + object->width / 2),PIXEL_TO_METERS(position.y + object->height / 2) }, { PIXEL_TO_METERS(object->width),PIXEL_TO_METERS(object->height) });
             }
@@ -226,6 +230,10 @@ void Tilemap::CreateObjects()
                     spawnPoint = { object->x ,object->y };
                 }
             }
+            else if (type == "entryPoint") {
+
+				entryPoints.emplace(stoi(object->properties.at("Value").value), Vector2{ object->x ,object->y });
+            }
         }
     }
 }
@@ -239,6 +247,13 @@ Vector2 Tilemap::GetSpawnPoint()
 void Tilemap::SetSpawnPoint(Vector2 _spawnPoint)
 {
     spawnPoint = _spawnPoint;
+}
+
+Vector2 Tilemap::GetEntryPoint(int id)
+{
+    if(entryPoints.count(id) == 0)
+		return { 0,0 };
+    return entryPoints[id];
 }
 
 void Tilemap::ParseTileset(const xml_node& tsNode, const  path& baseDir) {

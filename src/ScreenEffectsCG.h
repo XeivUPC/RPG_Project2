@@ -23,6 +23,9 @@ public:
 	void StopRain();
 	void SwitchRain();
 
+	void ShowAmbient();
+	void HideAmbient();
+
 private:
 	void CreateVignette();
 

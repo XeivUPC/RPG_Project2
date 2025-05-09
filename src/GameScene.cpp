@@ -127,10 +127,13 @@ bool GameScene::Start()
 
     gameplayCanvas->SetLocation(item->GetPosition());
 
+
+
     if(!isRaining)
 		StopRain();
     else
 		StartRain();
+    CheckTilesetInteriorState();
 
     return true;
 }
@@ -226,6 +229,24 @@ bool GameScene::CleanUp()
     exitGame = false;
 
     return true;
+}
+
+void GameScene::CheckTilesetInteriorState()
+{
+    Tilemap* tilemap = tilemaps[tilemaps.size() - 1];
+    if (tilemap->GetTilemap().properties.count("IsInside")) {
+        if (tilemap->GetTilemap().properties.at("IsInside").value == "true") {
+            isInterior = true;
+            PauseRain();
+            screenEffectsCanvas->HideAmbient();
+        }
+        else {
+            /// if was raining
+            isInterior = false;
+            ResumeRain();
+            screenEffectsCanvas->ShowAmbient();
+        }
+    }
 }
 
 void GameScene::UpdateRain()
@@ -326,6 +347,12 @@ void GameScene::ExitGame()
     fade->FadeTo(0.5f, 255);
 }
 
+void GameScene::ChangeTilemap(string path, int entryPoint)
+{
+    fade->FadeTo(0.5f, 255);
+    fade->onFadeEnd.Subscribe([this, path, entryPoint]() {SwapNewTilemap(path, entryPoint); });
+}
+
 void GameScene::AddTilemap(string path)
 {
     fade->FadeTo(0.5f, 255);
@@ -384,18 +411,34 @@ void GameScene::CreateNewTilemap(string path)
 
     player->ClearFollowerPath();
 
-	Tilemap* tilemap = tilemaps[tilemaps.size() - 1];
-    if (tilemap->GetTilemap().properties.count("IsInside")) {
-        if (tilemap->GetTilemap().properties.at("IsInside").value == "true") {
-            isInterior = true;
-            PauseRain();
-        }
-        else {
-			/// if was raining
-            isInterior = false;
-            ResumeRain();
-        }
+	CheckTilesetInteriorState();
+
+}
+
+void GameScene::SwapNewTilemap(string path, int entryPoint)
+{
+    fade->FadeTo(0.5f, 0);
+    if (tilemaps.size() != 0) {
+        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
+        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
+        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+        //// Do Swap
+        delete tilemaps[tilemaps.size() - 1];
+        tilemaps[tilemaps.size() - 1] = new Tilemap(path, 1);
+        tilemaps[tilemaps.size() - 1]->CreateObjects();
+        //// Use Points Connected
+        if(entryPoint!=-1)
+            player->SetPosition(tilemaps[tilemaps.size() - 1]->GetEntryPoint(entryPoint));
+        else
+            player->SetPosition(tilemaps[tilemaps.size() - 1]->GetSpawnPoint());
+        cameraController->SetBounds(tilemaps[tilemaps.size() - 1]->GetPosition(), tilemaps[tilemaps.size() - 1]->GetTilemapSize());
+        ////
+
+        player->ClearFollowerPath();
+
+        CheckTilesetInteriorState();
     }
+
 }
 
 void GameScene::DeleteLastTilemap()
@@ -422,18 +465,7 @@ void GameScene::DeleteLastTilemap()
 
         player->ClearFollowerPath();
 
-        Tilemap* tilemap = tilemaps[tilemaps.size() - 1];
-        if (tilemap->GetTilemap().properties.count("IsInside")) {
-            if (tilemap->GetTilemap().properties.at("IsInside").value == "true") {
-                isInterior = true;
-                PauseRain();
-            }
-            else {
-                /// if was raining
-                isInterior = false;
-                ResumeRain();
-            }
-        }
+		CheckTilesetInteriorState();
 
     }
 }

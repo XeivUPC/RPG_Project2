@@ -75,6 +75,18 @@ void ScreenEffectsCG::SwitchRain()
 		StartRain();
 }
 
+void ScreenEffectsCG::ShowAmbient()
+{
+	ambientFade_support->isVisible = true;
+	ambientFade->isVisible = true;
+}
+
+void ScreenEffectsCG::HideAmbient()
+{
+	ambientFade_support->isVisible = false;
+	ambientFade->isVisible = false;
+}
+
 void ScreenEffectsCG::CreateVignette()
 {
 	SDL_Texture* vignette_texture = Engine::Instance().m_assetsDB->GetTexture("vignette");
