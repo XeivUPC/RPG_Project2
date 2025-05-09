@@ -718,6 +718,9 @@
     <Xml Include="Assets\Data\ItemsData.xml">
       <Filter>Source Files\_DataFiles</Filter>
     </Xml>
+    <Xml Include="Assets\Data\GameSaveData.xml">
+      <Filter>Source Files\_DataFiles</Filter>
+    </Xml>
   </ItemGroup>
   <ItemGroup>
     <Image Include="src\raylib.ico">

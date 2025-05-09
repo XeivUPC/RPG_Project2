@@ -10,7 +10,7 @@ AnimationClip::AnimationClip(string name, bool _loop, bool _stop, float _speed, 
 	loop(_loop),
 	stop(_stop),
 	speed(_speed),
-	spriteList(sprites),
+	spriteList(move(sprites)),
 	position(newPosition),
 	scale(newScale)
 {}

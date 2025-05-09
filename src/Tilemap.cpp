@@ -29,7 +29,7 @@ Tilemap::Tilemap(const  path& tmxPath, float _scale)
 
 Tilemap::~Tilemap()
 {
-    Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+    
 }
 
 
@@ -39,6 +39,7 @@ void Tilemap::LoadMapFromXML(const  path& tmxPath)
     animations.clear();
     spawnPoint = { 0,0 };
     currentMap = TiledMap{};
+	currentMap.path = tmxPath.string();
     currentMapPath = tmxPath.parent_path();
 
     xml_document doc;
@@ -247,7 +248,9 @@ Vector2 Tilemap::GetSpawnPoint()
 void Tilemap::SetSpawnPoint(Vector2 _spawnPoint)
 {
     spawnPoint = _spawnPoint;
+    spawnPointSaved = true;
 }
+
 
 Vector2 Tilemap::GetEntryPoint(int id)
 {
@@ -549,6 +552,19 @@ void Tilemap::Render()
     }
 }
 
+bool Tilemap::CleanUp()
+{
+    Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+
+    entryPoints.clear();
+    animations.clear();
+    onTilemapLoad.UnsubscribeAll();
+    spawnPointSaved = false;
+    currentMap = TiledMap();
+	return true;
+}
+
+
 void Tilemap::GetTileRect(const Tileset& tileset, int tileId, SDL_Rect& rect)
 {
 
@@ -577,6 +593,7 @@ Tileset* Tilemap::GetTileset(int gid)
         return nullptr;
     }
 }
+
 
 
 void Tilemap::SetPosition(Vector2 newPosition)

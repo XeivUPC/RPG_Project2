@@ -8,6 +8,7 @@
 #include "ModuleCursor.h"
 #include "GameplayCG.h"
 #include "ScreenEffectsCG.h"
+#include "CameraController.h"
 #include "GameScene.h"
 
 bool ExploringGameState::PreUpdateState()
@@ -39,6 +40,7 @@ bool ExploringGameState::UpdateState()
 
 bool ExploringGameState::PostUpdateState()
 {
+    Engine::Instance().s_game->cameraController->UpdateCamera();
     return true;
 }
 

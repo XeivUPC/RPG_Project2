@@ -14,6 +14,7 @@
 
 SimpleTilemapChanger::SimpleTilemapChanger()
 {
+	priority_updating = -1;
 }
 
 SimpleTilemapChanger::~SimpleTilemapChanger()
@@ -37,7 +38,6 @@ bool SimpleTilemapChanger::PostUpdate()
 			Engine::Instance().s_game->RemoveLastTilemap();
 		}
 	}
-
 
 	return true;
 }

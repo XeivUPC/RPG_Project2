@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="43" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="281">
- <editorsettings>
-  <export target="../../Data/SecondAreaTest.xml" format="tmx"/>
- </editorsettings>
  <properties>
   <property name="IsInside" type="bool" value="false"/>
  </properties>
- <tileset firstgid="1" source="../Tilesets/Cave_Tiles.tsx"/>
- <tileset firstgid="290" source="../Tilesets/Floors_Tiles.tsx"/>
- <tileset firstgid="915" source="../Tilesets/Water_tiles.tsx"/>
- <tileset firstgid="1540" source="../Tilesets/Building_Atlas.tsx"/>
- <tileset firstgid="1546" source="../Tilesets/Furniture_Atlas.tsx"/>
- <tileset firstgid="1572" source="../Tilesets/Vegetation_Atlas.tsx"/>
+ <tileset firstgid="1" source="../TiledProject/Tilesets/Cave_Tiles.tsx"/>
+ <tileset firstgid="290" source="../TiledProject/Tilesets/Floors_Tiles.tsx"/>
+ <tileset firstgid="915" source="../TiledProject/Tilesets/Water_tiles.tsx"/>
+ <tileset firstgid="1540" source="../TiledProject/Tilesets/Building_Atlas.tsx"/>
+ <tileset firstgid="1546" source="../TiledProject/Tilesets/Furniture_Atlas.tsx"/>
+ <tileset firstgid="1572" source="../TiledProject/Tilesets/Vegetation_Atlas.tsx"/>
  <layer id="2" name="Ground0" width="43" height="20">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,546,547,548,548,546,547,548,0,0,0,0,0,0,
@@ -604,7 +601,7 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="279" name="EntryPoint1" x="310.72" y="28.8974">
+  <object id="279" name="EntryPoint2" x="310.72" y="28.8974">
    <properties>
     <property name="Type" value="entryPoint"/>
     <property name="Value" type="int" value="2"/>
@@ -613,13 +610,13 @@
   </object>
   <object id="280" name="Zone2" x="279.985" y="-5.45833" width="64.0909" height="6.25">
    <properties>
-    <property name="EntryPoint" type="int" value="1"/>
-    <property name="TargetPath" value="Assets/Map/Data/Rogue_Squadron_Headquarters.xml"/>
+    <property name="EntryPoint" type="int" value="2"/>
+    <property name="TargetPath" value="Assets/Map/Data/Forest_Secret_Cliff.xml"/>
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="10" name="Collisions" visible="0">
+ <objectgroup id="10" name="Collisions">
   <object id="229" x="6" y="4.66667">
    <polygon points="-4,-1.66667 272.667,8.88178e-16 282.667,71.3333 291.667,112.667 299.75,142.5 297.333,151.333 285,156.333 269.417,153.083 257.917,145.333 246.417,144 231.083,145.083 215.333,141.167 185.5,156.167 143.167,151.583 101.083,151.917 91.625,147.5 76.9167,146.333 49.5833,153.583 26,156.333 -1,149 -5.33333,126.667"/>
   </object>
@@ -634,11 +631,6 @@
   <object id="239" x="576" y="-16" width="112" height="32"/>
   <object id="241" x="345.666" y="-16" width="146.334" height="32.3333"/>
   <object id="243" x="493" y="-15.5" width="82" height="9.75"/>
-  <object id="246" gid="1630" x="204.5" y="167" width="32" height="32">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
   <object id="268" x="393.667" y="309.667" width="127" height="15"/>
   <object id="269" x="522" y="296.333" width="30" height="28"/>
   <object id="271" x="552.333" y="278" width="35.6667" height="17.6667"/>
