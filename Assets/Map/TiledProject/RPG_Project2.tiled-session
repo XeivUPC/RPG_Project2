@@ -5,12 +5,12 @@
     },
     "activeFile": "Maps/SecondAreaTest.tmx",
     "expandedProjectPaths": [
-        "Objects",
-        "Maps",
-        "Prefabs/Buildings",
         "Tilesets",
         ".",
-        "Prefabs"
+        "Prefabs/Buildings",
+        "Maps",
+        "Prefabs",
+        "Objects"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -82,14 +82,14 @@
         },
         "Maps/Rogue_Squadron_Headquarters.tmx": {
             "expandedObjectLayers": [
-                9,
-                6
+                6,
+                9
             ],
             "scale": 2,
             "selectedLayer": 6,
             "viewCenter": {
                 "x": 548.5,
-                "y": 9
+                "y": 558
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -97,8 +97,8 @@
         },
         "Maps/SecondAreaTest.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
             "scale": 1.5,
             "selectedLayer": 4,

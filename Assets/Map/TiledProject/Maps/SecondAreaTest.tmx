@@ -555,7 +555,7 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="232" name="EntryPoint1" x="531.841" y="18.4353">
+  <object id="232" name="EntryPoint1" x="532.508" y="29.7686">
    <properties>
     <property name="Type" value="entryPoint"/>
     <property name="Value" type="int" value="1"/>
@@ -604,7 +604,7 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="279" name="EntryPoint1" x="310.053" y="18.8974">
+  <object id="279" name="EntryPoint1" x="310.72" y="28.8974">
    <properties>
     <property name="Type" value="entryPoint"/>
     <property name="Value" type="int" value="2"/>
