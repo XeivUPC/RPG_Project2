@@ -47,7 +47,7 @@ void ScreenEffectsCG::StartRain()
 
 	if(rainSoundChannel!=-1)
 		return;
-	rainSoundChannel = Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("rain_sfx"), -1);
+	rainSoundChannel = Engine::Instance().m_audio->PlaySFXWithFade(Engine::Instance().m_assetsDB->GetAudio("rain_sfx"), rainSoundChannel, -1,1000);
 
 }
 
@@ -57,7 +57,7 @@ void ScreenEffectsCG::StopRain()
 	rainEffect->localVisible = false;
 	if (rainSoundChannel == -1)
 		return;
-	Engine::Instance().m_audio->StopSFX(rainSoundChannel);
+	Engine::Instance().m_audio->StopSFX(rainSoundChannel,1000);
 	rainSoundChannel = -1;
 	
 }
