@@ -3,6 +3,8 @@
 #include "ModuleInput.h"
 #include "ModuleTime.h"
 #include "ModuleUpdater.h"
+#include "ModuleAudio.h"
+#include "ModuleAssetDatabase.h"
 #include "ModuleCursor.h"
 #include "GameplayCG.h"
 #include "ScreenEffectsCG.h"
@@ -42,6 +44,9 @@ bool ExploringGameState::PostUpdateState()
 
 void ExploringGameState::StateSelected()
 {
+    if(Engine::Instance().m_audio->GetMusic() != Engine::Instance().m_assetsDB->GetMusic("townTheme"))
+        Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("townTheme"), 1000);
+
     Engine::Instance().m_updater->ResumeUpdateGroup("Entity");
     Engine::Instance().m_cursor->HideAllCursors();
 }

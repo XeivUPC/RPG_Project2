@@ -664,6 +664,10 @@ void CombatCG::EndTurn()
 	RemoveAllTargets();
 
 	combat->ChangeState(CombatSystem::CombatState::ENEMY_TURN);
+
+	passTurn->localVisible = false;
+	passTurn->interactable = false;
+
 }
 
 void CombatCG::OnCombatStateChanged()
@@ -672,6 +676,12 @@ void CombatCG::OnCombatStateChanged()
 	{
 		case CombatSystem::CombatState::PLAYER_TURN:
 		{
+
+			if (passTurn!=nullptr) {
+				passTurn->localVisible = true;
+				passTurn->interactable = true;
+			}
+
 			attacksToExecute.clear();
 			for (size_t i = 0; i < charactersSlot.size(); i++)
 			{

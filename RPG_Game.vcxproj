@@ -144,6 +144,7 @@
     <ClCompile Include="src\CameraController.cpp" />
     <ClCompile Include="src\Character.cpp" />
     <ClCompile Include="src\CharacterDatabase.cpp" />
+    <ClCompile Include="src\CharacterSilhouette.cpp" />
     <ClCompile Include="src\CombatAI.cpp" />
     <ClCompile Include="src\CombatCG.cpp" />
     <ClCompile Include="src\CombatGameState.cpp" />
@@ -231,6 +232,7 @@
     <ClInclude Include="src\CameraController.h" />
     <ClInclude Include="src\Character.h" />
     <ClInclude Include="src\CharacterDatabase.h" />
+    <ClInclude Include="src\CharacterSilhouette.h" />
     <ClInclude Include="src\CombatAI.h" />
     <ClInclude Include="src\CombatCG.h" />
     <ClInclude Include="src\CombatGameState.h" />

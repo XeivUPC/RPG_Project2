@@ -16,6 +16,7 @@
 #include "AudioContainer.h"
 #include "Party.h"
 #include "Inventory.h"
+#include "CharacterSilhouette.h"
 
 PlayerCharacter::PlayerCharacter()
 {
@@ -50,11 +51,11 @@ PlayerCharacter::PlayerCharacter()
 	mask.flags.interactable_layer = 1;
 	body->SetFilter(fixtureIndex, category.rawValue, mask.rawValue, 0);
 
-	SetCharacterId(0);
+	SetCharacterId(-1);
 
 	inventory = new Inventory();
 
-	party = new Party(0);
+	party = new Party(-1);
 	party->onPartyChanged.Subscribe([this]() {SetFollowers(party->GetPartyIds(true), distanceBetweenFollowers); });
 	party->onPartyChanged.Subscribe([this]() {SetCharacterId(party->GetPartyLeaderId()); });
 
@@ -80,11 +81,17 @@ PlayerCharacter::PlayerCharacter()
 	animator->GetAnimationClip("run-horizontally")->GetSprite(0).onSpriteSelected.Subscribe([this, audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
 	animator->GetAnimationClip("run-horizontally")->GetSprite(3).onSpriteSelected.Subscribe([this, audioRef, assetsRef, footstepContainer]() {audioRef->PlaySFX(footstepContainer->GetNextClip()); });
 
+
+	silhouette = new CharacterSilhouette();
+	silhouette->renderLayer = renderLayer + 1;
+	silhouette->SetCharacter(this);
+
 }
 
 PlayerCharacter::~PlayerCharacter()
 {
 	delete inventory;
+	delete silhouette;
 }
 
 bool PlayerCharacter::Update()
@@ -105,8 +112,6 @@ void PlayerCharacter::Render()
 {
 	float alpha = Engine::Instance().m_time->GetPhysicsInterpolationAlpha();
 	
-	Vector2 renderPosition = Vector2::Lerp(previousPhysicsPosition, position, alpha);
-
 	animator->clip()->RenderClip();
 }
 
@@ -116,7 +121,6 @@ bool PlayerCharacter::CleanUp()
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 	delete body;
-
 	delete party;
 
 	animator->CleanUp();

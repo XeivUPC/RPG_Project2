@@ -165,6 +165,11 @@ void Character::ClearFollowerPath()
 	pathFollowersData.clear();
 }
 
+Animator& Character::GetAnimator() const
+{
+	return *animator;
+}
+
 bool Character::AddFollower(int _charId, float distance)
 {
 	if (followers.size() >= maxFollowers)

@@ -17,7 +17,7 @@
 
 ModulePhysics::ModulePhysics(bool start_active) : Module(start_active)
 {
-	debug = true;
+	debug = false;
 	collisionsManager = new CollisionsDispatcher();
 	renderLayer = 10;
 

@@ -17,6 +17,7 @@ ScreenEffectsCG::ScreenEffectsCG(int _renderLayer)
 	CreateAmbientFade();
 	CreateVignette();
 	CreateRainEffect();
+	CreateFirefliesEffect();
 
 	StopRain();
 }
@@ -46,7 +47,7 @@ void ScreenEffectsCG::StartRain()
 
 	if(rainSoundChannel!=-1)
 		return;
-	rainSoundChannel = Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("rain_sfx"), -1);
+	rainSoundChannel = Engine::Instance().m_audio->PlaySFXWithFade(Engine::Instance().m_assetsDB->GetAudio("rain_sfx"), rainSoundChannel, -1,1000);
 
 }
 
@@ -56,7 +57,7 @@ void ScreenEffectsCG::StopRain()
 	rainEffect->localVisible = false;
 	if (rainSoundChannel == -1)
 		return;
-	Engine::Instance().m_audio->StopSFX(rainSoundChannel);
+	Engine::Instance().m_audio->StopSFX(rainSoundChannel,1000);
 	rainSoundChannel = -1;
 	
 }
@@ -81,8 +82,13 @@ void ScreenEffectsCG::CreateVignette()
 void ScreenEffectsCG::CreateRainEffect()
 {
 	rainEffect = new UIAnimatedImage({ 0,0 }, { LOGIC_SCREEN_WIDTH,LOGIC_SCREEN_HEIGHT });
-	rainEffect->GetJsonAnimator()->AddJsonAnimationClip("Assets/Textures/Animations/rain_animation.json");
+	rainEffect->GetJsonAnimator()->AddJsonAnimationClip("Assets/Textures/Animations/rain_animation.json",0.04f);
 	AddElementToCanvas(rainEffect);
+}
+
+void ScreenEffectsCG::CreateFirefliesEffect()
+{
+
 }
 
 

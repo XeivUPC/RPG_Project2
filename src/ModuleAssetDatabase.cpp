@@ -37,11 +37,17 @@ void ModuleAssetDatabase::LoadAssets()
 
 	///// LOAD ASSETS REQUIERED
 
-//// Sounds
+//// Sounds //pepe
 	////Music
-	AddMusicToStorage("mainTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/Main Theme.ogg"));
-	AddMusicToStorage("townTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/Town Theme.ogg"));
-	AddMusicToStorage("patoGallina", *audioFactory->CreateMusic("Assets/Sounds/Music/PatoGallina.ogg"));
+	AddMusicToStorage("mainTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/MainMenu.ogg"));
+	AddMusicToStorage("townTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/TownTheme.ogg"));
+	
+	AddMusicToStorage("meetingArtis", *audioFactory->CreateMusic("Assets/Sounds/Music/ArtisDance.ogg"));
+	AddMusicToStorage("deathOfEmperor", *audioFactory->CreateMusic("Assets/Sounds/Music/DeathOfAnEmperor.ogg"));
+
+	AddMusicToStorage("zaliumAnthemOrchestra", *audioFactory->CreateMusic("Assets/Sounds/Music/ZaliumAnthemOrchestra.ogg"));
+	AddMusicToStorage("herosMarch", *audioFactory->CreateMusic("Assets/Sounds/Music/HerosMarch.ogg"));
+
 	///SFX
 	AddAudioToStorage("alert", *audioFactory->CreateAudio("Assets/Sounds/SFX/alert.wav"));
 	AddAudioToStorage("logo_intro", *audioFactory->CreateAudio("Assets/Sounds/SFX/logo_intro.wav"));
@@ -49,7 +55,6 @@ void ModuleAssetDatabase::LoadAssets()
 	AddAudioToStorage("btn_click", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click1.wav"));
 	AddAudioToStorage("btn_click2", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click2.wav"));
 	AddAudioToStorage("btn_click3", *audioFactory->CreateAudio("Assets/Sounds/SFX/btn_click3.wav"));
-	AddAudioToStorage("miau", *audioFactory->CreateAudio("Assets/Sounds/SFX/Miau.wav"));
 	AddAudioToStorage("ambient_birds1", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds1.wav"));
 	AddAudioToStorage("ambient_birds2", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/forest_birds2.wav"));
 	AddAudioToStorage("rain_sfx", *audioFactory->CreateAudio("Assets/Sounds/SFX/Ambient/rain.wav"));
@@ -122,6 +127,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddAtlasToStorage("items_atlas", *atlasFactory->CreateAtlas(*GetTexture("items_atlas"), "Assets/Textures/Atlas/Items/ItemsAtlas.xml"));
 
 	AddTextureToStorage("pj_test", *textureFactory->CreateTexture("Assets/Textures/Characters/player_spritesheet.png"));
+	AddTextureToStorage("guard_test", *textureFactory->CreateTexture("Assets/Textures/Characters/guard_spritesheet.png"));
 	AddTextureToStorage("npc_test", *textureFactory->CreateTexture("Assets/Textures/Characters/npc_spritesheet.png"));
 	AddTextureToStorage("artis_test", *textureFactory->CreateTexture("Assets/Textures/Characters/artis_spritesheet.png"));
 	AddTextureToStorage("cassian_test", *textureFactory->CreateTexture("Assets/Textures/Characters/cassian_spritesheet.png"));

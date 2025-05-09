@@ -136,6 +136,9 @@
     <Filter Include="Source Files\Others">
       <UniqueIdentifier>{98ed2fd3-57c0-4a1f-bfbd-19ee05e2e471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Entities\Type %28Entity%29\Character\Extra">
+      <UniqueIdentifier>{538ddc0a-9a84-4c0b-a3a7-ff11334a156d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -324,12 +327,6 @@
     <ClCompile Include="src\Sprite.cpp">
       <Filter>Source Files\Utils\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="src\CombatCG.cpp">
-      <Filter>Source Files\Utils\Combat</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CombatGameState.cpp">
-      <Filter>Source Files\Utils\Combat</Filter>
-    </ClCompile>
     <ClCompile Include="src\CombatSystem.cpp">
       <Filter>Source Files\Utils\Combat</Filter>
     </ClCompile>
@@ -389,6 +386,15 @@
     </ClCompile>
     <ClCompile Include="src\JsonAnimator.cpp">
       <Filter>Source Files\Utils\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CharacterSilhouette.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CombatGameState.cpp">
+      <Filter>Source Files\GameState\Types %28GameState%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CombatCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -620,12 +626,6 @@
     <ClInclude Include="src\SystemEvent.h">
       <Filter>Source Files\_Core\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\CombatCG.h">
-      <Filter>Source Files\Utils\Combat</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CombatGameState.h">
-      <Filter>Source Files\Utils\Combat</Filter>
-    </ClInclude>
     <ClInclude Include="src\CombatStats.h">
       <Filter>Source Files\Utils\Combat</Filter>
     </ClInclude>
@@ -691,6 +691,15 @@
     </ClInclude>
     <ClInclude Include="src\JsonAnimator.h">
       <Filter>Source Files\Utils\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CharacterSilhouette.h">
+      <Filter>Source Files\Entities\Type %28Entity%29\Character\Extra</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CombatGameState.h">
+      <Filter>Source Files\GameState\Types %28GameState%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CombatCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
