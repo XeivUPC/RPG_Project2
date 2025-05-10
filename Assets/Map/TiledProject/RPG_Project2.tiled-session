@@ -5,12 +5,12 @@
     },
     "activeFile": "Maps/Forest_Secret_Cliff.tmx",
     "expandedProjectPaths": [
-        "Objects",
-        ".",
-        "Maps",
         "Prefabs",
         "Tilesets",
-        "Prefabs/Buildings"
+        ".",
+        "Maps",
+        "Prefabs/Buildings",
+        "Objects"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -57,11 +57,11 @@
                 7,
                 10
             ],
-            "scale": 3,
-            "selectedLayer": 4,
+            "scale": 0.75,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 193.16666666666666,
-                "y": 144
+                "x": 304,
+                "y": 357.33333333333337
             }
         },
         "Maps/House2_Inside.tmx": {
@@ -72,8 +72,8 @@
             "scale": 3,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 207.83333333333331,
-                "y": 112
+                "x": 208,
+                "y": 111.83333333333334
             }
         },
         "Maps/House3_Inside.tmx": {
@@ -84,8 +84,8 @@
             "scale": 0.75,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 433.9999999999999,
-                "y": 478.6666666666666
+                "x": 208,
+                "y": 239.33333333333331
             }
         },
         "Maps/House4_Inside.tmx": {
@@ -95,8 +95,8 @@
             "scale": 3,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 244.5,
-                "y": 255.66666666666663
+                "x": 248,
+                "y": 168.16666666666666
             }
         },
         "Maps/Map1.tmx": {
@@ -115,7 +115,7 @@
             "scale": 3,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 331.5,
+                "x": 331.66666666666663,
                 "y": 808.6666666666666
             }
         },
@@ -231,7 +231,6 @@
     "openFiles": [
         "Tilesets/Vegetation_Atlas.tsx",
         "Maps/Forest.tmx",
-        "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/Forest_Secret_Cliff.tmx",
         "Maps/House3_Inside.tmx",
         "Maps/House4_Inside.tmx",
@@ -242,11 +241,11 @@
     "recentFiles": [
         "Tilesets/Vegetation_Atlas.tsx",
         "Maps/Forest.tmx",
-        "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/House2_Inside.tmx",
         "Maps/House4_Inside.tmx",
         "Maps/House3_Inside.tmx",
         "Maps/Forest_Secret_Cliff.tmx",
+        "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/SecondAreaTest.tmx",
         "Tilesets/Building_Atlas.tsx",
         "Maps/Testing_Zone.tmx",
