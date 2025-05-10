@@ -10,12 +10,44 @@
 		</properties>
 	</item>
 	<item>
+		<id>item;healing_bread</id>
+		<name>Military ration bread</name>
+		<description>Baked by the Cook, barely edible.</description>
+		<stackable-quantity>64</stackable-quantity>
+		<properties>
+			<type>consumible</type>
+			<healing-amount>10</healing-amount>
+		</properties>
+	</item>
+	<item>
+		<id>item;healing_wrap</id>
+		<name>Healthy wrap</name>
+		<description>Not only does it have great taste, it is also healthy!</description>
+		<stackable-quantity>64</stackable-quantity>
+		<properties>
+			<type>consumible</type>
+			<healing-amount>20</healing-amount>
+		</properties>
+	</item>
+	<item>
+		<id>item;healing_macaroni</id>
+		<name>Mom's macaroni</name>
+		<description>A meal forged by gods, there are few worthy to taste them.</description>
+		<stackable-quantity>64</stackable-quantity>
+		<properties>
+			<type>consumible</type>
+			<healing-amount>50</healing-amount>
+		</properties>
+	</item>
+	<item>
 		<id>item;zalium_armor</id>
 		<name>Zalium armor</name>
 		<description>0</description>
 		<stackable-quantity>1</stackable-quantity>
 		<properties>
 			<type>armor</type>
+			<defense-amount>10</defense-amount>
+			<health-amount>20</health-amount>
 		</properties>
 	</item>
 	<item>
@@ -25,6 +57,8 @@
 		<stackable-quantity>1</stackable-quantity>
 		<properties>
 			<type>weapon</type>
+			<damage-amount>20</damage-amount>
+			<critical-percentage>10</critical-percentage>
 		</properties>
 	</item>
 	<item>
@@ -34,6 +68,7 @@
 		<stackable-quantity>1</stackable-quantity>
 		<properties>
 			<type>helmet</type>
+			<defense-amount>20</defense-amount>
 		</properties>
 	</item>
 	<item>
@@ -43,6 +78,7 @@
 		<stackable-quantity>1</stackable-quantity>
 		<properties>
 			<type>accessory</type>
+			<defense-amount>20</defense-amount>
 		</properties>
 	</item>
 	<item>
@@ -52,6 +88,8 @@
 		<stackable-quantity>1</stackable-quantity>
 		<properties>
 			<type>weapon</type>
+			<damage-amount>10</damage-amount>
+			<critical-percentage>25</critical-percentage>
 		</properties>
 	</item>
 	<item>
@@ -61,6 +99,8 @@
 		<stackable-quantity>1</stackable-quantity>
 		<properties>
 			<type>weapon</type>
+			<damage-amount>20</damage-amount>
+			<speed-amount>10</speed-amount>
 		</properties>
 	</item>
 </itemList> 
