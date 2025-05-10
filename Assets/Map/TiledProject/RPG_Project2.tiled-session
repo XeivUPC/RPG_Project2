@@ -42,57 +42,60 @@
         },
         "Maps/Forest.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 3,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 278.16666666666663,
-                "y": 64
+                "x": 353,
+                "y": 160.16666666666666
             }
         },
         "Maps/Forest_Secret_Cliff.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
-            ],
-            "scale": 1,
-            "selectedLayer": 0,
-            "viewCenter": {
-                "x": 184.5,
-                "y": -56
-            }
-        },
-        "Maps/House2_Inside.tmx": {
-            "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 3,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208,
+                "x": 193.16666666666666,
+                "y": 144
+            }
+        },
+        "Maps/House2_Inside.tmx": {
+            "expandedObjectLayers": [
+                7,
+                10
+            ],
+            "scale": 3,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 207.83333333333331,
                 "y": 112
             }
         },
         "Maps/House3_Inside.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
-            "scale": 8,
+            "scale": 0.75,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208.0625,
-                "y": 239.9375
+                "x": 433.9999999999999,
+                "y": 478.6666666666666
             }
         },
         "Maps/House4_Inside.tmx": {
+            "expandedObjectLayers": [
+                7
+            ],
             "scale": 3,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 244.66666666666663,
+                "x": 244.5,
                 "y": 255.66666666666663
             }
         },
@@ -106,14 +109,14 @@
         },
         "Maps/Rogue_Squadron_Headquarters.tmx": {
             "expandedObjectLayers": [
-                6,
-                9
+                9,
+                6
             ],
-            "scale": 1.5,
-            "selectedLayer": 7,
+            "scale": 3,
+            "selectedLayer": 6,
             "viewCenter": {
-                "x": 377,
-                "y": 856.6666666666665
+                "x": 331.5,
+                "y": 808.6666666666666
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {

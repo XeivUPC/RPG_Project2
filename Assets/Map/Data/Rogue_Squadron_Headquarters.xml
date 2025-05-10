@@ -1951,7 +1951,7 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="659" name="EntryPoint1" x="281" y="882.333">
+  <object id="659" name="EntryPoint1" x="281" y="901.666">
    <properties>
     <property name="Type" value="entryPoint"/>
     <property name="Value" type="int" value="1"/>
