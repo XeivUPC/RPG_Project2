@@ -93,7 +93,7 @@ void OverworldItem::InitPoolObject()
 void OverworldItem::ResetPoolObject()
 {
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
-	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+	Engine::Instance().m_render->RemoveFromRenderQueue(*this);
 	Reset();
 	delete body;
 	/// Destruir collider

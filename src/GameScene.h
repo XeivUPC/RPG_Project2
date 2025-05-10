@@ -63,6 +63,8 @@ public:
 	PlayerCharacter* GetPlayer() const;
 
 	void FreshStart();
+
+	void AskForLoadSaveData();
 	void LoadGameSaveData();
 	void SaveGameSaveData();
 

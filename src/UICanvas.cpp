@@ -14,7 +14,7 @@ UICanvas::UICanvas()
 
 UICanvas::~UICanvas()
 {
-	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+	Engine::Instance().m_render->RemoveFromRenderQueue(*this);
 	ClearCanvas();
 	if (root != nullptr) {
 		delete root;

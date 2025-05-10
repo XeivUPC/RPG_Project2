@@ -196,6 +196,7 @@
     <ClCompile Include="src\ChronoTimer.cpp" />
     <ClCompile Include="src\ModuleWindow.cpp" />
     <ClCompile Include="src\PlayerCharacter.cpp" />
+    <ClCompile Include="src\SaveLoadCG.cpp" />
     <ClCompile Include="src\ScreenEffectsCG.cpp" />
     <ClCompile Include="src\SettingsCG.cpp" />
     <ClCompile Include="src\SimpleMapObject.cpp" />
@@ -296,6 +297,7 @@
     <ClInclude Include="src\PlayerCharacter.h" />
     <ClInclude Include="src\Pooling.h" />
     <ClInclude Include="src\ChronoTimer.h" />
+    <ClInclude Include="src\SaveLoadCG.h" />
     <ClInclude Include="src\ScreenEffectsCG.h" />
     <ClInclude Include="src\SettingsCG.h" />
     <ClInclude Include="src\SimpleMapObject.h" />
