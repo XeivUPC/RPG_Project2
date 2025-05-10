@@ -123,12 +123,6 @@ bool GameScene::Start()
     gameplayCanvas->SetUser(player);
    
 
-    auto item = Pooling::Instance().AcquireObject<OverworldItem>();
-    item->Initialize(ItemList::Instance().ItemByID("item;zalium_armor"), 5, {180,250});
-
-    gameplayCanvas->SetLocation(item->GetPosition());
-
-
     if (!isRaining)
         StopRain();
     else
@@ -403,6 +397,7 @@ void GameScene::SwapNewTilemap(string path, int entryPoint)
         Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
         Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
         Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+        Pooling::Instance().ReturnAllToPool<OverworldItem>();
         //// Do Swap
         tilemaps[tilemaps.size() - 1]->CleanUp();
         delete tilemaps[tilemaps.size() - 1];
@@ -439,6 +434,7 @@ void GameScene::DeleteLastTilemap()
         Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
         Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
         Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+        Pooling::Instance().ReturnAllToPool<OverworldItem>();
 
         tilemaps[tilemaps.size() - 1]->CleanUp();
         delete tilemaps[tilemaps.size() - 1];
@@ -523,6 +519,7 @@ void GameScene::LoadGameSaveData()
         Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
         Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
         Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+        Pooling::Instance().ReturnAllToPool<OverworldItem>();
 
 
 
@@ -577,6 +574,23 @@ void GameScene::LoadGameSaveData()
 
 			tilemaps[tilemaps.size() - 1]->SetSpawnPoint(tilemapSpawnPoint);
         }     
+
+
+
+        xml_node itemsNode = mapNode.child("items");
+        for (xml_node item = itemsNode.child("item"); item; item = item.next_sibling("item"))
+        {
+            Vector2 itemPosition = { 0, 0 };
+            itemPosition.x = item.attribute("position-x").as_int();
+            itemPosition.y = item.attribute("position-y").as_int();
+
+            string itemId = item.attribute("id").as_string();
+            int itemAmount = item.attribute("amount").as_int();
+
+
+            auto itemObject = Pooling::Instance().AcquireObject<OverworldItem>();
+            itemObject->Initialize(ItemList::Instance().ItemByID(itemId), itemAmount, itemPosition);
+        }
 
         player->SetPosition(playerPosData);
         screenEffectsCanvas->RecalculateAmbientFadeColors();
@@ -638,6 +652,24 @@ void GameScene::SaveGameSaveData()
             Vector2 spawnPointData = tilemap->GetSpawnPoint();
 			tilemapNode.append_attribute("spawnpoint-x").set_value(spawnPointData.x);
 			tilemapNode.append_attribute("spawnpoint-y").set_value(spawnPointData.y);
+        }
+
+        xml_node itemsNode = mapNode.child("items");
+        itemsNode.remove_children();
+
+        vector<shared_ptr<OverworldItem>> itemsActive = Pooling::Instance().AcquireActiveObjects<OverworldItem>();
+        for (const auto& item : itemsActive)
+        {
+            xml_node itemNode = itemsNode.append_child("item");
+
+			Vector2 itemPos = item->GetPosition();
+			string itemId = item->GetId();
+			int itemAmount = item->GetAmount();
+
+            itemNode.append_attribute("id").set_value(itemId.c_str());
+            itemNode.append_attribute("amount").set_value(itemAmount);
+            itemNode.append_attribute("position-x").set_value(itemPos.x);
+            itemNode.append_attribute("position-y").set_value(itemPos.y);
         }
 
         file.save_file(savePath.c_str());
