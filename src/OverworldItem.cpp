@@ -67,6 +67,21 @@ void OverworldItem::PickUp()
 	Engine::Instance().s_game->GetPlayer()->inventory->displayInventory();
 }
 
+string OverworldItem::GetId() const
+{
+	return itemRef->id;
+}
+
+int OverworldItem::GetAmount() const
+{
+	return quantity;
+}
+
+const Item* OverworldItem::GetItemRef() const
+{
+	return itemRef;
+}
+
 void OverworldItem::InitPoolObject()
 {
 	Engine::Instance().m_render->AddToRenderQueue(*this, *this);
