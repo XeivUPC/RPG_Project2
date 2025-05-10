@@ -28,6 +28,8 @@ public:
 
 	void SetFadeTimer(int time);
 
+	int GetPercentageDone();
+
 	bool IsFading();
 public:
 

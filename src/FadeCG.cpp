@@ -101,6 +101,12 @@ void FadeCG::SetFadeTimer(int time)
 	timer = StepTimer(time);
 }
 
+int FadeCG::GetPercentageDone()
+{
+	float currentTime = timer.ReadSec();
+	return (currentTime / timeToDoFade) * 100;
+}
+
 bool FadeCG::IsFading()
 {
 	return fading;

@@ -23,6 +23,7 @@ public:
 	void StopRain();
 	void SwitchRain();
 
+	void RecalculateAmbientFadeColors();
 	void ShowAmbient();
 	void HideAmbient();
 
@@ -35,8 +36,9 @@ private:
 	void CreateFirefliesEffect();
 
 	void CreateAmbientFade();
-	void UpdateAmbient();
+	void UpdateAmbient(int _colorIndex= -1);
 	int GetAmbientColorIndex();
+	int GetAmbientColorIndex(int time);
 private:
 
 	UIImage* vignette = nullptr;

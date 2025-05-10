@@ -5,12 +5,12 @@
     },
     "activeFile": "Maps/Forest_Secret_Cliff.tmx",
     "expandedProjectPaths": [
+        "Objects",
         ".",
         "Maps",
-        "Prefabs/Buildings",
-        "Objects",
         "Prefabs",
-        "Tilesets"
+        "Tilesets",
+        "Prefabs/Buildings"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -232,7 +232,10 @@
         "Tilesets/Vegetation_Atlas.tsx",
         "Maps/Forest.tmx",
         "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Maps/Forest_Secret_Cliff.tmx"
+        "Maps/Forest_Secret_Cliff.tmx",
+        "Maps/House3_Inside.tmx",
+        "Maps/House4_Inside.tmx",
+        "Maps/House2_Inside.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "object",
@@ -240,14 +243,14 @@
         "Tilesets/Vegetation_Atlas.tsx",
         "Maps/Forest.tmx",
         "Maps/Rogue_Squadron_Headquarters.tmx",
+        "Maps/House2_Inside.tmx",
+        "Maps/House4_Inside.tmx",
+        "Maps/House3_Inside.tmx",
         "Maps/Forest_Secret_Cliff.tmx",
         "Maps/SecondAreaTest.tmx",
         "Tilesets/Building_Atlas.tsx",
-        "Maps/House4_Inside.tmx",
         "Maps/Testing_Zone.tmx",
         "Maps/Testing_Zone2.tmx",
-        "Maps/House2_Inside.tmx",
-        "Maps/House3_Inside.tmx",
         "Tilesets/Furniture_Atlas.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
