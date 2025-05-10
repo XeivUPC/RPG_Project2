@@ -23,6 +23,10 @@ public:
 	void StopRain();
 	void SwitchRain();
 
+	void RecalculateAmbientFadeColors();
+	void ShowAmbient();
+	void HideAmbient();
+
 private:
 	void CreateVignette();
 
@@ -32,8 +36,9 @@ private:
 	void CreateFirefliesEffect();
 
 	void CreateAmbientFade();
-	void UpdateAmbient();
+	void UpdateAmbient(int _colorIndex= -1);
 	int GetAmbientColorIndex();
+	int GetAmbientColorIndex(int time);
 private:
 
 	UIImage* vignette = nullptr;
@@ -41,6 +46,7 @@ private:
 
 	int rainSoundChannel = -1;
 	UIAnimatedImage* rainEffect = nullptr;
+	FadeCG* rainFade = nullptr;
 
 
 	FadeCG* ambientFade = nullptr;

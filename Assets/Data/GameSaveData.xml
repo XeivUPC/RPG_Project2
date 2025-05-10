@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="291" y="459" />
+		<position x="492" y="267" />
 		<party>
 			<active>
 				<member id="-1" />
@@ -14,9 +14,9 @@
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="8390.27734" />
+		<time value="32488.7988" />
 		<tilemaps>
-			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="280.210999" spawnpoint-y="831.908997" />
+			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="280" spawnpoint-y="831" />
 		</tilemaps>
 	</map>
 </game>

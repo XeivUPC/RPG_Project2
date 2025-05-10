@@ -16,6 +16,7 @@ bool ModuleUpdater::PreUpdate()
 	RemovePending(UpdateMode::PRE_UPDATE);
 	AddPending(UpdateMode::PRE_UPDATE);
 	SortUpdateTasks();
+	updateQueueDirty = false;
 	if(!isPaused)
 		return PreUpdateAll();
 	return true;
@@ -26,6 +27,7 @@ bool ModuleUpdater::Update()
 	RemovePending(UpdateMode::UPDATE);
 	AddPending(UpdateMode::UPDATE);
 	SortUpdateTasks();
+	updateQueueDirty = false;
 	if (!isPaused)
 		return UpdateAll();
 	return true;
@@ -36,6 +38,7 @@ bool ModuleUpdater::PostUpdate()
 	RemovePending(UpdateMode::POST_UPDATE);
 	AddPending(UpdateMode::POST_UPDATE);
 	SortUpdateTasks();
+	updateQueueDirty = false;
 	if (!isPaused)
 		return PostUpdateAll();
 	return true;
@@ -50,9 +53,6 @@ bool ModuleUpdater::CleanUp()
 
 void ModuleUpdater::AddPending(UpdateMode mode)
 {
-	if (addPendingQueue[mode].size() > 0) {
-		updateQueueDirty = true;
-	}
 	for (auto& task : addPendingQueue[mode])
 	{
 		updatesQueue[mode].emplace_back(task);
@@ -63,9 +63,6 @@ void ModuleUpdater::AddPending(UpdateMode mode)
 
 void ModuleUpdater::RemovePending(UpdateMode mode)
 {
-	if (removePendingQueue[mode].size()>0) {
-		updateQueueDirty = true;
-	}
 	for (auto& task : removePendingQueue[mode])
 	{
 		updatesQueue[mode].erase(
@@ -78,13 +75,14 @@ void ModuleUpdater::RemovePending(UpdateMode mode)
 
 void ModuleUpdater::AddToUpdateQueue(IUpdateable& updateableObj, UpdateMode mode, const string& groupId)
 {
+	updateQueueDirty = true;
 	addPendingQueue[mode].emplace_back(&updateableObj);
 	AddToUpdateGroup(updateableObj, groupId);
 }
 
 void ModuleUpdater::RemoveFromUpdateQueue(IUpdateable& updateableObj, UpdateMode mode, bool removeFromGroups)
 {
-	
+	updateQueueDirty = true;
 	removePendingQueue[mode].emplace_back(&updateableObj);
 	if (removeFromGroups)
 		RemoveFromUpdateGroup(updateableObj);
@@ -120,6 +118,7 @@ void ModuleUpdater::RemoveFromUpdateGroup(IUpdateable& updateableObj)
 		auto& vec = groupEntry.second.elements;
 		vec.erase(remove(vec.begin(), vec.end(), &updateableObj), vec.end());
 	}
+
 }
 
 void ModuleUpdater::SetUpdateQueueDirty()
@@ -224,6 +223,8 @@ bool ModuleUpdater::PreUpdateAll()
 			ret = updateTask->PreUpdate();
 		if (!ret)
 			break;
+		if (updateQueueDirty)
+			break;
 	}
 
 	RemovePending(UpdateMode::PRE_UPDATE);
@@ -239,6 +240,8 @@ bool ModuleUpdater::UpdateAll()
 			ret = updateTask->Update();
 		if (!ret)
 			break;
+		if (updateQueueDirty)
+			break;
 	}
 
 	RemovePending(UpdateMode::UPDATE);
@@ -253,6 +256,8 @@ bool ModuleUpdater::PostUpdateAll()
 		if (!updateTask->isPaused)
 			ret = updateTask->PostUpdate();
 		if (!ret)
+			break;
+		if (updateQueueDirty)
 			break;
 	}
 
