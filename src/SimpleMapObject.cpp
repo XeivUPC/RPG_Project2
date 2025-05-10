@@ -111,7 +111,7 @@ void SimpleMapObject::ResetPoolObject()
 {
 	texture = nullptr;
 	Engine::Instance().m_updater->RemoveFromUpdateGroup(*this, "Entity");
-	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+	Engine::Instance().m_render->RemoveFromRenderQueue(*this);
 	for (size_t i = 0; i < bodies.size(); i++)
 	{
 		delete bodies[i];

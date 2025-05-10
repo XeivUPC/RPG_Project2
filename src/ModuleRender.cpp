@@ -13,7 +13,7 @@
 
 ModuleRender::ModuleRender(bool start_active) : Module(start_active)
 {
-	priority_updating = -1;
+	priority_updating = -2;
 }
 
 ModuleRender::~ModuleRender()
@@ -106,7 +106,11 @@ bool ModuleRender::Update()
 bool ModuleRender::PostUpdate()
 {
 	camera.rect = camera.GetRect();
+
+	RemovePending();
+	AddPending();
 	SortRenderTasks();
+	renderQueueDirty = false;
 	RenderAll();
 
 	SDL_SetRenderDrawColor(renderer, background.r, background.g, background.g, background.a);
@@ -114,7 +118,28 @@ bool ModuleRender::PostUpdate()
 	return true;
 }
 
-void ModuleRender::RemoveFomRenderQueue(IRendereable& rendereableObj)
+void ModuleRender::AddPending()
+{
+	for (auto& task : addPendingQueue)
+	{
+		renderQueue.emplace_back(task);
+	}
+	addPendingQueue.clear();
+}
+
+void ModuleRender::RemovePending()
+{
+	for (auto& task : removePendingQueue)
+	{
+		renderQueue.erase(
+			remove(renderQueue.begin(), renderQueue.end(), task),
+			renderQueue.end()
+		);
+	}
+	removePendingQueue.clear();
+}
+
+void ModuleRender::RemoveFromRenderQueue(IRendereable& rendereableObj)
 {
 	if (renderQueue.size() == 0)
 		return;
@@ -124,10 +149,7 @@ void ModuleRender::RemoveFomRenderQueue(IRendereable& rendereableObj)
 		transformMap.erase(it);
 	}
 
-	renderQueue.erase(
-		remove(renderQueue.begin(), renderQueue.end(), &rendereableObj),
-		renderQueue.end()
-	);
+	removePendingQueue.emplace_back(&rendereableObj);
 	renderQueueDirty = true;
 }
 
@@ -153,7 +175,7 @@ void ModuleRender::SetRenderQueueDirty()
 }
 void ModuleRender::AddToRenderQueue(IRendereable& rendereableObj)
 {
-	renderQueue.emplace_back(&rendereableObj);
+	addPendingQueue.emplace_back(&rendereableObj);
 	renderQueueDirty = true;
 }
 

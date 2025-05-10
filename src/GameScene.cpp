@@ -85,8 +85,7 @@ bool GameScene::Start()
     dialogueCanvas = new UIDialogueBoxCG(dialogueSystem);
     dialogueCanvas->renderLayer = 7;
 
-    pauseCanvas = new PauseMenuCG();
-    pauseCanvas->renderLayer = 7;
+    pauseCanvas = new PauseMenuCG(7);
 
     gameplayCanvas = new GameplayCG();
     gameplayCanvas->renderLayer = 6;
@@ -156,8 +155,7 @@ bool GameScene::Update()
 
     if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_C) == KEY_DOWN)
     {
-        SaveGameSaveData();
-		//SetState(State::Combat);
+		SetState(State::Combat);
     }
 
     Engine::Instance().m_render->SortRenderQueueLayerByPosition(3);
@@ -173,6 +171,7 @@ bool GameScene::PostUpdate()
 {
     fade->UpdateCanvas();
     game_states[state]->PostUpdateState();
+
 
     return true;
 }
@@ -346,21 +345,21 @@ void GameScene::ExitGame()
 void GameScene::ChangeTilemap(string path, int entryPoint)
 {
     fade->FadeTo(0.5f, 255);
-    fade->onFadeEnd.Subscribe([this, path, entryPoint]() {SwapNewTilemap(path, entryPoint); });
+    fade->onFadeEnd.Subscribe([this, path, entryPoint]() {SwapNewTilemap(path, entryPoint);  fade->FadeTo(0.5f, 0); });
     Engine::Instance().m_updater->PauseUpdateGroup("Entity");
 }
 
 void GameScene::AddTilemap(string path)
 {
     fade->FadeTo(0.5f, 255);
-    fade->onFadeEnd.Subscribe([this, path]() {CreateNewTilemap(path); });
+    fade->onFadeEnd.Subscribe([this, path]() {CreateNewTilemap(path);    fade->FadeTo(0.5f, 0); });
     Engine::Instance().m_updater->PauseUpdateGroup("Entity");
 }
 
 void GameScene::RemoveLastTilemap()
 {
     fade->FadeTo(0.5f, 255);
-	fade->onFadeEnd.Subscribe([this]() {DeleteLastTilemap(); });
+	fade->onFadeEnd.Subscribe([this]() {DeleteLastTilemap(); fade->FadeTo(0.5f, 0); });
     Engine::Instance().m_updater->PauseUpdateGroup("Entity");
 }
 
@@ -373,7 +372,7 @@ void GameScene::CreateNewTilemap(string path)
         Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("open_door"));
     }
 
-    fade->FadeTo(0.5f, 0);
+
 
     if (tilemaps.size() != 0) {
         tilemaps[tilemaps.size() - 1]->isVisible = false;
@@ -399,7 +398,7 @@ void GameScene::SwapNewTilemap(string path, int entryPoint)
 
     Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("change_area"));
 
-    fade->FadeTo(0.5f, 0);
+   
     if (tilemaps.size() != 0) {
         Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
         Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
@@ -433,7 +432,7 @@ void GameScene::DeleteLastTilemap()
 
     Engine::Instance().m_audio->PlaySFX(Engine::Instance().m_assetsDB->GetAudio("close_door"));
 
-    fade->FadeTo(0.5f, 0);
+    
 
     if (tilemaps.size() != 0) {
 
@@ -490,9 +489,21 @@ void GameScene::FreshStart()
     screenEffectsCanvas->RecalculateAmbientFadeColors();
 }
 
+
+void GameScene::AskForLoadSaveData()
+{
+    fade->FadeTo(0.5f, 255);
+
+    fade->onFadeEnd.Subscribe([this]() {LoadGameSaveData();  fade->FadeTo(0.5f, 0);  SetState(State::Exploring); });
+}
+
 void GameScene::LoadGameSaveData()
 {
     LOG("Loading Game");
+
+    
+   
+    
 
     xml_document file;
     pugi::xml_parse_result result = file.load_file(savePath.c_str());
@@ -504,6 +515,7 @@ void GameScene::LoadGameSaveData()
 
         for (size_t i = 0; i < tilemaps.size(); i++)
         {
+            tilemaps[i]->CleanUp();
             delete tilemaps[i];
         }
         tilemaps.clear();
@@ -558,8 +570,10 @@ void GameScene::LoadGameSaveData()
             bool isLast = tilemap.next_sibling("tilemap") == nullptr;
             if (isLast)
                 CreateNewTilemap(tilemap.attribute("path").as_string());
-            else
+            else {
                 tilemaps.emplace_back(new Tilemap(tilemap.attribute("path").as_string(), 1));
+                tilemaps[tilemaps.size() - 1]->isVisible = false;
+            }
 
 			tilemaps[tilemaps.size() - 1]->SetSpawnPoint(tilemapSpawnPoint);
         }     
@@ -570,7 +584,10 @@ void GameScene::LoadGameSaveData()
     else {
         LOG("Game couldn't be loaded");
     }
+
+  
 }
+
 
 void GameScene::SaveGameSaveData()
 {

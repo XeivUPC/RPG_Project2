@@ -47,7 +47,7 @@ class ModuleRender : public Module {
 
 		void AddToRenderQueue(IRendereable& rendereableObj);
 		void AddToRenderQueue(IRendereable& rendereableObj, ITransformable& transformableObj);
-		void RemoveFomRenderQueue(IRendereable& rendereableObj);
+		void RemoveFromRenderQueue(IRendereable& rendereableObj);
 		void SortRenderQueueLayerByPosition(int targetLayer);
 		void SetRenderQueueDirty();
 
@@ -82,6 +82,10 @@ class ModuleRender : public Module {
 		// Inherited via IUpdateable
 		bool PostUpdate() override;
 
+
+		void AddPending();
+		void RemovePending();
+
 		void SortRenderTasks();
 		void RenderAll();
 
@@ -98,5 +102,8 @@ class ModuleRender : public Module {
 		bool cameraMode = true;
 
 		DrawingTools* drawingTools = nullptr;
+
+		vector<IRendereable*> addPendingQueue;
+		vector<IRendereable*> removePendingQueue;
 	
 };

@@ -554,7 +554,7 @@ void Tilemap::Render()
 
 bool Tilemap::CleanUp()
 {
-    Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+    Engine::Instance().m_render->RemoveFromRenderQueue(*this);
 
     entryPoints.clear();
     animations.clear();
