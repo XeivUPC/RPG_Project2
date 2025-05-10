@@ -75,6 +75,7 @@ void ScreenEffectsCG::SwitchRain()
 		StartRain();
 }
 
+
 void ScreenEffectsCG::ShowAmbient()
 {
 	ambientFade_support->isVisible = true;
@@ -131,11 +132,39 @@ void ScreenEffectsCG::CreateAmbientFade()
 	ambientFade->renderLayer = renderLayer;
 }
 
-void ScreenEffectsCG::UpdateAmbient()
+void ScreenEffectsCG::RecalculateAmbientFadeColors()
 {
 
+	float totalTime = Engine::Instance().s_game->GetTime();
+	float intervalDuration = intervalTime * 3600; 
+	int currentInterval = static_cast<int>(totalTime / intervalDuration);
+	float intervalStartTime = currentInterval * intervalDuration;
+
+	float timePassedInInterval = (totalTime - intervalStartTime) / Engine::Instance().s_game->GetTimeScale();
+
+	lastInterval = -1;
 	
-	int colorIndex = GetAmbientColorIndex();
+	int colorIndex = (currentInterval - 1 + ambientFadeColors.size()) % ambientFadeColors.size();
+	SDL_Color color = ambientFadeColors[colorIndex];
+	SDL_Color supportColor = ambientFadeSupportColors[colorIndex];
+
+	ambientFade->SetColor(color.r, color.g, color.b, color.a);
+	ambientFade_support->SetColor(supportColor.r, supportColor.g, supportColor.b, supportColor.a);
+	UpdateAmbient();
+
+	ambientFade->SetFadeTimer(timePassedInInterval);
+	ambientFade_support->SetFadeTimer(timePassedInInterval);
+
+
+}
+
+void ScreenEffectsCG::UpdateAmbient(int _colorIndex)
+{
+
+
+	int colorIndex = _colorIndex;
+	if(colorIndex==-1)
+		colorIndex = GetAmbientColorIndex();
 
 	if (colorIndex != lastInterval)
 	{
@@ -153,6 +182,12 @@ void ScreenEffectsCG::UpdateAmbient()
 int ScreenEffectsCG::GetAmbientColorIndex()
 {
 	float totalTime = Engine::Instance().s_game->GetTime();
+	return GetAmbientColorIndex(totalTime);
+}
+
+int ScreenEffectsCG::GetAmbientColorIndex(int time)
+{
+	float totalTime = time;
 	int currentInterval = static_cast<int>(totalTime / (intervalTime * 3600));
 	int colorIndex = currentInterval % ambientFadeColors.size();
 	return colorIndex;

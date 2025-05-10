@@ -180,6 +180,7 @@ bool GameScene::PostUpdate()
 
 bool GameScene::CleanUp()
 {
+
     delete dialogueCanvas;
     delete combatCanvas;
     delete pauseCanvas;
@@ -485,6 +486,8 @@ PlayerCharacter* GameScene::GetPlayer() const
 void GameScene::FreshStart()
 {
     CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
+    clock = StepTimer(3600*12);
+    screenEffectsCanvas->RecalculateAmbientFadeColors();
 }
 
 void GameScene::LoadGameSaveData()
@@ -562,6 +565,7 @@ void GameScene::LoadGameSaveData()
         }     
 
         player->SetPosition(playerPosData);
+        screenEffectsCanvas->RecalculateAmbientFadeColors();
     }
     else {
         LOG("Game couldn't be loaded");
