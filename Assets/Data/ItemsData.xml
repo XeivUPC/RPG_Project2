@@ -19,12 +19,48 @@
 		</properties>
 	</item>
 	<item>
+		<id>item;zalium_bow</id>
+		<name>Zalium bow</name>
+		<description>0</description>
+		<stackable-quantity>1</stackable-quantity>
+		<properties>
+			<type>weapon</type>
+		</properties>
+	</item>
+	<item>
 		<id>item;zalium_helm</id>
 		<name>Zalium helmet</name>
 		<description>0</description>
 		<stackable-quantity>1</stackable-quantity>
 		<properties>
 			<type>helmet</type>
+		</properties>
+	</item>
+	<item>
+		<id>item;zalium_shield</id>
+		<name>Zalium shield</name>
+		<description>0</description>
+		<stackable-quantity>1</stackable-quantity>
+		<properties>
+			<type>accessory</type>
+		</properties>
+	</item>
+	<item>
+		<id>item;zalium_spear</id>
+		<name>Zalium spear</name>
+		<description>0</description>
+		<stackable-quantity>1</stackable-quantity>
+		<properties>
+			<type>weapon</type>
+		</properties>
+	</item>
+	<item>
+		<id>item;zalium_sword</id>
+		<name>Zalium sword</name>
+		<description>0</description>
+		<stackable-quantity>1</stackable-quantity>
+		<properties>
+			<type>weapon</type>
 		</properties>
 	</item>
 </itemList> 
