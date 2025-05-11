@@ -1,6 +1,6 @@
 #pragma once
 #include "UIElement.h"
-#include "JsonAnimator.h"
+#include "Animator.h"
 
 class UIAnimatedImage : public UIElement {
 public:
@@ -15,7 +15,6 @@ public:
 	void RenderElementDebug() override;
 
 	Animator* GetAnimator();
-	JsonAnimator* GetJsonAnimator();
 
 
 public:
@@ -23,5 +22,5 @@ public:
 private:
 
 private:
-	JsonAnimator animator;
+	Animator animator;
 };

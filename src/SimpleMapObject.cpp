@@ -86,6 +86,11 @@ void SimpleMapObject::AddCircleCollision(Vector2 _position,	float radius)
 	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
 }
 
+bool SimpleMapObject::Update()
+{
+	return true;
+}
+
 void SimpleMapObject::Render()
 {
 	if (texture == nullptr)
@@ -104,14 +109,15 @@ bool SimpleMapObject::CleanUp()
 void SimpleMapObject::InitPoolObject()
 {
 	Engine::Instance().m_render->AddToRenderQueue(*this, *this);
+	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 	Engine::Instance().m_updater->AddToUpdateGroup(*this, "Entity");
 }
 
 void SimpleMapObject::ResetPoolObject()
 {
 	texture = nullptr;
-	Engine::Instance().m_updater->RemoveFromUpdateGroup(*this, "Entity");
-	Engine::Instance().m_render->RemoveFromRenderQueue(*this);
+	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 	for (size_t i = 0; i < bodies.size(); i++)
 	{
 		delete bodies[i];

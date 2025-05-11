@@ -5,11 +5,6 @@ StepTimer::StepTimer()
 	Start();
 }
 
-StepTimer::StepTimer(float seconds)
-{
-	timePassed = seconds;
-}
-
 StepTimer::~StepTimer()
 {
 }
@@ -17,11 +12,6 @@ StepTimer::~StepTimer()
 void StepTimer::Start()
 {
 	timePassed = 0;
-}
-
-void StepTimer::Start(float seconds)
-{
-	timePassed = seconds;
 }
 
 void StepTimer::Step(double amount)

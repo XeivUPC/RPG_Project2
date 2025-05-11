@@ -56,9 +56,6 @@ class ModuleUpdater : public Module {
 		// Inherited via ICleanable
 		bool CleanUp() override;
 
-		void AddPending(UpdateMode mode);
-		void RemovePending(UpdateMode mode);
-
 		bool PreUpdateAll();
 		bool UpdateAll();
 		bool PostUpdateAll();
@@ -72,9 +69,5 @@ class ModuleUpdater : public Module {
 		bool isPaused = false;
 
 		bool updateQueueDirty = false;
-
-
-		unordered_map<UpdateMode, vector<IUpdateable*>> addPendingQueue;
-		unordered_map<UpdateMode, vector<IUpdateable*>> removePendingQueue;
 };
 

@@ -10,7 +10,7 @@ AnimationClip::AnimationClip(string name, bool _loop, bool _stop, float _speed, 
 	loop(_loop),
 	stop(_stop),
 	speed(_speed),
-	spriteList(move(sprites)),
+	spriteList(sprites),
 	position(newPosition),
 	scale(newScale)
 {}
@@ -112,14 +112,14 @@ void AnimationClip::UpdateClip()
 	}
 }
 
-void AnimationClip::RenderClip(SDL_Color color)
+void AnimationClip::RenderClip()
 {
-	RenderClip(*position, *scale, color);
+	RenderClip(*position, *scale);
 }
 
-void AnimationClip::RenderClip(Vector2 _position, float _scale, SDL_Color color)
+void AnimationClip::RenderClip(Vector2 _position, float _scale)
 {
-	Engine::Instance().m_render->painter().RenderTexture(*spriteList[currentSprite].Texture(), _position + spriteList[currentSprite].Offset(), &spriteList[currentSprite].Section(), { _scale, _scale }, 0, spriteList[currentSprite].Pivot(), flip ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE, color);
+	Engine::Instance().m_render->painter().RenderTexture(*spriteList[currentSprite].Texture(), _position + spriteList[currentSprite].Offset(), &spriteList[currentSprite].Section(), { _scale, _scale }, 0, spriteList[currentSprite].Pivot(), flip ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 }
 
 AnimationClip::~AnimationClip()

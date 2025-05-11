@@ -7,34 +7,31 @@ Animator::Animator()
 Animator::Animator(vector<AnimationClip> Animations, int current):
 AnimationList(Animations)
 {
-	currentAnimationIndex = current;
-	clip()->Start();
+	currentAnimation = &AnimationList[current];
+	currentAnimation->Start();
 }
 Animator::~Animator()
 {}
 void Animator::AddAnimationClip(AnimationClip clip)
 {
 	AnimationList.emplace_back(clip);
-	if (currentAnimationIndex == -1)
-		currentAnimationIndex = AnimationList.size()-1;
+	if (currentAnimation == nullptr)
+		currentAnimation = &AnimationList[0];
 }
 AnimationClip* Animator::clip()
 {
-	return &AnimationList[currentAnimationIndex];
+	return currentAnimation;
 }
 
 void Animator::Animate(const string& animation, bool keepTime)
 {
-	AnimationClip* currentAnimation = clip();
-
 	if (currentAnimation && currentAnimation->Name() == animation)
 		return;
 	for (size_t i = 0; i < AnimationList.size(); i++)
 	{
 		if (AnimationList[i].Name() == animation)
 		{
-			currentAnimationIndex = i;
-			currentAnimation = clip();
+			currentAnimation = &AnimationList[i];
 			onAnimationChanged.Trigger(currentAnimation->Name());
 			return;
 		}
@@ -50,9 +47,6 @@ void Animator::CleanUp()
 		AnimationList[i].CleanUp();
 	}
 	AnimationList.clear();
-
-	onAnimationChanged.UnsubscribeAll();
-	currentAnimationIndex = -1;
 }
 
 AnimationClip* Animator::GetAnimationClip(const string& animationName)

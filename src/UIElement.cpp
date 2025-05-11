@@ -16,8 +16,7 @@ void UIElement::UpdateElement()
 {
 	if (parent != nullptr) {
 		scale = localScale*parent->scale;
-		position = localPosition + parent->position;
-		angle = localAngle + parent->angle;
+		position = localPosition+parent->position;
 		if (!parent->visible) {
 			visible = false;
 		}
@@ -33,7 +32,6 @@ void UIElement::UpdateElement()
 	else {
 		scale = localScale;
 		position = localPosition;
-		angle = localAngle;
 		visible = localVisible;
 	}
 
@@ -97,21 +95,6 @@ float& UIElement::GetLocalScale()
 	return localScale;
 }
 
-const float& UIElement::GetAngle()
-{
-	return angle;
-}
-
-const float& UIElement::GetConstLocalAngle()
-{
-	return localAngle;
-}
-
-float& UIElement::GetLocalAngle()
-{
-	return localAngle;
-}
-
 void UIElement::SetLocalScale(float _localScale)
 {
 	localScale = _localScale;
@@ -121,12 +104,6 @@ void UIElement::SetLocalScale(float _localScale)
 void UIElement::SetLocalPosition(Vector2Int _localPosition)
 {
 	localPosition = _localPosition;
-	ForceUpdateTransforms();
-}
-
-void UIElement::SetLocalAngle(float _localAngle)
-{
-	localAngle = _localAngle;
 	ForceUpdateTransforms();
 }
 
@@ -155,38 +132,15 @@ void UIElement::SetParent(UIElement* _parent)
 
 }
 
-bool UIElement::HasParent() const
-{
-	return parent!=nullptr;
-}
-
-UIElement* UIElement::GetParent() const
-{
-	return parent;
-}
-
-void UIElement::ClearChilds()
-{
-	for (size_t i = 0; childs.size()> 0;)
-	{
-		if(childs[i]!=nullptr)
-			childs[i]->SetParent(nullptr);
-	}
-
-	childs.clear();
-}
-
 void UIElement::ForceUpdateTransforms()
 {
 	if (parent != nullptr) {
 		scale = localScale * parent->scale;
 		position = localPosition + parent->position;
-		angle = localAngle + parent->angle;
 	}
 	else {
 		scale = localScale;
 		position = localPosition;
-		angle = localAngle;
 	}
 
 	for (size_t i = 0; i < childs.size(); i++)

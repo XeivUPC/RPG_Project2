@@ -64,9 +64,4 @@ Animator* UIAnimatedImage::GetAnimator()
 	return &animator;
 }
 
-JsonAnimator* UIAnimatedImage::GetJsonAnimator()
-{
-	return &animator;
-}
-
 

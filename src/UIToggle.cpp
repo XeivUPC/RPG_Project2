@@ -58,10 +58,9 @@ bool UIToggle::IsOn() const
 	return isOn;
 }
 
-void UIToggle::SetValue(bool _isOn, bool notify)
+void UIToggle::SetValue(bool _isOn)
 {
 	isOn = _isOn;
-	if(notify)
-		onValueChange.Trigger(isOn);
+	onValueChange.Trigger(isOn);
 }
 

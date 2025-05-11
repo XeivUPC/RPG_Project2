@@ -30,7 +30,7 @@ bool ModuleCursor::Start()
 
 bool ModuleCursor::CleanUp()
 {
-	Engine::Instance().m_render->RemoveFromRenderQueue(*this);
+	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 	return true;
 }
 

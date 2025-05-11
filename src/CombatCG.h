@@ -15,7 +15,6 @@ class UIImage;
 class UIAnimatedImage;
 class UIButton;
 class UITextBox;
-class UIAnimatedImage;
 class UISlider;
 class UIToggle;
 class Animator;
@@ -33,6 +32,9 @@ public:
 public:
 
 private:
+
+	
+
 	struct UIAttackButton {
 		UIButton* btn = nullptr;
 		UITextBox* text = nullptr;
@@ -53,9 +55,6 @@ private:
 	};
 
 	struct UICharacterSlot {
-
-		
-
 		UIButton* characterClick = nullptr;
 		UIAnimatedImage* characterImage = nullptr;
 		CombatSystem::CharacterReference* characterRef=nullptr;
@@ -77,9 +76,6 @@ private:
 		UIImage* selectedCharacterIndicator = nullptr;
 
 		UIImage* selectedCharacterTarget = nullptr;
-
-		UIAnimatedImage* combatEffect = nullptr;
-
 	};
 
 	/// CreationFunctions
@@ -113,12 +109,7 @@ private:
 
 	void SetTargetSelectionMode(bool mode);
 
-	UICharacterSlot* GetSlotByCharacter(CombatSystem::CharacterReference* reference);
 	Vector2Int GetSlotPosition(CombatSystem::CharacterType team, int teamMemberIndex, int teamMembersAmount);
-
-	void FinishAttackVisuals(UIAnimatedImage* characterImage);
-	void FinishHurtVisuals(UIAnimatedImage* characterImage);
-	//void FinishEffectVisuals(UIAnimatedImage* characterImage);
 
 private:
 	CombatSystem* combat = nullptr;
@@ -149,8 +140,5 @@ private:
 	/// Extra
 	AlertDisplayerCG* alert;
 	UITextBox* debug_immortalEnabled = nullptr;
-	pair<bool, bool> visualEffects = pair<bool,bool>(false,false);	//First bool = attacker  | Second bool = targets
-	pair<bool, bool> animationEffect = pair<bool,bool>(false,true);	//First bool = animation | Second bool = effect
-	pair<int, int> targetVisualsCompleted = pair<int, int>(0, 0);	//First bool = animation | Second bool = effect
-	bool firstTick = true;
+	
 };

@@ -8,7 +8,7 @@ public:
     CameraController();
     ~CameraController();
 
-    bool UpdateCamera();
+    bool PostUpdate();
     bool CleanUp();
 
     void SetTarget(Entity* entity);

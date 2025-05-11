@@ -69,7 +69,6 @@ void CharacterDatabase::SaveDatabase()
             xml_node entry = rootNode.find_child_by_attribute("id", to_string(key).c_str());
             if (entry) {
                 entry.child("Data").attribute("textureId").set_value(value.textureId.c_str());
-                entry.child("Data").attribute("faceId").set_value(value.faceId.c_str());
 				entry.child("Data").attribute("dialoguePath").set_value(value.dialoguePath.c_str());
 
 				entry.child("Stats").attribute("state").set_value(value.state);
@@ -137,7 +136,6 @@ void CharacterDatabase::LoadDatabase()
 
             ///Data
             charData.textureId = charDataNode.attribute("textureId").as_string();
-            charData.faceId = charDataNode.attribute("faceId").as_string();
             charData.dialoguePath = charDataNode.attribute("dialoguePath").as_string();
 
             charData.level = charCombatStatsNode.attribute("level").as_int();

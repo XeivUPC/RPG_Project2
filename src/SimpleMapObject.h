@@ -15,6 +15,7 @@ public:
 	void AddChainCollision(Vector2 _position, vector<Vector2> points);
 	void AddCircleCollision(Vector2 _position,	float radiu);
 
+	bool Update() override;
 	void Render() override;
 
 	bool CleanUp() override;

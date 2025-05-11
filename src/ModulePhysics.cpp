@@ -9,15 +9,15 @@
 #include "CollisionsDispatcher.h"
 #include "PhysicFactory.h"
 #include "Globals.h"
+#include "ModuleTime.h"
 #include "Log.h"
 #include "DrawingTools.h"
-#include "GameScene.h"
 
 #include <math.h>
 
 ModulePhysics::ModulePhysics(bool start_active) : Module(start_active)
 {
-	debug = false;
+	debug = true;
 	collisionsManager = new CollisionsDispatcher();
 	renderLayer = 10;
 
@@ -60,14 +60,14 @@ bool ModulePhysics::PreUpdate()
 
 bool ModulePhysics::Update()
 {	
-	if(Engine::Instance().s_game->GetState() == GameScene::State::Exploring)
-		debug = Engine::Instance().m_debug->godmode;
+	debug = Engine::Instance().m_debug->godmode;
 	return true;
 }
 
 // 
 bool ModulePhysics::PostUpdate()
 {
+
 	return true;
 }
 
@@ -83,7 +83,7 @@ bool ModulePhysics::CleanUp()
 	delete ground;
 	delete world;
 
-	Engine::Instance().m_render->RemoveFromRenderQueue(*this);
+	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 

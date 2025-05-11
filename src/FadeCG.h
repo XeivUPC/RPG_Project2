@@ -28,8 +28,6 @@ public:
 
 
 
-	int GetPercentageDone();
-
 	bool IsFading();
 public:
 

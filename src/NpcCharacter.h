@@ -6,7 +6,6 @@
 
 #include <vector>
 
-class Party;
 
 class NpcCharacter : public Character, public IPooleable, public IInteractuable {
 

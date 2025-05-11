@@ -55,8 +55,6 @@ bool ModuleAudio::Init()
     SetSfxVolume(UserPrefs::Instance().GetFloat("sfx_volume", 1));
     SetMusicVolume(UserPrefs::Instance().GetFloat("music_volume", 1));
 
-    Mix_ChannelFinished(ChannelFinishedCallback);
-
     return ret;
 }
 
@@ -71,7 +69,7 @@ void ModuleAudio::SetGeneralVolume(float volume)
 void ModuleAudio::SetSfxVolume(float volume)
 {
     sfx_volume = clamp(volume, 0.0f, 1.0f);
-    float realVolume = ConvertFromLinearToLogarithmic(general_volume*sfx_volume*audio_boost);
+    float realVolume = ConvertFromLinearToLogarithmic(general_volume*sfx_volume);
     
     for (size_t i = 0; i < MIX_CHANNELS; i++)
     {
@@ -87,7 +85,7 @@ void ModuleAudio::SetSfxVolume(float volume)
 void ModuleAudio::SetMusicVolume(float volume)
 {
     music_volume = clamp(volume, 0.0f, 1.0f);
-    float realVolume = ConvertFromLinearToLogarithmic(general_volume * music_volume * audio_boost);
+    float realVolume = ConvertFromLinearToLogarithmic(general_volume * music_volume);
 
     Mix_VolumeMusic((int)realVolume);
 }
@@ -123,25 +121,6 @@ float ModuleAudio::GetSFXVolume()
 float ModuleAudio::GetMusicVolume()
 {
     return music_volume;
-}
-
-const _Mix_Music* ModuleAudio::GetMusic() const
-{
-    return currentMusic;
-}
-
-void ModuleAudio::SetAudioBoost(float boost)
-{
-    audio_boost = boost;
-    if (audio_boost < 0)
-        audio_boost = 0;
-
-    SetGeneralVolume(general_volume);
-}
-
-float ModuleAudio::GetAudioBoost()
-{
-    return audio_boost;
 }
 
 void ModuleAudio::PlayMusicAsync(_Mix_Music* music, int fadeTimeMS)
@@ -205,82 +184,18 @@ bool ModuleAudio::PlayMusic(_Mix_Music* music, int fadeTimeMS)
     return ret;
 }
 
-int ModuleAudio::PlaySFX(Mix_Chunk* sfx, int loops)
+bool ModuleAudio::PlaySFX(Mix_Chunk* sfx, int loops)
 {
     if (sfx == nullptr)
-        return -1;
-    return Mix_PlayChannel(-1, sfx, loops);
-}
-
-int ModuleAudio::PlaySFXWithFade(Mix_Chunk* sfx, int channel, int loops, int fadeTimeMS)
-{
-    if (sfx == nullptr)
-        return -1;
-
-    int fadeInTime = fadeTimeMS / 2;
-
-    if (channel >= 0)
-    {
-        std::lock_guard<std::mutex> lock(pendingFadeInsMutex);
-        if (Mix_Playing(channel))
-        {
-            Mix_FadeOutChannel(channel, fadeInTime);
-            pendingFadeIns[channel] = std::make_tuple(sfx, loops, fadeInTime);
-            return channel;
-        }
-        else
-        {
-            return Mix_FadeInChannel(channel, sfx, loops, fadeInTime);
-        }
-    }
-    else
-    {
-        return Mix_FadeInChannel(-1, sfx, loops, fadeInTime);
-    }
-}
-
-void ModuleAudio::StopSFX(int channel, int fadeTimeMS)
-{
-    {
-        std::lock_guard<std::mutex> lock(pendingFadeInsMutex);
-        pendingFadeIns.erase(channel);
-    }
-
-    if (fadeTimeMS > 0) {
-        Mix_FadeOutChannel(channel, fadeTimeMS);
-    }
-    else {
-        Mix_HaltChannel(channel);
-    }
+        return false;
+    Mix_PlayChannel(-1, sfx, loops);
+    return true;
 }
 
 float ModuleAudio::ConvertFromLinearToLogarithmic(float inputValue)
 {
     float perceivedVolume = log10(1 + 9 * inputValue);
     return perceivedVolume * 128;
-}
-
-void ModuleAudio::ChannelFinishedCallback(int channel)
-{
-    ModuleAudio* instance = Engine::Instance().m_audio;
-    if (instance)
-    {
-        instance->OnChannelFinished(channel);
-    }
-}
-
-void ModuleAudio::OnChannelFinished(int channel)
-{
-    std::lock_guard<std::mutex> lock(pendingFadeInsMutex);
-    auto it = pendingFadeIns.find(channel);
-    if (it != pendingFadeIns.end())
-    {
-        Mix_Chunk* sfx = std::get<0>(it->second);
-        int loops = std::get<1>(it->second);
-        int fadeInTime = std::get<2>(it->second);
-        Mix_FadeInChannel(channel, sfx, loops, fadeInTime);
-        pendingFadeIns.erase(it);
-    }
 }
 
 

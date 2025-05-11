@@ -25,7 +25,7 @@ private:
 
 private:
 	vector<AnimationClip> AnimationList;
-	int currentAnimationIndex = -1;
+	AnimationClip* currentAnimation = nullptr;
 
 };
 
