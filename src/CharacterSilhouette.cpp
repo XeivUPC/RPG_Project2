@@ -11,7 +11,7 @@ CharacterSilhouette::CharacterSilhouette()
 
 CharacterSilhouette::~CharacterSilhouette()
 {
-	Engine::Instance().m_render->RemoveFromRenderQueue(*this);
+	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 }
 
 void CharacterSilhouette::SetCharacter(Character* _character)

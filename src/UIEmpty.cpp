@@ -42,6 +42,5 @@ void UIEmpty::RenderElement()
 
 void UIEmpty::RenderElementDebug()
 {
-	if(debug)
-		Engine::Instance().m_render->painter().RenderBox(position, size, { scale,scale }, pivot, false, { 255,255,0,255 });
+	Engine::Instance().m_render->painter().RenderBox(position, size, { scale,scale }, pivot, false, { 255,255,0,255 });
 }

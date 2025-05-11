@@ -103,14 +103,8 @@ bool TitleScene::Update()
 
        if (newGame) {
            CharacterDatabase::Instance().ResetDataToDefault();
-           Engine::Instance().s_game->Activate();
-           Engine::Instance().s_game->FreshStart();
        }
-       else {
-           Engine::Instance().s_game->Activate();
-           Engine::Instance().s_game->LoadGameSaveData();
-       }
-      
+       Engine::Instance().s_game->Activate();
        Desactivate();
     }
     return true;

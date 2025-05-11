@@ -34,7 +34,6 @@ bool PauseGameState::PostUpdateState()
             Engine::Instance().s_game->pauseCanvas->SetInteractable(false);
         }
     }
-
     return true;
 }
 

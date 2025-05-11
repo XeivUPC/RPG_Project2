@@ -42,7 +42,6 @@ bool CombatGameState::UpdateState()
 
 bool CombatGameState::PostUpdateState()
 {
-	
 	return true;
 }
 

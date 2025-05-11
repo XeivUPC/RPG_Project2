@@ -67,21 +67,6 @@ void OverworldItem::PickUp()
 	Engine::Instance().s_game->GetPlayer()->inventory->displayInventory();
 }
 
-string OverworldItem::GetId() const
-{
-	return itemRef->id;
-}
-
-int OverworldItem::GetAmount() const
-{
-	return quantity;
-}
-
-const Item* OverworldItem::GetItemRef() const
-{
-	return itemRef;
-}
-
 void OverworldItem::InitPoolObject()
 {
 	Engine::Instance().m_render->AddToRenderQueue(*this, *this);
@@ -108,7 +93,7 @@ void OverworldItem::InitPoolObject()
 void OverworldItem::ResetPoolObject()
 {
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
-	Engine::Instance().m_render->RemoveFromRenderQueue(*this);
+	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 	Reset();
 	delete body;
 	/// Destruir collider

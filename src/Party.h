@@ -39,7 +39,7 @@ public:
 
 	int GetPartyLeaderId() const;
 	vector<int> GetPartyIds(bool removeLeader = false) const;
-	vector<int> GetMembersIds() const;
+	vector<int> GetMemebersIds() const;
 	CharacterDatabase::CharacterData* GetCharacterFromParty(int index) const;
 
 public:

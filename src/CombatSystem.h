@@ -155,7 +155,6 @@ public:
 	bool CurrentAttackEnded();
 	void NextAttack();
 	CharacterReference* GetCurrentAttackAttacker();
-	TurnAttack* GetCurrentTurnAttack();
 	vector<CharacterReference*> GetCurrentAttackTargetList();
 	int CurrentAttackTargetAmount();
 	const unordered_map <CharacterType, vector<CharacterReference>>& GetCharactersInCombat();

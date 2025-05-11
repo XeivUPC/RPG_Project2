@@ -236,11 +236,6 @@ CombatSystem::CharacterReference* CombatSystem::GetCurrentAttackAttacker()
 	return attackList[currentAttackIndex].first;
 }
 
-CombatSystem::TurnAttack* CombatSystem::GetCurrentTurnAttack()
-{
-	return  &attackList[currentAttackIndex].second;
-}
-
 vector<CombatSystem::CharacterReference*> CombatSystem::GetCurrentAttackTargetList()
 {
 	return attackList[currentAttackIndex].second.targets;

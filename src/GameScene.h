@@ -62,13 +62,6 @@ public:
 
 	PlayerCharacter* GetPlayer() const;
 
-	void FreshStart();
-
-	void AskForLoadSaveData();
-	void LoadGameSaveData();
-	void SaveGameSaveData();
-
-
 public:
 
 private:
@@ -116,6 +109,7 @@ private:
 
 	/// Map
 	vector<Tilemap*> tilemaps;
+	vector<Entity*> entities;
 	PlayerCharacter* player = nullptr;
 	CameraController* cameraController = nullptr;
 
@@ -137,9 +131,5 @@ private:
 	const float maxRainCooldown = 3600 * 16;  
 	const float minRainDuration = 3600 * 3; 
 	const float maxRainDuration = 3600 * 6; 
-
-
-	//// Saving
-	string savePath = "Assets/Data/GameSaveData.xml";
 
 };

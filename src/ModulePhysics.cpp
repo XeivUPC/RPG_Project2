@@ -83,7 +83,7 @@ bool ModulePhysics::CleanUp()
 	delete ground;
 	delete world;
 
-	Engine::Instance().m_render->RemoveFromRenderQueue(*this);
+	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 

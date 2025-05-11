@@ -12,9 +12,6 @@ struct EventId
 template <typename... Args>
 class SystemEvent {
     public:
-        SystemEvent() = default;
-        ~SystemEvent() = default;
-
         EventId Subscribe(std::function<void(Args...)> callback) {
             int id = next_id_.id++;
             subscribers_[id] = callback;

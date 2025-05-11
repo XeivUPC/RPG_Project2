@@ -30,9 +30,6 @@ public:
 	~OverworldItem();
 	void Initialize(Item* item, int q, Vector2 position);
 	void PickUp();
-	string GetId() const;
-	int GetAmount() const;
-	const Item* GetItemRef() const;
 
 	// Heredado vía IUpdateable
 	bool Update() override;

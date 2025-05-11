@@ -4,12 +4,11 @@
 
 class SettingsCG;
 class InventoryCG;
-class SaveLoadCG;
 class PartyCG;
 
 class PauseMenuCG : public UICanvas {
 public:
-	PauseMenuCG(int _renderLayer);
+	PauseMenuCG();
 	~PauseMenuCG();
 
 	void Init();
@@ -24,7 +23,6 @@ private:
 private:
 	SettingsCG* settings;
 	InventoryCG* inventory;
-	SaveLoadCG* saveLoad;
 	PartyCG* party;
 
 	unordered_map<string, UICanvas*> submenus;
