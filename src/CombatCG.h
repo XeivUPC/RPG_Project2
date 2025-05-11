@@ -53,6 +53,9 @@ private:
 	};
 
 	struct UICharacterSlot {
+
+		
+
 		UIButton* characterClick = nullptr;
 		UIAnimatedImage* characterImage = nullptr;
 		CombatSystem::CharacterReference* characterRef=nullptr;
@@ -76,6 +79,7 @@ private:
 		UIImage* selectedCharacterTarget = nullptr;
 
 		UIAnimatedImage* combatEffect = nullptr;
+
 	};
 
 	/// CreationFunctions
