@@ -45,6 +45,8 @@ void GameplayCG::UpdateCanvas()
 
 void GameplayCG::UpdateCompass()
 {
+	if (user->GetPosition() == targetLocation)
+		return;
 	Vector2 direction = Vector2::Direction(user->GetPosition(), targetLocation);
 	direction.Angle();
 	arrow_image->SetLocalAngle(RADTODEG * direction.Angle() + 180);

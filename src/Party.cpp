@@ -218,7 +218,7 @@ vector<int> Party::GetPartyIds(bool removeLeader) const
 	return ids;
 }
 
-vector<int> Party::GetMemebersIds() const
+vector<int> Party::GetMembersIds() const
 {
 	vector<int> ids;
 	for (size_t i = 0; i < members.size(); i++)

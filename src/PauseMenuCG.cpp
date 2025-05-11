@@ -17,23 +17,37 @@
 #include "SettingsCG.h"
 #include "PartyCG.h"
 #include "InventoryCG.h"
+#include "SaveLoadCG.h"
 
 #include "Globals.h"
 
-PauseMenuCG::PauseMenuCG()
+PauseMenuCG::PauseMenuCG(int _renderLayer)
 {
+
+	renderLayer = _renderLayer;
 	//// Create SubCanvas
 	settings = new SettingsCG();
+	settings->renderLayer = renderLayer;
 	submenus["Settings"] = settings;
 
 	party = new PartyCG();
 	submenus["Party"] = party;
+	party->renderLayer = renderLayer;
 
 	inventory = new InventoryCG();
 	submenus["Inventory"] = inventory;
+	inventory->renderLayer = renderLayer;
+
+	saveLoad = new SaveLoadCG();
+	submenus["SaveLoad"] = saveLoad;
+	saveLoad->renderLayer = renderLayer;
+
+	Engine::Instance().m_render->SetRenderQueueDirty();
 
 	settings->SetPosition( Vector2{ 152,0});
 	party->SetPosition( Vector2{ 152,0});
+	inventory->SetPosition( Vector2{ 152,0});
+	saveLoad->SetPosition( Vector2{ 152,0});
 
 	///// AssetsLoading
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
@@ -112,6 +126,7 @@ PauseMenuCG::PauseMenuCG()
 	saveLoadGame_text->SetParent(saveLoadGame_btn);
 	saveLoadGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	saveLoadGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
+	saveLoadGame_btn->onMouseClick.Subscribe([this]() {OpenSubmenu("SaveLoad");});
 	saveLoadGame_btn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	saveLoadGame_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	saveLoadGame_btn->onMouseEnter.Subscribe([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
@@ -158,6 +173,7 @@ PauseMenuCG::~PauseMenuCG()
 	delete settings;
 	delete party;
 	delete inventory;
+	delete saveLoad;
 }
 
 void PauseMenuCG::Init()

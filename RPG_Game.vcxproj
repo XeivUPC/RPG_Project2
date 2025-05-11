@@ -45,6 +45,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <EnableASAN>false</EnableASAN>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -52,6 +53,7 @@
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <EnableASAN>false</EnableASAN>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -194,6 +196,7 @@
     <ClCompile Include="src\ChronoTimer.cpp" />
     <ClCompile Include="src\ModuleWindow.cpp" />
     <ClCompile Include="src\PlayerCharacter.cpp" />
+    <ClCompile Include="src\SaveLoadCG.cpp" />
     <ClCompile Include="src\ScreenEffectsCG.cpp" />
     <ClCompile Include="src\SettingsCG.cpp" />
     <ClCompile Include="src\SimpleMapObject.cpp" />
@@ -294,6 +297,7 @@
     <ClInclude Include="src\PlayerCharacter.h" />
     <ClInclude Include="src\Pooling.h" />
     <ClInclude Include="src\ChronoTimer.h" />
+    <ClInclude Include="src\SaveLoadCG.h" />
     <ClInclude Include="src\ScreenEffectsCG.h" />
     <ClInclude Include="src\SettingsCG.h" />
     <ClInclude Include="src\SimpleMapObject.h" />
@@ -326,6 +330,7 @@
     <Xml Include="Assets\Data\AttackList.xml" />
     <Xml Include="Assets\Data\CharactersData.xml" />
     <Xml Include="Assets\Data\CharactersData_Default.xml" />
+    <Xml Include="Assets\Data\GameSaveData.xml" />
     <Xml Include="Assets\Data\ItemsData.xml" />
     <Xml Include="Assets\Data\UserPrefs.xml" />
   </ItemGroup>

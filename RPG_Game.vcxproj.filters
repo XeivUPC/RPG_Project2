@@ -387,13 +387,16 @@
     <ClCompile Include="src\JsonAnimator.cpp">
       <Filter>Source Files\Utils\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="src\CharacterSilhouette.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\CombatGameState.cpp">
       <Filter>Source Files\GameState\Types %28GameState%29</Filter>
     </ClCompile>
     <ClCompile Include="src\CombatCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CharacterSilhouette.cpp">
+      <Filter>Source Files\Entities\Type %28Entity%29\Character\Extra</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SaveLoadCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClCompile>
   </ItemGroup>
@@ -701,6 +704,9 @@
     <ClInclude Include="src\CombatCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
+    <ClInclude Include="src\SaveLoadCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Assets\Data\UserPrefs.xml">
@@ -716,6 +722,9 @@
       <Filter>Source Files\_DataFiles</Filter>
     </Xml>
     <Xml Include="Assets\Data\ItemsData.xml">
+      <Filter>Source Files\_DataFiles</Filter>
+    </Xml>
+    <Xml Include="Assets\Data\GameSaveData.xml">
       <Filter>Source Files\_DataFiles</Filter>
     </Xml>
   </ItemGroup>

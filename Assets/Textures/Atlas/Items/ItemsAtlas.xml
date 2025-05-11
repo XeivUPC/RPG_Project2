@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!--
     rTexPacker XML atlas descriptor file (v5.0)
-    Number of packed sprites:     3
+    Number of packed sprites:     10
 -->
-<AtlasTexture imagePath='atlas.png' width='128' height='128' spriteCount='3' isFont='0' fontSize='32'>
-    <Sprite nameId='item;null' tag='' originX='0' originY='0' positionX='0' positionY='0' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='16' trimRecHeight='16' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
-    <Sprite nameId='item;zalium_armor' tag='' originX='0' originY='0' positionX='16' positionY='0' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='16' trimRecHeight='16' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
-    <Sprite nameId='item;zalium_helm' tag='' originX='0' originY='0' positionX='32' positionY='0' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='2' trimRecY='0' trimRecWidth='12' trimRecHeight='16' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
+<AtlasTexture imagePath='atlas.png' width='128' height='128' spriteCount='10' isFont='0' fontSize='32'>
+    <Sprite nameId='item;healing_bread' tag='' originX='0' originY='0' positionX='0' positionY='0' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='1' trimRecY='3' trimRecWidth='14' trimRecHeight='11' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
+    <Sprite nameId='item;healing_macaroni' tag='' originX='0' originY='0' positionX='16' positionY='0' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='4' trimRecWidth='16' trimRecHeight='9' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
+    <Sprite nameId='item;healing_wrap' tag='' originX='0' originY='0' positionX='32' positionY='0' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='1' trimRecY='2' trimRecWidth='13' trimRecHeight='13' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
+    <Sprite nameId='item;null' tag='' originX='0' originY='0' positionX='48' positionY='0' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='16' trimRecHeight='16' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
+    <Sprite nameId='item;zalium_armor' tag='' originX='0' originY='0' positionX='64' positionY='0' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='16' trimRecHeight='16' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
+    <Sprite nameId='item;zalium_bow' tag='' originX='0' originY='0' positionX='80' positionY='0' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='16' trimRecHeight='16' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
+    <Sprite nameId='item;zalium_helm' tag='' originX='0' originY='0' positionX='96' positionY='0' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='2' trimRecY='0' trimRecWidth='12' trimRecHeight='16' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
+    <Sprite nameId='item;zalium_shield' tag='' originX='0' originY='0' positionX='112' positionY='0' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='16' trimRecHeight='16' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
+    <Sprite nameId='item;zalium_spear' tag='' originX='0' originY='0' positionX='0' positionY='16' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='0' trimRecWidth='16' trimRecHeight='16' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
+    <Sprite nameId='item;zalium_sword' tag='' originX='0' originY='0' positionX='16' positionY='16' sourceWidth='16' sourceHeight='16' padding='0' trimmed='0' trimRecX='0' trimRecY='1' trimRecWidth='15' trimRecHeight='15' colliderType='0' colliderPositionX='0' colliderPositionY='0' colliderSizeX='0' colliderSizeY='0' />
 </AtlasTexture>

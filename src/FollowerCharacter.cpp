@@ -58,7 +58,7 @@ void FollowerCharacter::Render()
 bool FollowerCharacter::CleanUp()
 {
 	Character::CleanUp();
-	Engine::Instance().m_render->RemoveFomRenderQueue(*this);
+	Engine::Instance().m_render->RemoveFromRenderQueue(*this);
 	return true;
 }
 
