@@ -364,10 +364,22 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 			Sprite(characterTexture, {3 * spriteSize, 12 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
 		}, nullptr, nullptr));
 
+	characterImage->GetAnimator()->AddAnimationClip(AnimationClip("die", false, false, 0.1f,
+		{
+			Sprite(characterTexture, {0 * spriteSize,10 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {1 * spriteSize,10 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {2 * spriteSize,10 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {3 * spriteSize,10 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {4 * spriteSize,10 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {5 * spriteSize,10 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {6 * spriteSize,10 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {7 * spriteSize,10 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
+		}, nullptr, nullptr));
+
 	characterImage->GetAnimator()->GetAnimationClip("special-attack")->onAnimationFinished.Subscribe([this, characterImage]() {FinishAttackVisuals(characterImage); });
  	characterImage->GetAnimator()->GetAnimationClip("physic-attack")->onAnimationFinished.Subscribe([this, characterImage]() {FinishAttackVisuals(characterImage); });
- 	characterImage->GetAnimator()->GetAnimationClip("hurt")->onAnimationFinished.Subscribe([this, characterImage]() {FinishHurtVisuals(characterImage); });
-
+ 	characterImage->GetAnimator()->GetAnimationClip("hurt")->onAnimationFinished.Subscribe([this, characterImage, value]() {FinishHurtVisuals(characterImage, value); });
+ 	
 	selectedCharacterTarget->SetParent(characterBtn);
 	characterImage->SetParent(characterBtn);
 	characterBtn->SetParent(overlay);
@@ -706,7 +718,7 @@ void CombatCG::OnCombatStateChanged()
 			}
 
 			attacksToExecute.clear();
-			for (size_t i = 0; i < charactersSlot.size(); i++)
+			/*for (size_t i = 0; i < charactersSlot.size(); i++)
 			{
 				charactersSlot[i].attackDone->localVisible = false;
 
@@ -714,7 +726,7 @@ void CombatCG::OnCombatStateChanged()
 					charactersSlot[i].characterImage->localVisible = false;
 				else
 					charactersSlot[i].characterImage->localVisible = true;
-			}
+			}*/
 			break;
 		}
 	}
@@ -786,14 +798,17 @@ void CombatCG::FinishAttackVisuals(UIAnimatedImage* characterImage)
 	characterImage->GetAnimator()->Animate("combat-idle");
 }
 
-void CombatCG::FinishHurtVisuals(UIAnimatedImage* characterImage)
+void CombatCG::FinishHurtVisuals(UIAnimatedImage* characterImage, CombatSystem::CharacterReference* ref)
 {
 
 	targetVisualsCompleted.first++;
 	if (targetVisualsCompleted.first == combat->CurrentAttackTargetAmount())
 		animationEffect.first = true;
-
-	characterImage->GetAnimator()->Animate("combat-idle");
+	printf("%s > %f\n", CharacterDatabase::Instance().GetCharacterData(ref->id).name.c_str(), ref->stats.currentHp);
+	if(ref->stats.currentHp > 0)
+		characterImage->GetAnimator()->Animate("combat-idle");
+	else
+		characterImage->GetAnimator()->Animate("die");
 	///// CheckIfDead
 
 }

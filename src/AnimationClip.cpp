@@ -105,9 +105,13 @@ void AnimationClip::UpdateClip()
 			
 
 		}
-		else if (currentSprite <= spriteList.size() - 1) {
+		else if (currentSprite < spriteList.size() - 1) {
 			currentSprite++;
 			spriteList[currentSprite].onSpriteSelected.Trigger();
+			if (currentSprite == spriteList.size() - 1)
+			{
+				onAnimationFinished.Trigger();
+			}
 		}
 	}
 }

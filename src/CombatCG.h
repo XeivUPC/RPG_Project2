@@ -54,8 +54,6 @@ private:
 
 	struct UICharacterSlot {
 
-		
-
 		UIButton* characterClick = nullptr;
 		UIAnimatedImage* characterImage = nullptr;
 		CombatSystem::CharacterReference* characterRef=nullptr;
@@ -117,7 +115,7 @@ private:
 	Vector2Int GetSlotPosition(CombatSystem::CharacterType team, int teamMemberIndex, int teamMembersAmount);
 
 	void FinishAttackVisuals(UIAnimatedImage* characterImage);
-	void FinishHurtVisuals(UIAnimatedImage* characterImage);
+	void FinishHurtVisuals(UIAnimatedImage* characterImage, CombatSystem::CharacterReference* ref);
 	//void FinishEffectVisuals(UIAnimatedImage* characterImage);
 
 private:
