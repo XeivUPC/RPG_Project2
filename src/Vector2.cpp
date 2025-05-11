@@ -57,6 +57,11 @@ float Vector2::Distance(const Vector2& a, const Vector2& b) {
     return sqrt(dx * dx + dy * dy);
 }
 
+float Vector2::Angle() const
+{
+    return std::atan2(y, x);
+}
+
 bool Vector2::operator==(const Vector2& other) const {
     return (x == other.x && y == other.y);
 }

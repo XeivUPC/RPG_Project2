@@ -1,8 +1,10 @@
 #pragma once
 #include "ModuleScene.h"
 #include "Entity.h"
+#include "StepTimer.h"
 #include <unordered_map>
 #include <vector>
+#include <random>
 
 
 class UICanvas;
@@ -12,6 +14,8 @@ class CombatCG;
 class DialogueSystem;
 class CombatSystem;
 class PauseMenuCG;
+class GameplayCG;
+class ScreenEffectsCG;
 class GameState;
 class Tilemap;
 class PlayerCharacter;
@@ -48,12 +52,23 @@ public:
 	void ExitGame();
 
 
+	void ChangeTilemap(string path, int entryPoint=-1);
 	void AddTilemap(string path);
 	void RemoveLastTilemap();
 	Tilemap* GetLastTilemap();
 
+	int GetTime();
+	float GetTimeScale();
 
-	
+
+	PlayerCharacter* GetPlayer() const;
+
+	void FreshStart();
+
+	void AskForLoadSaveData();
+	void LoadGameSaveData();
+	void SaveGameSaveData();
+
 
 public:
 
@@ -72,8 +87,17 @@ private:
 	bool CleanUp() override;
 
 
+	void CheckTilesetInteriorState();
+
+	void UpdateRain();
+	void PauseRain();
+	void ResumeRain();
+	void StopRain();
+	void StartRain();
+
 
 	void CreateNewTilemap(string path);
+	void SwapNewTilemap(string path, int entryPoint=-1);
 	void DeleteLastTilemap();
 
 private:
@@ -89,15 +113,38 @@ private:
 	/// UI
 	UICanvas* canvas = nullptr;
 	PauseMenuCG* pauseCanvas = nullptr;
+	GameplayCG* gameplayCanvas = nullptr;
+	ScreenEffectsCG* screenEffectsCanvas = nullptr;
 	FadeCG* fade = nullptr;
 	UIDialogueBoxCG* dialogueCanvas = nullptr;
 	CombatCG* combatCanvas = nullptr;
 
 	/// Map
 	vector<Tilemap*> tilemaps;
-	vector<Entity*> entities;
 	PlayerCharacter* player = nullptr;
 	CameraController* cameraController = nullptr;
 
 	/// Extra
+	StepTimer clock = StepTimer(12 * 3600);
+	float timeScale = 300;
+
+
+
+	/// RainSettings
+	bool isInterior = false;
+	bool isRaining = false;
+	float rainCooldown = 0.0f;
+	float rainDuration = 0.0f;
+
+	StepTimer rainTimer = StepTimer();
+	std::mt19937 rng;
+	const float minRainCooldown = 3600.0f * 10;   
+	const float maxRainCooldown = 3600 * 16;  
+	const float minRainDuration = 3600 * 3; 
+	const float maxRainDuration = 3600 * 6; 
+
+
+	//// Saving
+	string savePath = "Assets/Data/GameSaveData.xml";
+
 };

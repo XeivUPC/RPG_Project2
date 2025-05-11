@@ -114,6 +114,11 @@ bool Character::Update()
             pathFollowersData.push_front(position);
         else
             pathFollowersData[0] = position;
+
+		for (size_t i = 0; i < followers.size(); i++)
+		{
+			followers[i]->Update();
+		}
     }
     return true;
 }
@@ -155,15 +160,24 @@ bool Character::GetCharacterId() const
 	return characterId;
 }
 
+void Character::ClearFollowerPath()
+{
+	pathFollowersData.clear();
+}
+
+Animator& Character::GetAnimator() const
+{
+	return *animator;
+}
+
 bool Character::AddFollower(int _charId, float distance)
 {
-	if (followers.size() < maxFollowers) {
-		followers.emplace_back(new FollowerCharacter(this, totalFollowerDistance + distance, _charId));
-		currentFollowers++;
-		totalFollowerDistance += distance;
-		return true;
-	}
-	return false;
+	if (followers.size() >= maxFollowers)
+		return false;
+
+	followers.emplace_back(new FollowerCharacter(this, totalFollowerDistance + distance, _charId));
+	currentFollowers++;
+	totalFollowerDistance += distance;
 }
 
 bool Character::RemoveFollowerById(int _charId)
@@ -176,16 +190,16 @@ bool Character::RemoveFollowerById(int _charId)
 			for (int i = charPos + 1; i < followers.size(); ++i) {
 				followers[i]->SetDelayDistance(followers[i]->GetDelayDistance() - distanceDifference);
 			}
+			followers.erase(it);
+
 			(*it)->CleanUp();
 			delete (*it);
-			followers.erase(it);
+
 			currentFollowers--;
 			return true;
 		}
 		charPos++;
 	}
-
-	printf("Follower with ID %d not found\n", _charId);
 	return false;
 }
 
@@ -197,14 +211,14 @@ bool Character::RemoveFollowerByIndex(int followerPos)
 		for (int i = followerPos + 1; i < followers.size(); ++i) {
 			followers[i]->SetDelayDistance(followers[i]->GetDelayDistance() - distanceDifference);
 		}
+
 		followers[followerPos]->CleanUp();
 		delete (followers[followerPos]);
 		followers.erase(followers.begin() + followerPos);
+
 		currentFollowers--;
 		return true;
 	}
-
-	printf("No follower in position %d\n", followerPos);
 	return false;
 }
 
@@ -221,4 +235,23 @@ bool Character::GetFollowers() const
 {
 	return true;
 	return false;
+}
+
+void Character::SetFollowers(vector<int> ids, float distance)
+{
+	for (int i = followers.size(); i < ids.size(); i++) {
+		AddFollower(ids[i], distance);
+	}
+
+	for (size_t i = 0; i < followers.size(); i++)
+	{
+		if (ids.size() <= i) {
+			//Remove
+			RemoveFollowerByIndex(i);
+		}
+		else {
+			//Edit
+			EditFollower(ids[i], i);
+		}
+	}
 }

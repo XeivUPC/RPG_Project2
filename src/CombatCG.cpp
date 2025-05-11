@@ -36,7 +36,7 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 
 CombatCG::~CombatCG()
 {
-	UICanvas::~UICanvas();
+	//UICanvas::~UICanvas();
 	if (alert != nullptr) {
 		delete alert;
 		alert = nullptr;
@@ -49,7 +49,7 @@ void CombatCG::UpdateCanvas()
 
 	for (size_t i = 0; i < charactersSlot.size(); i++)
 	{
-		CombatSystem::CharacterStats& charStats  = charactersSlot[i].characterRef->stats;
+		CombatSystem::CharacterStats& charStats = charactersSlot[i].characterRef->stats;
 
 		float maxHealth = (float)charStats.currentStats.hp;
 		float currentHealth = (float)charStats.currentHp;
@@ -63,6 +63,68 @@ void CombatCG::UpdateCanvas()
 		else
 			debug_immortalEnabled->localVisible = false;
 	}
+	if (combat->GetCombatState() == CombatSystem::PREPARE_ATTACKS)
+	{
+		visualEffects.first = false;
+		visualEffects.second = false;
+		firstTick = true;
+	}
+	if (combat->GetCombatState() == CombatSystem::ATTACKS)
+	{
+		if (combat->CurrentAttackEnded())
+		{
+			visualEffects.first = false;
+			visualEffects.second = false;
+			firstTick = true;
+		}
+		if (!visualEffects.first && !visualEffects.second)
+		{
+			if (firstTick)
+			{
+				UICharacterSlot* slotSelected = GetSlotByCharacter(combat->GetCurrentAttackAttacker());
+				Attack* attackData = combat->GetCurrentTurnAttack()->attack;
+
+				if (attackData->type == Attack::AttackType::Aggressive)
+					slotSelected->characterImage->GetAnimator()->Animate("physic-attack");
+				else
+					slotSelected->characterImage->GetAnimator()->Animate("special-attack");
+				//Animate effects
+				firstTick = false;
+			}
+			if (animationEffect == pair<bool, bool>(true, true))
+			{
+				animationEffect = pair<bool, bool>(false, true);
+				visualEffects.first = true;
+				firstTick = true;
+			}
+		}
+
+		if (visualEffects.first && !visualEffects.second)
+		{
+			if (firstTick)
+			{
+				for (size_t i = 0; i < combat->CurrentAttackTargetAmount(); i++)
+				{
+					GetSlotByCharacter(combat->GetCurrentAttackTargetList()[i])->characterImage->GetAnimator()->Animate("hurt");
+				}
+				//Animate effects
+				firstTick = false;
+			}
+			if (animationEffect == pair<bool, bool>(true, true))
+			{
+				animationEffect = pair<bool, bool>(false, true);
+				visualEffects.second = true;
+				targetVisualsCompleted = pair<int, int>(0, 0);
+				firstTick = true;
+			}
+		}
+		if (visualEffects.first && visualEffects.second)
+		{
+			combat->NextAttack();
+
+			visualEffects = pair<bool, bool>(false, false);
+		}
+	}
 
 	if(alert!=nullptr)
 		alert->UpdateCanvas();
@@ -74,7 +136,6 @@ void CombatCG::LoadCanvas()
 	attackButtons.clear();
 	charactersSlot.clear();
 	attacksToExecute.clear();
-
 
 	alert = new AlertDisplayerCG(1.5f, nullptr, { LOGIC_SCREEN_WIDTH / 2 - 150,0 }, { 300,32 }, {0.f,0.f});
 	alert->renderLayer = 7;
@@ -264,14 +325,48 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 
 	int spriteSize = 64;
 	characterImage->GetAnimator()->AddAnimationClip(AnimationClip("combat-idle", true, false, 0.1f,
-			{
-				Sprite(characterTexture, {0 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
-				Sprite(characterTexture, {1 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
-				Sprite(characterTexture, {2 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
-				Sprite(characterTexture, {3 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
-			}, nullptr, nullptr));
+		{
+			Sprite(characterTexture, {0 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {1 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {2 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {3 * spriteSize,1 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
+		}, nullptr, nullptr));
 
+	characterImage->GetAnimator()->AddAnimationClip(AnimationClip("physic-attack", true, false, 0.1f,
+		{
+			Sprite(characterTexture, {0 * spriteSize,11 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {1 * spriteSize,11 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {2 * spriteSize,11 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {3 * spriteSize,11 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {4 * spriteSize,11 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {5 * spriteSize,11 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {6 * spriteSize,11 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {7 * spriteSize,11 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
+		}, nullptr, nullptr));
 
+	characterImage->GetAnimator()->AddAnimationClip(AnimationClip("special-attack", true, false, 0.1f,
+		{
+			Sprite(characterTexture, {0 * spriteSize,9 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {1 * spriteSize,9 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {2 * spriteSize,9 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {3 * spriteSize,9 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {4 * spriteSize,9 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {5 * spriteSize,9 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {6 * spriteSize,9 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {7 * spriteSize,9 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
+		}, nullptr, nullptr));
+
+	characterImage->GetAnimator()->AddAnimationClip(AnimationClip("hurt", true, false, 0.1f,
+		{
+			Sprite(characterTexture, {0 * spriteSize, 12 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {1 * spriteSize, 12 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {2 * spriteSize, 12 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f }),
+			Sprite(characterTexture, {3 * spriteSize, 12 * spriteSize,spriteSize,spriteSize},{0.5f,0.5f })
+		}, nullptr, nullptr));
+
+	characterImage->GetAnimator()->GetAnimationClip("special-attack")->onAnimationFinished.Subscribe([this, characterImage]() {FinishAttackVisuals(characterImage); });
+ 	characterImage->GetAnimator()->GetAnimationClip("physic-attack")->onAnimationFinished.Subscribe([this, characterImage]() {FinishAttackVisuals(characterImage); });
+ 	characterImage->GetAnimator()->GetAnimationClip("hurt")->onAnimationFinished.Subscribe([this, characterImage]() {FinishHurtVisuals(characterImage); });
 
 	selectedCharacterTarget->SetParent(characterBtn);
 	characterImage->SetParent(characterBtn);
@@ -291,7 +386,7 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 
 	AddElementToCanvas(overlay);
 
-	return { characterBtn,characterImage, value,slotLvl,slotName, poisonToggle, burnToggle,regenerationToggle, hpBar,hpBarMaxWidth, overlay, attackDone,selectedCharacterIndicator, selectedCharacterTarget };
+	return { characterBtn,characterImage, value,slotLvl,slotName, poisonToggle, burnToggle,regenerationToggle, hpBar,hpBarMaxWidth, overlay, attackDone,selectedCharacterIndicator, selectedCharacterTarget};
 }
 
 void CombatCG::CreateUIExtras()
@@ -472,7 +567,6 @@ vector<CombatCG::UICharacterSlot*> CombatCG::GetPossibleTargets()
 			}
 		}
 	}
-
 	return possibleTargets;
 }
 
@@ -533,11 +627,6 @@ void CombatCG::SelectAttack(int attackIndex)
 	if (selectingTargets)
 		return;
 
-	if (attacksToExecute.count(selectedCharacter->characterRef)) {
-		attacksToExecute.erase(selectedCharacter->characterRef);
-		selectedCharacter->attackDone->localVisible = false;
-	}
-
 	RemoveAllTargets();
 	selectedAttack = &attackButtons[attackIndex];
 	SetTargetSelectionMode(true);
@@ -578,7 +667,7 @@ void CombatCG::ConfirmAttack()
 		referenceTargets.emplace_back(targetCharacters[i]->characterRef);
 	}
 	attacksToExecute[selectedCharacter->characterRef] = { selectedAttack->attack,referenceTargets };
-
+	
 	HideAttackInformation();
 
 	SetTargetSelectionMode(false);
@@ -598,6 +687,10 @@ void CombatCG::EndTurn()
 	RemoveAllTargets();
 
 	combat->ChangeState(CombatSystem::CombatState::ENEMY_TURN);
+
+	passTurn->localVisible = false;
+	passTurn->interactable = false;
+
 }
 
 void CombatCG::OnCombatStateChanged()
@@ -606,6 +699,12 @@ void CombatCG::OnCombatStateChanged()
 	{
 		case CombatSystem::CombatState::PLAYER_TURN:
 		{
+
+			if (passTurn!=nullptr) {
+				passTurn->localVisible = true;
+				passTurn->interactable = true;
+			}
+
 			attacksToExecute.clear();
 			for (size_t i = 0; i < charactersSlot.size(); i++)
 			{
@@ -648,6 +747,17 @@ void CombatCG::SetTargetSelectionMode(bool mode)
 
 }
 
+CombatCG::UICharacterSlot* CombatCG::GetSlotByCharacter(CombatSystem::CharacterReference* reference)
+{
+	for (size_t i = 0; i < charactersSlot.size(); i++)
+	{
+		CombatCG::UICharacterSlot* slot = &charactersSlot[i];
+		if (slot->characterRef == reference)
+			return slot;
+	}
+	return nullptr;
+}
+
 Vector2Int CombatCG::GetSlotPosition(CombatSystem::CharacterType team, int teamMemberIndex, int teamMembersAmount)
 {
 	Vector2 position = { 0,LOGIC_SCREEN_HEIGHT / 2 - 20 };
@@ -668,6 +778,24 @@ Vector2Int CombatCG::GetSlotPosition(CombatSystem::CharacterType team, int teamM
 	}
 
 	return position + Vector2{ offset.x * displacement.x,offset.y * displacement.y };
+}
+
+void CombatCG::FinishAttackVisuals(UIAnimatedImage* characterImage)
+{
+	animationEffect.first = true;
+	characterImage->GetAnimator()->Animate("combat-idle");
+}
+
+void CombatCG::FinishHurtVisuals(UIAnimatedImage* characterImage)
+{
+
+	targetVisualsCompleted.first++;
+	if (targetVisualsCompleted.first == combat->CurrentAttackTargetAmount())
+		animationEffect.first = true;
+
+	characterImage->GetAnimator()->Animate("combat-idle");
+	///// CheckIfDead
+
 }
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="vegetation_atlas" tilewidth="48" tileheight="48" tilecount="178" columns="0">
+<tileset version="1.10" tiledversion="1.11.2" name="vegetation_atlas" tilewidth="128" tileheight="256" tilecount="303" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_0.png" width="16" height="16"/>
@@ -534,5 +534,416 @@
  </tile>
  <tile id="177">
   <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_177.png" width="16" height="16"/>
+ </tile>
+ <tile id="178">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_244.png" width="16" height="32"/>
+ </tile>
+ <tile id="179">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_245.png" width="80" height="128"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="28.9091" y="118.727" width="19.6364" height="7.61932"/>
+   <object id="2" name="renderPosition" x="39.2727" y="120">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="180">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_246.png" width="48" height="32"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="13.0568" y="22.3778" width="19.6364" height="7.61932"/>
+   <object id="2" name="renderPosition" x="23.4204" y="23.6508">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="181">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_247.png" width="48" height="32"/>
+ </tile>
+ <tile id="182">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_248.png" width="48" height="32"/>
+ </tile>
+ <tile id="183">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_249.png" width="80" height="128"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="28.9943" y="118.69" width="19.6364" height="7.61932"/>
+   <object id="2" name="renderPosition" x="39.3579" y="119.963">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="184">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_250.png" width="80" height="128"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="29.1193" y="118.565" width="19.6364" height="7.61932"/>
+   <object id="2" name="renderPosition" x="39.4829" y="119.838">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="185">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_251.png" width="80" height="128"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="29.1193" y="118.503" width="19.6364" height="7.61932"/>
+   <object id="2" name="renderPosition" x="39.4829" y="119.776">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="186">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_252.png" width="80" height="128"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="29.1193" y="118.628" width="19.6364" height="7.61932"/>
+   <object id="2" name="renderPosition" x="39.4829" y="119.901">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="187">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_253.png" width="80" height="128"/>
+ </tile>
+ <tile id="188">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_254.png" width="80" height="128"/>
+ </tile>
+ <tile id="189">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_255.png" width="80" height="128"/>
+ </tile>
+ <tile id="190">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_256.png" width="48" height="32"/>
+ </tile>
+ <tile id="191">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_257.png" width="112" height="160"/>
+ </tile>
+ <tile id="192">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_258.png" width="80" height="48"/>
+ </tile>
+ <tile id="193">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_259.png" width="80" height="48"/>
+ </tile>
+ <tile id="194">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_260.png" width="80" height="48"/>
+ </tile>
+ <tile id="195">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_261.png" width="112" height="160"/>
+ </tile>
+ <tile id="196">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_262.png" width="112" height="160"/>
+ </tile>
+ <tile id="197">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_263.png" width="112" height="160"/>
+ </tile>
+ <tile id="198">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_264.png" width="112" height="160"/>
+ </tile>
+ <tile id="199">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_265.png" width="112" height="160"/>
+ </tile>
+ <tile id="200">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_266.png" width="112" height="160"/>
+ </tile>
+ <tile id="201">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_267.png" width="112" height="160"/>
+ </tile>
+ <tile id="202">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_268.png" width="80" height="48"/>
+ </tile>
+ <tile id="203">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_269.png" width="32" height="80"/>
+ </tile>
+ <tile id="204">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_270.png" width="16" height="16"/>
+ </tile>
+ <tile id="205">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_271.png" width="16" height="16"/>
+ </tile>
+ <tile id="206">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_272.png" width="16" height="16"/>
+ </tile>
+ <tile id="207">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_273.png" width="16" height="16"/>
+ </tile>
+ <tile id="208">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_274.png" width="32" height="80"/>
+ </tile>
+ <tile id="209">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_275.png" width="32" height="80"/>
+ </tile>
+ <tile id="210">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_276.png" width="32" height="80"/>
+ </tile>
+ <tile id="211">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_277.png" width="16" height="32"/>
+ </tile>
+ <tile id="212">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_278.png" width="16" height="32"/>
+ </tile>
+ <tile id="213">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_279.png" width="16" height="32"/>
+ </tile>
+ <tile id="214">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_280.png" width="16" height="32"/>
+ </tile>
+ <tile id="215">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_281.png" width="16" height="16"/>
+ </tile>
+ <tile id="216">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_282.png" width="64" height="144"/>
+ </tile>
+ <tile id="217">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_283.png" width="64" height="144"/>
+ </tile>
+ <tile id="218">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_284.png" width="64" height="144"/>
+ </tile>
+ <tile id="219">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_285.png" width="64" height="144"/>
+ </tile>
+ <tile id="220">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_286.png" width="64" height="144"/>
+ </tile>
+ <tile id="221">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_287.png" width="32" height="16"/>
+ </tile>
+ <tile id="222">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_288.png" width="32" height="16"/>
+ </tile>
+ <tile id="223">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_289.png" width="96" height="208"/>
+ </tile>
+ <tile id="224">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_290.png" width="96" height="208"/>
+ </tile>
+ <tile id="225">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_291.png" width="96" height="208"/>
+ </tile>
+ <tile id="226">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_292.png" width="96" height="208"/>
+ </tile>
+ <tile id="227">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_293.png" width="96" height="208"/>
+ </tile>
+ <tile id="228">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_294.png" width="32" height="32"/>
+ </tile>
+ <tile id="229">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_295.png" width="32" height="32"/>
+ </tile>
+ <tile id="230">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_296.png" width="128" height="256"/>
+ </tile>
+ <tile id="231">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_297.png" width="128" height="256"/>
+ </tile>
+ <tile id="232">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_298.png" width="128" height="256"/>
+ </tile>
+ <tile id="233">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_299.png" width="128" height="256"/>
+ </tile>
+ <tile id="234">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_300.png" width="128" height="256"/>
+ </tile>
+ <tile id="235">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_301.png" width="32" height="32"/>
+ </tile>
+ <tile id="236">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_302.png" width="32" height="32"/>
+ </tile>
+ <tile id="237">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_178.png" width="32" height="48"/>
+ </tile>
+ <tile id="238">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_179.png" width="16" height="16"/>
+ </tile>
+ <tile id="239">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_180.png" width="16" height="16"/>
+ </tile>
+ <tile id="240">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_181.png" width="16" height="16"/>
+ </tile>
+ <tile id="241">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_182.png" width="16" height="16"/>
+ </tile>
+ <tile id="242">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_183.png" width="32" height="48"/>
+ </tile>
+ <tile id="243">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_184.png" width="32" height="48"/>
+ </tile>
+ <tile id="244">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_185.png" width="32" height="48"/>
+ </tile>
+ <tile id="245">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_186.png" width="16" height="32"/>
+ </tile>
+ <tile id="246">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_187.png" width="16" height="32"/>
+ </tile>
+ <tile id="247">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_188.png" width="16" height="32"/>
+ </tile>
+ <tile id="248">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_189.png" width="16" height="32"/>
+ </tile>
+ <tile id="249">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_190.png" width="16" height="16"/>
+ </tile>
+ <tile id="250">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_191.png" width="48" height="80"/>
+ </tile>
+ <tile id="251">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_192.png" width="48" height="80"/>
+ </tile>
+ <tile id="252">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_193.png" width="48" height="80"/>
+ </tile>
+ <tile id="253">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_194.png" width="48" height="80"/>
+ </tile>
+ <tile id="254">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_195.png" width="48" height="80"/>
+ </tile>
+ <tile id="255">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_196.png" width="16" height="16"/>
+ </tile>
+ <tile id="256">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_197.png" width="16" height="16"/>
+ </tile>
+ <tile id="257">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_198.png" width="64" height="112"/>
+ </tile>
+ <tile id="258">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_199.png" width="64" height="112"/>
+ </tile>
+ <tile id="259">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_200.png" width="64" height="112"/>
+ </tile>
+ <tile id="260">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_201.png" width="64" height="112"/>
+ </tile>
+ <tile id="261">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_202.png" width="64" height="112"/>
+ </tile>
+ <tile id="262">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_203.png" width="32" height="16"/>
+ </tile>
+ <tile id="263">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_204.png" width="32" height="16"/>
+ </tile>
+ <tile id="264">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_205.png" width="96" height="160"/>
+ </tile>
+ <tile id="265">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_206.png" width="96" height="160"/>
+ </tile>
+ <tile id="266">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_207.png" width="96" height="160"/>
+ </tile>
+ <tile id="267">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_208.png" width="96" height="160"/>
+ </tile>
+ <tile id="268">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_209.png" width="96" height="160"/>
+ </tile>
+ <tile id="269">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_210.png" width="32" height="16"/>
+ </tile>
+ <tile id="270">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_211.png" width="32" height="16"/>
+ </tile>
+ <tile id="271">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_212.png" width="32" height="64"/>
+ </tile>
+ <tile id="272">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_213.png" width="16" height="32"/>
+ </tile>
+ <tile id="273">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_214.png" width="16" height="32"/>
+ </tile>
+ <tile id="274">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_215.png" width="16" height="32"/>
+ </tile>
+ <tile id="275">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_216.png" width="16" height="32"/>
+ </tile>
+ <tile id="276">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_217.png" width="16" height="32"/>
+ </tile>
+ <tile id="277">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_218.png" width="16" height="32"/>
+ </tile>
+ <tile id="278">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_219.png" width="16" height="32"/>
+ </tile>
+ <tile id="279">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_220.png" width="16" height="16"/>
+ </tile>
+ <tile id="280">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_221.png" width="16" height="16"/>
+ </tile>
+ <tile id="281">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_222.png" width="16" height="16"/>
+ </tile>
+ <tile id="282">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_223.png" width="32" height="64"/>
+ </tile>
+ <tile id="283">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_224.png" width="16" height="16"/>
+ </tile>
+ <tile id="284">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_225.png" width="16" height="16"/>
+ </tile>
+ <tile id="285">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_226.png" width="16" height="16"/>
+ </tile>
+ <tile id="286">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_227.png" width="32" height="64"/>
+ </tile>
+ <tile id="287">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_228.png" width="32" height="64"/>
+ </tile>
+ <tile id="288">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_229.png" width="32" height="48"/>
+ </tile>
+ <tile id="289">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_230.png" width="32" height="48"/>
+ </tile>
+ <tile id="290">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_231.png" width="32" height="48"/>
+ </tile>
+ <tile id="291">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_232.png" width="32" height="48"/>
+ </tile>
+ <tile id="292">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_233.png" width="16" height="32"/>
+ </tile>
+ <tile id="293">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_234.png" width="48" height="96"/>
+ </tile>
+ <tile id="294">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_235.png" width="16" height="32"/>
+ </tile>
+ <tile id="295">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_236.png" width="16" height="32"/>
+ </tile>
+ <tile id="296">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_237.png" width="48" height="96"/>
+ </tile>
+ <tile id="297">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_238.png" width="48" height="96"/>
+ </tile>
+ <tile id="298">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_239.png" width="48" height="96"/>
+ </tile>
+ <tile id="299">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_240.png" width="48" height="96"/>
+ </tile>
+ <tile id="300">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_241.png" width="48" height="96"/>
+ </tile>
+ <tile id="301">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_242.png" width="48" height="96"/>
+ </tile>
+ <tile id="302">
+  <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_243.png" width="48" height="96"/>
  </tile>
 </tileset>

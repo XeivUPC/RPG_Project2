@@ -47,6 +47,7 @@ bool TitleScene::Start()
     settings_canvas->isVisible = false;
     settings_canvas->renderLayer = 7;
 
+
     canvas = new TitleMenuCG(*settings_canvas);
     canvas->renderLayer = 6;
 
@@ -102,8 +103,14 @@ bool TitleScene::Update()
 
        if (newGame) {
            CharacterDatabase::Instance().ResetDataToDefault();
+           Engine::Instance().s_game->Activate();
+           Engine::Instance().s_game->FreshStart();
        }
-       Engine::Instance().s_game->Activate();
+       else {
+           Engine::Instance().s_game->Activate();
+           Engine::Instance().s_game->LoadGameSaveData();
+       }
+      
        Desactivate();
     }
     return true;

@@ -6,8 +6,12 @@
 #include "GameScene.h"
 #include "ModuleInput.h"
 #include "ModulePhysics.h"
+#include "ModuleAssetDatabase.h"
+#include "ModuleAudio.h"
 #include "ModuleCursor.h"
 #include "ModuleUpdater.h"
+#include "PlayerCharacter.h"
+#include "Party.h"
 
 CombatGameState::CombatGameState()
 {
@@ -38,11 +42,16 @@ bool CombatGameState::UpdateState()
 
 bool CombatGameState::PostUpdateState()
 {
+	
 	return true;
 }
 
 void CombatGameState::StateSelected()
 {
+	Engine::Instance().s_game->PauseRain();
+
+	Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("zaliumAnthemOrchestra"), 100);
+
 	Engine::Instance().m_updater->PauseUpdateGroup("Entity");
 	Engine::Instance().m_physics->PauseSimulation();
 	Engine::Instance().s_game->combatCanvas->SetInteractable(true);
@@ -50,8 +59,8 @@ void CombatGameState::StateSelected()
 	Engine::Instance().m_cursor->ShowCustomCursor();
 
 
-	Engine::Instance().s_game->combatSystem->AddPartyToCombat(vector<int>{1,2,3,4}, CombatSystem::Ally);
-	Engine::Instance().s_game->combatSystem->AddPartyToCombat(vector<int>{2, 3, 4}, CombatSystem::Enemy);
+	Engine::Instance().s_game->combatSystem->AddPartyToCombat(Engine::Instance().s_game->GetPlayer()->party->GetPartyIds(), CombatSystem::Ally);
+	Engine::Instance().s_game->combatSystem->AddPartyToCombat(vector<int>{5,6, 2}, CombatSystem::Enemy);
 
 	Engine::Instance().s_game->fade->onFadeEnd.Subscribe([this]() {OnLoadingEnd();});
 
@@ -60,6 +69,7 @@ void CombatGameState::StateSelected()
 
 void CombatGameState::StateDeselected()
 {
+	Engine::Instance().s_game->ResumeRain();
 	if (Engine::Instance().m_physics->IsSimulationPaused()) {
 		Engine::Instance().m_physics->StartSimulation();
 	}

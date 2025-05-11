@@ -14,6 +14,7 @@
 
 SimpleTilemapChanger::SimpleTilemapChanger()
 {
+	priority_updating = -1;
 }
 
 SimpleTilemapChanger::~SimpleTilemapChanger()
@@ -24,14 +25,19 @@ bool SimpleTilemapChanger::PostUpdate()
 {
 	if (entrySensor.OnTriggerEnter()) {
 		if (targetPath != "") {
-			Engine::Instance().s_game->GetLastTilemap()->SetSpawnPoint(exitPosition);
-			Engine::Instance().s_game->AddTilemap(targetPath);
+			if (entryPoint!=-1) {
+				Engine::Instance().s_game->ChangeTilemap(targetPath, entryPoint);
+			}
+			else
+			{
+				Engine::Instance().s_game->GetLastTilemap()->SetSpawnPoint(exitPosition);
+				Engine::Instance().s_game->AddTilemap(targetPath);
+			}	
 		}
 		else {
 			Engine::Instance().s_game->RemoveLastTilemap();
 		}
 	}
-
 
 	return true;
 }
@@ -44,6 +50,11 @@ void SimpleTilemapChanger::SetExitPosition(Vector2 _exitPosition)
 void SimpleTilemapChanger::SetTargetTilemapPath(string _targetPath)
 {
 	targetPath = _targetPath;
+}
+
+void SimpleTilemapChanger::SetEntryPoint(int _entryPoint)
+{
+	entryPoint = _entryPoint;
 }
 
 void SimpleTilemapChanger::SetEntryTrigger(Vector2 _position, Vector2 size)
@@ -74,6 +85,7 @@ void SimpleTilemapChanger::ResetPoolObject()
 	Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
 	targetPath = "";
 	exitPosition = { 0,0 };
+	entryPoint = -1;
 	entrySensor.Reset();
 
 	if (entryTrigger != nullptr) {

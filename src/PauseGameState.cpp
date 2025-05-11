@@ -2,6 +2,7 @@
 #include "Engine.h"
 #include "ModuleUpdater.h"
 #include "ModulePhysics.h"
+#include "ModuleAudio.h"
 #include "ModuleCursor.h"
 #include "GameScene.h"
 #include "TitleScene.h"
@@ -33,6 +34,7 @@ bool PauseGameState::PostUpdateState()
             Engine::Instance().s_game->pauseCanvas->SetInteractable(false);
         }
     }
+
     return true;
 }
 
@@ -42,6 +44,9 @@ void PauseGameState::StateSelected()
     Engine::Instance().m_updater->PauseUpdateGroup("Entity");
     Engine::Instance().m_physics->PauseSimulation();
     Engine::Instance().m_cursor->ShowCustomCursor();
+    Engine::Instance().s_game->pauseCanvas->Init();
+
+    
 }
 
 void PauseGameState::StateDeselected()
@@ -54,5 +59,8 @@ void PauseGameState::StateDeselected()
         Engine::Instance().s_game->pauseCanvas->UpdateCanvas();
         Engine::Instance().s_game->pauseCanvas->isVisible = false;
         Engine::Instance().s_game->pauseCanvas->SetInteractable(true);
+        Engine::Instance().s_game->pauseCanvas->CloseAllSubmenus();
     }
+
+    Engine::Instance().m_audio->SetAudioBoost(1);
 }

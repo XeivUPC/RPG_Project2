@@ -55,9 +55,11 @@ void CombatSystem::UpdateCombat()
 	case CombatSystem::ENEMY_TURN:
 		if(!Engine::Instance().m_debug->godmode)
 			ai->CalculateAI(charactersInCombat);
-		ChangeState(CombatState::ATTACKS);
+		ChangeState(CombatState::PREPARE_ATTACKS);
 		break;
-	case CombatSystem::ATTACKS:
+	case CombatSystem::PREPARE_ATTACKS:
+		currentAttackIndex = 0;
+		currentAttackEnded = false;
 		sort(attackList.begin(), attackList.end(),
 		[](pair< CharacterReference*, TurnAttack>& a, pair< CharacterReference*, TurnAttack>& b) {
 			CharacterStats& as = a.first->stats;
@@ -66,16 +68,16 @@ void CombatSystem::UpdateCombat()
 			float bSpeed = bs.GetStatProcessedValue(bs.currentStats.speed, bs.statsStages.speed);
 
 			auto getGroup = [](int priority) {
-				if (priority > 0) return 1;    
-				if (priority == 0) return 2;   
-				return 3;                      
-			};
+				if (priority > 0) return 1;
+				if (priority == 0) return 2;
+				return 3;
+				};
 
 			int group_a = getGroup(a.second.attack->priority);
 			int group_b = getGroup(b.second.attack->priority);
 
 			if (group_a != group_b) {
-				return group_a < group_b; 
+				return group_a < group_b;
 			}
 
 			if (a.second.attack->priority != b.second.attack->priority) {
@@ -83,15 +85,27 @@ void CombatSystem::UpdateCombat()
 			}
 			return aSpeed > bSpeed;
 		});
-		for (auto& attack : attackList)
+		ChangeState(CombatState::ATTACKS);
+		break;
+	case CombatSystem::ATTACKS:
+		if (currentAttackIndex < attackList.size())
 		{
-			if (attack.first->stats.currentHp <= 0)
-				continue;
-			attack.second.attack->DoAttack(*attack.first,attack.second.targets);
-			
+			if (attackList[currentAttackIndex].first->stats.currentHp <= 0)
+				currentAttackIndex++;
+			else
+			{
+				if (currentAttackEnded)
+				{
+					attackList[currentAttackIndex].second.attack->DoAttack(*attackList[currentAttackIndex].first, attackList[currentAttackIndex].second.targets);
+					currentAttackEnded = false;
+					currentAttackIndex++;
+					if(currentAttackIndex == attackList.size())
+						ChangeState(CombatState::EFFECTS);
+				}
+			}
 		}
-		CheckDeadCharacters();
-		ChangeState(CombatState::EFFECTS);
+		else
+			ChangeState(CombatState::EFFECTS);
 		break;
 	case CombatSystem::EFFECTS:
 		for (auto& team : charactersInCombat)
@@ -103,6 +117,8 @@ void CombatSystem::UpdateCombat()
 
 				for (size_t i = 0; i < character.stats.statusEffects.size(); i++)
 				{
+					if (character.stats.statusEffects[i].turns <= 0)
+						continue;
 					character.stats.statusEffects[i].turns--;
 					character.stats.currentHp += character.stats.statusEffects[i].value;
 				}
@@ -198,6 +214,41 @@ void CombatSystem::ChangeState(CombatState newState)
 		state = newState;
 		onCombatStateChanged.Trigger();
 	}
+}
+
+int CombatSystem::CurrentAttackIndex()
+{
+	return currentAttackIndex;
+}
+
+bool CombatSystem::CurrentAttackEnded()
+{
+	return currentAttackEnded;
+}
+
+void CombatSystem::NextAttack()
+{
+	currentAttackEnded = true;
+}
+
+CombatSystem::CharacterReference* CombatSystem::GetCurrentAttackAttacker()
+{
+	return attackList[currentAttackIndex].first;
+}
+
+CombatSystem::TurnAttack* CombatSystem::GetCurrentTurnAttack()
+{
+	return  &attackList[currentAttackIndex].second;
+}
+
+vector<CombatSystem::CharacterReference*> CombatSystem::GetCurrentAttackTargetList()
+{
+	return attackList[currentAttackIndex].second.targets;
+}
+
+int CombatSystem::CurrentAttackTargetAmount()
+{
+	return GetCurrentAttackTargetList().size();
 }
 
 const unordered_map<CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>>& CombatSystem::GetCharactersInCombat()

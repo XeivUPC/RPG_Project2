@@ -2,6 +2,11 @@
 #include "Character.h"
 #include "CollisionSensor.h"
 
+
+class Party;
+class Inventory;
+class CharacterSilhouette;
+
 class PlayerCharacter : public Character {
 
 public:
@@ -16,34 +21,15 @@ public:
 
 	bool SetCharacterId(int _charId) override;
 
-
-	void AddToActiveParty(int _charId);
-	void RemoveFromActivePartyById(int _charId);
-	void RemoveFromActivePartyByIndex(int _charPos);
-	void EditActiveParty(int _charId, int _charPos);
-	vector<int> GetActiveParty() const;
-
-	void AddToFullParty(int _charId);
-	void RemoveFromFullParty(int _charId);
-	vector<int> GetFullParty() const;
-	//// Modify Party (active and full) Add/Remove/Get for Both *REMEMEBER TO CHANGE CharacterID, there is a function*
-	//// Will be necessary to resize the followers array, in order to keep the correct amount. MAX: 3 followers Create functions inside the Character Class to controll this --> Add/Remove/GetFollowers.  The max followers amount can be controlled also by the Character Class
-
-
-
 public:
-
+	Party* party = nullptr;
+	Inventory* inventory = nullptr;
 private:
 	void GetInput();
 private:
 	CollisionSensor interactionSensor;
-
-	vector<int> activeParty;
-	vector<int> fullParty;
-
+	CharacterSilhouette* silhouette = nullptr;
 	float distanceBetweenFollowers = 20;
-	/// activeParty & fullParty vectors<int>
-	/// Custom Distance between followers
 	
 protected:
 	// Inherited via Character

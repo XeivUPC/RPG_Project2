@@ -113,12 +113,23 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 					break;
 				}
 			}
+			CombatSystem::StatusEffect* effect = nullptr;
 			if (!hasEffect) {
 				if (statusModification.second.mode == 0)
-					character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type ,statusModification.second.value ,statusModification.second.turns });
+					effect = &character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type ,statusModification.second.value ,statusModification.second.turns });
 				else
-					character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type , character->stats.currentStats.hp * statusModification.second.value / 100.f,statusModification.second.turns });
+					effect = &character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type , character->stats.currentStats.hp * statusModification.second.value / 100.f,statusModification.second.turns });
+			}
+			if (effect == nullptr)
+				continue;
+			if (statusModification.second.activatesInstantly) {
+				effect->turns--;
+				character->stats.currentHp += effect->value;
 
+				if (character->stats.currentHp < 0)
+					character->stats.currentHp = 0.f;
+				if (character->stats.currentHp > character->stats.currentStats.hp)
+					character->stats.currentHp = (float)character->stats.currentStats.hp;
 			}
 		}
 	}

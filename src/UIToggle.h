@@ -14,7 +14,7 @@ public:
 	void RenderElementDebug() override;
 
 	bool IsOn() const;
-	void SetValue(bool _isOn);
+	void SetValue(bool _isOn, bool notify = true);
 
 public:
 	SystemEvent<bool> onValueChange;

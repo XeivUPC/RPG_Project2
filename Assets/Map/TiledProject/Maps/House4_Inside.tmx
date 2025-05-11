@@ -3,6 +3,9 @@
  <editorsettings>
   <export target="../../Data/House4_Inside.xml" format="tmx"/>
  </editorsettings>
+ <properties>
+  <property name="IsInside" type="bool" value="true"/>
+ </properties>
  <tileset firstgid="1" source="../Tilesets/Cave_Tiles.tsx"/>
  <tileset firstgid="290" source="../Tilesets/Floors_Tiles.tsx"/>
  <tileset firstgid="915" source="../Tilesets/Water_tiles.tsx"/>

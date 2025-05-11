@@ -13,6 +13,7 @@ public:
 
 	void SetExitPosition(Vector2 _exitPosition);
 	void SetTargetTilemapPath(string _targetPath);
+	void SetEntryPoint(int _entryPoint);
 	void SetEntryTrigger(Vector2 _position, Vector2 size);
 
 	void InitPoolObject() override;
@@ -25,6 +26,7 @@ private:
 
 protected:
 	Vector2 exitPosition = { 0,0 };
+	int entryPoint = -1;
 
 	string targetPath = "";
 	CollisionSensor entrySensor;

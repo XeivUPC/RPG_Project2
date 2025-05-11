@@ -61,6 +61,51 @@ public:
     }
 
     template <typename T>
+    const std::vector<std::shared_ptr<T>> AcquireActiveObjects() {
+        std::lock_guard<std::mutex> lock(mutex_);
+        auto& pool = GetPool<T>();
+        std::vector<std::shared_ptr<T>> active;
+        active.reserve(pool.checked_out.size());
+        for (T* obj : pool.checked_out) {
+            active.emplace_back(obj, [](T*) {});
+        }
+        return active;
+    }
+
+    template <typename T>
+    const std::vector<std::shared_ptr<T>> AcquireInactiveObjects() {
+        std::lock_guard<std::mutex> lock(mutex_);
+        auto& pool = GetPool<T>();
+        std::vector<std::shared_ptr<T>> inactive;
+        inactive.reserve(pool.available.size());
+        std::queue<T*> temp_queue = pool.available;
+        while (!temp_queue.empty()) {
+            T* obj = temp_queue.front();
+            temp_queue.pop();
+            inactive.emplace_back(obj, [](T*) {});
+        }
+        return inactive;
+    }
+
+    template <typename T>
+    const std::vector<std::shared_ptr<T>> AcquireAllObjects() {
+        std::lock_guard<std::mutex> lock(mutex_);
+        auto& pool = GetPool<T>();
+        std::vector<std::shared_ptr<T>> all;
+        all.reserve(pool.checked_out.size() + pool.available.size());
+        for (T* obj : pool.checked_out) {
+            all.emplace_back(obj, [](T*) {});
+        }
+        std::queue<T*> temp_queue = pool.available;
+        while (!temp_queue.empty()) {
+            T* obj = temp_queue.front();
+            temp_queue.pop();
+            all.emplace_back(obj, [](T*) {});
+        }
+        return all;
+    }
+
+    template <typename T>
     void ReturnObject(T* obj) {
         std::lock_guard lock(mutex_);
         auto& pool = GetPool<T>();

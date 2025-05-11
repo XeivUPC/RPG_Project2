@@ -2,6 +2,7 @@
 #include "Vector2Int.h"
 #include "IRendereable.h"
 #include "ITransformable.h"
+#include "ICleanable.h"
 #include "AnimationClip.h"
 #include "SystemEvent.h"
 
@@ -24,7 +25,6 @@ struct SDL_Rect;
 
 
 struct Property {
-
     string value;
 };
 
@@ -108,6 +108,7 @@ struct ObjectGroupLayer {
 };
 
 struct TiledMap {
+    string path;
     int width;
     int height;
     int tileWidth;
@@ -118,7 +119,7 @@ struct TiledMap {
     std::unordered_map<std::string, Property> properties;
 };
 
-class Tilemap : public IRendereable, public ITransformable{
+class Tilemap : public IRendereable, public ITransformable, public ICleanable {
 public:
     Tilemap(const fs::path& tmxPath, float _scale = 1);
     ~Tilemap();
@@ -132,6 +133,8 @@ public:
 
     // Inherited via IRendereable
     void Render() override;
+    // Inherited via ICleanable
+    bool CleanUp() override;
     // Inherited via ITransformable
     void SetPosition(Vector2 newPosition) override;
     // Inherited via ITransformable
@@ -149,10 +152,14 @@ public:
     // Inherited via ITransformable
     Vector2 GetAnchor() override;
 
+    const TiledMap& GetTilemap() const;
+
 
     Vector2 GetTilemapSize();
     Vector2 GetSpawnPoint();
     void SetSpawnPoint(Vector2 _spawnPoint);
+
+    Vector2 GetEntryPoint(int id);
 
 public:
     SystemEvent<> onTilemapLoad;
@@ -179,4 +186,7 @@ private:
 
     bool spawnPointSaved = false;
     Vector2 spawnPoint = { 0,0 };
+	unordered_map<int, Vector2> entryPoints;
+
+
 };

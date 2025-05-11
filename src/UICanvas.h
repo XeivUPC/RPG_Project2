@@ -6,6 +6,7 @@
 using namespace std;
 
 class UIElement;
+class UIEmpty;
 
 class UICanvas : public IRendereable {
 public:
@@ -23,17 +24,21 @@ public:
 
 	void ClearCanvas();
 
+	void SetPosition(Vector2 position);
+	Vector2 GetPosition();
+
+
 public:
 
 protected:
 	UICanvas();
 protected:
-
 private:
 
 private:
 	bool interactable = true;
 	vector<UIElement*> elements;
+	UIEmpty* root = nullptr;
 
 	// Inherited via IRendereable
 	void Render() override;

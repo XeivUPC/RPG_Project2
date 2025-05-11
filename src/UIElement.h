@@ -23,14 +23,22 @@ public:
 	const float& GetScale();
 	const float& GetConstLocalScale();
 	float& GetLocalScale();
+	const float& GetAngle();
+	const float& GetConstLocalAngle();
+	float& GetLocalAngle();
 
 	virtual void SetLocalScale(float _localScale);
 	virtual void SetLocalPosition(Vector2Int _localPosition);
+	virtual void SetLocalAngle(float _localAngle);
 
 	SDL_Rect GetBounds();
 
 	/// Sets the UIElement from wich it will inherit position and scale
 	void SetParent(UIElement* _parent);
+	bool HasParent() const;
+	UIElement* GetParent() const;
+
+	void ClearChilds();
 
 	void ForceUpdateTransforms();
 
@@ -57,13 +65,16 @@ protected:
 	bool IsInBounds(Vector2Int point);
 
 protected:
-	float scale = 1;
 	Vector2Int position = { 0,0 };
+	float scale = 1;
+	float angle=0;
 
 	/// If has a parent UIElement, this value will be added to the parent one
 	Vector2Int localPosition = { 0,0 };
 	/// If has a parent UIElement, this value will be added to the parent one
 	float localScale = 1;
+	/// If has a parent UIElement, this value will be added to the parent one
+	float localAngle = 0;
 
 	UIElement* parent = nullptr;
 	vector<UIElement*> childs;
