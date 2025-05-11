@@ -90,8 +90,10 @@ void CombatSystem::UpdateCombat()
 	case CombatSystem::ATTACKS:
 		if (currentAttackIndex < attackList.size())
 		{
-			if (attackList[currentAttackIndex].first->stats.currentHp <= 0)
+			if (attackList[currentAttackIndex].first->stats.currentHp <= 0.0f) {
+				attackList[currentAttackIndex].first->stats.currentHp = 0;
 				currentAttackIndex++;
+			}
 			else
 			{
 				if (currentAttackEnded)
@@ -112,9 +114,10 @@ void CombatSystem::UpdateCombat()
 		{
 			for (auto& character : team.second)
 			{
-				if (character.stats.currentHp <= 0)
+				if (character.stats.currentHp <= 0.0f) {
+					character.stats.currentHp = 0;
 					continue;
-
+				}
 				for (size_t i = 0; i < character.stats.statusEffects.size(); i++)
 				{
 					if (character.stats.statusEffects[i].turns <= 0)
@@ -132,7 +135,7 @@ void CombatSystem::UpdateCombat()
 					character.stats.statusEffects.end()
 				);
 
-				if (character.stats.currentHp < 0)
+				if (character.stats.currentHp <= 0.f)
 					character.stats.currentHp = 0.f;
 				if (character.stats.currentHp > character.stats.currentStats.hp)
 					character.stats.currentHp = (float)character.stats.currentStats.hp;
@@ -152,7 +155,7 @@ void CombatSystem::UpdateCombat()
 
 			for (auto& character : team.second)
 			{
-				if (character.stats.currentHp != 0)
+				if (character.stats.currentHp > 0.f)
 				{
 					allDead = false;
 					break;

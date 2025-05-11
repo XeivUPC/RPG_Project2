@@ -51,9 +51,13 @@ void CombatCG::UpdateCanvas()
 	{
 		CombatSystem::CharacterStats& charStats = charactersSlot[i].characterRef->stats;
 
-		float maxHealth = (float)charStats.currentStats.hp;
+		string pjName = CharacterDatabase::Instance().GetCharacterData(charactersSlot[i].characterRef->id).name;
+		float maxHealth = (float)charStats.GetHpStatValue();
 		float currentHealth = (float)charStats.currentHp;
 		float healthRatio = currentHealth / maxHealth;
+
+		
+
 
 		charactersSlot[i].hpBar->size.x = (int)(charactersSlot[i].hpBarMaxWidth * healthRatio);
 	}
@@ -67,24 +71,21 @@ void CombatCG::UpdateCanvas()
 	{
 		visualEffects.first = false;
 		visualEffects.second = false;
+
+		//animationEffect.first = false;
+
 		firstTick = true;
 	}
 	if (combat->GetCombatState() == CombatSystem::ATTACKS)
 	{
-		if (combat->CurrentAttackEnded())
-		{
-			visualEffects.first = false;
-			visualEffects.second = false;
-			firstTick = true;
-		}
 		if (!visualEffects.first && !visualEffects.second)
 		{
 			if (firstTick)
 			{
 				UICharacterSlot* slotSelected = GetSlotByCharacter(combat->GetCurrentAttackAttacker());
-				Attack* attackData = combat->GetCurrentTurnAttack()->attack;
+				CombatSystem::TurnAttack* turnData = combat->GetCurrentTurnAttack();
 
-				if (attackData->type == Attack::AttackType::Aggressive)
+				if (turnData->attack->type == Attack::AttackType::Aggressive)
 					slotSelected->characterImage->GetAnimator()->Animate("physic-attack");
 				else
 					slotSelected->characterImage->GetAnimator()->Animate("special-attack");
@@ -98,31 +99,37 @@ void CombatCG::UpdateCanvas()
 				firstTick = true;
 			}
 		}
-
 		if (visualEffects.first && !visualEffects.second)
 		{
 			if (firstTick)
 			{
+				targetVisualsRequest.first = combat->CurrentAttackTargetAmount();
+
 				for (size_t i = 0; i < combat->CurrentAttackTargetAmount(); i++)
 				{
-					GetSlotByCharacter(combat->GetCurrentAttackTargetList()[i])->characterImage->GetAnimator()->Animate("hurt");
+					UICharacterSlot* slot = GetSlotByCharacter(combat->GetCurrentAttackTargetList()[i]);
+					if(slot->characterRef->stats.currentHp > 0)
+						slot->characterImage->GetAnimator()->Animate("hurt");
+					else
+						targetVisualsCompleted.first++;
 				}
 				//Animate effects
 				firstTick = false;
+				combat->NextAttack();
 			}
 			if (animationEffect == pair<bool, bool>(true, true))
 			{
 				animationEffect = pair<bool, bool>(false, true);
 				visualEffects.second = true;
 				targetVisualsCompleted = pair<int, int>(0, 0);
+				
 				firstTick = true;
 			}
 		}
 		if (visualEffects.first && visualEffects.second)
 		{
-			combat->NextAttack();
-
 			visualEffects = pair<bool, bool>(false, false);
+			
 		}
 	}
 
@@ -490,7 +497,11 @@ void CombatCG::HideAttackInformation()
 
 void CombatCG::SelectCharacter(UICharacterSlot& character)
 {
-	if (character.characterRef->stats.currentHp <= 0)
+
+	if (combat->GetCombatState() != CombatSystem::CombatState::PLAYER_TURN)
+		return;
+
+	if (character.characterRef->stats.currentHp <= 0.f)
 		return;
 	if(selectingTargets)
 	{
@@ -544,7 +555,7 @@ void CombatCG::ShowAllPossibleTargets()
 	}
 	for (size_t i = 0; i < charactersSlot.size(); i++)
 	{
-		if (charactersSlot[i].characterRef->stats.currentHp <= 0)
+		if (charactersSlot[i].characterRef->stats.currentHp <= 0.f)
 			continue;
 		bool isSameType = (charactersSlot[i].characterRef->team == selectedAttack->attack->targetType || selectedAttack->attack->targetType == CombatSystem::Both);
 
@@ -591,7 +602,7 @@ int CombatCG::GetPossibleTargetsAmount()
 	int amount = 0;
 	for (size_t i = 0; i < charactersSlot.size(); i++)
 	{
-		if (charactersSlot[i].characterRef->stats.currentHp <= 0)
+		if (charactersSlot[i].characterRef->stats.currentHp <= 0.f)
 			continue;
 		if (charactersSlot[i].characterRef->team == selectedAttack->attack->targetType || selectedAttack->attack->targetType == CombatSystem::Both) {
 			amount++;
@@ -603,6 +614,9 @@ int CombatCG::GetPossibleTargetsAmount()
 void CombatCG::SelectTarget(UICharacterSlot& character)
 {
 	/// Check AutoSelect by numbers of enemies and requiered targets
+
+	if (combat->GetCombatState() != CombatSystem::CombatState::PLAYER_TURN)
+		return;
 
 	bool isSameType = (character.characterRef->team == selectedAttack->attack->targetType || selectedAttack->attack->targetType == CombatSystem::Both);
 	bool isSelfAttack = (selectedAttack->attack->targetType == CombatSystem::Self && &character == selectedCharacter);
@@ -718,15 +732,10 @@ void CombatCG::OnCombatStateChanged()
 			}
 
 			attacksToExecute.clear();
-			/*for (size_t i = 0; i < charactersSlot.size(); i++)
+			for (size_t i = 0; i < charactersSlot.size(); i++)
 			{
 				charactersSlot[i].attackDone->localVisible = false;
-
-				if(charactersSlot[i].characterRef->stats.currentHp==0)
-					charactersSlot[i].characterImage->localVisible = false;
-				else
-					charactersSlot[i].characterImage->localVisible = true;
-			}*/
+			}
 			break;
 		}
 	}
@@ -802,15 +811,12 @@ void CombatCG::FinishHurtVisuals(UIAnimatedImage* characterImage, CombatSystem::
 {
 
 	targetVisualsCompleted.first++;
-	if (targetVisualsCompleted.first == combat->CurrentAttackTargetAmount())
+	if (targetVisualsCompleted.first == targetVisualsRequest.first)
 		animationEffect.first = true;
-	printf("%s > %f\n", CharacterDatabase::Instance().GetCharacterData(ref->id).name.c_str(), ref->stats.currentHp);
 	if(ref->stats.currentHp > 0)
 		characterImage->GetAnimator()->Animate("combat-idle");
 	else
 		characterImage->GetAnimator()->Animate("die");
-	///// CheckIfDead
-
 }
 
 
