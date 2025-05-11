@@ -55,11 +55,22 @@ void CombatCG::UpdateCanvas()
 		float maxHealth = (float)charStats.GetHpStatValue();
 		float currentHealth = (float)charStats.currentHp;
 		float healthRatio = currentHealth / maxHealth;
-
-		
-
+		if(healthRatio>1)
+			healthRatio = 1.f;
 
 		charactersSlot[i].hpBar->size.x = (int)(charactersSlot[i].hpBarMaxWidth * healthRatio);
+
+		bool statusValue = charStats.HasStatusEffect("Poison");
+		if(statusValue != charactersSlot[i].poison->IsOn())
+			charactersSlot[i].poison->SetValue(statusValue);
+
+		statusValue = charStats.HasStatusEffect("Regeneration");
+		if (statusValue != charactersSlot[i].poison->IsOn())
+			charactersSlot[i].regeneration->SetValue(statusValue);
+
+		statusValue = charStats.HasStatusEffect("Burn");
+		if (statusValue != charactersSlot[i].poison->IsOn())
+			charactersSlot[i].burn->SetValue(statusValue);
 	}
 	if (debug_immortalEnabled != nullptr) {
 		if (Engine::Instance().m_debug->godmode)

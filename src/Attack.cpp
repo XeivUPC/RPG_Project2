@@ -51,7 +51,7 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 				attackerPtr->stats.currentHp += damageDone * (lifeDewEffectiveness / 100.f);
 				break;
 			case 2:
-				attackerPtr->stats.currentHp += target[i]->stats.currentStats.hp * (lifeDewAmount/100.f) * (lifeDewEffectiveness / 100.f);
+				attackerPtr->stats.currentHp += target[i]->stats.GetHpStatValue() * (lifeDewAmount / 100.f) * (lifeDewEffectiveness / 100.f);
 				break;
 			default:
 				break;
@@ -99,6 +99,8 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 				character = target[i];	
 			}
 
+			float maxHealth = (float)character->stats.GetHpStatValue();
+
 			const string& type = statusModification.second.type;
 			bool hasEffect = false;
 			for (size_t i = 0; i < character->stats.statusEffects.size(); i++)
@@ -108,17 +110,18 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 					if (statusModification.second.mode == 0)
 						character->stats.statusEffects[i].value = statusModification.second.value;
 					else
-						character->stats.statusEffects[i].value = character->stats.currentStats.hp * statusModification.second.value / 100.f;
+						character->stats.statusEffects[i].value = maxHealth * statusModification.second.value / 100.f;
 					hasEffect = true;
 					break;
 				}
 			}
+			
 			CombatSystem::StatusEffect* effect = nullptr;
 			if (!hasEffect) {
 				if (statusModification.second.mode == 0)
 					effect = &character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type ,statusModification.second.value ,statusModification.second.turns });
 				else
-					effect = &character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type , character->stats.currentStats.hp * statusModification.second.value / 100.f,statusModification.second.turns });
+					effect = &character->stats.statusEffects.emplace_back(CombatSystem::StatusEffect{ type , maxHealth * statusModification.second.value / 100.f,statusModification.second.turns });
 			}
 			if (effect == nullptr)
 				continue;
@@ -128,9 +131,23 @@ void Attack::DoAttack(CombatSystem::CharacterReference& attacker, std::vector<Co
 
 				if (character->stats.currentHp < 0)
 					character->stats.currentHp = 0.f;
-				if (character->stats.currentHp > character->stats.currentStats.hp)
-					character->stats.currentHp = (float)character->stats.currentStats.hp;
+				if (character->stats.currentHp > maxHealth)
+					character->stats.currentHp = maxHealth;
+	
 			}
+
+			character->stats.statusEffects.erase(
+				std::remove_if(
+					character->stats.statusEffects.begin(),
+					character->stats.statusEffects.end(),
+					[](const CombatSystem::StatusEffect& c) { return c.turns <= 0; }
+				),
+				character->stats.statusEffects.end()
+			);
+
 		}
+
 	}
+
+
 }
