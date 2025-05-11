@@ -79,7 +79,6 @@ private:
 		UIImage* selectedCharacterTarget = nullptr;
 
 		UIAnimatedImage* combatEffect = nullptr;
-		bool dead = false;
 
 	};
 
