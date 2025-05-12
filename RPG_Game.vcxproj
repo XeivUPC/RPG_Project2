@@ -176,6 +176,7 @@
     <ClCompile Include="src\MusicContainer.cpp" />
     <ClCompile Include="src\NpcCharacter.cpp" />
     <ClCompile Include="src\OverworldItem.cpp" />
+    <ClCompile Include="src\ParallaxCG.cpp" />
     <ClCompile Include="src\Party.cpp" />
     <ClCompile Include="src\PartyCG.cpp" />
     <ClCompile Include="src\PauseGameState.cpp" />
@@ -269,6 +270,7 @@
     <ClInclude Include="src\MusicContainer.h" />
     <ClInclude Include="src\NpcCharacter.h" />
     <ClInclude Include="src\OverworldItem.h" />
+    <ClInclude Include="src\ParallaxCG.h" />
     <ClInclude Include="src\Party.h" />
     <ClInclude Include="src\PartyCG.h" />
     <ClInclude Include="src\PauseGameState.h" />
