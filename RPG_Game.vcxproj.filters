@@ -399,6 +399,9 @@
     <ClCompile Include="src\SaveLoadCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClCompile>
+    <ClCompile Include="src\ParallaxCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -705,6 +708,9 @@
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
     <ClInclude Include="src\SaveLoadCG.h">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParallaxCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
   </ItemGroup>

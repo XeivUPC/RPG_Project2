@@ -108,6 +108,12 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("compass_overlay", *textureFactory->CreateTexture("Assets/Textures/UI/compass_overlay.png"));
 	AddTextureToStorage("compass_arrow", *textureFactory->CreateTexture("Assets/Textures/UI/compass_arrow.png"));
 	AddTextureToStorage("item_slot", *textureFactory->CreateTexture("Assets/Textures/UI/item_slot.png"));
+	AddTextureToStorage("title_bg1", *textureFactory->CreateTexture("Assets/Textures/Parallax/TitleBG/title_bg1.png"));
+	AddTextureToStorage("title_bg2", *textureFactory->CreateTexture("Assets/Textures/Parallax/TitleBG/title_bg2.png"));
+	AddTextureToStorage("title_bg3", *textureFactory->CreateTexture("Assets/Textures/Parallax/TitleBG/title_bg3.png"));
+	AddTextureToStorage("title_bg4", *textureFactory->CreateTexture("Assets/Textures/Parallax/TitleBG/title_bg4.png"));
+	AddTextureToStorage("title_bg5", *textureFactory->CreateTexture("Assets/Textures/Parallax/TitleBG/title_bg5.png"));
+	AddTextureToStorage("title_bg6", *textureFactory->CreateTexture("Assets/Textures/Parallax/TitleBG/title_bg6.png"));
 	///Cursors
 	AddTextureToStorage("mouse_cursor0", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_0.png"));
 	AddTextureToStorage("mouse_cursor1", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_1.png"));
