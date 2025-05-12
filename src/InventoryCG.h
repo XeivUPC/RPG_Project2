@@ -72,6 +72,8 @@ private:
 	void CreateCharacterSelectorSlots();
 	void UpdateCharacterSelectorSlots();
 
+	void GoToMemebersOffset(int _membersOffset);
+
 	void CreateItemSlots();
 	void UpdateItemSlots();
 
@@ -90,6 +92,12 @@ private:
 	UIImage* container_image = nullptr;
 
 	vector<UICharacterSelectorSlot> selectorSlots;
+	UIButton* prev_pageBtn = nullptr;
+	UIButton* next_pageBtn = nullptr;
+	int membersOffset = -1;
+	int membersByPage = 6;
+
+
 
 	vector<UIItemSlots> itemSlots;
 

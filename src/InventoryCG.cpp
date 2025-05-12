@@ -87,14 +87,20 @@ void InventoryCG::ChangeInventoryToTrack(Inventory*inventoryToTrack)
 void InventoryCG::ChangePartyToTrack(Party* partyToTrack)
 {
 	party = partyToTrack;
+	GoToMemebersOffset(0);
 	UpdateCharacterSelectorSlots();
 }
 
 void InventoryCG::Reset()
 {
+	membersOffset = -1;
+
+	GoToMemebersOffset(0);
 	UpdateCharacterSelectorSlots();
 	UpdateItemSlots();
+
 	UpdateCharacterSlot(-INT16_MAX);
+
 }
 
 void InventoryCG::CreateCharacterSelectorSlots()
@@ -108,6 +114,7 @@ void InventoryCG::CreateCharacterSelectorSlots()
 
 	Vector2 anchor = { 19 ,87 };
 	Vector2 slotSize = Engine::Instance().m_assetsDB->GetTextureSize(*overlay);
+	slotSize.x /= 3;
 	Vector2 spacing = { 0, 5 };
 
 	const vector<CharacterDatabase::CharacterData*> memebers = party->GetMemebers();
@@ -129,6 +136,8 @@ void InventoryCG::CreateCharacterSelectorSlots()
 		slot.characterId = charData->id;
 		//slot.characterData = charData;
 		slot.characterSelect = new UIButton(*overlay, position, slotSize, {0,0,(int)slotSize.x, (int)slotSize.y});
+		slot.characterSelect->AddRect(UIButton::ButtonStates::HOVER, { (int)slotSize.x,0,(int)slotSize.x, (int)slotSize.y });
+		slot.characterSelect->AddRect(UIButton::ButtonStates::PRESSED, { (int)slotSize.x*2,0,(int)slotSize.x, (int)slotSize.y });
 		slot.characterSelect->onMouseClick.Subscribe([this, slot]() {UpdateCharacterSlot(slot.characterId); });
 
 		slot.characterName = new UITextBox(charData->name, *textFont, 16, { 184,132,78,255 }, { 0,5 }, { (int)slotSize.x,32}, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
@@ -147,16 +156,23 @@ void InventoryCG::UpdateCharacterSelectorSlots()
 	for (int i = 0; i < selectorSlots.size(); ++i) {
 		selectorSlots[i].characterName->localVisible = false;
 
-		selectorSlots[i].characterSelect->isEnabled = false;
 		selectorSlots[i].characterSelect->localVisible = false;
+		selectorSlots[i].characterSelect->interactable = false;
 
 	}
 
 	const vector<CharacterDatabase::CharacterData*> memebers = party->GetMemebers();
-	for (int i = 0; i < memebers.size(); ++i)
+
+	int maxIndex = membersOffset + membersByPage;
+	if (maxIndex > memebers.size()) {
+		maxIndex = (int)memebers.size();
+	}
+
+	for (int i = membersOffset; i < maxIndex; ++i)
 	{
 		CharacterDatabase::CharacterData* charData = memebers[i];
-		UICharacterSelectorSlot& slot = selectorSlots[i];
+		int realIndex = i - membersOffset;
+		UICharacterSelectorSlot& slot = selectorSlots[realIndex];
 
 		slot.characterId = charData->id;
 		//slot.characterData = charData;
@@ -167,12 +183,43 @@ void InventoryCG::UpdateCharacterSelectorSlots()
 		slot.characterName->SetText(charData->name);
 
 
-		selectorSlots[i].characterName->localVisible = true;
+		selectorSlots[realIndex].characterName->localVisible = true;
 
-		selectorSlots[i].characterSelect->isEnabled = true;
-		selectorSlots[i].characterSelect->localVisible = true;
+		selectorSlots[realIndex].characterSelect->interactable = true;
+		selectorSlots[realIndex].characterSelect->localVisible = true;
 
 	}
+}
+
+void InventoryCG::GoToMemebersOffset(int _membersOffset)
+{
+
+	if (membersOffset == _membersOffset)
+		return;
+
+	prev_pageBtn->isEnabled = true;
+	next_pageBtn->isEnabled = true;
+
+	int maxOffset = party->GetMemebersAmount() - membersByPage;
+
+	if (_membersOffset <= 0 && _membersOffset >= maxOffset) {
+		membersOffset = 0;
+		prev_pageBtn->isEnabled = false;
+		next_pageBtn->isEnabled = false;
+	}
+	else if (_membersOffset <= 0) {
+		membersOffset = 0;
+		prev_pageBtn->isEnabled = false;
+	}
+	else if (_membersOffset >= maxOffset) {
+		membersOffset = maxOffset;
+		next_pageBtn->isEnabled = false;
+	}
+	else {
+		membersOffset = _membersOffset;
+	}
+
+	UpdateCharacterSelectorSlots();
 }
 
 void InventoryCG::CreateItemSlots()
@@ -344,8 +391,38 @@ void InventoryCG::UpdateCharacterSlot(int charId)
 
 void InventoryCG::CreateExtras()
 {
+
+	SDL_Texture* switchPage_texture = Engine::Instance().m_assetsDB->GetTexture("arrow_tex2");
+
+	Mix_Chunk* btn_enter = Engine::Instance().m_assetsDB->GetAudio("btn_enter");
+	Mix_Chunk* btn_click = Engine::Instance().m_assetsDB->GetAudio("btn_click");
+
+
 	itemHoldingImage = new UIImage({ 0,0 }, { 16,16 }, { 0.5f,0.5f });
 	itemHoldingImage->localVisible = false;
+
+	/// Nav
+
+	Vector2 arrowSize = Engine::Instance().m_assetsDB->GetTextureSize(*switchPage_texture);
+
+	prev_pageBtn = new UIButton(*switchPage_texture, { 124 ,82 }, arrowSize, { 0,10,17,10 }, { 0,0});
+	prev_pageBtn->AddRect(UIButton::ButtonStates::HOVER, { 17,10,17,10 });
+	prev_pageBtn->AddRect(UIButton::ButtonStates::PRESSED, { 17*2,10,17,10 });
+	prev_pageBtn->AddRect(UIButton::ButtonStates::DISABLED, { 17*3,10,17,10 });
+	prev_pageBtn->onMouseClick.Subscribe([this]() {GoToMemebersOffset(membersOffset - 1); });
+	prev_pageBtn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	prev_pageBtn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
+	prev_pageBtn->SetParent(container_image);
+
+
+	next_pageBtn = new UIButton(*switchPage_texture, { 124 ,336 }, arrowSize, { 0,0,17,10 }, { 0,0 });
+	next_pageBtn->AddRect(UIButton::ButtonStates::HOVER, { 17,0,17,10 });
+	next_pageBtn->AddRect(UIButton::ButtonStates::PRESSED, { 17 * 2,0,17,10 });
+	next_pageBtn->AddRect(UIButton::ButtonStates::DISABLED, { 17 * 3,0,17,10 });
+	next_pageBtn->onMouseClick.Subscribe([this]() {GoToMemebersOffset(membersOffset + 1);  });
+	next_pageBtn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
+	next_pageBtn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
+	next_pageBtn->SetParent(container_image);
 
 	//// RemoveButton
 }

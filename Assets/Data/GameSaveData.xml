@@ -52,6 +52,7 @@
 			</active>
 			<inactive>
 				<member id="-1" />
+				<member id="1" />
 				<member id="2" />
 				<member id="3" />
 				<member id="4" />

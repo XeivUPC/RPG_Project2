@@ -83,6 +83,7 @@ void ModuleAssetDatabase::LoadAssets()
 	
 	AddTextureToStorage("battle_bg", *textureFactory->CreateTexture("Assets/Textures/UI/battle_bg.png"));
 	AddTextureToStorage("arrow_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/arrow1.png"));
+	AddTextureToStorage("arrow_tex2", *textureFactory->CreateTexture("Assets/Textures/UI/arrow2.png"));
 	AddTextureToStorage("tick_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/tick1.png"));
 	AddTextureToStorage("btn_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/btn1.png"));
 	AddTextureToStorage("btn_tex2", *textureFactory->CreateTexture("Assets/Textures/UI/btn2.png"));
