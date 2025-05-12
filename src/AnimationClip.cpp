@@ -98,14 +98,13 @@ void AnimationClip::UpdateClip()
 	if (time >= speed)
 	{
 		time = 0;
-		if (currentSprite == spriteList.size() - 1 && loop) {
-			currentSprite = 0;
+		if (currentSprite == spriteList.size() - 1) {
+			if(loop)
+				currentSprite = 0;
 			onAnimationFinished.Trigger();
 			spriteList[currentSprite].onSpriteSelected.Trigger();
-			
-
 		}
-		else if (currentSprite <= spriteList.size() - 1) {
+		else if (currentSprite < spriteList.size() - 1) {
 			currentSprite++;
 			spriteList[currentSprite].onSpriteSelected.Trigger();
 		}

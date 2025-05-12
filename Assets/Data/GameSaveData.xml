@@ -5,22 +5,30 @@
 		<party>
 			<active>
 				<member id="-1" />
+				<member id="2" />
+				<member id="5" />
+				<member id="6" />
 			</active>
 			<inactive>
 				<member id="-1" />
+				<member id="2" />
+				<member id="3" />
+				<member id="4" />
+				<member id="5" />
+				<member id="6" />
 			</inactive>
 		</party>
 		<inventory />
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="45629.3711" />
+		<time value="46915.6055" />
 		<items>
 			<item id="item;zalium_armor" amount="5" position-x="180" position-y="250" />
 		</items>
 		<tilemaps>
-			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="135.909103" spawnpoint-y="767.364014" />
-			<tilemap path="Assets/Map/Data/House2_Inside.xml" spawnpoint-x="216.419998" spawnpoint-y="188.5" />
+			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="135" spawnpoint-y="767" />
+			<tilemap path="Assets/Map/Data/House2_Inside.xml" spawnpoint-x="216" spawnpoint-y="188" />
 		</tilemaps>
 	</map>
 </game>
