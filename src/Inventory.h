@@ -32,7 +32,13 @@ public:
     int GetUsedSlots() const;
     int GetFreeSlots() const;
 
+    void SwapSlots(int index1, int index2);
+    bool TryStackItems(int sourceIndex, int targetIndex);
+
+    void ClearAllItems();
+
     const vector<InventorySlot>& GetSlotsData();
+    vector<InventorySlot>& GetSlotsDataModifiable();
 
 public:
 

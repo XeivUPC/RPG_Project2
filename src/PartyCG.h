@@ -38,7 +38,7 @@ private:
 		UIButton* chracterOverlay = nullptr;
 
 		UIImage* characterProfile = nullptr;
-		UITextBox* charcterName = nullptr;
+		UITextBox* characterName = nullptr;
 
 		UIButton* moveLeftBtn = nullptr;
 		UIButton* searchBtn = nullptr;
@@ -51,7 +51,7 @@ private:
 		UIButton* characterSelect = nullptr;
 		UIImage* characterBackground = nullptr;
 
-		UITextBox* charcterName = nullptr;
+		UITextBox* characterName = nullptr;
 		UITextBox* charcterLevel = nullptr;
 
 

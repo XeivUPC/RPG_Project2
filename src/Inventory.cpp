@@ -20,7 +20,6 @@ int Inventory::AddItem(InventoryItem& newItem, int amount) {
     const int maxStack = newItem.GetMaxStack();
     const std::string targetName = newItem.GetName();
 
-    // First pass: stack into existing slots
     for (auto& slot : slots) {
         if (!slot.IsEmpty() && slot.item->GetName() == targetName) {
             const int canAdd = min(maxStack - slot.count, amount);
@@ -35,7 +34,6 @@ int Inventory::AddItem(InventoryItem& newItem, int amount) {
         }
     }
 
-    // Second pass: use empty slots
     for (auto& slot : slots) {
         if (slot.IsEmpty()) {
             slot.item = newItem.clone();
@@ -103,7 +101,64 @@ int Inventory::GetFreeSlots() const
     return size - GetUsedSlots();
 }
 
+void Inventory::SwapSlots(int index1, int index2) {
+    if (index1 < 0 || index1 >= size || index2 < 0 || index2 >= size) {
+        return; 
+    }
+
+    std::swap(slots[index1], slots[index2]);
+}
+
+bool Inventory::TryStackItems(int sourceIndex, int targetIndex) {
+    if (sourceIndex < 0 || sourceIndex >= size ||
+        targetIndex < 0 || targetIndex >= size ||
+        sourceIndex == targetIndex) {
+        return false;
+    }
+
+    InventorySlot& source = slots[sourceIndex];
+    InventorySlot& target = slots[targetIndex];
+
+    if (source.IsEmpty() || target.IsEmpty() ||
+        source.item->GetName() != target.item->GetName()) {
+        return false;
+    }
+
+    int maxStack = source.item->GetMaxStack();
+    if (target.count >= maxStack) {
+        return false;
+    }
+
+    int amountToTransfer = std::min(source.count, maxStack - target.count);
+    target.count += amountToTransfer;
+    source.count -= amountToTransfer;
+
+    if (source.count <= 0) {
+        delete source.item;
+        source.item = nullptr;
+        source.count = 0;
+    }
+
+    return true;
+}
+
+void Inventory::ClearAllItems()
+{
+    for (auto& slot : slots) {
+        if (!slot.IsEmpty()) {
+            delete slot.item;
+            slot.item = nullptr;
+            slot.count = 0;
+        }
+    }
+}
+
 const vector<InventorySlot>& Inventory::GetSlotsData()
+{
+    return slots;
+}
+
+vector<InventorySlot>& Inventory::GetSlotsDataModifiable()
 {
     return slots;
 }

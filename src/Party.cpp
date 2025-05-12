@@ -233,6 +233,22 @@ CharacterDatabase::CharacterData* Party::GetCharacterFromParty(int index) const
 	return party[index];
 }
 
+CharacterDatabase::CharacterData* Party::GetCharacterFromMembers(int id) const
+{
+
+	CharacterDatabase::CharacterData* memberPtr = nullptr;
+
+	for (const auto& member : members)
+	{
+		if (member->id == id)
+		{
+			memberPtr = member;
+			break;
+		}
+	}
+	return memberPtr;
+}
+
 bool Party::IsPartyLeader(int id) const
 {
 	return GetPartyLeader()->id == id;

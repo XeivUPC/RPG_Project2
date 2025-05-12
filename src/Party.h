@@ -41,6 +41,7 @@ public:
 	vector<int> GetPartyIds(bool removeLeader = false) const;
 	vector<int> GetMembersIds() const;
 	CharacterDatabase::CharacterData* GetCharacterFromParty(int index) const;
+	CharacterDatabase::CharacterData* GetCharacterFromMembers(int id) const;
 
 public:
 	SystemEvent<> onPartyChanged;

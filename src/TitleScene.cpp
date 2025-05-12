@@ -103,12 +103,16 @@ bool TitleScene::Update()
             canvas->SetInteractable(false);
     }
     else {
+        
         if (!canvas->IsInteractable())
             canvas->SetInteractable(true);
     }
 
     canvas->UpdateCanvas();
-    parallax->UpdatePosition(Engine::Instance().m_input->GetMousePosition() - Engine::Instance().m_render->GetCamera().viewport/2);
+   
+    if(!settings_canvas->isVisible)
+        parallax->UpdatePosition(Engine::Instance().m_input->GetMousePosition() - Engine::Instance().m_render->GetCamera().viewport / 2);
+
     parallax->UpdateCanvas();
     settings_canvas->UpdateCanvas();
     fade->UpdateCanvas();

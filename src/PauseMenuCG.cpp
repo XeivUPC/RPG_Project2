@@ -113,7 +113,7 @@ PauseMenuCG::PauseMenuCG(int _renderLayer)
 	inventoryGame_text->SetParent(inventoryGame_btn);
 	inventoryGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	inventoryGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
-	inventoryGame_btn->onMouseClick.Subscribe([this]() {OpenSubmenu("Inventory"); inventory->Reset(); inventory->ChangePartyToTrack(Engine::Instance().s_game->GetPlayer()->party); inventory->ChangeInventoryToTrack(Engine::Instance().s_game->GetPlayer()->inventory); });
+	inventoryGame_btn->onMouseClick.Subscribe([this]() {OpenSubmenu("Inventory"); inventory->ChangePartyToTrack(Engine::Instance().s_game->GetPlayer()->party); inventory->ChangeInventoryToTrack(Engine::Instance().s_game->GetPlayer()->inventory); inventory->Reset(); });
 	inventoryGame_btn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	inventoryGame_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	inventoryGame_btn->onMouseEnter.Subscribe([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });

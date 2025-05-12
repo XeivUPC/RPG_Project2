@@ -1,7 +1,49 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="282" y="833" />
+		<position x="209" y="256" />
+		<inventory>
+			<item id="item;zalium_armor" amount="1" />
+			<item id="item;zalium_armor" amount="1" />
+			<item id="item;zalium_armor" amount="1" />
+			<item />
+			<item id="item;zalium_armor" amount="1" />
+			<item id="item;null" amount="64" />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item id="item;zalium_armor" amount="1" />
+			<item />
+			<item />
+			<item />
+			<item id="item;null" amount="1" />
+		</inventory>
 		<party>
 			<active>
 				<member id="-1" />
@@ -13,11 +55,11 @@
 		<inventory />
 	</player>
 	<map>
-		<raining value="true" />
-		<time value="79701.6641" />
+		<raining value="false" />
+		<time value="51892.9375" />
 		<items />
 		<tilemaps>
-			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="280.210999" spawnpoint-y="831.908997" />
+			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="280" spawnpoint-y="831" />
 		</tilemaps>
 	</map>
 </game>

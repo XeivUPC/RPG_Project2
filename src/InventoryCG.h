@@ -20,6 +20,9 @@ public:
 	InventoryCG();
 	~InventoryCG();
 
+
+	void UpdateCanvas() override;
+
 	void ChangeInventoryToTrack(Inventory* inventoryToTrack);
 	void ChangePartyToTrack(Party* partyToTrack);
 
@@ -29,17 +32,31 @@ private:
 
 	struct UICharacterSelectorSlot {
 		int characterId = -1;
+		//CharacterDatabase::CharacterData* characterData = nullptr;
 
 		UIButton* characterSelect = nullptr;
 
 		UITextBox* characterName = nullptr;
 	};
 
+	struct UICharacterSlot {
+		int characterId = -1;
+
+		UIImage* characterOverlay = nullptr;
+		UIImage* characterProfile = nullptr;
+
+		UITextBox* characterName = nullptr;
+	};
+
 	struct UIItemSlots {
+		int index = 0;
 		Item* itemRef = nullptr;
 		int amount;
 
 		UIButton* itemSelect = nullptr;
+		UIImage* itemImage = nullptr;
+		UIImage* itemCoverImage = nullptr;
+		UITextBox* itemAmount = nullptr;
 	};
 
 	void CreateCharacterSelectorSlots();
@@ -47,6 +64,14 @@ private:
 
 	void CreateItemSlots();
 	void UpdateItemSlots();
+
+	void CreateCharacterSlot();
+	void UpdateCharacterSlot(int charId);
+
+	void CreateExtras();
+
+	void OnItemSelected(int index);
+	void OnMouseOverItem(int index);
 
 private:
 	Inventory* inventory = nullptr;
@@ -57,4 +82,11 @@ private:
 	vector<UICharacterSelectorSlot> selectorSlots;
 
 	vector<UIItemSlots> itemSlots;
+
+	UIImage* itemHoldingImage = nullptr;
+	UIItemSlots* currentHoldedSlot = nullptr;
+	UIItemSlots* mouseOverSlot = nullptr;
+	
+
+	UICharacterSlot characterSlot;
 };

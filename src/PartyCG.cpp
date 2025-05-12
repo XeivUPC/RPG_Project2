@@ -169,11 +169,11 @@ void PartyCG::CreatePartySlots()
 		string name = "";
 		if (charData != nullptr)
 			name = charData->name;
-		slot.charcterName = new UITextBox(name, *textFont, 16, { 184,132,78,255 }, { -7, 69 }, { 80*2,15*2}, {0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
-		slot.charcterName->SetParent(slot.characterSelect);
-		slot.charcterName->SetLocalScale(0.5f);
+		slot.characterName = new UITextBox(name, *textFont, 16, { 184,132,78,255 }, { -7, 69 }, { 80*2,15*2}, {0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+		slot.characterName->SetParent(slot.characterSelect);
+		slot.characterName->SetLocalScale(0.5f);
 		if (charData == nullptr)
-			slot.charcterName->localVisible = false;
+			slot.characterName->localVisible = false;
 
 
 		slot.moveLeftBtn = new UIButton(*options_texture, { 1,85 }, { 12,12 }, { 12,0,12,12 }, { 0,0 });
@@ -255,8 +255,8 @@ void PartyCG::CreateMemeberSlots()
 		slot.characterProfile = new UIImage(*character_profile_texture, { 6,65 }, { 64,64 }, { 0,1 }, true, characterProfilesAtlas->sprites[charData->faceId].rect);
 		slot.characterProfile->SetParent(slot.characterSelect);
 
-		slot.charcterName = new UITextBox(charData->name, *textFont, 16, { 184,132,78,255 }, { 74, 4 }, { 101,32 }, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
-		slot.charcterName->SetParent(slot.characterSelect);
+		slot.characterName = new UITextBox(charData->name, *textFont, 16, { 184,132,78,255 }, { 74, 4 }, { 101,32 }, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+		slot.characterName->SetParent(slot.characterSelect);
 
 		slot.charcterLevel = new UITextBox("Lvl: " + to_string(charData->level), *textFont, 16, { 184,132,78,255 }, { 10, -8 }, { 78,16 }, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Top, false);
 		slot.charcterLevel->SetParent(slot.characterSelect);
@@ -299,7 +299,7 @@ void PartyCG::UpdatePartySlots()
 		partySlots[i].moveLeftBtn->isEnabled = false;
 		partySlots[i].searchBtn->isEnabled = false;
 		partySlots[i].moveRightBtn->isEnabled = false;
-		partySlots[i].charcterName->localVisible = false;
+		partySlots[i].characterName->localVisible = false;
 
 	}
 
@@ -315,7 +315,7 @@ void PartyCG::UpdatePartySlots()
 		TextureAtlas* characterProfilesAtlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
 		SDL_Texture* character_profile_texture = characterProfilesAtlas->texture;
 		slot.characterProfile->SetSprite(*character_profile_texture, true, characterProfilesAtlas->sprites[charData->faceId].rect);
-		slot.charcterName->SetText(charData->name);
+		slot.characterName->SetText(charData->name);
 
 		slot.characterSelect->onMouseClick.UnsubscribeAll();
 		slot.characterSelect->onMouseClick.Subscribe([this, id]() {RemovePartyCharacter(id);});
@@ -323,7 +323,7 @@ void PartyCG::UpdatePartySlots()
 		slot.characterSelect->isEnabled = true;
 		partySlots[i].characterProfile->localVisible = true;
 		slot.chracterOverlay->isEnabled = true;
-		slot.charcterName->localVisible = true;
+		slot.characterName->localVisible = true;
 
 
 		if (i != 0) {
@@ -366,7 +366,7 @@ void PartyCG::UpdateMemberSlots()
 
 		slot.characterId = charData->id;
 		slot.charcterLevel->SetText("Lvl: " + to_string(charData->level));
-		slot.charcterName->SetText(charData->name);
+		slot.characterName->SetText(charData->name);
 
 		TextureAtlas* characterProfilesAtlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
 		SDL_Texture* character_profile_texture = characterProfilesAtlas->texture;

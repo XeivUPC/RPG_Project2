@@ -5,6 +5,7 @@
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
 #include "ModuleAudio.h"
+#include "ModuleInput.h"
 #include "ModuleWindow.h"
 #include "TextureAtlas.h"
 
@@ -47,31 +48,53 @@ InventoryCG::InventoryCG()
 	close_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	close_btn->SetParent(container_image);
 
+	CreateCharacterSlot();
+	CreateExtras();
 
 
 	AddElementToCanvas(container_image);
+	AddElementToCanvas(itemHoldingImage);
 }
 
 InventoryCG::~InventoryCG()
 {
 }
 
+void InventoryCG::UpdateCanvas()
+{
+	if (currentHoldedSlot != nullptr) {
+
+		itemHoldingImage->SetLocalPosition(Engine::Instance().m_input->GetMousePosition() - GetPosition());
+		
+		if (Engine::Instance().m_input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_UP) {
+			if(mouseOverSlot==nullptr)
+				OnItemSelected(-1);
+			else
+				OnItemSelected(mouseOverSlot->index);
+
+		}
+	}
+	UICanvas::UpdateCanvas();
+}
+
 void InventoryCG::ChangeInventoryToTrack(Inventory*inventoryToTrack)
 {
 	inventory = inventoryToTrack;
 	UpdateItemSlots();
-	// Reload
+	SendElementToFront(itemHoldingImage);
 }
 
 void InventoryCG::ChangePartyToTrack(Party* partyToTrack)
 {
 	party = partyToTrack;
 	UpdateCharacterSelectorSlots();
-	// Reload
 }
 
 void InventoryCG::Reset()
 {
+	UpdateCharacterSelectorSlots();
+	UpdateItemSlots();
+	UpdateCharacterSlot(-INT16_MAX);
 }
 
 void InventoryCG::CreateCharacterSelectorSlots()
@@ -104,8 +127,9 @@ void InventoryCG::CreateCharacterSelectorSlots()
 		UICharacterSelectorSlot slot;
 		   
 		slot.characterId = charData->id;
+		//slot.characterData = charData;
 		slot.characterSelect = new UIButton(*overlay, position, slotSize, {0,0,(int)slotSize.x, (int)slotSize.y});
-	
+		slot.characterSelect->onMouseClick.Subscribe([this, slot]() {UpdateCharacterSlot(slot.characterId); });
 
 		slot.characterName = new UITextBox(charData->name, *textFont, 16, { 184,132,78,255 }, { 0,5 }, { (int)slotSize.x,32}, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
 		slot.characterName->SetParent(slot.characterSelect);
@@ -135,7 +159,10 @@ void InventoryCG::UpdateCharacterSelectorSlots()
 		UICharacterSelectorSlot& slot = selectorSlots[i];
 
 		slot.characterId = charData->id;
-		int id = slot.characterId;
+		//slot.characterData = charData;
+
+		slot.characterSelect->onMouseClick.UnsubscribeAll();
+		slot.characterSelect->onMouseClick.Subscribe([this, slot]() {UpdateCharacterSlot(slot.characterId); });
 
 		slot.characterName->SetText(charData->name);
 
@@ -174,6 +201,7 @@ void InventoryCG::CreateItemSlots()
 		int row = i / itemsByRow;
 		int col = i % itemsByRow;
 
+
 		Vector2 offset = { col * (spacing.x+ slotSize.y) ,(slotSize.y + spacing.y) * row };
 		Vector2 position = { anchor.x + offset.x, anchor.y + offset.y };
 
@@ -185,13 +213,43 @@ void InventoryCG::CreateItemSlots()
 
 		UIItemSlots slot;
 
+		slot.index = i;
+
 		slot.itemRef = itemRef;
 		slot.amount = itemAmount;
 
 		slot.itemSelect = new UIButton(*overlay, position, slotSize, { 0,0,(int)slotSize.x, (int)slotSize.y });
 
+		slot.itemAmount = new UITextBox("", *textFont, 16, { 255,255,255,255 }, {11,15}, { 32,16 }, {0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+		slot.itemAmount->SetLocalScale(0.5f);
+
+		slot.itemCoverImage = new UIImage({ 0,0 }, { 20,20 }, { 0,0 }, false, { 0,0,0,0 }, {0,0,0,50});
+		slot.itemCoverImage->localVisible = false;
+
+		slot.itemImage = new UIImage({ 2,2 }, { 16,16 }, { 0,0 });
+		if (itemRef != nullptr) {
+
+			TextureAtlas* atlas = Engine::Instance().m_assetsDB->GetAtlas("items_atlas");
+			SDL_Texture* texture = atlas->texture;
+
+			slot.itemImage->SetSprite(*texture,true, atlas->sprites[itemRef->id].rect);
+
+
+			slot.itemAmount->SetText(to_string(itemAmount));
+		}
+		else {
+			slot.itemImage->localVisible = false;
+			slot.itemAmount->localVisible = false;
+		}
+		slot.itemImage->SetParent(slot.itemSelect);
+		slot.itemAmount->SetParent(slot.itemSelect);
+		slot.itemCoverImage->SetParent(slot.itemSelect);
+
 
 		slot.itemSelect->SetParent(container_image);
+
+		slot.itemSelect->onMouseDown.Subscribe([this, i]() {OnItemSelected(i); });
+		slot.itemSelect->onMouseOver.Subscribe([this, i]() {OnMouseOverItem(i); });
 
 		itemSlots.emplace_back(slot);
 	}
@@ -201,4 +259,135 @@ void InventoryCG::UpdateItemSlots()
 {
 
 	CreateItemSlots();
+
+	for (int i = 0; i < itemSlots.size(); ++i) {
+		itemSlots[i].itemImage->localVisible = false;
+		itemSlots[i].itemAmount->localVisible = false;
+	}
+
+
+	const vector<InventorySlot>& items = inventory->GetSlotsData();
+
+
+	for (int i = 0; i < items.size(); ++i)
+	{
+		UIItemSlots& slot = itemSlots[i];
+
+		Item* itemRef = nullptr;
+		if (items[i].item != nullptr)
+			itemRef = items[i].item->GetReference();
+
+		int itemAmount = items[i].count;
+
+
+		slot.itemRef = itemRef;
+		slot.amount = itemAmount;
+
+		if (itemRef != nullptr) {
+
+			TextureAtlas* atlas = Engine::Instance().m_assetsDB->GetAtlas("items_atlas");
+			SDL_Texture* texture = atlas->texture;
+
+			slot.itemImage->SetSprite(*texture, true, atlas->sprites[itemRef->id].rect);
+			slot.itemAmount->SetText(to_string(itemAmount));
+
+			itemSlots[i].itemImage->localVisible = true;
+			itemSlots[i].itemAmount->localVisible = true;
+		}
+	}
+}
+
+void InventoryCG::CreateCharacterSlot()
+{
+	SDL_Texture* overlay = Engine::Instance().m_assetsDB->GetTexture("party_characterUI");
+
+	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
+
+	characterSlot.characterOverlay = new UIImage(*overlay, { 246,88 }, { 66,66 }, { 0,0 }, true, {198,0,66,66});
+
+	characterSlot.characterProfile = new UIImage(*overlay, { 1,1 }, { 64,64 }, { 0,0 });
+	characterSlot.characterProfile->localVisible = false;
+
+	characterSlot.characterName = new UITextBox("NO SELECTED", *textFont, 16, {184,132,78,255}, {240,164}, {80 * 2,15 * 2}, {0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+	characterSlot.characterName->SetLocalScale(0.5f);
+
+
+	characterSlot.characterProfile->SetParent(characterSlot.characterOverlay);
+
+	characterSlot.characterName->SetParent(container_image);
+	characterSlot.characterOverlay->SetParent(container_image);
+}
+
+void InventoryCG::UpdateCharacterSlot(int charId)
+{
+	CharacterDatabase::CharacterData* charData = nullptr;
+	charData = party->GetCharacterFromMembers(charId);
+
+	TextureAtlas* characterProfilesAtlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
+	SDL_Texture* character_profile_texture = nullptr;
+
+	if (charData != nullptr) {
+		character_profile_texture = characterProfilesAtlas->texture;
+		characterSlot.characterProfile->SetSprite(*character_profile_texture, true, characterProfilesAtlas->sprites[charData->faceId].rect);
+		characterSlot.characterProfile->localVisible = true;
+
+		characterSlot.characterOverlay->SetRect({ 0,0,66,66 });
+
+		characterSlot.characterName->SetText(charData->name);
+	}
+	else {
+		characterSlot.characterProfile->localVisible = false;
+		characterSlot.characterOverlay->SetRect({ 198,0,66,66 });
+		characterSlot.characterName->SetText("NO SELECTED");
+	}
+}
+
+void InventoryCG::CreateExtras()
+{
+	itemHoldingImage = new UIImage({ 0,0 }, { 16,16 }, { 0.5f,0.5f });
+	itemHoldingImage->localVisible = false;
+
+	//// RemoveButton
+}
+
+void InventoryCG::OnItemSelected(int index)
+{
+	if (currentHoldedSlot == nullptr) {
+		if (itemSlots[index].itemRef != nullptr) {
+			currentHoldedSlot = &itemSlots[index];
+
+			TextureAtlas* atlas = Engine::Instance().m_assetsDB->GetAtlas("items_atlas");
+			SDL_Texture* texture = atlas->texture;
+
+			itemHoldingImage->SetSprite(*texture, true, atlas->sprites[itemSlots[index].itemRef->id].rect);
+			itemHoldingImage->localVisible = true;
+			itemHoldingImage->SetLocalPosition(Engine::Instance().m_input->GetMousePosition() - GetPosition());
+
+			currentHoldedSlot->itemCoverImage->localVisible = true;
+		}
+	}
+	else {
+		bool actionDone = false;
+		if (inventory->TryStackItems(currentHoldedSlot->index, itemSlots[index].index)) {
+			actionDone = true;
+		}
+		else {
+			inventory->SwapSlots(currentHoldedSlot->index, itemSlots[index].index);
+			actionDone = true;
+		}
+
+		currentHoldedSlot->itemCoverImage->localVisible = false;
+		currentHoldedSlot = nullptr;
+		itemHoldingImage->localVisible = false;
+
+
+		if(actionDone)
+			UpdateItemSlots();
+	}
+}
+
+void InventoryCG::OnMouseOverItem(int index)
+{
+	mouseOverSlot = &itemSlots[index];
+
 }

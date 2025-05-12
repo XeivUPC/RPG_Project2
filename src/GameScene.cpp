@@ -15,6 +15,7 @@
 #include "Item.h"
 #include "LOG.h"
 #include "Party.h"
+#include "Inventory.h"
 
 #include "pugixml.hpp"
 
@@ -121,6 +122,7 @@ bool GameScene::Start()
     cameraController->SetOffset({ -LOGIC_SCREEN_WIDTH / 2, -LOGIC_SCREEN_HEIGHT / 2 });
 
     gameplayCanvas->SetUser(player);
+
 
 
     return true;
@@ -502,6 +504,7 @@ void GameScene::LoadGameSaveData()
 
         player->party->ClearParty();
 		player->party->ClearMemebers();
+		player->inventory->ClearAllItems();
 
         for (size_t i = 0; i < tilemaps.size(); i++)
         {
@@ -543,7 +546,20 @@ void GameScene::LoadGameSaveData()
             player->party->AddPartyMemeber(id);
         }
 
-       
+        /// Load Inventory
+        vector<InventorySlot>& slots = player->inventory->GetSlotsDataModifiable();
+        xml_node inventoryNode = playerNode.child("inventory");
+        int inventoryIndex = 0;
+        for (xml_node itemInventoryNode = inventoryNode.child("item"); itemInventoryNode; itemInventoryNode = itemInventoryNode.next_sibling("item"))
+        {
+            if (itemInventoryNode.attribute("id")) {
+			    slots[inventoryIndex].item = new InventoryItem(ItemList::Instance().ItemByID(itemInventoryNode.attribute("id").as_string()));
+			    slots[inventoryIndex].count = itemInventoryNode.attribute("amount").as_int();
+
+            }
+            inventoryIndex++;
+        }
+
 		
 
 		/// Load Map
@@ -642,6 +658,20 @@ void GameScene::SaveGameSaveData()
             inactiveNode.append_child("member").append_attribute("id").set_value(id);
         }
 
+        /// Save Inventory
+        const vector<InventorySlot>& slots = player->inventory->GetSlotsData();
+        xml_node inventoryNode = playerNode.child("inventory");
+        inventoryNode.remove_children();
+        for (InventorySlot itemSlot : slots) {
+            xml_node itemInventoryNode = inventoryNode.append_child("item");
+            if (itemSlot.item != nullptr) {
+                itemInventoryNode.append_attribute("id").set_value(itemSlot.item->GetReference()->id.c_str());
+                itemInventoryNode.append_attribute("amount").set_value(itemSlot.count);
+            }
+            else {
+
+            }
+        }
 
 
 		mapNode.child("raining").attribute("value").set_value(isRaining);
