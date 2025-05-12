@@ -83,7 +83,9 @@ void CombatCG::UpdateCanvas()
 		visualEffects.first = false;
 		visualEffects.second = false;
 
-		//animationEffect.first = false;
+		animationEffect.first = false;
+
+		targetVisualsCompleted = pair<int, int>(0, 0);
 
 		firstTick = true;
 	}
@@ -96,13 +98,19 @@ void CombatCG::UpdateCanvas()
 				UICharacterSlot* slotSelected = GetSlotByCharacter(combat->GetCurrentAttackAttacker());
 				CombatSystem::TurnAttack* turnData = combat->GetCurrentTurnAttack();
 
-				if (turnData->attack->type == Attack::AttackType::Aggressive)
+				if (turnData->attack->type == Attack::AttackType::Aggressive) {
 					slotSelected->characterImage->GetAnimator()->Animate("physic-attack");
-				else
+				}
+				else {
 					slotSelected->characterImage->GetAnimator()->Animate("special-attack");
+				}
 				//Animate effects
 				firstTick = false;
+
+				printf("%d  -  %d\n", animationEffect.first, animationEffect.second);
 			}
+
+
 			if (animationEffect == pair<bool, bool>(true, true))
 			{
 				animationEffect = pair<bool, bool>(false, true);
@@ -816,6 +824,7 @@ void CombatCG::FinishAttackVisuals(UIAnimatedImage* characterImage)
 {
 	animationEffect.first = true;
 	characterImage->GetAnimator()->Animate("combat-idle");
+	printf("        finish atttack\n");
 }
 
 void CombatCG::FinishHurtVisuals(UIAnimatedImage* characterImage, CombatSystem::CharacterReference* ref)
