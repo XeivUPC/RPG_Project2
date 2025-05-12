@@ -126,7 +126,7 @@ private:
 
 	/// Extra
 	StepTimer clock = StepTimer(12 * 3600);
-	float timeScale = 300;
+	float timeScale = 600;
 
 
 

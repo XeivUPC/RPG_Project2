@@ -89,6 +89,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("btn_tex3", *textureFactory->CreateTexture("Assets/Textures/UI/btn3.png"));
 	AddTextureToStorage("btn_tex4", *textureFactory->CreateTexture("Assets/Textures/UI/btn4.png"));
 	AddTextureToStorage("btn_tex5", *textureFactory->CreateTexture("Assets/Textures/UI/btn5.png"));
+	AddTextureToStorage("btn_tex6", *textureFactory->CreateTexture("Assets/Textures/UI/btn6.png"));
 	AddTextureToStorage("toggle_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/toggle.png"));
 	AddTextureToStorage("toggle_tex2", *textureFactory->CreateTexture("Assets/Textures/UI/toggle2.png"));
 	AddTextureToStorage("effects_toggle", *textureFactory->CreateTexture("Assets/Textures/UI/effectsToggle.png"));
@@ -98,6 +99,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("uiBox3", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox3.png"));
 	AddTextureToStorage("uiBox4", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox4.png"));
 	AddTextureToStorage("uiBox5", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox5.png"));
+	AddTextureToStorage("uiBox6", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox6.png"));
 	AddTextureToStorage("dialogue_box", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_box.png"));
 	AddTextureToStorage("combat_characterUI", *textureFactory->CreateTexture("Assets/Textures/UI/combatCharacterUI.png"));
 	AddTextureToStorage("party_characterUI", *textureFactory->CreateTexture("Assets/Textures/UI/partyCharacterUI.png"));
@@ -105,6 +107,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("dialogue_answerBox", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_answerBox.png"));
 	AddTextureToStorage("compass_overlay", *textureFactory->CreateTexture("Assets/Textures/UI/compass_overlay.png"));
 	AddTextureToStorage("compass_arrow", *textureFactory->CreateTexture("Assets/Textures/UI/compass_arrow.png"));
+	AddTextureToStorage("item_slot", *textureFactory->CreateTexture("Assets/Textures/UI/item_slot.png"));
 	///Cursors
 	AddTextureToStorage("mouse_cursor0", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_0.png"));
 	AddTextureToStorage("mouse_cursor1", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_1.png"));

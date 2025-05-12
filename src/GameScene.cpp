@@ -121,12 +121,6 @@ bool GameScene::Start()
     cameraController->SetOffset({ -LOGIC_SCREEN_WIDTH / 2, -LOGIC_SCREEN_HEIGHT / 2 });
 
     gameplayCanvas->SetUser(player);
-   
-
-    if (!isRaining)
-        StopRain();
-    else
-        StartRain();
 
 
     return true;
@@ -593,6 +587,17 @@ void GameScene::LoadGameSaveData()
         }
 
         player->SetPosition(playerPosData);
+
+
+
+
+        if (!isRaining)
+            StopRain();
+        else
+            StartRain();
+
+
+
         screenEffectsCanvas->RecalculateAmbientFadeColors();
     }
     else {
