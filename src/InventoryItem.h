@@ -14,6 +14,7 @@ public:
     int GetMaxStack() const;
 
     InventoryItem* clone() const;
+    Item* GetReference();
 
     void Use();
 

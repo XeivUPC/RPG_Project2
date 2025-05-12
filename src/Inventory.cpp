@@ -102,3 +102,8 @@ int Inventory::GetFreeSlots() const
 {
     return size - GetUsedSlots();
 }
+
+const vector<InventorySlot>& Inventory::GetSlotsData()
+{
+    return slots;
+}

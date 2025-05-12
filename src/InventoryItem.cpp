@@ -20,6 +20,11 @@ InventoryItem* InventoryItem::clone() const
     return new InventoryItem(*this);
 }
 
+Item* InventoryItem::GetReference()
+{
+    return itemRef;
+}
+
 void InventoryItem::Use()
 {
 }

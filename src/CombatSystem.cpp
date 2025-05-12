@@ -27,6 +27,7 @@ void CombatSystem::AddAttack(Attack* attack, CharacterReference& attacker, vecto
 CombatSystem::CombatState CombatSystem::GetCombatState()
 {
 	return state;
+	
 }
 
 void CombatSystem::StartCombat()

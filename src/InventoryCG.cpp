@@ -59,7 +59,7 @@ InventoryCG::~InventoryCG()
 void InventoryCG::ChangeInventoryToTrack(Inventory*inventoryToTrack)
 {
 	inventory = inventoryToTrack;
-
+	UpdateItemSlots();
 	// Reload
 }
 
@@ -104,11 +104,8 @@ void InventoryCG::CreateCharacterSelectorSlots()
 		UICharacterSelectorSlot slot;
 		   
 		slot.characterId = charData->id;
-		slot.characterSelect = new UIButton(position, slotSize, { 0,0,0,0 }, { 0,0 }, { 0,0,0,0 });
-		
-
-		slot.characterOverlay = new UIImage(*overlay, { 0, 0 }, slotSize);
-		slot.characterOverlay->SetParent(slot.characterSelect);
+		slot.characterSelect = new UIButton(*overlay, position, slotSize, {0,0,(int)slotSize.x, (int)slotSize.y});
+	
 
 		slot.characterName = new UITextBox(charData->name, *textFont, 16, { 184,132,78,255 }, { 0,5 }, { (int)slotSize.x,32}, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
 		slot.characterName->SetParent(slot.characterSelect);
@@ -125,7 +122,6 @@ void InventoryCG::UpdateCharacterSelectorSlots()
 
 	for (int i = 0; i < selectorSlots.size(); ++i) {
 		selectorSlots[i].characterName->localVisible = false;
-		selectorSlots[i].characterOverlay->localVisible = false;
 
 		selectorSlots[i].characterSelect->isEnabled = false;
 		selectorSlots[i].characterSelect->localVisible = false;
@@ -145,10 +141,64 @@ void InventoryCG::UpdateCharacterSelectorSlots()
 
 
 		selectorSlots[i].characterName->localVisible = true;
-		selectorSlots[i].characterOverlay->localVisible = true;
 
 		selectorSlots[i].characterSelect->isEnabled = true;
 		selectorSlots[i].characterSelect->localVisible = true;
 
 	}
+}
+
+void InventoryCG::CreateItemSlots()
+{
+
+	SDL_Texture* overlay = Engine::Instance().m_assetsDB->GetTexture("item_slot");
+
+	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
+
+
+	Vector2 anchor = { 164 ,220 };
+	Vector2 slotSize = Engine::Instance().m_assetsDB->GetTextureSize(*overlay);
+	Vector2 spacing = { 5, 5 };
+
+	int itemsByRow = 8;
+
+	const vector<InventorySlot>& items = inventory->GetSlotsData();
+
+
+	for (int i = 0; i < items.size(); ++i)
+	{
+
+		if (itemSlots.size() > i)
+			continue;
+
+		int row = i / itemsByRow;
+		int col = i % itemsByRow;
+
+		Vector2 offset = { col * (spacing.x+ slotSize.y) ,(slotSize.y + spacing.y) * row };
+		Vector2 position = { anchor.x + offset.x, anchor.y + offset.y };
+
+		Item* itemRef = nullptr;
+		if (items[i].item != nullptr)
+			itemRef = items[i].item->GetReference();
+
+		int itemAmount = items[i].count;
+
+		UIItemSlots slot;
+
+		slot.itemRef = itemRef;
+		slot.amount = itemAmount;
+
+		slot.itemSelect = new UIButton(*overlay, position, slotSize, { 0,0,(int)slotSize.x, (int)slotSize.y });
+
+
+		slot.itemSelect->SetParent(container_image);
+
+		itemSlots.emplace_back(slot);
+	}
+}
+
+void InventoryCG::UpdateItemSlots()
+{
+
+	CreateItemSlots();
 }

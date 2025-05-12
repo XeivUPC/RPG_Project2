@@ -32,22 +32,7 @@ public:
     int GetUsedSlots() const;
     int GetFreeSlots() const;
 
-    void displayInventory() const {
-        cout << "Inventory (" << GetUsedSlots() << "/" << size << " slots used):\n";
-        for (size_t i = 0; i < slots.size(); ++i) {
-            const auto& slot = slots[i];
-            cout << "[" << i + 1 << "] ";
-            if (slot.IsEmpty()) {
-                cout << "Empty";
-            }
-            else {
-                cout << slot.item->GetName()
-                    << " x" << slot.count
-                    << " (Max " << slot.item->GetMaxStack() << ")";
-            }
-            cout << "\n";
-        }
-    }
+    const vector<InventorySlot>& GetSlotsData();
 
 public:
 

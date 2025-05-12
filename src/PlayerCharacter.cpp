@@ -53,7 +53,7 @@ PlayerCharacter::PlayerCharacter()
 
 	SetCharacterId(-1);
 
-	inventory = new Inventory();
+	inventory = new Inventory(40);
 
 	party = new Party(-1);
 	party->onPartyChanged.Subscribe([this]() {SetFollowers(party->GetPartyIds(true), distanceBetweenFollowers); });

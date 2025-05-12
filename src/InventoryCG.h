@@ -6,6 +6,8 @@ using namespace std;
 
 class Inventory;
 class Party;
+class Item;
+
 class UIElement;
 class UIImage;
 class UIButton;
@@ -29,13 +31,22 @@ private:
 		int characterId = -1;
 
 		UIButton* characterSelect = nullptr;
-		UIImage* characterOverlay = nullptr;
 
 		UITextBox* characterName = nullptr;
 	};
 
+	struct UIItemSlots {
+		Item* itemRef = nullptr;
+		int amount;
+
+		UIButton* itemSelect = nullptr;
+	};
+
 	void CreateCharacterSelectorSlots();
 	void UpdateCharacterSelectorSlots();
+
+	void CreateItemSlots();
+	void UpdateItemSlots();
 
 private:
 	Inventory* inventory = nullptr;
@@ -44,4 +55,6 @@ private:
 	UIImage* container_image = nullptr;
 
 	vector<UICharacterSelectorSlot> selectorSlots;
+
+	vector<UIItemSlots> itemSlots;
 };
