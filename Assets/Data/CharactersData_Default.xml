@@ -62,4 +62,12 @@
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="0" />
 	</Character>
+
+	<Character id="7" name="Guard Duel">
+		<Data textureId="guard_test" faceId ="Guard1-idle" dialoguePath="Assets/Dialogues/guard_RS_duel.json" />
+		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="12" hp="60" defense="63" attack="72" speed="100" />
+		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
+		<AttackRole type="0" />
+	</Character>
 </Characters>

@@ -42,50 +42,50 @@
         },
         "Maps/Forest.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
             "scale": 3,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 353,
+                "x": 344,
                 "y": 160.16666666666666
             }
         },
         "Maps/Forest_Secret_Cliff.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
             "scale": 0.75,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 304,
-                "y": 357.33333333333337
+                "x": 229.33333333333331,
+                "y": 159.3333333333333
             }
         },
         "Maps/House2_Inside.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
             "scale": 3,
             "selectedLayer": 4,
             "viewCenter": {
                 "x": 208,
-                "y": 111.83333333333334
+                "y": 112.16666666666666
             }
         },
         "Maps/House3_Inside.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
             "scale": 0.75,
             "selectedLayer": 4,
             "viewCenter": {
                 "x": 208,
-                "y": 239.33333333333331
+                "y": 239.3333333333333
             }
         },
         "Maps/House4_Inside.tmx": {
@@ -96,7 +96,7 @@
             "selectedLayer": 4,
             "viewCenter": {
                 "x": 248,
-                "y": 168.16666666666666
+                "y": 168.16666666666663
             }
         },
         "Maps/Map1.tmx": {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="663">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="665">
  <editorsettings>
   <export target="../../Data/Rogue_Squadron_Headquarters.xml" format="tmx"/>
  </editorsettings>
@@ -1934,6 +1934,18 @@
     <property name="TargetPath" value="Assets/Map/Data/Forest.xml"/>
     <property name="Type" value="tilemapChanger"/>
    </properties>
+  </object>
+  <object id="663" x="849.125" y="369">
+   <properties>
+    <property name="NpcId" value="7"/>
+    <property name="Path" type="object" value="664"/>
+    <property name="PathMovementType" type="int" value="0"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="664" x="849" y="369">
+   <polyline points="0,0 95,0"/>
   </object>
  </objectgroup>
  <objectgroup id="9" name="Collisions">
