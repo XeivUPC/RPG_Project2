@@ -117,7 +117,7 @@ void ScreenEffectsCG::CreateFirefliesEffect()
 void ScreenEffectsCG::CreateAmbientFade()
 {
 	SDL_Texture* topFade_texture = Engine::Instance().m_assetsDB->GetTexture("top_fade");
-	intervalTime = 24 / (int)ambientFadeColors.size();
+	intervalTime = 24.f / (int)ambientFadeColors.size();
 
 	int colorIndex = GetAmbientColorIndex();
 	colorIndex = abs(colorIndex - ((int)ambientFadeColors.size() - 1));
@@ -135,7 +135,7 @@ void ScreenEffectsCG::CreateAmbientFade()
 void ScreenEffectsCG::RecalculateAmbientFadeColors()
 {
 
-	float totalTime = Engine::Instance().s_game->GetTime();
+	int totalTime = Engine::Instance().s_game->GetTime();
 	float intervalDuration = intervalTime * 3600; 
 	int currentInterval = static_cast<int>(totalTime / intervalDuration);
 	float intervalStartTime = currentInterval * intervalDuration;
@@ -144,7 +144,7 @@ void ScreenEffectsCG::RecalculateAmbientFadeColors()
 
 	lastInterval = -1;
 	
-	int colorIndex = (currentInterval - 1 + ambientFadeColors.size()) % ambientFadeColors.size();
+	int colorIndex = (currentInterval - 1 + ambientFadeColors.size()) % (int)ambientFadeColors.size();
 	SDL_Color color = ambientFadeColors[colorIndex];
 	SDL_Color supportColor = ambientFadeSupportColors[colorIndex];
 
@@ -152,8 +152,8 @@ void ScreenEffectsCG::RecalculateAmbientFadeColors()
 	ambientFade_support->SetColor(supportColor.r, supportColor.g, supportColor.b, supportColor.a);
 	UpdateAmbient();
 
-	ambientFade->SetFadeTimer(timePassedInInterval);
-	ambientFade_support->SetFadeTimer(timePassedInInterval);
+	ambientFade->SetFadeTimer((int)timePassedInInterval);
+	ambientFade_support->SetFadeTimer((int)timePassedInInterval);
 
 
 }
@@ -181,13 +181,13 @@ void ScreenEffectsCG::UpdateAmbient(int _colorIndex)
 
 int ScreenEffectsCG::GetAmbientColorIndex()
 {
-	float totalTime = Engine::Instance().s_game->GetTime();
+	int totalTime = Engine::Instance().s_game->GetTime();
 	return GetAmbientColorIndex(totalTime);
 }
 
 int ScreenEffectsCG::GetAmbientColorIndex(int time)
 {
-	float totalTime = time;
+	int totalTime = time;
 	int currentInterval = static_cast<int>(totalTime / (intervalTime * 3600));
 	int colorIndex = currentInterval % ambientFadeColors.size();
 	return colorIndex;

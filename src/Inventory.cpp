@@ -101,45 +101,85 @@ int Inventory::GetFreeSlots() const
     return size - GetUsedSlots();
 }
 
-void Inventory::SwapSlots(int index1, int index2) {
-    if (index1 < 0 || index1 >= size || index2 < 0 || index2 >= size) {
-        return; 
+void Inventory::SwapSlots(int index1, int index2, Inventory* targetInventory) {
+    if (targetInventory == nullptr) {
+        if (index1 < 0 || index1 >= size || index2 < 0 || index2 >= size) {
+            return;
+        }
+        std::swap(slots[index1], slots[index2]);
     }
-
-    std::swap(slots[index1], slots[index2]);
+    else {
+        if (index1 < 0 || index1 >= size || index2 < 0 || index2 >= targetInventory->size) {
+            return;
+        }
+        std::swap(slots[index1], targetInventory->slots[index2]);
+    }
 }
 
-bool Inventory::TryStackItems(int sourceIndex, int targetIndex) {
-    if (sourceIndex < 0 || sourceIndex >= size ||
-        targetIndex < 0 || targetIndex >= size ||
-        sourceIndex == targetIndex) {
-        return false;
+bool Inventory::TryStackItems(int sourceIndex, int targetIndex, Inventory* targetInventory) {
+    if (targetInventory == nullptr) {
+        if (sourceIndex < 0 || sourceIndex >= size ||
+            targetIndex < 0 || targetIndex >= size ||
+            sourceIndex == targetIndex) {
+            return false;
+        }
+
+        InventorySlot& source = slots[sourceIndex];
+        InventorySlot& target = slots[targetIndex];
+
+        if (source.IsEmpty() || target.IsEmpty() ||
+            source.item->GetName() != target.item->GetName()) {
+            return false;
+        }
+
+        int maxStack = source.item->GetMaxStack();
+        if (target.count >= maxStack) {
+            return false;
+        }
+
+        int amountToTransfer = std::min(source.count, maxStack - target.count);
+        target.count += amountToTransfer;
+        source.count -= amountToTransfer;
+
+        if (source.count <= 0) {
+            delete source.item;
+            source.item = nullptr;
+            source.count = 0;
+        }
+
+        return true;
     }
+    else {
+        if (sourceIndex < 0 || sourceIndex >= size ||
+            targetIndex < 0 || targetIndex >= targetInventory->size) {
+            return false;
+        }
 
-    InventorySlot& source = slots[sourceIndex];
-    InventorySlot& target = slots[targetIndex];
+        InventorySlot& source = slots[sourceIndex];
+        InventorySlot& target = targetInventory->slots[targetIndex];
 
-    if (source.IsEmpty() || target.IsEmpty() ||
-        source.item->GetName() != target.item->GetName()) {
-        return false;
+        if (source.IsEmpty() || target.IsEmpty() ||
+            source.item->GetName() != target.item->GetName()) {
+            return false;
+        }
+
+        int maxStack = source.item->GetMaxStack();
+        if (target.count >= maxStack) {
+            return false;
+        }
+
+        int amountToTransfer = std::min(source.count, maxStack - target.count);
+        target.count += amountToTransfer;
+        source.count -= amountToTransfer;
+
+        if (source.count <= 0) {
+            delete source.item;
+            source.item = nullptr;
+            source.count = 0;
+        }
+
+        return true;
     }
-
-    int maxStack = source.item->GetMaxStack();
-    if (target.count >= maxStack) {
-        return false;
-    }
-
-    int amountToTransfer = std::min(source.count, maxStack - target.count);
-    target.count += amountToTransfer;
-    source.count -= amountToTransfer;
-
-    if (source.count <= 0) {
-        delete source.item;
-        source.item = nullptr;
-        source.count = 0;
-    }
-
-    return true;
 }
 
 void Inventory::ClearAllItems()

@@ -32,8 +32,8 @@ public:
     int GetUsedSlots() const;
     int GetFreeSlots() const;
 
-    void SwapSlots(int index1, int index2);
-    bool TryStackItems(int sourceIndex, int targetIndex);
+    void SwapSlots(int index1, int index2, Inventory* targetInventory = nullptr);
+    bool TryStackItems(int sourceIndex, int targetIndex, Inventory* targetInventory = nullptr);
 
     void ClearAllItems();
 

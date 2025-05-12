@@ -460,7 +460,7 @@ Tilemap* GameScene::GetLastTilemap()
 
 int GameScene::GetTime()
 {
-    return clock.ReadSec();;
+    return (int)clock.ReadSec();
 }
 
 float GameScene::GetTimeScale()
@@ -525,7 +525,7 @@ void GameScene::LoadGameSaveData()
         xml_node playerNode = rootNode.child("player");
         xml_node mapNode = rootNode.child("map");
 
-        Vector2 playerPosData = { 0,0 };
+        Vector2Int playerPosData = { 0,0 };
         playerPosData.x = playerNode.child("position").attribute("x").as_int();
         playerPosData.y = playerNode.child("position").attribute("y").as_int();
         
@@ -570,7 +570,7 @@ void GameScene::LoadGameSaveData()
         for (xml_node tilemap = tilemapsNode.child("tilemap"); tilemap; tilemap = tilemap.next_sibling("tilemap"))
         {
 
-            Vector2 tilemapSpawnPoint = { 0, 0 };
+            Vector2Int tilemapSpawnPoint = { 0, 0 };
             tilemapSpawnPoint.x = tilemap.attribute("spawnpoint-x").as_int();
             tilemapSpawnPoint.y = tilemap.attribute("spawnpoint-y").as_int();
 
@@ -590,7 +590,7 @@ void GameScene::LoadGameSaveData()
         xml_node itemsNode = mapNode.child("items");
         for (xml_node item = itemsNode.child("item"); item; item = item.next_sibling("item"))
         {
-            Vector2 itemPosition = { 0, 0 };
+            Vector2Int itemPosition = { 0, 0 };
             itemPosition.x = item.attribute("position-x").as_int();
             itemPosition.y = item.attribute("position-y").as_int();
 

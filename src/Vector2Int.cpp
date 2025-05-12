@@ -58,7 +58,7 @@ float Vector2Int::Distance(const Vector2Int& a, const Vector2Int& b) {
 
 float Vector2Int::Angle() const
 {
-    return std::atan2(y, x);
+    return (float)std::atan2(y, x);
 }
 
 bool Vector2Int::operator==(const Vector2Int& other) const {
@@ -118,14 +118,19 @@ Vector2Int& Vector2Int::operator-=(const Vector2Int& other) {
 }
 
 Vector2Int& Vector2Int::operator*=(float scalar) {
-    x *= scalar;
-    y *= scalar;
+    float value = (float)x * scalar;
+    x = (int)value;
+    value = (float)y * scalar;
+    y = (int)value;
     return *this;
 }
 
 Vector2Int& Vector2Int::operator/=(float scalar) {
-    x /= scalar;
-    y /= scalar;
+
+    float value = (float)x / scalar;
+    x = (int)value;
+    value = (float)y / scalar;
+    y = (int)value;
     return *this;
 }
 

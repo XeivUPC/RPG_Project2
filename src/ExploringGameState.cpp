@@ -29,7 +29,7 @@ bool ExploringGameState::UpdateState()
         game->screenEffectsCanvas->SwitchRain();
 
     game->clock.Step(ModuleTime::deltaTime * game->timeScale);
-    int clockTime = game->clock.ReadSec();
+    int clockTime = (int)game->clock.ReadSec();
     if (clockTime >= 86400.0)
         game->clock.Start();
 

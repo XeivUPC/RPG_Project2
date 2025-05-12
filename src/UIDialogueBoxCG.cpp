@@ -140,9 +140,9 @@ void UIDialogueBoxCG::CreateChoiceButton(string text, int index, float verticalS
 	Vector2Int textSize = textBox->ProccesTextSize();
 	textBox->size.y = textSize.y;
 
-	int verticalPositionToPlace = 123 + verticalSpacing;
+	int verticalPositionToPlace = (int)(123 + verticalSpacing);
 	if (index != 0) {
-		verticalPositionToPlace = btns[index]->GetPosition().y + btns[index]->size.y + verticalSpacing;
+		verticalPositionToPlace = (int)(btns[index]->GetPosition().y + btns[index]->size.y + verticalSpacing);
 	}
 
 	UIButton* btn = new UIButton({ 388 ,(int)(verticalPositionToPlace)}, { 235,textSize.y }, { 0,0,0,0 }, { 0,0 }, {148,112,75,255});

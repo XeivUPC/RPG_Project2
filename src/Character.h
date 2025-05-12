@@ -24,7 +24,7 @@ public:
 
 	void SetPosition(Vector2 newPosition) override;
 	virtual bool SetCharacterId(int _charId);
-	virtual bool GetCharacterId() const;
+	virtual int GetCharacterId() const;
 
 	void ClearFollowerPath();
 

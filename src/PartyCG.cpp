@@ -150,7 +150,7 @@ void PartyCG::CreatePartySlots()
 			slot.characterProfile = new UIImage(*character_profile_texture, { 1,1 }, { 64,64 }, { 0,0 }, true, characterProfilesAtlas->sprites[charData->faceId].rect);
 		}
 		else {
-			slot.characterProfile = new UIImage(*character_profile_texture, { 1,1 }, { 64,64 }, { 0,0 }, true, {0,0,0,0});
+			slot.characterProfile = new UIImage({ 1,1 }, { 64,64 }, { 0,0 }, true, {0,0,0,0});
 		}
 		slot.characterProfile->SetParent(slot.characterSelect);
 		if (charData == nullptr)
@@ -227,7 +227,7 @@ void PartyCG::CreateMemeberSlots()
 	const vector<CharacterDatabase::CharacterData*> memebers = party->GetMemebers();
 	int maxIndex = membersPage * membersByPage + membersByPage;
 	if (maxIndex > memebers.size()) {
-		maxIndex = memebers.size();
+		maxIndex = (int)memebers.size();
 	}
 
 	for (int i = membersPage * membersByPage; i < maxIndex; ++i)
@@ -236,7 +236,7 @@ void PartyCG::CreateMemeberSlots()
 			continue;
 		CharacterDatabase::CharacterData* charData = memebers[i];
 
-		int row = floor((i) / 2);
+		int row = (int)(floor((i) / 2));
 		int col = (i - 1) % 2;
 
 		Vector2 offset = { (col ? -slotSize.x - spacing.x / 2 : spacing.x / 2),(slotSize.y + spacing.y) * row };
@@ -355,7 +355,7 @@ void PartyCG::UpdateMemberSlots()
 
 	int maxIndex = membersPage * membersByPage + membersByPage;
 	if (maxIndex > memebers.size()) {
-		maxIndex = memebers.size();
+		maxIndex = (int)memebers.size();
 	}
 
 	for (int i = membersPage*membersByPage; i < maxIndex; ++i)
@@ -432,7 +432,7 @@ void PartyCG::GoToMemeberPageByCharacterId(int id)
 		});
 
 	if (it != memebers.end()) {
-		int index = distance(memebers.begin(), it);
+		int index = (int)distance(memebers.begin(), it);
 		GoToMemeberPage(index/ membersByPage);
 		return;
 	}

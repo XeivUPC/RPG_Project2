@@ -39,15 +39,6 @@ private:
 		UITextBox* characterName = nullptr;
 	};
 
-	struct UICharacterSlot {
-		int characterId = -1;
-
-		UIImage* characterOverlay = nullptr;
-		UIImage* characterProfile = nullptr;
-
-		UITextBox* characterName = nullptr;
-	};
-
 	struct UIItemSlots {
 		int index = 0;
 		Item* itemRef = nullptr;
@@ -58,6 +49,25 @@ private:
 		UIImage* itemCoverImage = nullptr;
 		UITextBox* itemAmount = nullptr;
 	};
+
+	struct UICharacterSlot {
+		int characterId = -1;
+
+		UIImage* characterOverlay = nullptr;
+		UIImage* characterProfile = nullptr;
+		UITextBox* characterName = nullptr;
+
+
+		UIItemSlots* helmetSlot = nullptr;
+		UIItemSlots* chestplateSlot = nullptr;
+		UIItemSlots* leggingsSlot = nullptr;
+		UIItemSlots* bootsSlot = nullptr;
+
+		UIItemSlots* weaponSlot = nullptr;
+		UIItemSlots* accesorieSlot = nullptr;
+	};
+
+	
 
 	void CreateCharacterSelectorSlots();
 	void UpdateCharacterSelectorSlots();

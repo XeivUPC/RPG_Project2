@@ -252,7 +252,7 @@ vector<CombatSystem::CharacterReference*> CombatSystem::GetCurrentAttackTargetLi
 
 int CombatSystem::CurrentAttackTargetAmount()
 {
-	return GetCurrentAttackTargetList().size();
+	return (int)GetCurrentAttackTargetList().size();
 }
 
 const unordered_map<CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>>& CombatSystem::GetCharactersInCombat()

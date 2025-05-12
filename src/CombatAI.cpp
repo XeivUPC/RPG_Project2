@@ -56,26 +56,26 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, u
 				{
 					singleDamageEfficiency += attack->power;
 					if(characterStats.stats.HasStatusEffect("Poison"))
-						singleDamageEfficiency += attack->statusEffects["Poison"].value * attack->statusEffects["Poison"].turns;
+						singleDamageEfficiency += (int)(attack->statusEffects["Poison"].value * attack->statusEffects["Poison"].turns);
 					if (characterStats.stats.HasStatusEffect("Burn"))
-						singleDamageEfficiency += attack->statusEffects["Burn"].value * attack->statusEffects["Burn"].turns;
+						singleDamageEfficiency += (int)(attack->statusEffects["Burn"].value * attack->statusEffects["Burn"].turns);
 				}
 				//Defense Efficiency
 				if (attack->statsModification["Defense"].value < 0)
 				{
-					singleDefenseEfficiency += attack->statsModification["Defense"].value;
+					singleDefenseEfficiency += (int)(attack->statsModification["Defense"].value);
 					singleDefenseEfficiency += attacker->stats.currentStats.defense;
 					singleDefenseEfficiency += characterStats.stats.currentStats.hp/2;
 				}
 				else if (attack->statsModification["Defense"].value > 0)
 				{
 					singleDefenseEfficiency += characterStats.stats.currentStats.hp;
-					singleDefenseEfficiency += attack->statsModification["Defense"].value;
+					singleDefenseEfficiency += (int)(attack->statsModification["Defense"].value);
 				}
 				//Health Efficiency
 				if (attack->statusEffects["Regeneration"].value != 0)
 				{
-					singleHealthEfficiency += attack->statusEffects["Regeneration"].value * attack->statusEffects["Regeneration"].turns;
+					singleHealthEfficiency += (int)(attack->statusEffects["Regeneration"].value * attack->statusEffects["Regeneration"].turns);
 				}
 				singleAccuracyEfficiency += attack->accuracy;
 				/// ------------------------------------ Rules End

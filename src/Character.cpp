@@ -155,7 +155,7 @@ bool Character::SetCharacterId(int _charId)
     return false;
 }
 
-bool Character::GetCharacterId() const
+int Character::GetCharacterId() const
 {
 	return characterId;
 }
@@ -178,6 +178,7 @@ bool Character::AddFollower(int _charId, float distance)
 	followers.emplace_back(new FollowerCharacter(this, totalFollowerDistance + distance, _charId));
 	currentFollowers++;
 	totalFollowerDistance += distance;
+	return true;
 }
 
 bool Character::RemoveFollowerById(int _charId)
@@ -185,7 +186,7 @@ bool Character::RemoveFollowerById(int _charId)
 	int charPos = 0;
 	for (auto it = followers.begin(); it != followers.end(); ++it) {
 		if ((*it)->GetCharacterId() == _charId) {
-			int distanceDifference = (*it)->GetDelayDistance() - (charPos > 0 ? followers[charPos - 1]->GetDelayDistance() : 0);
+			int distanceDifference = (int)((*it)->GetDelayDistance() - (charPos > 0 ? followers[charPos - 1]->GetDelayDistance() : 0));
 			totalFollowerDistance -= distanceDifference;
 			for (int i = charPos + 1; i < followers.size(); ++i) {
 				followers[i]->SetDelayDistance(followers[i]->GetDelayDistance() - distanceDifference);
@@ -205,8 +206,8 @@ bool Character::RemoveFollowerById(int _charId)
 
 bool Character::RemoveFollowerByIndex(int followerPos)
 {
-	if (followerPos < followers.size()) {
-		int distanceDifference = followers[followerPos]->GetDelayDistance() - (followerPos > 0 ? followers[followerPos - 1]->GetDelayDistance() : 0);
+	if (followerPos < (int)followers.size()) {
+		int distanceDifference = (int)(followers[followerPos]->GetDelayDistance() - (followerPos > 0 ? followers[followerPos - 1]->GetDelayDistance() : 0));
 		totalFollowerDistance -= distanceDifference;
 		for (int i = followerPos + 1; i < followers.size(); ++i) {
 			followers[i]->SetDelayDistance(followers[i]->GetDelayDistance() - distanceDifference);
@@ -239,11 +240,11 @@ bool Character::GetFollowers() const
 
 void Character::SetFollowers(vector<int> ids, float distance)
 {
-	for (int i = followers.size(); i < ids.size(); i++) {
-		AddFollower(ids[i], distance);
+	for (size_t i = followers.size(); i < ids.size(); i++) {
+		AddFollower(ids[(int)i], distance);
 	}
 
-	for (size_t i = 0; i < followers.size(); i++)
+	for (int i = 0; i < followers.size(); i++)
 	{
 		if (ids.size() <= i) {
 			//Remove

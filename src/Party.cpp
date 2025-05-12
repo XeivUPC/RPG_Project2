@@ -163,12 +163,12 @@ int Party::GetMaxPartySize() const
 
 int Party::GetPartySize() const
 {
-	return party.size();
+	return (int)party.size();
 }
 
 int Party::GetMemebersAmount() const
 {
-	return members.size();
+	return (int)members.size();
 }
 
 
