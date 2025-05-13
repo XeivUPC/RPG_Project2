@@ -37,7 +37,7 @@ void ModuleAssetDatabase::LoadAssets()
 
 	///// LOAD ASSETS REQUIERED
 
-//// Sounds //pepe
+//// Sounds
 	////Music
 	AddMusicToStorage("mainTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/MainMenu.ogg"));
 	AddMusicToStorage("townTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/TownTheme.ogg"));
@@ -47,6 +47,8 @@ void ModuleAssetDatabase::LoadAssets()
 
 	AddMusicToStorage("zaliumAnthemOrchestra", *audioFactory->CreateMusic("Assets/Sounds/Music/ZaliumAnthemOrchestra.ogg"));
 	AddMusicToStorage("herosMarch", *audioFactory->CreateMusic("Assets/Sounds/Music/HerosMarch.ogg"));
+
+	AddMusicToStorage("Dunhaven", *audioFactory->CreateMusic("Assets/Sounds/Music/Dunhaven.ogg"));
 
 	///SFX
 	AddAudioToStorage("alert", *audioFactory->CreateAudio("Assets/Sounds/SFX/alert.wav"));

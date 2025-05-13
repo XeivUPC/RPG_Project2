@@ -360,6 +360,11 @@
  </tile>
  <tile id="119">
   <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_119.png" width="48" height="32"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="renderPosition" x="23.75" y="25.375">
+    <point/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="120">
   <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_120.png" width="48" height="32"/>
