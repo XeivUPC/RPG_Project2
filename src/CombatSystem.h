@@ -21,6 +21,7 @@ public:
 		Both,
 		Self
 	};
+
 	enum CombatState
 	{
 		START,
