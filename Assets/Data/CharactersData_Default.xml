@@ -1,5 +1,5 @@
 <Characters>
-	<Character id="-1" name="NPC_TEST">
+	<Character id="-1" name="Cassian">
 		<Data textureId="cassian_test" faceId ="Cassian-early-idle" dialoguePath="Assets/Dialogues/empty_dialog.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="12" hp="60" defense="63" attack="72" speed="100" />
