@@ -88,8 +88,7 @@ bool GameScene::Start()
 
     pauseCanvas = new PauseMenuCG(7);
 
-    gameplayCanvas = new GameplayCG();
-    gameplayCanvas->renderLayer = 6;
+    gameplayCanvas = new GameplayCG(6);
 
     screenEffectsCanvas = new ScreenEffectsCG(5);
 
