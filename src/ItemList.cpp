@@ -6,6 +6,8 @@ using namespace pugi;
 
 Item* ItemList::ItemByID(string id)
 {
+	if (itemList.count(id) == 0)
+		return nullptr;
 	return &itemList[id];
 }
 

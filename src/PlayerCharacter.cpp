@@ -17,7 +17,9 @@
 #include "Party.h"
 #include "Inventory.h"
 #include "CharacterSilhouette.h"
-#include "Mission.h"
+
+#include "MissionHolder.h"
+#include "MissionList.h"
 #include "MissionManager.h"
 #include "ItemCondition.h"
 
@@ -92,13 +94,13 @@ PlayerCharacter::PlayerCharacter()
 
 
 	
-	Mission* newMission = new Mission("Find The Null", "Find 60 itmes null");
+	MissionHolder* newMission = new MissionHolder(MissionList::Instance().MissionByID("mission;testing"));
 	newMission->AddCondition(*new ItemCondition("item;null", 60, inventory));
 
 	MissionManager::Instance().AddMission(*newMission);
 
 
-	Mission* newMission2 = new Mission("WoW, An ARMOR!", "Find 2 pieces of zalium armor");
+	MissionHolder* newMission2 = new MissionHolder(MissionList::Instance().MissionByID("mission;testing2"));
 	newMission2->AddCondition(*new ItemCondition("item;zalium_armor", 2, inventory));
 
 	MissionManager::Instance().AddMission(*newMission2);

@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Mission;
+class MissionHolder;
 
 class MissionManager {
 public:
@@ -18,14 +18,14 @@ public:
     }
 
 
-    void AddMission(Mission& mission, bool triggerEvent = true);
-    void RemoveMission(Mission& mission, bool triggerEvent = true);
+    void AddMission(MissionHolder& mission, bool triggerEvent = true);
+    void RemoveMission(MissionHolder& mission, bool triggerEvent = true);
 
     // Heredado vía IUpdateable
     bool UpdateMissions();
 
-    Mission* GetMissionByIndex(int index);
-    int GetMissionIndex(Mission& mission);
+    MissionHolder* GetMissionByIndex(int index);
+    int GetMissionIndex(MissionHolder& mission);
     int GetMissionsAmount();
 
 
@@ -33,9 +33,9 @@ public:
     /// / Event Callbacks
     SystemEvent<unordered_map<string, std::variant<int, float, string, Vector2>>> genericEvent;
 
-    SystemEvent<Mission&> onMissionAdded;
-    SystemEvent<Mission&> onMissionCompleted;
-    SystemEvent<Mission&> onMissionRemoved;
+    SystemEvent<MissionHolder&> onMissionAdded;
+    SystemEvent<MissionHolder&> onMissionCompleted;
+    SystemEvent<MissionHolder&> onMissionRemoved;
 
 private:
 
@@ -46,10 +46,10 @@ private:
     ~MissionManager();
 
 
-    void SetUpMission(Mission& mission);
+    void SetUpMission(MissionHolder& mission);
 
 private:
-    vector<Mission*> missions;
+    vector<MissionHolder*> missions;
 
 
 };
