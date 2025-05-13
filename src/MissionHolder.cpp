@@ -6,6 +6,9 @@
 MissionHolder::MissionHolder(Mission* _missionRef)
 {
     missionRef = _missionRef;
+	vector< MissionCondition*> conditionsTemporal = missionRef->CreateConditions();
+    for(auto& conditionData : conditionsTemporal)
+		AddCondition(*conditionData);
 }
 
 MissionHolder::~MissionHolder()

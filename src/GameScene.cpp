@@ -17,6 +17,11 @@
 #include "Party.h"
 #include "Inventory.h"
 
+
+#include "MissionHolder.h"
+#include "MissionList.h"
+#include "MissionManager.h"
+
 #include "pugixml.hpp"
 
 
@@ -42,6 +47,8 @@
 #include "ExploringGameState.h"
 #include "CombatGameState.h"
 ///
+
+
 
 using namespace pugi;
 
@@ -76,8 +83,6 @@ bool GameScene::Start()
     fade->FadeTo(1,0);
     fade->renderLayer = 9;
 
-    //canvas = new UITestingCG();
-    //canvas->renderLayer = 6;
     combatSystem = new CombatSystem();
     combatCanvas = new CombatCG(combatSystem);
     combatCanvas->renderLayer = 7;
@@ -122,7 +127,11 @@ bool GameScene::Start()
 
     gameplayCanvas->SetUser(player);
 
+    MissionHolder* newMission = new MissionHolder(MissionList::Instance().MissionByID("mission;testing"));
+    MissionManager::Instance().AddMission(*newMission);
 
+    MissionHolder* newMission2 = new MissionHolder(MissionList::Instance().MissionByID("mission;testing2"));
+    MissionManager::Instance().AddMission(*newMission2);
 
     return true;
 }

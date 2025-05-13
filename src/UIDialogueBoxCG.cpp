@@ -5,6 +5,10 @@
 #include "Inventory.h"
 #include "ItemList.h"
 
+#include "MissionManager.h"
+#include "MissionList.h"
+#include "MissionHolder.h"
+
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
 #include "CharacterDatabase.h"
@@ -301,6 +305,17 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 			Engine::Instance().s_game->GetPlayer()->inventory->AddItem(*(new InventoryItem(itemRef)), amount);
 		}
 	}
+	else if (signal->name == "RemoveItem") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			size_t dash_pos = data.find('-');
+			string name = data.substr(0, dash_pos);
+			int amount = stoi(data.substr(dash_pos + 1));
+
+			Engine::Instance().s_game->GetPlayer()->inventory->RemoveItem(name, amount);
+		}
+	}
 	else if (signal->name == "CheckIfHasItem") {
 		if (holds_alternative<string>(signal->data)) {
 			string data = get<string>(signal->data);
@@ -321,6 +336,27 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 			int amount = stoi(data.substr(dash_pos + 1));
 
 			dialogue->AddGameStateVariable("CanGiveItem", Engine::Instance().s_game->GetPlayer()->inventory->CanAddItem(name, amount));
+		}
+	}
+	else if (signal->name == "AddMission") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			MissionManager::Instance().AddMission(*new MissionHolder(MissionList::Instance().MissionByID(data)));
+		}
+	}
+	else if (signal->name == "RemoveMission") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			MissionManager::Instance().RemoveMission(data);
+		}
+		}
+	else if (signal->name == "CheckIfMissionCompleted") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			dialogue->AddGameStateVariable("HasCompletedMission", MissionManager::Instance().IsMissionCompleted(data));
 		}
 	}
 

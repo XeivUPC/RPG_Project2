@@ -420,6 +420,15 @@
     <ClCompile Include="src\MissionManager.cpp">
       <Filter>Source Files\Utils\Missions</Filter>
     </ClCompile>
+    <ClCompile Include="src\MissionsCG.cpp">
+      <Filter>Source Files\Utils\Missions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MissionHolder.cpp">
+      <Filter>Source Files\Utils\Missions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MissionList.cpp">
+      <Filter>Source Files\Utils\Missions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -743,6 +752,15 @@
     <ClInclude Include="src\MissionManager.h">
       <Filter>Source Files\Utils\Missions</Filter>
     </ClInclude>
+    <ClInclude Include="src\MissionHolder.h">
+      <Filter>Source Files\Utils\Missions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MissionList.h">
+      <Filter>Source Files\Utils\Missions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MissionsCG.h">
+      <Filter>Source Files\Utils\Missions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Assets\Data\UserPrefs.xml">
@@ -761,6 +779,9 @@
       <Filter>Source Files\_DataFiles</Filter>
     </Xml>
     <Xml Include="Assets\Data\GameSaveData.xml">
+      <Filter>Source Files\_DataFiles</Filter>
+    </Xml>
+    <Xml Include="Assets\Data\MissionsData.xml">
       <Filter>Source Files\_DataFiles</Filter>
     </Xml>
   </ItemGroup>

@@ -41,8 +41,27 @@ void MissionList::LoadMissions()
 		newItem.id = mission_node.attribute("id").as_string();
 		newItem.title = mission_node.child("title").text().as_string();
 		newItem.description = mission_node.child("description").text().as_string();
-		//// CustomConditions
+		
+		xml_node conditionsNode = mission_node.child("conditions");
+		for (xml_node condition : conditionsNode.children())
+		{
+			Mission::ConditionData newConditionData;
+			string type = condition.attribute("type").as_string();
+			newConditionData.type = type;
 
+			for (xml_node conditionData : condition.children())
+			{
+				string dataName = conditionData.name();
+				for (xml_attribute conditionDataAttribute : conditionData.attributes())
+				{
+					string attributeName = conditionDataAttribute.name();
+					string attributeValue = conditionDataAttribute.as_string();
+
+					newConditionData.properties[dataName+ "-" + attributeName] = attributeValue;
+				}
+			}
+			newItem.conditionsData.emplace_back(newConditionData);
+		}
 		missionList.emplace(newItem.id, newItem);
 	}
 }

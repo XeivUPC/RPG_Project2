@@ -5,7 +5,6 @@
 
 void MissionManager::AddMission(MissionHolder& mission, bool triggerEvent)
 {
-
 	missions.emplace_back(&mission);
 	SetUpMission(mission);
 
@@ -21,6 +20,15 @@ void MissionManager::RemoveMission(MissionHolder& mission, bool triggerEvent)
 	missions.erase(remove(missions.begin(), missions.end(), &mission), missions.end());
 	delete &mission;
 	/// remove and delete
+}
+
+void MissionManager::RemoveMission(string missionId, bool triggerEvent)
+{
+	for (auto& mission : missions) {
+		if (mission->GetId() == missionId)
+			RemoveMission(*mission, triggerEvent);
+	}
+
 }
 
 MissionManager::MissionManager()
@@ -64,6 +72,20 @@ bool MissionManager::UpdateMissions()
 	return true;
 }
 
+bool MissionManager::IsMissionCompleted(MissionHolder& mission)
+{
+	return (mission.GetState() == MissionHolder::State::COMPLETED);
+}
+
+bool MissionManager::IsMissionCompleted(string missionId)
+{
+	for (auto& mission : missions) {
+		if(mission->GetId() == missionId)
+			return IsMissionCompleted(*mission);
+	}
+	return false;
+}
+
 MissionHolder* MissionManager::GetMissionByIndex(int index)
 {
 	if (missions.size() == 0)
@@ -76,13 +98,13 @@ int MissionManager::GetMissionIndex(MissionHolder& mission)
 	for (size_t i = 0; i < missions.size(); i++)
 	{
 		if (missions[i] == &mission)
-			return i;
+			return (int)i;
 	}
 	return -1;
 }
 
 int MissionManager::GetMissionsAmount()
 {
-	return missions.size();
+	return (int)missions.size();
 }
 

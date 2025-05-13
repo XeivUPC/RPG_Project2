@@ -1,4 +1,8 @@
 #include "Mission.h"
+#include "Inventory.h"
+#include "ItemCondition.h"
+
+
 
 Mission::Mission()
 {
@@ -17,7 +21,9 @@ vector<MissionCondition*> Mission::CreateConditions()
         string type = conditionsData[i].type;
 
         if (type == "ItemCondition") {
-
+            string itemId = conditionsData[i].properties["item-id"];
+			int itemAmount = stoi(conditionsData[i].properties["item-count"]);
+            conditions.emplace_back(new ItemCondition(itemId, itemAmount,nullptr));
         }
     }
 

@@ -17,11 +17,9 @@
 #include "Party.h"
 #include "Inventory.h"
 #include "CharacterSilhouette.h"
-
-#include "MissionHolder.h"
-#include "MissionList.h"
 #include "MissionManager.h"
-#include "ItemCondition.h"
+
+
 
 PlayerCharacter::PlayerCharacter()
 {
@@ -94,16 +92,7 @@ PlayerCharacter::PlayerCharacter()
 
 
 	
-	MissionHolder* newMission = new MissionHolder(MissionList::Instance().MissionByID("mission;testing"));
-	newMission->AddCondition(*new ItemCondition("item;null", 60, inventory));
-
-	MissionManager::Instance().AddMission(*newMission);
-
-
-	MissionHolder* newMission2 = new MissionHolder(MissionList::Instance().MissionByID("mission;testing2"));
-	newMission2->AddCondition(*new ItemCondition("item;zalium_armor", 2, inventory));
-
-	MissionManager::Instance().AddMission(*newMission2);
+	
 
 }
 

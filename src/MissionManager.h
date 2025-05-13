@@ -20,9 +20,13 @@ public:
 
     void AddMission(MissionHolder& mission, bool triggerEvent = true);
     void RemoveMission(MissionHolder& mission, bool triggerEvent = true);
+    void RemoveMission(string missionId, bool triggerEvent = true);
 
     // Heredado vía IUpdateable
     bool UpdateMissions();
+
+	bool IsMissionCompleted(MissionHolder& mission);
+	bool IsMissionCompleted(string missionId);
 
     MissionHolder* GetMissionByIndex(int index);
     int GetMissionIndex(MissionHolder& mission);
