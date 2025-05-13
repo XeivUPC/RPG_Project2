@@ -3,14 +3,14 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Forest_Secret_Cliff.tmx",
+    "activeFile": "Maps/Dunhaven_City.tmx",
     "expandedProjectPaths": [
-        "Prefabs",
-        ".",
-        "Maps",
-        "Prefabs/Buildings",
         "Objects",
-        "Tilesets"
+        "Prefabs/Buildings",
+        "Tilesets",
+        "Prefabs",
+        "Maps",
+        "."
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -40,16 +40,28 @@
                 "y": 184.0115281685309
             }
         },
+        "Maps/Dunhaven_City.tmx": {
+            "expandedObjectLayers": [
+                6,
+                9
+            ],
+            "scale": 0.75,
+            "selectedLayer": 8,
+            "viewCenter": {
+                "x": 1646.6666666666665,
+                "y": 654.6666666666665
+            }
+        },
         "Maps/Forest.tmx": {
             "expandedObjectLayers": [
                 10,
                 7
             ],
-            "scale": 3,
+            "scale": 11,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 344,
-                "y": 160.16666666666666
+                "x": -10,
+                "y": 199.1818181818182
             }
         },
         "Maps/Forest_Secret_Cliff.tmx": {
@@ -57,11 +69,11 @@
                 10,
                 7
             ],
-            "scale": 0.75,
+            "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 229.33333333333331,
-                "y": 159.3333333333333
+                "x": 179,
+                "y": -18
             }
         },
         "Maps/House2_Inside.tmx": {
@@ -73,7 +85,7 @@
             "selectedLayer": 4,
             "viewCenter": {
                 "x": 208,
-                "y": 112.16666666666666
+                "y": 112
             }
         },
         "Maps/House3_Inside.tmx": {
@@ -85,7 +97,7 @@
             "selectedLayer": 4,
             "viewCenter": {
                 "x": 208,
-                "y": 239.3333333333333
+                "y": 239.33333333333331
             }
         },
         "Maps/House4_Inside.tmx": {
@@ -96,7 +108,7 @@
             "selectedLayer": 4,
             "viewCenter": {
                 "x": 248,
-                "y": 168.16666666666663
+                "y": 168
             }
         },
         "Maps/Map1.tmx": {
@@ -196,7 +208,7 @@
         },
         "Tilesets/Vegetation_Atlas.tsx": {
             "dynamicWrapping": true,
-            "scaleInDock": 0.33,
+            "scaleInDock": 0.25,
             "scaleInEditor": 0.25
         },
         "Tilesets/Water_tiles.tsx": {
@@ -234,23 +246,24 @@
         "Maps/Forest_Secret_Cliff.tmx",
         "Maps/House3_Inside.tmx",
         "Maps/House4_Inside.tmx",
-        "Maps/House2_Inside.tmx"
+        "Maps/House2_Inside.tmx",
+        "Maps/Dunhaven_City.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "object",
     "recentFiles": [
         "Tilesets/Vegetation_Atlas.tsx",
         "Maps/Forest.tmx",
-        "Maps/House2_Inside.tmx",
-        "Maps/House4_Inside.tmx",
-        "Maps/House3_Inside.tmx",
         "Maps/Forest_Secret_Cliff.tmx",
+        "Maps/House3_Inside.tmx",
+        "Maps/House4_Inside.tmx",
+        "Maps/House2_Inside.tmx",
+        "Maps/Dunhaven_City.tmx",
         "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/SecondAreaTest.tmx",
         "Tilesets/Building_Atlas.tsx",
         "Maps/Testing_Zone.tmx",
-        "Maps/Testing_Zone2.tmx",
-        "Tilesets/Furniture_Atlas.tsx"
+        "Maps/Testing_Zone2.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,
