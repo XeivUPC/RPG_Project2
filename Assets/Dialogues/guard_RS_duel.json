@@ -2,7 +2,7 @@
     "8e2b864e-8383-40f6-8087-ec60337f5cab": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Are you ready?",
             "fr": ""
@@ -30,7 +30,7 @@
     "64e647cb-8389-4f2f-8a6d-a9d1684d7f24": {
         "name": "Emperor Charles II",
         "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
-        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
         "text": {
             "en": "Then let the duel...",
             "fr": ""
@@ -41,7 +41,7 @@
     "ec0a1798-20f9-455d-9853-86b4894037a5": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Wait!",
             "fr": ""
@@ -52,7 +52,7 @@
     "19af1667-3d21-4ff4-8937-27bde465b432": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "I would like to spar with him first.",
             "fr": ""
@@ -63,7 +63,7 @@
     "c1374eaa-6855-4973-a12e-9002df0136c1": {
         "name": "Emperor Charles II",
         "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
-        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
         "text": {
             "en": "That will be good training indeed, go on.",
             "fr": ""
@@ -74,7 +74,7 @@
     "889450a7-8a51-4a0b-8a8d-f1e327663b2f": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "- Steps into the training area. -",
             "fr": ""
@@ -294,7 +294,7 @@
     "6f7a9892-9b9a-4662-9c58-b43a8fa181e6": {
         "name": "Emperor Charles II",
         "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
-        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
         "text": {
             "en": "Then let the duel begin!",
             "fr": ""
@@ -313,7 +313,7 @@
     "f1c56039-038a-408b-a6a9-4436867d7cf2": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "I am next, duel me boy.",
             "fr": ""
@@ -332,7 +332,7 @@
     "c10ec564-a840-42fd-9bc6-5e2bb0dfa986": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "...",
             "fr": ""
