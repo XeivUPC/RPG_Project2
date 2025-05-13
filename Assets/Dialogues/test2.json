@@ -2,7 +2,7 @@
     "ad6c9424-54ae-4486-8760-d153f4e788f2": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Hey, cuanto es dos mas dos?",
             "fr": ""
@@ -13,7 +13,7 @@
     "fd256226-7e16-4c30-9f67-8814ef972045": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "Ehhhhh, no lo se la verdad, dame alguna opcion",
             "fr": ""
@@ -24,7 +24,7 @@
     "fa9c63bb-9547-4e79-8206-9e50b6d498e7": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Venga va, puedes ser una da estas tres:",
             "fr": ""
@@ -60,7 +60,7 @@
     "665ddafe-142f-4156-afe0-09ac8822f219": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Bieeen!",
             "fr": ""
@@ -71,7 +71,7 @@
     "716a25d7-9630-4b8f-aed4-23bddbd8799c": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Mmmm no, otra oportunidad",
             "fr": ""
@@ -82,7 +82,7 @@
     "232ef0d0-d53a-4954-b4f1-d91abcdfc05d": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "Lo sabia!, ahora vamos con otro dialogo",
             "fr": ""
@@ -93,7 +93,7 @@
     "33953ca0-873d-4f41-aed4-6d2e566ba6fb": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "",
             "fr": ""

@@ -2,7 +2,7 @@
     "3a9faf6d-5749-401a-9b4f-c7b6e9f0e29d": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "...",
             "fr": ""
@@ -38,7 +38,7 @@
     "11083631-a9e2-44cb-89f5-8cdce4f1484a": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "What do you want?",
             "fr": ""
@@ -74,7 +74,7 @@
     "c7def53d-e710-4257-8cfa-8ddabe930276": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "You are not allowed to pass",
             "fr": ""
@@ -110,7 +110,7 @@
     "8a0c0331-0ae0-4363-882d-ab571a089bb2": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "What do you want?",
             "fr": ""
@@ -146,7 +146,7 @@
     "028f0cfe-d73e-49ef-9ad6-9eb4a04b3354": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "No, you cannot, just leave.",
             "fr": ""
@@ -165,7 +165,7 @@
     "39e8410a-405b-41be-bc05-979b66eddd83": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Then leave.",
             "fr": ""
@@ -184,7 +184,7 @@
     "e2aeb080-f1e0-4234-9c77-a9cbfd9b95e9": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Your acting is awfully bad, just leave.",
             "fr": ""
@@ -203,7 +203,7 @@
     "741af388-f9d1-416c-a94c-d1b9d3aa8939": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "You have an audience with the emperor, remember?",
             "fr": ""
@@ -231,7 +231,7 @@
     "9c5fd3b9-88a5-457b-aa07-e6b480a5984b": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Then go talk to Sir Gideon, I know no more.",
             "fr": ""
@@ -250,7 +250,7 @@
     "a46a668e-f56a-4898-b92d-84dd1a73aeda": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Then go away.",
             "fr": ""
@@ -269,7 +269,7 @@
     "17fc167b-429c-4a51-982b-f313e81be444": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "No, you cannot, just leave.",
             "fr": ""
@@ -288,7 +288,7 @@
     "57067984-f062-4479-a71a-caeb809b6081": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Then leave.",
             "fr": ""
@@ -307,7 +307,7 @@
     "a9bb617a-e57a-40c8-93e6-575a68ccc248": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Why you are wasting time here? You have an audience, kid.",
             "fr": ""
@@ -335,7 +335,7 @@
     "be389a94-08b1-419a-84b8-5aef45706110": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Then hurry.",
             "fr": ""
@@ -354,7 +354,7 @@
     "8c610629-456f-43f6-99dc-f6b233d9ab71": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "The one you have with the emperor, hurry and talk with Sir Gideon.",
             "fr": ""
@@ -373,7 +373,7 @@
     "96322497-0723-4848-9ca5-370f2fb7174a": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "...",
             "fr": ""

@@ -9,7 +9,9 @@ SetNpcFriendshipByID(Vector2 data) --> x = characterId / y = characterFriendShip
 AddNpcFriendshipByID(Vector2 data) --> x = characterId / y = characterFriendshipToAdd
 SetNpcLoveByID(Vector2 data) --> x = characterId / y = characterLove
 AddNpcLoveByID(Vector2 data) --> x = characterId / y = characterLoveToAdd
-
+AddItem(string data) --> example item;null-2  (id-amount)
+CheckIfHasItem(string data) --> example item;null-2  (id-amount)
+CheckIfCanGiveItem(string data) --> example item;null-2  (id-amount)
 
 ///////////////////////
 
@@ -17,3 +19,5 @@ AddNpcLoveByID(Vector2 data) --> x = characterId / y = characterLoveToAdd
 How to acces to a characterState? Use Char{Id}_State ---> Just replace {Id} by the number
 How to acces to a characterFriendship? Use Char{Id}_Friendship ---> Just replace {Id} by the number
 How to acces to a characterLove? Use Char{Id}_Love ---> Just replace {Id} by the number
+How to acces to check if has item? Previusly, call "CheckIfHasItem()", then the variable HasItem will be true or false
+How to acces to check if can give item? Previusly, call "CheckIfHasItem()", then the variable CanGiveItem will be true or false

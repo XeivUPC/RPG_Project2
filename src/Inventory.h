@@ -37,6 +37,7 @@ public:
     bool TryStackItems(int sourceIndex, int targetIndex, Inventory* targetInventory = nullptr);
 
     bool HasItem(string item_id, int amount = 1);
+    bool CanAddItem(string item_id, int amount = 1);
 
     void ClearAllItems();
 

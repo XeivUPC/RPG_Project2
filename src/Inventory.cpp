@@ -194,6 +194,37 @@ bool Inventory::HasItem(string item_id, int amount)
     return GetItemCount(item_id)>=amount;
 }
 
+bool Inventory::CanAddItem(string item_id, int amount)
+{
+    if (amount <= 0) 
+        return true;
+
+    for (const auto& slot : slots) {
+        if (!slot.IsEmpty() && slot.item->GetId() == item_id) {
+            int canAddToStack = slot.item->GetMaxStack() - slot.count;
+            if (canAddToStack > 0) {
+                amount -= std::min(canAddToStack, amount);
+                if (amount <= 0) 
+                    return true;
+            }
+        }
+    }
+    if (amount > 0) {
+        int maxStack = 1;
+        for (const auto& slot : slots) {
+            if (!slot.IsEmpty() && slot.item->GetId() == item_id) {
+                maxStack = slot.item->GetMaxStack();
+                break;
+            }
+        }
+
+        int neededSlots = (amount + maxStack - 1) / maxStack; 
+        return GetFreeSlots() >= neededSlots;
+    }
+
+    return true;
+}
+
 void Inventory::ClearAllItems()
 {
     for (auto& slot : slots) {
