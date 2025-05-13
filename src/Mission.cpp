@@ -1,8 +1,11 @@
 #include "Mission.h"
 #include "MissionCondition.h"
 
-Mission::Mission()
+
+Mission::Mission(string _title, string _description)
 {
+	title = _title;
+	description = _description;
 }
 
 Mission::~Mission()
@@ -42,4 +45,14 @@ Mission::State Mission::GetState()
 void Mission::SetState(State newState)
 {
     state = newState;
+}
+
+const string& Mission::GetTitle()
+{
+	return title;
+}
+
+const string& Mission::GetDescription()
+{
+    return description;
 }

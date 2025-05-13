@@ -24,6 +24,10 @@ public:
     // Heredado vía IUpdateable
     bool UpdateMissions();
 
+    Mission* GetMissionByIndex(int index);
+    int GetMissionIndex(Mission& mission);
+    int GetMissionsAmount();
+
 
 public:
     /// / Event Callbacks

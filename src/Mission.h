@@ -19,7 +19,7 @@ public:
 		REWARDED
 	};
 
-	Mission();
+	Mission(string _title, string _description);
 	~Mission();
 
 	void AddCondition(MissionCondition& condition);
@@ -29,7 +29,14 @@ public:
 	State GetState();
 	void SetState(State newState);
 
+	const string& GetTitle();
+	const string& GetDescription();
+
 public:
 	vector<MissionCondition*> conditions;
 	State state = State::IN_PROGRESS;
+
+private:
+	string title="Title";
+	string description = "Description";
 };

@@ -64,3 +64,25 @@ bool MissionManager::UpdateMissions()
 	return true;
 }
 
+Mission* MissionManager::GetMissionByIndex(int index)
+{
+	if (missions.size() == 0)
+		return nullptr;
+	return missions[index];
+}
+
+int MissionManager::GetMissionIndex(Mission& mission)
+{ 
+	for (size_t i = 0; i < missions.size(); i++)
+	{
+		if (missions[i] == &mission)
+			return i;
+	}
+	return -1;
+}
+
+int MissionManager::GetMissionsAmount()
+{
+	return missions.size();
+}
+

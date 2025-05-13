@@ -24,6 +24,7 @@ public:
 	void ShowMissionLabel(float time);
 	void HideMissionLabel(float time);
 
+
 private:
 	struct UIMissionLayout {
 		int missionIndex;
@@ -42,10 +43,15 @@ private:
 
 	
 	StepTimer timer;
-	int timeToDoMove;
-	Vector2 hidePosition;
-	Vector2 showPosition;
+	float timeToDoMove;
+	Vector2 from;
+	Vector2 to;
+	bool isHidden = true;
+	bool isMoving = false;
 
+
+	StepTimer limitTimer;
+	int maxTimeShown = 10;
 
 
 };

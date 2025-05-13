@@ -92,10 +92,16 @@ PlayerCharacter::PlayerCharacter()
 
 
 	
-	Mission* newMission = new Mission();
+	Mission* newMission = new Mission("Find The Null", "Find 60 itmes null");
 	newMission->AddCondition(*new ItemCondition("item;null", 60, inventory));
 
 	MissionManager::Instance().AddMission(*newMission);
+
+
+	Mission* newMission2 = new Mission("WoW, An ARMOR!", "Find 2 pieces of zalium armor");
+	newMission2->AddCondition(*new ItemCondition("item;zalium_armor", 2, inventory));
+
+	MissionManager::Instance().AddMission(*newMission2);
 
 }
 
