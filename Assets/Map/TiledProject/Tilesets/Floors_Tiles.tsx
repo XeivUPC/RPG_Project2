@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.9" tiledversion="1.9.2" name="floors_tiles" tilewidth="16" tileheight="16" tilecount="625" columns="25">
+<tileset version="1.10" tiledversion="1.11.0" name="floors_tiles" tilewidth="16" tileheight="16" tilecount="625" columns="25">
  <image source="../../../Textures/Tilesets/Floors_Tiles.png" width="400" height="400"/>
  <wangsets>
   <wangset name="GrassFloor" type="corner" tile="-1">
@@ -130,6 +130,30 @@
    <wangtile tileid="96" wangid="0,1,0,0,0,0,0,0"/>
    <wangtile tileid="97" wangid="0,1,0,0,0,0,0,1"/>
    <wangtile tileid="98" wangid="0,0,0,0,0,0,0,1"/>
+  </wangset>
+  <wangset name="StoneFloor" type="corner" tile="-1">
+   <wangcolor name="StoneFloor" color="#ff0000" tile="-1" probability="1"/>
+   <wangtile tileid="16" wangid="0,0,0,1,0,0,0,0"/>
+   <wangtile tileid="17" wangid="0,0,0,1,0,1,0,0"/>
+   <wangtile tileid="18" wangid="0,0,0,0,0,1,0,0"/>
+   <wangtile tileid="40" wangid="0,0,0,1,0,0,0,0"/>
+   <wangtile tileid="41" wangid="0,1,0,1,0,1,0,0"/>
+   <wangtile tileid="42" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="43" wangid="0,0,0,1,0,1,0,1"/>
+   <wangtile tileid="44" wangid="0,0,0,0,0,1,0,0"/>
+   <wangtile tileid="65" wangid="0,1,0,1,0,0,0,0"/>
+   <wangtile tileid="66" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="67" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="68" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="69" wangid="0,0,0,0,0,1,0,1"/>
+   <wangtile tileid="90" wangid="0,1,0,0,0,0,0,0"/>
+   <wangtile tileid="91" wangid="0,1,0,1,0,0,0,1"/>
+   <wangtile tileid="92" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="93" wangid="0,1,0,0,0,1,0,1"/>
+   <wangtile tileid="94" wangid="0,0,0,0,0,0,0,1"/>
+   <wangtile tileid="116" wangid="0,1,0,0,0,0,0,0"/>
+   <wangtile tileid="117" wangid="0,1,0,0,0,0,0,1"/>
+   <wangtile tileid="118" wangid="0,0,0,0,0,0,0,1"/>
   </wangset>
  </wangsets>
 </tileset>
