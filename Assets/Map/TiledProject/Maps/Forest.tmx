@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="43" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="281">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="43" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="283">
  <editorsettings>
   <export target="../../Data/Forest.xml" format="tmx"/>
  </editorsettings>
@@ -615,6 +615,20 @@
    <properties>
     <property name="EntryPoint" type="int" value="2"/>
     <property name="TargetPath" value="Assets/Map/Data/Forest_Secret_Cliff.xml"/>
+    <property name="Type" value="tilemapChanger"/>
+   </properties>
+  </object>
+  <object id="281" name="EntryPoint3" x="9.28046" y="201.276">
+   <properties>
+    <property name="Type" value="entryPoint"/>
+    <property name="Value" type="int" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="282" name="Zone3" x="-11.5341" y="176.864" width="5.54545" height="46.4318">
+   <properties>
+    <property name="EntryPoint" type="int" value="3"/>
+    <property name="TargetPath" value="Assets/Map/Data/Dunhaven_City.xml"/>
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>

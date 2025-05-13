@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="112" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="737">
- <editorsettings>
-  <export target="../../Data/Dunhaven_City.xml" format="tmx"/>
- </editorsettings>
  <properties>
   <property name="IsInside" type="bool" value="false"/>
  </properties>
- <tileset firstgid="1" source="../Tilesets/Floors_Tiles.tsx"/>
- <tileset firstgid="626" source="../Tilesets/Cave_Tiles.tsx"/>
- <tileset firstgid="915" source="../Tilesets/Building_Atlas.tsx"/>
- <tileset firstgid="921" source="../Tilesets/Vegetation_Atlas.tsx"/>
- <tileset firstgid="1224" source="../Tilesets/Water_tiles.tsx"/>
- <tileset firstgid="1849" source="../Tilesets/Grass_Tiles.tsx"/>
- <tileset firstgid="2474" source="../Tilesets/Furniture_Atlas.tsx"/>
+ <tileset firstgid="1" source="../TiledProject/Tilesets/Floors_Tiles.tsx"/>
+ <tileset firstgid="626" source="../TiledProject/Tilesets/Cave_Tiles.tsx"/>
+ <tileset firstgid="915" source="../TiledProject/Tilesets/Building_Atlas.tsx"/>
+ <tileset firstgid="921" source="../TiledProject/Tilesets/Vegetation_Atlas.tsx"/>
+ <tileset firstgid="1224" source="../TiledProject/Tilesets/Water_tiles.tsx"/>
+ <tileset firstgid="1849" source="../TiledProject/Tilesets/Grass_Tiles.tsx"/>
+ <tileset firstgid="2474" source="../TiledProject/Tilesets/Furniture_Atlas.tsx"/>
  <layer id="1" name="Ground0" width="112" height="80">
   <data encoding="csv">
 67,67,43,93,93,67,43,43,70,66,68,70,66,67,70,66,43,44,42,69,68,67,69,67,93,93,67,43,68,69,67,44,18,18,18,18,42,43,93,67,93,67,69,93,69,43,68,69,43,43,69,69,69,67,69,93,68,69,93,93,69,67,68,67,43,68,43,44,18,18,18,42,67,69,43,69,68,67,68,44,18,18,42,43,93,68,67,67,44,18,18,55,252,252,252,252,252,252,252,252,252,252,252,252,252,252,252,252,252,252,252,252,
