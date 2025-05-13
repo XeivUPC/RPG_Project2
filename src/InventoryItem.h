@@ -11,6 +11,7 @@ public:
     ~InventoryItem() = default;
 
     string GetName() const;
+    string GetId() const;
     int GetMaxStack() const;
 
     InventoryItem* clone() const;

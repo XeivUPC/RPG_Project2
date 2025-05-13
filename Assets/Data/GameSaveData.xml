@@ -64,10 +64,10 @@
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="59060.4062" />
+		<time value="68273" />
 		<items />
 		<tilemaps>
-			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="367.937988" spawnpoint-y="237" />
+			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="367" spawnpoint-y="237" />
 		</tilemaps>
 	</map>
 </game>

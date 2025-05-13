@@ -10,6 +10,11 @@ string InventoryItem::GetName() const
     return itemRef->name;
 }
 
+string InventoryItem::GetId() const
+{
+    return itemRef->id;
+}
+
 int InventoryItem::GetMaxStack() const
 {
     return itemRef->stackable_quantity;

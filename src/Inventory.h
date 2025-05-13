@@ -1,5 +1,6 @@
 #pragma once
 #include "InventoryItem.h"
+#include "SystemEvent.h"
 #include <vector>
 #include <string>
 #include <iostream>
@@ -35,10 +36,15 @@ public:
     void SwapSlots(int index1, int index2, Inventory* targetInventory = nullptr);
     bool TryStackItems(int sourceIndex, int targetIndex, Inventory* targetInventory = nullptr);
 
+    bool HasItem(string item_id, int amount = 1);
+
     void ClearAllItems();
 
     const vector<InventorySlot>& GetSlotsData();
     vector<InventorySlot>& GetSlotsDataModifiable();
+
+
+    SystemEvent<> onInventoryChanged;
 
 public:
 

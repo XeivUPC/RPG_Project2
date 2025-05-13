@@ -558,8 +558,9 @@ void GameScene::LoadGameSaveData()
 
             }
             inventoryIndex++;
+            
         }
-
+        player->inventory->onInventoryChanged.Trigger();
 		
 
 		/// Load Map

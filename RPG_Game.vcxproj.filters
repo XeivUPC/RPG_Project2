@@ -139,6 +139,12 @@
     <Filter Include="Source Files\Entities\Type %28Entity%29\Character\Extra">
       <UniqueIdentifier>{538ddc0a-9a84-4c0b-a3a7-ff11334a156d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils\Missions">
+      <UniqueIdentifier>{a2f73dac-8d3c-4757-b5a2-9fe3f633267c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Missions\Conditions">
+      <UniqueIdentifier>{b5e165e1-a15f-450a-9b48-582cfc4433b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -401,6 +407,18 @@
     </ClCompile>
     <ClCompile Include="src\ParallaxCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ItemCondition.cpp">
+      <Filter>Source Files\Utils\Missions\Conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mission.cpp">
+      <Filter>Source Files\Utils\Missions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MissionCondition.cpp">
+      <Filter>Source Files\Utils\Missions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MissionManager.cpp">
+      <Filter>Source Files\Utils\Missions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -712,6 +730,18 @@
     </ClInclude>
     <ClInclude Include="src\ParallaxCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MissionCondition.h">
+      <Filter>Source Files\Utils\Missions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mission.h">
+      <Filter>Source Files\Utils\Missions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ItemCondition.h">
+      <Filter>Source Files\Utils\Missions\Conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MissionManager.h">
+      <Filter>Source Files\Utils\Missions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
