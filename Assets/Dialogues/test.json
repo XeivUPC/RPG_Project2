@@ -2,7 +2,7 @@
     "a833535f-934e-4959-8a1f-de35c94d91d4": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "Hi",
             "fr": ""
@@ -13,7 +13,7 @@
     "c4dbd48e-cfa3-4c05-afa1-281e87ccc2a8": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Do you want to come?",
             "fr": ""
@@ -41,7 +41,7 @@
     "071b3f9a-e54f-4627-92b3-bb3549397aae": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "MMMMM, do you want to come?",
             "fr": ""
@@ -69,7 +69,7 @@
     "969b9740-52df-4e05-9304-f757e4951432": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "WOW",
             "fr": ""
@@ -100,7 +100,7 @@
     "dff6c4a6-66f4-4bc6-a5c8-af5d3b85cf67": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "I love you",
             "fr": ""
@@ -110,7 +110,7 @@
     "c9a7f4d1-7a64-4d9c-b0f5-ecc943c079fc": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "I hate you",
             "fr": ""
