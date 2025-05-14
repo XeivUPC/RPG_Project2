@@ -16,11 +16,13 @@ MissionsCG::MissionsCG(int _renderLayer)
 {
 	renderLayer = _renderLayer;
 
-	MissionManager::Instance().onMissionAdded.Subscribe([this](MissionHolder& mission) {selectedMissionIndex = MissionManager::Instance().GetMissionIndex(mission); GoToMission(selectedMissionIndex); });
-	MissionManager::Instance().onMissionRemoved.Subscribe([this](MissionHolder& mission) {selectedMissionIndex = MissionManager::Instance().GetMissionIndex(mission);  GoToMission(selectedMissionIndex); });
 
 	CreateLayout();
 	UpdateLayout();
+
+	MissionManager::Instance().onMissionAdded.Subscribe([this](MissionHolder& mission) {selectedMissionIndex = MissionManager::Instance().GetMissionIndex(mission); GoToMission(selectedMissionIndex); });
+	MissionManager::Instance().onMissionRemoved.Subscribe([this](MissionHolder& mission) {selectedMissionIndex = MissionManager::Instance().GetMissionIndex(mission);  GoToMission(selectedMissionIndex); });
+
 }
 
 MissionsCG::~MissionsCG()
@@ -29,6 +31,14 @@ MissionsCG::~MissionsCG()
 
 void MissionsCG::UpdateCanvas()
 {
+	int missionAmount = MissionManager::Instance().GetMissionsAmount();
+	if(missionAmount  == 0){
+		if (layOut.missionOverlay->localVisible)
+			isVisible = false;
+		return;
+	}else if(!layOut.missionOverlay->localVisible)
+		isVisible = true;
+
 	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_UP) == KEY_DOWN) {
 		GoToMission(selectedMissionIndex - 1);
 		limitTimer.Start();
@@ -147,6 +157,7 @@ void MissionsCG::CreateLayout()
 
 void MissionsCG::UpdateLayout(bool canShowHide)
 {
+	
 	MissionHolder* mission = MissionManager::Instance().GetMissionByIndex(selectedMissionIndex);
 	if (mission == nullptr) {
 		if(canShowHide)

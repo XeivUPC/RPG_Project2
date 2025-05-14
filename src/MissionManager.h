@@ -17,6 +17,7 @@ public:
         return instance;
     }
 
+    void Reset();
 
     void AddMission(MissionHolder& mission, bool triggerEvent = true);
     void RemoveMission(MissionHolder& mission, bool triggerEvent = true);
@@ -31,6 +32,9 @@ public:
     MissionHolder* GetMissionByIndex(int index);
     int GetMissionIndex(MissionHolder& mission);
     int GetMissionsAmount();
+	const vector<MissionHolder*>& GetMissions() const;
+
+	void ClearAllMissions();
 
 
 public:

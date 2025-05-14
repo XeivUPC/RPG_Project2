@@ -3,10 +3,19 @@
 #include "MissionCondition.h"
 
 
+void MissionManager::Reset()
+{
+	onMissionAdded.UnsubscribeAll();
+	onMissionRemoved.UnsubscribeAll();
+	onMissionCompleted.UnsubscribeAll();
+	genericEvent.UnsubscribeAll();
+}
+
 void MissionManager::AddMission(MissionHolder& mission, bool triggerEvent)
 {
 	missions.emplace_back(&mission);
 	SetUpMission(mission);
+	UpdateMissions();
 
 	if (triggerEvent)
 		onMissionAdded.Trigger(mission);
@@ -37,13 +46,8 @@ MissionManager::MissionManager()
 
 MissionManager::~MissionManager()
 {
-
-	for (; missions.size() != 0;)
-	{
-		delete missions[0];
-		missions.erase(missions.begin());
-	}
-	missions.clear();
+	Reset();
+	ClearAllMissions();
 }
 
 void MissionManager::SetUpMission(MissionHolder& mission)
@@ -106,5 +110,20 @@ int MissionManager::GetMissionIndex(MissionHolder& mission)
 int MissionManager::GetMissionsAmount()
 {
 	return (int)missions.size();
+}
+
+const vector<MissionHolder*>& MissionManager::GetMissions() const
+{
+	return missions;
+}
+
+void MissionManager::ClearAllMissions()
+{
+	for (; missions.size() != 0;)
+	{
+		delete missions[0];
+		missions.erase(missions.begin());
+	}
+	missions.clear();
 }
 

@@ -420,14 +420,14 @@
     <ClCompile Include="src\MissionManager.cpp">
       <Filter>Source Files\Utils\Missions</Filter>
     </ClCompile>
-    <ClCompile Include="src\MissionsCG.cpp">
-      <Filter>Source Files\Utils\Missions</Filter>
-    </ClCompile>
     <ClCompile Include="src\MissionHolder.cpp">
       <Filter>Source Files\Utils\Missions</Filter>
     </ClCompile>
     <ClCompile Include="src\MissionList.cpp">
       <Filter>Source Files\Utils\Missions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MissionsCG.cpp">
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -759,7 +759,7 @@
       <Filter>Source Files\Utils\Missions</Filter>
     </ClInclude>
     <ClInclude Include="src\MissionsCG.h">
-      <Filter>Source Files\Utils\Missions</Filter>
+      <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
