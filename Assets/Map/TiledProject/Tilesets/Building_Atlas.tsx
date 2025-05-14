@@ -150,14 +150,10 @@
  <tile id="9">
   <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/CityHouse3.png" width="121" height="93"/>
   <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="13.4545" y="20" width="31.0909" height="69.6364"/>
-   <object id="2" name="collision" x="74.7273" y="20.0909" width="32.3636" height="69.5455"/>
-   <object id="3" name="collision" x="45.0909" y="20" width="29.4545" height="61.2727"/>
-   <object id="4" name="entryCollider" x="45" y="81.25" width="29.375" height="5"/>
-   <object id="5" name="exitPosition" x="59.875" y="91.125">
-    <point/>
-   </object>
-   <object id="6" name="renderPosition" x="59.7273" y="74.6364">
+   <object id="1" name="collision" x="13.4545" y="20" width="36.1818" height="69.6364"/>
+   <object id="2" name="collision" x="70.6364" y="20.0909" width="36.4545" height="69.5455"/>
+   <object id="3" name="collision" x="50.0909" y="20" width="20" height="61.2727"/>
+   <object id="6" name="renderPosition" x="15.3631" y="89.5273">
     <point/>
    </object>
   </objectgroup>

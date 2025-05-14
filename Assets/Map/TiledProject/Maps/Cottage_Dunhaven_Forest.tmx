@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="26" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="52">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="26" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="51">
+ <editorsettings>
+  <export target="../../Data/House2_Inside.xml" format="tmx"/>
+ </editorsettings>
  <properties>
   <property name="IsInside" type="bool" value="true"/>
  </properties>
- <tileset firstgid="1" source="../TiledProject/Tilesets/Cave_Tiles.tsx"/>
- <tileset firstgid="290" source="../TiledProject/Tilesets/Floors_Tiles.tsx"/>
- <tileset firstgid="915" source="../TiledProject/Tilesets/Water_tiles.tsx"/>
- <tileset firstgid="1540" source="../TiledProject/Tilesets/Building_Atlas.tsx"/>
- <tileset firstgid="1550" source="../TiledProject/Tilesets/Furniture_Atlas.tsx"/>
+ <tileset firstgid="1" source="../Tilesets/Cave_Tiles.tsx"/>
+ <tileset firstgid="290" source="../Tilesets/Floors_Tiles.tsx"/>
+ <tileset firstgid="915" source="../Tilesets/Water_tiles.tsx"/>
+ <tileset firstgid="1540" source="../Tilesets/Building_Atlas.tsx"/>
+ <tileset firstgid="1546" source="../Tilesets/Furniture_Atlas.tsx"/>
  <layer id="2" name="Ground0" width="26" height="14">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -81,28 +84,36 @@
 </data>
  </layer>
  <objectgroup id="7" name="Objects">
-  <object id="28" x="216.42" y="193.177">
+  <object id="28" x="216.42" y="188.5">
    <properties>
-    <property name="Type" value="entryPoint"/>
-    <property name="Value" value="20"/>
+    <property name="Type" value="spawnPoint"/>
    </properties>
    <point/>
   </object>
-  <object id="33" gid="1575" x="176" y="144" width="32" height="32">
+  <object id="29" x="160.045" y="96.5">
    <properties>
-    <property name="Type" value="simpleObject"/>
+    <property name="NpcId" value="-1"/>
+    <property name="Path" type="object" value="31"/>
+    <property name="Type" value="npc"/>
    </properties>
+   <point/>
   </object>
-  <object id="34" gid="1573" x="224" y="128" width="32" height="16">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
+  <object id="31" x="160" y="96">
+   <polyline points="0,0 111.455,0"/>
   </object>
-  <object id="51" x="205.955" y="198.682" width="22.2727" height="5.54545">
+  <object id="32" x="203.375" y="205.352" width="24.5455" height="4.18182">
    <properties>
-    <property name="EntryPoint" value="20"/>
-    <property name="TargetPath" value="Assets/Map/Data/Dunhaven_City.xml"/>
     <property name="Type" value="tilemapChanger"/>
+   </properties>
+  </object>
+  <object id="33" gid="1571" x="176" y="144" width="32" height="32">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="34" gid="1569" x="224" y="128" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
    </properties>
   </object>
  </objectgroup>
