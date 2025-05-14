@@ -10,8 +10,11 @@ AddNpcFriendshipByID(Vector2 data) --> x = characterId / y = characterFriendship
 SetNpcLoveByID(Vector2 data) --> x = characterId / y = characterLove
 AddNpcLoveByID(Vector2 data) --> x = characterId / y = characterLoveToAdd
 AddItem(string data) --> example item;null-2  (id-amount)
+RemoveItem(string data) --> example item;null-2  (id-amount)
 CheckIfHasItem(string data) --> example item;null-2  (id-amount)
 CheckIfCanGiveItem(string data) --> example item;null-2  (id-amount)
+AddMission(string data) --> example mission;tutorial  (id)
+CheckIfMissionCompleted(string data) --> example mission;tutorial  (id)
 
 ///////////////////////
 
@@ -19,5 +22,6 @@ CheckIfCanGiveItem(string data) --> example item;null-2  (id-amount)
 How to acces to a characterState? Use Char{Id}_State ---> Just replace {Id} by the number
 How to acces to a characterFriendship? Use Char{Id}_Friendship ---> Just replace {Id} by the number
 How to acces to a characterLove? Use Char{Id}_Love ---> Just replace {Id} by the number
-How to acces to check if has item? Previusly, call "CheckIfHasItem()", then the variable HasItem will be true or false
-How to acces to check if can give item? Previusly, call "CheckIfHasItem()", then the variable CanGiveItem will be true or false
+How to check if has item? Previusly, call "CheckIfHasItem()", then the variable HasItem will be true or false
+How to check if can give item? Previusly, call "CheckIfCanGiveItem()", then the variable CanGiveItem will be true or false
+How to check if has completed mission? Previusly, call "CheckIfMissionCompleted()", then the variable HasCompletedMission will be true or false

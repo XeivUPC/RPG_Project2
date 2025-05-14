@@ -1,6 +1,6 @@
 #include "MissionsCG.h"
 #include "MissionManager.h"
-#include "Mission.h"
+#include "MissionHolder.h"
 
 
 #include "Engine.h"
@@ -16,8 +16,8 @@ MissionsCG::MissionsCG(int _renderLayer)
 {
 	renderLayer = _renderLayer;
 
-	MissionManager::Instance().onMissionAdded.Subscribe([this](Mission& mission) {selectedMissionIndex = MissionManager::Instance().GetMissionIndex(mission); GoToMission(selectedMissionIndex); });
-	MissionManager::Instance().onMissionRemoved.Subscribe([this](Mission& mission) {selectedMissionIndex = MissionManager::Instance().GetMissionIndex(mission);  GoToMission(selectedMissionIndex); });
+	MissionManager::Instance().onMissionAdded.Subscribe([this](MissionHolder& mission) {selectedMissionIndex = MissionManager::Instance().GetMissionIndex(mission); GoToMission(selectedMissionIndex); });
+	MissionManager::Instance().onMissionRemoved.Subscribe([this](MissionHolder& mission) {selectedMissionIndex = MissionManager::Instance().GetMissionIndex(mission);  GoToMission(selectedMissionIndex); });
 
 	CreateLayout();
 	UpdateLayout();
@@ -41,6 +41,13 @@ void MissionsCG::UpdateCanvas()
 	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN || Engine::Instance().m_input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN) {
 		layOut.missionDescriptionText->localVisible = !layOut.missionDescriptionText->localVisible;
 		layOut.missionTitleText->localVisible = !layOut.missionTitleText->localVisible;
+
+		if (layOut.missionTitleText->localVisible) {
+			layOut.missionDataType->SetText("Title " + to_string(selectedMissionIndex));
+		}
+		else
+			layOut.missionDataType->SetText("Description " + to_string(selectedMissionIndex));
+
 		limitTimer.Start();
 	}
 
@@ -133,21 +140,32 @@ void MissionsCG::CreateLayout()
 	layOut.missionDescriptionText->SetParent(layOut.missionOverlay);
 	layOut.missionDescriptionText->localVisible = false;
 
+	layOut.missionDataType = new UITextBox("Title", *textFont, 16, { 184,132,78,255 }, { 26,3}, { 100, 16 }, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+	layOut.missionDataType->SetParent(layOut.missionOverlay);
+
+
+
 	AddElementToCanvas(layOut.missionOverlay);
 }
 
 void MissionsCG::UpdateLayout()
 {
-	Mission* mission = MissionManager::Instance().GetMissionByIndex(selectedMissionIndex);
+	MissionHolder* mission = MissionManager::Instance().GetMissionByIndex(selectedMissionIndex);
 	if (mission == nullptr) {
 		HideMissionLabel(0.5f);
 		layOut.missionTitleText->SetText("");
 		layOut.missionDescriptionText->SetText("");
+		layOut.missionDataType->SetText("");
 	}
 	else {
 		ShowMissionLabel(0.5f);
 		layOut.missionTitleText->SetText(mission->GetTitle());
 		layOut.missionDescriptionText->SetText(mission->GetDescription());
+		
+		if (layOut.missionTitleText->localVisible) {
+			layOut.missionDataType->SetText("Title " + to_string(selectedMissionIndex));
+		}else
+			layOut.missionDataType->SetText("Description " + to_string(selectedMissionIndex));
 	}
 	
 }

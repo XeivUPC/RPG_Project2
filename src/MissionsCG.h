@@ -31,6 +31,8 @@ private:
 		UIImage* missionOverlay = nullptr;
 		UITextBox* missionTitleText = nullptr;
 		UITextBox* missionDescriptionText = nullptr;
+
+		UITextBox* missionDataType = nullptr;
 	};
 
 	void CreateLayout();

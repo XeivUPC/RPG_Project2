@@ -1,42 +1,29 @@
 #pragma once
-#include "SystemEvent.h"
+#include <string>
+#include <unordered_map>
 #include <vector>
-
 using namespace std;
 
 class MissionCondition;
 
-class Mission {
-
-	
-
-
+class Mission
+{
 public:
 
-	enum class State {
-		IN_PROGRESS,
-		COMPLETED,
-		REWARDED
+	struct ConditionData{
+		string type;
+		unordered_map<string, string> properties;
 	};
 
-	Mission(string _title, string _description);
+	Mission();
 	~Mission();
 
-	void AddCondition(MissionCondition& condition);
-
-	bool IsCompleted();
-
-	State GetState();
-	void SetState(State newState);
-
-	const string& GetTitle();
-	const string& GetDescription();
+	vector<MissionCondition*> CreateConditions();
 
 public:
-	vector<MissionCondition*> conditions;
-	State state = State::IN_PROGRESS;
+	string id = "";
+	string title = "";
+	string description = "";
 
-private:
-	string title="Title";
-	string description = "Description";
+	vector<ConditionData> conditionsData;
 };
