@@ -42,11 +42,8 @@ void MissionsCG::UpdateCanvas()
 		layOut.missionDescriptionText->localVisible = !layOut.missionDescriptionText->localVisible;
 		layOut.missionTitleText->localVisible = !layOut.missionTitleText->localVisible;
 
-		if (layOut.missionTitleText->localVisible) {
-			layOut.missionDataType->SetText("Title " + to_string(selectedMissionIndex));
-		}
-		else
-			layOut.missionDataType->SetText("Description " + to_string(selectedMissionIndex));
+		if(!isHidden)
+			UpdateLayout(false);
 
 		limitTimer.Start();
 	}
@@ -79,7 +76,7 @@ void MissionsCG::Reset()
 	UpdateLayout();
 }
 
-void MissionsCG::GoToMission(int index)
+void MissionsCG::GoToMission(int index, bool canShowHide)
 {
 	bool forceChange = false;
 	if (index == selectedMissionIndex) {
@@ -97,7 +94,7 @@ void MissionsCG::GoToMission(int index)
 	if(!isHidden || forceChange)
 		selectedMissionIndex = index;
 
-	UpdateLayout();
+	UpdateLayout(canShowHide);
 }
 
 void MissionsCG::ShowMissionLabel(float time)
@@ -143,29 +140,36 @@ void MissionsCG::CreateLayout()
 	layOut.missionDataType = new UITextBox("Title", *textFont, 16, { 184,132,78,255 }, { 26,3}, { 100, 16 }, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
 	layOut.missionDataType->SetParent(layOut.missionOverlay);
 
-
+	layOut.missionNumber = new UITextBox("Mission", *textFont, 16, { 184,132,78,255 }, { 51,77 }, { 54*2, 7*2 }, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+	layOut.missionNumber->SetLocalScale(0.5f);
+	layOut.missionNumber->SetParent(layOut.missionOverlay);
 
 	AddElementToCanvas(layOut.missionOverlay);
 }
 
-void MissionsCG::UpdateLayout()
+void MissionsCG::UpdateLayout(bool canShowHide)
 {
 	MissionHolder* mission = MissionManager::Instance().GetMissionByIndex(selectedMissionIndex);
 	if (mission == nullptr) {
-		HideMissionLabel(0.5f);
+		if(canShowHide)
+			HideMissionLabel(0.5f);
 		layOut.missionTitleText->SetText("");
 		layOut.missionDescriptionText->SetText("");
 		layOut.missionDataType->SetText("");
+		layOut.missionNumber->SetText("");
 	}
 	else {
-		ShowMissionLabel(0.5f);
+		if(canShowHide)
+			ShowMissionLabel(0.5f);
 		layOut.missionTitleText->SetText(mission->GetTitle());
 		layOut.missionDescriptionText->SetText(mission->GetDescription());
+
+		layOut.missionNumber->SetText("Mission " + to_string(selectedMissionIndex));
 		
 		if (layOut.missionTitleText->localVisible) {
-			layOut.missionDataType->SetText("Title " + to_string(selectedMissionIndex));
+			layOut.missionDataType->SetText("Title");
 		}else
-			layOut.missionDataType->SetText("Description " + to_string(selectedMissionIndex));
+			layOut.missionDataType->SetText("Description");
 	}
 	
 }

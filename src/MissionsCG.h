@@ -19,7 +19,7 @@ public:
 
 	void Reset();
 
-	void GoToMission(int index);
+	void GoToMission(int index, bool canShowHide=true);
 
 	void ShowMissionLabel(float time);
 	void HideMissionLabel(float time);
@@ -33,11 +33,13 @@ private:
 		UITextBox* missionDescriptionText = nullptr;
 
 		UITextBox* missionDataType = nullptr;
+
+		UITextBox* missionNumber = nullptr;
 	};
 
 	void CreateLayout();
 
-	void UpdateLayout();
+	void UpdateLayout(bool canShowHide = true);
 
 private:
 	int selectedMissionIndex = 0;

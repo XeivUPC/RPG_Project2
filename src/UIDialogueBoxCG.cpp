@@ -4,6 +4,7 @@
 #include "PlayerCharacter.h"
 #include "Inventory.h"
 #include "ItemList.h"
+#include "Party.h"
 
 #include "MissionManager.h"
 #include "MissionList.h"
@@ -357,6 +358,13 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 			string data = get<string>(signal->data);
 
 			dialogue->AddGameStateVariable("HasCompletedMission", MissionManager::Instance().IsMissionCompleted(data));
+		}
+	}
+	else if (signal->name == "UnlockNpc") {
+		if (holds_alternative<float>(signal->data)) {
+			int data = (int)get<float>(signal->data);
+
+			Engine::Instance().s_game->GetPlayer()->party->AddPartyMemeber(data);
 		}
 	}
 
