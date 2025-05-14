@@ -37,15 +37,13 @@ void MissionsCG::UpdateCanvas()
 		GoToMission(selectedMissionIndex + 1);
 		limitTimer.Start();
 	}
-
-	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN || Engine::Instance().m_input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN) {
-		layOut.missionDescriptionText->localVisible = !layOut.missionDescriptionText->localVisible;
-		layOut.missionTitleText->localVisible = !layOut.missionTitleText->localVisible;
-
-		if(!isHidden)
+	if (!isHidden) {
+		if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN || Engine::Instance().m_input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN) {
+			layOut.missionDescriptionText->localVisible = !layOut.missionDescriptionText->localVisible;
+			layOut.missionTitleText->localVisible = !layOut.missionTitleText->localVisible;
 			UpdateLayout(false);
-
-		limitTimer.Start();
+			limitTimer.Start();
+		}
 	}
 
 	
