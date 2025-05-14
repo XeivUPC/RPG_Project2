@@ -56,7 +56,7 @@
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="47745.1094" />
+		<time value="48738.3438" />
 		<items />
 		<tilemaps>
 			<tilemap path="Assets/Map/Data/Forest.xml" spawnpoint-x="0" spawnpoint-y="0" />

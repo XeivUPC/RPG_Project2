@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="furniture_atlas" tilewidth="64" tileheight="48" tilecount="26" columns="0">
+<tileset version="1.10" tiledversion="1.11.0" name="furniture_atlas" tilewidth="121" tileheight="117" tilecount="59" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Bench1.png" width="16" height="32"/>
@@ -149,6 +149,149 @@
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Table.png" width="32" height="32"/>
   <objectgroup draworder="index" id="2">
    <object id="2" name="collision" x="0" y="17.7273" width="31.9091" height="14.2727"/>
+  </objectgroup>
+ </tile>
+ <tile id="26">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/CutLog.png" width="32" height="32"/>
+ </tile>
+ <tile id="27">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence1.png" width="16" height="16"/>
+ </tile>
+ <tile id="28">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence2.png" width="16" height="16"/>
+ </tile>
+ <tile id="29">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence3.png" width="16" height="16"/>
+ </tile>
+ <tile id="30">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence4.png" width="16" height="16"/>
+ </tile>
+ <tile id="31">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence5.png" width="16" height="16"/>
+ </tile>
+ <tile id="32">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence6.png" width="16" height="16"/>
+ </tile>
+ <tile id="33">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence7.png" width="16" height="16"/>
+ </tile>
+ <tile id="34">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence8.png" width="16" height="16"/>
+ </tile>
+ <tile id="35">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence9.png" width="16" height="16"/>
+ </tile>
+ <tile id="36">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence10.png" width="16" height="16"/>
+ </tile>
+ <tile id="37">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence11.png" width="16" height="16"/>
+ </tile>
+ <tile id="38">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence12.png" width="16" height="16"/>
+ </tile>
+ <tile id="39">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence13.png" width="16" height="16"/>
+ </tile>
+ <tile id="40">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence14.png" width="16" height="16"/>
+ </tile>
+ <tile id="41">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence15.png" width="16" height="16"/>
+ </tile>
+ <tile id="42">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Fence16.png" width="16" height="16"/>
+ </tile>
+ <tile id="43">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Furnace.png" width="32" height="48"/>
+ </tile>
+ <tile id="44">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Light.png" width="12" height="80"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="1.81818" y="21.8182" width="8" height="56.7273"/>
+   <object id="2" name="renderPosition" x="5.45455" y="31.0909">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="45">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/PlantPot.png" width="32" height="16"/>
+ </tile>
+ <tile id="46">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Signboard.png" width="38" height="57"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="15.0909" y="14.8011" width="8" height="40.9261"/>
+   <object id="2" name="renderPosition" x="18.8523" y="26.1363">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="47">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/SmallBench.png" width="32" height="16"/>
+ </tile>
+ <tile id="48">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/SmithTable.png" width="64" height="48"/>
+ </tile>
+ <tile id="49">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Table.png" width="32" height="32"/>
+ </tile>
+ <tile id="50">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/WhitePurpleFlag.png" width="19" height="86"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="5.81818" y="26.9091" width="8" height="58.1818"/>
+   <object id="2" name="renderPosition" x="9.45455" y="36.1818">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="51">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/WhiteRedFlag.png" width="19" height="86"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="6" y="26.8182" width="8" height="58.1818"/>
+   <object id="2" name="renderPosition" x="9.45455" y="36.7273">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="52">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Bench1.png" width="16" height="32"/>
+ </tile>
+ <tile id="53">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Bench2.png" width="16" height="32"/>
+ </tile>
+ <tile id="54">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Bench3.png" width="16" height="32"/>
+ </tile>
+ <tile id="55">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Bench4.png" width="16" height="32"/>
+ </tile>
+ <tile id="56">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/BluePrupleFlag.png" width="19" height="86"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="5.72727" y="26.7273" width="8" height="58.1818"/>
+   <object id="2" name="renderPosition" x="9.63637" y="37.2727">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="57">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/BrownShrine.png" width="121" height="96"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="20.125" y="48.125" width="7.25" height="46.625"/>
+   <object id="2" name="collision" x="92.4375" y="49" width="7.5" height="45.875"/>
+   <object id="7" name="renderPosition" x="23.375" y="59">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="58">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/BlueShrine.png" width="121" height="117"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="20.375" y="69.1875" width="7.25" height="46.625"/>
+   <object id="2" name="collision" x="92.2065" y="70.0245" width="7.5" height="45.875"/>
+   <object id="3" name="renderPosition" x="23.25" y="81.4375">
+    <point/>
+   </object>
   </objectgroup>
  </tile>
 </tileset>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.9" tiledversion="1.9.2" name="building_atlas" tilewidth="256" tileheight="272" tilecount="6" columns="0">
+<tileset version="1.10" tiledversion="1.11.0" name="building_atlas" tilewidth="256" tileheight="272" tilecount="10" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
-  <image width="96" height="107" source="../../../Textures/Atlas/MapObjects/Buildings/Single/tent1.png"/>
+  <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/tent1.png" width="96" height="107"/>
   <objectgroup draworder="index" id="2">
    <object id="1" name="renderPosition" x="48" y="95">
     <point/>
@@ -17,7 +17,7 @@
   </objectgroup>
  </tile>
  <tile id="1">
-  <image width="96" height="107" source="../../../Textures/Atlas/MapObjects/Buildings/Single/tent2.png"/>
+  <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/tent2.png" width="96" height="107"/>
   <objectgroup draworder="index" id="2">
    <object id="7" name="renderPosition" x="48.0057" y="93.4091">
     <point/>
@@ -32,7 +32,7 @@
   </objectgroup>
  </tile>
  <tile id="2">
-  <image width="96" height="107" source="../../../Textures/Atlas/MapObjects/Buildings/Single/tent3.png"/>
+  <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/tent3.png" width="96" height="107"/>
   <objectgroup draworder="index" id="2">
    <object id="7" name="renderPosition" x="47.9403" y="93.4347">
     <point/>
@@ -47,7 +47,7 @@
   </objectgroup>
  </tile>
  <tile id="3">
-  <image width="112" height="160" source="../../../Textures/Atlas/MapObjects/Buildings/Single/House2.png"/>
+  <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/House2.png" width="112" height="160"/>
   <objectgroup draworder="index" id="2">
    <object id="1" name="collision" x="0" y="55.0833" width="111.697" height="88.583"/>
    <object id="2" name="collision" x="16.3333" y="143.884" width="28.6667" height="15.9275"/>
@@ -63,7 +63,7 @@
   </objectgroup>
  </tile>
  <tile id="4">
-  <image width="160" height="272" source="../../../Textures/Atlas/MapObjects/Buildings/Single/House3.png"/>
+  <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/House3.png" width="160" height="272"/>
   <objectgroup draworder="index" id="2">
    <object id="1" name="collision" x="0" y="56.5682" width="111.636" height="189.244"/>
    <object id="2" name="collision" x="112.136" y="90" width="31.5909" height="74.8182"/>
@@ -82,7 +82,7 @@
   </objectgroup>
  </tile>
  <tile id="5">
-  <image width="256" height="144" source="../../../Textures/Atlas/MapObjects/Buildings/Single/House4.png"/>
+  <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/House4.png" width="256" height="144"/>
   <objectgroup draworder="index" id="2">
    <object id="1" name="renderPosition" x="23.9119" y="116.227">
     <point/>
@@ -98,6 +98,68 @@
     <point/>
    </object>
    <object id="15" name="collision" x="116.462" y="41.75" width="23.0287" height="88.125"/>
+  </objectgroup>
+ </tile>
+ <tile id="6">
+  <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/CityHouse1.png" width="256" height="144"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="renderPosition" x="23.7346" y="116.227">
+    <point/>
+   </object>
+   <object id="2" name="collision" x="32.5727" y="56.5" width="31.25" height="67"/>
+   <object id="3" name="collision" x="20.0727" y="115.75" width="7.5" height="13"/>
+   <object id="4" name="collision" x="227.636" y="117" width="8.125" height="12.1875"/>
+   <object id="5" name="collision" x="191.073" y="56.5" width="32" height="64.5"/>
+   <object id="6" name="collision" x="63.9136" y="41.75" width="51.9091" height="97.25"/>
+   <object id="7" name="collision" x="139.618" y="41.75" width="51.9091" height="97.25"/>
+   <object id="8" name="entryCollider" x="115.886" y="130.375" width="23.5" height="4.375"/>
+   <object id="9" name="exitPosition" x="127.761" y="141">
+    <point/>
+   </object>
+   <object id="10" name="collision" x="116.285" y="41.75" width="23.0287" height="88.125"/>
+  </objectgroup>
+ </tile>
+ <tile id="7">
+  <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/CityWell.png" width="121" height="97"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="15.25" y="32.75" width="89" height="61.5"/>
+   <object id="2" name="renderPosition" x="59.25" y="64.75">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="8">
+  <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/CityHouse2.png" width="234" height="139"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="renderPosition" x="12.8179" y="114.367">
+    <point/>
+   </object>
+   <object id="2" name="collision" x="21.656" y="54.6402" width="31.25" height="67"/>
+   <object id="3" name="collision" x="9.156" y="113.89" width="7.5" height="13"/>
+   <object id="4" name="collision" x="216.719" y="115.14" width="8.125" height="12.1875"/>
+   <object id="5" name="collision" x="180.156" y="54.6402" width="32" height="64.5"/>
+   <object id="6" name="collision" x="52.9969" y="39.8902" width="51.9091" height="97.25"/>
+   <object id="7" name="collision" x="128.701" y="39.8902" width="51.9091" height="97.25"/>
+   <object id="8" name="entryCollider" x="104.969" y="128.515" width="23.5" height="4.375"/>
+   <object id="9" name="exitPosition" x="116.844" y="139.14">
+    <point/>
+   </object>
+   <object id="10" name="collision" x="105.368" y="39.8902" width="23.0287" height="88.125"/>
+  </objectgroup>
+ </tile>
+ <tile id="9">
+  <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/CityHouse3.png" width="121" height="93"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="13.4545" y="20" width="31.0909" height="69.6364"/>
+   <object id="2" name="collision" x="74.7273" y="20.0909" width="32.3636" height="69.5455"/>
+   <object id="3" name="collision" x="45.0909" y="20" width="29.4545" height="61.2727"/>
+   <object id="4" name="entryCollider" x="45" y="81.25" width="29.375" height="5"/>
+   <object id="5" name="exitPosition" x="59.875" y="91.125">
+    <point/>
+   </object>
+   <object id="6" name="renderPosition" x="59.7273" y="74.6364">
+    <point/>
+   </object>
   </objectgroup>
  </tile>
 </tileset>
