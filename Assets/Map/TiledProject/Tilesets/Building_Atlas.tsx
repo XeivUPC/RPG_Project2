@@ -152,8 +152,12 @@
   <objectgroup draworder="index" id="2">
    <object id="1" name="collision" x="13.4545" y="20" width="36.1818" height="69.6364"/>
    <object id="2" name="collision" x="70.6364" y="20.0909" width="36.4545" height="69.5455"/>
-   <object id="3" name="collision" x="50.0909" y="20" width="20" height="61.2727"/>
-   <object id="6" name="renderPosition" x="15.3631" y="89.5273">
+   <object id="3" name="collision" x="50.0909" y="20" width="20" height="63.0949"/>
+   <object id="6" name="renderPosition" x="59.9086" y="78.0728">
+    <point/>
+   </object>
+   <object id="7" name="entryCollider" x="49.0227" y="83.1136" width="21.8182" height="3.09091"/>
+   <object id="8" name="exitPosition" x="59.8409" y="89.9326">
     <point/>
    </object>
   </objectgroup>
