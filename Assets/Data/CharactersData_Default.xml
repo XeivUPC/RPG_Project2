@@ -72,7 +72,7 @@
 	</Character>
 
 	<Character id="8" name="Pedro Jr.">
-		<Data textureId="dog_test" faceId ="Guard1-idle" dialoguePath="Assets/Dialogues/empty_dialog.json" />
+		<Data textureId="dog_test" faceId ="Pedro-idle" dialoguePath="Assets/Dialogues/pedro_jr.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
