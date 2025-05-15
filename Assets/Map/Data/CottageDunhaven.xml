@@ -87,14 +87,6 @@
    </properties>
    <point/>
   </object>
-  <object id="29" x="160.045" y="96.5">
-   <properties>
-    <property name="NpcId" value="-1"/>
-    <property name="Path" type="object" value="31"/>
-    <property name="Type" value="npc"/>
-   </properties>
-   <point/>
-  </object>
   <object id="32" x="203.375" y="205.352" width="24.5455" height="4.18182">
    <properties>
     <property name="Type" value="tilemapChanger"/>
