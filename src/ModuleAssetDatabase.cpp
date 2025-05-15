@@ -95,6 +95,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("btn_tex6", *textureFactory->CreateTexture("Assets/Textures/UI/btn6.png"));
 	AddTextureToStorage("toggle_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/toggle.png"));
 	AddTextureToStorage("toggle_tex2", *textureFactory->CreateTexture("Assets/Textures/UI/toggle2.png"));
+	AddTextureToStorage("toggle_tex3", *textureFactory->CreateTexture("Assets/Textures/UI/toggle3.png"));
 	AddTextureToStorage("effects_toggle", *textureFactory->CreateTexture("Assets/Textures/UI/effectsToggle.png"));
 	AddTextureToStorage("slider_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/slider.png"));
 	AddTextureToStorage("uiBox1", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox1.png"));
@@ -111,6 +112,9 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("compass_overlay", *textureFactory->CreateTexture("Assets/Textures/UI/compass_overlay.png"));
 	AddTextureToStorage("compass_arrow", *textureFactory->CreateTexture("Assets/Textures/UI/compass_arrow.png"));
 	AddTextureToStorage("item_slot", *textureFactory->CreateTexture("Assets/Textures/UI/item_slot.png"));
+	AddTextureToStorage("missions_layOut", *textureFactory->CreateTexture("Assets/Textures/UI/missions_layOut.png"));
+
+	/// Parallax
 	AddTextureToStorage("title_bg1", *textureFactory->CreateTexture("Assets/Textures/Parallax/TitleBG/title_bg1.png"));
 	AddTextureToStorage("title_bg2", *textureFactory->CreateTexture("Assets/Textures/Parallax/TitleBG/title_bg2.png"));
 	AddTextureToStorage("title_bg3", *textureFactory->CreateTexture("Assets/Textures/Parallax/TitleBG/title_bg3.png"));
@@ -146,6 +150,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("artis_test", *textureFactory->CreateTexture("Assets/Textures/Characters/artis_spritesheet.png"));
 	AddTextureToStorage("cassian_test", *textureFactory->CreateTexture("Assets/Textures/Characters/cassian_spritesheet.png"));
 	AddTextureToStorage("zeryn_test", *textureFactory->CreateTexture("Assets/Textures/Characters/zeryn_spritesheet.png"));
+	AddTextureToStorage("dog_test", *textureFactory->CreateTexture("Assets/Textures/Characters/dog_spritesheet.png"));
 	///Tilesets
 	AddTextureToStorage("floors_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Floors_Tiles.png"));
 	AddTextureToStorage("water_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Water_Tiles.png"));

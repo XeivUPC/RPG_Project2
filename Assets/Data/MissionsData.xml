@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<missionsList>
+	<mission id="mission;testing">
+		<title>Prepare Yourself</title>
+		<description>Find and get 1 zalium sword</description>
+		<conditions>
+			<condition type ="ItemCondition">
+				<item id="item;zalium_sword" count="1" />
+			</condition>
+		</conditions>
+	</mission>
+
+	<mission id="mission;testing2">
+		<title>Taking Care</title>
+		<description>Collect 2 HealthPotions from Sir Gideon</description>
+		<conditions>
+			<condition type ="ItemCondition">
+				<item id="item;null" count="1" />
+			</condition>
+		</conditions>
+	</mission>
+	
+</missionsList>

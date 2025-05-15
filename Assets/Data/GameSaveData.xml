@@ -1,9 +1,21 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="450" y="1100" />
+		<position x="280" y="831" />
+		<party>
+			<active>
+				<member id="-1" />
+			</active>
+			<inactive>
+				<member id="-1" />
+			</inactive>
+		</party>
+		<missions>
+			<mission id="mission;testing" status="0" />
+			<mission id="mission;testing2" status="1" />
+		</missions>
 		<inventory>
-			<item />
+			<item id="item;null" amount="10" />
 			<item />
 			<item />
 			<item />
@@ -44,22 +56,13 @@
 			<item />
 			<item />
 		</inventory>
-		<party>
-			<active>
-				<member id="-1" />
-			</active>
-			<inactive>
-				<member id="-1" />
-			</inactive>
-		</party>
-		<inventory />
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="607.437073" />
+		<time value="47677.4648" />
 		<items />
 		<tilemaps>
-			<tilemap path="Assets/Map/Data/Dunhaven_City.xml" spawnpoint-x="0" spawnpoint-y="0" />
+			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="280" spawnpoint-y="831" />
 		</tilemaps>
 	</map>
 </game>

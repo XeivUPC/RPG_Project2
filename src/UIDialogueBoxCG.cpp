@@ -1,5 +1,15 @@
 #include "UIDialogueBoxCG.h"
 
+#include "GameScene.h"
+#include "PlayerCharacter.h"
+#include "Inventory.h"
+#include "ItemList.h"
+#include "Party.h"
+
+#include "MissionManager.h"
+#include "MissionList.h"
+#include "MissionHolder.h"
+
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
 #include "CharacterDatabase.h"
@@ -284,7 +294,80 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_Love", data.y);
 		}
 	}
+	else if (signal->name == "AddItem") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
 
+			size_t dash_pos = data.find('-');
+			string name = data.substr(0, dash_pos);
+			int amount = stoi(data.substr(dash_pos + 1));
+
+			Item* itemRef = ItemList::Instance().ItemByID(name);
+			Engine::Instance().s_game->GetPlayer()->inventory->AddItem(*(new InventoryItem(itemRef)), amount);
+		}
+	}
+	else if (signal->name == "RemoveItem") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			size_t dash_pos = data.find('-');
+			string name = data.substr(0, dash_pos);
+			int amount = stoi(data.substr(dash_pos + 1));
+
+			Engine::Instance().s_game->GetPlayer()->inventory->RemoveItem(name, amount);
+		}
+	}
+	else if (signal->name == "CheckIfHasItem") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			size_t dash_pos = data.find('-');
+			string name = data.substr(0, dash_pos);
+			int amount = stoi(data.substr(dash_pos + 1));
+
+			dialogue->AddGameStateVariable("HasItem", Engine::Instance().s_game->GetPlayer()->inventory->HasItem(name, amount));
+		}
+	}
+	else if (signal->name == "CheckIfCanGiveItem") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			size_t dash_pos = data.find('-');
+			string name = data.substr(0, dash_pos);
+			int amount = stoi(data.substr(dash_pos + 1));
+
+			dialogue->AddGameStateVariable("CanGiveItem", Engine::Instance().s_game->GetPlayer()->inventory->CanAddItem(name, amount));
+		}
+	}
+	else if (signal->name == "AddMission") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			MissionManager::Instance().AddMission(*new MissionHolder(MissionList::Instance().MissionByID(data)));
+		}
+	}
+	else if (signal->name == "RemoveMission") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			MissionManager::Instance().RemoveMission(data);
+		}
+		}
+	else if (signal->name == "CheckIfMissionCompleted") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+			if (!MissionManager::Instance().HasMission(data))
+				dialogue->AddGameStateVariable("HasCompletedMission", MissionManager::Instance().IsMissionCompleted(data));
+			
+		}
+	}
+	else if (signal->name == "UnlockNpc") {
+		if (holds_alternative<float>(signal->data)) {
+			int data = (int)get<float>(signal->data);
+
+			Engine::Instance().s_game->GetPlayer()->party->AddPartyMemeber(data);
+		}
+	}
 
 	//Change dialogue box
 }

@@ -9,11 +9,18 @@
 #include "UITextBox.h"
 #include "Globals.h"
 
+#include "MissionsCG.h"
+
 #include <iomanip>
 #include <sstream>
 
-GameplayCG::GameplayCG()
+GameplayCG::GameplayCG(int _renderLayer)
 {
+
+	renderLayer = _renderLayer;
+
+	missionCanvas = new MissionsCG(renderLayer);
+
 	SDL_Texture* compass_overlay = Engine::Instance().m_assetsDB->GetTexture("compass_overlay");
 	Vector2Int compassTextureSize = Engine::Instance().m_assetsDB->GetTextureSize(*compass_overlay);
 	overlay_image = new UIImage(*compass_overlay, { 640 - border.x - compassTextureSize.x/2 , border.y + compassTextureSize.y/2}, compassTextureSize, { 0.5f,0.5f });
@@ -35,8 +42,16 @@ GameplayCG::GameplayCG()
 	AddElementToCanvas(overlay_image);
 }
 
+GameplayCG::~GameplayCG()
+{
+	delete missionCanvas;
+}
+
 void GameplayCG::UpdateCanvas()
 {
+	missionCanvas->isVisible = isVisible;
+	missionCanvas->UpdateCanvas();
+
 	UpdateCompass();
 	UpdateClock();
 

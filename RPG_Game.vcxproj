@@ -164,9 +164,16 @@
     <ClCompile Include="src\InventoryCG.cpp" />
     <ClCompile Include="src\InventoryItem.cpp" />
     <ClCompile Include="src\Item.cpp" />
+    <ClCompile Include="src\ItemCondition.cpp" />
     <ClCompile Include="src\ItemList.cpp" />
     <ClCompile Include="src\GameplayCG.cpp" />
     <ClCompile Include="src\JsonAnimator.cpp" />
+    <ClCompile Include="src\Mission.cpp" />
+    <ClCompile Include="src\MissionHolder.cpp" />
+    <ClCompile Include="src\MissionCondition.cpp" />
+    <ClCompile Include="src\MissionList.cpp" />
+    <ClCompile Include="src\MissionManager.cpp" />
+    <ClCompile Include="src\MissionsCG.cpp" />
     <ClCompile Include="src\ModuleAssetDatabase.cpp" />
     <ClCompile Include="src\ModuleAudio.cpp" />
     <ClCompile Include="src\ModuleCursor.cpp" />
@@ -257,10 +264,17 @@
     <ClInclude Include="src\InventoryCG.h" />
     <ClInclude Include="src\InventoryItem.h" />
     <ClInclude Include="src\Item.h" />
+    <ClInclude Include="src\ItemCondition.h" />
     <ClInclude Include="src\ItemList.h" />
     <ClInclude Include="src\GameplayCG.h" />
     <ClInclude Include="src\JsonAnimator.h" />
     <ClInclude Include="src\MemLeaks.h" />
+    <ClInclude Include="src\Mission.h" />
+    <ClInclude Include="src\MissionHolder.h" />
+    <ClInclude Include="src\MissionCondition.h" />
+    <ClInclude Include="src\MissionList.h" />
+    <ClInclude Include="src\MissionManager.h" />
+    <ClInclude Include="src\MissionsCG.h" />
     <ClInclude Include="src\ModuleAssetDatabase.h" />
     <ClInclude Include="src\ModuleAudio.h" />
     <ClInclude Include="src\ModuleCursor.h" />
@@ -334,6 +348,7 @@
     <Xml Include="Assets\Data\CharactersData_Default.xml" />
     <Xml Include="Assets\Data\GameSaveData.xml" />
     <Xml Include="Assets\Data\ItemsData.xml" />
+    <Xml Include="Assets\Data\MissionsData.xml" />
     <Xml Include="Assets\Data\UserPrefs.xml" />
   </ItemGroup>
   <ItemGroup>

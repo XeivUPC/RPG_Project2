@@ -9,11 +9,12 @@ using namespace std;
 
 class UIImage;
 class UITextBox;
+class MissionsCG;
 
 class GameplayCG : public UICanvas {
 public:
-	GameplayCG();
-	~GameplayCG() override = default;
+	GameplayCG(int _renderLayer);
+	~GameplayCG();
 
 	void UpdateCanvas();
 	
@@ -28,6 +29,9 @@ private:
 	void UpdateClock();
 
 private:
+	MissionsCG* missionCanvas = nullptr;
+
+
 	Entity* user = nullptr;
 	Vector2 targetLocation = {0,0};
 

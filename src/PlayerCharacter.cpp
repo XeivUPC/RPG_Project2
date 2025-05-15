@@ -17,6 +17,9 @@
 #include "Party.h"
 #include "Inventory.h"
 #include "CharacterSilhouette.h"
+#include "MissionManager.h"
+
+
 
 PlayerCharacter::PlayerCharacter()
 {
@@ -54,6 +57,7 @@ PlayerCharacter::PlayerCharacter()
 	SetCharacterId(-1);
 
 	inventory = new Inventory(40);
+	inventory->onInventoryChanged.Subscribe([this]() {MissionManager::Instance().UpdateMissions();});
 
 	party = new Party(-1);
 	party->onPartyChanged.Subscribe([this]() {SetFollowers(party->GetPartyIds(true), distanceBetweenFollowers); });
@@ -86,6 +90,10 @@ PlayerCharacter::PlayerCharacter()
 	silhouette->renderLayer = renderLayer + 1;
 	silhouette->SetCharacter(this);
 
+
+	
+	
+
 }
 
 PlayerCharacter::~PlayerCharacter()
@@ -96,6 +104,7 @@ PlayerCharacter::~PlayerCharacter()
 
 bool PlayerCharacter::Update()
 {
+	
 	previousPhysicsPosition = position;
 
 	GetInput();

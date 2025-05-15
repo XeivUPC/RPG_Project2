@@ -62,7 +62,7 @@
 		</properties>
 	</item>
 	<item>
-		<id>item;zalium_helm</id>
+		<id>item;zalium_helmet</id>
 		<name>Zalium helmet</name>
 		<description>0</description>
 		<stackable-quantity>1</stackable-quantity>
