@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="building_atlas" tilewidth="256" tileheight="272" tilecount="10" columns="0">
+<tileset version="1.10" tiledversion="1.11.0" name="building_atlas" tilewidth="357" tileheight="272" tilecount="11" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/tent1.png" width="96" height="107"/>
@@ -160,6 +160,34 @@
    <object id="8" name="exitPosition" x="59.8409" y="89.9326">
     <point/>
    </object>
+  </objectgroup>
+ </tile>
+ <tile id="10">
+  <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/XeivTreaty.png" width="357" height="258"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="-3.19678" y="46.2216" width="117.333" height="190.744"/>
+   <object id="2" name="collision" x="112.273" y="67.9837" width="64.102" height="89.1129"/>
+   <object id="3" name="collision" x="14.6214" y="234.695" width="25.5152" height="15.1402"/>
+   <object id="4" name="collision" x="71.8865" y="234.301" width="24.5" height="15.5795"/>
+   <object id="5" name="entryCollider" x="45.9179" y="247.747" width="20.3125" height="3.625"/>
+   <object id="6" name="renderPosition" x="55.8865" y="143.153">
+    <point/>
+   </object>
+   <object id="7" name="exitPosition" x="55.449" y="256.477">
+    <point/>
+   </object>
+   <object id="8" name="collision" x="39.5985" y="234.507" width="6.41304" height="23.2717"/>
+   <object id="9" name="collision" x="66.199" y="234.528" width="6.8125" height="22.625"/>
+   <object id="10" name="collision" x="45.0115" y="235.778" width="21.625" height="11.6875"/>
+   <object id="14" name="collision" x="340.052" y="143.231" width="8.125" height="12.1875"/>
+   <object id="15" name="collision" x="302.398" y="82.7311" width="33.3409" height="71.8636"/>
+   <object id="16" name="collision" x="175.239" y="67.9811" width="49.2727" height="98.3409"/>
+   <object id="17" name="collision" x="250.943" y="67.9811" width="53.1591" height="97.9167"/>
+   <object id="18" name="entryCollider" x="225.211" y="156.606" width="25.5" height="4.375"/>
+   <object id="19" name="exitPosition" x="239.086" y="167.231">
+    <point/>
+   </object>
+   <object id="20" name="collision" x="223.61" y="67.9811" width="28.5742" height="89.3068"/>
   </objectgroup>
  </tile>
 </tileset>

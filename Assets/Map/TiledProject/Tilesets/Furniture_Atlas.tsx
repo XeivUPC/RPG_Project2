@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="furniture_atlas" tilewidth="121" tileheight="117" tilecount="59" columns="0">
+<tileset version="1.10" tiledversion="1.11.0" name="furniture_atlas" tilewidth="139" tileheight="117" tilecount="60" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Bench1.png" width="16" height="32"/>
@@ -234,6 +234,9 @@
  </tile>
  <tile id="49">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Table.png" width="32" height="32"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="0.912027" y="13.8628" width="30.8265" height="16.5989"/>
+  </objectgroup>
  </tile>
  <tile id="50">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/WhitePurpleFlag.png" width="19" height="86"/>
@@ -293,5 +296,8 @@
     <point/>
    </object>
   </objectgroup>
+ </tile>
+ <tile id="59">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/XeivTreatyFlag.png" width="139" height="48"/>
  </tile>
 </tileset>
