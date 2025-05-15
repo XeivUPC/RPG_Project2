@@ -204,7 +204,8 @@ void DialogueSystem::LoadDialogueFromJSON(const string& pathToFile)
             }
         }
 
-        if (current_node != previous_node) {        
+        if (current_node != previous_node) {    
+            ProcessSignals();
             previous_node = current_node;
             onDialogNodeChange.Trigger();
         }

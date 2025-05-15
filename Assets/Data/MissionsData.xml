@@ -11,8 +11,8 @@
 	</mission>
 
 	<mission id="mission;testing2">
-		<title>test2</title>
-		<description>this is a test2</description>
+		<title>Taking Care</title>
+		<description>Collect 2 HealthPotions from Sir Gideon</description>
 		<conditions>
 			<condition type ="ItemCondition">
 				<item id="item;null" count="1" />

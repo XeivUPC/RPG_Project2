@@ -127,11 +127,11 @@ bool GameScene::Start()
 
     gameplayCanvas->SetUser(player);
 
-    MissionHolder* newMission = new MissionHolder(MissionList::Instance().MissionByID("mission;testing"));
-    MissionManager::Instance().AddMission(*newMission);
+    //MissionHolder* newMission = new MissionHolder(MissionList::Instance().MissionByID("mission;testing"));
+    //MissionManager::Instance().AddMission(*newMission);
 
-    MissionHolder* newMission2 = new MissionHolder(MissionList::Instance().MissionByID("mission;testing2"));
-    MissionManager::Instance().AddMission(*newMission2);
+    //MissionHolder* newMission2 = new MissionHolder(MissionList::Instance().MissionByID("mission;testing2"));
+    //MissionManager::Instance().AddMission(*newMission2);
 
     return true;
 }
@@ -216,6 +216,9 @@ bool GameScene::CleanUp()
     Pooling::Instance().DeletePool<SimpleMapObject>(true);
     Pooling::Instance().DeletePool<NpcCharacter>(true);
     Pooling::Instance().DeletePool<OverworldItem>(true);
+
+    MissionManager::Instance().Reset();
+    MissionManager::Instance().ClearAllMissions();
 
     exitGame = false;
 
@@ -513,6 +516,7 @@ void GameScene::LoadGameSaveData()
         player->party->ClearParty();
 		player->party->ClearMemebers();
 		player->inventory->ClearAllItems();
+		MissionManager::Instance().ClearAllMissions();
 
         for (size_t i = 0; i < tilemaps.size(); i++)
         {
@@ -569,6 +573,21 @@ void GameScene::LoadGameSaveData()
             
         }
         player->inventory->onInventoryChanged.Trigger();
+
+
+        xml_node missionsNode = playerNode.child("missions");
+        for (xml_node missionNode = missionsNode.child("mission"); missionNode; missionNode = missionNode.next_sibling("mission"))
+        {
+
+            string missionId = missionNode.attribute("id").as_string();
+            int status = missionNode.attribute("status").as_int();
+
+            MissionHolder* newMission = new MissionHolder(MissionList::Instance().MissionByID(missionId));
+
+            newMission->SetState((MissionHolder::State)status);
+            MissionManager::Instance().AddMission(*newMission);
+        }
+        MissionManager::Instance().UpdateMissions();
 		
 
 		/// Load Map
@@ -680,6 +699,16 @@ void GameScene::SaveGameSaveData()
             else {
 
             }
+        }
+
+        /// Save Missions
+        const vector<MissionHolder*>& missions = MissionManager::Instance().GetMissions();
+        xml_node missionsNode = playerNode.child("missions");
+        missionsNode.remove_children();
+        for (MissionHolder* mission : missions) {
+            xml_node missionNode = missionsNode.append_child("mission");
+            missionNode.append_attribute("id").set_value(mission->GetId().c_str());
+            missionNode.append_attribute("status").set_value((int)mission->GetState());
         }
 
 

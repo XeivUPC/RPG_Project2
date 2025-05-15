@@ -3,23 +3,45 @@
 #include "MissionCondition.h"
 
 
+void MissionManager::Reset()
+{
+	onMissionAdded.UnsubscribeAll();
+	onMissionRemoved.UnsubscribeAll();
+	onMissionCompleted.UnsubscribeAll();
+	genericEvent.UnsubscribeAll();
+}
+
 void MissionManager::AddMission(MissionHolder& mission, bool triggerEvent)
 {
+
+	if (HasMission(mission.GetId()))
+	{
+		delete& mission;
+		return;
+	}
 	missions.emplace_back(&mission);
 	SetUpMission(mission);
 
+
 	if (triggerEvent)
 		onMissionAdded.Trigger(mission);
+
+	UpdateMissions();
+
+	if(mission.GetState() == MissionHolder::State::COMPLETED)
+		onMissionCompleted.Trigger(mission);
+
 }
 
 void MissionManager::RemoveMission(MissionHolder& mission, bool triggerEvent)
 {
-	if(triggerEvent)
-		onMissionRemoved.Trigger(mission);
 
 	missions.erase(remove(missions.begin(), missions.end(), &mission), missions.end());
+
+	if (triggerEvent)
+		onMissionRemoved.Trigger(mission);
+
 	delete &mission;
-	/// remove and delete
 }
 
 void MissionManager::RemoveMission(string missionId, bool triggerEvent)
@@ -28,7 +50,6 @@ void MissionManager::RemoveMission(string missionId, bool triggerEvent)
 		if (mission->GetId() == missionId)
 			RemoveMission(*mission, triggerEvent);
 	}
-
 }
 
 MissionManager::MissionManager()
@@ -37,13 +58,8 @@ MissionManager::MissionManager()
 
 MissionManager::~MissionManager()
 {
-
-	for (; missions.size() != 0;)
-	{
-		delete missions[0];
-		missions.erase(missions.begin());
-	}
-	missions.clear();
+	Reset();
+	ClearAllMissions();
 }
 
 void MissionManager::SetUpMission(MissionHolder& mission)
@@ -62,14 +78,28 @@ bool MissionManager::UpdateMissions()
 			condition->Check();
 		}
 
-		if (mission->GetState()== MissionHolder::State::IN_PROGRESS && mission->IsCompleted())
+		bool isCompleted = mission->IsCompleted();
+		MissionHolder::State state = mission->GetState();
+
+		if (state == MissionHolder::State::IN_PROGRESS && isCompleted)
 		{
-			printf("done");
 			mission->SetState(MissionHolder::State::COMPLETED);
 			onMissionCompleted.Trigger(*mission);
 		}
+		else if(state == MissionHolder::State::COMPLETED && !isCompleted){
+			mission->SetState(MissionHolder::State::IN_PROGRESS);
+		}
 	}
 	return true;
+}
+
+bool MissionManager::HasMission(string missionId)
+{
+	for (auto& mission : missions) {
+		if (mission->GetId() == missionId)
+			return true;
+	}
+	return false;
 }
 
 bool MissionManager::IsMissionCompleted(MissionHolder& mission)
@@ -106,5 +136,20 @@ int MissionManager::GetMissionIndex(MissionHolder& mission)
 int MissionManager::GetMissionsAmount()
 {
 	return (int)missions.size();
+}
+
+const vector<MissionHolder*>& MissionManager::GetMissions() const
+{
+	return missions;
+}
+
+void MissionManager::ClearAllMissions()
+{
+	for (; missions.size() != 0;)
+	{
+		delete missions[0];
+		missions.erase(missions.begin());
+	}
+	missions.clear();
 }
 

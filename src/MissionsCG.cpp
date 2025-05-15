@@ -12,15 +12,20 @@
 #include "UITextBox.h"
 
 
+/// Anañir si esta acabada, en proceso, o rewardeada
+
 MissionsCG::MissionsCG(int _renderLayer)
 {
 	renderLayer = _renderLayer;
 
-	MissionManager::Instance().onMissionAdded.Subscribe([this](MissionHolder& mission) {selectedMissionIndex = MissionManager::Instance().GetMissionIndex(mission); GoToMission(selectedMissionIndex); });
-	MissionManager::Instance().onMissionRemoved.Subscribe([this](MissionHolder& mission) {selectedMissionIndex = MissionManager::Instance().GetMissionIndex(mission);  GoToMission(selectedMissionIndex); });
 
 	CreateLayout();
 	UpdateLayout();
+
+	MissionManager::Instance().onMissionAdded.Subscribe([this](MissionHolder& mission) {selectedMissionIndex = MissionManager::Instance().GetMissionIndex(mission); GoToMission(selectedMissionIndex); });
+	MissionManager::Instance().onMissionCompleted.Subscribe([this](MissionHolder& mission) {UpdateLayout(false);});
+	MissionManager::Instance().onMissionRemoved.Subscribe([this](MissionHolder& mission) {GoToMission(selectedMissionIndex); });
+
 }
 
 MissionsCG::~MissionsCG()
@@ -29,6 +34,14 @@ MissionsCG::~MissionsCG()
 
 void MissionsCG::UpdateCanvas()
 {
+	int missionAmount = MissionManager::Instance().GetMissionsAmount();
+	if(missionAmount  == 0){
+		if (layOut.missionOverlay->localVisible)
+			isVisible = false;
+		return;
+	}else if(!layOut.missionOverlay->localVisible)
+		isVisible = true;
+
 	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_UP) == KEY_DOWN) {
 		GoToMission(selectedMissionIndex - 1);
 		limitTimer.Start();
@@ -38,17 +51,24 @@ void MissionsCG::UpdateCanvas()
 		limitTimer.Start();
 	}
 
+
 	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN || Engine::Instance().m_input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN) {
-		layOut.missionDescriptionText->localVisible = !layOut.missionDescriptionText->localVisible;
-		layOut.missionTitleText->localVisible = !layOut.missionTitleText->localVisible;
-
-		if (layOut.missionTitleText->localVisible) {
-			layOut.missionDataType->SetText("Title " + to_string(selectedMissionIndex));
+		if (!isHidden) {
+			layOut.missionDescriptionText->localVisible = !layOut.missionDescriptionText->localVisible;
+			layOut.missionTitleText->localVisible = !layOut.missionTitleText->localVisible;
+			UpdateLayout(false);
+			limitTimer.Start();
 		}
-		else
-			layOut.missionDataType->SetText("Description " + to_string(selectedMissionIndex));
+		else {
+			if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN)
+				GoToMission(selectedMissionIndex - 1, true, false);
+			else
+				GoToMission(selectedMissionIndex + 1, true, false);
+			UpdateLayout(false);
 
-		limitTimer.Start();
+		}
+
+		
 	}
 
 	
@@ -79,9 +99,9 @@ void MissionsCG::Reset()
 	UpdateLayout();
 }
 
-void MissionsCG::GoToMission(int index)
+void MissionsCG::GoToMission(int index, bool _forceChange, bool _canShowHide)
 {
-	bool forceChange = false;
+	bool forceChange = _forceChange;
 	if (index == selectedMissionIndex) {
 		forceChange = true;
 	}
@@ -92,12 +112,12 @@ void MissionsCG::GoToMission(int index)
 	else if (index >= maxAmount)
 		index = 0;
 	else
-		forceChange = false;
+		forceChange = _forceChange;
 
 	if(!isHidden || forceChange)
 		selectedMissionIndex = index;
 
-	UpdateLayout();
+	UpdateLayout(_canShowHide);
 }
 
 void MissionsCG::ShowMissionLabel(float time)
@@ -129,6 +149,7 @@ void MissionsCG::CreateLayout()
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
 
 	SDL_Texture* layout = Engine::Instance().m_assetsDB->GetTexture("missions_layOut");
+	SDL_Texture* statustexture = Engine::Instance().m_assetsDB->GetTexture("toggle_tex3");
 	Vector2Int textureSize = Engine::Instance().m_assetsDB->GetTextureSize(*layout);
 
 	layOut.missionOverlay = new UIImage(*layout, { 20,-72 }, textureSize, { 0,0 });
@@ -143,29 +164,44 @@ void MissionsCG::CreateLayout()
 	layOut.missionDataType = new UITextBox("Title", *textFont, 16, { 184,132,78,255 }, { 26,3}, { 100, 16 }, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
 	layOut.missionDataType->SetParent(layOut.missionOverlay);
 
+	layOut.missionNumber = new UITextBox("Mission", *textFont, 16, { 184,132,78,255 }, { 51,77 }, { 54*2, 7*2 }, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+	layOut.missionNumber->SetLocalScale(0.5f);
+	layOut.missionNumber->SetParent(layOut.missionOverlay);
 
+	layOut.missionStatus = new UIImage(*statustexture, { 110,74 }, { 11,11 }, { 0,0 }, true, {33,0,11,11});
+	layOut.missionStatus->SetParent(layOut.missionOverlay);
 
 	AddElementToCanvas(layOut.missionOverlay);
 }
 
-void MissionsCG::UpdateLayout()
+void MissionsCG::UpdateLayout(bool canShowHide)
 {
+	
 	MissionHolder* mission = MissionManager::Instance().GetMissionByIndex(selectedMissionIndex);
 	if (mission == nullptr) {
-		HideMissionLabel(0.5f);
+		if(canShowHide)
+			HideMissionLabel(0.5f);
 		layOut.missionTitleText->SetText("");
 		layOut.missionDescriptionText->SetText("");
 		layOut.missionDataType->SetText("");
+		layOut.missionNumber->SetText("");
 	}
 	else {
-		ShowMissionLabel(0.5f);
+		if(canShowHide)
+			ShowMissionLabel(0.5f);
 		layOut.missionTitleText->SetText(mission->GetTitle());
 		layOut.missionDescriptionText->SetText(mission->GetDescription());
+
+		layOut.missionNumber->SetText("Mission " + to_string(selectedMissionIndex));
 		
 		if (layOut.missionTitleText->localVisible) {
-			layOut.missionDataType->SetText("Title " + to_string(selectedMissionIndex));
+			layOut.missionDataType->SetText("Title");
 		}else
-			layOut.missionDataType->SetText("Description " + to_string(selectedMissionIndex));
+			layOut.missionDataType->SetText("Description");
+
+
+		layOut.missionStatus->SetRect({ (int)mission->GetState() * 11,0,11,11 });
+		
 	}
 	
 }

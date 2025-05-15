@@ -15,6 +15,7 @@ CheckIfHasItem(string data) --> example item;null-2  (id-amount)
 CheckIfCanGiveItem(string data) --> example item;null-2  (id-amount)
 AddMission(string data) --> example mission;tutorial  (id)
 CheckIfMissionCompleted(string data) --> example mission;tutorial  (id)
+UnlockNpc(int id)
 
 ///////////////////////
 
