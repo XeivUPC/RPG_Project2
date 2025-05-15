@@ -356,8 +356,9 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 	else if (signal->name == "CheckIfMissionCompleted") {
 		if (holds_alternative<string>(signal->data)) {
 			string data = get<string>(signal->data);
-
-			dialogue->AddGameStateVariable("HasCompletedMission", MissionManager::Instance().IsMissionCompleted(data));
+			if (!MissionManager::Instance().HasMission(data))
+				dialogue->AddGameStateVariable("HasCompletedMission", MissionManager::Instance().IsMissionCompleted(data));
+			
 		}
 	}
 	else if (signal->name == "UnlockNpc") {

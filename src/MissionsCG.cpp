@@ -12,6 +12,8 @@
 #include "UITextBox.h"
 
 
+/// Anañir si esta acabada, en proceso, o rewardeada
+
 MissionsCG::MissionsCG(int _renderLayer)
 {
 	renderLayer = _renderLayer;
@@ -21,7 +23,8 @@ MissionsCG::MissionsCG(int _renderLayer)
 	UpdateLayout();
 
 	MissionManager::Instance().onMissionAdded.Subscribe([this](MissionHolder& mission) {selectedMissionIndex = MissionManager::Instance().GetMissionIndex(mission); GoToMission(selectedMissionIndex); });
-	MissionManager::Instance().onMissionRemoved.Subscribe([this](MissionHolder& mission) {selectedMissionIndex = MissionManager::Instance().GetMissionIndex(mission);  GoToMission(selectedMissionIndex); });
+	MissionManager::Instance().onMissionCompleted.Subscribe([this](MissionHolder& mission) {UpdateLayout(false);});
+	MissionManager::Instance().onMissionRemoved.Subscribe([this](MissionHolder& mission) {GoToMission(selectedMissionIndex); });
 
 }
 
@@ -47,13 +50,25 @@ void MissionsCG::UpdateCanvas()
 		GoToMission(selectedMissionIndex + 1);
 		limitTimer.Start();
 	}
-	if (!isHidden) {
-		if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN || Engine::Instance().m_input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN) {
+
+
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN || Engine::Instance().m_input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN) {
+		if (!isHidden) {
 			layOut.missionDescriptionText->localVisible = !layOut.missionDescriptionText->localVisible;
 			layOut.missionTitleText->localVisible = !layOut.missionTitleText->localVisible;
 			UpdateLayout(false);
 			limitTimer.Start();
 		}
+		else {
+			if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN)
+				GoToMission(selectedMissionIndex - 1, true, false);
+			else
+				GoToMission(selectedMissionIndex + 1, true, false);
+			UpdateLayout(false);
+
+		}
+
+		
 	}
 
 	
@@ -84,9 +99,9 @@ void MissionsCG::Reset()
 	UpdateLayout();
 }
 
-void MissionsCG::GoToMission(int index, bool canShowHide)
+void MissionsCG::GoToMission(int index, bool _forceChange, bool _canShowHide)
 {
-	bool forceChange = false;
+	bool forceChange = _forceChange;
 	if (index == selectedMissionIndex) {
 		forceChange = true;
 	}
@@ -97,12 +112,12 @@ void MissionsCG::GoToMission(int index, bool canShowHide)
 	else if (index >= maxAmount)
 		index = 0;
 	else
-		forceChange = false;
+		forceChange = _forceChange;
 
 	if(!isHidden || forceChange)
 		selectedMissionIndex = index;
 
-	UpdateLayout(canShowHide);
+	UpdateLayout(_canShowHide);
 }
 
 void MissionsCG::ShowMissionLabel(float time)
@@ -134,6 +149,7 @@ void MissionsCG::CreateLayout()
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
 
 	SDL_Texture* layout = Engine::Instance().m_assetsDB->GetTexture("missions_layOut");
+	SDL_Texture* statustexture = Engine::Instance().m_assetsDB->GetTexture("toggle_tex3");
 	Vector2Int textureSize = Engine::Instance().m_assetsDB->GetTextureSize(*layout);
 
 	layOut.missionOverlay = new UIImage(*layout, { 20,-72 }, textureSize, { 0,0 });
@@ -151,6 +167,9 @@ void MissionsCG::CreateLayout()
 	layOut.missionNumber = new UITextBox("Mission", *textFont, 16, { 184,132,78,255 }, { 51,77 }, { 54*2, 7*2 }, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
 	layOut.missionNumber->SetLocalScale(0.5f);
 	layOut.missionNumber->SetParent(layOut.missionOverlay);
+
+	layOut.missionStatus = new UIImage(*statustexture, { 110,74 }, { 11,11 }, { 0,0 }, true, {33,0,11,11});
+	layOut.missionStatus->SetParent(layOut.missionOverlay);
 
 	AddElementToCanvas(layOut.missionOverlay);
 }
@@ -179,6 +198,10 @@ void MissionsCG::UpdateLayout(bool canShowHide)
 			layOut.missionDataType->SetText("Title");
 		}else
 			layOut.missionDataType->SetText("Description");
+
+
+		layOut.missionStatus->SetRect({ (int)mission->GetState() * 11,0,11,11 });
+		
 	}
 	
 }

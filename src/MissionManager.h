@@ -26,6 +26,8 @@ public:
     // Heredado vía IUpdateable
     bool UpdateMissions();
 
+    bool HasMission(string missionId);
+
 	bool IsMissionCompleted(MissionHolder& mission);
 	bool IsMissionCompleted(string missionId);
 

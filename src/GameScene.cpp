@@ -558,20 +558,6 @@ void GameScene::LoadGameSaveData()
             player->party->AddPartyMemeber(id);
         }
 
-        /// Load Missions
-        xml_node missionsNode = playerNode.child("missions");
-        for (xml_node missionNode = missionsNode.child("mission"); missionNode; missionNode = missionNode.next_sibling("mission"))
-        {
-  
-            string missionId = missionNode.attribute("id").as_string();
-            int status = missionNode.attribute("status").as_int();
-
-			MissionHolder* newMission = new MissionHolder(MissionList::Instance().MissionByID(missionId));
-
-			MissionManager::Instance().AddMission(*newMission);
-            newMission->SetState((MissionHolder::State)status);
-        }
-
         /// Load Inventory
         vector<InventorySlot>& slots = player->inventory->GetSlotsDataModifiable();
         xml_node inventoryNode = playerNode.child("inventory");
@@ -587,6 +573,21 @@ void GameScene::LoadGameSaveData()
             
         }
         player->inventory->onInventoryChanged.Trigger();
+
+
+        xml_node missionsNode = playerNode.child("missions");
+        for (xml_node missionNode = missionsNode.child("mission"); missionNode; missionNode = missionNode.next_sibling("mission"))
+        {
+
+            string missionId = missionNode.attribute("id").as_string();
+            int status = missionNode.attribute("status").as_int();
+
+            MissionHolder* newMission = new MissionHolder(MissionList::Instance().MissionByID(missionId));
+
+            newMission->SetState((MissionHolder::State)status);
+            MissionManager::Instance().AddMission(*newMission);
+        }
+        MissionManager::Instance().UpdateMissions();
 		
 
 		/// Load Map
