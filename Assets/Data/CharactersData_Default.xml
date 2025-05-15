@@ -78,4 +78,20 @@
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="0" />
 	</Character>
+
+	<Character id="9" name="Cottage Man">
+		<Data textureId="cassian_test" faceId ="Guard1-idle" dialoguePath="Assets/Dialogues/empty_dialog.json" />
+		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
+		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
+		<AttackRole type="0" />
+	</Character>
+
+	<Character id="10" name="Innkeeper">
+		<Data textureId="cassian_test" faceId ="Guard1-idle" dialoguePath="Assets/Dialogues/empty_dialog.json" />
+		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
+		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
+		<AttackRole type="0" />
+	</Character>
 </Characters>
