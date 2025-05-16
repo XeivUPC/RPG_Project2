@@ -61,12 +61,6 @@ GameScene::~GameScene()
     
 }
 
-void GameScene::SetDialogue(string path)
-{
-    dialogueSystem->LoadDialogueFromJSON(path);
-    dialogueSystem->StartDialogue();
-}
-
 bool GameScene::Init()
 {
     return true;
@@ -83,13 +77,15 @@ bool GameScene::Start()
     fade->FadeTo(1,0);
     fade->renderLayer = 9;
 
-    combatSystem = new CombatSystem();
-    combatCanvas = new CombatCG(combatSystem);
-    combatCanvas->renderLayer = 7;
+
 
 	dialogueSystem = new DialogueSystem();
     dialogueCanvas = new UIDialogueBoxCG(dialogueSystem);
     dialogueCanvas->renderLayer = 7;
+
+    combatSystem = new CombatSystem();
+    combatCanvas = new CombatCG(combatSystem);
+    combatCanvas->renderLayer = 7;
 
     pauseCanvas = new PauseMenuCG(7);
 
@@ -154,9 +150,7 @@ bool GameScene::Update()
     if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_C) == KEY_DOWN)
     {
 
-        combatSystem->AddPartyToCombat(GetPlayer()->party->GetPartyIds(), CombatSystem::Ally);
-        combatSystem->AddPartyToCombat(vector<int>{5, 6, 2}, CombatSystem::Enemy);
-
+        SetCombat(vector<int>{5, 6, 2});
 		SetState(State::Combat);
     }
 
@@ -228,6 +222,24 @@ bool GameScene::CleanUp()
 
     return true;
 }
+
+void GameScene::SetDialogue(string path)
+{
+    dialogueSystem->LoadDialogueFromJSON(path);
+    dialogueSystem->StartDialogue();
+}
+
+void GameScene::SetCombat(std::vector<int> enemyTeam)
+{
+    combatSystem->AddPartyToCombat(GetPlayer()->party->GetPartyIds(), CombatSystem::Ally);
+    combatSystem->AddPartyToCombat(enemyTeam, CombatSystem::Enemy);
+}
+
+const CombatSystem* GameScene::GetCombat() const
+{
+    return combatSystem;
+}
+
 
 void GameScene::CheckTilesetInteriorState()
 {

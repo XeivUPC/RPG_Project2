@@ -2,6 +2,7 @@
 
 #include "GameScene.h"
 #include "PlayerCharacter.h"
+#include "CombatSystem.h"
 #include "Inventory.h"
 #include "ItemList.h"
 #include "Party.h"
@@ -367,6 +368,26 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 
 			Engine::Instance().s_game->GetPlayer()->party->AddPartyMemeber(data);
 		}
+	}
+	else if (signal->name == "StartCombat") {
+		if (holds_alternative<string>(signal->data)) {
+			vector<int> charsData;
+			string characterIds = get<string>(signal->data);
+			characterIds.erase(remove(characterIds.begin(), characterIds.end(), ' '));
+			stringstream ss(characterIds);
+			string temp;
+
+			while (getline(ss, temp, ','))
+			{
+				charsData.emplace_back(stoi(temp));
+			}
+
+			Engine::Instance().s_game->SetCombat(charsData);
+			Engine::Instance().s_game->SetState(GameScene::State::Combat );
+		}
+	}
+	else if (signal->name == "CheckIfWonCombat") {
+		dialogue->AddGameStateVariable("HasWonCombat",Engine::Instance().s_game->GetCombat()->HasWonLastCombat());
 	}
 
 	//Change dialogue box

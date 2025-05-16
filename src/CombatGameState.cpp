@@ -34,7 +34,9 @@ bool CombatGameState::UpdateState()
 		if (!Engine::Instance().s_game->fade->IsFading()) {
 
 			Engine::Instance().s_game->fade->FadeTo(0.5f, 255);
-			Engine::Instance().s_game->fade->onFadeEnd.Subscribe([this]() {Engine::Instance().s_game->fade->FadeTo(0.5f, 0); Engine::Instance().s_game->SetState(GameScene::State::Exploring); });
+			GameScene::State stateToGo = (GameScene::State)lastState;
+			Engine::Instance().s_game->fade->onFadeEnd.Subscribe([this, stateToGo]() {Engine::Instance().s_game->fade->FadeTo(0.5f, 0); Engine::Instance().s_game->SetState(stateToGo); });
+			lastState = (int)GameScene::State::NONE___DO_NOT_USE;
 		}
 	}
 
@@ -62,6 +64,7 @@ void CombatGameState::StateSelected()
 	Engine::Instance().m_cursor->ShowCustomCursor();
 
 	if (Engine::Instance().s_game->previous_state != GameScene::State::Menu) {
+		lastState = (int)Engine::Instance().s_game->previous_state;
 		Engine::Instance().s_game->fade->onFadeEnd.Subscribe([this]() {OnLoadingEnd();});
 		Engine::Instance().s_game->fade->FadeTo(0.5f, 255);
 	}
