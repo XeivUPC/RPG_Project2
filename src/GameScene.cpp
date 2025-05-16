@@ -153,6 +153,10 @@ bool GameScene::Update()
 
     if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_C) == KEY_DOWN)
     {
+
+        combatSystem->AddPartyToCombat(GetPlayer()->party->GetPartyIds(), CombatSystem::Ally);
+        combatSystem->AddPartyToCombat(vector<int>{5, 6, 2}, CombatSystem::Enemy);
+
 		SetState(State::Combat);
     }
 
@@ -314,9 +318,9 @@ void GameScene::SetState(State _newState)
     if (state == _newState)
         return;
     previous_state = state;
-    if(state != State::NONE___DO_NOT_USE)
-        game_states[state]->StateDeselected();
     state = _newState;
+    if(previous_state != State::NONE___DO_NOT_USE)
+        game_states[previous_state]->StateDeselected();
     game_states[state]->StateSelected();
 }
 

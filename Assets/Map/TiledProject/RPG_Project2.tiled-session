@@ -3,14 +3,15 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
     "expandedProjectPaths": [
-        ".",
-        "Maps",
-        "Tilesets",
+        "Maps/Interiors",
         "Objects",
+        "Prefabs/Buildings",
+        ".",
         "Prefabs",
-        "Prefabs/Buildings"
+        "Tilesets",
+        "Maps"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -124,11 +125,11 @@
                 9,
                 6
             ],
-            "scale": 3,
+            "scale": 1.5,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 331.66666666666663,
-                "y": 808.6666666666666
+                "x": 688,
+                "y": 754.6666666666665
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -241,10 +242,12 @@
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
+        "Maps/Rogue_Squadron_Headquarters.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "object",
     "recentFiles": [
+        "Maps/Rogue_Squadron_Headquarters.tmx",
         "Tilesets/Vegetation_Atlas.tsx",
         "Maps/Forest.tmx",
         "Maps/House2_Inside.tmx",
@@ -252,7 +255,6 @@
         "Maps/House3_Inside.tmx",
         "Maps/Forest_Secret_Cliff.tmx",
         "Maps/Dunhaven_City.tmx",
-        "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/SecondAreaTest.tmx",
         "Tilesets/Building_Atlas.tsx",
         "Maps/Testing_Zone.tmx",

@@ -16,6 +16,8 @@ CheckIfCanGiveItem(string data) --> example item;null-2  (id-amount)
 AddMission(string data) --> example mission;tutorial  (id)
 CheckIfMissionCompleted(string data) --> example mission;tutorial  (id)
 UnlockNpc(int id)
+StartCombat()
+CheckIfWonCombat()
 
 ///////////////////////
 
@@ -26,3 +28,4 @@ How to acces to a characterLove? Use Char{Id}_Love ---> Just replace {Id} by the
 How to check if has item? Previusly, call "CheckIfHasItem()", then the variable HasItem will be true or false
 How to check if can give item? Previusly, call "CheckIfCanGiveItem()", then the variable CanGiveItem will be true or false
 How to check if has completed mission? Previusly, call "CheckIfMissionCompleted()", then the variable HasCompletedMission will be true or false
+How to check if has won last fight, Call CheckIfWonCombat(), then the variable HasWonCombat will be true or false

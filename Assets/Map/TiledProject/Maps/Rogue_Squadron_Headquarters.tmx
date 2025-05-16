@@ -376,12 +376,12 @@
  <objectgroup id="6" name="Objects">
   <object id="35" template="../Prefabs/Buildings/tent1.tx" x="336" y="416" visible="1">
    <properties>
-    <property name="TargetPath" value="Assets/Map/Data/Testing_Zone.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Testing_Zone.xml"/>
    </properties>
   </object>
   <object id="36" template="../Prefabs/Buildings/tent2.tx" x="480" y="416">
    <properties>
-    <property name="TargetPath" value="Assets/Map/Data/Testing_Zone2.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Testing_Zone2.xml"/>
    </properties>
   </object>
   <object id="37" template="../Prefabs/Buildings/tent3.tx" x="624" y="416"/>
@@ -450,17 +450,17 @@
   </object>
   <object id="118" template="../Prefabs/Buildings/House2.tx" x="80" y="768">
    <properties>
-    <property name="TargetPath" value="Assets/Map/Data/House2_Inside.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/House2_Inside.xml"/>
    </properties>
   </object>
   <object id="122" template="../Prefabs/Buildings/House3.tx" x="80" y="528">
    <properties>
-    <property name="TargetPath" value="Assets/Map/Data/House3_Inside.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/House3_Inside.xml"/>
    </properties>
   </object>
   <object id="123" template="../Prefabs/Buildings/House4.tx" x="240" y="240">
    <properties>
-    <property name="TargetPath" value="Assets/Map/Data/House4_Inside.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/House4_Inside.xml"/>
    </properties>
   </object>
   <object id="238" gid="921" x="90" y="854" width="16" height="16">
