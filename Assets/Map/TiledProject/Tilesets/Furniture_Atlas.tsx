@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="furniture_atlas" tilewidth="139" tileheight="117" tilecount="61" columns="0">
+<tileset version="1.10" tiledversion="1.11.0" name="furniture_atlas" tilewidth="139" tileheight="117" tilecount="66" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Bench1.png" width="16" height="32"/>
@@ -208,8 +208,7 @@
  <tile id="44">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Light.png" width="12" height="80"/>
   <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="1.81818" y="21.8182" width="8" height="56.7273"/>
-   <object id="2" name="renderPosition" x="5.45455" y="31.0909">
+   <object id="2" name="renderPosition" x="5.81819" y="53.6364">
     <point/>
    </object>
   </objectgroup>
@@ -306,6 +305,51 @@
    <object id="1" name="collision" x="1.45455" y="105.182" width="7.09091" height="11.5455"/>
    <object id="2" name="collision" x="21.6364" y="105.045" width="7.09091" height="11.5455"/>
    <object id="3" name="collision" x="0.772727" y="30.2954" width="31.4545" height="22.1819"/>
+  </objectgroup>
+ </tile>
+ <tile id="61">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/EmptyBox.png" width="48" height="32"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="0.4375" y="16.375" width="47.375" height="15.25"/>
+   <object id="2" name="renderPosition" x="23.9375" y="17.875">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="62">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/AppleBox.png" width="48" height="32"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="0.375" y="16.375" width="47.375" height="15.25"/>
+   <object id="2" name="renderPosition" x="23.875" y="17.875">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="63">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/WaterBucket.png" width="16" height="24"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="0.5" y="15.25" width="15.0625" height="8.3125"/>
+   <object id="2" name="renderPosition" x="7.9375" y="15.9375">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="64">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/EmptyBucket.png" width="16" height="24"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="0.46875" y="15.2813" width="15.0625" height="8.3125"/>
+   <object id="2" name="renderPosition" x="7.90625" y="15.9688">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="65">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/FishBox.png" width="51" height="32"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="0.1875" y="16.875" width="47.375" height="15.25"/>
+   <object id="2" name="renderPosition" x="23.6875" y="18.375">
+    <point/>
+   </object>
   </objectgroup>
  </tile>
 </tileset>
