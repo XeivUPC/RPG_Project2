@@ -3,15 +3,15 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
+    "activeFile": "Maps/Forest.tmx",
     "expandedProjectPaths": [
         "Maps/Interiors",
-        "Objects",
-        "Prefabs/Buildings",
-        ".",
         "Prefabs",
         "Tilesets",
-        "Maps"
+        "Maps",
+        "Prefabs/Buildings",
+        ".",
+        "Objects"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -55,14 +55,14 @@
         },
         "Maps/Forest.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
-            "scale": 11,
-            "selectedLayer": 4,
+            "scale": 1,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 344.04545454545456,
-                "y": 160.0909090909091
+                "x": 318,
+                "y": 159
             }
         },
         "Maps/Forest_Secret_Cliff.tmx": {
@@ -125,11 +125,11 @@
                 9,
                 6
             ],
-            "scale": 1.5,
+            "scale": 0.5,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 688,
-                "y": 754.6666666666665
+                "x": 594,
+                "y": 436
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -242,14 +242,15 @@
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
-        "Maps/Rogue_Squadron_Headquarters.tmx"
+        "Maps/Rogue_Squadron_Headquarters.tmx",
+        "Maps/Forest.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "object",
     "recentFiles": [
         "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Tilesets/Vegetation_Atlas.tsx",
         "Maps/Forest.tmx",
+        "Tilesets/Vegetation_Atlas.tsx",
         "Maps/House2_Inside.tmx",
         "Maps/House4_Inside.tmx",
         "Maps/House3_Inside.tmx",
