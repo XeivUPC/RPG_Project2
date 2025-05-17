@@ -304,7 +304,6 @@
   <objectgroup draworder="index" id="2">
    <object id="1" name="collision" x="1.45455" y="105.182" width="7.09091" height="11.5455"/>
    <object id="2" name="collision" x="21.6364" y="105.045" width="7.09091" height="11.5455"/>
-   <object id="3" name="collision" x="0.772727" y="30.2954" width="31.4545" height="22.1819"/>
   </objectgroup>
  </tile>
  <tile id="61">
