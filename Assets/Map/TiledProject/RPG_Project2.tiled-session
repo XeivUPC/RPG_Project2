@@ -3,15 +3,14 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
+    "activeFile": "",
     "expandedProjectPaths": [
-        "Maps/Interiors",
+        "Maps",
         "Objects",
         "Prefabs/Buildings",
-        ".",
         "Prefabs",
         "Tilesets",
-        "Maps"
+        "."
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -67,14 +66,14 @@
         },
         "Maps/Forest_Secret_Cliff.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
-            "scale": 1.5,
+            "scale": 3,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 223.66666666666669,
-                "y": 238
+                "x": 151.33333333333331,
+                "y": 255
             }
         },
         "Maps/House2_Inside.tmx": {
@@ -128,8 +127,8 @@
             "scale": 1.5,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 688,
-                "y": 754.6666666666665
+                "x": 354,
+                "y": 774.6666666666665
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -169,6 +168,18 @@
             "viewCenter": {
                 "x": 208,
                 "y": 112.00000000000001
+            }
+        },
+        "Maps/Tutorial_Room.tmx": {
+            "expandedObjectLayers": [
+                10,
+                7
+            ],
+            "scale": 1.5,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 344.66666666666663,
+                "y": 149.33333333333331
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -242,23 +253,22 @@
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
-        "Maps/Rogue_Squadron_Headquarters.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
-    "property.type": "object",
+    "property.type": "string",
     "recentFiles": [
         "Maps/Rogue_Squadron_Headquarters.tmx",
+        "Maps/Forest_Secret_Cliff.tmx",
+        "Maps/Tutorial_Room.tmx",
         "Tilesets/Vegetation_Atlas.tsx",
         "Maps/Forest.tmx",
         "Maps/House2_Inside.tmx",
         "Maps/House4_Inside.tmx",
         "Maps/House3_Inside.tmx",
-        "Maps/Forest_Secret_Cliff.tmx",
         "Maps/Dunhaven_City.tmx",
         "Maps/SecondAreaTest.tmx",
         "Tilesets/Building_Atlas.tsx",
-        "Maps/Testing_Zone.tmx",
-        "Maps/Testing_Zone2.tmx"
+        "Maps/Testing_Zone.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,

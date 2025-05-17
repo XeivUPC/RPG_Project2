@@ -48,6 +48,11 @@ MissionHolder::State MissionHolder::GetState()
 void MissionHolder::SetState(State newState)
 {
     state = newState;
+    if (state == State::COMPLETED)
+    {
+        for (auto& condition : conditions) 
+			condition->ForceComplete();
+    }
 }
 
 const string& MissionHolder::GetTitle()

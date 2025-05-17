@@ -429,6 +429,9 @@
     <ClCompile Include="src\MissionsCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
     </ClCompile>
+    <ClCompile Include="src\KeyCondition.cpp">
+      <Filter>Source Files\Utils\Missions\Conditions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -760,6 +763,9 @@
     </ClInclude>
     <ClInclude Include="src\MissionsCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\KeyCondition.h">
+      <Filter>Source Files\Utils\Missions\Conditions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

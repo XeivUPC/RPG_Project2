@@ -141,6 +141,8 @@ bool GameScene::PreUpdate()
 
 bool GameScene::Update()
 {   
+    MissionManager::Instance().UpdateMissions();
+
     if(tilemaps.size()!=0)
         tilemaps[tilemaps.size()-1]->UpdateTilemap();
 
@@ -503,7 +505,7 @@ PlayerCharacter* GameScene::GetPlayer() const
 
 void GameScene::FreshStart()
 {
-    CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
+    CreateNewTilemap("Assets/Map/Data/Tutorial_Room.xml");
     clock = StepTimer(3600*12);
     screenEffectsCanvas->RecalculateAmbientFadeColors();
 }
@@ -590,7 +592,7 @@ void GameScene::LoadGameSaveData()
         }
         player->inventory->onInventoryChanged.Trigger();
 
-
+        /// Load Missions
         xml_node missionsNode = playerNode.child("missions");
         for (xml_node missionNode = missionsNode.child("mission"); missionNode; missionNode = missionNode.next_sibling("mission"))
         {
@@ -601,9 +603,10 @@ void GameScene::LoadGameSaveData()
             MissionHolder* newMission = new MissionHolder(MissionList::Instance().MissionByID(missionId));
 
             newMission->SetState((MissionHolder::State)status);
+	
             MissionManager::Instance().AddMission(*newMission);
         }
-        MissionManager::Instance().UpdateMissions();
+        MissionManager::Instance().UpdateMissionsStatus();
 		
 
 		/// Load Map

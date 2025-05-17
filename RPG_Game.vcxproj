@@ -168,6 +168,7 @@
     <ClCompile Include="src\ItemList.cpp" />
     <ClCompile Include="src\GameplayCG.cpp" />
     <ClCompile Include="src\JsonAnimator.cpp" />
+    <ClCompile Include="src\KeyCondition.cpp" />
     <ClCompile Include="src\Mission.cpp" />
     <ClCompile Include="src\MissionHolder.cpp" />
     <ClCompile Include="src\MissionCondition.cpp" />
@@ -268,6 +269,7 @@
     <ClInclude Include="src\ItemList.h" />
     <ClInclude Include="src\GameplayCG.h" />
     <ClInclude Include="src\JsonAnimator.h" />
+    <ClInclude Include="src\KeyCondition.h" />
     <ClInclude Include="src\MemLeaks.h" />
     <ClInclude Include="src\Mission.h" />
     <ClInclude Include="src\MissionHolder.h" />

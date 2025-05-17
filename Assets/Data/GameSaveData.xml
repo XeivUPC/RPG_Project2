@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="280" y="831" />
+		<position x="292" y="542" />
 		<party>
 			<active>
 				<member id="-1" />
@@ -13,6 +13,7 @@
 		<missions>
 			<mission id="mission;testing" status="0" />
 			<mission id="mission;testing2" status="1" />
+			<mission id="mission;testing3" status="0" />
 		</missions>
 		<inventory>
 			<item id="item;null" amount="10" />
@@ -59,7 +60,7 @@
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="47677.4648" />
+		<time value="66470.6719" />
 		<items />
 		<tilemaps>
 			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="280" spawnpoint-y="831" />

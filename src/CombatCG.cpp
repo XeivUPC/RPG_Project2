@@ -62,15 +62,15 @@ void CombatCG::UpdateCanvas()
 
 		bool statusValue = charStats.HasStatusEffect("Poison");
 		if(statusValue != charactersSlot[i].poison->IsOn())
-			charactersSlot[i].poison->SetValue(statusValue);
+			charactersSlot[i].poison->SetValue(statusValue, false);
 
 		statusValue = charStats.HasStatusEffect("Regeneration");
 		if (statusValue != charactersSlot[i].poison->IsOn())
-			charactersSlot[i].regeneration->SetValue(statusValue);
+			charactersSlot[i].regeneration->SetValue(statusValue, false);
 
 		statusValue = charStats.HasStatusEffect("Burn");
 		if (statusValue != charactersSlot[i].poison->IsOn())
-			charactersSlot[i].burn->SetValue(statusValue);
+			charactersSlot[i].burn->SetValue(statusValue, false);
 	}
 	if (debug_immortalEnabled != nullptr) {
 		if (Engine::Instance().m_debug->godmode)

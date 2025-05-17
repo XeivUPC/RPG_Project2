@@ -47,7 +47,9 @@ void MissionList::LoadMissions()
 		{
 			Mission::ConditionData newConditionData;
 			string type = condition.attribute("type").as_string();
+			int tasks = condition.attribute("tasksAmount").as_int();
 			newConditionData.type = type;
+			newConditionData.amount = tasks;
 
 			for (xml_node conditionData : condition.children())
 			{

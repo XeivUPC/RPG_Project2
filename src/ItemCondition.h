@@ -2,12 +2,13 @@
 #include "MissionCondition.h"
 #include "Inventory.h"
 #include <string>
+#include <vector>
 
 using namespace std;
 
 class ItemCondition : public MissionCondition {
 public:
-	ItemCondition(string _itemId, int _amount, Inventory* _inventoryToTrak);
+	ItemCondition(vector<string> _itemId, vector<int> _amount, Inventory* _inventoryToTrak);
 	~ItemCondition() override = default;
 
 	void SetUp() override;
@@ -20,6 +21,7 @@ private:
 private:
 
 	Inventory* inventoryToTrak = nullptr;
-	string itemId = "";
-	int amount = 0;
+	vector<string> itemsId;
+	vector<int> amounts;
+	vector<bool> tasks;
 };
