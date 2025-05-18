@@ -81,7 +81,7 @@
 </data>
  </layer>
  <objectgroup id="7" name="Objects">
-  <object id="28" x="215.67" y="188.75">
+  <object id="28" x="216.42" y="191.5">
    <properties>
     <property name="Type" value="spawnPoint"/>
    </properties>
@@ -101,13 +101,6 @@
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
-  </object>
-  <object id="51" x="216.25" y="168.75">
-   <properties>
-    <property name="NpcId" value="10"/>
-    <property name="Type" value="npc"/>
-   </properties>
-   <point/>
   </object>
  </objectgroup>
  <objectgroup id="10" name="Collisions">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="665">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="666">
  <editorsettings>
   <export target="../../Data/Rogue_Squadron_Headquarters.xml" format="tmx"/>
  </editorsettings>
@@ -419,7 +419,7 @@
    </properties>
    <point/>
   </object>
-  <object id="106" name="SpawnPoint" x="280.211" y="831.909">
+  <object id="106" name="SpawnPoint" x="522.711" y="591.954">
    <properties>
     <property name="Type" value="spawnPoint"/>
    </properties>
@@ -1950,6 +1950,13 @@
   </object>
   <object id="664" x="849" y="369">
    <polyline points="0,0 95,0"/>
+  </object>
+  <object id="665" x="535.455" y="579.5">
+   <properties>
+    <property name="NpcId" value="10"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
  <objectgroup id="9" name="Collisions">
