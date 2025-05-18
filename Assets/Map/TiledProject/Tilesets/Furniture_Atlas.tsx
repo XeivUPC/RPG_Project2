@@ -240,8 +240,8 @@
  <tile id="50">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/WhitePurpleFlag.png" width="19" height="86"/>
   <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="5.81818" y="26.9091" width="8" height="58.1818"/>
-   <object id="2" name="renderPosition" x="9.45455" y="36.1818">
+   <object id="1" name="collision" x="5.81818" y="59.6591" width="8" height="25.4318"/>
+   <object id="2" name="renderPosition" x="9.70455" y="62.4318">
     <point/>
    </object>
   </objectgroup>
@@ -249,8 +249,8 @@
  <tile id="51">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/WhiteRedFlag.png" width="19" height="86"/>
   <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="6" y="26.8182" width="8" height="58.1818"/>
-   <object id="2" name="renderPosition" x="9.45455" y="36.7273">
+   <object id="1" name="collision" x="6" y="61.5682" width="8" height="23.4318"/>
+   <object id="2" name="renderPosition" x="9.32955" y="65.6023">
     <point/>
    </object>
   </objectgroup>
@@ -270,8 +270,8 @@
  <tile id="56">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/BluePrupleFlag.png" width="19" height="86"/>
   <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="5.72727" y="26.7273" width="8" height="58.1818"/>
-   <object id="2" name="renderPosition" x="9.63637" y="37.2727">
+   <object id="1" name="collision" x="5.72727" y="57.8523" width="8" height="27.0568"/>
+   <object id="2" name="renderPosition" x="9.76137" y="59.5227">
     <point/>
    </object>
   </objectgroup>
@@ -353,8 +353,18 @@
  </tile>
  <tile id="66">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Boat1.png" width="176" height="112"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="7" y="33.6667">
+    <polygon points="0,0 3.33333,15 27,35 83.6667,64.6667 138,75.3333 153,57.3333 152.667,45 121.333,18.6667 61,-10.3333 39.3333,-21.3333 -3.66667,-7"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="67">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Boat1_Left.png" width="176" height="112"/>
+  <objectgroup draworder="index" id="2">
+   <object id="3" name="collision" x="30" y="108.667">
+    <polygon points="0,0 -13,-18 -17,-32 1.66667,-48.6667 87.3333,-90 103,-97 126.333,-89.3333 134.333,-84.6667 140,-78.3333 138.333,-64.3333 126.667,-48.3333 101.667,-33 62.3333,-11.3333"/>
+   </object>
+  </objectgroup>
  </tile>
 </tileset>

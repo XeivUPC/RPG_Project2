@@ -2096,12 +2096,12 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="1099" gid="2546" x="1488" y="400" width="79.3119" height="50.4712">
+  <object id="1099" gid="2546" x="1488" y="384" width="68.3119" height="43.4712">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="1102" gid="2547" x="1328" y="464" width="79.1357" height="50.3591">
+  <object id="1102" gid="2547" x="1344" y="448" width="65.7071" height="41.8136">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
@@ -2111,7 +2111,7 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="1104" gid="2547" x="1184" y="1280" width="79.1357" height="50.3591">
+  <object id="1104" gid="2547" x="1184" y="1280" width="65.7071" height="41.8136">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
