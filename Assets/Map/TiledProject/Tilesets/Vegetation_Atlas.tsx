@@ -360,6 +360,11 @@
  </tile>
  <tile id="119">
   <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_119.png" width="48" height="32"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="renderPosition" x="23.75" y="25.375">
+    <point/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="120">
   <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_120.png" width="48" height="32"/>
@@ -537,6 +542,9 @@
  </tile>
  <tile id="178">
   <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_244.png" width="16" height="32"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="2.375" y="21" width="10.75" height="7.125"/>
+  </objectgroup>
  </tile>
  <tile id="179">
   <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_245.png" width="80" height="128"/>
@@ -831,6 +839,12 @@
  </tile>
  <tile id="264">
   <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_205.png" width="96" height="160"/>
+  <objectgroup draworder="index" id="5">
+   <object id="4" name="collision" x="40.0333" y="153.375" width="12.8417" height="6.625"/>
+   <object id="6" name="renderPosition" x="45.7333" y="154.311">
+    <point/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="265">
   <image source="../../../Textures/Atlas/MapObjects/Vegetation/Single/Vegettation_206.png" width="96" height="160"/>

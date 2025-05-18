@@ -37,7 +37,7 @@ void ModuleAssetDatabase::LoadAssets()
 
 	///// LOAD ASSETS REQUIERED
 
-//// Sounds //pepe
+//// Sounds
 	////Music
 	AddMusicToStorage("mainTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/MainMenu.ogg"));
 	AddMusicToStorage("townTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/TownTheme.ogg"));
@@ -47,6 +47,8 @@ void ModuleAssetDatabase::LoadAssets()
 
 	AddMusicToStorage("zaliumAnthemOrchestra", *audioFactory->CreateMusic("Assets/Sounds/Music/ZaliumAnthemOrchestra.ogg"));
 	AddMusicToStorage("herosMarch", *audioFactory->CreateMusic("Assets/Sounds/Music/HerosMarch.ogg"));
+
+	AddMusicToStorage("Dunhaven", *audioFactory->CreateMusic("Assets/Sounds/Music/Dunhaven.ogg"));
 
 	///SFX
 	AddAudioToStorage("alert", *audioFactory->CreateAudio("Assets/Sounds/SFX/alert.wav"));
@@ -152,6 +154,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("cassian_test", *textureFactory->CreateTexture("Assets/Textures/Characters/cassian_spritesheet.png"));
 	AddTextureToStorage("zeryn_test", *textureFactory->CreateTexture("Assets/Textures/Characters/zeryn_spritesheet.png"));
 	AddTextureToStorage("dog_test", *textureFactory->CreateTexture("Assets/Textures/Characters/dog_spritesheet.png"));
+	AddTextureToStorage("fisherman_test", *textureFactory->CreateTexture("Assets/Textures/Characters/fisherman_spritesheet.png"));
 	///Tilesets
 	AddTextureToStorage("floors_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Floors_Tiles.png"));
 	AddTextureToStorage("water_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Water_Tiles.png"));
