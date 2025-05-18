@@ -2423,8 +2423,16 @@
    </properties>
    <point/>
   </object>
-  <object id="1187" gid="2550" x="1216" y="304" width="48" height="32"/>
-  <object id="1188" gid="2550" x="1024" y="464" width="48" height="32"/>
+  <object id="1187" gid="2550" x="1216" y="304" width="48" height="32">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="1188" gid="2550" x="1024" y="464" width="48" height="32">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="9" name="Collisions">
   <object id="665" x="-1.11364" y="-21.25" width="1792" height="37"/>
