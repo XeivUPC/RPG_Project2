@@ -1,1 +1,485 @@
-{"0278cc5d-5d4c-43ee-8760-b4586838e137":{"name":"Rogue Squadron Soldier","character_uuid":"23095ecd-ae6c-45b5-a31e-64ad132e5779","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png","text":{"en":"Welcome to the dining room, what can I get for you ?","fr":""},"parent":"d45d070a-8ed7-4458-aed5-060cd3fb2514","choices":[{"text":{"en":"Do you have... vegetables soup ?","fr":""},"next":"e5e6b895-f526-4abf-bf15-ae17c01ee396","parent":"0278cc5d-5d4c-43ee-8760-b4586838e137"},{"text":{"en":"Do you have... spinach tart ?","fr":""},"next":"e5e6b895-f526-4abf-bf15-ae17c01ee396","parent":"0278cc5d-5d4c-43ee-8760-b4586838e137"},{"text":{"en":"Do you have... stuffed eggs?","fr":""},"next":"e5e6b895-f526-4abf-bf15-ae17c01ee396","parent":"0278cc5d-5d4c-43ee-8760-b4586838e137"},{"text":{"en":"Do you have... lamb ?","fr":""},"next":"e5e6b895-f526-4abf-bf15-ae17c01ee396","parent":"0278cc5d-5d4c-43ee-8760-b4586838e137"},{"text":{"en":"Do you have... steak with mashed potatoes ?","fr":""},"next":"e5e6b895-f526-4abf-bf15-ae17c01ee396","parent":"0278cc5d-5d4c-43ee-8760-b4586838e137"},{"text":{"en":"- Leave -","fr":""},"next":"","parent":"0278cc5d-5d4c-43ee-8760-b4586838e137"}]},"e5e6b895-f526-4abf-bf15-ae17c01ee396":{"name":"Rogue Squadron Soldier","character_uuid":"23095ecd-ae6c-45b5-a31e-64ad132e5779","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png","text":{"en":"Actually I did not care, I'm closing, get lost filthy kid.","fr":""},"parent":"9831d0ac-66eb-4add-89b7-5f27382a77ec","signals":{"SetNpcStatusByID":{"Vector2":{"x":"6","y":"1"}},"parent":"e5e6b895-f526-4abf-bf15-ae17c01ee396","AddMission":{"String":"mission;chef1"},"RemoveMission":{"String":"mission;chef"}}},"3833827b-5bd8-4d08-8f81-00fb9ab43974":{"name":"Rogue Squadron Soldier","character_uuid":"23095ecd-ae6c-45b5-a31e-64ad132e5779","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png","text":{"en":"Have this and get lost.","fr":""},"signals":{"parent":"3833827b-5bd8-4d08-8f81-00fb9ab43974","CheckIfCanGiveItem":{"String":"item;healing_bread-1"}},"conditions":[{"parent":"3833827b-5bd8-4d08-8f81-00fb9ab43974","next":"1af3f471-f1c4-4b72-b718-2e06adc4f3d5","CanGiveItem":{"value":true,"operator":"equal","type":"boolean"}},{"parent":"3833827b-5bd8-4d08-8f81-00fb9ab43974","next":"2d8f6ccc-dbdc-4346-ba60-9eeb1a8b1666"}],"parent":"969a1e79-51a9-4f79-a105-3935ac07e04f"},"1af3f471-f1c4-4b72-b718-2e06adc4f3d5":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Thanks...","fr":""},"parent":"0ee71240-f64a-41d0-9985-7497039426ac","signals":{"parent":"1af3f471-f1c4-4b72-b718-2e06adc4f3d5","SetNpcStatusByID":{"Vector2":{"x":"6","y":"3"}},"AddItem":{"String":"item;healing_bread-1"},"RemoveMission":{"String":"mission;chef1"},"AddMission":{"String":"mission;chef2"}}},"2d8f6ccc-dbdc-4346-ba60-9eeb1a8b1666":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"My bag is full I will come back later.","fr":""},"parent":"97c94a9a-33ff-4594-8f1a-c32f6e584f1d","signals":{"SetNpcStatusByID":{"Vector2":{"x":"6","y":"2"}},"parent":"2d8f6ccc-dbdc-4346-ba60-9eeb1a8b1666"}},"306b3e4c-ff0a-4067-b3a5-33421812fa20":{"name":"Rogue Squadron Soldier","character_uuid":"23095ecd-ae6c-45b5-a31e-64ad132e5779","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png","text":{"en":"- Cursing you while whispering -","fr":""},"parent":"f59479cb-8513-4e76-9185-79fc1fac5d05"},"bca37670-989c-4a12-9533-33007527096f":{"name":"Rogue Squadron Soldier","character_uuid":"23095ecd-ae6c-45b5-a31e-64ad132e5779","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png","text":{"en":"...","fr":""},"parent":"674af86c-0549-42c2-aa74-03c0c9c2ab01","choices":[{"text":{"en":"Please...?","fr":""},"next":"3833827b-5bd8-4d08-8f81-00fb9ab43974","parent":"bca37670-989c-4a12-9533-33007527096f"},{"text":{"en":"Please, I need to eat.","fr":""},"next":"3833827b-5bd8-4d08-8f81-00fb9ab43974","parent":"bca37670-989c-4a12-9533-33007527096f"},{"text":{"en":"I fight for this empire because I am a soldier and you must cook because you are a chef.","fr":""},"next":"3833827b-5bd8-4d08-8f81-00fb9ab43974","parent":"bca37670-989c-4a12-9533-33007527096f"}]},"root":{"conditions":[{"Char6_State":{"value":0,"operator":"equal","type":"int"},"parent":"root","next":"0278cc5d-5d4c-43ee-8760-b4586838e137"},{"Char6_State":{"value":1,"operator":"equal","type":"int"},"parent":"root","next":"bca37670-989c-4a12-9533-33007527096f"},{"parent":"root","next":"306b3e4c-ff0a-4067-b3a5-33421812fa20","Char6_State":{"value":3,"operator":"equal","type":"int"}},{"parent":"root","next":"3833827b-5bd8-4d08-8f81-00fb9ab43974","Char6_State":{"value":2,"operator":"equal","type":"int"}}]},"__editor":{"root":{"uuid":"root","offset":[40,100]},"dialogues":[{"uuid":"0278cc5d-5d4c-43ee-8760-b4586838e137","offset":[760,-180]},{"uuid":"e5e6b895-f526-4abf-bf15-ae17c01ee396","offset":[1880,-120]},{"uuid":"3833827b-5bd8-4d08-8f81-00fb9ab43974","offset":[1560,1580]},{"uuid":"1af3f471-f1c4-4b72-b718-2e06adc4f3d5","offset":[2520,1440]},{"uuid":"2d8f6ccc-dbdc-4346-ba60-9eeb1a8b1666","offset":[2520,1840]},{"uuid":"306b3e4c-ff0a-4067-b3a5-33421812fa20","offset":[780,2640]},{"uuid":"bca37670-989c-4a12-9533-33007527096f","offset":[760,1220]}],"conditions":[{"uuid":"0ee71240-f64a-41d0-9985-7497039426ac","offset":[2060,1460],"parent":"3833827b-5bd8-4d08-8f81-00fb9ab43974"},{"uuid":"97c94a9a-33ff-4594-8f1a-c32f6e584f1d","offset":[2080,1940],"collapsed":true,"parent":"3833827b-5bd8-4d08-8f81-00fb9ab43974"},{"uuid":"d45d070a-8ed7-4458-aed5-060cd3fb2514","offset":[320,-140],"parent":"root"},{"uuid":"674af86c-0549-42c2-aa74-03c0c9c2ab01","offset":[400,1240],"parent":"root"},{"uuid":"f59479cb-8513-4e76-9185-79fc1fac5d05","offset":[400,2660],"parent":"root"},{"uuid":"969a1e79-51a9-4f79-a105-3935ac07e04f","offset":[400,1740],"parent":"root"}],"signals":[{"uuid":"c80562e0-74e8-4646-8d7f-02f9d5fddd04","offset":[2300,-80],"parent":"e5e6b895-f526-4abf-bf15-ae17c01ee396","data":{"SetNpcStatusByID":{"Vector2":{"x":"6","y":"1"}},"parent":"e5e6b895-f526-4abf-bf15-ae17c01ee396","AddMission":{"String":"mission;chef1"},"RemoveMission":{"String":"mission;chef"}}},{"uuid":"dfbbba6e-da51-45e6-a2da-4911f1be86f7","offset":[2060,1140],"parent":"3833827b-5bd8-4d08-8f81-00fb9ab43974"},{"uuid":"d03433cb-9810-44f5-bf5f-9816953eaea3","offset":[3000,1440],"parent":"1af3f471-f1c4-4b72-b718-2e06adc4f3d5"},{"uuid":"7f58b633-b876-4d73-98a0-339a9c07e983","offset":[2960,1900],"parent":"2d8f6ccc-dbdc-4346-ba60-9eeb1a8b1666"}],"choices":[{"uuid":"e18d3d84-eec9-4530-b387-1d40f32b2a34","offset":[1300,-560],"parent":"0278cc5d-5d4c-43ee-8760-b4586838e137"},{"uuid":"94742938-959e-4d81-ba6d-7c24dc172c45","offset":[1300,-300],"parent":"0278cc5d-5d4c-43ee-8760-b4586838e137"},{"uuid":"2b5c61d2-61c6-4116-9269-cc914f5bc295","offset":[1300,-40],"parent":"0278cc5d-5d4c-43ee-8760-b4586838e137"},{"uuid":"cdf74e30-ad24-43eb-853d-90b67461b3ff","offset":[1300,240],"parent":"0278cc5d-5d4c-43ee-8760-b4586838e137"},{"uuid":"9831d0ac-66eb-4add-89b7-5f27382a77ec","offset":[1300,500],"parent":"0278cc5d-5d4c-43ee-8760-b4586838e137"},{"uuid":"586e2070-912b-4ccc-a78b-0c567a279765","offset":[1300,760],"parent":"0278cc5d-5d4c-43ee-8760-b4586838e137"},{"uuid":"3819e5dc-09ad-437c-b066-d46287e5fb8f","offset":[1140,1280],"parent":"bca37670-989c-4a12-9533-33007527096f"},{"uuid":"a57093e3-af53-46e1-b84d-b7ed95dff6f0","offset":[1140,1040],"parent":"bca37670-989c-4a12-9533-33007527096f"},{"uuid":"11ccd634-b5da-47ed-8be2-86952b1df562","offset":[1140,1520],"parent":"bca37670-989c-4a12-9533-33007527096f"}]}}
+{
+    "0278cc5d-5d4c-43ee-8760-b4586838e137": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "Welcome to the dining room, what can I get for you ?",
+            "fr": ""
+        },
+        "parent": "d45d070a-8ed7-4458-aed5-060cd3fb2514",
+        "choices": [
+            {
+                "text": {
+                    "en": "Do you have... vegetables soup ?",
+                    "fr": ""
+                },
+                "next": "e5e6b895-f526-4abf-bf15-ae17c01ee396",
+                "parent": "0278cc5d-5d4c-43ee-8760-b4586838e137"
+            },
+            {
+                "text": {
+                    "en": "Do you have... spinach tart ?",
+                    "fr": ""
+                },
+                "next": "e5e6b895-f526-4abf-bf15-ae17c01ee396",
+                "parent": "0278cc5d-5d4c-43ee-8760-b4586838e137"
+            },
+            {
+                "text": {
+                    "en": "Do you have... stuffed eggs?",
+                    "fr": ""
+                },
+                "next": "e5e6b895-f526-4abf-bf15-ae17c01ee396",
+                "parent": "0278cc5d-5d4c-43ee-8760-b4586838e137"
+            },
+            {
+                "text": {
+                    "en": "Do you have... lamb ?",
+                    "fr": ""
+                },
+                "next": "e5e6b895-f526-4abf-bf15-ae17c01ee396",
+                "parent": "0278cc5d-5d4c-43ee-8760-b4586838e137"
+            },
+            {
+                "text": {
+                    "en": "Do you have... steak with mashed potatoes ?",
+                    "fr": ""
+                },
+                "next": "e5e6b895-f526-4abf-bf15-ae17c01ee396",
+                "parent": "0278cc5d-5d4c-43ee-8760-b4586838e137"
+            },
+            {
+                "text": {
+                    "en": "- Leave -",
+                    "fr": ""
+                },
+                "next": "",
+                "parent": "0278cc5d-5d4c-43ee-8760-b4586838e137"
+            }
+        ]
+    },
+    "e5e6b895-f526-4abf-bf15-ae17c01ee396": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "Actually I did not care, I'm closing, get lost filthy kid.",
+            "fr": ""
+        },
+        "parent": "9831d0ac-66eb-4add-89b7-5f27382a77ec",
+        "signals": {
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "6",
+                    "y": "1"
+                }
+            },
+            "parent": "e5e6b895-f526-4abf-bf15-ae17c01ee396",
+            "AddMission": {
+                "String": "mission;chef1"
+            },
+            "RemoveMission": {
+                "String": "mission;chef"
+            }
+        }
+    },
+    "3833827b-5bd8-4d08-8f81-00fb9ab43974": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "Have this and get lost.",
+            "fr": ""
+        },
+        "signals": {
+            "parent": "3833827b-5bd8-4d08-8f81-00fb9ab43974",
+            "CheckIfCanGiveItem": {
+                "String": "item;healing_bread-1"
+            }
+        },
+        "conditions": [
+            {
+                "parent": "3833827b-5bd8-4d08-8f81-00fb9ab43974",
+                "next": "1af3f471-f1c4-4b72-b718-2e06adc4f3d5",
+                "CanGiveItem": {
+                    "value": true,
+                    "operator": "equal",
+                    "type": "boolean"
+                }
+            },
+            {
+                "parent": "3833827b-5bd8-4d08-8f81-00fb9ab43974",
+                "next": "2d8f6ccc-dbdc-4346-ba60-9eeb1a8b1666"
+            }
+        ],
+        "parent": "969a1e79-51a9-4f79-a105-3935ac07e04f"
+    },
+    "1af3f471-f1c4-4b72-b718-2e06adc4f3d5": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Thanks...",
+            "fr": ""
+        },
+        "parent": "0ee71240-f64a-41d0-9985-7497039426ac",
+        "signals": {
+            "parent": "1af3f471-f1c4-4b72-b718-2e06adc4f3d5",
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "6",
+                    "y": "3"
+                }
+            },
+            "AddItem": {
+                "String": "item;healing_bread-1"
+            },
+            "RemoveMission": {
+                "String": "mission;chef1"
+            },
+            "AddMission": {
+                "String": "mission;chef2"
+            }
+        }
+    },
+    "2d8f6ccc-dbdc-4346-ba60-9eeb1a8b1666": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "My bag is full I will come back later.",
+            "fr": ""
+        },
+        "parent": "97c94a9a-33ff-4594-8f1a-c32f6e584f1d",
+        "signals": {
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "6",
+                    "y": "2"
+                }
+            },
+            "parent": "2d8f6ccc-dbdc-4346-ba60-9eeb1a8b1666"
+        }
+    },
+    "306b3e4c-ff0a-4067-b3a5-33421812fa20": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "- Cursing you while whispering -",
+            "fr": ""
+        },
+        "parent": "f59479cb-8513-4e76-9185-79fc1fac5d05"
+    },
+    "bca37670-989c-4a12-9533-33007527096f": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "...",
+            "fr": ""
+        },
+        "parent": "674af86c-0549-42c2-aa74-03c0c9c2ab01",
+        "choices": [
+            {
+                "text": {
+                    "en": "Please...?",
+                    "fr": ""
+                },
+                "next": "3833827b-5bd8-4d08-8f81-00fb9ab43974",
+                "parent": "bca37670-989c-4a12-9533-33007527096f"
+            },
+            {
+                "text": {
+                    "en": "Please, I need to eat.",
+                    "fr": ""
+                },
+                "next": "3833827b-5bd8-4d08-8f81-00fb9ab43974",
+                "parent": "bca37670-989c-4a12-9533-33007527096f"
+            },
+            {
+                "text": {
+                    "en": "I fight for this empire because I am a soldier and you must cook because you are a chef.",
+                    "fr": ""
+                },
+                "next": "3833827b-5bd8-4d08-8f81-00fb9ab43974",
+                "parent": "bca37670-989c-4a12-9533-33007527096f"
+            }
+        ]
+    },
+    "root": {
+        "conditions": [
+            {
+                "Char6_State": {
+                    "value": 0,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "parent": "root",
+                "next": "0278cc5d-5d4c-43ee-8760-b4586838e137"
+            },
+            {
+                "Char6_State": {
+                    "value": 1,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "parent": "root",
+                "next": "bca37670-989c-4a12-9533-33007527096f"
+            },
+            {
+                "parent": "root",
+                "next": "306b3e4c-ff0a-4067-b3a5-33421812fa20",
+                "Char6_State": {
+                    "value": 3,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "next": "3833827b-5bd8-4d08-8f81-00fb9ab43974",
+                "Char6_State": {
+                    "value": 2,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            }
+        ]
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                40,
+                100
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "0278cc5d-5d4c-43ee-8760-b4586838e137",
+                "offset": [
+                    760,
+                    -180
+                ]
+            },
+            {
+                "uuid": "e5e6b895-f526-4abf-bf15-ae17c01ee396",
+                "offset": [
+                    1880,
+                    -120
+                ]
+            },
+            {
+                "uuid": "3833827b-5bd8-4d08-8f81-00fb9ab43974",
+                "offset": [
+                    1560,
+                    1580
+                ]
+            },
+            {
+                "uuid": "1af3f471-f1c4-4b72-b718-2e06adc4f3d5",
+                "offset": [
+                    2520,
+                    1440
+                ]
+            },
+            {
+                "uuid": "2d8f6ccc-dbdc-4346-ba60-9eeb1a8b1666",
+                "offset": [
+                    2520,
+                    1840
+                ]
+            },
+            {
+                "uuid": "306b3e4c-ff0a-4067-b3a5-33421812fa20",
+                "offset": [
+                    780,
+                    2640
+                ]
+            },
+            {
+                "uuid": "bca37670-989c-4a12-9533-33007527096f",
+                "offset": [
+                    760,
+                    1220
+                ]
+            }
+        ],
+        "conditions": [
+            {
+                "uuid": "0ee71240-f64a-41d0-9985-7497039426ac",
+                "offset": [
+                    2060,
+                    1460
+                ],
+                "parent": "3833827b-5bd8-4d08-8f81-00fb9ab43974"
+            },
+            {
+                "uuid": "97c94a9a-33ff-4594-8f1a-c32f6e584f1d",
+                "offset": [
+                    2080,
+                    1940
+                ],
+                "collapsed": true,
+                "parent": "3833827b-5bd8-4d08-8f81-00fb9ab43974"
+            },
+            {
+                "uuid": "d45d070a-8ed7-4458-aed5-060cd3fb2514",
+                "offset": [
+                    320,
+                    -140
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "674af86c-0549-42c2-aa74-03c0c9c2ab01",
+                "offset": [
+                    400,
+                    1240
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "f59479cb-8513-4e76-9185-79fc1fac5d05",
+                "offset": [
+                    400,
+                    2660
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "969a1e79-51a9-4f79-a105-3935ac07e04f",
+                "offset": [
+                    400,
+                    1740
+                ],
+                "parent": "root"
+            }
+        ],
+        "signals": [
+            {
+                "uuid": "c80562e0-74e8-4646-8d7f-02f9d5fddd04",
+                "offset": [
+                    2300,
+                    -80
+                ],
+                "parent": "e5e6b895-f526-4abf-bf15-ae17c01ee396",
+                "data": {
+                    "SetNpcStatusByID": {
+                        "Vector2": {
+                            "x": "6",
+                            "y": "1"
+                        }
+                    },
+                    "parent": "e5e6b895-f526-4abf-bf15-ae17c01ee396",
+                    "AddMission": {
+                        "String": "mission;chef1"
+                    },
+                    "RemoveMission": {
+                        "String": "mission;chef"
+                    }
+                }
+            },
+            {
+                "uuid": "dfbbba6e-da51-45e6-a2da-4911f1be86f7",
+                "offset": [
+                    2060,
+                    1140
+                ],
+                "parent": "3833827b-5bd8-4d08-8f81-00fb9ab43974"
+            },
+            {
+                "uuid": "d03433cb-9810-44f5-bf5f-9816953eaea3",
+                "offset": [
+                    3000,
+                    1440
+                ],
+                "parent": "1af3f471-f1c4-4b72-b718-2e06adc4f3d5"
+            },
+            {
+                "uuid": "7f58b633-b876-4d73-98a0-339a9c07e983",
+                "offset": [
+                    2960,
+                    1900
+                ],
+                "parent": "2d8f6ccc-dbdc-4346-ba60-9eeb1a8b1666"
+            }
+        ],
+        "choices": [
+            {
+                "uuid": "e18d3d84-eec9-4530-b387-1d40f32b2a34",
+                "offset": [
+                    1300,
+                    -560
+                ],
+                "parent": "0278cc5d-5d4c-43ee-8760-b4586838e137"
+            },
+            {
+                "uuid": "94742938-959e-4d81-ba6d-7c24dc172c45",
+                "offset": [
+                    1300,
+                    -300
+                ],
+                "parent": "0278cc5d-5d4c-43ee-8760-b4586838e137"
+            },
+            {
+                "uuid": "2b5c61d2-61c6-4116-9269-cc914f5bc295",
+                "offset": [
+                    1300,
+                    -40
+                ],
+                "parent": "0278cc5d-5d4c-43ee-8760-b4586838e137"
+            },
+            {
+                "uuid": "cdf74e30-ad24-43eb-853d-90b67461b3ff",
+                "offset": [
+                    1300,
+                    240
+                ],
+                "parent": "0278cc5d-5d4c-43ee-8760-b4586838e137"
+            },
+            {
+                "uuid": "9831d0ac-66eb-4add-89b7-5f27382a77ec",
+                "offset": [
+                    1300,
+                    500
+                ],
+                "parent": "0278cc5d-5d4c-43ee-8760-b4586838e137"
+            },
+            {
+                "uuid": "586e2070-912b-4ccc-a78b-0c567a279765",
+                "offset": [
+                    1300,
+                    760
+                ],
+                "parent": "0278cc5d-5d4c-43ee-8760-b4586838e137"
+            },
+            {
+                "uuid": "3819e5dc-09ad-437c-b066-d46287e5fb8f",
+                "offset": [
+                    1140,
+                    1280
+                ],
+                "parent": "bca37670-989c-4a12-9533-33007527096f"
+            },
+            {
+                "uuid": "a57093e3-af53-46e1-b84d-b7ed95dff6f0",
+                "offset": [
+                    1140,
+                    1040
+                ],
+                "parent": "bca37670-989c-4a12-9533-33007527096f"
+            },
+            {
+                "uuid": "11ccd634-b5da-47ed-8be2-86952b1df562",
+                "offset": [
+                    1140,
+                    1520
+                ],
+                "parent": "bca37670-989c-4a12-9533-33007527096f"
+            }
+        ]
+    }
+}

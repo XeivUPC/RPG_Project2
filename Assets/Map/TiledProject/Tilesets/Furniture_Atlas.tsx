@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="furniture_atlas" tilewidth="176" tileheight="157" tilecount="71" columns="0">
+<tileset version="1.10" tiledversion="1.11.2" name="furniture_atlas" tilewidth="176" tileheight="157" tilecount="71" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Bench1.png" width="16" height="32"/>
@@ -208,9 +208,10 @@
  <tile id="44">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Light.png" width="12" height="80"/>
   <objectgroup draworder="index" id="2">
-   <object id="2" name="renderPosition" x="5.81819" y="53.6364">
+   <object id="2" name="renderPosition" x="6.18183" y="69.1819">
     <point/>
    </object>
+   <object id="3" name="collision" x="2.45455" y="68.7273" width="7.18182" height="11.0909"/>
   </objectgroup>
  </tile>
  <tile id="45">
@@ -219,8 +220,8 @@
  <tile id="46">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Signboard.png" width="38" height="57"/>
   <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="15.0909" y="14.8011" width="8" height="40.9261"/>
-   <object id="2" name="renderPosition" x="18.8523" y="26.1363">
+   <object id="1" name="collision" x="15.0909" y="45.6136" width="8" height="10.1136"/>
+   <object id="2" name="renderPosition" x="19.1023" y="45.7613">
     <point/>
    </object>
   </objectgroup>
@@ -234,14 +235,14 @@
  <tile id="49">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Table.png" width="32" height="32"/>
   <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="0.912027" y="13.8628" width="30.8265" height="16.5989"/>
+   <object id="2" name="collision" x="0.17045" y="17.9886" width="31.9091" height="14.2727"/>
   </objectgroup>
  </tile>
  <tile id="50">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/WhitePurpleFlag.png" width="19" height="86"/>
   <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="5.81818" y="59.6591" width="8" height="25.4318"/>
-   <object id="2" name="renderPosition" x="9.70455" y="62.4318">
+   <object id="1" name="collision" x="5.81818" y="75.2955" width="8" height="9.79544"/>
+   <object id="2" name="renderPosition" x="10.0682" y="75.3409">
     <point/>
    </object>
   </objectgroup>
@@ -249,8 +250,8 @@
  <tile id="51">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/WhiteRedFlag.png" width="19" height="86"/>
   <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="6" y="61.5682" width="8" height="23.4318"/>
-   <object id="2" name="renderPosition" x="9.32955" y="65.6023">
+   <object id="1" name="collision" x="5.90909" y="75.2046" width="8" height="9.70453"/>
+   <object id="2" name="renderPosition" x="10.0568" y="74.6023">
     <point/>
    </object>
   </objectgroup>
@@ -279,9 +280,9 @@
  <tile id="57">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/BrownShrine.png" width="121" height="96"/>
   <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="20.125" y="48.125" width="7.25" height="46.625"/>
-   <object id="2" name="collision" x="92.4375" y="49" width="7.5" height="45.875"/>
-   <object id="7" name="renderPosition" x="23.375" y="59">
+   <object id="1" name="collision" x="20.125" y="85" width="7.25" height="9.75"/>
+   <object id="2" name="collision" x="92.4375" y="85.25" width="7.5" height="9.625"/>
+   <object id="7" name="renderPosition" x="24.25" y="85.25">
     <point/>
    </object>
   </objectgroup>
@@ -289,9 +290,9 @@
  <tile id="58">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/BlueShrine.png" width="121" height="117"/>
   <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="20.375" y="69.1875" width="7.25" height="46.625"/>
-   <object id="2" name="collision" x="92.2065" y="70.0245" width="7.5" height="45.875"/>
-   <object id="3" name="renderPosition" x="23.25" y="81.4375">
+   <object id="1" name="collision" x="20.375" y="106.063" width="7.25" height="9.75"/>
+   <object id="2" name="collision" x="92.2065" y="106.025" width="7.5" height="9.875"/>
+   <object id="3" name="renderPosition" x="24.125" y="106.188">
     <point/>
    </object>
   </objectgroup>
@@ -302,8 +303,11 @@
  <tile id="60">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/BlueShrineSide.png" width="38" height="117"/>
   <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="1.45455" y="105.182" width="7.09091" height="11.5455"/>
-   <object id="2" name="collision" x="21.6364" y="105.045" width="7.09091" height="11.5455"/>
+   <object id="1" name="collision" x="1.45455" y="105.909" width="7.09091" height="10.8182"/>
+   <object id="2" name="collision" x="21.6364" y="105.681" width="7.09091" height="10.9091"/>
+   <object id="3" name="renderPosition" x="5" y="106.625">
+    <point/>
+   </object>
   </objectgroup>
  </tile>
  <tile id="61">

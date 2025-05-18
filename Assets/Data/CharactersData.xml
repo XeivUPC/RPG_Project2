@@ -44,7 +44,7 @@
 	</Character>
 	<Character id="5" name="Zeryn">
 		<Data textureId="zeryn_test" faceId="Zeryn-early-idle" dialoguePath="Assets/Dialogues/zeryn_early.json" />
-		<Stats state="1" friendship="0" love="0" />
+		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="15" hp="40" defense="35" attack="78" speed="60" />
 		<Attacks attack1="0" attack2="0" attack3="0" attack4="0" />
 		<AttackRole type="0" />
@@ -70,16 +70,37 @@
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="0" />
 	</Character>
-	<Character id="9" name="Instructor">
-		<Data textureId="dog_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/tutorial.json" />
+	<Character id="9" name="Guard Tutorial">
+		<Data textureId="guard_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/guard_tutorial.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="0" />
 	</Character>
-	<Character id="10" name="Guard Tutorial">
-		<Data textureId="guard_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/guard_tutorial.json" />
-		<Stats state="1" friendship="0" love="0" />
+	<Character id="10" name="Cottage Man">
+		<Data textureId="cassian_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/cottage_man.json" />
+		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
+		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
+		<AttackRole type="0" />
+	</Character>
+	<Character id="11" name="Innkeeper">
+		<Data textureId="cassian_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/empty_dialog.json" />
+		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
+		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
+		<AttackRole type="0" />
+	</Character>
+	<Character id="12" name="Dunhaven Guard">
+		<Data textureId="guard_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/empty_dialog.json" />
+		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
+		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
+		<AttackRole type="0" />
+	</Character>
+	<Character id="13" name="Fisherman">
+		<Data textureId="fisherman_test" faceId="Fisherman-idle" dialoguePath="Assets/Dialogues/fisherman.json" />
+		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="0" />

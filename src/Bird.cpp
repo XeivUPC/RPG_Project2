@@ -64,7 +64,6 @@ void Bird::RenderBird()
 {
 	animator->clip()->RenderClip(position);
 
-	Engine::Instance().m_render->painter().RenderCircle(position, 2, { 255,0,0,255 }, 30);
 }
 
 void Bird::Scare(Vector2 positionFromUser)

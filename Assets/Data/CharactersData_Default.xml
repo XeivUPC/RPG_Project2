@@ -87,7 +87,7 @@
 		<AttackRole type="0" />
 	</Character>
 	<Character id="11" name="Innkeeper">
-		<Data textureId="cassian_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/empty_dialog.json" />
+		<Data textureId="cassian_test" faceId="Cassian-early-idle" dialoguePath="Assets/Dialogues/empty_dialog.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
@@ -103,7 +103,7 @@
 	</Character>
 
 	<Character id="13" name="Fisherman">
-		<Data textureId="fisherman_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/empty_dialog.json" />
+		<Data textureId="fisherman_test" faceId="Fisherman-idle" dialoguePath="Assets/Dialogues/fisherman.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
