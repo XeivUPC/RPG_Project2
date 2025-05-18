@@ -230,7 +230,6 @@ void UIDialogueBoxCG::SetVariablesOnStart()
 		dialogue->AddGameStateVariable("Char" + to_string(character.second.id) + "_Friendship", (float)character.second.friendShip);
 		dialogue->AddGameStateVariable("Char" + to_string(character.second.id) + "_Love", (float)character.second.love);
 	}
-	
 }
 
 void UIDialogueBoxCG::SignalReader(Signal* signal)
