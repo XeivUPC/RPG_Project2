@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="665">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="665">
  <properties>
   <property name="IsInside" type="bool" value="false"/>
  </properties>
@@ -373,18 +373,19 @@
  <objectgroup id="6" name="Objects">
   <object id="35" gid="915" x="336" y="416" width="96" height="107">
    <properties>
-    <property name="TargetPath" value="Assets/Map/Data/Testing_Zone.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Testing_Zone.xml"/>
     <property name="Type" value="building"/>
    </properties>
   </object>
   <object id="36" gid="916" x="480" y="416" width="96" height="107">
    <properties>
-    <property name="TargetPath" value="Assets/Map/Data/Testing_Zone2.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Testing_Zone2.xml"/>
     <property name="Type" value="building"/>
    </properties>
   </object>
   <object id="37" gid="917" x="624" y="416" width="96" height="107">
    <properties>
+    <property name="TargetPath" value="Assets/Map/Data/Tutorial_Room.xml"/>
     <property name="Type" value="building"/>
    </properties>
   </object>
@@ -477,19 +478,19 @@
   </object>
   <object id="118" gid="918" x="80" y="768" width="112" height="160">
    <properties>
-    <property name="TargetPath" value="Assets/Map/Data/House2_Inside.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/House2_Inside.xml"/>
     <property name="Type" value="building"/>
    </properties>
   </object>
   <object id="122" gid="919" x="80" y="528" width="160" height="272">
    <properties>
-    <property name="TargetPath" value="Assets/Map/Data/House3_Inside.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/House3_Inside.xml"/>
     <property name="Type" value="building"/>
    </properties>
   </object>
   <object id="123" gid="920" x="240" y="240" width="256" height="144">
    <properties>
-    <property name="TargetPath" value="Assets/Map/Data/House4_Inside.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/House4_Inside.xml"/>
     <property name="Type" value="building"/>
    </properties>
   </object>

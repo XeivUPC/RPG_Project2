@@ -15,6 +15,8 @@
 #include "SimpleTilemapChanger.h"
 #include "SimpleMapObject.h"
 #include "NpcCharacter.h"
+#include "ButtonPuzzleElement.h"
+#include "BlockingPuzzleElement.h"
 
 
 #include <sstream>
@@ -225,6 +227,39 @@ void Tilemap::CreateObjects()
                     printf("");
                 }
             }
+            else if (type == "buttonPuzzle") {
+
+                auto button = Pooling::Instance().AcquireObject<ButtonPuzzleElement>();
+
+                Vector2 position = { object->x ,object->y };
+				string puzzleId = object->properties.at("PuzzleId").value;
+                bool puzzleValue = object->properties.at("Value").value == "true";
+
+                string targetsText = object->properties.at("Targets").value;
+				vector<string> targets;
+
+                targetsText.erase(remove(targetsText.begin(), targetsText.end(), ' '));
+                stringstream ss(targetsText);
+                string temp;
+
+                while (getline(ss, temp, ','))
+                {
+                    targets.emplace_back(temp);
+                }
+
+                button->Initialize(puzzleId, position, puzzleValue, targets);
+            }
+            else if (type == "blockingPuzzle") {
+
+                auto blocking = Pooling::Instance().AcquireObject<BlockingPuzzleElement>();
+
+                Vector2 position = { object->x + object->width / 2 * scale ,object->y + +object->height/2 };
+                Vector2 size = { PIXEL_TO_METERS(object->width) ,PIXEL_TO_METERS(object->height) };
+                string blockingId = object->properties.at("PuzzleId").value;
+                bool blockingState = object->properties.at("IsBlocking").value == "true";
+
+                blocking->Initialize(blockingId, position, size, blockingState);
+             }
             else if (type == "spawnPoint") {
                 if (!spawnPointSaved) {
                     spawnPointSaved = true;

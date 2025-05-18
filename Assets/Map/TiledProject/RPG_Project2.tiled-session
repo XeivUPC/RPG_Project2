@@ -55,13 +55,13 @@
         },
         "Maps/Forest.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 1,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 318,
+                "x": 186,
                 "y": 159
             }
         },
@@ -112,6 +112,46 @@
                 "y": 273.33333333333337
             }
         },
+        "Maps/Interiors/House2_Inside.tmx": {
+            "scale": 2.9002403846153846,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 207.91380024865313,
+                "y": 161.02113551595525
+            }
+        },
+        "Maps/Interiors/House3_Inside.tmx": {
+            "scale": 1.9158333333333333,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 207.74249673771203,
+                "y": 314.2235754675946
+            }
+        },
+        "Maps/Interiors/House4_Inside.tmx": {
+            "scale": 2.432459677419355,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 247.89722337339413,
+                "y": 226.51968503937007
+            }
+        },
+        "Maps/Interiors/Testing_Zone.tmx": {
+            "scale": 2.9002403846153846,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 207.91380024865313,
+                "y": 161.02113551595525
+            }
+        },
+        "Maps/Interiors/Testing_Zone2.tmx": {
+            "scale": 2.9002403846153846,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 207.91380024865313,
+                "y": 161.02113551595525
+            }
+        },
         "Maps/Map1.tmx": {
             "scale": 0.75,
             "selectedLayer": 0,
@@ -122,14 +162,14 @@
         },
         "Maps/Rogue_Squadron_Headquarters.tmx": {
             "expandedObjectLayers": [
-                9,
-                6
+                6,
+                9
             ],
-            "scale": 0.5,
+            "scale": 1,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 594,
-                "y": 436
+                "x": 382,
+                "y": 395
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -169,6 +209,32 @@
             "viewCenter": {
                 "x": 208,
                 "y": 112.00000000000001
+            }
+        },
+        "Maps/Tilesets/Building_Atlas.tsx": {
+            "scaleInDock": 1
+        },
+        "Maps/Tilesets/Cave_Tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "Maps/Tilesets/Floors_Tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "Maps/Tilesets/Furniture_Atlas.tsx": {
+            "scaleInDock": 1
+        },
+        "Maps/Tilesets/Water_tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "Maps/Tutorial_Room.tmx": {
+            "expandedObjectLayers": [
+                7
+            ],
+            "scale": 4,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 256,
+                "y": 174.25
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -231,7 +297,7 @@
             }
         }
     },
-    "last.exportedFilePath": "G:/GitHub/RPG_Project2/Assets/Map/Data",
+    "last.exportedFilePath": "G:/GitHub/RPG_Project2/Assets/Map/Data/Interiors",
     "last.externalTilesetPath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Tilesets",
     "last.imagePath": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/MapObjects/Vegetation/Single",
     "last.objectTemplatePath": "C:/Users/maxpo/OneDrive/Documents/GitHub/RPG_Project2/Assets/Map/TiledProject/Prefabs/Buildings",
@@ -246,7 +312,7 @@
         "Maps/Forest.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
-    "property.type": "object",
+    "property.type": "string",
     "recentFiles": [
         "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/Forest.tmx",

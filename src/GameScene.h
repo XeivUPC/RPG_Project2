@@ -101,6 +101,9 @@ private:
 	void SwapNewTilemap(string path, int entryPoint=-1);
 	void DeleteLastTilemap();
 
+	void ReturnToPoolMapObjects();
+	void DeletePoolMapObjects();
+
 private:
 	/// Core
 	State state = State::NONE___DO_NOT_USE;
