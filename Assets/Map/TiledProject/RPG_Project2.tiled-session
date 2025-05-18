@@ -55,11 +55,11 @@
         },
         "Maps/Forest.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
             "scale": 1,
-            "selectedLayer": 2,
+            "selectedLayer": 4,
             "viewCenter": {
                 "x": 186,
                 "y": 159
@@ -162,14 +162,14 @@
         },
         "Maps/Rogue_Squadron_Headquarters.tmx": {
             "expandedObjectLayers": [
-                6,
-                9
+                9,
+                6
             ],
-            "scale": 1,
+            "scale": 0.5,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 382,
-                "y": 395
+                "x": 782,
+                "y": 396
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {

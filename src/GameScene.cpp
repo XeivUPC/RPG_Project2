@@ -31,6 +31,8 @@
 #include "NpcCharacter.h"
 #include "SimpleMapObject.h"
 #include "OverworldItem.h"
+#include "BirdFlock.h"
+#include "Bird.h"
 #include "ButtonPuzzleElement.h"
 #include "BlockingPuzzleElement.h"
 ///
@@ -74,7 +76,10 @@ bool GameScene::Start()
     Pooling::Instance().CreatePool<SimpleMapObject>(30);
     Pooling::Instance().CreatePool<NpcCharacter>(10);
     Pooling::Instance().CreatePool<OverworldItem>(10);
+    Pooling::Instance().CreatePool<BirdFlock>(10);
+    Pooling::Instance().CreatePool<Bird>(20);
     Pooling::Instance().CreatePool<ButtonPuzzleElement>(3);
+    Pooling::Instance().CreatePool<BlockingPuzzleElement>(3);
 
     fade = new FadeCG(33, 25, 17, 255);
     fade->FadeTo(1,0);
@@ -518,6 +523,8 @@ void GameScene::ReturnToPoolMapObjects()
     Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
     Pooling::Instance().ReturnAllToPool<NpcCharacter>();
     Pooling::Instance().ReturnAllToPool<OverworldItem>();
+    Pooling::Instance().ReturnAllToPool<BirdFlock>();
+    Pooling::Instance().ReturnAllToPool<Bird>();
     Pooling::Instance().ReturnAllToPool<ButtonPuzzleElement>();
     Pooling::Instance().ReturnAllToPool<BlockingPuzzleElement>();
 }
@@ -528,6 +535,8 @@ void GameScene::DeletePoolMapObjects()
     Pooling::Instance().DeletePool<SimpleMapObject>(true);
     Pooling::Instance().DeletePool<NpcCharacter>(true);
     Pooling::Instance().DeletePool<OverworldItem>(true);
+    Pooling::Instance().DeletePool<BirdFlock>(true);
+    Pooling::Instance().DeletePool<Bird>(true);
     Pooling::Instance().DeletePool<ButtonPuzzleElement>(true);
     Pooling::Instance().DeletePool<BlockingPuzzleElement>(true);
 }

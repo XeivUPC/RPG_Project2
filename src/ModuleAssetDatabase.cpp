@@ -142,6 +142,9 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("items_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/Items/ItemsAtlas.png"));
 	AddAtlasToStorage("items_atlas", *atlasFactory->CreateAtlas(*GetTexture("items_atlas"), "Assets/Textures/Atlas/Items/ItemsAtlas.xml"));
 
+	/// Entities
+	AddTextureToStorage("birds", *textureFactory->CreateTexture("Assets/Textures/Entities/birds_spritesheet.png"));
+
 	AddTextureToStorage("pj_test", *textureFactory->CreateTexture("Assets/Textures/Characters/player_spritesheet.png"));
 	AddTextureToStorage("guard_test", *textureFactory->CreateTexture("Assets/Textures/Characters/guard_spritesheet.png"));
 	AddTextureToStorage("npc_test", *textureFactory->CreateTexture("Assets/Textures/Characters/npc_spritesheet.png"));

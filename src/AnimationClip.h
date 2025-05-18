@@ -16,7 +16,7 @@ public:
 	void CleanUp();
 
 	void RenderClip(SDL_Color color = { 255,255,255,255 });
-	void RenderClip(Vector2 position, float scale, SDL_Color color = {255,255,255,255});
+	void RenderClip(Vector2 position, float scale = 1, SDL_Color color = {255,255,255,255});
 	void UpdateClip();
 
 	string Name();

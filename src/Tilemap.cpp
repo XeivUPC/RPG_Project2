@@ -15,6 +15,7 @@
 #include "SimpleTilemapChanger.h"
 #include "SimpleMapObject.h"
 #include "NpcCharacter.h"
+#include "BirdFlock.h"
 #include "ButtonPuzzleElement.h"
 #include "BlockingPuzzleElement.h"
 
@@ -226,6 +227,12 @@ void Tilemap::CreateObjects()
                         npc->SetNpcPath(move(pathData));
                     printf("");
                 }
+            }
+            else if (type == "birdFlock") {
+                Vector2 position = { object->x+ object->width / 2 ,object->y + object->width / 2 };
+				auto flock = Pooling::Instance().AcquireObject<BirdFlock>();
+                flock->Initialize(position, (object->width/2));
+                flock->SpawnBirds();
             }
             else if (type == "buttonPuzzle") {
 

@@ -143,6 +143,8 @@
     <ClCompile Include="src\AttackList.cpp" />
     <ClCompile Include="src\AudioContainer.cpp" />
     <ClCompile Include="src\AudioFactory.cpp" />
+    <ClCompile Include="src\Bird.cpp" />
+    <ClCompile Include="src\BirdFlock.cpp" />
     <ClCompile Include="src\BlockingPuzzleElement.cpp" />
     <ClCompile Include="src\ButtonPuzzleElement.cpp" />
     <ClCompile Include="src\CameraController.cpp" />
@@ -244,6 +246,8 @@
     <ClInclude Include="src\AttackList.h" />
     <ClInclude Include="src\AudioContainer.h" />
     <ClInclude Include="src\AudioFactory.h" />
+    <ClInclude Include="src\Bird.h" />
+    <ClInclude Include="src\BirdFlock.h" />
     <ClInclude Include="src\BlockingPuzzleElement.h" />
     <ClInclude Include="src\ButtonPuzzleElement.h" />
     <ClInclude Include="src\Camera.h" />
