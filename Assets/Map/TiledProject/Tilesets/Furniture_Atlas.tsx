@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="furniture_atlas" tilewidth="176" tileheight="157" tilecount="70" columns="0">
+<tileset version="1.10" tiledversion="1.11.0" name="furniture_atlas" tilewidth="176" tileheight="157" tilecount="71" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Bench1.png" width="16" height="32"/>
@@ -391,6 +391,15 @@
     <polygon points="0,0 6.33333,23.3333 18,38.3333 65,63.3333 90,74 144.333,85.6667 158,67 161.667,41 129.667,18.3333 69.3333,5.33333"/>
    </object>
    <object id="2" name="renderPosition" x="79.6667" y="94">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="70">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/FruitsBox.png" width="48" height="32"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="0.494318" y="16.1932" width="47.375" height="15.25"/>
+   <object id="2" name="renderPosition" x="23.9943" y="17.6932">
     <point/>
    </object>
   </objectgroup>

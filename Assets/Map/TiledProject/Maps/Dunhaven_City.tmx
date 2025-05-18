@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="112" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="24" nextobjectid="1185">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="112" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="24" nextobjectid="1189">
  <editorsettings>
   <export target="../../Data/Dunhaven_City.xml" format="tmx"/>
  </editorsettings>
@@ -1088,14 +1088,14 @@
   </object>
   <object id="758" x="88.75" y="1225.67">
    <properties>
-    <property name="NpcId" type="int" value="12"/>
+    <property name="NpcId" type="int" value="-1"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
   <object id="906" x="1280" y="336">
    <properties>
-    <property name="NpcId" type="int" value="-1"/>
+    <property name="NpcId" type="int" value="12"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -1311,16 +1311,6 @@
    </properties>
   </object>
   <object id="894" gid="2542" x="959.913" y="440.87" width="48" height="32">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="895" gid="2541" x="1023.38" y="455.813" width="48" height="32">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="899" gid="2542" x="1216" y="304" width="48" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
@@ -2116,7 +2106,7 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="1105" x="704.667" y="960.333">
+  <object id="1105" x="1109.94" y="236.97">
    <properties>
     <property name="NpcId" value="12"/>
     <property name="Path" type="object" value="1106"/>
@@ -2124,8 +2114,8 @@
    </properties>
    <point/>
   </object>
-  <object id="1106" x="651.826" y="872.7">
-   <polyline points="52.745,96.6136 53.7005,214.029"/>
+  <object id="1106" x="1109.93" y="103.31">
+   <polyline points="0.0052745,134.197 0.00537005,297.289"/>
   </object>
   <object id="1107" x="16" y="1088">
    <properties>
@@ -2423,12 +2413,21 @@
    </properties>
    <point/>
   </object>
-  <object id="1182" x="700.682" y="769.577">
-   <polygon points="0,0 0,164.836 119.945,164.836 119.945,0.21491"/>
+  <object id="1182" x="642.682" y="769.577">
+   <polygon points="0,0 0,164.836 230.945,164.836 230.945,0.21491"/>
   </object>
-  <object id="1184" x="742" y="879">
-   <polygon points="0,0 44,0.666667 91.6667,-43.3333 33.6667,-109.333 -80.6667,-86.3333 -83.3333,-18.3333"/>
+  <object id="1184" x="750.996" y="924.993">
+   <polygon points="-49.75,19 49.0379,-25.9934 107.337,-65.4307 45.1012,-132.327 -88.115,-138.54 -96.6627,-27.6822"/>
   </object>
+  <object id="1185" x="728.5" y="1116.5">
+   <properties>
+    <property name="NpcId" type="int" value="12"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="1187" gid="2550" x="1216" y="304" width="48" height="32"/>
+  <object id="1188" gid="2550" x="1024" y="464" width="48" height="32"/>
  </objectgroup>
  <objectgroup id="9" name="Collisions">
   <object id="665" x="-1.11364" y="-21.25" width="1792" height="37"/>
