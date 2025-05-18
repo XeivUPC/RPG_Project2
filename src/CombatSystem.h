@@ -31,7 +31,8 @@ public:
 		EFFECTS,
 		END_CHECK,
 		VICTORY,
-		DEFEAT
+		DEFEAT,
+		END
 	};
 
 	struct StatStages {

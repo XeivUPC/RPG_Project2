@@ -77,7 +77,6 @@ void Bird::Scare(Vector2 positionFromUser)
 
 void Bird::Initialize(BirdFlock* _flock, Vector2 _position)
 {
-	printf("%f   %f\n", _position.x, _position.y);
 	flock = _flock;
 	position = _position;
 	animator->Animate("idle");

@@ -135,7 +135,7 @@ bool ModuleInput::PreUpdate()
 	}
 
 	if (GetKey(SDL_SCANCODE_ESCAPE))
-		windowEvents[WE_QUIT] = true;
+		windowEvents[WE_QUIT] = false;
 
 	return true;
 }

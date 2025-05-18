@@ -481,6 +481,16 @@ void CombatCG::CreateUIExtras()
 	passTurn->SetParent(combatLayout);
 }
 
+void CombatCG::CreateEndScreen()
+{
+
+}
+
+void CombatCG::SetEndScreen()
+{
+	
+}
+
 void CombatCG::ShowAttackInformation(int attackIndex)
 {
 	Attack* attackSelected = attackButtons[attackIndex].attack;

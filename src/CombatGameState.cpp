@@ -30,7 +30,7 @@ bool CombatGameState::UpdateState()
 	combatCanvas->UpdateCanvas();
 	combatSystem->UpdateCombat();
 
-	if (combatSystem->GetCombatState() == CombatSystem::VICTORY || combatSystem->GetCombatState() == CombatSystem::DEFEAT) {
+	if (combatSystem->GetCombatState() == CombatSystem::END) {
 		if (!Engine::Instance().s_game->fade->IsFading()) {
 
 			Engine::Instance().s_game->fade->FadeTo(0.5f, 255);

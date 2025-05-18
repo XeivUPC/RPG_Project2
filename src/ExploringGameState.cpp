@@ -9,6 +9,7 @@
 #include "GameplayCG.h"
 #include "ScreenEffectsCG.h"
 #include "CameraController.h"
+#include "PauseMenuCG.h"
 #include "GameScene.h"
 
 bool ExploringGameState::PreUpdateState()
@@ -21,9 +22,18 @@ bool ExploringGameState::UpdateState()
     GameScene* game = Engine::Instance().s_game;
 
 
-    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_P) == KEY_DOWN)
+    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN) {
         game->SetState(GameScene::State::Menu);
-
+    }
+    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_I) == KEY_DOWN) {
+        game->SetState(GameScene::State::Menu);
+        game->pauseCanvas->OpenInventory();
+    }
+    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_P) == KEY_DOWN) {
+        game->SetState(GameScene::State::Menu);
+        game->pauseCanvas->OpenParty();
+    }
+   
 
     if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
         game->screenEffectsCanvas->SwitchRain();
@@ -55,4 +65,5 @@ void ExploringGameState::StateSelected()
 
 void ExploringGameState::StateDeselected()
 {
+
 }

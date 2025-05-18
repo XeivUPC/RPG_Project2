@@ -13,6 +13,7 @@
 
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
+#include "ModuleInput.h"
 #include "CharacterDatabase.h"
 #include "ModuleTime.h"
 #include "TextureAtlas.h"
@@ -139,6 +140,9 @@ void UIDialogueBoxCG::UpdateCanvas()
 		
 		characterNameTextBox->SetText(node.character.name);
 	}
+
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN && btns[0]->isEnabled)
+		NextDialogue();
 
 	UICanvas::UpdateCanvas();
 }

@@ -52,6 +52,12 @@ private:
 		Attack* currentAttack = nullptr;
 	};
 
+	struct UIEndScreen {
+		UIImage* endBg;
+		UITextBox* resultText;
+		UIButton* continueBtn;
+	};
+
 	struct UICharacterSlot {
 
 		UIButton* characterClick = nullptr;
@@ -85,6 +91,8 @@ private:
 	void CreateUIAttackInformation();
 	UICharacterSlot CreateUICharacterSlot(CombatSystem::CharacterReference* value, Vector2 slot_position);
 	void CreateUIExtras();
+	void CreateEndScreen();
+	void SetEndScreen();
 
 
 	void ShowAttackInformation(int attackIndex);
@@ -132,6 +140,8 @@ private:
 	UIAttackInformation attackInfo;
 	vector<UIAttackButton> attackButtons;
 	vector<UICharacterSlot> charactersSlot;
+
+	UIEndScreen endScreen;
 
 	/// TrackingData
 	UICharacterSlot* selectedCharacter = nullptr;

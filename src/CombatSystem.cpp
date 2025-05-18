@@ -175,12 +175,15 @@ void CombatSystem::UpdateCombat()
 			ChangeState(START);
 		break;
 	case CombatSystem::VICTORY:
-		/// End
 		wonLastCombat = true;
+		ChangeState(END);
 		break;
 	case CombatSystem::DEFEAT:
-		/// End
 		wonLastCombat = false;
+		ChangeState(END);
+		break;
+	case CombatSystem::END:
+		/// End
 		break;
 	default:
 		break;
