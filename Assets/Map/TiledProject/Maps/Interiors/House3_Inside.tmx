@@ -6,11 +6,11 @@
  <properties>
   <property name="IsInside" type="bool" value="true"/>
  </properties>
- <tileset firstgid="1" source="../Tilesets/Cave_Tiles.tsx"/>
- <tileset firstgid="290" source="../Tilesets/Floors_Tiles.tsx"/>
- <tileset firstgid="915" source="../Tilesets/Water_tiles.tsx"/>
- <tileset firstgid="1540" source="../Tilesets/Building_Atlas.tsx"/>
- <tileset firstgid="1546" source="../Tilesets/Furniture_Atlas.tsx"/>
+ <tileset firstgid="1" source="../../Tilesets/Cave_Tiles.tsx"/>
+ <tileset firstgid="290" source="../../Tilesets/Floors_Tiles.tsx"/>
+ <tileset firstgid="915" source="../../Tilesets/Water_tiles.tsx"/>
+ <tileset firstgid="1540" source="../../Tilesets/Building_Atlas.tsx"/>
+ <tileset firstgid="1546" source="../../Tilesets/Furniture_Atlas.tsx"/>
  <layer id="2" name="Ground0" width="26" height="30">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

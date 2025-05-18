@@ -31,6 +31,8 @@
 #include "NpcCharacter.h"
 #include "SimpleMapObject.h"
 #include "OverworldItem.h"
+#include "ButtonPuzzleElement.h"
+#include "BlockingPuzzleElement.h"
 ///
 
 #include "FadeCG.h"
@@ -72,6 +74,7 @@ bool GameScene::Start()
     Pooling::Instance().CreatePool<SimpleMapObject>(30);
     Pooling::Instance().CreatePool<NpcCharacter>(10);
     Pooling::Instance().CreatePool<OverworldItem>(10);
+    Pooling::Instance().CreatePool<ButtonPuzzleElement>(3);
 
     fade = new FadeCG(33, 25, 17, 255);
     fade->FadeTo(1,0);
@@ -212,10 +215,7 @@ bool GameScene::CleanUp()
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
 
-    Pooling::Instance().DeletePool<SimpleTilemapChanger>(true);
-    Pooling::Instance().DeletePool<SimpleMapObject>(true);
-    Pooling::Instance().DeletePool<NpcCharacter>(true);
-    Pooling::Instance().DeletePool<OverworldItem>(true);
+    DeletePoolMapObjects();
 
     MissionManager::Instance().Reset();
     MissionManager::Instance().ClearAllMissions();
@@ -395,9 +395,7 @@ void GameScene::CreateNewTilemap(string path)
 
     if (tilemaps.size() != 0) {
         tilemaps[tilemaps.size() - 1]->isVisible = false;
-        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
-        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
-        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+        ReturnToPoolMapObjects();
     }
     tilemaps.emplace_back(new Tilemap(path, 1));
 
@@ -419,10 +417,7 @@ void GameScene::SwapNewTilemap(string path, int entryPoint)
 
    
     if (tilemaps.size() != 0) {
-        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
-        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
-        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
-        Pooling::Instance().ReturnAllToPool<OverworldItem>();
+        ReturnToPoolMapObjects();
         //// Do Swap
         tilemaps[tilemaps.size() - 1]->CleanUp();
         delete tilemaps[tilemaps.size() - 1];
@@ -456,10 +451,7 @@ void GameScene::DeleteLastTilemap()
 
     if (tilemaps.size() != 0) {
 
-        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
-        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
-        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
-        Pooling::Instance().ReturnAllToPool<OverworldItem>();
+        ReturnToPoolMapObjects();
 
         tilemaps[tilemaps.size() - 1]->CleanUp();
         delete tilemaps[tilemaps.size() - 1];
@@ -478,6 +470,8 @@ void GameScene::DeleteLastTilemap()
 
     }
 }
+
+
 
 
 Tilemap* GameScene::GetLastTilemap()
@@ -505,7 +499,7 @@ PlayerCharacter* GameScene::GetPlayer() const
 
 void GameScene::FreshStart()
 {
-    CreateNewTilemap("Assets/Map/Data/Tutorial_Room.xml");
+    CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
     clock = StepTimer(3600*12);
     screenEffectsCanvas->RecalculateAmbientFadeColors();
 }
@@ -518,13 +512,31 @@ void GameScene::AskForLoadSaveData()
     fade->onFadeEnd.Subscribe([this]() {LoadGameSaveData();  fade->FadeTo(0.5f, 0);  SetState(State::Exploring); });
 }
 
+void GameScene::ReturnToPoolMapObjects()
+{
+    Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
+    Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
+    Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+    Pooling::Instance().ReturnAllToPool<OverworldItem>();
+    Pooling::Instance().ReturnAllToPool<ButtonPuzzleElement>();
+    Pooling::Instance().ReturnAllToPool<BlockingPuzzleElement>();
+}
+
+void GameScene::DeletePoolMapObjects()
+{
+    Pooling::Instance().DeletePool<SimpleTilemapChanger>(true);
+    Pooling::Instance().DeletePool<SimpleMapObject>(true);
+    Pooling::Instance().DeletePool<NpcCharacter>(true);
+    Pooling::Instance().DeletePool<OverworldItem>(true);
+    Pooling::Instance().DeletePool<ButtonPuzzleElement>(true);
+    Pooling::Instance().DeletePool<BlockingPuzzleElement>(true);
+}
+
+
 void GameScene::LoadGameSaveData()
 {
     LOG("Loading Game");
 
-    
-   
-    
 
     xml_document file;
     pugi::xml_parse_result result = file.load_file(savePath.c_str());
@@ -543,11 +555,7 @@ void GameScene::LoadGameSaveData()
         }
         tilemaps.clear();
 
-        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
-        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
-        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
-        Pooling::Instance().ReturnAllToPool<OverworldItem>();
-
+        ReturnToPoolMapObjects();
 
 
         xml_node rootNode = file.child("game");
