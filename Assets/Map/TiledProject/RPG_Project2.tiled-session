@@ -3,15 +3,15 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Forest.tmx",
+    "activeFile": "Tilesets/Vegetation_Atlas.tsx",
     "expandedProjectPaths": [
-        "Maps/Interiors",
-        "Prefabs",
         "Tilesets",
-        "Maps",
-        "Prefabs/Buildings",
+        "Prefabs",
+        "Objects",
         ".",
-        "Objects"
+        "Prefabs/Buildings",
+        "Maps",
+        "Maps/Interiors"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -54,11 +54,11 @@
                 9,
                 6
             ],
-            "scale": 0.25,
+            "scale": 0.33,
             "selectedLayer": 9,
             "viewCenter": {
-                "x": 1190,
-                "y": 1200
+                "x": 1037.8787878787878,
+                "y": 612.1212121212122
             }
         },
         "Maps/Forest.tmx": {
@@ -66,11 +66,11 @@
                 10,
                 7
             ],
-            "scale": 3,
+            "scale": 0.75,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 18.5,
-                "y": 152.33333333333334
+                "x": 235.33333333333337,
+                "y": 365.33333333333337
             }
         },
         "Maps/Forest_Secret_Cliff.tmx": {
@@ -314,8 +314,8 @@
         },
         "Tilesets/Furniture_Atlas.tsx": {
             "dynamicWrapping": true,
-            "scaleInDock": 1,
-            "scaleInEditor": 0.5
+            "scaleInDock": 0.25,
+            "scaleInEditor": 0.25
         },
         "Tilesets/Grass_Tiles.tsx": {
             "dynamicWrapping": false,
@@ -358,23 +358,31 @@
     "map.width": 20,
     "openFiles": [
         "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Maps/Forest.tmx"
+        "Maps/Tutorial_Room.tmx",
+        "Maps/CottageDunhaven.tmx",
+        "Maps/Interiors/XeivTreaty_MainRoom.tmx",
+        "Maps/Interiors/CottageDunhaven.tmx",
+        "Maps/Dunhaven_City.tmx",
+        "Maps/Forest.tmx",
+        "Tilesets/Vegetation_Atlas.tsx",
+        "Tilesets/Furniture_Atlas.tsx",
+        "Tilesets/Building_Atlas.tsx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "string",
     "recentFiles": [
-        "Tilesets/Vegetation_Atlas.tsx",
-        "Tilesets/Furniture_Atlas.tsx",
-        "Tilesets/Building_Atlas.tsx",
-        "Tilesets/Grass_Tiles.tsx",
-        "Tilesets/Floors_Tiles.tsx",
-        "Tilesets/Cave_Tiles.tsx",
-        "Maps/Dunhaven_City.tmx",
-        "Maps/House1_Inside.tmx",
-        "Maps/XeivTreaty_MainRoom.tmx",
-        "Maps/Forest.tmx",
         "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Maps/House2_Inside.tmx"
+        "Maps/Tutorial_Room.tmx",
+        "Maps/CottageDunhaven.tmx",
+        "Maps/Interiors/XeivTreaty_MainRoom.tmx",
+        "Maps/Interiors/CottageDunhaven.tmx",
+        "Maps/Dunhaven_City.tmx",
+        "Maps/Forest.tmx",
+        "Tilesets/Building_Atlas.tsx",
+        "Tilesets/Furniture_Atlas.tsx",
+        "Tilesets/Vegetation_Atlas.tsx",
+        "Tilesets/Grass_Tiles.tsx",
+        "Tilesets/Floors_Tiles.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,

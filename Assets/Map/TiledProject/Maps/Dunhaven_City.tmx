@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="112" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="24" nextobjectid="1217">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="112" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="24" nextobjectid="1220">
  <editorsettings>
   <export target="../../Data/Dunhaven_City.xml" format="tmx"/>
  </editorsettings>
@@ -2051,21 +2051,6 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="1099" gid="2546" x="1488" y="384" width="68.3119" height="43.4712">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="1102" gid="2547" x="1344" y="448" width="65.7071" height="41.8136">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="1103" gid="2546" x="1392" y="736" width="79.3119" height="50.4712">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
   <object id="1104" gid="2547" x="1184" y="1280" width="65.7071" height="41.8136">
    <properties>
     <property name="Type" value="simpleObject"/>
@@ -2134,12 +2119,6 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="1125" gid="2549" x="1264.67" y="1016.67" width="89.3079" height="79.6667">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="1126" gid="2548" x="1248" y="112" width="80.7134" height="72"/>
   <object id="1127" gid="2526" x="640" y="1184" width="38" height="57">
    <properties>
     <property name="Type" value="simpleObject"/>
@@ -2514,6 +2493,24 @@
    <ellipse/>
   </object>
   <object id="1216" x="909.333" y="766.667" width="96" height="96">
+   <properties>
+    <property name="Type" value="birdFlock"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="1217" x="227" y="1170" width="96" height="96">
+   <properties>
+    <property name="Type" value="birdFlock"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="1218" x="1458" y="103" width="96" height="96">
+   <properties>
+    <property name="Type" value="birdFlock"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="1219" x="1555" y="789" width="96" height="96">
    <properties>
     <property name="Type" value="birdFlock"/>
    </properties>

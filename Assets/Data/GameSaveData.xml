@@ -11,12 +11,10 @@
 			</inactive>
 		</party>
 		<missions>
-			<mission id="mission;testing" status="0" />
-			<mission id="mission;testing2" status="1" />
-			<mission id="mission;testing3" status="0" />
+			
 		</missions>
 		<inventory>
-			<item id="item;null" amount="10" />
+			<item/>
 			<item />
 			<item />
 			<item />

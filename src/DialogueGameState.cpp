@@ -44,8 +44,8 @@ bool DialogueGameState::PostUpdateState()
 
 void DialogueGameState::StateSelected()
 {
-    if (Engine::Instance().m_audio->GetMusic() != Engine::Instance().m_assetsDB->GetMusic("townTheme"))
-        Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("townTheme"), 1000);
+    if (Engine::Instance().m_audio->GetMusic() != Engine::Instance().m_assetsDB->GetMusic("Dunhaven"))
+        Engine::Instance().m_audio->PlayMusicAsync(Engine::Instance().m_assetsDB->GetMusic("Dunhaven"), 1000);
 
     Engine::Instance().m_updater->PauseUpdateGroup("Entity");
     Engine::Instance().m_physics->PauseSimulation();
