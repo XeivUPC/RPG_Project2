@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="furniture_atlas" tilewidth="139" tileheight="117" tilecount="66" columns="0">
+<tileset version="1.10" tiledversion="1.11.0" name="furniture_atlas" tilewidth="176" tileheight="117" tilecount="68" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Bench1.png" width="16" height="32"/>
@@ -350,5 +350,11 @@
     <point/>
    </object>
   </objectgroup>
+ </tile>
+ <tile id="66">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Boat1.png" width="176" height="112"/>
+ </tile>
+ <tile id="67">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Boat1_Left.png" width="176" height="112"/>
  </tile>
 </tileset>
