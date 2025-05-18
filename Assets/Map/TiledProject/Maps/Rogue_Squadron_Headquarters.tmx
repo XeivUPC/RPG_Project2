@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="666">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="674">
  <editorsettings>
   <export target="../../Data/Rogue_Squadron_Headquarters.xml" format="tmx"/>
  </editorsettings>
@@ -1957,6 +1957,42 @@
     <property name="Type" value="npc"/>
    </properties>
    <point/>
+  </object>
+  <object id="666" x="786.5" y="732.5" width="96" height="96">
+   <properties>
+    <property name="Type" value="birdFlock"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="668" x="647.5" y="204" width="96" height="96">
+   <properties>
+    <property name="Type" value="birdFlock"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="669" x="811.5" y="474" width="96" height="96">
+   <properties>
+    <property name="Type" value="birdFlock"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="670" x="91" y="524" width="96" height="96">
+   <properties>
+    <property name="Type" value="birdFlock"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="671" x="364" y="790.5" width="96" height="96">
+   <properties>
+    <property name="Type" value="birdFlock"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="672" x="407.5" y="567" width="96" height="96">
+   <properties>
+    <property name="Type" value="birdFlock"/>
+   </properties>
+   <ellipse/>
   </object>
  </objectgroup>
  <objectgroup id="9" name="Collisions">

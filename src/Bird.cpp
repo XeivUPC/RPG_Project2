@@ -2,6 +2,7 @@
 #include "BirdFlock.h"
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
+#include "DrawingTools.h"
 #include "ModuleRender.h"
 #include "ModuleTime.h"
 #include "Animator.h"
@@ -62,6 +63,8 @@ void Bird::UpdateBird()
 void Bird::RenderBird()
 {
 	animator->clip()->RenderClip(position);
+
+	Engine::Instance().m_render->painter().RenderCircle(position, 2, { 255,0,0,255 }, 30);
 }
 
 void Bird::Scare(Vector2 positionFromUser)

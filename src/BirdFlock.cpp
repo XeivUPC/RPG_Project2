@@ -119,7 +119,7 @@ Vector2 BirdFlock::GetRandomPointInside()
 	std::uniform_real_distribution<> dis_r01(0.0, 1.0);
 	std::uniform_real_distribution<> dis_theta(0.0, 2 * M_PI);
 
-	double r = radius * sqrt(dis_r01(gen));
+	double r = (radius-(radius *0.2f)) * sqrt(dis_r01(gen));
 	double theta = dis_theta(gen);
 
 	Vector2 p;
