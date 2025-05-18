@@ -1,1 +1,55 @@
-{"a177e152-2dda-4c23-a215-9f999bd5950c":{"name":"Cottage Man","character_uuid":null,"portrait":"","text":{"en":"Hello.","fr":""},"parent":"root"},"root":{"next":"a177e152-2dda-4c23-a215-9f999bd5950c"},"__editor":{"root":{"uuid":"root","offset":[-40,100]},"dialogues":[{"uuid":"a177e152-2dda-4c23-a215-9f999bd5950c","offset":[320,-40],"parent":"root"}],"conditions":[],"signals":[],"choices":[]}}
+{
+    "root": {
+        "conditions": [
+            {
+                "parent": "root",
+                "Char9_State": {
+                    "value": 0,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "next": "cccf1882-97a6-4660-a15b-dc0d19544993"
+            }
+        ]
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                -40,
+                100
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "cccf1882-97a6-4660-a15b-dc0d19544993",
+                "offset": [
+                    780,
+                    -80
+                ]
+            }
+        ],
+        "conditions": [
+            {
+                "uuid": "539e592e-5e5e-4561-8f4b-a007ff1da77e",
+                "offset": [
+                    360,
+                    -40
+                ],
+                "parent": "root"
+            }
+        ],
+        "signals": [],
+        "choices": []
+    },
+    "cccf1882-97a6-4660-a15b-dc0d19544993": {
+        "name": "Cottage Man",
+        "character_uuid": "dab651be-9a2a-4d35-856a-618d1533af3d",
+        "portrait": "",
+        "text": {
+            "en": "Hello.",
+            "fr": ""
+        },
+        "parent": "539e592e-5e5e-4561-8f4b-a007ff1da77e"
+    }
+}
