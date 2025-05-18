@@ -505,6 +505,7 @@ PlayerCharacter* GameScene::GetPlayer() const
 void GameScene::FreshStart()
 {
     CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
+    MissionManager::Instance().AddMission(*new MissionHolder(MissionList::Instance().MissionByID("mission;tutorial")));
     clock = StepTimer(3600*12);
     screenEffectsCanvas->RecalculateAmbientFadeColors();
 }

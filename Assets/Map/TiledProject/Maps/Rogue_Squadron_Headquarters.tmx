@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="670">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="666">
  <editorsettings>
   <export target="../../Data/Rogue_Squadron_Headquarters.xml" format="tmx"/>
  </editorsettings>
@@ -419,7 +419,7 @@
    </properties>
    <point/>
   </object>
-  <object id="106" name="SpawnPoint" x="280.211" y="831.909">
+  <object id="106" name="SpawnPoint" x="522.711" y="591.954">
    <properties>
     <property name="Type" value="spawnPoint"/>
    </properties>
@@ -1951,29 +1951,12 @@
   <object id="664" x="849" y="369">
    <polyline points="0,0 95,0"/>
   </object>
-  <object id="665" x="643.193" y="203.632" width="97.5923" height="97.5923" rotation="359.029">
+  <object id="665" x="535.455" y="579.5">
    <properties>
-    <property name="Type" value="birdFlock"/>
+    <property name="NpcId" value="10"/>
+    <property name="Type" value="npc"/>
    </properties>
-   <ellipse/>
-  </object>
-  <object id="667" x="845.871" y="430.871" width="97.5923" height="97.5923" rotation="359.029">
-   <properties>
-    <property name="Type" value="birdFlock"/>
-   </properties>
-   <ellipse/>
-  </object>
-  <object id="668" x="789.204" y="723.204" width="97.5923" height="97.5923" rotation="359.029">
-   <properties>
-    <property name="Type" value="birdFlock"/>
-   </properties>
-   <ellipse/>
-  </object>
-  <object id="669" x="637.204" y="739.204" width="97.5923" height="97.5923" rotation="359.029">
-   <properties>
-    <property name="Type" value="birdFlock"/>
-   </properties>
-   <ellipse/>
+   <point/>
   </object>
  </objectgroup>
  <objectgroup id="9" name="Collisions">
