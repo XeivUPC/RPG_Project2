@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="furniture_atlas" tilewidth="176" tileheight="117" tilecount="68" columns="0">
+<tileset version="1.10" tiledversion="1.11.0" name="furniture_atlas" tilewidth="176" tileheight="157" tilecount="70" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Bench1.png" width="16" height="32"/>
@@ -364,6 +364,22 @@
   <objectgroup draworder="index" id="2">
    <object id="3" name="collision" x="30" y="108.667">
     <polygon points="0,0 -13,-18 -17,-32 1.66667,-48.6667 87.3333,-90 103,-97 126.333,-89.3333 134.333,-84.6667 140,-78.3333 138.333,-64.3333 126.667,-48.3333 101.667,-33 62.3333,-11.3333"/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="68">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Boat2_Left.png" width="176" height="157"/>
+  <objectgroup draworder="index" id="4">
+   <object id="4" name="collision" x="74.3333" y="70">
+    <polygon points="-21.3333,18.6667 93.6667,-11.6667 96.6667,-1.66667 91.3333,18.6667 61,50 -3.66667,81.3333 -43.6667,83.3333 -58.6667,75.3333 -62.6667,61.6667 -61.6667,39.6667"/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="69">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Boat2.png" width="176" height="157"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="3.33333" y="70.3333">
+    <polygon points="0,0 6.33333,23.3333 18,38.3333 65,63.3333 90,74 144.333,85.6667 158,67 161.667,41 129.667,18.3333 69.3333,5.33333"/>
    </object>
   </objectgroup>
  </tile>
