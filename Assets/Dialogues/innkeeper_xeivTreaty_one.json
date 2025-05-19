@@ -1,0 +1,509 @@
+{
+    "1a774530-2472-4c9d-85b2-a0885c4a8a1d": {
+        "name": "dunhaven_innkeeper_one",
+        "character_uuid": null,
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "Welcome to Xeiv Treaty, Dunhaven's subsidary of the most famous tavern in the Empire, Will Treaty!",
+            "fr": ""
+        },
+        "parent": "cdd2813e-ef81-44b2-9587-33a99a48797d",
+        "next": "babecbb2-7871-45dc-baca-5e838a3444d1"
+    },
+    "babecbb2-7871-45dc-baca-5e838a3444d1": {
+        "name": "dunhaven_innkeeper_one",
+        "character_uuid": null,
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "What are you here for? A drink... or maybe a VIP?",
+            "fr": ""
+        },
+        "parent": "1a774530-2472-4c9d-85b2-a0885c4a8a1d",
+        "choices": [
+            {
+                "text": {
+                    "en": "Just a drink at the bar will sufice.",
+                    "fr": ""
+                },
+                "next": "22aa14c4-83b4-4393-9746-2a7adcaa20f6",
+                "parent": "babecbb2-7871-45dc-baca-5e838a3444d1"
+            },
+            {
+                "text": {
+                    "en": "I was looking for a table and a meal.",
+                    "fr": ""
+                },
+                "next": "22aa14c4-83b4-4393-9746-2a7adcaa20f6",
+                "parent": "babecbb2-7871-45dc-baca-5e838a3444d1"
+            },
+            {
+                "text": {
+                    "en": "A... VIP?",
+                    "fr": ""
+                },
+                "next": "482b4934-ba4a-4e23-97b1-52f4cda36f86",
+                "parent": "babecbb2-7871-45dc-baca-5e838a3444d1"
+            }
+        ]
+    },
+    "482b4934-ba4a-4e23-97b1-52f4cda36f86": {
+        "name": "dunhaven_innkeeper_one",
+        "character_uuid": null,
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "I guess you don't know, huh? Come back if you know what fun is!",
+            "fr": ""
+        },
+        "parent": "8e9c49e4-4818-4863-8f20-cf715aa259a7",
+        "signals": {
+            "parent": "482b4934-ba4a-4e23-97b1-52f4cda36f86",
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "13",
+                    "y": "1"
+                }
+            }
+        }
+    },
+    "22aa14c4-83b4-4393-9746-2a7adcaa20f6": {
+        "name": "dunhaven_innkeeper_one",
+        "character_uuid": null,
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "It'll be ready before you know, just sit down for a moment.",
+            "fr": ""
+        },
+        "parent": "b9e7a63b-9aa4-40dd-9b1a-ae3c1044a770",
+        "signals": {
+            "parent": "22aa14c4-83b4-4393-9746-2a7adcaa20f6",
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "13",
+                    "y": "2"
+                }
+            }
+        }
+    },
+    "17b6ebbc-554b-4f29-b3a7-2a9eb6412523": {
+        "name": "dunhaven_innkeeper_one",
+        "character_uuid": null,
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "Welcome back, lad! What can i do for you today?",
+            "fr": ""
+        },
+        "parent": "6acc7614-56a8-41a5-9334-8beebe5d11dd",
+        "next": "10d08473-76f5-497e-a741-c1e3e9b224d3"
+    },
+    "b03abc96-a432-45f6-9f51-b0bce700d885": {
+        "name": "dunhaven_innkeeper_one",
+        "character_uuid": null,
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "Welcome back, lad! What can i do for you today?",
+            "fr": ""
+        },
+        "parent": "eaa69941-834f-4dc1-a873-62bf0d0b0a06",
+        "next": "d4c6e7b2-a76d-4232-9002-acc883a5c622"
+    },
+    "10d08473-76f5-497e-a741-c1e3e9b224d3": {
+        "name": "dunhaven_innkeeper_one",
+        "character_uuid": null,
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "A meal, a drink, or a VIP? ",
+            "fr": ""
+        },
+        "parent": "17b6ebbc-554b-4f29-b3a7-2a9eb6412523",
+        "choices": [
+            {
+                "text": {
+                    "en": "Just a drink at the bar will sufice.",
+                    "fr": ""
+                },
+                "next": "06c71b1f-0613-419e-9dee-f72ccc675126",
+                "parent": "10d08473-76f5-497e-a741-c1e3e9b224d3"
+            },
+            {
+                "text": {
+                    "en": "I was looking for a table and a meal.",
+                    "fr": ""
+                },
+                "next": "06c71b1f-0613-419e-9dee-f72ccc675126",
+                "parent": "10d08473-76f5-497e-a741-c1e3e9b224d3"
+            },
+            {
+                "text": {
+                    "en": "What should I do to know what fun is?",
+                    "fr": ""
+                },
+                "next": "5077eec6-ef10-4f27-babe-c31c1ef31209",
+                "parent": "10d08473-76f5-497e-a741-c1e3e9b224d3"
+            }
+        ]
+    },
+    "d4c6e7b2-a76d-4232-9002-acc883a5c622": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "",
+            "fr": ""
+        },
+        "parent": "b03abc96-a432-45f6-9f51-b0bce700d885",
+        "choices": [
+            {
+                "text": {
+                    "en": "Just a drink at the bar will sufice.",
+                    "fr": ""
+                },
+                "next": "e163b16d-e42b-4f85-9580-f04cc64987ba",
+                "parent": "d4c6e7b2-a76d-4232-9002-acc883a5c622"
+            },
+            {
+                "text": {
+                    "en": "I was looking for a table and a meal.",
+                    "fr": ""
+                },
+                "next": "e163b16d-e42b-4f85-9580-f04cc64987ba",
+                "parent": "d4c6e7b2-a76d-4232-9002-acc883a5c622"
+            },
+            {
+                "text": {
+                    "en": "A... VIP?",
+                    "fr": ""
+                },
+                "next": "4b0772c8-2e9e-4350-ae55-71695ea20803",
+                "parent": "d4c6e7b2-a76d-4232-9002-acc883a5c622"
+            }
+        ]
+    },
+    "06c71b1f-0613-419e-9dee-f72ccc675126": {
+        "name": "dunhaven_innkeeper_one",
+        "character_uuid": null,
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "It'll be ready before you know, just sit down for a moment.",
+            "fr": ""
+        },
+        "parent": "20110160-a388-4591-9ff0-ce51d44e1a22"
+    },
+    "5077eec6-ef10-4f27-babe-c31c1ef31209": {
+        "name": "dunhaven_innkeeper_one",
+        "character_uuid": null,
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "**SEND MISSION TO FIND CODE TO ENTER THE VIP SECTION**",
+            "fr": ""
+        },
+        "parent": "2899873e-66b5-4289-ab57-7bb086569962"
+    },
+    "e163b16d-e42b-4f85-9580-f04cc64987ba": {
+        "name": "dunhaven_innkeeper_one",
+        "character_uuid": null,
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "It'll be ready before you know, just sit down for a moment.",
+            "fr": ""
+        },
+        "parent": "79ffa162-61eb-4338-85aa-da0dd27ccedc"
+    },
+    "4b0772c8-2e9e-4350-ae55-71695ea20803": {
+        "name": "dunhaven_innkeeper_one",
+        "character_uuid": null,
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "I guess you don't know, huh? Come back if you know what fun is!",
+            "fr": ""
+        },
+        "parent": "a5b7a5b1-1a6e-483c-bb98-5b333f4c9b74",
+        "signals": {
+            "parent": "4b0772c8-2e9e-4350-ae55-71695ea20803",
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "13",
+                    "y": "1"
+                }
+            }
+        }
+    },
+    "root": {
+        "conditions": [
+            {
+                "parent": "root",
+                "Char13_State": {
+                    "value": 0,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "next": "1a774530-2472-4c9d-85b2-a0885c4a8a1d"
+            },
+            {
+                "parent": "root",
+                "Char13_State": {
+                    "value": 1,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "next": "17b6ebbc-554b-4f29-b3a7-2a9eb6412523"
+            },
+            {
+                "parent": "root",
+                "next": "b03abc96-a432-45f6-9f51-b0bce700d885",
+                "Char13_State": {
+                    "value": 2,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            }
+        ]
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                0,
+                100
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "1a774530-2472-4c9d-85b2-a0885c4a8a1d",
+                "offset": [
+                    820,
+                    -140
+                ]
+            },
+            {
+                "uuid": "babecbb2-7871-45dc-baca-5e838a3444d1",
+                "offset": [
+                    1260,
+                    -140
+                ]
+            },
+            {
+                "uuid": "482b4934-ba4a-4e23-97b1-52f4cda36f86",
+                "offset": [
+                    2200,
+                    180
+                ]
+            },
+            {
+                "uuid": "22aa14c4-83b4-4393-9746-2a7adcaa20f6",
+                "offset": [
+                    2200,
+                    -320
+                ]
+            },
+            {
+                "uuid": "17b6ebbc-554b-4f29-b3a7-2a9eb6412523",
+                "offset": [
+                    760,
+                    640
+                ]
+            },
+            {
+                "uuid": "b03abc96-a432-45f6-9f51-b0bce700d885",
+                "offset": [
+                    760,
+                    1420
+                ]
+            },
+            {
+                "uuid": "10d08473-76f5-497e-a741-c1e3e9b224d3",
+                "offset": [
+                    1260,
+                    660
+                ]
+            },
+            {
+                "uuid": "d4c6e7b2-a76d-4232-9002-acc883a5c622",
+                "offset": [
+                    1240,
+                    1420
+                ]
+            },
+            {
+                "uuid": "06c71b1f-0613-419e-9dee-f72ccc675126",
+                "offset": [
+                    2180,
+                    580
+                ]
+            },
+            {
+                "uuid": "5077eec6-ef10-4f27-babe-c31c1ef31209",
+                "offset": [
+                    2180,
+                    980
+                ]
+            },
+            {
+                "uuid": "e163b16d-e42b-4f85-9580-f04cc64987ba",
+                "offset": [
+                    2180,
+                    1380
+                ]
+            },
+            {
+                "uuid": "4b0772c8-2e9e-4350-ae55-71695ea20803",
+                "offset": [
+                    2200,
+                    1780
+                ]
+            }
+        ],
+        "conditions": [
+            {
+                "uuid": "cdd2813e-ef81-44b2-9587-33a99a48797d",
+                "offset": [
+                    340,
+                    -100
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "6acc7614-56a8-41a5-9334-8beebe5d11dd",
+                "offset": [
+                    320,
+                    680
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "eaa69941-834f-4dc1-a873-62bf0d0b0a06",
+                "offset": [
+                    300,
+                    1440
+                ],
+                "parent": "root"
+            }
+        ],
+        "signals": [
+            {
+                "uuid": "65648243-afcc-402e-a2f1-96d9efeca185",
+                "offset": [
+                    2640,
+                    240
+                ],
+                "parent": "482b4934-ba4a-4e23-97b1-52f4cda36f86",
+                "data": {
+                    "parent": "482b4934-ba4a-4e23-97b1-52f4cda36f86",
+                    "SetNpcStatusByID": {
+                        "Vector2": {
+                            "x": "13",
+                            "y": "1"
+                        }
+                    }
+                }
+            },
+            {
+                "uuid": "6b1f3fae-1126-463f-b334-d65fc824c724",
+                "offset": [
+                    2620,
+                    -260
+                ],
+                "parent": "22aa14c4-83b4-4393-9746-2a7adcaa20f6",
+                "data": {
+                    "parent": "22aa14c4-83b4-4393-9746-2a7adcaa20f6",
+                    "SetNpcStatusByID": {
+                        "Vector2": {
+                            "x": "13",
+                            "y": "2"
+                        }
+                    }
+                }
+            },
+            {
+                "uuid": "09d4ba86-71d3-433e-a386-505b538dc25b",
+                "offset": [
+                    2640,
+                    1840
+                ],
+                "parent": "4b0772c8-2e9e-4350-ae55-71695ea20803",
+                "data": {
+                    "parent": "4b0772c8-2e9e-4350-ae55-71695ea20803",
+                    "SetNpcStatusByID": {
+                        "Vector2": {
+                            "x": "13",
+                            "y": "1"
+                        }
+                    }
+                }
+            }
+        ],
+        "choices": [
+            {
+                "uuid": "b584e95e-c5dd-4d89-8c03-faa51ad6be32",
+                "offset": [
+                    1760,
+                    -320
+                ],
+                "parent": "babecbb2-7871-45dc-baca-5e838a3444d1"
+            },
+            {
+                "uuid": "b9e7a63b-9aa4-40dd-9b1a-ae3c1044a770",
+                "offset": [
+                    1760,
+                    -80
+                ],
+                "parent": "babecbb2-7871-45dc-baca-5e838a3444d1"
+            },
+            {
+                "uuid": "8e9c49e4-4818-4863-8f20-cf715aa259a7",
+                "offset": [
+                    1780,
+                    200
+                ],
+                "parent": "babecbb2-7871-45dc-baca-5e838a3444d1"
+            },
+            {
+                "uuid": "e1000b0c-07ee-4a87-856e-2d0b323e2579",
+                "offset": [
+                    1720,
+                    600
+                ],
+                "parent": "10d08473-76f5-497e-a741-c1e3e9b224d3"
+            },
+            {
+                "uuid": "20110160-a388-4591-9ff0-ce51d44e1a22",
+                "offset": [
+                    1720,
+                    840
+                ],
+                "parent": "10d08473-76f5-497e-a741-c1e3e9b224d3"
+            },
+            {
+                "uuid": "2899873e-66b5-4289-ab57-7bb086569962",
+                "offset": [
+                    1720,
+                    1080
+                ],
+                "parent": "10d08473-76f5-497e-a741-c1e3e9b224d3"
+            },
+            {
+                "uuid": "9fbef204-e9a8-41ea-a850-e25502c16006",
+                "offset": [
+                    1740,
+                    1340
+                ],
+                "parent": "d4c6e7b2-a76d-4232-9002-acc883a5c622"
+            },
+            {
+                "uuid": "79ffa162-61eb-4338-85aa-da0dd27ccedc",
+                "offset": [
+                    1740,
+                    1580
+                ],
+                "parent": "d4c6e7b2-a76d-4232-9002-acc883a5c622"
+            },
+            {
+                "uuid": "a5b7a5b1-1a6e-483c-bb98-5b333f4c9b74",
+                "offset": [
+                    1740,
+                    1820
+                ],
+                "parent": "d4c6e7b2-a76d-4232-9002-acc883a5c622"
+            }
+        ]
+    }
+}
