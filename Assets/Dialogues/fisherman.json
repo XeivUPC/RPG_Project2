@@ -1,1 +1,37 @@
-{"root":{"next":"4b9f62f8-a4dc-4622-afbd-7e07f7aa7b3d"},"__editor":{"root":{"uuid":"root","offset":[40,100]},"dialogues":[{"uuid":"4b9f62f8-a4dc-4622-afbd-7e07f7aa7b3d","offset":[280,-100],"parent":"root"}],"conditions":[],"signals":[],"choices":[]},"4b9f62f8-a4dc-4622-afbd-7e07f7aa7b3d":{"name":"Fisherman","character_uuid":"bee55938-cad6-4c31-9a1e-b0aa241b6d8a","portrait":"/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png","text":{"en":"Hiiiii!","fr":""},"parent":"root"}}
+{
+    "root": {
+        "next": "4b9f62f8-a4dc-4622-afbd-7e07f7aa7b3d"
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                40,
+                100
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "4b9f62f8-a4dc-4622-afbd-7e07f7aa7b3d",
+                "offset": [
+                    280,
+                    -100
+                ],
+                "parent": "root"
+            }
+        ],
+        "conditions": [],
+        "signals": [],
+        "choices": []
+    },
+    "4b9f62f8-a4dc-4622-afbd-7e07f7aa7b3d": {
+        "name": "Fisherman",
+        "character_uuid": "bee55938-cad6-4c31-9a1e-b0aa241b6d8a",
+        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+        "text": {
+            "en": "Hiiiii!",
+            "fr": ""
+        },
+        "parent": "root"
+    }
+}
