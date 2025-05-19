@@ -54,11 +54,11 @@
                 6,
                 9
             ],
-            "scale": 0.33,
+            "scale": 1.5,
             "selectedLayer": 9,
             "viewCenter": {
-                "x": 1037.8787878787878,
-                "y": 612.1212121212122
+                "x": 1221,
+                "y": 522.6666666666666
             }
         },
         "Maps/Forest.tmx": {
@@ -202,11 +202,11 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 1.5,
+            "scale": 1,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 145.66666666666666,
-                "y": 582.6666666666666
+                "x": 454.5,
+                "y": 411
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {

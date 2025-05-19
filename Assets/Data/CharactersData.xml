@@ -37,21 +37,21 @@
 	</Character>
 	<Character id="4" name="Sir Gideon Hawthorne">
 		<Data textureId="pj_test" faceId="Guideon-idle" dialoguePath="Assets/Dialogues/Sir_Gideon_Hawthorne.json" />
-		<Stats state="1" friendship="0" love="0" />
+		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="15" hp="61" defense="65" attack="74" speed="55" />
 		<Attacks attack1="8" attack2="2" attack3="6" attack4="3" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="5" name="Zeryn">
 		<Data textureId="zeryn_test" faceId="Zeryn-early-idle" dialoguePath="Assets/Dialogues/zeryn_early.json" />
-		<Stats state="3" friendship="0" love="0" />
+		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="15" hp="40" defense="35" attack="78" speed="60" />
 		<Attacks attack1="0" attack2="0" attack3="0" attack4="0" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="6" name="R.S Chef">
 		<Data textureId="guard_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/chef_RS.json" />
-		<Stats state="3" friendship="0" love="0" />
+		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="12" hp="60" defense="63" attack="72" speed="100" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="0" />
@@ -72,7 +72,7 @@
 	</Character>
 	<Character id="9" name="Cottage Man">
 		<Data textureId="cassian_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/cottage_man.json" />
-		<Stats state="1" friendship="0" love="0" />
+		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="0" />

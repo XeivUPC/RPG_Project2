@@ -1980,7 +1980,7 @@
   </object>
   <object id="665" x="535.455" y="579.5">
    <properties>
-    <property name="NpcId" value="9"/>
+    <property name="NpcId" value="10"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
