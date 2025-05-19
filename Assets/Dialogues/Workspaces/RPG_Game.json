@@ -165,7 +165,7 @@
                 "name": "Cottage Man",
                 "portraits": [
                     {
-                        "name": "Innkeeper-idle.png",
+                        "name": "Innkeeper-idle",
                         "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
                         "uuid": "48823f14-5c76-47a9-8d50-abe1271c8856"
                     }
@@ -176,7 +176,7 @@
                 "name": "Fisherman",
                 "portraits": [
                     {
-                        "name": "Fisherman-idle.png",
+                        "name": "Fisherman-idle",
                         "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
                         "uuid": "91378b4e-8ea9-4ac0-a8b8-6c53e0878628"
                     }
@@ -187,7 +187,7 @@
                 "name": "Innkeeper",
                 "portraits": [
                     {
-                        "name": "Innkeeper-idle.png",
+                        "name": "Innkeeper-idle",
                         "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
                         "uuid": "bc1f373a-47e7-4fda-a289-e7ffa27bc51c"
                     }
