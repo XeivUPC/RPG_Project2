@@ -2,7 +2,7 @@
     "7a67dcc1-38f7-4def-b71b-a9519aba9967": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-happy.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-happy.png",
         "text": {
             "en": "Hello soldier !",
             "fr": ""
@@ -13,7 +13,7 @@
     "38deba22-c38d-493f-b677-5756a2e6c1b9": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Good morning.",
             "fr": ""
@@ -41,7 +41,7 @@
     "c4fe3d9a-462f-4948-8971-3cf64319509b": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "No.",
             "fr": ""
@@ -52,7 +52,7 @@
     "3c1b053b-0555-486a-98ca-16933919f7d1": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-sad-fade.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-sad-fade.png",
         "text": {
             "en": "Understood, goodbye.",
             "fr": ""
@@ -71,7 +71,7 @@
     "93a81370-ee45-460f-a9d3-7310c354a583": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "You shall not pass.",
             "fr": ""

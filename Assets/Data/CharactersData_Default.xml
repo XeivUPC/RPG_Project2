@@ -50,7 +50,7 @@
 		<AttackRole type="0" />
 	</Character>
 	<Character id="6" name="R.S Chef">
-		<Data textureId="guard_test" faceId ="Guard1-idle" dialoguePath="Assets/Dialogues/chef_RS.json" />
+		<Data textureId="guard_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/chef_RS.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="12" hp="60" defense="63" attack="72" speed="100" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
@@ -64,29 +64,41 @@
 		<AttackRole type="0" />
 	</Character>
 	<Character id="8" name="Pedro Jr.">
-		<Data textureId="dog_test" faceId ="Guard1-idle" dialoguePath="Assets/Dialogues/pedro_jr.json" />
+		<Data textureId="dog_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/pedro_jr.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="0" />
 	</Character>
-
-	<Character id="9" name="Guard Tutorial">
-		<Data textureId="guard_test" faceId ="Guard1-idle" dialoguePath="Assets/Dialogues/guard_tutorial.json" />
-		<Stats state="0" friendship="0" love="0" />
-		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
-		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
-		<AttackRole type="0" />
-	</Character>
-
-	<Character id="10" name="Cottage Man">
+	<Character id="9" name="Cottage Man">
 		<Data textureId="cassian_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/cottage_man.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="0" />
 	</Character>
-	<Character id="11" name="Innkeeper">
+	<Character id="10" name="Guard Tutorial">
+		<Data textureId="guard_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/guard_tutorial.json" />
+		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
+		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
+		<AttackRole type="0" />
+	</Character>
+	<Character id="11" name="Dunhaven Guard">
+		<Data textureId="guard_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/empty_dialog.json" />
+		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
+		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
+		<AttackRole type="0" />
+	</Character>
+	<Character id="12" name="Fisherman">
+		<Data textureId="fisherman_test" faceId="Fisherman-idle" dialoguePath="Assets/Dialogues/Fisherman_Dunhaven_One.json" />
+		<Stats state="0" friendship="0" love="0" />
+		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
+		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
+		<AttackRole type="0" />
+	</Character>
+	<Character id="13" name="Innkeeper">
 		<Data textureId="cassian_test" faceId="Cassian-early-idle" dialoguePath="Assets/Dialogues/empty_dialog.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
@@ -94,19 +106,4 @@
 		<AttackRole type="0" />
 	</Character>
 
-	<Character id="12" name="Dunhaven Guard">
-		<Data textureId="guard_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/empty_dialog.json" />
-		<Stats state="0" friendship="0" love="0" />
-		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
-		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
-		<AttackRole type="0" />
-	</Character>
-
-	<Character id="13" name="Fisherman">
-		<Data textureId="fisherman_test" faceId="Fisherman-idle" dialoguePath="Assets/Dialogues/fisherman.json" />
-		<Stats state="0" friendship="0" love="0" />
-		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
-		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
-		<AttackRole type="0" />
-	</Character>
 </Characters>
