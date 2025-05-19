@@ -64,6 +64,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddAudioToStorage("open_door", *audioFactory->CreateAudio("Assets/Sounds/SFX/open_door.wav"));
 	AddAudioToStorage("close_door", *audioFactory->CreateAudio("Assets/Sounds/SFX/close_door.wav"));
 	AddAudioToStorage("change_area", *audioFactory->CreateAudio("Assets/Sounds/SFX/change_area.wav"));
+	AddAudioToStorage("hmmm", *audioFactory->CreateAudio("Assets/Sounds/SFX/minecraft_villager.wav"));
 
 	AudioContainer* footstepContainer = new AudioContainer(AudioContainer::PlayMode::NonRepeatingRandom, { });
 	AddAudioContainerToStorage("footsteps_container", *footstepContainer);
