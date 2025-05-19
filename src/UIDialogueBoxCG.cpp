@@ -2,6 +2,7 @@
 
 #include "GameScene.h"
 #include "PlayerCharacter.h"
+#include "CombatSystem.h"
 #include "Inventory.h"
 #include "ItemList.h"
 #include "Party.h"
@@ -12,6 +13,7 @@
 
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
+#include "ModuleInput.h"
 #include "CharacterDatabase.h"
 #include "ModuleTime.h"
 #include "TextureAtlas.h"
@@ -139,6 +141,9 @@ void UIDialogueBoxCG::UpdateCanvas()
 		characterNameTextBox->SetText(node.character.name);
 	}
 
+	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN && btns[0]->isEnabled)
+		NextDialogue();
+
 	UICanvas::UpdateCanvas();
 }
 
@@ -229,7 +234,6 @@ void UIDialogueBoxCG::SetVariablesOnStart()
 		dialogue->AddGameStateVariable("Char" + to_string(character.second.id) + "_Friendship", (float)character.second.friendShip);
 		dialogue->AddGameStateVariable("Char" + to_string(character.second.id) + "_Love", (float)character.second.love);
 	}
-	
 }
 
 void UIDialogueBoxCG::SignalReader(Signal* signal)
@@ -356,9 +360,10 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 	else if (signal->name == "CheckIfMissionCompleted") {
 		if (holds_alternative<string>(signal->data)) {
 			string data = get<string>(signal->data);
-			if (!MissionManager::Instance().HasMission(data))
+			if (MissionManager::Instance().HasMission(data))
 				dialogue->AddGameStateVariable("HasCompletedMission", MissionManager::Instance().IsMissionCompleted(data));
-			
+			else
+				dialogue->AddGameStateVariable("HasCompletedMission", false);
 		}
 	}
 	else if (signal->name == "UnlockNpc") {
@@ -367,6 +372,26 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 
 			Engine::Instance().s_game->GetPlayer()->party->AddPartyMemeber(data);
 		}
+	}
+	else if (signal->name == "StartCombat") {
+		if (holds_alternative<string>(signal->data)) {
+			vector<int> charsData;
+			string characterIds = get<string>(signal->data);
+			characterIds.erase(remove(characterIds.begin(), characterIds.end(), ' '));
+			stringstream ss(characterIds);
+			string temp;
+
+			while (getline(ss, temp, ','))
+			{
+				charsData.emplace_back(stoi(temp));
+			}
+
+			Engine::Instance().s_game->SetCombat(charsData);
+			Engine::Instance().s_game->SetState(GameScene::State::Combat );
+		}
+	}
+	else if (signal->name == "CheckIfWonCombat") {
+		dialogue->AddGameStateVariable("HasWonCombat",Engine::Instance().s_game->GetCombat()->HasWonLastCombat());
 	}
 
 	//Change dialogue box

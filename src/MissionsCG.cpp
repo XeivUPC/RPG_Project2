@@ -22,7 +22,7 @@ MissionsCG::MissionsCG(int _renderLayer)
 	CreateLayout();
 	UpdateLayout();
 
-	MissionManager::Instance().onMissionAdded.Subscribe([this](MissionHolder& mission) {selectedMissionIndex = MissionManager::Instance().GetMissionIndex(mission); GoToMission(selectedMissionIndex); });
+	MissionManager::Instance().onMissionAdded.Subscribe([this](MissionHolder& mission) {selectedMissionIndex = MissionManager::Instance().GetMissionIndex(mission); GoToMission(selectedMissionIndex); limitTimer.Start(); });
 	MissionManager::Instance().onMissionCompleted.Subscribe([this](MissionHolder& mission) {UpdateLayout(false);});
 	MissionManager::Instance().onMissionRemoved.Subscribe([this](MissionHolder& mission) {GoToMission(selectedMissionIndex); });
 
@@ -101,6 +101,7 @@ void MissionsCG::Reset()
 
 void MissionsCG::GoToMission(int index, bool _forceChange, bool _canShowHide)
 {
+
 	bool forceChange = _forceChange;
 	if (index == selectedMissionIndex) {
 		forceChange = true;
@@ -178,9 +179,13 @@ void MissionsCG::UpdateLayout(bool canShowHide)
 {
 	
 	MissionHolder* mission = MissionManager::Instance().GetMissionByIndex(selectedMissionIndex);
+
 	if (mission == nullptr) {
 		if(canShowHide)
 			HideMissionLabel(0.5f);
+		layOut.missionOverlay->localVisible = false;
+		isVisible = false;
+		isHidden = true;
 		layOut.missionTitleText->SetText("");
 		layOut.missionDescriptionText->SetText("");
 		layOut.missionDataType->SetText("");
@@ -189,6 +194,8 @@ void MissionsCG::UpdateLayout(bool canShowHide)
 	else {
 		if(canShowHide)
 			ShowMissionLabel(0.5f);
+		layOut.missionOverlay->localVisible = true;
+
 		layOut.missionTitleText->SetText(mission->GetTitle());
 		layOut.missionDescriptionText->SetText(mission->GetDescription());
 

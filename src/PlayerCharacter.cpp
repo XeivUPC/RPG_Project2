@@ -57,7 +57,7 @@ PlayerCharacter::PlayerCharacter()
 	SetCharacterId(-1);
 
 	inventory = new Inventory(40);
-	inventory->onInventoryChanged.Subscribe([this]() {MissionManager::Instance().UpdateMissions();});
+	inventory->onInventoryChanged.Subscribe([this]() {MissionManager::Instance().UpdateMissionsStatus();});
 
 	party = new Party(-1);
 	party->onPartyChanged.Subscribe([this]() {SetFollowers(party->GetPartyIds(true), distanceBetweenFollowers); });

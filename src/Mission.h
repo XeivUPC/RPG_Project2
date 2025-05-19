@@ -12,6 +12,7 @@ public:
 
 	struct ConditionData{
 		string type;
+		int amount;
 		unordered_map<string, string> properties;
 	};
 

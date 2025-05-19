@@ -3,14 +3,15 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Forest_Secret_Cliff.tmx",
+    "activeFile": "Tilesets/Vegetation_Atlas.tsx",
     "expandedProjectPaths": [
+        "Tilesets",
         "Prefabs",
-        ".",
-        "Maps",
-        "Prefabs/Buildings",
         "Objects",
-        "Tilesets"
+        ".",
+        "Prefabs/Buildings",
+        "Maps",
+        "Maps/Interiors"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -40,15 +41,24 @@
                 "y": 184.0115281685309
             }
         },
+        "Maps/CottageDunhaven.tmx": {
+            "scale": 2.7129807692307693,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 111.86957292220451,
+                "y": 128.2721956406167
+            }
+        },
         "Maps/Dunhaven_City.tmx": {
             "expandedObjectLayers": [
-                9
+                9,
+                6
             ],
-            "scale": 1,
-            "selectedLayer": 8,
+            "scale": 0.33,
+            "selectedLayer": 9,
             "viewCenter": {
-                "x": 1585,
-                "y": 765
+                "x": 1037.8787878787878,
+                "y": 612.1212121212122
             }
         },
         "Maps/Forest.tmx": {
@@ -56,58 +66,128 @@
                 10,
                 7
             ],
-            "scale": 11,
-            "selectedLayer": 4,
+            "scale": 0.75,
+            "selectedLayer": 5,
             "viewCenter": {
-                "x": -10,
-                "y": 199.1818181818182
+                "x": 235.33333333333337,
+                "y": 365.33333333333337
             }
         },
         "Maps/Forest_Secret_Cliff.tmx": {
             "expandedObjectLayers": [
-                10,
+                7,
+                10
+            ],
+            "scale": 1.5,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 223.66666666666669,
+                "y": 238
+            }
+        },
+        "Maps/House1_Inside.tmx": {
+            "expandedObjectLayers": [
                 7
             ],
-            "scale": 2,
-            "selectedLayer": 0,
+            "scale": 3.0806490384615386,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 179,
-                "y": -18
+                "x": 181.7798759314892,
+                "y": 105.17264250321877
             }
         },
         "Maps/House2_Inside.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 3,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208,
+                "x": 208.16666666666666,
                 "y": 112
             }
         },
         "Maps/House3_Inside.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
             "scale": 0.75,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208,
-                "y": 239.33333333333331
+                "x": 207.33333333333331,
+                "y": 238.66666666666669
             }
         },
         "Maps/House4_Inside.tmx": {
             "expandedObjectLayers": [
                 7
             ],
-            "scale": 3,
+            "scale": 0.75,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 248,
-                "y": 168
+                "x": 290,
+                "y": 273.33333333333337
+            }
+        },
+        "Maps/Interiors/CottageDunhaven.tmx": {
+            "expandedObjectLayers": [
+                7
+            ],
+            "scale": 2.71,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 134.87084870848707,
+                "y": 164.5756457564576
+            }
+        },
+        "Maps/Interiors/House2_Inside.tmx": {
+            "scale": 2.9002403846153846,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 207.91380024865313,
+                "y": 161.02113551595525
+            }
+        },
+        "Maps/Interiors/House3_Inside.tmx": {
+            "scale": 1.9158333333333333,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 207.74249673771203,
+                "y": 314.2235754675946
+            }
+        },
+        "Maps/Interiors/House4_Inside.tmx": {
+            "scale": 2.432459677419355,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 247.89722337339413,
+                "y": 226.51968503937007
+            }
+        },
+        "Maps/Interiors/Testing_Zone.tmx": {
+            "scale": 2.9002403846153846,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 207.91380024865313,
+                "y": 161.02113551595525
+            }
+        },
+        "Maps/Interiors/Testing_Zone2.tmx": {
+            "scale": 2.9002403846153846,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 207.91380024865313,
+                "y": 161.02113551595525
+            }
+        },
+        "Maps/Interiors/XeivTreaty_MainRoom.tmx": {
+            "scale": 2.2754032258064516,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 161.07035264930002,
+                "y": 230.28885344674816
             }
         },
         "Maps/Map1.tmx": {
@@ -120,14 +200,13 @@
         },
         "Maps/Rogue_Squadron_Headquarters.tmx": {
             "expandedObjectLayers": [
-                9,
                 6
             ],
-            "scale": 3,
+            "scale": 1.5,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 331.66666666666663,
-                "y": 808.6666666666666
+                "x": 145.66666666666669,
+                "y": 582.6666666666666
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -169,9 +248,46 @@
                 "y": 112.00000000000001
             }
         },
+        "Maps/Tilesets/Building_Atlas.tsx": {
+            "scaleInDock": 1
+        },
+        "Maps/Tilesets/Cave_Tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "Maps/Tilesets/Floors_Tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "Maps/Tilesets/Furniture_Atlas.tsx": {
+            "scaleInDock": 1
+        },
+        "Maps/Tilesets/Water_tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "Maps/Tutorial_Room.tmx": {
+            "expandedObjectLayers": [
+                7
+            ],
+            "scale": 4,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 236,
+                "y": 174.25
+            }
+        },
         "Maps/Water_tiles.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
+        },
+        "Maps/XeivTreaty_MainRoom.tmx": {
+            "expandedObjectLayers": [
+                7
+            ],
+            "scale": 2.5837701612903223,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 181.51769341812653,
+                "y": 172.61597284538257
+            }
         },
         "Maps/sin nombre.tmx": {
             "scale": 3.9959374999999997,
@@ -189,7 +305,7 @@
         "Tilesets/Cave_Tiles.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 2,
-            "scaleInEditor": 4
+            "scaleInEditor": 1
         },
         "Tilesets/Floors_Tiles.tsx": {
             "dynamicWrapping": false,
@@ -198,16 +314,17 @@
         },
         "Tilesets/Furniture_Atlas.tsx": {
             "dynamicWrapping": true,
-            "scaleInDock": 1,
-            "scaleInEditor": 1
+            "scaleInDock": 0.25,
+            "scaleInEditor": 0.25
         },
         "Tilesets/Grass_Tiles.tsx": {
             "dynamicWrapping": false,
-            "scaleInDock": 1
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "Tilesets/Vegetation_Atlas.tsx": {
             "dynamicWrapping": true,
-            "scaleInDock": 0.33,
+            "scaleInDock": 0.25,
             "scaleInEditor": 0.25
         },
         "Tilesets/Water_tiles.tsx": {
@@ -229,7 +346,7 @@
             }
         }
     },
-    "last.exportedFilePath": "G:/GitHub/RPG_Project2/Assets/Map/Data",
+    "last.exportedFilePath": "G:/GitHub/RPG_Project2/Assets/Map/Data/Interiors",
     "last.externalTilesetPath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Tilesets",
     "last.imagePath": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/MapObjects/Vegetation/Single",
     "last.objectTemplatePath": "C:/Users/maxpo/OneDrive/Documents/GitHub/RPG_Project2/Assets/Map/TiledProject/Prefabs/Buildings",
@@ -240,28 +357,32 @@
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
-        "Tilesets/Vegetation_Atlas.tsx",
+        "Maps/Rogue_Squadron_Headquarters.tmx",
+        "Maps/Tutorial_Room.tmx",
+        "Maps/CottageDunhaven.tmx",
+        "Maps/Interiors/XeivTreaty_MainRoom.tmx",
+        "Maps/Interiors/CottageDunhaven.tmx",
+        "Maps/Dunhaven_City.tmx",
         "Maps/Forest.tmx",
-        "Maps/Forest_Secret_Cliff.tmx",
-        "Maps/House3_Inside.tmx",
-        "Maps/House4_Inside.tmx",
-        "Maps/House2_Inside.tmx"
+        "Tilesets/Vegetation_Atlas.tsx",
+        "Tilesets/Furniture_Atlas.tsx",
+        "Tilesets/Building_Atlas.tsx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "string",
     "recentFiles": [
-        "Tilesets/Vegetation_Atlas.tsx",
-        "Maps/Forest.tmx",
-        "Maps/House2_Inside.tmx",
-        "Maps/House4_Inside.tmx",
-        "Maps/House3_Inside.tmx",
-        "Maps/Forest_Secret_Cliff.tmx",
         "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Maps/SecondAreaTest.tmx",
+        "Maps/Tutorial_Room.tmx",
+        "Maps/CottageDunhaven.tmx",
+        "Maps/Interiors/XeivTreaty_MainRoom.tmx",
+        "Maps/Interiors/CottageDunhaven.tmx",
+        "Maps/Dunhaven_City.tmx",
+        "Maps/Forest.tmx",
         "Tilesets/Building_Atlas.tsx",
-        "Maps/Testing_Zone.tmx",
-        "Maps/Testing_Zone2.tmx",
-        "Tilesets/Furniture_Atlas.tsx"
+        "Tilesets/Furniture_Atlas.tsx",
+        "Tilesets/Vegetation_Atlas.tsx",
+        "Tilesets/Grass_Tiles.tsx",
+        "Tilesets/Floors_Tiles.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,

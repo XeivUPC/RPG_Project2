@@ -31,6 +31,10 @@
 #include "NpcCharacter.h"
 #include "SimpleMapObject.h"
 #include "OverworldItem.h"
+#include "BirdFlock.h"
+#include "Bird.h"
+#include "ButtonPuzzleElement.h"
+#include "BlockingPuzzleElement.h"
 ///
 
 #include "FadeCG.h"
@@ -61,12 +65,6 @@ GameScene::~GameScene()
     
 }
 
-void GameScene::SetDialogue(string path)
-{
-    dialogueSystem->LoadDialogueFromJSON(path);
-    dialogueSystem->StartDialogue();
-}
-
 bool GameScene::Init()
 {
     return true;
@@ -78,18 +76,24 @@ bool GameScene::Start()
     Pooling::Instance().CreatePool<SimpleMapObject>(30);
     Pooling::Instance().CreatePool<NpcCharacter>(10);
     Pooling::Instance().CreatePool<OverworldItem>(10);
+    Pooling::Instance().CreatePool<BirdFlock>(10);
+    Pooling::Instance().CreatePool<Bird>(20);
+    Pooling::Instance().CreatePool<ButtonPuzzleElement>(3);
+    Pooling::Instance().CreatePool<BlockingPuzzleElement>(3);
 
     fade = new FadeCG(33, 25, 17, 255);
     fade->FadeTo(1,0);
     fade->renderLayer = 9;
 
-    combatSystem = new CombatSystem();
-    combatCanvas = new CombatCG(combatSystem);
-    combatCanvas->renderLayer = 7;
+
 
 	dialogueSystem = new DialogueSystem();
     dialogueCanvas = new UIDialogueBoxCG(dialogueSystem);
     dialogueCanvas->renderLayer = 7;
+
+    combatSystem = new CombatSystem();
+    combatCanvas = new CombatCG(combatSystem);
+    combatCanvas->renderLayer = 7;
 
     pauseCanvas = new PauseMenuCG(7);
 
@@ -145,6 +149,8 @@ bool GameScene::PreUpdate()
 
 bool GameScene::Update()
 {   
+    MissionManager::Instance().UpdateMissions();
+
     if(tilemaps.size()!=0)
         tilemaps[tilemaps.size()-1]->UpdateTilemap();
 
@@ -153,6 +159,8 @@ bool GameScene::Update()
 
     if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_C) == KEY_DOWN)
     {
+
+        SetCombat(vector<int>{5, 6, 2});
 		SetState(State::Combat);
     }
 
@@ -212,10 +220,7 @@ bool GameScene::CleanUp()
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
 
-    Pooling::Instance().DeletePool<SimpleTilemapChanger>(true);
-    Pooling::Instance().DeletePool<SimpleMapObject>(true);
-    Pooling::Instance().DeletePool<NpcCharacter>(true);
-    Pooling::Instance().DeletePool<OverworldItem>(true);
+    DeletePoolMapObjects();
 
     MissionManager::Instance().Reset();
     MissionManager::Instance().ClearAllMissions();
@@ -224,6 +229,24 @@ bool GameScene::CleanUp()
 
     return true;
 }
+
+void GameScene::SetDialogue(string path)
+{
+    dialogueSystem->LoadDialogueFromJSON(path);
+    dialogueSystem->StartDialogue();
+}
+
+void GameScene::SetCombat(std::vector<int> enemyTeam)
+{
+    combatSystem->AddPartyToCombat(GetPlayer()->party->GetPartyIds(), CombatSystem::Ally);
+    combatSystem->AddPartyToCombat(enemyTeam, CombatSystem::Enemy);
+}
+
+const CombatSystem* GameScene::GetCombat() const
+{
+    return combatSystem;
+}
+
 
 void GameScene::CheckTilesetInteriorState()
 {
@@ -314,9 +337,9 @@ void GameScene::SetState(State _newState)
     if (state == _newState)
         return;
     previous_state = state;
-    if(state != State::NONE___DO_NOT_USE)
-        game_states[state]->StateDeselected();
     state = _newState;
+    if(previous_state != State::NONE___DO_NOT_USE)
+        game_states[previous_state]->StateDeselected();
     game_states[state]->StateSelected();
 }
 
@@ -377,9 +400,7 @@ void GameScene::CreateNewTilemap(string path)
 
     if (tilemaps.size() != 0) {
         tilemaps[tilemaps.size() - 1]->isVisible = false;
-        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
-        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
-        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+        ReturnToPoolMapObjects();
     }
     tilemaps.emplace_back(new Tilemap(path, 1));
 
@@ -401,10 +422,7 @@ void GameScene::SwapNewTilemap(string path, int entryPoint)
 
    
     if (tilemaps.size() != 0) {
-        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
-        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
-        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
-        Pooling::Instance().ReturnAllToPool<OverworldItem>();
+        ReturnToPoolMapObjects();
         //// Do Swap
         tilemaps[tilemaps.size() - 1]->CleanUp();
         delete tilemaps[tilemaps.size() - 1];
@@ -438,10 +456,7 @@ void GameScene::DeleteLastTilemap()
 
     if (tilemaps.size() != 0) {
 
-        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
-        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
-        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
-        Pooling::Instance().ReturnAllToPool<OverworldItem>();
+        ReturnToPoolMapObjects();
 
         tilemaps[tilemaps.size() - 1]->CleanUp();
         delete tilemaps[tilemaps.size() - 1];
@@ -460,6 +475,8 @@ void GameScene::DeleteLastTilemap()
 
     }
 }
+
+
 
 
 Tilemap* GameScene::GetLastTilemap()
@@ -488,6 +505,7 @@ PlayerCharacter* GameScene::GetPlayer() const
 void GameScene::FreshStart()
 {
     CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
+    MissionManager::Instance().AddMission(*new MissionHolder(MissionList::Instance().MissionByID("mission;tutorial")));
     clock = StepTimer(3600*12);
     screenEffectsCanvas->RecalculateAmbientFadeColors();
 }
@@ -500,13 +518,35 @@ void GameScene::AskForLoadSaveData()
     fade->onFadeEnd.Subscribe([this]() {LoadGameSaveData();  fade->FadeTo(0.5f, 0);  SetState(State::Exploring); });
 }
 
+void GameScene::ReturnToPoolMapObjects()
+{
+    Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
+    Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
+    Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+    Pooling::Instance().ReturnAllToPool<OverworldItem>();
+    Pooling::Instance().ReturnAllToPool<BirdFlock>();
+    Pooling::Instance().ReturnAllToPool<Bird>();
+    Pooling::Instance().ReturnAllToPool<ButtonPuzzleElement>();
+    Pooling::Instance().ReturnAllToPool<BlockingPuzzleElement>();
+}
+
+void GameScene::DeletePoolMapObjects()
+{
+    Pooling::Instance().DeletePool<SimpleTilemapChanger>(true);
+    Pooling::Instance().DeletePool<SimpleMapObject>(true);
+    Pooling::Instance().DeletePool<NpcCharacter>(true);
+    Pooling::Instance().DeletePool<OverworldItem>(true);
+    Pooling::Instance().DeletePool<BirdFlock>(true);
+    Pooling::Instance().DeletePool<Bird>(true);
+    Pooling::Instance().DeletePool<ButtonPuzzleElement>(true);
+    Pooling::Instance().DeletePool<BlockingPuzzleElement>(true);
+}
+
+
 void GameScene::LoadGameSaveData()
 {
     LOG("Loading Game");
 
-    
-   
-    
 
     xml_document file;
     pugi::xml_parse_result result = file.load_file(savePath.c_str());
@@ -525,11 +565,7 @@ void GameScene::LoadGameSaveData()
         }
         tilemaps.clear();
 
-        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
-        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
-        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
-        Pooling::Instance().ReturnAllToPool<OverworldItem>();
-
+        ReturnToPoolMapObjects();
 
 
         xml_node rootNode = file.child("game");
@@ -574,7 +610,7 @@ void GameScene::LoadGameSaveData()
         }
         player->inventory->onInventoryChanged.Trigger();
 
-
+        /// Load Missions
         xml_node missionsNode = playerNode.child("missions");
         for (xml_node missionNode = missionsNode.child("mission"); missionNode; missionNode = missionNode.next_sibling("mission"))
         {
@@ -585,9 +621,10 @@ void GameScene::LoadGameSaveData()
             MissionHolder* newMission = new MissionHolder(MissionList::Instance().MissionByID(missionId));
 
             newMission->SetState((MissionHolder::State)status);
+	
             MissionManager::Instance().AddMission(*newMission);
         }
-        MissionManager::Instance().UpdateMissions();
+        MissionManager::Instance().UpdateMissionsStatus();
 		
 
 		/// Load Map

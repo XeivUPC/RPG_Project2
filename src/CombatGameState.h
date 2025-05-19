@@ -15,7 +15,7 @@ public:
 
 private:
 	void OnLoadingEnd();
-
+	int lastState = 0;
 private:
 
 };

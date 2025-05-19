@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="26" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="53">
- <editorsettings>
-  <export target="../../Data/CottageDunhaven.xml" format="tmx"/>
- </editorsettings>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="26" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="53">
  <properties>
   <property name="IsInside" type="bool" value="true"/>
  </properties>
- <tileset firstgid="1" source="../Tilesets/Cave_Tiles.tsx"/>
- <tileset firstgid="290" source="../Tilesets/Floors_Tiles.tsx"/>
- <tileset firstgid="915" source="../Tilesets/Water_tiles.tsx"/>
- <tileset firstgid="1540" source="../Tilesets/Building_Atlas.tsx"/>
- <tileset firstgid="1552" source="../Tilesets/Furniture_Atlas.tsx"/>
+ <tileset firstgid="1" source="../../TiledProject/Tilesets/Cave_Tiles.tsx"/>
+ <tileset firstgid="290" source="../../TiledProject/Tilesets/Floors_Tiles.tsx"/>
+ <tileset firstgid="915" source="../../TiledProject/Tilesets/Water_tiles.tsx"/>
+ <tileset firstgid="1540" source="../../TiledProject/Tilesets/Building_Atlas.tsx"/>
+ <tileset firstgid="1552" source="../../TiledProject/Tilesets/Furniture_Atlas.tsx"/>
  <layer id="2" name="Ground0" width="26" height="14">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -107,7 +104,7 @@
   </object>
   <object id="51" x="214" y="44.75">
    <properties>
-    <property name="NpcId" type="int" value="9"/>
+    <property name="NpcId" type="int" value="10"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>

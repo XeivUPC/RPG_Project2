@@ -26,7 +26,7 @@ void MissionManager::AddMission(MissionHolder& mission, bool triggerEvent)
 	if (triggerEvent)
 		onMissionAdded.Trigger(mission);
 
-	UpdateMissions();
+	UpdateMissionsStatus();
 
 	if(mission.GetState() == MissionHolder::State::COMPLETED)
 		onMissionCompleted.Trigger(mission);
@@ -71,7 +71,7 @@ void MissionManager::SetUpMission(MissionHolder& mission)
 	}
 }
 
-bool MissionManager::UpdateMissions()
+bool MissionManager::UpdateMissionsStatus()
 {
 	for (auto& mission : missions) {
 		for (auto& condition : mission->conditions) {
@@ -91,6 +91,15 @@ bool MissionManager::UpdateMissions()
 		}
 	}
 	return true;
+}
+
+void MissionManager::UpdateMissions()
+{
+	for (auto& mission : missions) {
+		for (auto& condition : mission->conditions) {
+			condition->UpdateCondition();
+		}
+	}
 }
 
 bool MissionManager::HasMission(string missionId)

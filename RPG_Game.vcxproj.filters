@@ -145,6 +145,12 @@
     <Filter Include="Source Files\Utils\Missions\Conditions">
       <UniqueIdentifier>{b5e165e1-a15f-450a-9b48-582cfc4433b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils\Puzzles">
+      <UniqueIdentifier>{8a33b2f1-7821-41a1-9619-39b0dda7fa05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Puzzles\Elements">
+      <UniqueIdentifier>{e8d8f6a6-730f-4e92-8ea3-1a4fef8ab743}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -428,6 +434,21 @@
     </ClCompile>
     <ClCompile Include="src\MissionsCG.cpp">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClCompile>
+    <ClCompile Include="src\KeyCondition.cpp">
+      <Filter>Source Files\Utils\Missions\Conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PuzzleElement.cpp">
+      <Filter>Source Files\Utils\Puzzles</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ButtonPuzzleElement.cpp">
+      <Filter>Source Files\Utils\Puzzles\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PuzzleManager.cpp">
+      <Filter>Source Files\Utils\Puzzles</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BlockingPuzzleElement.cpp">
+      <Filter>Source Files\Utils\Puzzles\Elements</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -760,6 +781,21 @@
     </ClInclude>
     <ClInclude Include="src\MissionsCG.h">
       <Filter>Source Files\UI\CanvasGroups %28UICanvas%29</Filter>
+    </ClInclude>
+    <ClInclude Include="src\KeyCondition.h">
+      <Filter>Source Files\Utils\Missions\Conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PuzzleElement.h">
+      <Filter>Source Files\Utils\Puzzles</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PuzzleManager.h">
+      <Filter>Source Files\Utils\Puzzles</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ButtonPuzzleElement.h">
+      <Filter>Source Files\Utils\Puzzles\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BlockingPuzzleElement.h">
+      <Filter>Source Files\Utils\Puzzles\Elements</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="31" height="21" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="71">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="31" height="21" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="71">
  <properties>
   <property name="IsInside" type="bool" value="true"/>
  </properties>
- <tileset firstgid="1" source="../TiledProject/Tilesets/Cave_Tiles.tsx"/>
- <tileset firstgid="290" source="../TiledProject/Tilesets/Floors_Tiles.tsx"/>
- <tileset firstgid="915" source="../TiledProject/Tilesets/Water_tiles.tsx"/>
- <tileset firstgid="1540" source="../TiledProject/Tilesets/Building_Atlas.tsx"/>
- <tileset firstgid="1552" source="../TiledProject/Tilesets/Furniture_Atlas.tsx"/>
+ <tileset firstgid="1" source="../../TiledProject/Tilesets/Cave_Tiles.tsx"/>
+ <tileset firstgid="290" source="../../TiledProject/Tilesets/Floors_Tiles.tsx"/>
+ <tileset firstgid="915" source="../../TiledProject/Tilesets/Water_tiles.tsx"/>
+ <tileset firstgid="1540" source="../../TiledProject/Tilesets/Building_Atlas.tsx"/>
+ <tileset firstgid="1546" source="../../TiledProject/Tilesets/Furniture_Atlas.tsx"/>
  <layer id="2" name="Ground0" width="31" height="21">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -117,7 +117,7 @@
   </object>
   <object id="29" x="375.211" y="219.5">
    <properties>
-    <property name="NpcId" value="10"/>
+    <property name="NpcId" value="1"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -127,12 +127,12 @@
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>
-  <object id="33" gid="1577" x="38" y="183.333" width="32" height="32">
+  <object id="33" gid="1571" x="38" y="183.333" width="32" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="34" gid="1575" x="351" y="238" width="32" height="16">
+  <object id="34" gid="1569" x="351" y="238" width="32" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
@@ -150,7 +150,7 @@
   <object id="61" x="400" y="224" width="80" height="16"/>
   <object id="62" x="400" y="240" width="16" height="32"/>
   <object id="63" x="80" y="240" width="16" height="32"/>
-  <object id="65" gid="1573" x="336" y="208" width="32" height="48">
+  <object id="65" gid="1567" x="336" y="208" width="32" height="48">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>

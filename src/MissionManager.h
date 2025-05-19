@@ -23,8 +23,8 @@ public:
     void RemoveMission(MissionHolder& mission, bool triggerEvent = true);
     void RemoveMission(string missionId, bool triggerEvent = true);
 
-    // Heredado vía IUpdateable
-    bool UpdateMissions();
+    bool UpdateMissionsStatus();
+    void UpdateMissions();
 
     bool HasMission(string missionId);
 

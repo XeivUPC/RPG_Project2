@@ -175,9 +175,14 @@ void CombatSystem::UpdateCombat()
 			ChangeState(START);
 		break;
 	case CombatSystem::VICTORY:
-		/// End
+		wonLastCombat = true;
+		ChangeState(END);
 		break;
 	case CombatSystem::DEFEAT:
+		wonLastCombat = false;
+		ChangeState(END);
+		break;
+	case CombatSystem::END:
 		/// End
 		break;
 	default:
@@ -282,4 +287,9 @@ vector<CombatSystem::CharacterReference*> CombatSystem::GetPosibleTargets(Charac
 		}
 	}
 	return possibleTargets;
+}
+
+bool CombatSystem::HasWonLastCombat() const
+{
+	return wonLastCombat;
 }

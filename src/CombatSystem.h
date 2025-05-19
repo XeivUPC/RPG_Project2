@@ -31,7 +31,8 @@ public:
 		EFFECTS,
 		END_CHECK,
 		VICTORY,
-		DEFEAT
+		DEFEAT,
+		END
 	};
 
 	struct StatStages {
@@ -160,6 +161,8 @@ public:
 	int CurrentAttackTargetAmount();
 	const unordered_map <CharacterType, vector<CharacterReference>>& GetCharactersInCombat();
 	vector<CharacterReference*> GetPosibleTargets(CharacterReference* character, Attack* attack);
+
+	bool HasWonLastCombat() const;
 	
 	~CombatSystem();
 private:
@@ -171,4 +174,6 @@ private:
 	int currentAttackIndex = 0;
 	bool currentAttackEnded = false;
 	CombatAI* ai;
+
+	bool wonLastCombat = false;
 };

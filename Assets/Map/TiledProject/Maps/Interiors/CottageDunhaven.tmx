@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="26" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="51">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="26" height="14" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="53">
+ <editorsettings>
+  <export target="../../Data/CottageDunhaven.xml" format="tmx"/>
+ </editorsettings>
  <properties>
   <property name="IsInside" type="bool" value="true"/>
  </properties>
- <tileset firstgid="1" source="../TiledProject/Tilesets/Cave_Tiles.tsx"/>
- <tileset firstgid="290" source="../TiledProject/Tilesets/Floors_Tiles.tsx"/>
- <tileset firstgid="915" source="../TiledProject/Tilesets/Water_tiles.tsx"/>
- <tileset firstgid="1540" source="../TiledProject/Tilesets/Building_Atlas.tsx"/>
- <tileset firstgid="1552" source="../TiledProject/Tilesets/Furniture_Atlas.tsx"/>
+ <tileset firstgid="1" source="../../Tilesets/Cave_Tiles.tsx"/>
+ <tileset firstgid="290" source="../../Tilesets/Floors_Tiles.tsx"/>
+ <tileset firstgid="915" source="../../Tilesets/Water_tiles.tsx"/>
+ <tileset firstgid="1540" source="../../Tilesets/Building_Atlas.tsx"/>
+ <tileset firstgid="1552" source="../../Tilesets/Furniture_Atlas.tsx"/>
  <layer id="2" name="Ground0" width="26" height="14">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -87,17 +90,6 @@
    </properties>
    <point/>
   </object>
-  <object id="29" x="160.045" y="96.5">
-   <properties>
-    <property name="NpcId" value="-1"/>
-    <property name="Path" type="object" value="31"/>
-    <property name="Type" value="npc"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="31" x="160" y="96">
-   <polyline points="0,0 111.455,0"/>
-  </object>
   <object id="32" x="203.375" y="205.352" width="24.5455" height="4.18182">
    <properties>
     <property name="Type" value="tilemapChanger"/>
@@ -112,6 +104,13 @@
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
+  </object>
+  <object id="51" x="214" y="44.75">
+   <properties>
+    <property name="NpcId" type="int" value="10"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
  <objectgroup id="10" name="Collisions">

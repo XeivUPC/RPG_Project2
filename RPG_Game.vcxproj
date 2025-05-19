@@ -143,6 +143,10 @@
     <ClCompile Include="src\AttackList.cpp" />
     <ClCompile Include="src\AudioContainer.cpp" />
     <ClCompile Include="src\AudioFactory.cpp" />
+    <ClCompile Include="src\Bird.cpp" />
+    <ClCompile Include="src\BirdFlock.cpp" />
+    <ClCompile Include="src\BlockingPuzzleElement.cpp" />
+    <ClCompile Include="src\ButtonPuzzleElement.cpp" />
     <ClCompile Include="src\CameraController.cpp" />
     <ClCompile Include="src\Character.cpp" />
     <ClCompile Include="src\CharacterDatabase.cpp" />
@@ -168,6 +172,7 @@
     <ClCompile Include="src\ItemList.cpp" />
     <ClCompile Include="src\GameplayCG.cpp" />
     <ClCompile Include="src\JsonAnimator.cpp" />
+    <ClCompile Include="src\KeyCondition.cpp" />
     <ClCompile Include="src\Mission.cpp" />
     <ClCompile Include="src\MissionHolder.cpp" />
     <ClCompile Include="src\MissionCondition.cpp" />
@@ -204,6 +209,8 @@
     <ClCompile Include="src\ChronoTimer.cpp" />
     <ClCompile Include="src\ModuleWindow.cpp" />
     <ClCompile Include="src\PlayerCharacter.cpp" />
+    <ClCompile Include="src\PuzzleElement.cpp" />
+    <ClCompile Include="src\PuzzleManager.cpp" />
     <ClCompile Include="src\SaveLoadCG.cpp" />
     <ClCompile Include="src\ScreenEffectsCG.cpp" />
     <ClCompile Include="src\SettingsCG.cpp" />
@@ -239,6 +246,10 @@
     <ClInclude Include="src\AttackList.h" />
     <ClInclude Include="src\AudioContainer.h" />
     <ClInclude Include="src\AudioFactory.h" />
+    <ClInclude Include="src\Bird.h" />
+    <ClInclude Include="src\BirdFlock.h" />
+    <ClInclude Include="src\BlockingPuzzleElement.h" />
+    <ClInclude Include="src\ButtonPuzzleElement.h" />
     <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\CameraController.h" />
     <ClInclude Include="src\Character.h" />
@@ -268,6 +279,7 @@
     <ClInclude Include="src\ItemList.h" />
     <ClInclude Include="src\GameplayCG.h" />
     <ClInclude Include="src\JsonAnimator.h" />
+    <ClInclude Include="src\KeyCondition.h" />
     <ClInclude Include="src\MemLeaks.h" />
     <ClInclude Include="src\Mission.h" />
     <ClInclude Include="src\MissionHolder.h" />
@@ -313,6 +325,8 @@
     <ClInclude Include="src\PlayerCharacter.h" />
     <ClInclude Include="src\Pooling.h" />
     <ClInclude Include="src\ChronoTimer.h" />
+    <ClInclude Include="src\PuzzleElement.h" />
+    <ClInclude Include="src\PuzzleManager.h" />
     <ClInclude Include="src\SaveLoadCG.h" />
     <ClInclude Include="src\ScreenEffectsCG.h" />
     <ClInclude Include="src\SettingsCG.h" />

@@ -30,13 +30,18 @@ bool CombatGameState::UpdateState()
 	combatCanvas->UpdateCanvas();
 	combatSystem->UpdateCombat();
 
-	if (combatSystem->GetCombatState() == CombatSystem::VICTORY || combatSystem->GetCombatState() == CombatSystem::DEFEAT) {
+	if (combatSystem->GetCombatState() == CombatSystem::END) {
 		if (!Engine::Instance().s_game->fade->IsFading()) {
 
 			Engine::Instance().s_game->fade->FadeTo(0.5f, 255);
-			Engine::Instance().s_game->fade->onFadeEnd.Subscribe([this]() {Engine::Instance().s_game->fade->FadeTo(0.5f, 0); Engine::Instance().s_game->SetState(GameScene::State::Exploring); });
+			GameScene::State stateToGo = (GameScene::State)lastState;
+			Engine::Instance().s_game->fade->onFadeEnd.Subscribe([this, stateToGo]() {Engine::Instance().s_game->fade->FadeTo(0.5f, 0); Engine::Instance().s_game->SetState(stateToGo); });
+			lastState = (int)GameScene::State::NONE___DO_NOT_USE;
 		}
 	}
+
+	else if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_P))
+		Engine::Instance().s_game->SetState(GameScene::State::Menu);
 	return true;
 }
 
@@ -58,13 +63,12 @@ void CombatGameState::StateSelected()
 	Engine::Instance().s_game->combatCanvas->isVisible = true;
 	Engine::Instance().m_cursor->ShowCustomCursor();
 
+	if (Engine::Instance().s_game->previous_state != GameScene::State::Menu) {
+		lastState = (int)Engine::Instance().s_game->previous_state;
+		Engine::Instance().s_game->fade->onFadeEnd.Subscribe([this]() {OnLoadingEnd();});
+		Engine::Instance().s_game->fade->FadeTo(0.5f, 255);
+	}
 
-	Engine::Instance().s_game->combatSystem->AddPartyToCombat(Engine::Instance().s_game->GetPlayer()->party->GetPartyIds(), CombatSystem::Ally);
-	Engine::Instance().s_game->combatSystem->AddPartyToCombat(vector<int>{5,6, 2}, CombatSystem::Enemy);
-
-	Engine::Instance().s_game->fade->onFadeEnd.Subscribe([this]() {OnLoadingEnd();});
-
-	Engine::Instance().s_game->fade->FadeTo(0.5f, 255);
 }
 
 void CombatGameState::StateDeselected()
@@ -74,12 +78,17 @@ void CombatGameState::StateDeselected()
 		Engine::Instance().m_physics->StartSimulation();
 	}
 	Engine::Instance().s_game->combatCanvas->SetInteractable(false);
-	Engine::Instance().s_game->combatCanvas->UnloadCanvas();
+
+	if (Engine::Instance().s_game->state != GameScene::State::Menu)
+		Engine::Instance().s_game->combatCanvas->UnloadCanvas();
 }
 
 void CombatGameState::OnLoadingEnd()
 {
-	Engine::Instance().s_game->fade->FadeTo(0.5f, 0);
-	Engine::Instance().s_game->combatSystem->StartCombat();
-	Engine::Instance().s_game->combatCanvas->LoadCanvas();
+	if (Engine::Instance().s_game->previous_state != GameScene::State::Menu) {
+		Engine::Instance().s_game->fade->FadeTo(0.5f, 0);
+		Engine::Instance().s_game->combatSystem->StartCombat();
+		Engine::Instance().s_game->combatCanvas->LoadCanvas();
+	}
+	
 }
