@@ -39,7 +39,7 @@ private:
 
 	////Config
 	bool typewriterMode = true;
-	float typewriterSpeed = 0.05f;
+	float typewriterSpeed = 50;
 	string typewriterText = "";
 	StepTimer typewriterTimer;
 

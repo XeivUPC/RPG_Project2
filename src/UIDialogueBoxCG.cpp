@@ -82,7 +82,7 @@ void UIDialogueBoxCG::UpdateCanvas()
 		if (typewriterMode) {
 			typewriterTimer.Step(ModuleTime::deltaTime);
 			if (typewriterText != node.text) {
-				if (typewriterTimer.ReadSec() > typewriterSpeed) {
+				if (typewriterTimer.ReadMSec() > typewriterSpeed) {
 					typewriterTimer.Start();
 					char c = node.text.at(typewriterText.size());
 					typewriterText += c;
