@@ -108,4 +108,14 @@
 			</condition>
 		</conditions>
 	</mission>
+
+	<mission id="mission;audience">
+		<title></title>
+		<description>Go to your training with Sir Gideon.</description>
+		<conditions>
+			<condition type ="ItemCondition" tasksAmount ="1">
+				<item1 id="item;null" count="0" />
+			</condition>
+		</conditions>
+	</mission>
 </missionsList>
