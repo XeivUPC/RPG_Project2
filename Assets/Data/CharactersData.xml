@@ -4,7 +4,7 @@
 		<Data textureId="cassian_test" faceId="Cassian-early-idle" dialoguePath="Assets/Dialogues/empty_dialog.json" />
 		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="12" hp="60" defense="63" attack="72" speed="100" />
-		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
+		<Attacks attack1="10" attack2="11" attack3="12" attack4="13" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="0" name="Artis Guard Left">
@@ -37,16 +37,16 @@
 	</Character>
 	<Character id="4" name="Sir Gideon Hawthorne">
 		<Data textureId="pj_test" faceId="Guideon-idle" dialoguePath="Assets/Dialogues/Sir_Gideon_Hawthorne.json" />
-		<Stats state="0" friendship="0" love="0" />
-		<CombatStats level="15" hp="61" defense="65" attack="74" speed="55" />
-		<Attacks attack1="8" attack2="2" attack3="6" attack4="3" />
+		<Stats state="1" friendship="0" love="0" />
+		<CombatStats level="30" hp="500" defense="50" attack="20" speed="55" />
+		<Attacks attack1="8" attack2="2" attack3="6" attack4="0" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="5" name="Zeryn">
 		<Data textureId="zeryn_test" faceId="Zeryn-early-idle" dialoguePath="Assets/Dialogues/zeryn_early.json" />
-		<Stats state="0" friendship="0" love="0" />
+		<Stats state="2" friendship="0" love="0" />
 		<CombatStats level="15" hp="40" defense="35" attack="78" speed="60" />
-		<Attacks attack1="0" attack2="0" attack3="0" attack4="0" />
+		<Attacks attack1="14" attack2="15" attack3="16" attack4="17" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="6" name="R.S Chef">
@@ -79,7 +79,7 @@
 	</Character>
 	<Character id="10" name="Guard Tutorial">
 		<Data textureId="guard_test" faceId="Guard1-idle" dialoguePath="Assets/Dialogues/guard_tutorial.json" />
-		<Stats state="0" friendship="0" love="0" />
+		<Stats state="1" friendship="0" love="0" />
 		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="0" />
