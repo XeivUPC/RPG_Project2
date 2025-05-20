@@ -702,7 +702,7 @@ void CombatCG::ConfirmAttack()
 {
 	if (selectedAttack->attack->targetAmount < GetPossibleTargetsAmount()) {
 		if (selectedAttack->attack->targetAmount != targetCharacters.size()) {
-
+			//// Change default message
 			alert->SetAlertData("Not enough targets selected");
 			alert->OpenAlert();
 			return;

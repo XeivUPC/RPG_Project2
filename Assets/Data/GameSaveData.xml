@@ -1,22 +1,28 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="370" y="241" />
+		<position x="391" y="597" />
 		<party>
 			<active>
-				<member id="-1" />
+				<member id="5" />
 			</active>
 			<inactive>
 				<member id="-1" />
+				<member id="2" />
+				<member id="3" />
+				<member id="4" />
+				<member id="5" />
+				<member id="6" />
 			</inactive>
 		</party>
 		<missions>
-			<mission id="mission;tutorial" status="1" />
+			<mission id="mission;chef2" status="0" />
+			<mission id="mission;chef" status="1" />
 		</missions>
 		<inventory>
 			<item />
 			<item />
-			<item />
+			<item id="item;healing_bread" amount="1" />
 			<item />
 			<item />
 			<item />
@@ -58,11 +64,10 @@
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="64014.2188" />
+		<time value="70170.6875" />
 		<items />
 		<tilemaps>
-			<tilemap path="Assets/Map/Data/Dunhaven_City.xml" spawnpoint-x="272.563202" spawnpoint-y="1134.36194" />
-			<tilemap path="Assets/Map/Data/Interiors/XeivTreaty_MainRoom.xml" spawnpoint-x="248.419998" spawnpoint-y="264.75" />
+			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="135.8125" spawnpoint-y="513.573975" />
 		</tilemaps>
 	</map>
 </game>
