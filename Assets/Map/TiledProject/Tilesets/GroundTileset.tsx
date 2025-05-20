@@ -3,13 +3,14 @@
  <image source="../../../Textures/Tilesets/groundsTileset.png" width="256" height="192"/>
  <wangsets>
   <wangset name="Grounds" type="mixed" tile="-1">
-   <wangcolor name="Grass-To-Dirt" color="#ff0000" tile="-1" probability="1"/>
-   <wangtile tileid="2" wangid="1,1,1,1,1,1,1,1"/>
-   <wangtile tileid="3" wangid="1,0,1,0,1,0,1,0"/>
-   <wangtile tileid="18" wangid="0,0,1,1,1,0,0,0"/>
-   <wangtile tileid="19" wangid="0,0,0,0,1,1,1,0"/>
-   <wangtile tileid="34" wangid="1,1,1,0,0,0,0,0"/>
-   <wangtile tileid="35" wangid="1,0,0,0,0,0,1,1"/>
+   <wangcolor name="Grass" color="#ff0000" tile="-1" probability="1"/>
+   <wangcolor name="Dirt" color="#00ff00" tile="-1" probability="1"/>
+   <wangtile tileid="2" wangid="2,2,2,2,2,2,2,2"/>
+   <wangtile tileid="3" wangid="2,1,2,1,2,1,2,1"/>
+   <wangtile tileid="18" wangid="1,1,2,2,2,1,1,1"/>
+   <wangtile tileid="19" wangid="1,1,1,1,2,2,2,1"/>
+   <wangtile tileid="34" wangid="2,2,2,1,1,1,1,1"/>
+   <wangtile tileid="35" wangid="2,1,1,1,1,1,2,2"/>
   </wangset>
  </wangsets>
 </tileset>

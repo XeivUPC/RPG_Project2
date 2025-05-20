@@ -6,6 +6,8 @@
  <properties>
   <property name="IsInside" type="bool" value="false"/>
  </properties>
+ <tileset firstgid="1" source="../Tilesets/TerrainTileset.tsx"/>
+ <tileset firstgid="129" source="../Tilesets/GroundTileset.tsx"/>
  <layer id="2" name="Ground0" width="43" height="20">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
