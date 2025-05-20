@@ -106,8 +106,6 @@ void CombatCG::UpdateCanvas()
 				}
 				//Animate effects
 				firstTick = false;
-
-				printf("%d  -  %d\n", animationEffect.first, animationEffect.second);
 			}
 
 
@@ -131,6 +129,9 @@ void CombatCG::UpdateCanvas()
 						slot->characterImage->GetAnimator()->Animate("hurt");
 					else
 						targetVisualsCompleted.first++;
+
+					if (targetVisualsRequest.first == targetVisualsCompleted.first)
+						animationEffect.first = true;
 				}
 				//Animate effects
 				firstTick = false;
@@ -834,7 +835,6 @@ void CombatCG::FinishAttackVisuals(UIAnimatedImage* characterImage)
 {
 	animationEffect.first = true;
 	characterImage->GetAnimator()->Animate("combat-idle");
-	printf("        finish atttack\n");
 }
 
 void CombatCG::FinishHurtVisuals(UIAnimatedImage* characterImage, CombatSystem::CharacterReference* ref)
