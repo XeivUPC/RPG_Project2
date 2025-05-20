@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="112" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="24" nextobjectid="1220">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="112" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="24" nextobjectid="1221">
  <properties>
   <property name="IsInside" type="bool" value="false"/>
  </properties>
@@ -1367,7 +1367,7 @@
   </object>
   <object id="911" x="224.152" y="207.424">
    <properties>
-    <property name="NpcId" type="int" value="-1"/>
+    <property name="NpcId" type="int" value="15"/>
     <property name="Path" type="object" value="1015"/>
     <property name="Type" value="npc"/>
    </properties>
@@ -1635,7 +1635,7 @@
   </object>
   <object id="988" x="176" y="960">
    <properties>
-    <property name="NpcId" type="int" value="-1"/>
+    <property name="NpcId" type="int" value="14"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -2066,7 +2066,7 @@
   </object>
   <object id="1107" x="16" y="1088">
    <properties>
-    <property name="NpcId" type="int" value="-1"/>
+    <property name="NpcId" type="int" value="14"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -2357,7 +2357,7 @@
   </object>
   <object id="1185" x="728.5" y="1116.5">
    <properties>
-    <property name="NpcId" type="int" value="13"/>
+    <property name="NpcId" type="int" value="11"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -2512,6 +2512,13 @@
     <property name="Type" value="birdFlock"/>
    </properties>
    <ellipse/>
+  </object>
+  <object id="1220" x="1505" y="1247">
+   <properties>
+    <property name="NpcId" type="int" value="16"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
  <objectgroup id="9" name="Collisions">

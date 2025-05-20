@@ -1,24 +1,24 @@
 {
-    "d370d512-3de5-45d9-a236-e0ffabc289df": {
-        "name": "Fisherman",
-        "character_uuid": "b1bb962d-ac6b-4e34-aa60-cb68c42a463f",
+    "ede983fe-81ea-4ce4-978c-ea82bfce13f0": {
+        "name": "VIP Client",
+        "character_uuid": "b4eb8ade-c843-4b19-82bf-fe3f3c64745e",
         "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
         "text": {
-            "en": "Lad, let me work. If you want to go to the citadelle, follow the stone path. Now, go, I've work to do.",
+            "en": "...",
             "fr": ""
         },
-        "parent": "51e7a733-eabb-438b-bbe0-70d92f16d5e1"
+        "parent": "14280315-95d6-4d1e-a9e8-09243afdf1a3"
     },
     "root": {
         "conditions": [
             {
                 "parent": "root",
-                "Char12_State": {
+                "next": "ede983fe-81ea-4ce4-978c-ea82bfce13f0",
+                "Char17_State": {
                     "value": 0,
                     "operator": "equal",
                     "type": "int"
-                },
-                "next": "d370d512-3de5-45d9-a236-e0ffabc289df"
+                }
             }
         ]
     },
@@ -32,19 +32,19 @@
         },
         "dialogues": [
             {
-                "uuid": "d370d512-3de5-45d9-a236-e0ffabc289df",
+                "uuid": "ede983fe-81ea-4ce4-978c-ea82bfce13f0",
                 "offset": [
-                    740,
-                    -40
+                    600,
+                    -160
                 ]
             }
         ],
         "conditions": [
             {
-                "uuid": "51e7a733-eabb-438b-bbe0-70d92f16d5e1",
+                "uuid": "14280315-95d6-4d1e-a9e8-09243afdf1a3",
                 "offset": [
-                    300,
-                    0
+                    220,
+                    -40
                 ],
                 "parent": "root"
             }
