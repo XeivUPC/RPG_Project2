@@ -3,15 +3,14 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Forest_Secret_Cliff.tmx",
+    "activeFile": "Maps/Interiors/House3_Inside.tmx",
     "expandedProjectPaths": [
-        ".",
         "Tilesets",
+        ".",
         "Objects",
         "Maps",
-        "Prefabs/Buildings",
-        "Maps/Interiors",
-        "Prefabs"
+        "Prefabs",
+        "Maps/Interiors"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -63,14 +62,14 @@
         },
         "Maps/Forest.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
-            "scale": 0.75,
-            "selectedLayer": 5,
+            "scale": 1.5,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 344,
-                "y": 159.3333333333333
+                "x": 344.66666666666663,
+                "y": 250.66666666666669
             }
         },
         "Maps/Forest_Secret_Cliff - còpia.tmx": {
@@ -84,13 +83,14 @@
         "Maps/Forest_Secret_Cliff.tmx": {
             "expandedObjectLayers": [
                 7,
-                10
+                10,
+                16
             ],
-            "scale": 1,
+            "scale": 2,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 304.5,
-                "y": 229
+                "x": 223,
+                "y": 226.5
             }
         },
         "Maps/House1_Inside.tmx": {
@@ -171,7 +171,7 @@
             "selectedLayer": 0,
             "viewCenter": {
                 "x": 247.89722337339413,
-                "y": 226.51968503937007
+                "y": 284.8968089515126
             }
         },
         "Maps/Interiors/Testing_Zone.tmx": {
@@ -210,11 +210,11 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 2,
+            "scale": 0.5,
             "selectedLayer": 7,
             "viewCenter": {
-                "x": 521.5,
-                "y": 447.75
+                "x": 424,
+                "y": 634
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -275,11 +275,11 @@
             "expandedObjectLayers": [
                 7
             ],
-            "scale": 4,
+            "scale": 1.5,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 256,
-                "y": 160.125
+                "x": 214.66666666666666,
+                "y": 196.66666666666666
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -315,6 +315,16 @@
             "scaleInDock": 2,
             "scaleInEditor": 1
         },
+        "Tilesets/Elements_Atlas.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 0.75,
+            "scaleInEditor": 1
+        },
+        "Tilesets/FadeTileset.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
         "Tilesets/Floors_Tiles.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 1,
@@ -330,10 +340,19 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "Tilesets/TerrainTileset.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 2
+        },
         "Tilesets/Vegetation_Atlas.tsx": {
             "dynamicWrapping": true,
             "scaleInDock": 0.25,
             "scaleInEditor": 1.5
+        },
+        "Tilesets/WaterTileset.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "Tilesets/Water_tiles.tsx": {
             "dynamicWrapping": false,
@@ -376,7 +395,7 @@
     },
     "last.exportedFilePath": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Map/Data",
     "last.externalTilesetPath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Tilesets",
-    "last.imagePath": "C:/Users/anaac8/Documents/GitHub/RPG_Project2/Assets/Textures/Tilesets",
+    "last.imagePath": "G:/GitHub/RPG_Project2/Assets/Textures/Tilesets",
     "last.objectTemplatePath": "C:/Users/maxpo/OneDrive/Documents/GitHub/RPG_Project2/Assets/Map/TiledProject/Prefabs/Buildings",
     "map.height": 12,
     "map.lastUsedExportFilter": "Todos los archivos (*)",
@@ -385,27 +404,27 @@
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
-        "Tilesets/terrain.tsx",
-        "Tilesets/outside_extra.tsx",
-        "Tilesets/water.tsx",
-        "Tilesets/fade.tsx",
-        "Maps/Forest_Secret_Cliff.tmx"
+        "Maps/Forest_Secret_Cliff.tmx",
+        "Maps/Rogue_Squadron_Headquarters.tmx",
+        "Maps/Tutorial_Room.tmx",
+        "Maps/Interiors/House4_Inside.tmx",
+        "Maps/Interiors/House3_Inside.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "string",
     "recentFiles": [
-        "Tilesets/terrain.tsx",
-        "Tilesets/outside_extra.tsx",
-        "Tilesets/water.tsx",
-        "Tilesets/fade.tsx",
-        "Maps/Forest_Secret_Cliff.tmx",
-        "Tilesets/Vegetation_Atlas.tsx",
-        "Maps/Forest_Secret_Cliff - còpia.tmx",
-        "Tilesets/Building_Atlas.tsx",
-        "Tilesets/Furniture_Atlas.tsx",
+        "Maps/Rogue_Squadron_Headquarters.tmx",
+        "Maps/Tutorial_Room.tmx",
+        "Maps/Interiors/House4_Inside.tmx",
+        "Maps/Interiors/House3_Inside.tmx",
         "Maps/Forest.tmx",
-        "Maps/Dunhaven_City.tmx",
-        "Maps/Interiors/CottageDunhaven.tmx"
+        "Maps/Forest_Secret_Cliff.tmx",
+        "Tilesets/FadeTileset.tsx",
+        "Tilesets/Building_Atlas.tsx",
+        "Tilesets/WaterTileset.tsx",
+        "Tilesets/Elements_Atlas.tsx",
+        "Tilesets/Water_tiles.tsx",
+        "Tilesets/terrain.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,

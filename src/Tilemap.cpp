@@ -142,6 +142,11 @@ void Tilemap::CreateObjects()
                         simpleObject->AddBoxCollision({ PIXEL_TO_METERS(cornerPosition.x + tileObject->width / 2 + tileObject->x),PIXEL_TO_METERS(cornerPosition.y + tileObject->height / 2 + tileObject->y) }, { PIXEL_TO_METERS(tileObject->width),PIXEL_TO_METERS(tileObject->height) });
                     }
                 }
+
+                if (tileData->objects.count("renderPosition")) {
+                    const TileObject* tileObject = &tileData->objects.at("renderPosition")[i];
+                    simpleObject->renderOffsetSorting = { (int)(cornerPosition.x + tileObject->x) ,(int)(tileObject->y - object->height) };
+                }
             }
             else if (type == "tilemapChanger") {
                 Vector2 position = { object->x ,object->y };

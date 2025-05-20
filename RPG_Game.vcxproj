@@ -269,6 +269,7 @@
     <ClInclude Include="src\FontFactory.h" />
     <ClInclude Include="src\GameScene.h" />
     <ClInclude Include="src\GameState.h" />
+    <ClInclude Include="src\IDialogable.h" />
     <ClInclude Include="src\IInteractuable.h" />
     <ClInclude Include="src\IntroScene.h" />
     <ClInclude Include="src\Inventory.h" />

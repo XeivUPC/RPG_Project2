@@ -450,6 +450,12 @@
     <ClCompile Include="src\BlockingPuzzleElement.cpp">
       <Filter>Source Files\Utils\Puzzles\Elements</Filter>
     </ClCompile>
+    <ClCompile Include="src\Bird.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BirdFlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -796,6 +802,15 @@
     </ClInclude>
     <ClInclude Include="src\BlockingPuzzleElement.h">
       <Filter>Source Files\Utils\Puzzles\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bird.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BirdFlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IDialogable.h">
+      <Filter>Source Files\Utils\Dialogue</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

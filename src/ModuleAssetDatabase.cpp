@@ -166,8 +166,8 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("building_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/MapObjects/Buildings/BuildingsAtlas.png"));
 	AddAtlasToStorage("building_atlas", *atlasFactory->CreateAtlas(*GetTexture("building_atlas"), "Assets/Textures/Atlas/MapObjects/Buildings/BuildingsAtlas.xml"));
 
-	AddTextureToStorage("vegetation_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/MapObjects/Vegetation/VegetationAtlas.png"));
-	AddAtlasToStorage("vegetation_atlas", *atlasFactory->CreateAtlas(*GetTexture("vegetation_atlas"), "Assets/Textures/Atlas/MapObjects/Vegetation/VegetationAtlas.xml"));
+	AddTextureToStorage("elements_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/MapObjects/Elements/ElementsAtlas.png"));
+	AddAtlasToStorage("elements_atlas", *atlasFactory->CreateAtlas(*GetTexture("elements_atlas"), "Assets/Textures/Atlas/MapObjects/Elements/ElementsAtlas.xml"));
 
 	AddTextureToStorage("furniture_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/MapObjects/Furniture/FurnitureAtlas.png"));
 	AddAtlasToStorage("furniture_atlas", *atlasFactory->CreateAtlas(*GetTexture("furniture_atlas"), "Assets/Textures/Atlas/MapObjects/Furniture/FurnitureAtlas.xml"));
