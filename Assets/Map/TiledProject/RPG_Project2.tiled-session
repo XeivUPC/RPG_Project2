@@ -51,8 +51,8 @@
         },
         "Maps/Dunhaven_City.tmx": {
             "expandedObjectLayers": [
-                6,
-                9
+                9,
+                6
             ],
             "scale": 1.5,
             "selectedLayer": 9,
@@ -160,10 +160,10 @@
         },
         "Maps/Interiors/House4_Inside.tmx": {
             "scale": 2.432459677419355,
-            "selectedLayer": 0,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 247.89722337339413,
-                "y": 226.51968503937007
+                "x": 281.4024036469125,
+                "y": 171.84251968503935
             }
         },
         "Maps/Interiors/Testing_Zone.tmx": {
@@ -184,10 +184,10 @@
         },
         "Maps/Interiors/XeivTreaty_MainRoom.tmx": {
             "scale": 2.2754032258064516,
-            "selectedLayer": 0,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 161.07035264930002,
-                "y": 230.2888534467482
+                "x": 293.79408116250227,
+                "y": 212.27006911217438
             }
         },
         "Maps/Map1.tmx": {
@@ -205,8 +205,8 @@
             "scale": 1,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 454.5,
-                "y": 411
+                "x": 531,
+                "y": 447.5
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -346,7 +346,7 @@
             }
         }
     },
-    "last.exportedFilePath": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Map/Data",
+    "last.exportedFilePath": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Map/Data/Interiors",
     "last.externalTilesetPath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Tilesets",
     "last.imagePath": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/MapObjects/Vegetation/Single",
     "last.objectTemplatePath": "C:/Users/maxpo/OneDrive/Documents/GitHub/RPG_Project2/Assets/Map/TiledProject/Prefabs/Buildings",
