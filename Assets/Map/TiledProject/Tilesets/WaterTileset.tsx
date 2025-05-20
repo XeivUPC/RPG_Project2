@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="waterTileset" tilewidth="16" tileheight="16" tilecount="192" columns="16">
+<tileset version="1.10" tiledversion="1.11.2" name="waterTileset" tilewidth="16" tileheight="16" tilecount="192" columns="16">
  <image source="../../../Textures/Tilesets/waterTileset.png" width="256" height="192"/>
  <tile id="0">
   <animation>

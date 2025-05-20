@@ -3,14 +3,14 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Interiors/House3_Inside.tmx",
+    "activeFile": "Maps/Forest.tmx",
     "expandedProjectPaths": [
-        "Tilesets",
         ".",
-        "Objects",
         "Maps",
+        "Maps/Interiors",
+        "Tilesets",
         "Prefabs",
-        "Maps/Interiors"
+        "Objects"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -65,11 +65,11 @@
                 7,
                 10
             ],
-            "scale": 1.5,
+            "scale": 0.75,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 344.66666666666663,
-                "y": 250.66666666666669
+                "x": 368,
+                "y": 266.6666666666667
             }
         },
         "Maps/Forest_Secret_Cliff - còpia.tmx": {
@@ -89,7 +89,7 @@
             "scale": 2,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 223,
+                "x": 273,
                 "y": 226.5
             }
         },
@@ -340,9 +340,14 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "Tilesets/GroundTileset.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 8
+        },
         "Tilesets/TerrainTileset.tsx": {
             "dynamicWrapping": false,
-            "scaleInDock": 2
+            "scaleInDock": 2,
+            "scaleInEditor": 1
         },
         "Tilesets/Vegetation_Atlas.tsx": {
             "dynamicWrapping": true,
@@ -351,8 +356,8 @@
         },
         "Tilesets/WaterTileset.tsx": {
             "dynamicWrapping": false,
-            "scaleInDock": 1,
-            "scaleInEditor": 1
+            "scaleInDock": 2,
+            "scaleInEditor": 2
         },
         "Tilesets/Water_tiles.tsx": {
             "dynamicWrapping": false,
@@ -405,26 +410,25 @@
     "map.width": 20,
     "openFiles": [
         "Maps/Forest_Secret_Cliff.tmx",
-        "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Maps/Tutorial_Room.tmx",
-        "Maps/Interiors/House4_Inside.tmx",
-        "Maps/Interiors/House3_Inside.tmx"
+        "Maps/Forest.tmx",
+        "Tilesets/outside_extra.tsx",
+        "Tilesets/TerrainTileset.tsx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "string",
     "recentFiles": [
+        "Maps/Forest_Secret_Cliff.tmx",
+        "Tilesets/TerrainTileset.tsx",
+        "Tilesets/outside_extra.tsx",
+        "Maps/Forest.tmx",
+        "Tilesets/WaterTileset.tsx",
+        "Tilesets/GroundTileset.tsx",
         "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/Tutorial_Room.tmx",
         "Maps/Interiors/House4_Inside.tmx",
         "Maps/Interiors/House3_Inside.tmx",
-        "Maps/Forest.tmx",
-        "Maps/Forest_Secret_Cliff.tmx",
         "Tilesets/FadeTileset.tsx",
-        "Tilesets/Building_Atlas.tsx",
-        "Tilesets/WaterTileset.tsx",
-        "Tilesets/Elements_Atlas.tsx",
-        "Tilesets/Water_tiles.tsx",
-        "Tilesets/terrain.tsx"
+        "Tilesets/Building_Atlas.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,
