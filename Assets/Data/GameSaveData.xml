@@ -61,8 +61,7 @@
 		<time value="64014.2188" />
 		<items />
 		<tilemaps>
-			<tilemap path="Assets/Map/Data/Dunhaven_City.xml" spawnpoint-x="272.563202" spawnpoint-y="1134.36194" />
-			<tilemap path="Assets/Map/Data/Interiors/XeivTreaty_MainRoom.xml" spawnpoint-x="248.419998" spawnpoint-y="264.75" />
+			<tilemap path="Assets/Map/Data/Forest_Secret_Cliff.xml" spawnpoint-x="136.00" spawnpoint-y="325.33" />
 		</tilemaps>
 	</map>
 </game>

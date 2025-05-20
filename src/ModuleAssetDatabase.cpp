@@ -157,10 +157,11 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("dog_test", *textureFactory->CreateTexture("Assets/Textures/Characters/dog_spritesheet.png"));
 	AddTextureToStorage("fisherman_test", *textureFactory->CreateTexture("Assets/Textures/Characters/fisherman_spritesheet.png"));
 	///Tilesets
-	AddTextureToStorage("floors_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Floors_Tiles.png"));
-	AddTextureToStorage("water_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Water_Tiles.png"));
-	AddTextureToStorage("cave_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Cave_Tiles.png"));
-	AddTextureToStorage("grass_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Grass_Tiles.png"));
+	AddTextureToStorage("fadeTileset", *textureFactory->CreateTexture("Assets/Textures/Tilesets/fadeTileset.png"));
+	AddTextureToStorage("waterTileset", *textureFactory->CreateTexture("Assets/Textures/Tilesets/waterTileset.png"));
+	AddTextureToStorage("terrainTileset", *textureFactory->CreateTexture("Assets/Textures/Tilesets/terrainTileset.png"));
+	AddTextureToStorage("outsideElements", *textureFactory->CreateTexture("Assets/Textures/Tilesets/outsideElements.png"));
+
 
 	AddTextureToStorage("building_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/MapObjects/Buildings/BuildingsAtlas.png"));
 	AddAtlasToStorage("building_atlas", *atlasFactory->CreateAtlas(*GetTexture("building_atlas"), "Assets/Textures/Atlas/MapObjects/Buildings/BuildingsAtlas.xml"));
