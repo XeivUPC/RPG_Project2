@@ -23,7 +23,8 @@ GameplayCG::GameplayCG(int _renderLayer)
 
 	SDL_Texture* compass_overlay = Engine::Instance().m_assetsDB->GetTexture("compass_overlay");
 	Vector2Int compassTextureSize = Engine::Instance().m_assetsDB->GetTextureSize(*compass_overlay);
-	overlay_image = new UIImage(*compass_overlay, { 640 - border.x - compassTextureSize.x/2 , border.y + compassTextureSize.y/2}, compassTextureSize, { 0.5f,0.5f });
+	compassTextureSize.x /= 2;
+	overlay_image = new UIImage(*compass_overlay, { 640 - border.x - compassTextureSize.x/2 , border.y + compassTextureSize.y/2}, compassTextureSize, { 0.5f,0.5f }, true, overlay_rect1);
 	overlay_image->SetLocalScale(1);
 
 	SDL_Texture* compass_arrow = Engine::Instance().m_assetsDB->GetTexture("compass_arrow");
@@ -34,12 +35,14 @@ GameplayCG::GameplayCG(int _renderLayer)
 
 
 	_TTF_Font* font = Engine::Instance().m_assetsDB->GetFont("alagard");
-	clock_text = new UITextBox("", *font, 16, { 184,132,78,255 }, {1,110-60}, {41*2,13*2}, {0.5f,0.5f},UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+	clock_text = new UITextBox("", *font, 16, { 184,132,78,255 }, clock_text_pos1, {41*2,13*2}, {0.5f,0.5f},UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
 	clock_text->SetLocalScale(0.5f);	
 	clock_text->SetParent(overlay_image);
 	///// AddElements
 
 	AddElementToCanvas(overlay_image);
+
+	RemoveLocation();
 }
 
 GameplayCG::~GameplayCG()
@@ -52,8 +55,13 @@ void GameplayCG::UpdateCanvas()
 	missionCanvas->isVisible = isVisible;
 	missionCanvas->UpdateCanvas();
 
-	UpdateCompass();
-	UpdateClock();
+	if (compassHasLocation) {
+		UpdateCompass();
+		UpdateClock();
+	}
+	else {
+		UpdateClock();
+	}
 
 	UICanvas::UpdateCanvas();
 }
@@ -96,6 +104,18 @@ Entity* GameplayCG::GetUser() const
 void GameplayCG::SetLocation(Vector2 locationTarget)
 {
 	targetLocation = locationTarget;
+	compassHasLocation = true;
+	clock_text->SetLocalPosition(clock_text_pos1);
+	arrow_image->localVisible = true;
+	overlay_image->SetRect(overlay_rect1);
+}
+
+void GameplayCG::RemoveLocation()
+{
+	compassHasLocation = false;
+	clock_text->SetLocalPosition(clock_text_pos2);
+	arrow_image->localVisible = false;
+	overlay_image->SetRect(overlay_rect2);
 }
 
 Vector2 GameplayCG::GetLocation() const
