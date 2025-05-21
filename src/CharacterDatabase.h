@@ -47,6 +47,8 @@ class CharacterDatabase {
 
 		void ResetDataToDefault();
 
+		void SaveDatabase();
+
 	public:
 	private:
 		CharacterDatabase();
@@ -55,7 +57,7 @@ class CharacterDatabase {
 		CharacterDatabase(const CharacterDatabase&) = delete;
 		CharacterDatabase& operator=(const CharacterDatabase&) = delete;
 
-		void SaveDatabase();
+
 		void LoadDatabase();
 	private:
 		string pathToCharacterDefinitions = "Assets/Data/Characters/SaveData/CharacterDefinitions.xml";

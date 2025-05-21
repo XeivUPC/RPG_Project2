@@ -34,7 +34,10 @@
 	<character id="character;rs_guard_tutorial" template="character;rs_guard" name="RS Guard">
 		<dialogue path="Assets/Dialogues/guard_tutorial.json" state="0" />
 	</character>
-	<character id="character;rs_chef" template="character;rs_guard" name="RS Guard">
+	<character id="character;rs_guard_duel" template="character;rs_guard" name="RS Guard">
+		<dialogue path="Assets/Dialogues/guard_RS_duel.json" state="0" />
+	</character>
+	<character id="character;rs_chef" template="character;rs_guard" name="RH Chef">
 		<dialogue path="Assets/Dialogues/chef_RS.json" state="0" />
 	</character>
 	<character id="character;rs_guard_entryL" template="character;rs_guard" name="RS Guard">
@@ -43,14 +46,32 @@
 	<character id="character;rs_guard_entryR" template="character;rs_guard" name="RS Guard">
 		<dialogue path="Assets/Dialogues/guard_RS_entrance_right.json" state="0" />
 	</character>
-	<character id="character;rs_artisGuard_entryL" template="character;rs_guard" name="RS Guard">
+	<character id="character;rs_artisGuard_entryL" template="character;rs_guard" name="RS Artis Guard">
 		<dialogue path="Assets/Dialogues/guard_Artis_left.json" state="0" />
 	</character>
-	<character id="character;rs_artisGuard_entryR" template="character;rs_guard" name="RS Guard">
+	<character id="character;rs_artisGuard_entryR" template="character;rs_guard" name="RS Artis Guard">
 		<dialogue path="Assets/Dialogues/guard_Artis_right.json" state="0" />
 	</character>
 	<character id="character;pedroJr" template="character;pedroJr" name="PedroJr">
-		<dialogue path="Assets/Dialogues/pedro_jr.json" state="1" />
+		<dialogue path="Assets/Dialogues/pedro_jr.json" state="0" />
+	</character>
+	<character id="character;dh_xt_innkeeper" template="character;dh_fisherman" name="Innkeeper">
+		<dialogue path="Assets/Dialogues/innkeeper_xeivTreaty_one.json" state="0" />
+	</character>
+	<character id="character;dh_xt_vip1" template="character;guideon" name="Vip 1">
+		<dialogue path="Assets/Dialogues/vip_client_one.json" state="0" />
+	</character>
+	<character id="character;dh_xt_vip2" template="character;guideon" name="Vip 2">
+		<dialogue path="Assets/Dialogues/vip_client_two.json" state="0" />
+	</character>
+	<character id="character;dh_xt_vip3" template="character;guideon" name="Vip 3">
+		<dialogue path="Assets/Dialogues/vip_client_three.json" state="0" />
+	</character>
+	<character id="character;dh_xt_vip4" template="character;guideon" name="Vip 4">
+		<dialogue path="Assets/Dialogues/vip_client_four.json" state="0" />
+	</character>
+	<character id="character;dh_xt_doorman" template="character;dh_fisherman" name="Doorman">
+		<dialogue path="Assets/Dialogues/xeivTreaty_doorman.json" state="0" />
 	</character>
 	<character id="character;rs_guard" template="character;rs_guard" name="RS Guard">
 		<recruitable>true</recruitable>
@@ -60,6 +81,13 @@
 		</combat>
 	</character>
 	<character id="character;dh_guard" template="character;dh_guard" name="DH Guard">
+		<recruitable>true</recruitable>
+		<combat>
+			<stats level="1" hp="60" defense="63" attack="72" speed="100" />
+			<attacks attack1="0" attack2="1" attack3="2" attack4="3" />
+		</combat>
+	</character>
+	<character id="character;dh_fisherman" template="character;dh_fisherman" name="Fisherman">
 		<recruitable>true</recruitable>
 		<combat>
 			<stats level="1" hp="60" defense="63" attack="72" speed="100" />

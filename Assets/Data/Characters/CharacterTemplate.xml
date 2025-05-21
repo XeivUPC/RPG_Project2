@@ -11,7 +11,7 @@
     
     <!-- NPC Generic -->
     <character id="character;rs_guard" textureId="rsGuard_test" faceId="Guard-idle"/>
-    <character id="character;dh_guard" textureId="dhGuard_test" faceId="DhGuard-idle"/>
-    <character id="character;fisherman" textureId="fisherman_test" faceId="Fisherman-idle"/>
+    <character id="character;dh_guard" textureId="rsGuard_test" faceId="Guard-idle"/>
+    <character id="character;dh_fisherman" textureId="fisherman_test" faceId="Fisherman-idle"/>
 
 </template>

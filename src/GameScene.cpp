@@ -784,6 +784,8 @@ void GameScene::SaveGameSaveData()
 
         file.save_file(savePath.c_str());
 
+		CharacterDatabase::Instance().SaveDatabase();
+
     }
     else {
         LOG("Game couldn't be saved");

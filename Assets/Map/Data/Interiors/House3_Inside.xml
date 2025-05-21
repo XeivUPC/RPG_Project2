@@ -7,7 +7,7 @@
  <tileset firstgid="290" source="../../TiledProject/Tilesets/Floors_Tiles.tsx"/>
  <tileset firstgid="915" source="../../TiledProject/Tilesets/Water_tiles.tsx"/>
  <tileset firstgid="1540" source="../../TiledProject/Tilesets/Building_Atlas.tsx"/>
- <tileset firstgid="1546" source="../../TiledProject/Tilesets/Furniture_Atlas.tsx"/>
+ <tileset firstgid="1552" source="../../TiledProject/Tilesets/Furniture_Atlas.tsx"/>
  <layer id="2" name="Ground0" width="26" height="30">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -153,7 +153,7 @@
   </object>
   <object id="29" x="187.378" y="279.167">
    <properties>
-    <property name="NpcId" value="6"/>
+    <property name="NpcId" value="character;rs_chef"/>
     <property name="Path" type="object" value="50"/>
     <property name="PathMovementType" type="int" value="1"/>
     <property name="Type" value="npc"/>
@@ -165,12 +165,12 @@
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>
-  <object id="33" gid="1571" x="256" y="176" width="32" height="32">
+  <object id="33" gid="1577" x="256" y="176" width="32" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="34" gid="1569" x="160" y="384" width="32" height="16">
+  <object id="34" gid="1575" x="160" y="384" width="32" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>

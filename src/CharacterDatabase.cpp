@@ -52,7 +52,6 @@ CharacterDatabase::CharacterDatabase()
 
 CharacterDatabase::~CharacterDatabase()
 {
-	SaveDatabase();
 }
 
 void CharacterDatabase::SaveDatabase()
