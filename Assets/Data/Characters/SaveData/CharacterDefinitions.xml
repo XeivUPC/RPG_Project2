@@ -3,7 +3,6 @@
 	<character id="character;test" template="character;test" name="TESTING" />
 	<character id="character;cassian" template="character;cassian" name="Cassian">
 		<recruitable>true</recruitable>
-		<dialogue path="" state="0" />
 		<combat>
 			<stats level="1" hp="60" defense="63" attack="72" speed="100" />
 			<attacks attack1="0" attack2="1" attack3="2" attack4="3" />
@@ -19,38 +18,48 @@
 	</character>
 	<character id="character;zeryn" template="character;zeryn" name="Zeryn">
 		<recruitable>true</recruitable>
-		<dialogue path="" state="0" />
+		<dialogue path="Assets/Dialogues/zeryn_early.json" state="0" />
 		<combat>
 			<stats level="1" hp="60" defense="63" attack="72" speed="100" />
 			<attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		</combat>
 	</character>
 	<character id="character;guideon" template="character;guideon" name="Guideon">
-		<dialogue path="" state="0" />
+		<dialogue path="Assets/Dialogues/Sir_Gideon_Hawthorne.json" state="0" />
 		<combat>
 			<stats level="1" hp="60" defense="63" attack="72" speed="100" />
 			<attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		</combat>
 	</character>
 	<character id="character;rs_guard_tutorial" template="character;rs_guard" name="RS Guard">
-		<dialogue path="" state="0" />
+		<dialogue path="Assets/Dialogues/guard_tutorial.json" state="0" />
+	</character>
+	<character id="character;rs_chef" template="character;rs_guard" name="RS Guard">
+		<dialogue path="Assets/Dialogues/chef_RS.json" state="0" />
 	</character>
 	<character id="character;rs_guard_entryL" template="character;rs_guard" name="RS Guard">
-		<dialogue path="" state="0" />
+		<dialogue path="Assets/Dialogues/guard_RS_entrance_left.json" state="0" />
 	</character>
 	<character id="character;rs_guard_entryR" template="character;rs_guard" name="RS Guard">
-		<dialogue path="" state="0" />
+		<dialogue path="Assets/Dialogues/guard_RS_entrance_right.json" state="0" />
 	</character>
 	<character id="character;rs_artisGuard_entryL" template="character;rs_guard" name="RS Guard">
-		<dialogue path="" state="0" />
+		<dialogue path="Assets/Dialogues/guard_Artis_left.json" state="0" />
 	</character>
 	<character id="character;rs_artisGuard_entryR" template="character;rs_guard" name="RS Guard">
-		<dialogue path="" state="0" />
+		<dialogue path="Assets/Dialogues/guard_Artis_right.json" state="0" />
 	</character>
 	<character id="character;pedroJr" template="character;pedroJr" name="PedroJr">
 		<dialogue path="" state="0" />
 	</character>
 	<character id="character;rs_guard" template="character;rs_guard" name="RS Guard">
+		<recruitable>true</recruitable>
+		<combat>
+			<stats level="1" hp="60" defense="63" attack="72" speed="100" />
+			<attacks attack1="0" attack2="1" attack3="2" attack4="3" />
+		</combat>
+	</character>
+	<character id="character;dh_guard" template="character;dh_guard" name="DH Guard">
 		<recruitable>true</recruitable>
 		<combat>
 			<stats level="1" hp="60" defense="63" attack="72" speed="100" />

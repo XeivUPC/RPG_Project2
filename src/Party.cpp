@@ -17,9 +17,7 @@ Party::~Party()
 
 bool Party::AddPartyMemeber(string id)
 {
-	if (!IsMemberUnlocked(id))
-		return false;
-	if (IsMemberInParty(id))
+	if (!IsMemeberRecruitable(id) || !IsMemberUnlocked(id) || IsMemberInParty(id))
 		return false;
 
 	if (party.size() >= partyMaxSize)
@@ -35,7 +33,7 @@ bool Party::AddPartyMemeber(string id)
 
 bool Party::AddMemeber(string id)
 {
-	if (IsMemberUnlocked(id))
+	if (IsMemberUnlocked(id) || !IsMemeberRecruitable(id))
 		return false;
 
 	CharacterDatabase::CharacterDefinition& member = CharacterDatabase::Instance().GetCharacterDefinition(id);
@@ -281,4 +279,10 @@ bool Party::IsMemberUnlocked(string id) const
 	}
 
 	return false;
+}
+
+bool Party::IsMemeberRecruitable(string id) const
+{
+	CharacterDatabase::CharacterDefinition& member = CharacterDatabase::Instance().GetCharacterDefinition(id);
+	return member.recruitable;
 }

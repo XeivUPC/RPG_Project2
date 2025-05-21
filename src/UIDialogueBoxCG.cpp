@@ -141,8 +141,10 @@ void UIDialogueBoxCG::UpdateCanvas()
 		characterNameTextBox->SetText(node.character.name);
 	}
 
-	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN && btns[0]->isEnabled)
-		NextDialogue();
+	if (btns[0]->isEnabled) {
+		if(Engine::Instance().m_input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN  || Engine::Instance().m_input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+			NextDialogue();
+	}
 
 	UICanvas::UpdateCanvas();
 }

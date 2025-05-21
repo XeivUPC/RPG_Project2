@@ -5,13 +5,13 @@
     },
     "activeFile": "Tilesets/Vegetation_Atlas.tsx",
     "expandedProjectPaths": [
+        "Maps",
+        "Maps/Interiors",
+        "Prefabs/Buildings",
         "Tilesets",
-        "Prefabs",
         "Objects",
         ".",
-        "Prefabs/Buildings",
-        "Maps",
-        "Maps/Interiors"
+        "Prefabs"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -57,19 +57,19 @@
             "scale": 1.5,
             "selectedLayer": 9,
             "viewCenter": {
-                "x": 1221.3333333333333,
-                "y": 522.6666666666666
+                "x": 896,
+                "y": 640
             }
         },
         "Maps/Forest.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
             "scale": 0.75,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 343.3333333333333,
+                "x": 344,
                 "y": 160
             }
         },
@@ -138,8 +138,8 @@
             "scale": 0.75,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 214.66666666666669,
-                "y": 261.33333333333337
+                "x": 208,
+                "y": 112
             }
         },
         "Maps/Interiors/House2_Inside.tmx": {
@@ -186,7 +186,7 @@
             "scale": 2.2754032258064516,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 247.86815523657629,
+                "x": 247.86815523657634,
                 "y": 167.8823320928584
             }
         },
@@ -205,8 +205,8 @@
             "scale": 0.5,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 1707,
-                "y": 530
+                "x": 544,
+                "y": 787
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -359,7 +359,6 @@
     "openFiles": [
         "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/Tutorial_Room.tmx",
-        "Maps/CottageDunhaven.tmx",
         "Maps/Interiors/XeivTreaty_MainRoom.tmx",
         "Maps/Interiors/CottageDunhaven.tmx",
         "Maps/Dunhaven_City.tmx",
@@ -371,16 +370,16 @@
     "project": "RPG_Project2.tiled-project",
     "property.type": "string",
     "recentFiles": [
+        "Maps/Rogue_Squadron_Headquarters.tmx",
+        "Maps/Tutorial_Room.tmx",
+        "Maps/Interiors/XeivTreaty_MainRoom.tmx",
+        "Maps/Interiors/CottageDunhaven.tmx",
+        "Maps/Dunhaven_City.tmx",
         "Maps/Forest.tmx",
-        "Maps/Forest_Secret_Cliff.tmx",
         "Tilesets/Building_Atlas.tsx",
         "Tilesets/Furniture_Atlas.tsx",
         "Tilesets/Vegetation_Atlas.tsx",
-        "Maps/Dunhaven_City.tmx",
-        "Maps/Interiors/CottageDunhaven.tmx",
-        "Maps/Interiors/XeivTreaty_MainRoom.tmx",
-        "Maps/Tutorial_Room.tmx",
-        "Maps/Rogue_Squadron_Headquarters.tmx",
+        "Maps/Forest_Secret_Cliff.tmx",
         "Maps/CottageDunhaven.tmx",
         "Tilesets/Grass_Tiles.tsx"
     ],

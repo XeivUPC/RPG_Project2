@@ -156,7 +156,7 @@ void CharacterDatabase::LoadDatabase()
             charDefinition.recruitable = recruitableNode.text().as_bool();
 
             charDefinition.state = dialogueNode.attribute("state").as_int();
-            charDefinition.dialogue = dialogueNode.attribute("path").as_int();      
+            charDefinition.dialogue = dialogueNode.attribute("path").as_string();      
 
             charDefinition.level = combatStatsNode.attribute("level").as_int();
             charDefinition.health = combatStatsNode.attribute("hp").as_int();

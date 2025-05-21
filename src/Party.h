@@ -32,6 +32,7 @@ public:
 
 	bool IsMemberInParty(string id) const;
 	bool IsMemberUnlocked(string id) const;
+	bool IsMemeberRecruitable(string id) const;
 
 	CharacterDatabase::CharacterDefinition* GetPartyLeader() const;
 	vector<CharacterDatabase::CharacterDefinition*> GetParty(bool removeLeader = false) const;
