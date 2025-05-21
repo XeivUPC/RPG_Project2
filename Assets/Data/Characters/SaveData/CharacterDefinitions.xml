@@ -50,7 +50,7 @@
 		<dialogue path="Assets/Dialogues/guard_Artis_right.json" state="0" />
 	</character>
 	<character id="character;pedroJr" template="character;pedroJr" name="PedroJr">
-		<dialogue path="" state="0" />
+		<dialogue path="Assets/Dialogues/pedro_jr.json" state="1" />
 	</character>
 	<character id="character;rs_guard" template="character;rs_guard" name="RS Guard">
 		<recruitable>true</recruitable>

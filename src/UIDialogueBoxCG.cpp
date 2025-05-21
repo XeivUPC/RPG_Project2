@@ -232,7 +232,7 @@ void UIDialogueBoxCG::SetVariablesOnStart()
 
 	for (const auto& character : databaseCharacters.GetCharacters())
 	{
-		dialogue->AddGameStateVariable((character.second.id) + "_state", (float)character.second.state);
+		dialogue->AddGameStateVariable((character.second.id) + "-state", (float)character.second.state);
 	}
 }
 
@@ -278,7 +278,7 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 			int stateValue = stoi(infoToGet[1]);
 
 			CharacterDatabase::Instance().GetCharacterDefinition(infoToGet[0]).state = stateValue;
-			dialogue->AddGameStateVariable(infoToGet[0] + "_state", (float)stateValue);
+			dialogue->AddGameStateVariable(infoToGet[0] + "-state", (float)stateValue);
 		}
 	}
 	else if (signal->name == "AddItem") {

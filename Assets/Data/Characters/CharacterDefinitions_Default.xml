@@ -65,7 +65,7 @@
 	</character>
 
 	<character id="character;pedroJr" template="character;pedroJr" name="PedroJr">
-		<dialogue path="" state="0"/>
+		<dialogue path="Assets/Dialogues/pedro_jr.json" state="0"/>
 	</character>
 
 	<!-- NPC Generic (Specify by zone and name) "For combat"-->

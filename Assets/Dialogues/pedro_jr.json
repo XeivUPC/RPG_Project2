@@ -1,8 +1,8 @@
 {
     "6b6b3fef-9ee8-4f64-a705-6acf8cb5b696": {
         "name": "Pedro Jr",
-        "character_uuid": "b5032ec1-160c-46e3-a5f5-a266febee230",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Pedro-idle.png",
+        "character_uuid": "5f841560-708b-4262-816d-0ac418a8b680",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Pedro-idle.png",
         "text": {
             "en": "Guau guau (I was looking for a bone and got lost)",
             "fr": ""
@@ -37,8 +37,8 @@
     },
     "65dc700f-8c06-4977-bc7e-858cc4fba87b": {
         "name": "Pedro Jr",
-        "character_uuid": "b5032ec1-160c-46e3-a5f5-a266febee230",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Pedro-idle.png",
+        "character_uuid": "5f841560-708b-4262-816d-0ac418a8b680",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Pedro-idle.png",
         "text": {
             "en": "Guau! Guau! (Leave mother outside of this!)",
             "fr": ""
@@ -57,8 +57,8 @@
     },
     "50ef2b32-0fed-4035-8376-9a23ae5b0a4a": {
         "name": "Pedro Jr",
-        "character_uuid": "b5032ec1-160c-46e3-a5f5-a266febee230",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Pedro-idle.png",
+        "character_uuid": "5f841560-708b-4262-816d-0ac418a8b680",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Pedro-idle.png",
         "text": {
             "en": "Guau! GUAU! guau... (Life! It  has no meaning... I'm going to jump...)",
             "fr": ""
@@ -66,18 +66,15 @@
         "parent": "8ababc05-28b5-4fa5-bb9f-a06737ddd976",
         "signals": {
             "parent": "50ef2b32-0fed-4035-8376-9a23ae5b0a4a",
-            "SetNpcStatusByID": {
-                "Vector2": {
-                    "x": "8",
-                    "y": "1"
-                }
+            "SetNpcState": {
+                "String": "character;pedroJr-1"
             }
         }
     },
     "dd59da56-9171-439f-890c-9a958720b38d": {
         "name": "Pedro Jr",
-        "character_uuid": "b5032ec1-160c-46e3-a5f5-a266febee230",
-        "portrait": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Pedro-idle.png",
+        "character_uuid": "5f841560-708b-4262-816d-0ac418a8b680",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Pedro-idle.png",
         "text": {
             "en": "Guau! Guau... (Leave me alone... I'm thinking about it)",
             "fr": ""
@@ -89,7 +86,7 @@
             {
                 "parent": "root",
                 "next": "6b6b3fef-9ee8-4f64-a705-6acf8cb5b696",
-                "Char8_State": {
+                "character;pedroJr-state": {
                     "value": 0,
                     "operator": "equal",
                     "type": "int"
@@ -98,7 +95,7 @@
             {
                 "parent": "root",
                 "next": "dd59da56-9171-439f-890c-9a958720b38d",
-                "Char8_State": {
+                "character;pedroJr-state": {
                     "value": 1,
                     "operator": "equal",
                     "type": "int"
@@ -172,11 +169,8 @@
                 "parent": "50ef2b32-0fed-4035-8376-9a23ae5b0a4a",
                 "data": {
                     "parent": "50ef2b32-0fed-4035-8376-9a23ae5b0a4a",
-                    "SetNpcStatusByID": {
-                        "Vector2": {
-                            "x": "8",
-                            "y": "1"
-                        }
+                    "SetNpcState": {
+                        "String": "character;pedroJr-1"
                     }
                 }
             }
