@@ -19,7 +19,7 @@ CheckIfWonCombat()
 ///////////////////////
 
 
-How to acces to a characterState? Use {Id}_state ---> Just replace {Id} by the carácter Id
+How to acces to a characterState? Use {Id}-state ---> Just replace {Id} by the carácter Id
 How to check if has item? Previusly, call "CheckIfHasItem()", then the variable HasItem will be true or false
 How to check if can give item? Previusly, call "CheckIfCanGiveItem()", then the variable CanGiveItem will be true or false
 How to check if has completed mission? Previusly, call "CheckIfMissionCompleted()", then the variable HasCompletedMission will be true or false

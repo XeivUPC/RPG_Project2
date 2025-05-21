@@ -43,6 +43,10 @@
 	<character id="character;rs_guard_tutorial" template="character;rs_guard" name="RS Guard">
 		<dialogue path="Assets/Dialogues/guard_tutorial.json" state="0"/>
 	</character>
+
+	<character id="character;rs_guard_duel" template="character;rs_guard" name="RS Guard">
+		<dialogue path="Assets/Dialogues/guard_RS_duel.json" state="0"/>
+	</character>
 	
 	<character id="character;rs_chef" template="character;rs_guard" name="RS Guard">
 		<dialogue path="Assets/Dialogues/chef_RS.json" state="0"/>
