@@ -2333,7 +2333,7 @@
   </object>
   <object id="1177" x="730.833" y="890.083">
    <properties>
-    <property name="NpcId" value="13"/>
+    <property name="NpcId" value="-1"/>
     <property name="Path" type="object" value="1184"/>
     <property name="PathMovementType" type="int" value="1"/>
     <property name="Type" value="npc"/>
@@ -2352,7 +2352,7 @@
   <object id="1182" x="642.682" y="769.577">
    <polygon points="0,0 0,164.836 230.945,164.836 230.945,0.21491"/>
   </object>
-  <object id="1184" x="750.996" y="924.993">
+  <object id="1184" x="762.996" y="911.993">
    <polygon points="-49.75,19 49.0379,-25.9934 107.337,-65.4307 45.1012,-132.327 -88.115,-138.54 -96.6627,-27.6822"/>
   </object>
   <object id="1185" x="728.5" y="1116.5">
