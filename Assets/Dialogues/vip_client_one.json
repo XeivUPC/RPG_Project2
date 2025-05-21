@@ -1,1 +1,410 @@
-{"b30e88e5-62c2-4e48-a88d-025d59843192":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"...","fr":""},"parent":"a6fbde96-c358-4ffd-ace7-09b9c4faacae"},"d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"I see you have found me!","fr":""},"parent":"c3c522a3-b887-4ab7-a326-d4c43fd6ab28","signals":{"parent":"d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6","CheckIfCanGiveItem":{"String":"item;VIP_Card-1"}},"conditions":[{"parent":"d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6","CanGiveItem":{"value":true,"operator":"equal","type":"boolean"},"next":"acd1d5b2-fdb8-4c7b-ac03-e5ca271c862c"},{"parent":"d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6","next":"8b84e630-bb16-4ac3-b47a-a94da104b88d"}]},"acd1d5b2-fdb8-4c7b-ac03-e5ca271c862c":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Here you go! Here you go, there are only three cards to go. The next card is in a bench under a hut by the riverbank.","fr":""},"parent":"fad401ac-802f-43e3-9235-46bbd88c65b0","signals":{"parent":"acd1d5b2-fdb8-4c7b-ac03-e5ca271c862c","SetNpcState":{"String":"character;dh_xt_vip2-1"}},"next":"dde3fba4-20a4-490b-90c1-37f605ae7bfd"},"8b84e630-bb16-4ac3-b47a-a94da104b88d":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Come back when you have some spare space.","fr":""},"parent":"79048f32-f5df-4bca-afd8-3dfa754e25a4","signals":{"parent":"8b84e630-bb16-4ac3-b47a-a94da104b88d","SetNpcState":{"String":"character;dh_xt_vip1-2"}}},"59a0a23d-0656-4c52-980f-3e817493ae13":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"You're back! Let's see if this time you have space for the card!","fr":""},"parent":"35052bcc-777e-454a-99c4-ffd8fd1ee223","signals":{"parent":"59a0a23d-0656-4c52-980f-3e817493ae13","CheckIfCanGiveItem":{"String":"item;VIP_Card-1"}},"conditions":[{"parent":"59a0a23d-0656-4c52-980f-3e817493ae13","CanGiveItem":{"value":true,"operator":"equal","type":"boolean"},"next":"46d9df7b-5e09-47d6-8652-6dbfdd242969"},{"parent":"59a0a23d-0656-4c52-980f-3e817493ae13","next":"6aa3b45d-19e8-4a73-97aa-9a73a654f5bb"}]},"46d9df7b-5e09-47d6-8652-6dbfdd242969":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Here you go! Here you go, there are only three cards to go. The next card is in a bench under a hut by the riverbank.","fr":""},"parent":"9efeebaa-e95c-46be-9bc4-2476a1ff9aa5","signals":{"parent":"46d9df7b-5e09-47d6-8652-6dbfdd242969","SetNpcState":{"String":"character;dh_xt_vip2-1"}},"next":"5ca2d3e8-17f3-4b54-84e1-b53015b10fa1"},"6aa3b45d-19e8-4a73-97aa-9a73a654f5bb":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Come back when you have some spare space.","fr":""},"parent":"c77cf354-b850-472a-8377-026c026b3a74","signals":{"parent":"6aa3b45d-19e8-4a73-97aa-9a73a654f5bb","SetNpcState":{"String":"character;dh_xt_vip1-2"}}},"dde3fba4-20a4-490b-90c1-37f605ae7bfd":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"... ... Now, go. Don't want to have anyone curious finding out about me. ","fr":""},"parent":"acd1d5b2-fdb8-4c7b-ac03-e5ca271c862c","signals":{"parent":"dde3fba4-20a4-490b-90c1-37f605ae7bfd","AddItem":{"String":"item;VIP_Card-1"},"SetNpcState":{"String":"character;dh_xt_vip1-0"}}},"5ca2d3e8-17f3-4b54-84e1-b53015b10fa1":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"... ... Now, go. Don't want to have anyone curious finding out about me. ","fr":""},"parent":"46d9df7b-5e09-47d6-8652-6dbfdd242969","signals":{"parent":"5ca2d3e8-17f3-4b54-84e1-b53015b10fa1","AddItem":{"String":"item;VIP_Cards-1"},"SetNpcState":{"String":"character;dh_xt_vip1-0"}}},"root":{"conditions":[{"parent":"root","next":"b30e88e5-62c2-4e48-a88d-025d59843192","character;dh_xt_vip1-state":{"value":0,"operator":"equal","type":"int"}},{"parent":"root","next":"d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6","character;dh_xt_vip1-state":{"value":1,"operator":"equal","type":"int"}},{"parent":"root","next":"59a0a23d-0656-4c52-980f-3e817493ae13","character;dh_xt_vip1-state":{"value":2,"operator":"equal","type":"int"}}]},"__editor":{"root":{"uuid":"root","offset":[-40,260]},"dialogues":[{"uuid":"b30e88e5-62c2-4e48-a88d-025d59843192","offset":[680,-180]},{"uuid":"d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6","offset":[680,200]},{"uuid":"acd1d5b2-fdb8-4c7b-ac03-e5ca271c862c","offset":[1560,360]},{"uuid":"8b84e630-bb16-4ac3-b47a-a94da104b88d","offset":[1560,740]},{"uuid":"59a0a23d-0656-4c52-980f-3e817493ae13","offset":[580,1380]},{"uuid":"46d9df7b-5e09-47d6-8652-6dbfdd242969","offset":[1540,1220]},{"uuid":"6aa3b45d-19e8-4a73-97aa-9a73a654f5bb","offset":[1540,1600]},{"uuid":"dde3fba4-20a4-490b-90c1-37f605ae7bfd","offset":[2380,360]},{"uuid":"5ca2d3e8-17f3-4b54-84e1-b53015b10fa1","offset":[2400,1140]}],"conditions":[{"uuid":"fad401ac-802f-43e3-9235-46bbd88c65b0","offset":[1140,400],"parent":"d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6"},{"uuid":"79048f32-f5df-4bca-afd8-3dfa754e25a4","offset":[1120,760],"collapsed":true,"parent":"d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6"},{"uuid":"9efeebaa-e95c-46be-9bc4-2476a1ff9aa5","offset":[1060,1380],"parent":"59a0a23d-0656-4c52-980f-3e817493ae13"},{"uuid":"c77cf354-b850-472a-8377-026c026b3a74","offset":[1060,1720],"parent":"59a0a23d-0656-4c52-980f-3e817493ae13","collapsed":true},{"uuid":"a6fbde96-c358-4ffd-ace7-09b9c4faacae","offset":[260,-140],"parent":"root"},{"uuid":"c3c522a3-b887-4ab7-a326-d4c43fd6ab28","offset":[260,200],"parent":"root"},{"uuid":"35052bcc-777e-454a-99c4-ffd8fd1ee223","offset":[180,1400],"parent":"root"}],"signals":[{"uuid":"c3c1fdb5-be0e-45d4-9b4a-4a1099e45729","offset":[1100,60],"parent":"d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6"},{"uuid":"205cee20-3819-4839-9271-8b6a6f1f7c6a","offset":[1940,80],"parent":"acd1d5b2-fdb8-4c7b-ac03-e5ca271c862c"},{"uuid":"6f8194bd-bef8-4985-b6df-4e8f1e4cf17a","offset":[1940,740],"parent":"8b84e630-bb16-4ac3-b47a-a94da104b88d"},{"uuid":"8f8454b7-a3e9-4137-8da4-9708efb7c285","offset":[1060,1040],"parent":"59a0a23d-0656-4c52-980f-3e817493ae13"},{"uuid":"6963a409-5910-40ed-84aa-4d49a5fc5f9a","offset":[1920,1100],"parent":"46d9df7b-5e09-47d6-8652-6dbfdd242969"},{"uuid":"75c51d6f-963f-47da-84cc-d8a96f3c27c2","offset":[1960,1620],"parent":"6aa3b45d-19e8-4a73-97aa-9a73a654f5bb"},{"uuid":"6d087496-d674-4a2c-9e04-5dad805cc880","offset":[2820,300],"parent":"dde3fba4-20a4-490b-90c1-37f605ae7bfd"},{"uuid":"85768460-84ab-48e0-b284-3a73edd040b7","offset":[2780,1080],"parent":"5ca2d3e8-17f3-4b54-84e1-b53015b10fa1"}],"choices":[]}}
+{
+    "b30e88e5-62c2-4e48-a88d-025d59843192": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "...",
+            "fr": ""
+        },
+        "parent": "a6fbde96-c358-4ffd-ace7-09b9c4faacae"
+    },
+    "d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "I see you have found me!",
+            "fr": ""
+        },
+        "parent": "c3c522a3-b887-4ab7-a326-d4c43fd6ab28",
+        "signals": {
+            "parent": "d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6",
+            "CheckIfCanGiveItem": {
+                "String": "item;VIP_Card-1"
+            }
+        },
+        "conditions": [
+            {
+                "parent": "d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6",
+                "CanGiveItem": {
+                    "value": true,
+                    "operator": "equal",
+                    "type": "boolean"
+                },
+                "next": "acd1d5b2-fdb8-4c7b-ac03-e5ca271c862c"
+            },
+            {
+                "parent": "d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6",
+                "next": "8b84e630-bb16-4ac3-b47a-a94da104b88d"
+            }
+        ]
+    },
+    "acd1d5b2-fdb8-4c7b-ac03-e5ca271c862c": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Here you go! Here you go, there are only three cards to go. The next card is in a bench under a hut by the riverbank.",
+            "fr": ""
+        },
+        "parent": "fad401ac-802f-43e3-9235-46bbd88c65b0",
+        "signals": {
+            "parent": "acd1d5b2-fdb8-4c7b-ac03-e5ca271c862c",
+            "SetNpcState": {
+                "String": "character;dh_xt_vip2-1"
+            }
+        },
+        "next": "dde3fba4-20a4-490b-90c1-37f605ae7bfd"
+    },
+    "8b84e630-bb16-4ac3-b47a-a94da104b88d": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Come back when you have some spare space.",
+            "fr": ""
+        },
+        "parent": "79048f32-f5df-4bca-afd8-3dfa754e25a4",
+        "signals": {
+            "parent": "8b84e630-bb16-4ac3-b47a-a94da104b88d",
+            "SetNpcState": {
+                "String": "character;dh_xt_vip1-2"
+            }
+        }
+    },
+    "59a0a23d-0656-4c52-980f-3e817493ae13": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "You're back! Let's see if this time you have space for the card!",
+            "fr": ""
+        },
+        "parent": "35052bcc-777e-454a-99c4-ffd8fd1ee223",
+        "signals": {
+            "parent": "59a0a23d-0656-4c52-980f-3e817493ae13",
+            "CheckIfCanGiveItem": {
+                "String": "item;VIP_Card-1"
+            }
+        },
+        "conditions": [
+            {
+                "parent": "59a0a23d-0656-4c52-980f-3e817493ae13",
+                "CanGiveItem": {
+                    "value": true,
+                    "operator": "equal",
+                    "type": "boolean"
+                },
+                "next": "46d9df7b-5e09-47d6-8652-6dbfdd242969"
+            },
+            {
+                "parent": "59a0a23d-0656-4c52-980f-3e817493ae13",
+                "next": "6aa3b45d-19e8-4a73-97aa-9a73a654f5bb"
+            }
+        ]
+    },
+    "46d9df7b-5e09-47d6-8652-6dbfdd242969": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Here you go! Here you go, there are only three cards to go. The next card is in a bench under a hut by the riverbank.",
+            "fr": ""
+        },
+        "parent": "9efeebaa-e95c-46be-9bc4-2476a1ff9aa5",
+        "signals": {
+            "parent": "46d9df7b-5e09-47d6-8652-6dbfdd242969",
+            "SetNpcState": {
+                "String": "character;dh_xt_vip2-1"
+            }
+        },
+        "next": "5ca2d3e8-17f3-4b54-84e1-b53015b10fa1"
+    },
+    "6aa3b45d-19e8-4a73-97aa-9a73a654f5bb": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Come back when you have some spare space.",
+            "fr": ""
+        },
+        "parent": "c77cf354-b850-472a-8377-026c026b3a74",
+        "signals": {
+            "parent": "6aa3b45d-19e8-4a73-97aa-9a73a654f5bb",
+            "SetNpcState": {
+                "String": "character;dh_xt_vip1-2"
+            }
+        }
+    },
+    "dde3fba4-20a4-490b-90c1-37f605ae7bfd": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "... ... Now, go. Don't want to have anyone curious finding out about me. ",
+            "fr": ""
+        },
+        "parent": "acd1d5b2-fdb8-4c7b-ac03-e5ca271c862c",
+        "signals": {
+            "parent": "dde3fba4-20a4-490b-90c1-37f605ae7bfd",
+            "AddItem": {
+                "String": "item;VIP_Card-1"
+            },
+            "SetNpcState": {
+                "String": "character;dh_xt_vip1-0"
+            }
+        }
+    },
+    "5ca2d3e8-17f3-4b54-84e1-b53015b10fa1": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "... ... Now, go. Don't want to have anyone curious finding out about me. ",
+            "fr": ""
+        },
+        "parent": "46d9df7b-5e09-47d6-8652-6dbfdd242969",
+        "signals": {
+            "parent": "5ca2d3e8-17f3-4b54-84e1-b53015b10fa1",
+            "AddItem": {
+                "String": "item;VIP_Cards-1"
+            },
+            "SetNpcState": {
+                "String": "character;dh_xt_vip1-0"
+            }
+        }
+    },
+    "root": {
+        "conditions": [
+            {
+                "parent": "root",
+                "next": "b30e88e5-62c2-4e48-a88d-025d59843192",
+                "character;dh_xt_vip1-state": {
+                    "value": 0,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "next": "d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6",
+                "character;dh_xt_vip1-state": {
+                    "value": 1,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "next": "59a0a23d-0656-4c52-980f-3e817493ae13",
+                "character;dh_xt_vip1-state": {
+                    "value": 2,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            }
+        ]
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                -40,
+                260
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "b30e88e5-62c2-4e48-a88d-025d59843192",
+                "offset": [
+                    680,
+                    -180
+                ]
+            },
+            {
+                "uuid": "d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6",
+                "offset": [
+                    680,
+                    200
+                ]
+            },
+            {
+                "uuid": "acd1d5b2-fdb8-4c7b-ac03-e5ca271c862c",
+                "offset": [
+                    1560,
+                    360
+                ]
+            },
+            {
+                "uuid": "8b84e630-bb16-4ac3-b47a-a94da104b88d",
+                "offset": [
+                    1560,
+                    740
+                ]
+            },
+            {
+                "uuid": "59a0a23d-0656-4c52-980f-3e817493ae13",
+                "offset": [
+                    580,
+                    1380
+                ]
+            },
+            {
+                "uuid": "46d9df7b-5e09-47d6-8652-6dbfdd242969",
+                "offset": [
+                    1540,
+                    1220
+                ]
+            },
+            {
+                "uuid": "6aa3b45d-19e8-4a73-97aa-9a73a654f5bb",
+                "offset": [
+                    1540,
+                    1600
+                ]
+            },
+            {
+                "uuid": "dde3fba4-20a4-490b-90c1-37f605ae7bfd",
+                "offset": [
+                    2380,
+                    360
+                ]
+            },
+            {
+                "uuid": "5ca2d3e8-17f3-4b54-84e1-b53015b10fa1",
+                "offset": [
+                    2400,
+                    1140
+                ]
+            }
+        ],
+        "conditions": [
+            {
+                "uuid": "fad401ac-802f-43e3-9235-46bbd88c65b0",
+                "offset": [
+                    1140,
+                    400
+                ],
+                "parent": "d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6"
+            },
+            {
+                "uuid": "79048f32-f5df-4bca-afd8-3dfa754e25a4",
+                "offset": [
+                    1120,
+                    760
+                ],
+                "collapsed": true,
+                "parent": "d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6"
+            },
+            {
+                "uuid": "9efeebaa-e95c-46be-9bc4-2476a1ff9aa5",
+                "offset": [
+                    1060,
+                    1380
+                ],
+                "parent": "59a0a23d-0656-4c52-980f-3e817493ae13"
+            },
+            {
+                "uuid": "c77cf354-b850-472a-8377-026c026b3a74",
+                "offset": [
+                    1060,
+                    1720
+                ],
+                "parent": "59a0a23d-0656-4c52-980f-3e817493ae13",
+                "collapsed": true
+            },
+            {
+                "uuid": "a6fbde96-c358-4ffd-ace7-09b9c4faacae",
+                "offset": [
+                    260,
+                    -140
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "c3c522a3-b887-4ab7-a326-d4c43fd6ab28",
+                "offset": [
+                    260,
+                    200
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "35052bcc-777e-454a-99c4-ffd8fd1ee223",
+                "offset": [
+                    180,
+                    1400
+                ],
+                "parent": "root"
+            }
+        ],
+        "signals": [
+            {
+                "uuid": "c3c1fdb5-be0e-45d4-9b4a-4a1099e45729",
+                "offset": [
+                    1100,
+                    60
+                ],
+                "parent": "d2d231a7-8be4-4104-8ae3-9d3dd34aa3b6"
+            },
+            {
+                "uuid": "205cee20-3819-4839-9271-8b6a6f1f7c6a",
+                "offset": [
+                    1940,
+                    80
+                ],
+                "parent": "acd1d5b2-fdb8-4c7b-ac03-e5ca271c862c"
+            },
+            {
+                "uuid": "6f8194bd-bef8-4985-b6df-4e8f1e4cf17a",
+                "offset": [
+                    1940,
+                    740
+                ],
+                "parent": "8b84e630-bb16-4ac3-b47a-a94da104b88d"
+            },
+            {
+                "uuid": "8f8454b7-a3e9-4137-8da4-9708efb7c285",
+                "offset": [
+                    1060,
+                    1040
+                ],
+                "parent": "59a0a23d-0656-4c52-980f-3e817493ae13"
+            },
+            {
+                "uuid": "6963a409-5910-40ed-84aa-4d49a5fc5f9a",
+                "offset": [
+                    1920,
+                    1100
+                ],
+                "parent": "46d9df7b-5e09-47d6-8652-6dbfdd242969"
+            },
+            {
+                "uuid": "75c51d6f-963f-47da-84cc-d8a96f3c27c2",
+                "offset": [
+                    1960,
+                    1620
+                ],
+                "parent": "6aa3b45d-19e8-4a73-97aa-9a73a654f5bb"
+            },
+            {
+                "uuid": "6d087496-d674-4a2c-9e04-5dad805cc880",
+                "offset": [
+                    2820,
+                    300
+                ],
+                "parent": "dde3fba4-20a4-490b-90c1-37f605ae7bfd"
+            },
+            {
+                "uuid": "85768460-84ab-48e0-b284-3a73edd040b7",
+                "offset": [
+                    2780,
+                    1080
+                ],
+                "parent": "5ca2d3e8-17f3-4b54-84e1-b53015b10fa1"
+            }
+        ],
+        "choices": []
+    }
+}
