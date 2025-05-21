@@ -100,14 +100,14 @@
 	</Character>
 	<Character id="13" name="Innkeeper">
 		<Data textureId="cassian_test" faceId="Innkeeper-idle" dialoguePath="Assets/Dialogues/innkeeper_xeivTreaty_one.json" />
-		<Stats state="3" friendship="0" love="0" />
+		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="0" />
 	</Character>
 	<Character id="14" name="VIP Client">
 		<Data textureId="fisherman_test" faceId="Fisherman-idle" dialoguePath="Assets/Dialogues/vip_client_one.json" />
-		<Stats state="1" friendship="0" love="0" />
+		<Stats state="0" friendship="0" love="0" />
 		<CombatStats level="1" hp="1" defense="1" attack="1" speed="1" />
 		<Attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		<AttackRole type="0" />

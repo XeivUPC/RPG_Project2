@@ -9,6 +9,102 @@
         },
         "parent": "00267b68-287d-4164-acd4-0f00357f4fe6"
     },
+    "de2088eb-2a09-4959-ad15-5fa08b047590": {
+        "name": "VIP Client",
+        "character_uuid": "b4eb8ade-c843-4b19-82bf-fe3f3c64745e",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+        "text": {
+            "en": "",
+            "fr": ""
+        },
+        "parent": "30e44e4e-57d0-4511-9076-716a6e96fbf9",
+        "signals": {
+            "parent": "de2088eb-2a09-4959-ad15-5fa08b047590",
+            "CheckIfCanGiveItem": {
+                "String": "item;VIP_Card"
+            }
+        },
+        "conditions": [
+            {
+                "parent": "de2088eb-2a09-4959-ad15-5fa08b047590",
+                "CanGiveItem": {
+                    "value": true,
+                    "operator": "equal",
+                    "type": "boolean"
+                },
+                "next": "dfcf6a1a-762f-40e8-86eb-7cfd8c36df9f"
+            },
+            {
+                "parent": "de2088eb-2a09-4959-ad15-5fa08b047590",
+                "next": "c97b97ee-3ace-4956-be0d-3cd58227f262"
+            }
+        ]
+    },
+    "dfcf6a1a-762f-40e8-86eb-7cfd8c36df9f": {
+        "name": "VIP Client",
+        "character_uuid": "b4eb8ade-c843-4b19-82bf-fe3f3c64745e",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+        "text": {
+            "en": "",
+            "fr": ""
+        },
+        "parent": "74c391e5-ab41-47a0-92a5-5fb5ba3ad925"
+    },
+    "c97b97ee-3ace-4956-be0d-3cd58227f262": {
+        "name": "VIP Client",
+        "character_uuid": "b4eb8ade-c843-4b19-82bf-fe3f3c64745e",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+        "text": {
+            "en": "",
+            "fr": ""
+        },
+        "parent": "60eb881c-1de1-42c1-9459-550bfe00f191"
+    },
+    "e6d53064-b92e-48f1-a141-06baf958df37": {
+        "name": "VIP Client",
+        "character_uuid": "b4eb8ade-c843-4b19-82bf-fe3f3c64745e",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+        "text": {
+            "en": "",
+            "fr": ""
+        },
+        "parent": "b4332478-e522-4303-ad99-9343f8019107",
+        "conditions": [
+            {
+                "parent": "e6d53064-b92e-48f1-a141-06baf958df37",
+                "next": "88816cfe-77ab-4566-adde-392077668102"
+            },
+            {
+                "CanGiveItem": {
+                    "value": true,
+                    "operator": "equal",
+                    "type": "boolean"
+                },
+                "parent": "e6d53064-b92e-48f1-a141-06baf958df37",
+                "next": "14cff7ec-a93b-4ff8-b06c-f9190a181003"
+            }
+        ]
+    },
+    "14cff7ec-a93b-4ff8-b06c-f9190a181003": {
+        "name": "VIP Client",
+        "character_uuid": "b4eb8ade-c843-4b19-82bf-fe3f3c64745e",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+        "text": {
+            "en": "",
+            "fr": ""
+        },
+        "parent": "ff58e423-965f-43c3-bc8c-f4f46d07c115"
+    },
+    "88816cfe-77ab-4566-adde-392077668102": {
+        "name": "VIP Client",
+        "character_uuid": "b4eb8ade-c843-4b19-82bf-fe3f3c64745e",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+        "text": {
+            "en": "",
+            "fr": ""
+        },
+        "parent": "5d454456-ffca-43d7-b2d4-a9d0b60697d9"
+    },
     "root": {
         "conditions": [
             {
@@ -19,6 +115,24 @@
                     "operator": "equal",
                     "type": "int"
                 }
+            },
+            {
+                "parent": "root",
+                "next": "de2088eb-2a09-4959-ad15-5fa08b047590",
+                "Char15_State": {
+                    "value": 1,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "Char15_State": {
+                    "value": 2,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "next": "e6d53064-b92e-48f1-a141-06baf958df37"
             }
         ]
     },
@@ -26,8 +140,8 @@
         "root": {
             "uuid": "root",
             "offset": [
-                40,
-                100
+                -180,
+                220
             ]
         },
         "dialogues": [
@@ -36,6 +150,48 @@
                 "offset": [
                     660,
                     -140
+                ]
+            },
+            {
+                "uuid": "de2088eb-2a09-4959-ad15-5fa08b047590",
+                "offset": [
+                    660,
+                    240
+                ]
+            },
+            {
+                "uuid": "dfcf6a1a-762f-40e8-86eb-7cfd8c36df9f",
+                "offset": [
+                    1620,
+                    180
+                ]
+            },
+            {
+                "uuid": "c97b97ee-3ace-4956-be0d-3cd58227f262",
+                "offset": [
+                    1620,
+                    560
+                ]
+            },
+            {
+                "uuid": "e6d53064-b92e-48f1-a141-06baf958df37",
+                "offset": [
+                    640,
+                    1300
+                ]
+            },
+            {
+                "uuid": "14cff7ec-a93b-4ff8-b06c-f9190a181003",
+                "offset": [
+                    1500,
+                    1140
+                ]
+            },
+            {
+                "uuid": "88816cfe-77ab-4566-adde-392077668102",
+                "offset": [
+                    1500,
+                    1580
                 ]
             }
         ],
@@ -47,9 +203,136 @@
                     -160
                 ],
                 "parent": "root"
+            },
+            {
+                "uuid": "30e44e4e-57d0-4511-9076-716a6e96fbf9",
+                "offset": [
+                    280,
+                    260
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "b4332478-e522-4303-ad99-9343f8019107",
+                "offset": [
+                    260,
+                    1300
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "74c391e5-ab41-47a0-92a5-5fb5ba3ad925",
+                "offset": [
+                    1120,
+                    180
+                ],
+                "parent": "de2088eb-2a09-4959-ad15-5fa08b047590"
+            },
+            {
+                "uuid": "ff58e423-965f-43c3-bc8c-f4f46d07c115",
+                "offset": [
+                    1060,
+                    1280
+                ],
+                "parent": "e6d53064-b92e-48f1-a141-06baf958df37"
+            },
+            {
+                "uuid": "60eb881c-1de1-42c1-9459-550bfe00f191",
+                "offset": [
+                    1100,
+                    560
+                ],
+                "collapsed": true,
+                "parent": "de2088eb-2a09-4959-ad15-5fa08b047590"
+            },
+            {
+                "uuid": "5d454456-ffca-43d7-b2d4-a9d0b60697d9",
+                "offset": [
+                    1060,
+                    1620
+                ],
+                "collapsed": true,
+                "parent": "e6d53064-b92e-48f1-a141-06baf958df37"
             }
         ],
-        "signals": [],
+        "signals": [
+            {
+                "uuid": "c2d04838-92c5-4083-81b9-9709d6571055",
+                "offset": [
+                    1100,
+                    -100
+                ],
+                "parent": "de2088eb-2a09-4959-ad15-5fa08b047590"
+            },
+            {
+                "uuid": "f3365f7d-0cdd-4aa1-bcfe-3abe84a78b91",
+                "offset": [
+                    2040,
+                    240
+                ],
+                "data": {
+                    "SetNpcStatusByID": {
+                        "Vector2": {
+                            "x": "15",
+                            "y": "0"
+                        }
+                    }
+                }
+            },
+            {
+                "uuid": "4854f13a-4e83-44c5-82bb-818a82a0e174",
+                "offset": [
+                    2040,
+                    620
+                ],
+                "data": {
+                    "SetNpcStatusByID": {
+                        "Vector2": {
+                            "x": "15",
+                            "y": "2"
+                        }
+                    }
+                }
+            },
+            {
+                "uuid": "8e12a7c5-9e24-41f9-b045-a6c06d3c637c",
+                "offset": [
+                    1060,
+                    980
+                ],
+                "parent": "e6d53064-b92e-48f1-a141-06baf958df37"
+            },
+            {
+                "uuid": "73c897fd-b9af-49ae-bd52-5f17eca1ad34",
+                "offset": [
+                    1900,
+                    1200
+                ],
+                "data": {
+                    "SetNpcStatusByID": {
+                        "Vector2": {
+                            "x": "15",
+                            "y": "0"
+                        }
+                    }
+                }
+            },
+            {
+                "uuid": "0724db60-f9f8-4696-8bfe-70f4b7972815",
+                "offset": [
+                    1920,
+                    1640
+                ],
+                "data": {
+                    "SetNpcStatusByID": {
+                        "Vector2": {
+                            "x": "15",
+                            "y": "2"
+                        }
+                    }
+                }
+            }
+        ],
         "choices": []
     }
 }

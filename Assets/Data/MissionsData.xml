@@ -128,5 +128,14 @@
 			</condition>
 		</conditions>
 	</mission>
+	<mission id="mission;XeivTreatyVIP_PartThree">
+		<title>The VIP Door</title>
+		<description>Go and speak with the man infront of the VIP Door. Tell him the Innkeeper sent you there.</description>
+		<conditions>
+			<condition type ="ItemCondition" tasksAmount ="1">
+				<item1 id="item;VIP_Card" count="4" />
+			</condition>
+		</conditions>
+	</mission>
 	
 </missionsList>
