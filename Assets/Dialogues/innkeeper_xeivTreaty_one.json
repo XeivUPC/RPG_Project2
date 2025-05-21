@@ -512,15 +512,57 @@
                     "type": "int"
                 },
                 "next": "cfe768b1-f917-473d-883e-52692d369a22"
+            },
+            {
+                "parent": "root",
+                "Char13_State": {
+                    "value": 5,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "next": "c8da88ff-eeeb-4c9a-bf94-a7d351fc8b96"
             }
         ]
+    },
+    "c8da88ff-eeeb-4c9a-bf94-a7d351fc8b96": {
+        "name": "Innkeeper",
+        "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "I see you have found all 4 VIP Cards!",
+            "fr": ""
+        },
+        "parent": "4b667e5a-db8e-4747-a121-a1b1b6a0b6dc",
+        "next": "2b9f092e-5046-46bc-b6dd-24b610b4a14c",
+        "signals": {
+            "parent": "c8da88ff-eeeb-4c9a-bf94-a7d351fc8b96"
+        }
+    },
+    "2b9f092e-5046-46bc-b6dd-24b610b4a14c": {
+        "name": "Innkeeper",
+        "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "Now, head outside to the back door. Tell the man there that I sent you. Best of luck, lad!",
+            "fr": ""
+        },
+        "parent": "c8da88ff-eeeb-4c9a-bf94-a7d351fc8b96",
+        "signals": {
+            "parent": "2b9f092e-5046-46bc-b6dd-24b610b4a14c",
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "13",
+                    "y": "3"
+                }
+            }
+        }
     },
     "__editor": {
         "root": {
             "uuid": "root",
             "offset": [
-                -600,
-                1200
+                -680,
+                1540
             ]
         },
         "dialogues": [
@@ -647,21 +689,21 @@
                 "uuid": "cfe768b1-f917-473d-883e-52692d369a22",
                 "offset": [
                     800,
-                    3840
+                    3660
                 ]
             },
             {
                 "uuid": "a1346cd4-0824-4d8a-92c8-8401a8954cd2",
                 "offset": [
                     1220,
-                    3840
+                    3660
                 ]
             },
             {
                 "uuid": "20392f5c-510f-42f1-b4e3-4e18ab671b3f",
                 "offset": [
                     2120,
-                    3880
+                    3700
                 ]
             },
             {
@@ -690,6 +732,20 @@
                 "offset": [
                     3160,
                     980
+                ]
+            },
+            {
+                "uuid": "c8da88ff-eeeb-4c9a-bf94-a7d351fc8b96",
+                "offset": [
+                    780,
+                    4620
+                ]
+            },
+            {
+                "uuid": "2b9f092e-5046-46bc-b6dd-24b610b4a14c",
+                "offset": [
+                    1220,
+                    4620
                 ]
             }
         ],
@@ -760,7 +816,15 @@
                 "uuid": "6531c769-a3ab-4789-aa61-7a3aac8824b8",
                 "offset": [
                     360,
-                    3860
+                    3680
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "4b667e5a-db8e-4747-a121-a1b1b6a0b6dc",
+                "offset": [
+                    340,
+                    4640
                 ],
                 "parent": "root"
             }
@@ -874,6 +938,22 @@
                     940
                 ],
                 "parent": "7c98351a-10e1-49fd-b447-c95d8e789f9d"
+            },
+            {
+                "uuid": "425ec370-dd06-4601-a2f9-2deaf090a9b9",
+                "offset": [
+                    1220,
+                    4340
+                ],
+                "parent": "c8da88ff-eeeb-4c9a-bf94-a7d351fc8b96"
+            },
+            {
+                "uuid": "80b2bdb7-8722-4f69-be30-cf596aa6b609",
+                "offset": [
+                    1680,
+                    4640
+                ],
+                "parent": "2b9f092e-5046-46bc-b6dd-24b610b4a14c"
             }
         ],
         "choices": [
@@ -985,7 +1065,7 @@
                 "uuid": "45d82b4e-2d53-4aa7-9755-6ed998de9b74",
                 "offset": [
                     1720,
-                    3820
+                    3640
                 ],
                 "parent": "a1346cd4-0824-4d8a-92c8-8401a8954cd2"
             },
@@ -993,7 +1073,7 @@
                 "uuid": "0498e531-0eb4-4a71-9b62-67705d64556a",
                 "offset": [
                     1720,
-                    4100
+                    3920
                 ],
                 "parent": "a1346cd4-0824-4d8a-92c8-8401a8954cd2"
             }

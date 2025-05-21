@@ -282,13 +282,17 @@
             {
                 "name": "vip_client_four.json",
                 "path": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Dialogues/vip_client_four.json"
+            },
+            {
+                "name": "xeivTreaty_doorman.json",
+                "path": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Dialogues/xeivTreaty_doorman.json"
             }
         ]
     },
     "cache": {
         "last_opened_file": {
-            "name": "vip_client_two.json",
-            "path": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Dialogues/vip_client_two.json"
+            "name": "innkeeper_xeivTreaty_one.json",
+            "path": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Dialogues/innkeeper_xeivTreaty_one.json"
         }
     },
     "info": {
