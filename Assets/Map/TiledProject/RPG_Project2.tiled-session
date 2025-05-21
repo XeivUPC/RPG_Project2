@@ -3,14 +3,14 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Tilesets/Vegetation_Atlas.tsx",
+    "activeFile": "Maps/Interiors/House4_Inside.tmx",
     "expandedProjectPaths": [
         "Tilesets",
-        "Prefabs",
+        "Maps",
+        "Prefabs/Buildings",
         "Objects",
         ".",
-        "Prefabs/Buildings",
-        "Maps",
+        "Prefabs",
         "Maps/Interiors"
     ],
     "exportAsImage.visibleLayersOnly": false,
@@ -159,11 +159,14 @@
             }
         },
         "Maps/Interiors/House4_Inside.tmx": {
+            "expandedObjectLayers": [
+                7
+            ],
             "scale": 2.432459677419355,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 281.4024036469125,
-                "y": 171.84251968503935
+                "x": 335.66846249481966,
+                "y": 182.9423953584749
             }
         },
         "Maps/Interiors/Testing_Zone.tmx": {
@@ -183,6 +186,9 @@
             }
         },
         "Maps/Interiors/XeivTreaty_MainRoom.tmx": {
+            "expandedObjectLayers": [
+                7
+            ],
             "scale": 2.2754032258064516,
             "selectedLayer": 4,
             "viewCenter": {
@@ -359,30 +365,30 @@
     "openFiles": [
         "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/Tutorial_Room.tmx",
-        "Maps/CottageDunhaven.tmx",
         "Maps/Interiors/XeivTreaty_MainRoom.tmx",
         "Maps/Interiors/CottageDunhaven.tmx",
         "Maps/Dunhaven_City.tmx",
         "Maps/Forest.tmx",
         "Tilesets/Vegetation_Atlas.tsx",
         "Tilesets/Furniture_Atlas.tsx",
-        "Tilesets/Building_Atlas.tsx"
+        "Tilesets/Building_Atlas.tsx",
+        "Maps/Interiors/House4_Inside.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "string",
     "recentFiles": [
         "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/Tutorial_Room.tmx",
-        "Maps/CottageDunhaven.tmx",
         "Maps/Interiors/XeivTreaty_MainRoom.tmx",
         "Maps/Interiors/CottageDunhaven.tmx",
         "Maps/Dunhaven_City.tmx",
         "Maps/Forest.tmx",
-        "Tilesets/Building_Atlas.tsx",
-        "Tilesets/Furniture_Atlas.tsx",
         "Tilesets/Vegetation_Atlas.tsx",
-        "Tilesets/Grass_Tiles.tsx",
-        "Tilesets/Floors_Tiles.tsx"
+        "Tilesets/Furniture_Atlas.tsx",
+        "Tilesets/Building_Atlas.tsx",
+        "Maps/Interiors/House4_Inside.tmx",
+        "Maps/CottageDunhaven.tmx",
+        "Tilesets/Grass_Tiles.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,
