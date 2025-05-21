@@ -72,6 +72,26 @@
 		<dialogue path="Assets/Dialogues/pedro_jr.json" state="0"/>
 	</character>
 
+	<character id="character;dh_xt_innkeeper" template="character;rs_guard" name="RS Guard">
+		<dialogue path="Assets/Dialogues/guard_tutorial.json" state="0"/>
+	</character>
+
+	<character id="character;dh_xt_vip1" template="character;rs_guard" name="RS Guard">
+		<dialogue path="Assets/Dialogues/guard_tutorial.json" state="0"/>
+	</character>
+
+	<character id="character;dh_xt_vip2" template="character;rs_guard" name="RS Guard">
+		<dialogue path="Assets/Dialogues/guard_tutorial.json" state="0"/>
+	</character>
+
+	<character id="character;dh_xt_vip3" template="character;rs_guard" name="RS Guard">
+		<dialogue path="Assets/Dialogues/guard_tutorial.json" state="0"/>
+	</character>
+
+	<character id="character;dh_xt_vip4" template="character;rs_guard" name="RS Guard">
+		<dialogue path="Assets/Dialogues/guard_tutorial.json" state="0"/>
+	</character>
+
 	<!-- NPC Generic (Specify by zone and name) "For combat"-->
 	
 	<character id="character;rs_guard" template="character;rs_guard" name="RS Guard">

@@ -151,6 +151,9 @@
     <Filter Include="Source Files\Utils\Puzzles\Elements">
       <UniqueIdentifier>{e8d8f6a6-730f-4e92-8ea3-1a4fef8ab743}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Entities\Type %28Entity%29\Bird">
+      <UniqueIdentifier>{47530a77-4550-4534-950d-20384ecc9e46}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -449,6 +452,12 @@
     </ClCompile>
     <ClCompile Include="src\BlockingPuzzleElement.cpp">
       <Filter>Source Files\Utils\Puzzles\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bird.cpp">
+      <Filter>Source Files\Entities\Type %28Entity%29\Bird</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BirdFlock.cpp">
+      <Filter>Source Files\Entities\Type %28Entity%29\Bird</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -796,6 +805,12 @@
     </ClInclude>
     <ClInclude Include="src\BlockingPuzzleElement.h">
       <Filter>Source Files\Utils\Puzzles\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bird.h">
+      <Filter>Source Files\Entities\Type %28Entity%29\Bird</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BirdFlock.h">
+      <Filter>Source Files\Entities\Type %28Entity%29\Bird</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
