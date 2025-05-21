@@ -99,34 +99,76 @@
             }
         ]
     },
+    "6f7a9892-9b9a-4662-9c58-b43a8fa181e6": {
+        "name": "Emperor Charles II",
+        "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "text": {
+            "en": "Then let the duel begin!",
+            "fr": ""
+        },
+        "parent": "c027bb5a-9f28-435b-8f0d-91b362658db5",
+        "signals": {
+            "parent": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6",
+            "SetNpcState": {
+                "String": "character;rs_guard_duel-1"
+            }
+        }
+    },
+    "f1c56039-038a-408b-a6a9-4436867d7cf2": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "I am next, duel me boy.",
+            "fr": ""
+        },
+        "parent": "09c3bd41-6a21-4928-a470-e6c0c1fd728b",
+        "signals": {
+            "parent": "f1c56039-038a-408b-a6a9-4436867d7cf2",
+            "SetNpcState": {
+                "String": "character;rs_guard_duel-2"
+            }
+        }
+    },
+    "c10ec564-a840-42fd-9bc6-5e2bb0dfa986": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "...",
+            "fr": ""
+        },
+        "parent": "7b57dc65-1b30-499b-b2f9-d3dffe57fde9"
+    },
     "root": {
         "conditions": [
             {
                 "parent": "root",
                 "next": "8e2b864e-8383-40f6-8087-ec60337f5cab",
-                "Char7_State": {
+                "character;rs_guard_duel-state": {
                     "value": 0,
                     "operator": "equal",
                     "type": "int"
                 }
             },
             {
-                "Char7_State": {
+                "parent": "root",
+                "next": "f1c56039-038a-408b-a6a9-4436867d7cf2",
+                "character;rs_guard_duel-state": {
                     "value": 1,
                     "operator": "equal",
                     "type": "int"
-                },
-                "parent": "root",
-                "next": "f1c56039-038a-408b-a6a9-4436867d7cf2"
+                }
             },
             {
                 "parent": "root",
-                "Char7_State": {
+                "next": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986",
+                "character;rs_guard_duel-state": {
                     "value": 2,
                     "operator": "equal",
                     "type": "int"
-                },
-                "next": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986"
+                }
             }
         ]
     },
@@ -208,7 +250,7 @@
                 "uuid": "620c160c-d3c7-448a-9b5a-3d4b251cd961",
                 "offset": [
                     260,
-                    -180
+                    -220
                 ],
                 "parent": "root"
             },
@@ -238,13 +280,10 @@
                 ],
                 "parent": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6",
                 "data": {
-                    "SetNpcStatusByID": {
-                        "Vector2": {
-                            "x": "7",
-                            "y": "1"
-                        }
-                    },
-                    "parent": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6"
+                    "parent": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6",
+                    "SetNpcState": {
+                        "String": "character;rs_guard_duel-1"
+                    }
                 }
             },
             {
@@ -290,53 +329,5 @@
                 "parent": "889450a7-8a51-4a0b-8a8d-f1e327663b2f"
             }
         ]
-    },
-    "6f7a9892-9b9a-4662-9c58-b43a8fa181e6": {
-        "name": "Emperor Charles II",
-        "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
-        "text": {
-            "en": "Then let the duel begin!",
-            "fr": ""
-        },
-        "parent": "c027bb5a-9f28-435b-8f0d-91b362658db5",
-        "signals": {
-            "SetNpcStatusByID": {
-                "Vector2": {
-                    "x": "7",
-                    "y": "1"
-                }
-            },
-            "parent": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6"
-        }
-    },
-    "f1c56039-038a-408b-a6a9-4436867d7cf2": {
-        "name": "Rogue Squadron Soldier",
-        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
-        "text": {
-            "en": "I am next, duel me boy.",
-            "fr": ""
-        },
-        "parent": "09c3bd41-6a21-4928-a470-e6c0c1fd728b",
-        "signals": {
-            "SetNpcStatusByID": {
-                "Vector2": {
-                    "x": "7",
-                    "y": "2"
-                }
-            },
-            "parent": "f1c56039-038a-408b-a6a9-4436867d7cf2"
-        }
-    },
-    "c10ec564-a840-42fd-9bc6-5e2bb0dfa986": {
-        "name": "Rogue Squadron Soldier",
-        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
-        "text": {
-            "en": "...",
-            "fr": ""
-        },
-        "parent": "7b57dc65-1b30-499b-b2f9-d3dffe57fde9"
     }
 }
