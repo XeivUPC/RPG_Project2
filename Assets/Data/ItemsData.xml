@@ -103,4 +103,13 @@
 			<speed-amount>10</speed-amount>
 		</properties>
 	</item>
+	<item>
+		<id>item;VIP_Card</id>
+		<name>VIP Card</name>
+		<description>A mysterious card that seems to grant some royalties at Xeiv Treaty.</description>
+		<stackable-quantity>64</stackable-quantity>
+		<properties>
+			<type>consumible</type>
+		</properties>
+	</item>
 </itemList> 

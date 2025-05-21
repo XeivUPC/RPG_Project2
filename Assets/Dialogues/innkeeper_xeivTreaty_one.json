@@ -2,7 +2,7 @@
     "1a774530-2472-4c9d-85b2-a0885c4a8a1d": {
         "name": "Innkeeper",
         "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
         "text": {
             "en": "Welcome to Xeiv Treaty, Dunhaven's subsidary of the most famous tavern in the Empire, Will Treaty!",
             "fr": ""
@@ -13,7 +13,7 @@
     "babecbb2-7871-45dc-baca-5e838a3444d1": {
         "name": "Innkeeper",
         "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
         "text": {
             "en": "What are you here for? A drink... or maybe a VIP?",
             "fr": ""
@@ -49,7 +49,7 @@
     "482b4934-ba4a-4e23-97b1-52f4cda36f86": {
         "name": "Innkeeper",
         "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
         "text": {
             "en": "I guess you don't know, huh? Come back if you know what fun is!",
             "fr": ""
@@ -68,7 +68,7 @@
     "22aa14c4-83b4-4393-9746-2a7adcaa20f6": {
         "name": "Innkeeper",
         "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
         "text": {
             "en": "It'll be ready before you know, just sit down for a moment.",
             "fr": ""
@@ -87,7 +87,7 @@
     "17b6ebbc-554b-4f29-b3a7-2a9eb6412523": {
         "name": "Innkeeper",
         "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
         "text": {
             "en": "Welcome back, lad! What can i do for you today?",
             "fr": ""
@@ -98,7 +98,7 @@
     "b03abc96-a432-45f6-9f51-b0bce700d885": {
         "name": "Innkeeper",
         "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
         "text": {
             "en": "Welcome back, lad! What can i do for you today?",
             "fr": ""
@@ -109,7 +109,7 @@
     "10d08473-76f5-497e-a741-c1e3e9b224d3": {
         "name": "Innkeeper",
         "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
         "text": {
             "en": "A meal, a drink, or a VIP? ",
             "fr": ""
@@ -145,7 +145,7 @@
     "d4c6e7b2-a76d-4232-9002-acc883a5c622": {
         "name": "Innkeeper",
         "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
         "text": {
             "en": "What are you here for? A drink... or maybe a VIP?",
             "fr": ""
@@ -181,7 +181,7 @@
     "06c71b1f-0613-419e-9dee-f72ccc675126": {
         "name": "Innkeeper",
         "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
         "text": {
             "en": "It'll be ready before you know, just sit down for a moment.",
             "fr": ""
@@ -191,17 +191,30 @@
     "5077eec6-ef10-4f27-babe-c31c1ef31209": {
         "name": "Innkeeper",
         "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
         "text": {
-            "en": "**SEND MISSION TO FIND CODE TO ENTER THE VIP SECTION**",
+            "en": "If you want to know what fun is, go and find 4 VIP Cards.",
             "fr": ""
         },
-        "parent": "2899873e-66b5-4289-ab57-7bb086569962"
+        "parent": "2899873e-66b5-4289-ab57-7bb086569962",
+        "next": "4445417a-17a4-43a4-b958-99d6d3624208",
+        "signals": {
+            "parent": "5077eec6-ef10-4f27-babe-c31c1ef31209",
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "14",
+                    "y": "1"
+                }
+            },
+            "AddMission": {
+                "String": "mission;XeivTreatyVIP"
+            }
+        }
     },
     "e163b16d-e42b-4f85-9580-f04cc64987ba": {
         "name": "Innkeeper",
         "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
         "text": {
             "en": "It'll be ready before you know, just sit down for a moment.",
             "fr": ""
@@ -211,7 +224,7 @@
     "4b0772c8-2e9e-4350-ae55-71695ea20803": {
         "name": "Innkeeper",
         "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
-        "portrait": "G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
         "text": {
             "en": "I guess you don't know, huh? Come back if you know what fun is!",
             "fr": ""
@@ -223,6 +236,232 @@
                 "Vector2": {
                     "x": "13",
                     "y": "1"
+                }
+            }
+        }
+    },
+    "11a58c23-7ff3-48db-81bb-0ee0c0510be9": {
+        "name": "Innkeeper",
+        "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "Welcome back, lad! What can i do for you today?",
+            "fr": ""
+        },
+        "parent": "d2788e90-a9f4-40b5-a8e1-0e2422acac97",
+        "next": "ebcf1138-a1ba-4120-8747-306744af3c13"
+    },
+    "ebcf1138-a1ba-4120-8747-306744af3c13": {
+        "name": "Innkeeper",
+        "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "Have you found out what fun is?",
+            "fr": ""
+        },
+        "parent": "11a58c23-7ff3-48db-81bb-0ee0c0510be9",
+        "choices": [
+            {
+                "text": {
+                    "en": "I was looking for a table and a meal.",
+                    "fr": ""
+                },
+                "next": "daaf1827-5500-49df-92db-37fb1ca67423",
+                "parent": "ebcf1138-a1ba-4120-8747-306744af3c13"
+            },
+            {
+                "text": {
+                    "en": "Just a drink at the bar will sufice.",
+                    "fr": ""
+                },
+                "next": "daaf1827-5500-49df-92db-37fb1ca67423",
+                "parent": "ebcf1138-a1ba-4120-8747-306744af3c13"
+            },
+            {
+                "text": {
+                    "en": "I've found out what fun is.",
+                    "fr": ""
+                },
+                "next": "e1a3cf5a-01e4-4d2d-8f58-6d883db23e5f",
+                "parent": "ebcf1138-a1ba-4120-8747-306744af3c13"
+            },
+            {
+                "text": {
+                    "en": "Where can I find the VIP Cards?",
+                    "fr": ""
+                },
+                "next": "fcdeb2ec-3baf-4d55-9b04-7a2f16b49027",
+                "parent": "ebcf1138-a1ba-4120-8747-306744af3c13"
+            }
+        ]
+    },
+    "e1a3cf5a-01e4-4d2d-8f58-6d883db23e5f": {
+        "name": "Innkeeper",
+        "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "Let me check...",
+            "fr": ""
+        },
+        "parent": "04a688d8-c0cb-432e-86b1-7101403f70b7",
+        "conditions": [
+            {
+                "parent": "e1a3cf5a-01e4-4d2d-8f58-6d883db23e5f",
+                "HasItem": {
+                    "value": true,
+                    "operator": "equal",
+                    "type": "boolean"
+                },
+                "next": "ef5c5960-6635-4e81-8ae1-63c2a6ee819b"
+            },
+            {
+                "parent": "e1a3cf5a-01e4-4d2d-8f58-6d883db23e5f",
+                "next": "a12d3cd8-ec1d-421e-8b62-04f86d7aadf8"
+            }
+        ],
+        "signals": {
+            "parent": "e1a3cf5a-01e4-4d2d-8f58-6d883db23e5f",
+            "CheckIfHasItem": {
+                "String": "item;VIP_Card-4"
+            }
+        }
+    },
+    "ef5c5960-6635-4e81-8ae1-63c2a6ee819b": {
+        "name": "Innkeeper",
+        "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "Seems it was true... Go and talk with the guy at the other door. Tell him I sent you there!",
+            "fr": ""
+        },
+        "parent": "cb1a2efb-cb44-4c1f-87d3-2004f939e75b",
+        "signals": {
+            "parent": "ef5c5960-6635-4e81-8ae1-63c2a6ee819b",
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "13",
+                    "y": "4"
+                }
+            },
+            "RemoveMission": {
+                "String": "mission;XeivTreatyVIP"
+            }
+        }
+    },
+    "a12d3cd8-ec1d-421e-8b62-04f86d7aadf8": {
+        "name": "Innkeeper",
+        "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "Lad, get back when you have enough Cards! Don't waste my time!",
+            "fr": ""
+        },
+        "parent": "a6063aaf-f33c-4bcf-8060-1fb39fa918b8",
+        "signals": {
+            "parent": "a12d3cd8-ec1d-421e-8b62-04f86d7aadf8",
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "13",
+                    "y": "3"
+                }
+            }
+        }
+    },
+    "cfe768b1-f917-473d-883e-52692d369a22": {
+        "name": "Innkeeper",
+        "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "Welcome back, lad! What can i do for you today?",
+            "fr": ""
+        },
+        "parent": "6531c769-a3ab-4789-aa61-7a3aac8824b8",
+        "next": "a1346cd4-0824-4d8a-92c8-8401a8954cd2"
+    },
+    "a1346cd4-0824-4d8a-92c8-8401a8954cd2": {
+        "name": "Innkeeper",
+        "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "What are you here for?",
+            "fr": ""
+        },
+        "parent": "cfe768b1-f917-473d-883e-52692d369a22",
+        "choices": [
+            {
+                "text": {
+                    "en": "Just a drink at the bar will sufice.",
+                    "fr": ""
+                },
+                "next": "20392f5c-510f-42f1-b4e3-4e18ab671b3f",
+                "parent": "a1346cd4-0824-4d8a-92c8-8401a8954cd2"
+            },
+            {
+                "text": {
+                    "en": "I was looking for a table and a meal.",
+                    "fr": ""
+                },
+                "next": "20392f5c-510f-42f1-b4e3-4e18ab671b3f",
+                "parent": "a1346cd4-0824-4d8a-92c8-8401a8954cd2"
+            }
+        ]
+    },
+    "20392f5c-510f-42f1-b4e3-4e18ab671b3f": {
+        "name": "Innkeeper",
+        "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "It'll be ready before you know, just sit down for a moment.",
+            "fr": ""
+        },
+        "parent": "0498e531-0eb4-4a71-9b62-67705d64556a"
+    },
+    "daaf1827-5500-49df-92db-37fb1ca67423": {
+        "name": "Innkeeper",
+        "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "It'll be ready before you know, just sit down for a moment.",
+            "fr": ""
+        },
+        "parent": "782dc841-3cd1-4e39-8f58-cc63faddecdc"
+    },
+    "fcdeb2ec-3baf-4d55-9b04-7a2f16b49027": {
+        "name": "Innkeeper",
+        "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "You can find you first card by the market place.",
+            "fr": ""
+        },
+        "parent": "6a6a68b0-0687-42f7-8b20-4b0409053bc7"
+    },
+    "4445417a-17a4-43a4-b958-99d6d3624208": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Where can I find these cards?",
+            "fr": ""
+        },
+        "next": "7c98351a-10e1-49fd-b447-c95d8e789f9d",
+        "parent": "5077eec6-ef10-4f27-babe-c31c1ef31209"
+    },
+    "7c98351a-10e1-49fd-b447-c95d8e789f9d": {
+        "name": "Innkeeper",
+        "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "You can find you first card by the market place.",
+            "fr": ""
+        },
+        "parent": "4445417a-17a4-43a4-b958-99d6d3624208",
+        "signals": {
+            "parent": "7c98351a-10e1-49fd-b447-c95d8e789f9d",
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "13",
+                    "y": "3"
                 }
             }
         }
@@ -255,15 +494,75 @@
                     "operator": "equal",
                     "type": "int"
                 }
+            },
+            {
+                "parent": "root",
+                "Char13_State": {
+                    "value": 3,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "next": "11a58c23-7ff3-48db-81bb-0ee0c0510be9"
+            },
+            {
+                "parent": "root",
+                "Char13_State": {
+                    "value": 4,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "next": "cfe768b1-f917-473d-883e-52692d369a22"
+            },
+            {
+                "parent": "root",
+                "Char13_State": {
+                    "value": 5,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "next": "c8da88ff-eeeb-4c9a-bf94-a7d351fc8b96"
             }
         ]
+    },
+    "c8da88ff-eeeb-4c9a-bf94-a7d351fc8b96": {
+        "name": "Innkeeper",
+        "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "I see you have found all 4 VIP Cards!",
+            "fr": ""
+        },
+        "parent": "4b667e5a-db8e-4747-a121-a1b1b6a0b6dc",
+        "next": "2b9f092e-5046-46bc-b6dd-24b610b4a14c",
+        "signals": {
+            "parent": "c8da88ff-eeeb-4c9a-bf94-a7d351fc8b96"
+        }
+    },
+    "2b9f092e-5046-46bc-b6dd-24b610b4a14c": {
+        "name": "Innkeeper",
+        "character_uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93",
+        "portrait": "C:/Users/josetdz/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "text": {
+            "en": "Now, head outside to the back door. Tell the man there that I sent you. Best of luck, lad!",
+            "fr": ""
+        },
+        "parent": "c8da88ff-eeeb-4c9a-bf94-a7d351fc8b96",
+        "signals": {
+            "parent": "2b9f092e-5046-46bc-b6dd-24b610b4a14c",
+            "SetNpcStatusByID": {
+                "Vector2": {
+                    "x": "13",
+                    "y": "3"
+                }
+            }
+        }
     },
     "__editor": {
         "root": {
             "uuid": "root",
             "offset": [
-                0,
-                100
+                -680,
+                1540
             ]
         },
         "dialogues": [
@@ -299,14 +598,14 @@
                 "uuid": "17b6ebbc-554b-4f29-b3a7-2a9eb6412523",
                 "offset": [
                     760,
-                    640
+                    660
                 ]
             },
             {
                 "uuid": "b03abc96-a432-45f6-9f51-b0bce700d885",
                 "offset": [
-                    760,
-                    1420
+                    780,
+                    1500
                 ]
             },
             {
@@ -319,8 +618,8 @@
             {
                 "uuid": "d4c6e7b2-a76d-4232-9002-acc883a5c622",
                 "offset": [
-                    1240,
-                    1420
+                    1260,
+                    1500
                 ]
             },
             {
@@ -333,26 +632,154 @@
             {
                 "uuid": "5077eec6-ef10-4f27-babe-c31c1ef31209",
                 "offset": [
-                    2180,
+                    2200,
                     980
                 ]
             },
             {
                 "uuid": "e163b16d-e42b-4f85-9580-f04cc64987ba",
                 "offset": [
-                    2180,
-                    1380
+                    2200,
+                    1460
                 ]
             },
             {
                 "uuid": "4b0772c8-2e9e-4350-ae55-71695ea20803",
                 "offset": [
                     2200,
-                    1780
+                    1860
+                ]
+            },
+            {
+                "uuid": "11a58c23-7ff3-48db-81bb-0ee0c0510be9",
+                "offset": [
+                    760,
+                    2440
+                ]
+            },
+            {
+                "uuid": "ebcf1138-a1ba-4120-8747-306744af3c13",
+                "offset": [
+                    1240,
+                    2440
+                ]
+            },
+            {
+                "uuid": "e1a3cf5a-01e4-4d2d-8f58-6d883db23e5f",
+                "offset": [
+                    2260,
+                    2820
+                ]
+            },
+            {
+                "uuid": "ef5c5960-6635-4e81-8ae1-63c2a6ee819b",
+                "offset": [
+                    3420,
+                    2760
+                ]
+            },
+            {
+                "uuid": "a12d3cd8-ec1d-421e-8b62-04f86d7aadf8",
+                "offset": [
+                    3420,
+                    3160
+                ]
+            },
+            {
+                "uuid": "cfe768b1-f917-473d-883e-52692d369a22",
+                "offset": [
+                    800,
+                    3660
+                ]
+            },
+            {
+                "uuid": "a1346cd4-0824-4d8a-92c8-8401a8954cd2",
+                "offset": [
+                    1220,
+                    3660
+                ]
+            },
+            {
+                "uuid": "20392f5c-510f-42f1-b4e3-4e18ab671b3f",
+                "offset": [
+                    2120,
+                    3700
+                ]
+            },
+            {
+                "uuid": "daaf1827-5500-49df-92db-37fb1ca67423",
+                "offset": [
+                    2280,
+                    2280
+                ]
+            },
+            {
+                "uuid": "fcdeb2ec-3baf-4d55-9b04-7a2f16b49027",
+                "offset": [
+                    2240,
+                    3200
+                ]
+            },
+            {
+                "uuid": "4445417a-17a4-43a4-b958-99d6d3624208",
+                "offset": [
+                    2700,
+                    1000
+                ]
+            },
+            {
+                "uuid": "7c98351a-10e1-49fd-b447-c95d8e789f9d",
+                "offset": [
+                    3160,
+                    980
+                ]
+            },
+            {
+                "uuid": "c8da88ff-eeeb-4c9a-bf94-a7d351fc8b96",
+                "offset": [
+                    780,
+                    4620
+                ]
+            },
+            {
+                "uuid": "2b9f092e-5046-46bc-b6dd-24b610b4a14c",
+                "offset": [
+                    1220,
+                    4620
                 ]
             }
         ],
         "conditions": [
+            {
+                "uuid": "cb1a2efb-cb44-4c1f-87d3-2004f939e75b",
+                "offset": [
+                    3000,
+                    2800
+                ],
+                "parent": "e1a3cf5a-01e4-4d2d-8f58-6d883db23e5f",
+                "data": {
+                    "parent": "e1a3cf5a-01e4-4d2d-8f58-6d883db23e5f",
+                    "HasItem": {
+                        "value": true,
+                        "operator": "equal",
+                        "type": "boolean"
+                    },
+                    "next": "ef5c5960-6635-4e81-8ae1-63c2a6ee819b"
+                }
+            },
+            {
+                "uuid": "a6063aaf-f33c-4bcf-8060-1fb39fa918b8",
+                "offset": [
+                    3000,
+                    3160
+                ],
+                "collapsed": true,
+                "parent": "e1a3cf5a-01e4-4d2d-8f58-6d883db23e5f",
+                "data": {
+                    "parent": "e1a3cf5a-01e4-4d2d-8f58-6d883db23e5f",
+                    "next": "a12d3cd8-ec1d-421e-8b62-04f86d7aadf8"
+                }
+            },
             {
                 "uuid": "cdd2813e-ef81-44b2-9587-33a99a48797d",
                 "offset": [
@@ -372,8 +799,32 @@
             {
                 "uuid": "eaa69941-834f-4dc1-a873-62bf0d0b0a06",
                 "offset": [
-                    300,
-                    1440
+                    320,
+                    1520
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "d2788e90-a9f4-40b5-a8e1-0e2422acac97",
+                "offset": [
+                    320,
+                    2480
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "6531c769-a3ab-4789-aa61-7a3aac8824b8",
+                "offset": [
+                    360,
+                    3680
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "4b667e5a-db8e-4747-a121-a1b1b6a0b6dc",
+                "offset": [
+                    340,
+                    4640
                 ],
                 "parent": "root"
             }
@@ -414,10 +865,30 @@
                 }
             },
             {
-                "uuid": "09d4ba86-71d3-433e-a386-505b538dc25b",
+                "uuid": "ecb6e45b-ccd0-4347-9024-a779e0d379dc",
+                "offset": [
+                    2680,
+                    640
+                ],
+                "parent": "5077eec6-ef10-4f27-babe-c31c1ef31209",
+                "data": {
+                    "parent": "5077eec6-ef10-4f27-babe-c31c1ef31209",
+                    "SetNpcStatusByID": {
+                        "Vector2": {
+                            "x": "14",
+                            "y": "1"
+                        }
+                    },
+                    "AddMission": {
+                        "String": "mission;XeivTreatyVIP"
+                    }
+                }
+            },
+            {
+                "uuid": "ab125907-3543-4130-8d40-d474c66fa129",
                 "offset": [
                     2640,
-                    1840
+                    1900
                 ],
                 "parent": "4b0772c8-2e9e-4350-ae55-71695ea20803",
                 "data": {
@@ -429,6 +900,60 @@
                         }
                     }
                 }
+            },
+            {
+                "uuid": "b273b983-6514-43c8-b1f1-9ef2a4ca05a3",
+                "offset": [
+                    3000,
+                    2500
+                ],
+                "parent": "e1a3cf5a-01e4-4d2d-8f58-6d883db23e5f",
+                "data": {
+                    "parent": "e1a3cf5a-01e4-4d2d-8f58-6d883db23e5f",
+                    "CheckIfHasItem": {
+                        "String": "item;VIP_Card-4"
+                    }
+                }
+            },
+            {
+                "uuid": "89200008-bc17-47f0-bcdf-6835f1079178",
+                "offset": [
+                    3880,
+                    2800
+                ],
+                "parent": "ef5c5960-6635-4e81-8ae1-63c2a6ee819b"
+            },
+            {
+                "uuid": "a110d7c2-cd6a-4f3b-80d7-b62e64ca67c5",
+                "offset": [
+                    3860,
+                    3220
+                ],
+                "parent": "a12d3cd8-ec1d-421e-8b62-04f86d7aadf8"
+            },
+            {
+                "uuid": "d90d7556-be2c-4fed-a1ad-5d77376143aa",
+                "offset": [
+                    3600,
+                    940
+                ],
+                "parent": "7c98351a-10e1-49fd-b447-c95d8e789f9d"
+            },
+            {
+                "uuid": "425ec370-dd06-4601-a2f9-2deaf090a9b9",
+                "offset": [
+                    1220,
+                    4340
+                ],
+                "parent": "c8da88ff-eeeb-4c9a-bf94-a7d351fc8b96"
+            },
+            {
+                "uuid": "80b2bdb7-8722-4f69-be30-cf596aa6b609",
+                "offset": [
+                    1680,
+                    4640
+                ],
+                "parent": "2b9f092e-5046-46bc-b6dd-24b610b4a14c"
             }
         ],
         "choices": [
@@ -483,26 +1008,74 @@
             {
                 "uuid": "9fbef204-e9a8-41ea-a850-e25502c16006",
                 "offset": [
-                    1740,
-                    1340
+                    1760,
+                    1420
                 ],
                 "parent": "d4c6e7b2-a76d-4232-9002-acc883a5c622"
             },
             {
                 "uuid": "79ffa162-61eb-4338-85aa-da0dd27ccedc",
                 "offset": [
-                    1740,
-                    1580
+                    1760,
+                    1660
                 ],
                 "parent": "d4c6e7b2-a76d-4232-9002-acc883a5c622"
             },
             {
                 "uuid": "a5b7a5b1-1a6e-483c-bb98-5b333f4c9b74",
                 "offset": [
-                    1740,
-                    1820
+                    1760,
+                    1900
                 ],
                 "parent": "d4c6e7b2-a76d-4232-9002-acc883a5c622"
+            },
+            {
+                "uuid": "22b90241-593f-42f8-af32-a31b7b65681e",
+                "offset": [
+                    1760,
+                    2480
+                ],
+                "parent": "ebcf1138-a1ba-4120-8747-306744af3c13"
+            },
+            {
+                "uuid": "782dc841-3cd1-4e39-8f58-cc63faddecdc",
+                "offset": [
+                    1760,
+                    2220
+                ],
+                "parent": "ebcf1138-a1ba-4120-8747-306744af3c13"
+            },
+            {
+                "uuid": "04a688d8-c0cb-432e-86b1-7101403f70b7",
+                "offset": [
+                    1760,
+                    2760
+                ],
+                "parent": "ebcf1138-a1ba-4120-8747-306744af3c13"
+            },
+            {
+                "uuid": "6a6a68b0-0687-42f7-8b20-4b0409053bc7",
+                "offset": [
+                    1760,
+                    3260
+                ],
+                "parent": "ebcf1138-a1ba-4120-8747-306744af3c13"
+            },
+            {
+                "uuid": "45d82b4e-2d53-4aa7-9755-6ed998de9b74",
+                "offset": [
+                    1720,
+                    3640
+                ],
+                "parent": "a1346cd4-0824-4d8a-92c8-8401a8954cd2"
+            },
+            {
+                "uuid": "0498e531-0eb4-4a71-9b62-67705d64556a",
+                "offset": [
+                    1720,
+                    3920
+                ],
+                "parent": "a1346cd4-0824-4d8a-92c8-8401a8954cd2"
             }
         ]
     }
