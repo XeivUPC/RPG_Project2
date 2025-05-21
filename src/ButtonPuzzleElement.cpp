@@ -48,7 +48,7 @@ void ButtonPuzzleElement::Complete()
 {
 }
 
-void ButtonPuzzleElement::Interact()
+void ButtonPuzzleElement::Interact(Vector2 from)
 {
 	isPressed = !isPressed;
 	SendCall();

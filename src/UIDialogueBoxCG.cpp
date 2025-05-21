@@ -232,7 +232,8 @@ void UIDialogueBoxCG::SetVariablesOnStart()
 
 	for (const auto& character : databaseCharacters.GetCharacters())
 	{
-		dialogue->AddGameStateVariable((character.second.id) + "-state", (float)character.second.state);
+		if(character.second.dialogue!="")
+			dialogue->AddGameStateVariable((character.second.id) + "-state", (float)character.second.state);
 	}
 }
 

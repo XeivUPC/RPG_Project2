@@ -208,6 +208,11 @@ void Tilemap::CreateObjects()
                 }else
                     npc->SetCharacterId("character;test");
 
+                if (object->properties.count("DialoguePath"))
+                {
+					npc->SetDialoguePath(object->properties.at("DialoguePath").value);
+                }
+
                 if (object->properties.count("Path"))
                 {
                     int pathId = stoi(object->properties.at("Path").value);

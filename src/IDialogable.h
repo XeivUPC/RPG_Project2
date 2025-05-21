@@ -4,7 +4,7 @@
 class IDialogable {
 public:
 	virtual ~IDialogable() {}
-	virtual void UseDialogue() = 0;
+	virtual bool UseDialogue() = 0;
 
 public:
 	std::string dialogPath = "";

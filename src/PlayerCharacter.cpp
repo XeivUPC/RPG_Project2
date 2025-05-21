@@ -183,8 +183,11 @@ void PlayerCharacter::GetInput()
 			PhysBody* interactor = interactionSensor.GetClosestBodyColliding();
 			IInteractuable* interactuableObj = reinterpret_cast<IInteractuable*>(interactor->data);
 
+			Vector2 direction = Vector2::Direction(position, interactor->GetPhysicPosition());
 			moveDirection = { 0,0 };
-			interactuableObj->Interact();
+			lastDirection = direction;
+			interactuableObj->Interact(position);
+			Animate();
 		}
 
 	}

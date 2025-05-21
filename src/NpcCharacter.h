@@ -2,13 +2,14 @@
 #include "Character.h"
 #include "IPooleable.h"
 #include "IInteractuable.h"
+#include "IDialogable.h"
 
 
 #include <vector>
 
 class Party;
 
-class NpcCharacter : public Character, public IPooleable, public IInteractuable {
+class NpcCharacter : public Character, public IPooleable, public IInteractuable, public IDialogable {
 
 public:
 
@@ -17,17 +18,22 @@ public:
 	NpcCharacter();
 	~NpcCharacter();
 
+	bool PreUpdate() override;
 	bool Update() override;
 	void Render() override;
 
 	bool CleanUp() override;
 
 	void SetNpcPath(vector<Vector2> _path, MovementType _movementType = MovementType::PingPong);
+	void SetDialoguePath(string _dialoguePath);
 
 	bool SetCharacterId(string _charId) override;
 
 	// Inherited via IInteractuable
-	void Interact() override;
+	void Interact(Vector2 from) override;
+
+	// Inherited via IDialogable
+	bool UseDialogue() override;
 
 	// Heredado vía IPooleable
 	void InitPoolObject() override;
@@ -52,5 +58,6 @@ protected:
 	// Inherited via Character
 	void Animate() override;
 protected:
+
 
 };

@@ -21,7 +21,7 @@ public:
 
 
 	// Inherited via IInteractuable
-	void Interact() override;
+	void Interact(Vector2 from) override;
 
 	// Heredado vía IPooleable
 	void InitPoolObject() override;
