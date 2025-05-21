@@ -230,9 +230,7 @@ void UIDialogueBoxCG::SetVariablesOnStart()
 
 	for (const auto& character : databaseCharacters.GetCharacters())
 	{
-		dialogue->AddGameStateVariable("Char" + to_string(character.second.id) + "_State", (float)character.second.state);
-		dialogue->AddGameStateVariable("Char" + to_string(character.second.id) + "_Friendship", (float)character.second.friendShip);
-		dialogue->AddGameStateVariable("Char" + to_string(character.second.id) + "_Love", (float)character.second.love);
+		dialogue->AddGameStateVariable("Char" + (character.second.id) + "_State", (float)character.second.state);
 	}
 }
 
@@ -264,38 +262,21 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 		}
 	}
 	else if (signal->name == "SetNpcStatusByID") {
-		if (holds_alternative<Vector2>(signal->data)) {
-			Vector2 data = get<Vector2>(signal->data);
-			CharacterDatabase::Instance().GetCharacterData((int)data.x).state = (int)data.y;
-			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_State", data.y);
-		}
-	}
-	else if (signal->name == "SetNpcFriendshipByID") {
-		if (holds_alternative<Vector2>(signal->data)) {
-			Vector2 data = get<Vector2>(signal->data);
-			CharacterDatabase::Instance().GetCharacterData((int)data.x).friendShip = (int)data.y;
-			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_Friendship", data.y);
-		}
-	}
-	else if (signal->name == "AddNpcFriendshipByID") {
-		if (holds_alternative<Vector2>(signal->data)) {
-			Vector2 data = get<Vector2>(signal->data);
-			CharacterDatabase::Instance().GetCharacterData((int)data.x).friendShip += (int)data.y;
-			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_Friendship", data.y);
-		}
-	}
-	else if (signal->name == "SetNpcLoveByID") {
-		if (holds_alternative<Vector2>(signal->data)) {
-			Vector2 data = get<Vector2>(signal->data);
-			CharacterDatabase::Instance().GetCharacterData((int)data.x).love = (int)data.y;
-			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_Love", data.y);
-		}
-	}
-	else if (signal->name == "AddNpcLoveByID") {
-		if (holds_alternative<Vector2>(signal->data)) {
-			Vector2 data = get<Vector2>(signal->data);
-			CharacterDatabase::Instance().GetCharacterData((int)data.x).love += (int)data.y;
-			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_Love", data.y);
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+			vector<string> infoToGet;
+
+			stringstream ss(data);
+			string word;
+			while (!ss.eof()) {
+				getline(ss, word, '|');
+				infoToGet.emplace_back(word);
+			}
+
+			int stateValue = stoi(infoToGet[1]);
+
+			CharacterDatabase::Instance().GetCharacterDefinition(infoToGet[0]).state = stateValue;
+			dialogue->AddGameStateVariable(infoToGet[0] + "_state", (float)stateValue);
 		}
 	}
 	else if (signal->name == "AddItem") {
@@ -367,15 +348,15 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 		}
 	}
 	else if (signal->name == "UnlockNpc") {
-		if (holds_alternative<float>(signal->data)) {
-			int data = (int)get<float>(signal->data);
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
 
 			Engine::Instance().s_game->GetPlayer()->party->AddPartyMemeber(data);
 		}
 	}
 	else if (signal->name == "StartCombat") {
 		if (holds_alternative<string>(signal->data)) {
-			vector<int> charsData;
+			vector<string> charsData;
 			string characterIds = get<string>(signal->data);
 			characterIds.erase(remove(characterIds.begin(), characterIds.end(), ' '));
 			stringstream ss(characterIds);
@@ -383,7 +364,7 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 
 			while (getline(ss, temp, ','))
 			{
-				charsData.emplace_back(stoi(temp));
+				charsData.emplace_back(temp);
 			}
 
 			Engine::Instance().s_game->SetCombat(charsData);

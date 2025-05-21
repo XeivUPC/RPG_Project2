@@ -31,8 +31,8 @@ public:
 private:
 
 	struct UICharacterSelectorSlot {
-		int characterId = -1;
-		//CharacterDatabase::CharacterData* characterData = nullptr;
+		string characterId = "character;test";
+		//CharacterDatabase::CharacterDefinition* characterData = nullptr;
 
 		UIButton* characterSelect = nullptr;
 
@@ -78,7 +78,7 @@ private:
 	void UpdateItemSlots();
 
 	void CreateCharacterSlot();
-	void UpdateCharacterSlot(int charId);
+	void UpdateCharacterSlot(string charId);
 
 	void CreateExtras();
 

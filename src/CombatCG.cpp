@@ -51,7 +51,7 @@ void CombatCG::UpdateCanvas()
 	{
 		CombatSystem::CharacterStats& charStats = charactersSlot[i].characterRef->stats;
 
-		string pjName = CharacterDatabase::Instance().GetCharacterData(charactersSlot[i].characterRef->id).name;
+		string pjName = CharacterDatabase::Instance().GetCharacterDefinition(charactersSlot[i].characterRef->id).name;
 		float maxHealth = (float)charStats.GetHpStatValue();
 		float currentHealth = (float)charStats.currentHp;
 		float healthRatio = currentHealth / maxHealth;
@@ -301,7 +301,7 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 
 	TTF_Font* btn_font = Engine::Instance().m_assetsDB->GetFont("alagard");
 
-	CharacterDatabase::CharacterData& charactedData = CharacterDatabase::Instance().GetCharacterData(value->id);
+	CharacterDatabase::CharacterDefinition& charactedData = CharacterDatabase::Instance().GetCharacterDefinition(value->id);
 
 	int font_size = 16;
 	SDL_Color font_color = { 184,132,78,255 };
@@ -343,7 +343,7 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 	characterBtn->onMouseExit.Subscribe([selectedCharacterTarget]() {selectedCharacterTarget->SetRect({ 0,16,16,16 }); });
 
 
-	SDL_Texture* characterTexture = Engine::Instance().m_assetsDB->GetTexture(charactedData.textureId);
+	SDL_Texture* characterTexture = Engine::Instance().m_assetsDB->GetTexture(charactedData.charTemplate->textureId);
 
 	UIAnimatedImage* characterImage = new UIAnimatedImage({ 0,-30 }, { 64,64 }, { 0.5f,0.5f });
 	characterImage->SetLocalScale(1.7f);
@@ -548,7 +548,7 @@ void CombatCG::SelectCharacter(UICharacterSlot& character)
 
 	selectedCharacter = &character;
 	selectedCharacter->selectedCharacterIndicator->localVisible = true;
-	CharacterDatabase::CharacterData& charactedData = CharacterDatabase::Instance().GetCharacterData(selectedCharacter->characterRef->id);
+	CharacterDatabase::CharacterDefinition& charactedData = CharacterDatabase::Instance().GetCharacterDefinition(selectedCharacter->characterRef->id);
 	for (size_t i = 0; i < attackButtons.size(); i++)
 	{
 		if (i< charactedData.attacks.size()) {

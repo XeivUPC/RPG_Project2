@@ -204,9 +204,9 @@ void Tilemap::CreateObjects()
 
                 if (object->properties.count("NpcId"))
                 {
-                    npc->SetCharacterId(stoi(object->properties.at("NpcId").value));
+                    npc->SetCharacterId((object->properties.at("NpcId").value));
                 }else
-                    npc->SetCharacterId(-1);
+                    npc->SetCharacterId("character;test");
 
                 if (object->properties.count("Path"))
                 {

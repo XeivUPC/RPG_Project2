@@ -99,7 +99,7 @@ void InventoryCG::Reset()
 	UpdateCharacterSelectorSlots();
 	UpdateItemSlots();
 
-	UpdateCharacterSlot(-INT16_MAX);
+	UpdateCharacterSlot("");
 
 }
 
@@ -117,7 +117,7 @@ void InventoryCG::CreateCharacterSelectorSlots()
 	slotSize.x /= 3;
 	Vector2 spacing = { 0, 5 };
 
-	const vector<CharacterDatabase::CharacterData*> memebers = party->GetMemebers();
+	const vector<CharacterDatabase::CharacterDefinition*> memebers = party->GetMemebers();
 
 
 	for (int i = 0; i < memebers.size(); ++i)
@@ -126,7 +126,7 @@ void InventoryCG::CreateCharacterSelectorSlots()
 		if (selectorSlots.size() > i)
 			continue;
 
-		CharacterDatabase::CharacterData* charData = memebers[i];
+		CharacterDatabase::CharacterDefinition* charData = memebers[i];
 
 		Vector2 offset = { 0,(slotSize.y + spacing.y) * i };
 		Vector2 position = { anchor.x + offset.x, anchor.y + offset.y };
@@ -161,7 +161,7 @@ void InventoryCG::UpdateCharacterSelectorSlots()
 
 	}
 
-	const vector<CharacterDatabase::CharacterData*> memebers = party->GetMemebers();
+	const vector<CharacterDatabase::CharacterDefinition*> memebers = party->GetMemebers();
 
 	int maxIndex = membersOffset + membersByPage;
 	if (maxIndex > memebers.size()) {
@@ -170,7 +170,7 @@ void InventoryCG::UpdateCharacterSelectorSlots()
 
 	for (int i = membersOffset; i < maxIndex; ++i)
 	{
-		CharacterDatabase::CharacterData* charData = memebers[i];
+		CharacterDatabase::CharacterDefinition* charData = memebers[i];
 		int realIndex = i - membersOffset;
 		UICharacterSelectorSlot& slot = selectorSlots[realIndex];
 
@@ -365,9 +365,9 @@ void InventoryCG::CreateCharacterSlot()
 	characterSlot.characterOverlay->SetParent(container_image);
 }
 
-void InventoryCG::UpdateCharacterSlot(int charId)
+void InventoryCG::UpdateCharacterSlot(string charId)
 {
-	CharacterDatabase::CharacterData* charData = nullptr;
+	CharacterDatabase::CharacterDefinition* charData = nullptr;
 	charData = party->GetCharacterFromMembers(charId);
 
 	TextureAtlas* characterProfilesAtlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
@@ -375,7 +375,7 @@ void InventoryCG::UpdateCharacterSlot(int charId)
 
 	if (charData != nullptr) {
 		character_profile_texture = characterProfilesAtlas->texture;
-		characterSlot.characterProfile->SetSprite(*character_profile_texture, true, characterProfilesAtlas->sprites[charData->faceId].rect);
+		characterSlot.characterProfile->SetSprite(*character_profile_texture, true, characterProfilesAtlas->sprites[charData->charTemplate->faceId].rect);
 		characterSlot.characterProfile->localVisible = true;
 
 		characterSlot.characterOverlay->SetRect({ 0,0,66,66 });

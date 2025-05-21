@@ -72,11 +72,11 @@ void NpcCharacter::SetNpcPath(vector<Vector2> _path, MovementType _movementType)
 	movementType = _movementType;
 }
 
-bool NpcCharacter::SetCharacterId(int _charId)
+bool NpcCharacter::SetCharacterId(string _charId)
 {
 	if (Character::SetCharacterId(_charId)) {
 
-		texture = Engine::Instance().m_assetsDB->GetTexture(characterData->textureId);
+		texture = Engine::Instance().m_assetsDB->GetTexture(characterData->charTemplate->textureId);
 
 		for (auto& animClip : animator->GetAnimationClips()) {
 			for (auto& sprite : animClip.GetSprites()) {
@@ -179,7 +179,7 @@ void NpcCharacter::Animate()
 void NpcCharacter::Interact()
 {
     Engine::Instance().s_game->SetState(GameScene::State::Dialogue);
-    Engine::Instance().s_game->SetDialogue(characterData->dialoguePath);
+    Engine::Instance().s_game->SetDialogue(characterData->dialogue);
 	moveDirection = { 0,0 };
 	Animate();
 }

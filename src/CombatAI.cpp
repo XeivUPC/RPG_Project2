@@ -15,7 +15,7 @@ void CombatAI::CalculateBestOption(CombatSystem::CharacterReference* attacker, u
 	bestOption.second.first = 0;
 	bestOption.second.second.clear();
 
-	CharacterDatabase::CharacterData& attackerData = CharacterDatabase::Instance().GetCharacterData(attacker->id);
+	CharacterDatabase::CharacterDefinition& attackerData = CharacterDatabase::Instance().GetCharacterDefinition(attacker->id);
 	for (size_t i = 0; i < attackerData.attacks.size(); i++)
 	{
 		int efficiency = 0;

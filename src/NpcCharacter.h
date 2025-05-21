@@ -24,7 +24,7 @@ public:
 
 	void SetNpcPath(vector<Vector2> _path, MovementType _movementType = MovementType::PingPong);
 
-	bool SetCharacterId(int _charId) override;
+	bool SetCharacterId(string _charId) override;
 
 	// Inherited via IInteractuable
 	void Interact() override;

@@ -160,7 +160,7 @@ bool GameScene::Update()
     if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_C) == KEY_DOWN)
     {
 
-        SetCombat(vector<int>{5, 6, 2});
+        SetCombat(vector<string>{"character;zeryn", "character;rs_guard", "character;rs_guard"});
 		SetState(State::Combat);
     }
 
@@ -236,7 +236,7 @@ void GameScene::SetDialogue(string path)
     dialogueSystem->StartDialogue();
 }
 
-void GameScene::SetCombat(std::vector<int> enemyTeam)
+void GameScene::SetCombat(std::vector<string> enemyTeam)
 {
     combatSystem->AddPartyToCombat(GetPlayer()->party->GetPartyIds(), CombatSystem::Ally);
     combatSystem->AddPartyToCombat(enemyTeam, CombatSystem::Enemy);
@@ -584,13 +584,13 @@ void GameScene::LoadGameSaveData()
 
         for (xml_node member = inactiveNode.child("member"); member; member = member.next_sibling("member"))
         {
-            int id = member.attribute("id").as_int();
+            string id = member.attribute("id").as_string();
             player->party->AddMemeber(id);
         }
 
         for (xml_node member = activeNode.child("member"); member; member = member.next_sibling("member"))
         {
-            int id = member.attribute("id").as_int();
+            string id = member.attribute("id").as_string();
             player->party->AddPartyMemeber(id);
         }
 
@@ -708,19 +708,19 @@ void GameScene::SaveGameSaveData()
 		playerNode.child("position").attribute("y").set_value(player->GetPosition().y);
 
         //// SaveParty
-        vector<int> partyMembers = player->party->GetPartyIds();
-        vector<int> unlockedMembers = player->party->GetMembersIds();
+        vector<string> partyMembers = player->party->GetPartyIds();
+        vector<string> unlockedMembers = player->party->GetMembersIds();
         xml_node activeNode = playerNode.child("party").child("active");
         xml_node inactiveNode = playerNode.child("party").child("inactive");
         activeNode.remove_children();
         inactiveNode.remove_children();
 
-        for (int id : partyMembers) {
-            activeNode.append_child("member").append_attribute("id").set_value(id);
+        for (string id : partyMembers) {
+            activeNode.append_child("member").append_attribute("id").set_value(id.c_str());
         }
 
-        for (int id : unlockedMembers) {
-            inactiveNode.append_child("member").append_attribute("id").set_value(id);
+        for (string id : unlockedMembers) {
+            inactiveNode.append_child("member").append_attribute("id").set_value(id.c_str());
         }
 
         /// Save Inventory

@@ -421,7 +421,7 @@
   </object>
   <object id="98" x="681.291" y="610.167">
    <properties>
-    <property name="NpcId" value="5"/>
+    <property name="NpcId" value="character;zeryn"/>
     <property name="Path" type="object" value="108"/>
     <property name="PathMovementType" type="int" value="0"/>
     <property name="Type" value="npc"/>
@@ -430,7 +430,7 @@
   </object>
   <object id="99" x="400" y="256">
    <properties>
-    <property name="NpcId" value="1"/>
+    <property name="NpcId" value="character;rs_artisGuard_entryR"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -457,21 +457,21 @@
   </object>
   <object id="115" x="320.667" y="864">
    <properties>
-    <property name="NpcId" value="3"/>
+    <property name="NpcId" value="character;rs_guard_entryR"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
   <object id="116" x="240.667" y="864">
    <properties>
-    <property name="NpcId" value="2"/>
+    <property name="NpcId" value="character;rs_guard_entryL"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
   <object id="117" x="887" y="271.667">
    <properties>
-    <property name="NpcId" value="4"/>
+    <property name="NpcId" value="character;guideon"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -1942,7 +1942,7 @@
   </object>
   <object id="656" x="336" y="256">
    <properties>
-    <property name="NpcId" value="0"/>
+    <property name="NpcId" value="character;rs_artisGuard_entryL"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -1968,7 +1968,7 @@
   </object>
   <object id="663" x="849.125" y="369">
    <properties>
-    <property name="NpcId" value="7"/>
+    <property name="NpcId" value="character;test"/>
     <property name="Path" type="object" value="664"/>
     <property name="PathMovementType" type="int" value="0"/>
     <property name="Type" value="npc"/>
@@ -1980,7 +1980,7 @@
   </object>
   <object id="665" x="535.455" y="579.5">
    <properties>
-    <property name="NpcId" value="10"/>
+    <property name="NpcId" value="character;rs_guard_tutorial"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>

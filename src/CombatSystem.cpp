@@ -10,7 +10,7 @@ CombatSystem::CombatSystem()
 	ai = new CombatAI(this);
 }
 
-void CombatSystem::AddPartyToCombat(const vector<int>& party, CharacterType party_type)
+void CombatSystem::AddPartyToCombat(const vector<string>& party, CharacterType party_type)
 {
 	charactersInCombat[party_type].clear();
 	for (size_t i = 0; i < party.size(); i++)

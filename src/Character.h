@@ -23,8 +23,8 @@ public:
 	bool CleanUp() override;
 
 	void SetPosition(Vector2 newPosition) override;
-	virtual bool SetCharacterId(int _charId);
-	virtual int GetCharacterId() const;
+	virtual bool SetCharacterId(string _charId);
+	virtual string GetCharacterId() const;
 
 	void ClearFollowerPath();
 
@@ -39,8 +39,8 @@ protected:
 	virtual void Animate() = 0;
 	virtual void Move() = 0;
 protected:
-	int characterId = INT16_MAX;
-	CharacterDatabase::CharacterData* characterData = nullptr;
+	string characterId = "";
+	CharacterDatabase::CharacterDefinition* characterData = nullptr;
 
 	SDL_Texture* texture = nullptr;
 	Animator* animator;
@@ -57,12 +57,12 @@ protected:
 	Vector2 previousPhysicsPosition = { 0,0 };
 
 	
-	bool AddFollower(int _charId, float distance);
-	bool RemoveFollowerById(int _charId);
+	bool AddFollower(string _charId, float distance);
+	bool RemoveFollowerById(string _charId);
 	bool RemoveFollowerByIndex(int _charIndex);
-	bool EditFollower(int _charId, int _charIndex);
+	bool EditFollower(string _charId, int _charIndex);
 	bool GetFollowers() const;
-	void SetFollowers(vector<int> ids,float distance);
+	void SetFollowers(vector<string> ids,float distance);
 
 	vector<FollowerCharacter*> followers;
 	deque<Vector2> pathFollowersData;

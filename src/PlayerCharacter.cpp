@@ -54,12 +54,12 @@ PlayerCharacter::PlayerCharacter()
 	mask.flags.interactable_layer = 1;
 	body->SetFilter(fixtureIndex, category.rawValue, mask.rawValue, 0);
 
-	SetCharacterId(-1);
+	SetCharacterId("character;cassian");
 
 	inventory = new Inventory(40);
 	inventory->onInventoryChanged.Subscribe([this]() {MissionManager::Instance().UpdateMissionsStatus();});
 
-	party = new Party(-1);
+	party = new Party("character;cassian");
 	party->onPartyChanged.Subscribe([this]() {SetFollowers(party->GetPartyIds(true), distanceBetweenFollowers); });
 	party->onPartyChanged.Subscribe([this]() {SetCharacterId(party->GetPartyLeaderId()); });
 
@@ -137,11 +137,11 @@ bool PlayerCharacter::CleanUp()
 	return true;
 }
 
-bool PlayerCharacter::SetCharacterId(int _charId)
+bool PlayerCharacter::SetCharacterId(string _charId)
 {
 
 	if (Character::SetCharacterId(_charId)) {
-		texture = Engine::Instance().m_assetsDB->GetTexture(characterData->textureId);
+		texture = Engine::Instance().m_assetsDB->GetTexture(characterData->charTemplate->textureId);
 
 		for (auto& animClip : animator->GetAnimationClips()) {
 			for (auto& sprite : animClip.GetSprites()) {
@@ -190,28 +190,11 @@ void PlayerCharacter::GetInput()
 	}
 
 	/// Party Testing
-
-	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_J) == KEY_DOWN) {
-		party->AddMemeber(1);
-		party->AddPartyMemeber(1);
-	}
-
-	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_H) == KEY_DOWN) {
-		party->RemovePartyMemeber(1);
-	}
-
 	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_K) == KEY_DOWN) {
-		party->AddMemeber(2);
-		party->AddPartyMemeber(2);
-		party->AddMemeber(3);
-		party->AddMemeber(4);
-		party->AddMemeber(5);
-		party->AddMemeber(6);
-
-	}
-
-	if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_L) == KEY_DOWN) {
-		party->RemovePartyMemeber(2);
+		party->AddMemeber("character;artis");
+		party->AddPartyMemeber("character;artis");
+		party->AddMemeber("character;zeryn");
+		party->AddMemeber("character;rs_guard");
 
 	}
 

@@ -96,8 +96,8 @@ public:
 			statusEffects.clear();
 		}
 
-		void GetBaseStatsById(int id) {
-			CharacterDatabase::CharacterData& reference = CharacterDatabase::Instance().GetCharacterData(id);
+		void GetBaseStatsById(string id) {
+			CharacterDatabase::CharacterDefinition& reference = CharacterDatabase::Instance().GetCharacterDefinition(id);
 			level = reference.level;
 
 			baseStats.attack = reference.attack;
@@ -126,12 +126,12 @@ public:
 
 	struct CharacterReference
 	{
-		int id=-1;
+		string id="character;test";
 		CharacterType team;
 		CharacterStats stats;
 
 		CharacterReference() = default;
-		CharacterReference(int _id, CharacterType _team) {
+		CharacterReference(string _id, CharacterType _team) {
 			id = _id;
 			team = _team;
 			stats.GetBaseStatsById(id);
@@ -145,7 +145,7 @@ public:
 	};
 
 	CombatSystem();
-	void AddPartyToCombat(const vector<int>& party, CharacterType party_type);
+	void AddPartyToCombat(const vector<string>& party, CharacterType party_type);
 	void AddAttack(Attack* attack, CharacterReference& attacker, vector<CharacterReference*> targets);
 	CombatState GetCombatState();
 	void StartCombat();

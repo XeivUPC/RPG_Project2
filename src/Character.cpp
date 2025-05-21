@@ -144,18 +144,18 @@ void Character::SetPosition(Vector2 newPosition)
         body->SetPhysicPosition(position.x, position.y);
 }
 
-bool Character::SetCharacterId(int _charId)
+bool Character::SetCharacterId(string _charId)
 {
     if (_charId != characterId)
     {
         characterId = _charId;
-        characterData = &CharacterDatabase::Instance().GetCharacterData(characterId);
+        characterData = &CharacterDatabase::Instance().GetCharacterDefinition(characterId);
         return true;
     }
     return false;
 }
 
-int Character::GetCharacterId() const
+string Character::GetCharacterId() const
 {
 	return characterId;
 }
@@ -170,7 +170,7 @@ Animator& Character::GetAnimator() const
 	return *animator;
 }
 
-bool Character::AddFollower(int _charId, float distance)
+bool Character::AddFollower(string _charId, float distance)
 {
 	if (followers.size() >= maxFollowers)
 		return false;
@@ -181,7 +181,7 @@ bool Character::AddFollower(int _charId, float distance)
 	return true;
 }
 
-bool Character::RemoveFollowerById(int _charId)
+bool Character::RemoveFollowerById(string _charId)
 {
 	int charPos = 0;
 	for (auto it = followers.begin(); it != followers.end(); ++it) {
@@ -223,7 +223,7 @@ bool Character::RemoveFollowerByIndex(int followerPos)
 	return false;
 }
 
-bool Character::EditFollower(int _charId, int _charIndex)
+bool Character::EditFollower(string _charId, int _charIndex)
 {
 	if (_charIndex < followers.size()) {
 		followers[_charIndex]->SetCharacterId(_charId);
@@ -238,7 +238,7 @@ bool Character::GetFollowers() const
 	return false;
 }
 
-void Character::SetFollowers(vector<int> ids, float distance)
+void Character::SetFollowers(vector<string> ids, float distance)
 {
 	for (size_t i = followers.size(); i < ids.size(); i++) {
 		AddFollower(ids[(int)i], distance);

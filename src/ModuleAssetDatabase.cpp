@@ -149,8 +149,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("birds", *textureFactory->CreateTexture("Assets/Textures/Entities/birds_spritesheet.png"));
 
 	AddTextureToStorage("pj_test", *textureFactory->CreateTexture("Assets/Textures/Characters/player_spritesheet.png"));
-	AddTextureToStorage("guard_test", *textureFactory->CreateTexture("Assets/Textures/Characters/guard_spritesheet.png"));
-	AddTextureToStorage("npc_test", *textureFactory->CreateTexture("Assets/Textures/Characters/npc_spritesheet.png"));
+	AddTextureToStorage("rsGuard_test", *textureFactory->CreateTexture("Assets/Textures/Characters/rsGuard_spritesheet.png"));
 	AddTextureToStorage("artis_test", *textureFactory->CreateTexture("Assets/Textures/Characters/artis_spritesheet.png"));
 	AddTextureToStorage("cassian_test", *textureFactory->CreateTexture("Assets/Textures/Characters/cassian_spritesheet.png"));
 	AddTextureToStorage("zeryn_test", *textureFactory->CreateTexture("Assets/Textures/Characters/zeryn_spritesheet.png"));
