@@ -232,7 +232,7 @@ void UIDialogueBoxCG::SetVariablesOnStart()
 
 	for (const auto& character : databaseCharacters.GetCharacters())
 	{
-		dialogue->AddGameStateVariable("Char" + (character.second.id) + "_State", (float)character.second.state);
+		dialogue->AddGameStateVariable((character.second.id) + "_state", (float)character.second.state);
 	}
 }
 
@@ -263,7 +263,7 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 			typewriterSpeed = get<float>(signal->data);
 		}
 	}
-	else if (signal->name == "SetNpcStatusByID") {
+	else if (signal->name == "SetNpcState") {
 		if (holds_alternative<string>(signal->data)) {
 			string data = get<string>(signal->data);
 			vector<string> infoToGet;
@@ -271,7 +271,7 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 			stringstream ss(data);
 			string word;
 			while (!ss.eof()) {
-				getline(ss, word, '|');
+				getline(ss, word, '-');
 				infoToGet.emplace_back(word);
 			}
 
