@@ -62,14 +62,14 @@
         },
         "Maps/Forest.tmx": {
             "expandedObjectLayers": [
-                7,
-                10
+                10,
+                7
             ],
             "scale": 0.75,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 368,
-                "y": 266.6666666666667
+                "x": 279.3333333333333,
+                "y": 159.3333333333333
             }
         },
         "Maps/Forest_Secret_Cliff - còpia.tmx": {
@@ -82,15 +82,15 @@
         },
         "Maps/Forest_Secret_Cliff.tmx": {
             "expandedObjectLayers": [
-                7,
                 10,
+                7,
                 16
             ],
             "scale": 2,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 273,
-                "y": 226.5
+                "x": 256,
+                "y": 159.75
             }
         },
         "Maps/House1_Inside.tmx": {
@@ -364,6 +364,9 @@
             "scaleInDock": 3,
             "scaleInEditor": 4
         },
+        "Tilesets/dirt.tsx": {
+            "dynamicWrapping": false
+        },
         "Tilesets/dsa.tsx": {
             "dynamicWrapping": true,
             "scaleInDock": 0.33,
@@ -398,9 +401,10 @@
             }
         }
     },
+    "frame.defaultDuration": 200,
     "last.exportedFilePath": "C:/Users/guillemma1/Documents/GitHub/RPG_Project2/Assets/Map/Data",
     "last.externalTilesetPath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Tilesets",
-    "last.imagePath": "G:/GitHub/RPG_Project2/Assets/Textures/Tilesets",
+    "last.imagePath": "C:/Users/anaac8/Documents/GitHub/RPG_Project2/Assets/Textures/Tilesets",
     "last.objectTemplatePath": "C:/Users/maxpo/OneDrive/Documents/GitHub/RPG_Project2/Assets/Map/TiledProject/Prefabs/Buildings",
     "map.height": 12,
     "map.lastUsedExportFilter": "Todos los archivos (*)",
