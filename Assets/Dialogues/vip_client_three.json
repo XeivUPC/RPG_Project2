@@ -1,1 +1,55 @@
-{"923d4e49-2326-48ba-91cb-91d22573f032":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"...","fr":""},"parent":"6babf92e-c83b-4f90-a2a5-49f776aacbce"},"root":{"conditions":[{"parent":"root","next":"923d4e49-2326-48ba-91cb-91d22573f032","character;dh_xt_vip3-state":{"value":0,"operator":"equal","type":"int"}}]},"__editor":{"root":{"uuid":"root","offset":[40,100]},"dialogues":[{"uuid":"923d4e49-2326-48ba-91cb-91d22573f032","offset":[680,-180]}],"conditions":[{"uuid":"6babf92e-c83b-4f90-a2a5-49f776aacbce","offset":[240,-100],"parent":"root"}],"signals":[],"choices":[]}}
+{
+    "923d4e49-2326-48ba-91cb-91d22573f032": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "...",
+            "fr": ""
+        },
+        "parent": "6babf92e-c83b-4f90-a2a5-49f776aacbce"
+    },
+    "root": {
+        "conditions": [
+            {
+                "parent": "root",
+                "next": "923d4e49-2326-48ba-91cb-91d22573f032",
+                "character;dh_xt_vip3-state": {
+                    "value": 0,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            }
+        ]
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                40,
+                100
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "923d4e49-2326-48ba-91cb-91d22573f032",
+                "offset": [
+                    680,
+                    -180
+                ]
+            }
+        ],
+        "conditions": [
+            {
+                "uuid": "6babf92e-c83b-4f90-a2a5-49f776aacbce",
+                "offset": [
+                    240,
+                    -100
+                ],
+                "parent": "root"
+            }
+        ],
+        "signals": [],
+        "choices": []
+    }
+}

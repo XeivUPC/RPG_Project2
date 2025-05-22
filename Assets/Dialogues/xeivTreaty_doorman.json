@@ -1,1 +1,55 @@
-{"27643c81-ba2c-486d-8c5d-39295d614477":{"name":"Fisherman","character_uuid":"b1bb962d-ac6b-4e34-aa60-cb68c42a463f","portrait":"G:/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png","text":{"en":"Its closed","fr":""},"parent":"ecc8676f-e352-4e0d-bae1-9696a0a47a37"},"root":{"conditions":[{"parent":"root","next":"27643c81-ba2c-486d-8c5d-39295d614477","character;dh_xt_doorman-state":{"value":0,"operator":"equal","type":"int"}}]},"__editor":{"root":{"uuid":"root","offset":[40,100]},"dialogues":[{"uuid":"27643c81-ba2c-486d-8c5d-39295d614477","offset":[760,-260]}],"conditions":[{"uuid":"ecc8676f-e352-4e0d-bae1-9696a0a47a37","offset":[260,-180],"parent":"root"}],"signals":[],"choices":[]}}
+{
+    "27643c81-ba2c-486d-8c5d-39295d614477": {
+        "name": "Fisherman",
+        "character_uuid": "b1bb962d-ac6b-4e34-aa60-cb68c42a463f",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+        "text": {
+            "en": "Its closed",
+            "fr": ""
+        },
+        "parent": "ecc8676f-e352-4e0d-bae1-9696a0a47a37"
+    },
+    "root": {
+        "conditions": [
+            {
+                "parent": "root",
+                "next": "27643c81-ba2c-486d-8c5d-39295d614477",
+                "character;dh_xt_doorman-state": {
+                    "value": 0,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            }
+        ]
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                40,
+                100
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "27643c81-ba2c-486d-8c5d-39295d614477",
+                "offset": [
+                    760,
+                    -260
+                ]
+            }
+        ],
+        "conditions": [
+            {
+                "uuid": "ecc8676f-e352-4e0d-bae1-9696a0a47a37",
+                "offset": [
+                    260,
+                    -180
+                ],
+                "parent": "root"
+            }
+        ],
+        "signals": [],
+        "choices": []
+    }
+}
