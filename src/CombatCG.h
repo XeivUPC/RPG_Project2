@@ -20,6 +20,7 @@ class UISlider;
 class UIToggle;
 class Animator;
 class AlertDisplayerCG;
+struct Mix_Chunk;
 
 class CombatCG : public UICanvas
 {
@@ -85,6 +86,8 @@ private:
 		UIAnimatedImage* combatEffect = nullptr;
 
 	};
+
+
 
 	/// CreationFunctions
 	UIAttackButton CreateUIAttackButton(int attackIndex, Vector2 btn_position);
@@ -162,4 +165,11 @@ private:
 	pair<int, int> targetVisualsCompleted = pair<int, int>(0, 0);	//First bool = animation | Second bool = effect
 	pair<int, int> targetVisualsRequest = pair<int, int>(0, 0);	//First bool = animation | Second bool = effect
 	bool firstTick = true;
+
+
+	//// Sounds
+	Mix_Chunk* combat_hurt = nullptr;
+	Mix_Chunk* combat_dead = nullptr;
+	Mix_Chunk* combat_magic = nullptr;
+	Mix_Chunk* combat_physic = nullptr;
 };

@@ -66,6 +66,12 @@ void ModuleAssetDatabase::LoadAssets()
 	AddAudioToStorage("change_area", *audioFactory->CreateAudio("Assets/Sounds/SFX/change_area.wav"));
 	AddAudioToStorage("hmmm", *audioFactory->CreateAudio("Assets/Sounds/SFX/minecraft_villager.wav"));
 
+	AddAudioToStorage("combat_physic", *audioFactory->CreateAudio("Assets/Sounds/SFX/Combat/Physic_attack.wav"));
+	AddAudioToStorage("combat_magic", *audioFactory->CreateAudio("Assets/Sounds/SFX/Combat/Magic_attack.wav"));
+	AddAudioToStorage("combat_hurt", *audioFactory->CreateAudio("Assets/Sounds/SFX/Combat/Character_hurt.wav"));
+	AddAudioToStorage("combat_dead", *audioFactory->CreateAudio("Assets/Sounds/SFX/Combat/Character_dead.wav"));
+
+
 	AudioContainer* footstepContainer = new AudioContainer(AudioContainer::PlayMode::NonRepeatingRandom, { });
 	AddAudioContainerToStorage("footsteps_container", *footstepContainer);
 	for (size_t i = 1; i <= 12; i++)

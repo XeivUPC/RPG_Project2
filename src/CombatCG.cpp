@@ -32,6 +32,12 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 {
 	combat = _combatSystem;
 	combat->onCombatStateChanged.Subscribe([this]() {OnCombatStateChanged(); });
+	
+
+	combat_magic = Engine::Instance().m_assetsDB->GetAudio("combat_magic");
+	combat_dead = Engine::Instance().m_assetsDB->GetAudio("combat_dead");
+	combat_hurt = Engine::Instance().m_assetsDB->GetAudio("combat_hurt");
+	combat_physic = Engine::Instance().m_assetsDB->GetAudio("combat_physic");
 }
 
 CombatCG::~CombatCG()
@@ -100,9 +106,11 @@ void CombatCG::UpdateCanvas()
 
 				if (turnData->attack->type == Attack::AttackType::Aggressive) {
 					slotSelected->characterImage->GetAnimator()->Animate("physic-attack");
+					Engine::Instance().m_audio->PlaySFX(combat_physic);
 				}
 				else {
 					slotSelected->characterImage->GetAnimator()->Animate("special-attack");
+					Engine::Instance().m_audio->PlaySFX(combat_magic);
 				}
 				//Animate effects
 				firstTick = false;
@@ -125,8 +133,10 @@ void CombatCG::UpdateCanvas()
 				for (size_t i = 0; i < combat->CurrentAttackTargetAmount(); i++)
 				{
 					UICharacterSlot* slot = GetSlotByCharacter(combat->GetCurrentAttackTargetList()[i]);
-					if(slot->characterRef->stats.currentHp > 0)
+					if (slot->characterRef->stats.currentHp > 0) {
 						slot->characterImage->GetAnimator()->Animate("hurt");
+						Engine::Instance().m_audio->PlaySFX(combat_hurt);
+					}
 					else
 						targetVisualsCompleted.first++;
 
@@ -845,8 +855,10 @@ void CombatCG::FinishHurtVisuals(UIAnimatedImage* characterImage, CombatSystem::
 		animationEffect.first = true;
 	if(ref->stats.currentHp > 0)
 		characterImage->GetAnimator()->Animate("combat-idle");
-	else
+	else {
 		characterImage->GetAnimator()->Animate("die");
+		Engine::Instance().m_audio->PlaySFX(combat_dead);
+	}
 }
 
 
