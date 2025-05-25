@@ -257,7 +257,7 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="374" name="Button" x="184.75" y="89">
+  <object id="374" name="Boton" x="184.75" y="89">
    <properties>
     <property name="PuzzleId" value="button_01"/>
     <property name="Targets" value="blocking_01"/>
@@ -266,14 +266,14 @@
    </properties>
    <point/>
   </object>
-  <object id="375" x="224" y="64" width="16" height="48">
+  <object id="375" name="Bloqueo" x="224" y="64" width="16" height="48">
    <properties>
     <property name="IsBlocking" type="bool" value="true"/>
     <property name="PuzzleId" value="blocking_01"/>
     <property name="Type" value="blockingPuzzle"/>
    </properties>
   </object>
-  <object id="376" x="163" y="131" width="10" height="10">
+  <object id="376" name="PlacaDePresion" x="163" y="131" width="10" height="10">
    <properties>
     <property name="OnEnterCall" type="bool" value="true"/>
     <property name="OnExitCall" type="bool" value="false"/>

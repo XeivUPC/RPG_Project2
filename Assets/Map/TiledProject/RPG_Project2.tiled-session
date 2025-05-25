@@ -3,15 +3,15 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
+    "activeFile": "Maps/Tutorial_Room.tmx",
     "expandedProjectPaths": [
-        "Maps",
-        "Prefabs/Buildings",
+        "Tilesets",
         "Maps/Interiors",
-        "Prefabs",
-        ".",
         "Objects",
-        "Tilesets"
+        ".",
+        "Prefabs/Buildings",
+        "Prefabs",
+        "Maps"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -173,11 +173,14 @@
             }
         },
         "Maps/Interiors/Testing_Zone.tmx": {
+            "expandedObjectLayers": [
+                7
+            ],
             "scale": 2.9002403846153846,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 207.7414007459594,
-                "y": 161.02113551595525
+                "x": 207.91380024865313,
+                "y": 111.88727724823872
             }
         },
         "Maps/Interiors/Testing_Zone2.tmx": {
@@ -276,11 +279,11 @@
             "expandedObjectLayers": [
                 7
             ],
-            "scale": 4,
+            "scale": 3,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 274.125,
-                "y": 141.25
+                "x": 230.5,
+                "y": 116
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -366,19 +369,14 @@
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
-        "Maps/Interiors/House2_Inside.tmx",
-        "Maps/Interiors/House3_Inside.tmx",
-        "Maps/Interiors/House4_Inside.tmx",
-        "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Maps/Interiors/CottageDunhaven.tmx",
-        "Maps/Interiors/XeivTreaty_MainRoom.tmx",
-        "Maps/Dunhaven_City.tmx",
-        "Maps/Interiors/Testing_Zone2.tmx",
-        "Maps/Tutorial_Room.tmx"
+        "Maps/Tutorial_Room.tmx",
+        "Maps/Interiors/Testing_Zone.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
     "property.type": "bool",
     "recentFiles": [
+        "Maps/Interiors/Testing_Zone.tmx",
+        "Maps/Tutorial_Room.tmx",
         "Maps/Interiors/House3_Inside.tmx",
         "Maps/Interiors/House2_Inside.tmx",
         "Maps/Interiors/House4_Inside.tmx",
@@ -387,8 +385,6 @@
         "Maps/Interiors/XeivTreaty_MainRoom.tmx",
         "Maps/Dunhaven_City.tmx",
         "Maps/Interiors/Testing_Zone2.tmx",
-        "Maps/Tutorial_Room.tmx",
-        "Maps/Interiors/Testing_Zone.tmx",
         "Maps/Forest.tmx",
         "Tilesets/Vegetation_Atlas.tsx"
     ],
