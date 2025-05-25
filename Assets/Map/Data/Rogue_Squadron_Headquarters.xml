@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="675">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="676">
  <properties>
   <property name="IsInside" type="bool" value="false"/>
  </properties>
@@ -401,6 +401,7 @@
   </object>
   <object id="40" gid="915" x="624" y="576" width="96" height="107">
    <properties>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon/dungeon_room_41.xml"/>
     <property name="Type" value="building"/>
    </properties>
   </object>
@@ -2020,6 +2021,13 @@
     <property name="Type" value="birdFlock"/>
    </properties>
    <ellipse/>
+  </object>
+  <object id="675" x="672.364" y="575.636">
+   <properties>
+    <property name="Type" value="entryPoint"/>
+    <property name="Value" type="int" value="2"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
  <objectgroup id="9" name="Collisions">

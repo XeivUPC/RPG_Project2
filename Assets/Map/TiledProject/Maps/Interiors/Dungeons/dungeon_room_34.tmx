@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="11" height="11" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="22">
- <tileset firstgid="1" source="../../Tilesets/Cave_Tiles.tsx"/>
+ <properties>
+  <property name="IsInside" type="bool" value="true"/>
+ </properties>
+ <tileset firstgid="1" source="../../../Tilesets/Cave_Tiles.tsx"/>
  <layer id="1" name="terrain" width="11" height="11">
   <data encoding="csv">
 25,25,25,25,25,25,25,25,25,25,25,
@@ -16,7 +19,7 @@
 25,25,25,25,25,25,25,25,25,25,25
 </data>
  </layer>
- <objectgroup id="2" name="collisions">
+ <objectgroup id="2" name="Collisions">
   <object id="1" name="collision" x="0" y="0" width="176" height="16"/>
   <object id="3" name="collision" x="0" y="0" width="16" height="176"/>
   <object id="4" name="collision" x="0" y="160" width="176" height="16"/>
@@ -29,28 +32,28 @@
   <object id="12" name="EntryCollider" x="32" y="32" width="16" height="4">
    <properties>
     <property name="EntryPoint" type="int" value="1"/>
-    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon/dungeon_room_21.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon/dungeon_room_14.xml"/>
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>
   <object id="13" name="EntryCollider" x="64" y="32" width="16" height="4">
    <properties>
     <property name="EntryPoint" type="int" value="2"/>
-    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon/dungeon_room_23.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon/dungeon_room_21.xml"/>
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>
   <object id="14" name="EntryCollider" x="96" y="32" width="16" height="4">
    <properties>
     <property name="EntryPoint" type="int" value="3"/>
-    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon/dungeon_room_43.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon/dungeon_room_12.xml"/>
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>
   <object id="15" name="EntryCollider" x="128" y="32" width="16" height="4">
    <properties>
     <property name="EntryPoint" type="int" value="4"/>
-    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon/dungeon_room_11.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon/dungeon_room_13.xml"/>
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>
