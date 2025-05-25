@@ -146,11 +146,11 @@
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 2,
-            "selectedLayer": 4,
+            "scale": 1,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 73.5,
-                "y": 367.5
+                "x": 155,
+                "y": 489
             }
         },
         "Maps/Interiors/House2_Inside.tmx": {
@@ -228,8 +228,8 @@
             "scale": 0.75,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 429.33333333333326,
-                "y": 528
+                "x": 428,
+                "y": 526.6666666666666
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -293,8 +293,8 @@
             "scale": 1,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 314,
-                "y": 158
+                "x": 303,
+                "y": 261
             }
         },
         "Maps/Water_tiles.tsx": {

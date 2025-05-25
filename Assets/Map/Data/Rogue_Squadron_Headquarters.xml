@@ -411,7 +411,7 @@
   </object>
   <object id="42" gid="916" x="336" y="576" width="96" height="107">
    <properties>
-    <property name="TargetPath" value="Assets/Map/Data/Dungeon_puzzles.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon_puzzles.xml"/>
     <property name="Type" value="building"/>
    </properties>
   </object>

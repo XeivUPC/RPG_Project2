@@ -19,7 +19,7 @@
 0,0,0,34,188,188,188,188,188,188,188,188,188,188,188,188,188,188,31,188,34,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,34,188,188,188,188,188,188,188,188,188,188,188,188,188,188,31,188,34,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,34,188,188,188,188,188,5,6,6,6,6,7,188,188,5,31,7,34,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,34,188,188,188,188,188,30,31,31,31,31,31,31,31,31,31,31,34,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,34,188,188,188,188,188,30,31,31,31,31,31,31,31,31,31,32,34,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,34,188,188,188,188,188,55,31,56,56,31,57,188,188,55,56,57,34,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,34,188,188,188,188,188,188,31,188,188,31,188,188,188,188,188,188,34,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,34,188,188,188,188,188,188,31,188,188,31,188,188,188,188,188,188,34,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -253,14 +253,14 @@
     <property name="Type" value="blockingPuzzle"/>
    </properties>
   </object>
-  <object id="4" name="Bloqueo" x="144" y="240" width="16" height="31.9535" rotation="90">
+  <object id="4" name="Bloqueo" x="112" y="240" width="31.875" height="16.0785">
    <properties>
     <property name="IsBlocking" type="bool" value="true"/>
     <property name="PuzzleId" value="blocking_03"/>
     <property name="Type" value="blockingPuzzle"/>
    </properties>
   </object>
-  <object id="5" name="Bloqueo" x="272" y="160" width="16" height="31.9535" rotation="90">
+  <object id="5" name="Bloqueo" x="240.125" y="160" width="31.875" height="16.0785">
    <properties>
     <property name="IsBlocking" type="bool" value="false"/>
     <property name="PuzzleId" value="blocking_04"/>
@@ -313,7 +313,7 @@
     <property name="Type" value="blockingPuzzle"/>
    </properties>
   </object>
-  <object id="12" x="9" y="454.333">
+  <object id="12" x="15.7273" y="456.697">
    <properties>
     <property name="Type" value="spawnPoint"/>
    </properties>

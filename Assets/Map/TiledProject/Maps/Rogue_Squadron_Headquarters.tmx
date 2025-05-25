@@ -395,7 +395,7 @@
   <object id="41" template="../Prefabs/Buildings/tent1.tx" x="336" y="736"/>
   <object id="42" template="../Prefabs/Buildings/tent2.tx" x="336" y="576">
    <properties>
-    <property name="TargetPath" value="Assets/Map/Data/Dungeon_puzzles.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon_puzzles.xml"/>
    </properties>
   </object>
   <object id="43" template="../Prefabs/Buildings/tent2.tx" x="624" y="736"/>
