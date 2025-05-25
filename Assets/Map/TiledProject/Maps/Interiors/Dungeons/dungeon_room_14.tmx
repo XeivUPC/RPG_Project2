@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="11" height="11" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="22">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="11" height="11" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="23">
  <properties>
   <property name="IsInside" type="bool" value="true"/>
  </properties>
@@ -82,6 +82,14 @@
    <properties>
     <property name="Type" value="entryPoint"/>
     <property name="Value" type="int" value="4"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="22" x="88.4806" y="136.763">
+   <properties>
+    <property name="Amount" type="int" value="3"/>
+    <property name="ItemId" value="item;healing_macaroni"/>
+    <property name="Type" value="item"/>
    </properties>
    <point/>
   </object>

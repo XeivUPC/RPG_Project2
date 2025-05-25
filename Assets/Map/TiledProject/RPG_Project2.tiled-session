@@ -57,7 +57,7 @@
             "scale": 0.75,
             "selectedLayer": 10,
             "viewCenter": {
-                "x": 1055.3333333333335,
+                "x": 1023.3333333333334,
                 "y": 541.3333333333334
             }
         },
@@ -149,7 +149,7 @@
             "scale": 1.5,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 252.33333333333326,
+                "x": 252.33333333333331,
                 "y": 630.6666666666666
             }
         },
@@ -367,11 +367,11 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 3,
+            "scale": 1.5,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 346.16666666666663,
-                "y": 371.66666666666663
+                "x": 462.3333333333333,
+                "y": 624.6666666666666
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -516,7 +516,7 @@
             }
         }
     },
-    "last.exportedFilePath": "G:/GitHub/RPG_Project2/Assets/Map/Data/Interiors",
+    "last.exportedFilePath": "G:/GitHub/RPG_Project2/Assets/Map/Data/Interiors/Dungeon",
     "last.externalTilesetPath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Tilesets",
     "last.imagePath": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/MapObjects/Vegetation/Single",
     "last.objectTemplatePath": "C:/Users/maxpo/OneDrive/Documents/GitHub/RPG_Project2/Assets/Map/TiledProject/Prefabs/Buildings",
