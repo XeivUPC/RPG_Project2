@@ -98,10 +98,12 @@ void TriggerPuzzleElement::InitPoolObject()
 	Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
 	Engine::Instance().m_updater->AddToUpdateGroup(*this, "Entity");
 	Engine::Instance().m_render->AddToRenderQueue(*this, *this);
+
 }
 
 void TriggerPuzzleElement::ResetPoolObject()
 {
+	isBeingTriggered = false;
 	SetPosition(Vector2Int(0, 0));
 	targets.clear();
 
