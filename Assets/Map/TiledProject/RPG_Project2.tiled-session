@@ -3,15 +3,15 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Tutorial_Room.tmx",
+    "activeFile": "Maps/Interiors/Dungeon_puzzles.tmx",
     "expandedProjectPaths": [
-        ".",
-        "Maps/Interiors",
-        "Objects",
         "Prefabs",
-        "Prefabs/Buildings",
+        "Tilesets",
+        "Objects",
+        ".",
         "Maps",
-        "Tilesets"
+        "Maps/Interiors",
+        "Prefabs/Buildings"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -144,13 +144,14 @@
         },
         "Maps/Interiors/Dungeon_puzzles.tmx": {
             "expandedObjectLayers": [
-                3
+                3,
+                2
             ],
-            "scale": 1,
-            "selectedLayer": 0,
+            "scale": 2,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 155,
-                "y": 489
+                "x": 440.5,
+                "y": 470.5
             }
         },
         "Maps/Interiors/House2_Inside.tmx": {
@@ -190,8 +191,8 @@
             "scale": 2.9002403846153846,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 207.22420223787816,
-                "y": 111.71487774554497
+                "x": 207.91380024865316,
+                "y": 111.54247824285123
             }
         },
         "Maps/Interiors/Testing_Zone2.tmx": {
@@ -225,11 +226,11 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 0.75,
+            "scale": 3,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 428,
-                "y": 526.6666666666666
+                "x": 512,
+                "y": 447.8333333333333
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -290,11 +291,11 @@
             "expandedObjectLayers": [
                 7
             ],
-            "scale": 1,
+            "scale": 4,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 303,
-                "y": 261
+                "x": 223,
+                "y": 159.875
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -328,6 +329,10 @@
         "Tilesets/Cave_Tiles.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "Tilesets/Dungeon_Tiles.tsx": {
+            "scaleInDock": 1.5,
             "scaleInEditor": 1
         },
         "Tilesets/Floors_Tiles.tsx": {
@@ -380,24 +385,28 @@
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
+        "Maps/Interiors/Testing_Zone.tmx",
         "Maps/Tutorial_Room.tmx",
-        "Maps/Interiors/Testing_Zone.tmx"
+        "Maps/Interiors/Dungeon_puzzles.tmx",
+        "Tilesets/Dungeon_Tiles.tsx",
+        "Tilesets/Cave_Tiles.tsx",
+        "Maps/Rogue_Squadron_Headquarters.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
-    "property.type": "bool",
+    "property.type": "int",
     "recentFiles": [
         "Maps/Interiors/Testing_Zone.tmx",
         "Maps/Tutorial_Room.tmx",
+        "Maps/Rogue_Squadron_Headquarters.tmx",
+        "Tilesets/Cave_Tiles.tsx",
+        "Tilesets/Dungeon_Tiles.tsx",
+        "Maps/Interiors/Dungeon_puzzles.tmx",
         "Maps/Interiors/House3_Inside.tmx",
         "Maps/Interiors/House2_Inside.tmx",
         "Maps/Interiors/House4_Inside.tmx",
-        "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/Interiors/CottageDunhaven.tmx",
         "Maps/Interiors/XeivTreaty_MainRoom.tmx",
-        "Maps/Dunhaven_City.tmx",
-        "Maps/Interiors/Testing_Zone2.tmx",
-        "Maps/Forest.tmx",
-        "Tilesets/Vegetation_Atlas.tsx"
+        "Maps/Dunhaven_City.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,
