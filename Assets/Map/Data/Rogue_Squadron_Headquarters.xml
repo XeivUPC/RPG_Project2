@@ -412,6 +412,7 @@
   </object>
   <object id="42" gid="916" x="336" y="576" width="96" height="107">
    <properties>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon_puzzles.xml"/>
     <property name="Type" value="building"/>
    </properties>
   </object>
@@ -2022,7 +2023,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="675" x="672.364" y="575.636">
+  <object id="675" name="EntryPoint1" x="672" y="577">
    <properties>
     <property name="Type" value="entryPoint"/>
     <property name="Value" type="int" value="2"/>

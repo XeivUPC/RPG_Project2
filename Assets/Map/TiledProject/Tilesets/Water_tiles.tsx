@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.0" name="water_tiles" tilewidth="16" tileheight="16" tilecount="625" columns="25">
+<tileset version="1.10" tiledversion="1.11.2" name="water_tiles" tilewidth="16" tileheight="16" tilecount="625" columns="25">
  <image source="../../../Textures/Tilesets/Water_tiles.png" width="400" height="400"/>
  <tile id="0">
   <animation>
-   <frame tileid="0" duration="200"/>
-   <frame tileid="6" duration="200"/>
-   <frame tileid="12" duration="200"/>
-   <frame tileid="18" duration="200"/>
+   <frame tileid="0" duration="100"/>
+   <frame tileid="6" duration="100"/>
+   <frame tileid="12" duration="100"/>
+   <frame tileid="18" duration="100"/>
   </animation>
  </tile>
  <tile id="1">
@@ -99,10 +99,10 @@
  </tile>
  <tile id="76">
   <animation>
-   <frame tileid="76" duration="200"/>
-   <frame tileid="82" duration="200"/>
-   <frame tileid="88" duration="200"/>
-   <frame tileid="94" duration="200"/>
+   <frame tileid="76" duration="100"/>
+   <frame tileid="82" duration="100"/>
+   <frame tileid="88" duration="100"/>
+   <frame tileid="94" duration="100"/>
   </animation>
  </tile>
  <tile id="78">
@@ -155,10 +155,10 @@
  </tile>
  <tile id="104">
   <animation>
-   <frame tileid="104" duration="200"/>
-   <frame tileid="110" duration="200"/>
-   <frame tileid="116" duration="200"/>
-   <frame tileid="122" duration="200"/>
+   <frame tileid="104" duration="100"/>
+   <frame tileid="110" duration="100"/>
+   <frame tileid="116" duration="100"/>
+   <frame tileid="122" duration="100"/>
   </animation>
  </tile>
  <wangsets>

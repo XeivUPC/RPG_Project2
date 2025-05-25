@@ -397,7 +397,11 @@
    </properties>
   </object>
   <object id="41" template="../Prefabs/Buildings/tent1.tx" x="336" y="736"/>
-  <object id="42" template="../Prefabs/Buildings/tent2.tx" x="336" y="576"/>
+  <object id="42" template="../Prefabs/Buildings/tent2.tx" x="336" y="576">
+   <properties>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon_puzzles.xml"/>
+   </properties>
+  </object>
   <object id="43" template="../Prefabs/Buildings/tent2.tx" x="624" y="736"/>
   <object id="98" x="681.291" y="610.167">
    <properties>
@@ -1998,7 +2002,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="675" x="672.364" y="575.636">
+  <object id="675" name="EntryPoint1" x="672" y="577">
    <properties>
     <property name="Type" value="entryPoint"/>
     <property name="Value" type="int" value="2"/>

@@ -72,16 +72,25 @@ void CameraController::Move() {
 
     ///Centrar
 
-    if (minX>maxX) {
-        position.x = minX/2;
-        position.y = minY/2;
+    
 
 
+   
 
-
-    }else
+    if (bounds.w < cameraRect.w) {
+        position.x = minX / 2 + maxX/2;
+    }
+    else if (minX > maxX) {
+        position.x = maxX;
+    }
+    else
         position.x = std::clamp(position.x, minX, maxX);
-    if (minY > maxY) {
+
+
+    if (bounds.h < cameraRect.h) {
+        position.y = minY / 2 + maxY/2;
+    }
+    else if (minY > maxY) {
         position.y = maxY;
     }
     else
