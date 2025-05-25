@@ -35,6 +35,7 @@
 #include "Bird.h"
 #include "ButtonPuzzleElement.h"
 #include "BlockingPuzzleElement.h"
+#include "TriggerPuzzleElement.h"
 ///
 
 #include "FadeCG.h"
@@ -80,6 +81,7 @@ bool GameScene::Start()
     Pooling::Instance().CreatePool<Bird>(20);
     Pooling::Instance().CreatePool<ButtonPuzzleElement>(3);
     Pooling::Instance().CreatePool<BlockingPuzzleElement>(3);
+    Pooling::Instance().CreatePool<TriggerPuzzleElement>(3);
 
     fade = new FadeCG(33, 25, 17, 255);
     fade->FadeTo(1,0);
@@ -528,6 +530,7 @@ void GameScene::ReturnToPoolMapObjects()
     Pooling::Instance().ReturnAllToPool<Bird>();
     Pooling::Instance().ReturnAllToPool<ButtonPuzzleElement>();
     Pooling::Instance().ReturnAllToPool<BlockingPuzzleElement>();
+    Pooling::Instance().ReturnAllToPool<TriggerPuzzleElement>();
 }
 
 void GameScene::DeletePoolMapObjects()
@@ -540,6 +543,7 @@ void GameScene::DeletePoolMapObjects()
     Pooling::Instance().DeletePool<Bird>(true);
     Pooling::Instance().DeletePool<ButtonPuzzleElement>(true);
     Pooling::Instance().DeletePool<BlockingPuzzleElement>(true);
+    Pooling::Instance().DeletePool<TriggerPuzzleElement>(true);
 }
 
 

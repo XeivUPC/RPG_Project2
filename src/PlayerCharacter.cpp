@@ -181,13 +181,17 @@ void PlayerCharacter::GetInput()
 
 		if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_E) == KEY_DOWN) {
 			PhysBody* interactor = interactionSensor.GetClosestBodyColliding();
-			IInteractuable* interactuableObj = reinterpret_cast<IInteractuable*>(interactor->data);
+			if (interactor != nullptr)
+			{
+				IInteractuable* interactuableObj = reinterpret_cast<IInteractuable*>(interactor->data);
 
-			Vector2 direction = Vector2::Direction(position, interactor->GetPhysicPosition());
-			moveDirection = { 0,0 };
-			lastDirection = direction;
-			interactuableObj->Interact(position);
-			Animate();
+				Vector2 direction = Vector2::Direction(position, interactor->GetPhysicPosition());
+				moveDirection = { 0,0 };
+				lastDirection = direction;
+				interactuableObj->Interact(position);
+				Animate();
+				animator->clip()->UpdateClip();
+			}
 		}
 
 	}
@@ -220,8 +224,7 @@ void PlayerCharacter::Animate()
 	if (moveDirection.magnitude() != 0)
 		moveDirection.normalize();
 
-	bool flip = animationDirection.x < 0;
-	animator->clip()->Flip(flip);
+	
 
 
 	string animationId = isMoving ? (speedModifier == runSpeedModifier ? "run-" : "walk-") : "idle-";
@@ -239,4 +242,7 @@ void PlayerCharacter::Animate()
 	}
 	animationId += animationDirectionId;
 	animator->Animate(animationId);
+
+	bool flip = animationDirection.x < 0;
+	animator->clip()->Flip(flip);
 }

@@ -13,6 +13,8 @@ public:
 	ButtonPuzzleElement();
 	~ButtonPuzzleElement();
 
+	void Render() override;
+
 	void Initialize(string _id, Vector2Int _position, bool value, vector<string> _targets);
 
 	void RecieveCall(string _id, unordered_map<string, string> _params) override;
@@ -33,6 +35,7 @@ public:
 private:
 	bool isPressed = false;
 	vector<string> targets;
+	SDL_Texture* texture = nullptr;
 
 	PhysBody* body = nullptr;
 

@@ -459,6 +459,9 @@
     <ClCompile Include="src\BirdFlock.cpp">
       <Filter>Source Files\Entities\Type %28Entity%29\Bird</Filter>
     </ClCompile>
+    <ClCompile Include="src\TriggerPuzzleElement.cpp">
+      <Filter>Source Files\Utils\Puzzles\Elements</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -811,6 +814,9 @@
     </ClInclude>
     <ClInclude Include="src\BirdFlock.h">
       <Filter>Source Files\Entities\Type %28Entity%29\Bird</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TriggerPuzzleElement.h">
+      <Filter>Source Files\Utils\Puzzles\Elements</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

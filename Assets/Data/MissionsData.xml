@@ -51,10 +51,7 @@
 		<description>Press WASD to move and go speak to your comrade Zeryn.(Press E to interact)</description>
 		<conditions>
 			<condition type ="KeyCondition" tasksAmount ="4">
-				<key1 id="26" time="0.5" mode ="0" />
-				<key2 id="4" time="0.5" mode ="0" />
 				<key3 id="7" time="0.5" mode ="0" />
-				<key4 id="22" time="0.5" mode ="0" />
 			</condition>
 		</conditions>
 	</mission>

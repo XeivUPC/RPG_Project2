@@ -153,6 +153,7 @@ void ModuleAssetDatabase::LoadAssets()
 
 	/// Entities
 	AddTextureToStorage("birds", *textureFactory->CreateTexture("Assets/Textures/Entities/birds_spritesheet.png"));
+	AddTextureToStorage("puzzle", *textureFactory->CreateTexture("Assets/Textures/Entities/Puzzles.png"));
 
 	AddTextureToStorage("pj_test", *textureFactory->CreateTexture("Assets/Textures/Characters/player_spritesheet.png"));
 	AddTextureToStorage("rsGuard_test", *textureFactory->CreateTexture("Assets/Textures/Characters/rsGuard_spritesheet.png"));

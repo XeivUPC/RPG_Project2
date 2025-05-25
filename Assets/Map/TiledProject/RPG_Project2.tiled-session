@@ -3,15 +3,15 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Dunhaven_City.tmx",
+    "activeFile": "Maps/Rogue_Squadron_Headquarters.tmx",
     "expandedProjectPaths": [
-        "Prefabs/Buildings",
         "Maps",
-        ".",
-        "Tilesets",
-        "Prefabs",
+        "Prefabs/Buildings",
         "Maps/Interiors",
-        "Objects"
+        "Prefabs",
+        ".",
+        "Objects",
+        "Tilesets"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -51,14 +51,14 @@
         },
         "Maps/Dunhaven_City.tmx": {
             "expandedObjectLayers": [
-                9,
-                6
+                6,
+                9
             ],
             "scale": 1,
             "selectedLayer": 9,
             "viewCenter": {
-                "x": 154.5,
-                "y": 873
+                "x": 896,
+                "y": 640.5
             }
         },
         "Maps/Forest.tmx": {
@@ -138,16 +138,16 @@
             "scale": 2,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 197.25,
-                "y": 93.5
+                "x": 208,
+                "y": 111.75
             }
         },
         "Maps/Interiors/House2_Inside.tmx": {
             "scale": 2.9002403846153846,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 165.67592208868632,
-                "y": 161.02113551595525
+                "x": 208.0861997513469,
+                "y": 111.88727724823872
             }
         },
         "Maps/Interiors/House3_Inside.tmx": {
@@ -157,8 +157,8 @@
             "scale": 1.9158333333333333,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 143.80165289256198,
-                "y": 314.2235754675946
+                "x": 207.74249673771206,
+                "y": 239.58242714223576
             }
         },
         "Maps/Interiors/House4_Inside.tmx": {
@@ -168,24 +168,24 @@
             "scale": 2.432459677419355,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 248.10277662660584,
-                "y": 226.51968503937007
+                "x": 248.10277662660587,
+                "y": 167.9370078740157
             }
         },
         "Maps/Interiors/Testing_Zone.tmx": {
             "scale": 2.9002403846153846,
-            "selectedLayer": 0,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 207.74140074595942,
+                "x": 207.7414007459594,
                 "y": 161.02113551595525
             }
         },
         "Maps/Interiors/Testing_Zone2.tmx": {
-            "scale": 2.9002403846153846,
+            "scale": 4,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 207.74140074595942,
-                "y": 161.02113551595525
+                "x": 208,
+                "y": 112.125
             }
         },
         "Maps/Interiors/XeivTreaty_MainRoom.tmx": {
@@ -195,8 +195,8 @@
             "scale": 2.2754032258064516,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 316.20769094453306,
-                "y": 201.7224880382775
+                "x": 247.86815523657629,
+                "y": 168.10207336523126
             }
         },
         "Maps/Map1.tmx": {
@@ -211,11 +211,11 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 0.5,
+            "scale": 11,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 543,
-                "y": 786
+                "x": 252.45454545454544,
+                "y": 902.5454545454545
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -279,8 +279,8 @@
             "scale": 4,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 236.25,
-                "y": 174.25
+                "x": 274.125,
+                "y": 141.25
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -372,21 +372,23 @@
         "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/Interiors/CottageDunhaven.tmx",
         "Maps/Interiors/XeivTreaty_MainRoom.tmx",
-        "Maps/Dunhaven_City.tmx"
+        "Maps/Dunhaven_City.tmx",
+        "Maps/Interiors/Testing_Zone2.tmx",
+        "Maps/Tutorial_Room.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
-    "property.type": "string",
+    "property.type": "bool",
     "recentFiles": [
-        "Maps/Interiors/House2_Inside.tmx",
         "Maps/Interiors/House3_Inside.tmx",
+        "Maps/Interiors/House2_Inside.tmx",
         "Maps/Interiors/House4_Inside.tmx",
         "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/Interiors/CottageDunhaven.tmx",
         "Maps/Interiors/XeivTreaty_MainRoom.tmx",
         "Maps/Dunhaven_City.tmx",
-        "Maps/Interiors/Testing_Zone.tmx",
         "Maps/Interiors/Testing_Zone2.tmx",
         "Maps/Tutorial_Room.tmx",
+        "Maps/Interiors/Testing_Zone.tmx",
         "Maps/Forest.tmx",
         "Tilesets/Vegetation_Atlas.tsx"
     ],

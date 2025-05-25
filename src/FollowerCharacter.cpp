@@ -131,8 +131,7 @@ void FollowerCharacter::Animate()
 	if (moveDirection.magnitude() != 0)
 		moveDirection.normalize();
 
-	bool flip = animationDirection.x < 0;
-	animator->clip()->Flip(flip);
+	
 
 
 	string animationId = isMoving ? (characterToFollow->speedModifier == characterToFollow->runSpeedModifier ? "run-" : "walk-") : "idle-";
@@ -150,6 +149,9 @@ void FollowerCharacter::Animate()
 	}
 	animationId += animationDirectionId;
 	animator->Animate(animationId);
+
+	bool flip = animationDirection.x < 0;
+	animator->clip()->Flip(flip);
 }
 
 void FollowerCharacter::SetDelayDistance(float _delayDistance)

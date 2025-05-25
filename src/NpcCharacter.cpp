@@ -167,8 +167,7 @@ void NpcCharacter::Animate()
 	if (moveDirection.magnitude() != 0)
 		moveDirection.normalize();
 
-	bool flip = animationDirection.x < 0;
-	animator->clip()->Flip(flip);
+	
 
 
 	string animationId = isMoving ? (speedModifier == runSpeedModifier ? "run-" : "walk-") : "idle-";
@@ -185,7 +184,11 @@ void NpcCharacter::Animate()
 		animationDirectionId = "top";
 	}
 	animationId += animationDirectionId;
+
 	animator->Animate(animationId);
+
+	bool flip = animationDirection.x < 0;
+	animator->clip()->Flip(flip);
 }
 
 
@@ -196,6 +199,7 @@ void NpcCharacter::Interact(Vector2 from)
 		Vector2 direction = Vector2::Direction(position, from);
 		lastDirection = direction;
 		Animate();
+		animator->clip()->UpdateClip();
 	}
 	else {
 

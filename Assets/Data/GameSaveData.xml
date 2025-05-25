@@ -1,28 +1,22 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="391" y="597" />
+		<position x="522" y="591" />
 		<party>
 			<active>
-				<member id="5" />
+				<member id="character;cassian" />
 			</active>
 			<inactive>
-				<member id="-1" />
-				<member id="2" />
-				<member id="3" />
-				<member id="4" />
-				<member id="5" />
-				<member id="6" />
+				<member id="character;cassian" />
 			</inactive>
 		</party>
 		<missions>
-			<mission id="mission;chef2" status="0" />
-			<mission id="mission;chef" status="1" />
+			<mission id="mission;tutorial" status="0" />
 		</missions>
 		<inventory>
 			<item />
 			<item />
-			<item id="item;healing_bread" amount="1" />
+			<item />
 			<item />
 			<item />
 			<item />
@@ -64,10 +58,10 @@
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="70170.6875" />
+		<time value="43636.1094" />
 		<items />
 		<tilemaps>
-			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="135.8125" spawnpoint-y="513.573975" />
+			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="522.710999" spawnpoint-y="591.953979" />
 		</tilemaps>
 	</map>
 </game>

@@ -1,4 +1,5 @@
 #pragma once
+#include "SystemEvent.h"
 #include "Entity.h"
 #include <string>
 #include <unordered_map>
@@ -28,4 +29,5 @@ protected:
 
 protected:
 	string id;
+	EventId eventId;
 };

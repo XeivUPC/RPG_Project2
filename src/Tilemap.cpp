@@ -18,6 +18,7 @@
 #include "BirdFlock.h"
 #include "ButtonPuzzleElement.h"
 #include "BlockingPuzzleElement.h"
+#include "TriggerPuzzleElement.h"
 
 
 #include <sstream>
@@ -272,6 +273,33 @@ void Tilemap::CreateObjects()
 
                 blocking->Initialize(blockingId, position, size, blockingState);
              }
+            else if (type == "triggerPuzzle") {
+
+                auto trigger = Pooling::Instance().AcquireObject<TriggerPuzzleElement>();
+
+                Vector2 position = { object->x + object->width / 2 * scale ,object->y + +object->height / 2 };
+                float size = PIXEL_TO_METERS(object->width/2);
+                string puzzleId = object->properties.at("PuzzleId").value;
+
+                string targetsText = object->properties.at("Targets").value;
+                vector<string> targets;
+
+                targetsText.erase(remove(targetsText.begin(), targetsText.end(), ' '));
+                stringstream ss(targetsText);
+                string temp;
+
+                while (getline(ss, temp, ','))
+                {
+                    targets.emplace_back(temp);
+                }
+
+				bool callOnEnter = false;
+				callOnEnter = object->properties.at("OnEnterCall").value == "true";
+				bool callOnExit = false;
+                callOnExit = object->properties.at("OnExitCall").value == "true";
+
+                trigger->Initialize(puzzleId, position, size, targets, callOnEnter, callOnExit);
+            }
             else if (type == "spawnPoint") {
                 if (!spawnPointSaved) {
                     spawnPointSaved = true;

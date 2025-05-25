@@ -74,11 +74,11 @@ void CollisionSensor::BeginContact(b2Contact* contact)
     b2Fixture* fixtureToTrack = fixture;
     if (fixtureA == fixtureToTrack || fixtureB == fixtureToTrack) {
         if (!onlyTriggers || fixtureA->IsSensor() || fixtureB->IsSensor()) {
-            bodiesInside++;
             PhysBody* bodyA = (PhysBody*)fixtureA->GetBody()->GetUserData().pointer;
             PhysBody* bodyB = (PhysBody*)fixtureB->GetBody()->GetUserData().pointer;
             lastBodyEnter = GetDifferentBody(bodyA, bodyB, physBodyToTrack);
             bodiesColliding.emplace_back(lastBodyEnter);
+            bodiesInside++;
         }
     }
 }
@@ -91,13 +91,13 @@ void CollisionSensor::EndContact(b2Contact* contact)
     b2Fixture* fixtureToTrack = fixture;
     if (fixtureA == fixtureToTrack || fixtureB == fixtureToTrack) {
         if (!onlyTriggers || fixtureA->IsSensor() || fixtureB->IsSensor()) {
-            bodiesInside--;
             PhysBody* bodyA = (PhysBody*)fixtureA->GetBody()->GetUserData().pointer;
             PhysBody* bodyB = (PhysBody*)fixtureB->GetBody()->GetUserData().pointer;
             lastBodyExit = GetDifferentBody(bodyA, bodyB, physBodyToTrack);
 
             auto ne = std::remove(bodiesColliding.begin(), bodiesColliding.end(), lastBodyExit);
             bodiesColliding.erase(ne, bodiesColliding.end());
+            bodiesInside--;
         }
     }
 }

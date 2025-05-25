@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="376">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="379">
  <editorsettings>
   <export target="../../Data/Tutorial_Room.xml" format="tmx"/>
  </editorsettings>
@@ -10,9 +10,9 @@
  <tileset firstgid="290" source="../Tilesets/Floors_Tiles.tsx"/>
  <tileset firstgid="915" source="../Tilesets/Water_tiles.tsx"/>
  <tileset firstgid="1540" source="../Tilesets/Building_Atlas.tsx"/>
- <tileset firstgid="1546" source="../Tilesets/Furniture_Atlas.tsx"/>
- <tileset firstgid="1572" source="../Tilesets/Vegetation_Atlas.tsx"/>
- <tileset firstgid="1875" source="../Tilesets/Grass_Tiles.tsx"/>
+ <tileset firstgid="1552" source="../Tilesets/Furniture_Atlas.tsx"/>
+ <tileset firstgid="1623" source="../Tilesets/Vegetation_Atlas.tsx"/>
+ <tileset firstgid="1926" source="../Tilesets/Grass_Tiles.tsx"/>
  <layer id="2" name="Ground0" width="32" height="20">
   <data encoding="csv">
 1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,1092,
@@ -57,7 +57,7 @@
 0,0,0,0,919,0,0,0,0,0,0,0,0,990,991,968,966,992,966,993,1018,0,0,1016,1017,1017,1018,0,0,0,0,0,
 0,0,0,0,0,0,0,0,919,0,0,0,0,0,965,967,968,967,967,969,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,965,968,968,992,968,969,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,919,0,0,0,0,0,0,0,965,942,992,993,1017,1018,0,0,0,0,0,0,0,0,919,0,0,0,
+0,0,0,0,0,0,919,0,0,0,0,0,0,0,965,337,337,993,1017,1018,0,0,0,0,0,0,0,0,919,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,990,1017,1017,1018,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
@@ -110,180 +110,195 @@
 </data>
  </layer>
  <objectgroup id="7" name="Objects">
-  <object id="333" name="SpawnPoint" x="257.244" y="295.795">
-   <properties>
-    <property name="Type" value="spawnPoint"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="335" gid="1597" x="297.333" y="85.6667" width="16" height="16">
+  <object id="335" gid="1648" x="297.333" y="85.6667" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="336" gid="1597" x="119.333" y="152" width="16" height="16">
+  <object id="336" gid="1648" x="119.333" y="152" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="337" gid="1597" x="258.333" y="214" width="16" height="16">
+  <object id="337" gid="1648" x="258.333" y="214" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="338" gid="1597" x="399.667" y="196.333" width="16" height="16">
+  <object id="338" gid="1648" x="399.667" y="196.333" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="339" gid="1597" x="406" y="136.667" width="16" height="16">
+  <object id="339" gid="1648" x="406" y="136.667" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="340" gid="1597" x="155.333" y="125" width="16" height="16">
+  <object id="340" gid="1648" x="155.333" y="125" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="341" gid="1599" x="368.333" y="163" width="16" height="16">
+  <object id="341" gid="1650" x="368.333" y="163" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="342" gid="1599" x="188.667" y="169" width="16" height="16">
+  <object id="342" gid="1650" x="188.667" y="169" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="343" gid="1584" x="441" y="173.333" width="16" height="16">
+  <object id="343" gid="1635" x="441" y="173.333" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="344" gid="1584" x="352.333" y="96.3333" width="16" height="16">
+  <object id="344" gid="1635" x="352.333" y="96.3333" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="345" gid="1584" x="211.667" y="90.3333" width="16" height="16">
+  <object id="345" gid="1635" x="211.667" y="90.3333" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="346" gid="1584" x="277.667" y="180.667" width="16" height="16">
+  <object id="346" gid="1635" x="277.667" y="180.667" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="347" gid="1584" x="288.333" y="115.333" width="16" height="16">
+  <object id="347" gid="1635" x="288.333" y="115.333" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="350" gid="1636" x="338" y="215.333" width="16" height="16">
+  <object id="350" gid="1687" x="338" y="215.333" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="351" gid="1636" x="253.333" y="284.667" width="16" height="16">
+  <object id="351" gid="1687" x="253.333" y="284.667" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="352" gid="1636" x="98.3333" y="112" width="16" height="16">
+  <object id="352" gid="1687" x="98.3333" y="112" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="353" gid="1636" x="265.333" y="61" width="16" height="16">
+  <object id="353" gid="1687" x="265.333" y="61" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="354" gid="1636" x="432" y="106" width="16" height="16">
+  <object id="354" gid="1687" x="432" y="106" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="355" gid="1731" x="442.667" y="279.667" width="16" height="32">
+  <object id="355" gid="1782" x="442.667" y="279.667" width="16" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="356" gid="1731" x="346.667" y="313.333" width="16" height="32">
+  <object id="356" gid="1782" x="346.667" y="313.333" width="16" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="358" gid="1731" x="436.333" y="34" width="16" height="32">
+  <object id="358" gid="1782" x="436.333" y="34" width="16" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="359" gid="1731" x="162.333" y="241.667" width="16" height="32">
+  <object id="359" gid="1782" x="162.333" y="241.667" width="16" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="361" gid="1731" x="108.417" y="274.583" width="16" height="32">
+  <object id="361" gid="1782" x="108.417" y="274.583" width="16" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="363" gid="1731" x="129.333" y="247" width="16" height="32">
+  <object id="363" gid="1782" x="129.333" y="247" width="16" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="364" gid="1731" x="151.333" y="256.5" width="15" height="32">
+  <object id="364" gid="1782" x="151.333" y="256.5" width="15" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="366" gid="1731" x="178.167" y="274.833" width="16" height="32">
+  <object id="366" gid="1782" x="178.167" y="274.833" width="16" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="368" gid="1731" x="135.25" y="288.667" width="16" height="32">
+  <object id="368" gid="1782" x="135.25" y="288.667" width="16" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="369" gid="1731" x="146.917" y="279.25" width="16" height="32">
+  <object id="369" gid="1782" x="146.917" y="279.25" width="16" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="372" gid="1731" x="79.4167" y="242.333" width="16" height="32">
+  <object id="372" gid="1782" x="79.4167" y="242.333" width="16" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="373" gid="1732" x="172.667" y="253.667" width="16" height="16">
+  <object id="373" gid="1783" x="172.667" y="253.667" width="16" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="374" name="Button" x="192" y="96.75">
+  <object id="374" name="Button" x="184.75" y="89">
    <properties>
     <property name="PuzzleId" value="button_01"/>
     <property name="Targets" value="blocking_01"/>
     <property name="Type" value="buttonPuzzle"/>
-    <property name="Value" type="bool" value="true"/>
+    <property name="Value" type="bool" value="false"/>
    </properties>
    <point/>
   </object>
-  <object id="375" x="224.75" y="64.5" width="15" height="48">
+  <object id="375" x="224" y="64" width="16" height="48">
    <properties>
     <property name="IsBlocking" type="bool" value="true"/>
     <property name="PuzzleId" value="blocking_01"/>
     <property name="Type" value="blockingPuzzle"/>
    </properties>
   </object>
+  <object id="376" x="163" y="131" width="10" height="10">
+   <properties>
+    <property name="OnEnterCall" type="bool" value="true"/>
+    <property name="OnExitCall" type="bool" value="false"/>
+    <property name="PuzzleId" value="trigger_01"/>
+    <property name="Targets" value="blocking_01"/>
+    <property name="Type" value="triggerPuzzle"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="377" x="258.5" y="288.977">
+   <properties>
+    <property name="Type" value="spawnPoint"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="378" x="238.045" y="306.568" width="38.1819" height="4.18182">
+   <properties>
+    <property name="Type" value="tilemapChanger"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup id="10" name="Collisions" visible="0">
+ <objectgroup id="10" name="Collisions">
   <object id="307" x="80" y="45.5" width="91.9545" height="15.375"/>
   <object id="308" x="173.955" y="29.2273" width="78.0455" height="15.8977"/>
   <object id="309" x="252.813" y="20.1875" width="74.625" height="8.625"/>

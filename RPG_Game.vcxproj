@@ -220,6 +220,7 @@
     <ClCompile Include="src\StepTimer.cpp" />
     <ClCompile Include="src\TitleMenuCG.cpp" />
     <ClCompile Include="src\TitleScene.cpp" />
+    <ClCompile Include="src\TriggerPuzzleElement.cpp" />
     <ClCompile Include="src\UIAnimatedImage.cpp" />
     <ClCompile Include="src\UIDialogueBoxCG.cpp" />
     <ClCompile Include="src\UIEmpty.cpp" />
@@ -339,6 +340,7 @@
     <ClInclude Include="src\TextureAtlas.h" />
     <ClInclude Include="src\TitleMenuCG.h" />
     <ClInclude Include="src\TitleScene.h" />
+    <ClInclude Include="src\TriggerPuzzleElement.h" />
     <ClInclude Include="src\UIAnimatedImage.h" />
     <ClInclude Include="src\UIDialogueBoxCG.h" />
     <ClInclude Include="src\TextureFactory.h" />
