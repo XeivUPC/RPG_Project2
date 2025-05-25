@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< Updated upstream
 <map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="695">
+=======
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="56" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="686">
+>>>>>>> Stashed changes
  <editorsettings>
   <export target="../../Data/Rogue_Squadron_Headquarters.xml" format="tmx"/>
  </editorsettings>
@@ -10,6 +14,7 @@
  <tileset firstgid="626" source="../Tilesets/Cave_Tiles.tsx"/>
  <tileset firstgid="915" source="../Tilesets/Building_Atlas.tsx"/>
  <tileset firstgid="927" source="../Tilesets/Vegetation_Atlas.tsx"/>
+<<<<<<< Updated upstream
  <tileset firstgid="1107" source="../Tilesets/Water_tiles.tsx"/>
  <tileset firstgid="1732" source="../Tilesets/Grass_Tiles.tsx"/>
  <tileset firstgid="2357" source="../Tilesets/Furniture_Atlas.tsx"/>
@@ -17,6 +22,13 @@
  <tileset firstgid="2716" source="../Tilesets/TerrainTileset.tsx"/>
  <tileset firstgid="2844" source="../Tilesets/dirt.tsx"/>
  <layer id="1" name="Ground0" width="64" height="56" visible="0">
+=======
+ <tileset firstgid="1230" source="../Tilesets/Water_tiles.tsx"/>
+ <tileset firstgid="1855" source="../Tilesets/Grass_Tiles.tsx"/>
+ <tileset firstgid="2480" source="../Tilesets/Furniture_Atlas.tsx"/>
+ <tileset firstgid="2551" source="../Tilesets/buildings.tsx"/>
+ <layer id="1" name="Ground0" width="64" height="56">
+>>>>>>> Stashed changes
   <data encoding="csv">
 257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,
 257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,258,259,257,
@@ -497,6 +509,7 @@
 </data>
  </layer>
  <objectgroup id="6" name="Objects">
+<<<<<<< Updated upstream
   <object id="35" template="../Prefabs/Buildings/tent1.tx" x="336" y="416" visible="1">
    <properties>
     <property name="TargetPath" value="Assets/Map/Data/Interiors/Testing_Zone.xml"/>
@@ -518,6 +531,65 @@
   <object id="41" template="../Prefabs/Buildings/tent1.tx" x="336" y="736"/>
   <object id="42" template="../Prefabs/Buildings/tent2.tx" x="336" y="576"/>
   <object id="43" template="../Prefabs/Buildings/tent2.tx" x="624" y="736"/>
+=======
+  <object id="98" x="681.291" y="610.167">
+   <properties>
+    <property name="NpcId" value="character;zeryn"/>
+    <property name="Path" type="object" value="108"/>
+    <property name="PathMovementType" type="int" value="0"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="99" x="400" y="256">
+   <properties>
+    <property name="NpcId" value="character;rs_artisGuard_entryR"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="100" x="303.5" y="294.75">
+   <properties>
+    <property name="Path" type="object" value="112"/>
+    <property name="PathMovementType" type="int" value="1"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="106" name="SpawnPoint" x="522.711" y="591.954">
+   <properties>
+    <property name="Type" value="spawnPoint"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="108" x="681.166" y="610.167">
+   <polyline points="0,0 95,0"/>
+  </object>
+  <object id="112" x="303" y="294.333">
+   <polygon points="0,0 0,469.663 296.852,469.663 296.852,0.612337"/>
+  </object>
+  <object id="115" x="320.667" y="864">
+   <properties>
+    <property name="NpcId" value="character;rs_guard_entryR"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="116" x="240.667" y="864">
+   <properties>
+    <property name="NpcId" value="character;rs_guard_entryL"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="117" x="887" y="271.667">
+   <properties>
+    <property name="NpcId" value="character;guideon"/>
+    <property name="Type" value="npc"/>
+   </properties>
+   <point/>
+  </object>
+>>>>>>> Stashed changes
   <object id="118" template="../Prefabs/Buildings/House2.tx" x="80" y="768">
    <properties>
     <property name="TargetPath" value="Assets/Map/Data/Interiors/House2_Inside.xml"/>
@@ -2119,6 +2191,41 @@
    </properties>
    <ellipse/>
   </object>
+<<<<<<< Updated upstream
+=======
+  <object id="675" x="672.364" y="575.636">
+   <properties>
+    <property name="Type" value="entryPoint"/>
+    <property name="Value" type="int" value="2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="676" gid="2566" x="336" y="400" width="96" height="96">
+   <properties>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Testing_Zone.xml"/>
+   </properties>
+  </object>
+  <object id="677" gid="2552" x="480" y="400" width="96" height="96">
+   <properties>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Testing_Zone2.xml"/>
+   </properties>
+  </object>
+  <object id="678" gid="2556" x="624" y="400" width="96" height="96">
+   <properties>
+    <property name="TargetPath" value="Assets/Map/Data/Tutorial_Room.xml"/>
+   </properties>
+  </object>
+  <object id="679" gid="2551" x="336" y="560" width="96" height="96"/>
+  <object id="680" gid="2555" x="480" y="560" width="96" height="96"/>
+  <object id="681" gid="2566" x="624" y="560" width="96" height="96">
+   <properties>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon/dungeon_room_41.xml"/>
+   </properties>
+  </object>
+  <object id="683" gid="2565" x="336" y="720" width="96" height="96"/>
+  <object id="684" gid="2555" x="480" y="720" width="96" height="96"/>
+  <object id="685" gid="2551" x="624" y="720" width="96" height="96"/>
+>>>>>>> Stashed changes
  </objectgroup>
  <objectgroup id="9" name="Collisions" visible="0">
   <object id="492" x="507.091" y="86.7273" width="186" height="66.1477"/>
