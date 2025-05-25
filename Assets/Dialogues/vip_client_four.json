@@ -15,7 +15,7 @@
                 "parent": "root",
                 "next": "ede983fe-81ea-4ce4-978c-ea82bfce13f0",
                 "character;dh_xt_vip4-state": {
-                    "value": 4,
+                    "value": 0,
                     "operator": "equal",
                     "type": "int"
                 }
