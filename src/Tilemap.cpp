@@ -27,7 +27,7 @@ Tilemap::Tilemap(const  path& tmxPath, float _scale)
 { 
     LoadMapFromXML(tmxPath, _scale);
     Engine::Instance().m_render->AddToRenderQueue(*this);
-    renderLayer = 2;
+    renderLayer = 1;
     
 }
 
