@@ -5,13 +5,13 @@
     },
     "activeFile": "Maps/Interiors/Dungeon_puzzles.tmx",
     "expandedProjectPaths": [
-        "Prefabs/Buildings",
-        "Maps/Interiors",
-        "Maps",
-        ".",
         "Prefabs",
         "Tilesets",
-        "Objects"
+        "Objects",
+        ".",
+        "Maps",
+        "Maps/Interiors",
+        "Prefabs/Buildings"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -144,14 +144,14 @@
         },
         "Maps/Interiors/Dungeon_puzzles.tmx": {
             "expandedObjectLayers": [
-                2,
-                3
+                3,
+                2
             ],
-            "scale": 1.5,
-            "selectedLayer": 5,
+            "scale": 2,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 346.66666666666663,
-                "y": 442.66666666666663
+                "x": 440.5,
+                "y": 470.5
             }
         },
         "Maps/Interiors/House2_Inside.tmx": {
@@ -229,8 +229,8 @@
             "scale": 3,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 287,
-                "y": 907.3333333333333
+                "x": 512,
+                "y": 447.8333333333333
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -294,8 +294,8 @@
             "scale": 4,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 248,
-                "y": 281.25
+                "x": 223,
+                "y": 159.875
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -393,7 +393,7 @@
         "Maps/Rogue_Squadron_Headquarters.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
-    "property.type": "bool",
+    "property.type": "int",
     "recentFiles": [
         "Maps/Interiors/Testing_Zone.tmx",
         "Maps/Tutorial_Room.tmx",
