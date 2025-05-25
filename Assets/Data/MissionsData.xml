@@ -4,7 +4,7 @@
 		<title>Prepare Yourself</title>
 		<description>Find and get 1 zalium sword and a null</description>
 		<conditions>
-			<condition type ="ItemCondition" tasksAmount ="1">
+			<condition type ="ItemCondition" tasksAmount ="2">
 				<item1 id="item;zalium_sword" count="1" />
 				<item2 id="item;null" count="1" />
 			</condition>
@@ -50,8 +50,8 @@
 		<title>Meet Zeryn</title>
 		<description>Press WASD to move and go speak to your comrade Zeryn.(Press E to interact)</description>
 		<conditions>
-			<condition type ="KeyCondition" tasksAmount ="4">
-				<key3 id="7" time="0.5" mode ="0" />
+			<condition type ="KeyCondition" tasksAmount ="1">
+				<key1 id="7" time="0.5" mode ="0" />
 			</condition>
 		</conditions>
 	</mission>
