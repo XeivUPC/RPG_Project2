@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="33" height="52" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="15">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="33" height="52" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="16">
  <properties>
-  <property name="IsInside" type="bool" value="false"/>
+  <property name="IsInside" type="bool" value="true"/>
  </properties>
  <tileset firstgid="1" source="../../TiledProject/Tilesets/Dungeon_Tiles.tsx"/>
  <layer id="4" name="Ground0" width="33" height="52">
@@ -284,16 +284,6 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="9" name="PlacaDePresion" x="163" y="242.25" width="10" height="10">
-   <properties>
-    <property name="OnEnterCall" type="bool" value="true"/>
-    <property name="OnExitCall" type="bool" value="false"/>
-    <property name="PuzzleId" value="trigger_01"/>
-    <property name="Targets" value="blocking_01, blocking_04"/>
-    <property name="Type" value="triggerPuzzle"/>
-   </properties>
-   <ellipse/>
-  </object>
   <object id="10" name="Boton" x="199.523" y="88.4318">
    <properties>
     <property name="PuzzleId" value="button_01"/>
@@ -320,6 +310,15 @@
    <properties>
     <property name="Type" value="tilemapChanger"/>
    </properties>
+  </object>
+  <object id="15" name="Boton" x="166.83" y="249.019">
+   <properties>
+    <property name="PuzzleId" value="trigger_01"/>
+    <property name="Targets" value="blocking_01, blocking_04"/>
+    <property name="Type" value="buttonPuzzle"/>
+    <property name="Value" type="bool" value="false"/>
+   </properties>
+   <point/>
   </object>
  </objectgroup>
  <objectgroup id="2" name="Collisions"/>

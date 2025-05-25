@@ -43,7 +43,6 @@ void BlockingPuzzleElement::Initialize(string _id, Vector2Int _position, Vector2
 
 
 
-
 	SetPosition(_position);
 	id = _id;
 	isBlocking = blocks;
@@ -64,13 +63,15 @@ void BlockingPuzzleElement::RecieveCall(string _id, unordered_map<string, string
 			if (_params.count("triggered") != 0) {
 
 				isBlocking = !isBlocking;
-
 				if (isBlocking)
 					Enable();
 				else
 					Disable();
 			}
 		}
+	}
+	else {
+		
 	}
 }
 
@@ -91,7 +92,10 @@ void BlockingPuzzleElement::InitPoolObject()
 
 void BlockingPuzzleElement::ResetPoolObject()
 {
-	PuzzleManager::Instance().onPuzzleCall.Unsubscribe(eventId);
+	if (eventId.id != -1) {
+		PuzzleManager::Instance().onPuzzleCall.Unsubscribe(eventId);
+		eventId.id = -1;
+	}
 	Engine::Instance().m_render->RemoveFromRenderQueue(*this);
 	delete body;
 }

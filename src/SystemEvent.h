@@ -6,7 +6,7 @@
 
 struct EventId
 {
-    int id;
+    int id = -1;
 };
 
 template <typename... Args>
