@@ -405,7 +405,7 @@
   <object id="98" x="463" y="457">
    <properties>
     <property name="Amount" type="int" value="1"/>
-    <property name="ItemId" value="zalium_armor"/>
+    <property name="ItemId" value="item;zalium_armor"/>
     <property name="Type" value="item"/>
    </properties>
    <point/>

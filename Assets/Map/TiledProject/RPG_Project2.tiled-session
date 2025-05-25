@@ -5,13 +5,13 @@
     },
     "activeFile": "Maps/Interiors/Dungeon_puzzles.tmx",
     "expandedProjectPaths": [
-        "Prefabs",
-        "Tilesets",
-        "Objects",
+        "Prefabs/Buildings",
         ".",
         "Maps",
+        "Objects",
         "Maps/Interiors",
-        "Prefabs/Buildings"
+        "Prefabs",
+        "Tilesets"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -147,11 +147,11 @@
                 3,
                 2
             ],
-            "scale": 2,
+            "scale": 4,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 440.5,
-                "y": 470.5
+                "x": 455.25,
+                "y": 434.75
             }
         },
         "Maps/Interiors/House2_Inside.tmx": {
