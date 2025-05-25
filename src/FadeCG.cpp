@@ -98,13 +98,13 @@ void FadeCG::SetColor(int r, int g, int b, int a)
 
 void FadeCG::SetFadeTimer(int time)
 {
-	timer = StepTimer(time);
+	timer = StepTimer((float)time);
 }
 
 int FadeCG::GetPercentageDone()
 {
 	float currentTime = timer.ReadSec();
-	return (currentTime / timeToDoFade) * 100;
+	return (int)((currentTime / timeToDoFade) * 100);
 }
 
 bool FadeCG::IsFading()

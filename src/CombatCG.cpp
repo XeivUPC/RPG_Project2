@@ -32,6 +32,12 @@ CombatCG::CombatCG(CombatSystem* _combatSystem)
 {
 	combat = _combatSystem;
 	combat->onCombatStateChanged.Subscribe([this]() {OnCombatStateChanged(); });
+	
+
+	combat_magic = Engine::Instance().m_assetsDB->GetAudio("combat_magic");
+	combat_dead = Engine::Instance().m_assetsDB->GetAudio("combat_dead");
+	combat_hurt = Engine::Instance().m_assetsDB->GetAudio("combat_hurt");
+	combat_physic = Engine::Instance().m_assetsDB->GetAudio("combat_physic");
 }
 
 CombatCG::~CombatCG()
@@ -51,7 +57,7 @@ void CombatCG::UpdateCanvas()
 	{
 		CombatSystem::CharacterStats& charStats = charactersSlot[i].characterRef->stats;
 
-		string pjName = CharacterDatabase::Instance().GetCharacterData(charactersSlot[i].characterRef->id).name;
+		string pjName = CharacterDatabase::Instance().GetCharacterDefinition(charactersSlot[i].characterRef->id).name;
 		float maxHealth = (float)charStats.GetHpStatValue();
 		float currentHealth = (float)charStats.currentHp;
 		float healthRatio = currentHealth / maxHealth;
@@ -62,15 +68,15 @@ void CombatCG::UpdateCanvas()
 
 		bool statusValue = charStats.HasStatusEffect("Poison");
 		if(statusValue != charactersSlot[i].poison->IsOn())
-			charactersSlot[i].poison->SetValue(statusValue);
+			charactersSlot[i].poison->SetValue(statusValue, false);
 
 		statusValue = charStats.HasStatusEffect("Regeneration");
 		if (statusValue != charactersSlot[i].poison->IsOn())
-			charactersSlot[i].regeneration->SetValue(statusValue);
+			charactersSlot[i].regeneration->SetValue(statusValue, false);
 
 		statusValue = charStats.HasStatusEffect("Burn");
 		if (statusValue != charactersSlot[i].poison->IsOn())
-			charactersSlot[i].burn->SetValue(statusValue);
+			charactersSlot[i].burn->SetValue(statusValue, false);
 	}
 	if (debug_immortalEnabled != nullptr) {
 		if (Engine::Instance().m_debug->godmode)
@@ -100,14 +106,14 @@ void CombatCG::UpdateCanvas()
 
 				if (turnData->attack->type == Attack::AttackType::Aggressive) {
 					slotSelected->characterImage->GetAnimator()->Animate("physic-attack");
+					Engine::Instance().m_audio->PlaySFX(combat_physic);
 				}
 				else {
 					slotSelected->characterImage->GetAnimator()->Animate("special-attack");
+					Engine::Instance().m_audio->PlaySFX(combat_magic);
 				}
 				//Animate effects
 				firstTick = false;
-
-				printf("%d  -  %d\n", animationEffect.first, animationEffect.second);
 			}
 
 
@@ -127,10 +133,15 @@ void CombatCG::UpdateCanvas()
 				for (size_t i = 0; i < combat->CurrentAttackTargetAmount(); i++)
 				{
 					UICharacterSlot* slot = GetSlotByCharacter(combat->GetCurrentAttackTargetList()[i]);
-					if(slot->characterRef->stats.currentHp > 0)
+					if (slot->characterRef->stats.currentHp > 0) {
 						slot->characterImage->GetAnimator()->Animate("hurt");
+						Engine::Instance().m_audio->PlaySFX(combat_hurt);
+					}
 					else
 						targetVisualsCompleted.first++;
+
+					if (targetVisualsRequest.first == targetVisualsCompleted.first)
+						animationEffect.first = true;
 				}
 				//Animate effects
 				firstTick = false;
@@ -300,7 +311,7 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 
 	TTF_Font* btn_font = Engine::Instance().m_assetsDB->GetFont("alagard");
 
-	CharacterDatabase::CharacterData& charactedData = CharacterDatabase::Instance().GetCharacterData(value->id);
+	CharacterDatabase::CharacterDefinition& charactedData = CharacterDatabase::Instance().GetCharacterDefinition(value->id);
 
 	int font_size = 16;
 	SDL_Color font_color = { 184,132,78,255 };
@@ -342,7 +353,7 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 	characterBtn->onMouseExit.Subscribe([selectedCharacterTarget]() {selectedCharacterTarget->SetRect({ 0,16,16,16 }); });
 
 
-	SDL_Texture* characterTexture = Engine::Instance().m_assetsDB->GetTexture(charactedData.textureId);
+	SDL_Texture* characterTexture = Engine::Instance().m_assetsDB->GetTexture(charactedData.charTemplate->textureId);
 
 	UIAnimatedImage* characterImage = new UIAnimatedImage({ 0,-30 }, { 64,64 }, { 0.5f,0.5f });
 	characterImage->SetLocalScale(1.7f);
@@ -481,6 +492,16 @@ void CombatCG::CreateUIExtras()
 	passTurn->SetParent(combatLayout);
 }
 
+void CombatCG::CreateEndScreen()
+{
+
+}
+
+void CombatCG::SetEndScreen()
+{
+	
+}
+
 void CombatCG::ShowAttackInformation(int attackIndex)
 {
 	Attack* attackSelected = attackButtons[attackIndex].attack;
@@ -537,7 +558,7 @@ void CombatCG::SelectCharacter(UICharacterSlot& character)
 
 	selectedCharacter = &character;
 	selectedCharacter->selectedCharacterIndicator->localVisible = true;
-	CharacterDatabase::CharacterData& charactedData = CharacterDatabase::Instance().GetCharacterData(selectedCharacter->characterRef->id);
+	CharacterDatabase::CharacterDefinition& charactedData = CharacterDatabase::Instance().GetCharacterDefinition(selectedCharacter->characterRef->id);
 	for (size_t i = 0; i < attackButtons.size(); i++)
 	{
 		if (i< charactedData.attacks.size()) {
@@ -691,7 +712,7 @@ void CombatCG::ConfirmAttack()
 {
 	if (selectedAttack->attack->targetAmount < GetPossibleTargetsAmount()) {
 		if (selectedAttack->attack->targetAmount != targetCharacters.size()) {
-
+			//// Change default message
 			alert->SetAlertData("Not enough targets selected");
 			alert->OpenAlert();
 			return;
@@ -824,7 +845,6 @@ void CombatCG::FinishAttackVisuals(UIAnimatedImage* characterImage)
 {
 	animationEffect.first = true;
 	characterImage->GetAnimator()->Animate("combat-idle");
-	printf("        finish atttack\n");
 }
 
 void CombatCG::FinishHurtVisuals(UIAnimatedImage* characterImage, CombatSystem::CharacterReference* ref)
@@ -835,8 +855,10 @@ void CombatCG::FinishHurtVisuals(UIAnimatedImage* characterImage, CombatSystem::
 		animationEffect.first = true;
 	if(ref->stats.currentHp > 0)
 		characterImage->GetAnimator()->Animate("combat-idle");
-	else
+	else {
 		characterImage->GetAnimator()->Animate("die");
+		Engine::Instance().m_audio->PlaySFX(combat_dead);
+	}
 }
 
 

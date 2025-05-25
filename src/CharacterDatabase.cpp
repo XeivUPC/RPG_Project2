@@ -4,31 +4,31 @@
 
 using namespace pugi;
 
-CharacterDatabase::CharacterData& CharacterDatabase::GetCharacterData(int id)
+CharacterDatabase::CharacterDefinition& CharacterDatabase::GetCharacterDefinition(string id)
 {
-    return data[id];
+    return definitions[id];
 }
 
-const unordered_map<int, CharacterDatabase::CharacterData>& CharacterDatabase::GetCharacters()
+const unordered_map<string, CharacterDatabase::CharacterDefinition>& CharacterDatabase::GetCharacters()
 {
-    return data;
+    return definitions;
 }
 
-bool CharacterDatabase::Exists(int id)
+bool CharacterDatabase::Exists(string id)
 {
-    return data.count(id) > 0;
+    return definitions.count(id) > 0;
 }
 
 void CharacterDatabase::ResetDataToDefault()
 {
     pugi::xml_document sourceDoc;
-    if (!sourceDoc.load_file(pathToCharacterDataDefault.c_str())) {
+    if (!sourceDoc.load_file(pathToCharacterDefinitionsDefault.c_str())) {
         LOG("Failed to load source.xml");
         return;
     }
 
     pugi::xml_document targetDoc;
-    if (!targetDoc.load_file(pathToCharacterData.c_str())) {
+    if (!targetDoc.load_file(pathToCharacterDefinitions.c_str())) {
         LOG("Failed to load target.xml");
         return;
     }
@@ -37,7 +37,7 @@ void CharacterDatabase::ResetDataToDefault()
 
     pugi::xml_node newRoot = targetDoc.append_copy(sourceDoc.document_element());
 
-    if (!targetDoc.save_file(pathToCharacterData.c_str())) {
+    if (!targetDoc.save_file(pathToCharacterDefinitions.c_str())) {
         LOG("Failed to save updated target.xml");
         return;
     }
@@ -52,7 +52,6 @@ CharacterDatabase::CharacterDatabase()
 
 CharacterDatabase::~CharacterDatabase()
 {
-	SaveDatabase();
 }
 
 void CharacterDatabase::SaveDatabase()
@@ -60,48 +59,47 @@ void CharacterDatabase::SaveDatabase()
     LOG("Saving");
 
     xml_document file;
-    pugi::xml_parse_result result = file.load_file(pathToCharacterData.c_str());
+    pugi::xml_parse_result result = file.load_file(pathToCharacterDefinitions.c_str());
     if (result != NULL)
     {
-        xml_node rootNode = file.child("Characters");
+        xml_node rootNode = file.child("definition");
 
-        for (const auto& [key, value] : data) {
-            xml_node entry = rootNode.find_child_by_attribute("id", to_string(key).c_str());
+        for (const auto& [key, value] : definitions) {
+            xml_node entry = rootNode.find_child_by_attribute("id",key.c_str());
             if (entry) {
-                entry.child("Data").attribute("textureId").set_value(value.textureId.c_str());
-                entry.child("Data").attribute("faceId").set_value(value.faceId.c_str());
-				entry.child("Data").attribute("dialoguePath").set_value(value.dialoguePath.c_str());
+				entry.attribute("template").set_value(value.charTemplate->id.c_str());
+				entry.attribute("name").set_value(value.name.c_str());
 
-				entry.child("Stats").attribute("state").set_value(value.state);
-				entry.child("Stats").attribute("friendship").set_value(value.friendShip);
-				entry.child("Stats").attribute("love").set_value(value.love);
+				entry.child("recruitable").text().data().set_value(value.recruitable ? "true" : "false");
 
-				entry.child("CombatStats").attribute("level").set_value(value.level);
-				entry.child("CombatStats").attribute("hp").set_value(value.health);
-				entry.child("CombatStats").attribute("defense").set_value(value.defense);
-				entry.child("CombatStats").attribute("attack").set_value(value.attack);
-				entry.child("CombatStats").attribute("speed").set_value(value.speed);
+				entry.child("dialogue").attribute("path").set_value(value.dialogue.c_str());
+				entry.child("dialogue").attribute("state").set_value(value.state);
 
-				xml_node attacksNode = entry.child("Attacks");
+
+				entry.child("combat").child("stats").attribute("level").set_value(value.level);
+				entry.child("combat").child("stats").attribute("hp").set_value(value.health);
+				entry.child("combat").child("stats").attribute("defense").set_value(value.defense);
+				entry.child("combat").child("stats").attribute("attack").set_value(value.attack);
+				entry.child("combat").child("stats").attribute("speed").set_value(value.speed);
+
+				xml_node attacksNode = entry.child("combat").child("attacks");
                 int index = 0;
 				for (auto& attackAtr : attacksNode.attributes())
 				{
 					attackAtr.set_value(value.attacks[index]);
                     index++;
 				}
-
-                entry.child("AttackRole").attribute("type").set_value(value.role);
             }
             else {
-                LOG("CharacterDatabase couldn't find this id %d", key);
+                LOG("CharacterDefinitions couldn't find this id %d", key);
             }
         }
 
-        file.save_file(pathToCharacterData.c_str());
+        file.save_file(pathToCharacterDefinitions.c_str());
 
     }
     else {
-        LOG("CharacterDatabase couldn't be saved");
+        LOG("CharacterDefinitions couldn't be saved");
     }
 }
 
@@ -109,54 +107,71 @@ void CharacterDatabase::LoadDatabase()
 {
     LOG("Loading");
     LOG("Loading characters data from XML");
-    data.clear();
+    definitions.clear();
+    templates.clear();
     xml_document file;
-    xml_parse_result result = file.load_file(pathToCharacterData.c_str());
+    xml_parse_result result = file.load_file(pathToCharacterTemplate.c_str());
 
     if (result != NULL) {
-        xml_node rootNode = file.child("Characters");
+        xml_node rootNode = file.child("template");
 
-        for (xml_node character : rootNode.children("Character")) {
-            CharacterData charData;
-            int charId = character.attribute("id").as_int();
-            string charName = character.attribute("name").as_string();
-            xml_node charDataNode = character.child("Data");
-            xml_node charStatsNode = character.child("Stats");
-            xml_node charCombatStatsNode = character.child("CombatStats");
-            xml_node charAttacksNode = character.child("Attacks");
-            xml_node charAttackRoleNode = character.child("AttackRole");
+        for (xml_node character : rootNode.children("character")) {
+            CharacterTemplate charTemplate;
+            charTemplate.id = character.attribute("id").as_string();
+            charTemplate.textureId = character.attribute("textureId").as_string();
+            charTemplate.faceId = character.attribute("faceId").as_string();
 
-            ///Basic
-            charData.id = charId;
-            charData.name = charName;
-
-            ///Stats
-            charData.state = charStatsNode.attribute("state").as_int();
-            charData.friendShip = charStatsNode.attribute("friendShip").as_int();
-            charData.love = charStatsNode.attribute("love").as_int();
-
-            ///Data
-            charData.textureId = charDataNode.attribute("textureId").as_string();
-            charData.faceId = charDataNode.attribute("faceId").as_string();
-            charData.dialoguePath = charDataNode.attribute("dialoguePath").as_string();
-
-            charData.level = charCombatStatsNode.attribute("level").as_int();
-            charData.health = charCombatStatsNode.attribute("hp").as_int();
-            charData.defense = charCombatStatsNode.attribute("defense").as_int();
-            charData.attack = charCombatStatsNode.attribute("attack").as_int();
-            charData.speed = charCombatStatsNode.attribute("speed").as_int();
-
-            for (const auto& attack : charAttacksNode.attributes())
-            {
-                charData.attacks.emplace_back(attack.as_int());
-            }
-
-            charData.role = (CharacterData::CharacterRole)charAttackRoleNode.attribute("type").as_int();
-
-            data[charId] = charData;
+            templates[charTemplate.id] = charTemplate;
         }
     }
     else {
-        LOG("CharacterDatabase couldn't be loaded");
+        LOG("CharacterTemplates couldn't be loaded");
+        return;
+    }
+
+
+
+    result = file.load_file(pathToCharacterDefinitions.c_str());
+    if (result != NULL) {
+        xml_node rootNode = file.child("definition");
+
+        for (xml_node characterNode : rootNode.children("character")) {
+            CharacterDefinition charDefinition;
+
+            string charId = characterNode.attribute("id").as_string();
+            string charName = characterNode.attribute("name").as_string();
+            string templateId = characterNode.attribute("template").as_string();
+            CharacterTemplate* charTemplate = &templates[templateId];
+
+            xml_node recruitableNode = characterNode.child("recruitable");
+            xml_node dialogueNode = characterNode.child("dialogue");
+            xml_node combatStatsNode = characterNode.child("combat").child("stats");
+            xml_node combatAttacksNode = characterNode.child("combat").child("attacks");
+
+            charDefinition.id = charId;
+            charDefinition.name = charName;
+            charDefinition.charTemplate = charTemplate;
+
+            charDefinition.recruitable = recruitableNode.text().as_bool();
+
+            charDefinition.state = dialogueNode.attribute("state").as_int();
+            charDefinition.dialogue = dialogueNode.attribute("path").as_string();      
+
+            charDefinition.level = combatStatsNode.attribute("level").as_int();
+            charDefinition.health = combatStatsNode.attribute("hp").as_int();
+            charDefinition.defense = combatStatsNode.attribute("defense").as_int();
+            charDefinition.attack = combatStatsNode.attribute("attack").as_int();
+            charDefinition.speed = combatStatsNode.attribute("speed").as_int();
+
+            for (const auto& attack : combatAttacksNode.attributes())
+            {
+                charDefinition.attacks.emplace_back(attack.as_int());
+            }
+  
+            definitions[charId] = charDefinition;
+        }
+    }
+    else {
+        LOG("CharacterDefinitions couldn't be loaded");
     }
 }

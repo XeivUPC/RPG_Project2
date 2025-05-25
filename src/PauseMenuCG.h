@@ -16,6 +16,9 @@ public:
 	void CloseAllSubmenus();
 	void OpenSubmenu(string menuName);
 
+	void OpenInventory();
+	void OpenParty();
+
 	void UpdateCanvas();
 public:
 

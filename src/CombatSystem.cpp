@@ -10,7 +10,7 @@ CombatSystem::CombatSystem()
 	ai = new CombatAI(this);
 }
 
-void CombatSystem::AddPartyToCombat(const vector<int>& party, CharacterType party_type)
+void CombatSystem::AddPartyToCombat(const vector<string>& party, CharacterType party_type)
 {
 	charactersInCombat[party_type].clear();
 	for (size_t i = 0; i < party.size(); i++)
@@ -27,6 +27,7 @@ void CombatSystem::AddAttack(Attack* attack, CharacterReference& attacker, vecto
 CombatSystem::CombatState CombatSystem::GetCombatState()
 {
 	return state;
+	
 }
 
 void CombatSystem::StartCombat()
@@ -174,9 +175,14 @@ void CombatSystem::UpdateCombat()
 			ChangeState(START);
 		break;
 	case CombatSystem::VICTORY:
-		/// End
+		wonLastCombat = true;
+		ChangeState(END);
 		break;
 	case CombatSystem::DEFEAT:
+		wonLastCombat = false;
+		ChangeState(END);
+		break;
+	case CombatSystem::END:
 		/// End
 		break;
 	default:
@@ -251,7 +257,7 @@ vector<CombatSystem::CharacterReference*> CombatSystem::GetCurrentAttackTargetLi
 
 int CombatSystem::CurrentAttackTargetAmount()
 {
-	return GetCurrentAttackTargetList().size();
+	return (int)GetCurrentAttackTargetList().size();
 }
 
 const unordered_map<CombatSystem::CharacterType, vector<CombatSystem::CharacterReference>>& CombatSystem::GetCharactersInCombat()
@@ -281,4 +287,9 @@ vector<CombatSystem::CharacterReference*> CombatSystem::GetPosibleTargets(Charac
 		}
 	}
 	return possibleTargets;
+}
+
+bool CombatSystem::HasWonLastCombat() const
+{
+	return wonLastCombat;
 }

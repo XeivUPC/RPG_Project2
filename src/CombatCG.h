@@ -20,6 +20,7 @@ class UISlider;
 class UIToggle;
 class Animator;
 class AlertDisplayerCG;
+struct Mix_Chunk;
 
 class CombatCG : public UICanvas
 {
@@ -52,6 +53,12 @@ private:
 		Attack* currentAttack = nullptr;
 	};
 
+	struct UIEndScreen {
+		UIImage* endBg;
+		UITextBox* resultText;
+		UIButton* continueBtn;
+	};
+
 	struct UICharacterSlot {
 
 		UIButton* characterClick = nullptr;
@@ -80,11 +87,15 @@ private:
 
 	};
 
+
+
 	/// CreationFunctions
 	UIAttackButton CreateUIAttackButton(int attackIndex, Vector2 btn_position);
 	void CreateUIAttackInformation();
 	UICharacterSlot CreateUICharacterSlot(CombatSystem::CharacterReference* value, Vector2 slot_position);
 	void CreateUIExtras();
+	void CreateEndScreen();
+	void SetEndScreen();
 
 
 	void ShowAttackInformation(int attackIndex);
@@ -133,6 +144,8 @@ private:
 	vector<UIAttackButton> attackButtons;
 	vector<UICharacterSlot> charactersSlot;
 
+	UIEndScreen endScreen;
+
 	/// TrackingData
 	UICharacterSlot* selectedCharacter = nullptr;
 	vector<UICharacterSlot*> targetCharacters;
@@ -152,4 +165,11 @@ private:
 	pair<int, int> targetVisualsCompleted = pair<int, int>(0, 0);	//First bool = animation | Second bool = effect
 	pair<int, int> targetVisualsRequest = pair<int, int>(0, 0);	//First bool = animation | Second bool = effect
 	bool firstTick = true;
+
+
+	//// Sounds
+	Mix_Chunk* combat_hurt = nullptr;
+	Mix_Chunk* combat_dead = nullptr;
+	Mix_Chunk* combat_magic = nullptr;
+	Mix_Chunk* combat_physic = nullptr;
 };

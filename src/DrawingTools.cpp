@@ -84,9 +84,13 @@ void DrawingTools::RenderBox(const Vector2& position, const Vector2& size, const
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     SetColor(color);
 
+
+    if (*cameraMode) {
+        rect.w = (rect.w * camera->zoom);
+        rect.h = (rect.h * camera->zoom);
+    }
+
     SDL_FPoint center = SDL_FPoint{ (rect.w * pivot.x), (rect.h * pivot.y) };
-
-
     if (*cameraMode) {
         float screenPivotX = (position.x - camera->rect.x) * camera->zoom;
         float screenPivotY = (position.y - camera->rect.y) * camera->zoom;

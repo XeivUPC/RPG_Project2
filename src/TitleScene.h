@@ -5,6 +5,7 @@
 
 class UICanvas;
 class FadeCG;
+class ParallaxCG;
 
 class TitleScene : public ModuleScene{
 	friend class Engine;
@@ -33,6 +34,7 @@ private:
 	UICanvas* canvas = nullptr;
 	UICanvas* settings_canvas = nullptr;
 	FadeCG* fade = nullptr;
+	ParallaxCG* parallax = nullptr;
 
 	bool starting_game = false;
 	bool newGame = false;

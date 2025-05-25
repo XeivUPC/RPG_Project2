@@ -84,14 +84,14 @@ PartyCG::~PartyCG()
 
 }
 
-void PartyCG::RemovePartyCharacter(int id)
+void PartyCG::RemovePartyCharacter(string id)
 {
 	party->RemovePartyMemeber(id);
 	UpdateMemberSlots();
 	UpdatePartySlots();
 }
 
-void PartyCG::AddPartyCharacter(int id)
+void PartyCG::AddPartyCharacter(string id)
 {
 	party->AddPartyMemeber(id);
 	UpdateMemberSlots();
@@ -117,13 +117,13 @@ void PartyCG::CreatePartySlots()
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
 
 	/// Modify
-	const vector<CharacterDatabase::CharacterData*> partyMembers = party->GetParty();
+	const vector<CharacterDatabase::CharacterDefinition*> partyMembers = party->GetParty();
 	for (int i = 0; i < party->GetMaxPartySize(); ++i)
 	{
 		if (partySlots.size() > i)
 			continue;
 
-		CharacterDatabase::CharacterData* charData =nullptr;
+		CharacterDatabase::CharacterDefinition* charData =nullptr;
 		UIPartyCharacterSlot slot;
 
 		if (partyMembers.size() > i) {
@@ -137,7 +137,7 @@ void PartyCG::CreatePartySlots()
 
 		
 		slot.characterSelect = new UIButton(position, { 66,66 }, { 0,0,0,0 }, { 0,0 }, {0,0,0,0});
-		int id = slot.characterId;
+		string id = slot.characterId;
 		slot.characterSelect->onMouseClick.Subscribe([this, id]() {RemovePartyCharacter(id);});
 		if (charData == nullptr)
 			slot.characterSelect->isEnabled = false;
@@ -147,10 +147,10 @@ void PartyCG::CreatePartySlots()
 		SDL_Texture* character_profile_texture = nullptr;
 		if (charData != nullptr) {
 			character_profile_texture = characterProfilesAtlas->texture;
-			slot.characterProfile = new UIImage(*character_profile_texture, { 1,1 }, { 64,64 }, { 0,0 }, true, characterProfilesAtlas->sprites[charData->faceId].rect);
+			slot.characterProfile = new UIImage(*character_profile_texture, { 1,1 }, { 64,64 }, { 0,0 }, true, characterProfilesAtlas->sprites[charData->charTemplate->faceId].rect);
 		}
 		else {
-			slot.characterProfile = new UIImage(*character_profile_texture, { 1,1 }, { 64,64 }, { 0,0 }, true, {0,0,0,0});
+			slot.characterProfile = new UIImage({ 1,1 }, { 64,64 }, { 0,0 }, true, {0,0,0,0});
 		}
 		slot.characterProfile->SetParent(slot.characterSelect);
 		if (charData == nullptr)
@@ -169,11 +169,11 @@ void PartyCG::CreatePartySlots()
 		string name = "";
 		if (charData != nullptr)
 			name = charData->name;
-		slot.charcterName = new UITextBox(name, *textFont, 16, { 184,132,78,255 }, { -7, 69 }, { 80*2,15*2}, {0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
-		slot.charcterName->SetParent(slot.characterSelect);
-		slot.charcterName->SetLocalScale(0.5f);
+		slot.characterName = new UITextBox(name, *textFont, 16, { 184,132,78,255 }, { -7, 69 }, { 80*2,15*2}, {0,0}, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+		slot.characterName->SetParent(slot.characterSelect);
+		slot.characterName->SetLocalScale(0.5f);
 		if (charData == nullptr)
-			slot.charcterName->localVisible = false;
+			slot.characterName->localVisible = false;
 
 
 		slot.moveLeftBtn = new UIButton(*options_texture, { 1,85 }, { 12,12 }, { 12,0,12,12 }, { 0,0 });
@@ -224,19 +224,19 @@ void PartyCG::CreateMemeberSlots()
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
 
 
-	const vector<CharacterDatabase::CharacterData*> memebers = party->GetMemebers();
+	const vector<CharacterDatabase::CharacterDefinition*> memebers = party->GetMemebers();
 	int maxIndex = membersPage * membersByPage + membersByPage;
 	if (maxIndex > memebers.size()) {
-		maxIndex = memebers.size();
+		maxIndex = (int)memebers.size();
 	}
 
 	for (int i = membersPage * membersByPage; i < maxIndex; ++i)
 	{
 		if (memberSlots.size() > i%4)
 			continue;
-		CharacterDatabase::CharacterData* charData = memebers[i];
+		CharacterDatabase::CharacterDefinition* charData = memebers[i];
 
-		int row = floor((i) / 2);
+		int row = (int)(floor((i) / 2));
 		int col = (i - 1) % 2;
 
 		Vector2 offset = { (col ? -slotSize.x - spacing.x / 2 : spacing.x / 2),(slotSize.y + spacing.y) * row };
@@ -252,11 +252,11 @@ void PartyCG::CreateMemeberSlots()
 
 		TextureAtlas* characterProfilesAtlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
 		SDL_Texture* character_profile_texture = characterProfilesAtlas->texture;
-		slot.characterProfile = new UIImage(*character_profile_texture, { 6,65 }, { 64,64 }, { 0,1 }, true, characterProfilesAtlas->sprites[charData->faceId].rect);
+		slot.characterProfile = new UIImage(*character_profile_texture, { 6,65 }, { 64,64 }, { 0,1 }, true, characterProfilesAtlas->sprites[charData->charTemplate->faceId].rect);
 		slot.characterProfile->SetParent(slot.characterSelect);
 
-		slot.charcterName = new UITextBox(charData->name, *textFont, 16, { 184,132,78,255 }, { 74, 4 }, { 101,32 }, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
-		slot.charcterName->SetParent(slot.characterSelect);
+		slot.characterName = new UITextBox(charData->name, *textFont, 16, { 184,132,78,255 }, { 74, 4 }, { 101,32 }, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+		slot.characterName->SetParent(slot.characterSelect);
 
 		slot.charcterLevel = new UITextBox("Lvl: " + to_string(charData->level), *textFont, 16, { 184,132,78,255 }, { 10, -8 }, { 78,16 }, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Top, false);
 		slot.charcterLevel->SetParent(slot.characterSelect);
@@ -299,23 +299,23 @@ void PartyCG::UpdatePartySlots()
 		partySlots[i].moveLeftBtn->isEnabled = false;
 		partySlots[i].searchBtn->isEnabled = false;
 		partySlots[i].moveRightBtn->isEnabled = false;
-		partySlots[i].charcterName->localVisible = false;
+		partySlots[i].characterName->localVisible = false;
 
 	}
 
-	const vector<CharacterDatabase::CharacterData*> partyMembers = party->GetParty();
+	const vector<CharacterDatabase::CharacterDefinition*> partyMembers = party->GetParty();
 	for (int i = 0; i < party->GetPartySize(); ++i)
 	{
-		CharacterDatabase::CharacterData* charData = partyMembers[i];
+		CharacterDatabase::CharacterDefinition* charData = partyMembers[i];
 		UIPartyCharacterSlot& slot = partySlots[i];
 
 		slot.characterId = charData->id;
-		int id = slot.characterId;
+		string id = slot.characterId;
 
 		TextureAtlas* characterProfilesAtlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
 		SDL_Texture* character_profile_texture = characterProfilesAtlas->texture;
-		slot.characterProfile->SetSprite(*character_profile_texture, true, characterProfilesAtlas->sprites[charData->faceId].rect);
-		slot.charcterName->SetText(charData->name);
+		slot.characterProfile->SetSprite(*character_profile_texture, true, characterProfilesAtlas->sprites[charData->charTemplate->faceId].rect);
+		slot.characterName->SetText(charData->name);
 
 		slot.characterSelect->onMouseClick.UnsubscribeAll();
 		slot.characterSelect->onMouseClick.Subscribe([this, id]() {RemovePartyCharacter(id);});
@@ -323,7 +323,7 @@ void PartyCG::UpdatePartySlots()
 		slot.characterSelect->isEnabled = true;
 		partySlots[i].characterProfile->localVisible = true;
 		slot.chracterOverlay->isEnabled = true;
-		slot.charcterName->localVisible = true;
+		slot.characterName->localVisible = true;
 
 
 		if (i != 0) {
@@ -351,26 +351,26 @@ void PartyCG::UpdateMemberSlots()
 	for (int i = 0; i < memberSlots.size(); ++i) {
 		memberSlots[i].characterSelect->localVisible = false;
 	}
-	const vector<CharacterDatabase::CharacterData*> memebers = party->GetMemebers();
+	const vector<CharacterDatabase::CharacterDefinition*> memebers = party->GetMemebers();
 
 	int maxIndex = membersPage * membersByPage + membersByPage;
 	if (maxIndex > memebers.size()) {
-		maxIndex = memebers.size();
+		maxIndex = (int)memebers.size();
 	}
 
 	for (int i = membersPage*membersByPage; i < maxIndex; ++i)
 	{
-		CharacterDatabase::CharacterData* charData = memebers[i];
+		CharacterDatabase::CharacterDefinition* charData = memebers[i];
 		int realIndex = i % 4;
 		UIMemberCharacterSlot& slot = memberSlots[realIndex];
 
 		slot.characterId = charData->id;
 		slot.charcterLevel->SetText("Lvl: " + to_string(charData->level));
-		slot.charcterName->SetText(charData->name);
+		slot.characterName->SetText(charData->name);
 
 		TextureAtlas* characterProfilesAtlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
 		SDL_Texture* character_profile_texture = characterProfilesAtlas->texture;
-		slot.characterProfile->SetSprite(*character_profile_texture, true, characterProfilesAtlas->sprites[charData->faceId].rect);
+		slot.characterProfile->SetSprite(*character_profile_texture, true, characterProfilesAtlas->sprites[charData->charTemplate->faceId].rect);
 
 		//// EditLive
 		slot.hpValue->SetText(to_string(charData->health) + "/" + to_string(charData->health));
@@ -423,16 +423,16 @@ void PartyCG::GoToMemeberPage(int page)
 	UpdateMemberSlots();
 }
 
-void PartyCG::GoToMemeberPageByCharacterId(int id)
+void PartyCG::GoToMemeberPageByCharacterId(string id)
 {
-	const vector<CharacterDatabase::CharacterData*> memebers = party->GetMemebers();
+	const vector<CharacterDatabase::CharacterDefinition*> memebers = party->GetMemebers();
 
-	auto it = find_if(memebers.begin(), memebers.end(), [id](const CharacterDatabase::CharacterData* slot) {
+	auto it = find_if(memebers.begin(), memebers.end(), [id](const CharacterDatabase::CharacterDefinition* slot) {
 		return slot->id == id;
 		});
 
 	if (it != memebers.end()) {
-		int index = distance(memebers.begin(), it);
+		int index = (int)distance(memebers.begin(), it);
 		GoToMemeberPage(index/ membersByPage);
 		return;
 	}

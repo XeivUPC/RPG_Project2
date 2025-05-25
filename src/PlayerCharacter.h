@@ -19,7 +19,7 @@ public:
 
 	bool CleanUp() override;
 
-	bool SetCharacterId(int _charId) override;
+	bool SetCharacterId(string _charId) override;
 
 public:
 	Party* party = nullptr;

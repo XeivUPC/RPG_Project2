@@ -26,9 +26,9 @@ TitleMenuCG::TitleMenuCG(UICanvas& _settingsReference) : settingsReference(&_set
 
 
 	///// Buttons
-	Vector2Int anchorPoint = { LOGIC_SCREEN_WIDTH / 2, LOGIC_SCREEN_HEIGHT / 2 };
-	float btnScale = 1;
 	Vector2Int btnSize = { 86,35 };
+	Vector2Int anchorPoint = { LOGIC_SCREEN_WIDTH / 2+220, LOGIC_SCREEN_HEIGHT / 2 };
+	float btnScale = 1;
 
 	UITextBox* startNewGame_text = new UITextBox("New Game", *textFont, 16, { 184,132,78,255 }, anchorPoint + Vector2Int{ 2,-75 + (int)btnScale }, btnSize* btnScale, { 0.5f,0.5f }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
 	UIButton* startNewGame_btn = new UIButton(*btn_texture, anchorPoint + Vector2Int{0,-75}, btnSize, { 0,0,86,35 }, { 0.5f,0.5f });

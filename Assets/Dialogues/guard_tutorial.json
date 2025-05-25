@@ -1,0 +1,334 @@
+{
+    "66fc0010-064f-4f03-ba00-85f36ad24fbb": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "Good Morning.",
+            "fr": ""
+        },
+        "choices": [
+            {
+                "text": {
+                    "en": "Good Morning.",
+                    "fr": ""
+                },
+                "next": "fba56db3-db2e-498a-a972-e0315349a19f",
+                "parent": "66fc0010-064f-4f03-ba00-85f36ad24fbb"
+            },
+            {
+                "text": {
+                    "en": "Hi.",
+                    "fr": ""
+                },
+                "next": "fba56db3-db2e-498a-a972-e0315349a19f",
+                "parent": "66fc0010-064f-4f03-ba00-85f36ad24fbb"
+            }
+        ],
+        "parent": "408aec54-6789-47de-aab2-f1eb7745ad06"
+    },
+    "fba56db3-db2e-498a-a972-e0315349a19f": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "I'm going out for my morning walk, have a nice day.",
+            "fr": ""
+        },
+        "parent": "5eee1ea8-b06e-41cc-9dc9-d0a9725e1396",
+        "next": "52f74698-6708-4473-901d-8843bd7a9ca9",
+        "signals": {
+            "parent": "fba56db3-db2e-498a-a972-e0315349a19f",
+            "RemoveMission": {
+                "String": "mission;tutorial"
+            }
+        }
+    },
+    "52f74698-6708-4473-901d-8843bd7a9ca9": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "Wait!",
+            "fr": ""
+        },
+        "parent": "fba56db3-db2e-498a-a972-e0315349a19f",
+        "next": "b9a8dabd-b2b2-43b2-8513-b40cfc972e71"
+    },
+    "b9a8dabd-b2b2-43b2-8513-b40cfc972e71": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "The red-hair girl was looking for you before, talk to her in your way.",
+            "fr": ""
+        },
+        "parent": "52f74698-6708-4473-901d-8843bd7a9ca9",
+        "next": "d4f6cef8-ba47-479c-a3bc-5857633f0052"
+    },
+    "d4f6cef8-ba47-479c-a3bc-5857633f0052": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "I will, thanks.",
+            "fr": ""
+        },
+        "parent": "b9a8dabd-b2b2-43b2-8513-b40cfc972e71",
+        "signals": {
+            "AddMission": {
+                "String": "mission;tutorial1"
+            },
+            "parent": "d4f6cef8-ba47-479c-a3bc-5857633f0052",
+            "SetNpcState": {
+                "String": "character;rs_guard_tutorial-1"
+            }
+        }
+    },
+    "fef47197-f48d-4821-960f-25ef1e1a499c": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "...",
+            "fr": ""
+        },
+        "parent": "034ab7bd-e0c8-4b37-8474-2de526f808b4",
+        "conditions": [
+            {
+                "HasCompletedMission": {
+                    "value": true,
+                    "operator": "equal",
+                    "type": "boolean"
+                },
+                "parent": "fef47197-f48d-4821-960f-25ef1e1a499c",
+                "next": "66fc0010-064f-4f03-ba00-85f36ad24fbb"
+            },
+            {
+                "parent": "fef47197-f48d-4821-960f-25ef1e1a499c",
+                "next": "ff8991a2-d3fe-422e-b883-dacc3c277af1"
+            }
+        ],
+        "signals": {
+            "CheckIfMissionCompleted": {
+                "String": "mission;tutorial"
+            },
+            "parent": "fef47197-f48d-4821-960f-25ef1e1a499c",
+            "SetTypewriterMode": {
+                "Number": "1"
+            }
+        }
+    },
+    "ff8991a2-d3fe-422e-b883-dacc3c277af1": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "Have you checked the state of your arrows yet?",
+            "fr": ""
+        },
+        "parent": "4fa6af84-8ace-45f7-87ec-a50dd62cb63c",
+        "next": "125acaee-8bde-4d1a-97b5-2965fe4f5227"
+    },
+    "a28bb2c1-efbf-4fed-be5d-72c684ae1498": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "...",
+            "fr": ""
+        },
+        "parent": "cc049680-75e3-405f-b4b7-e24af8648651"
+    },
+    "125acaee-8bde-4d1a-97b5-2965fe4f5227": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "Having sharp arrows is the key to win archery competitions.",
+            "fr": ""
+        },
+        "parent": "ff8991a2-d3fe-422e-b883-dacc3c277af1"
+    },
+    "root": {
+        "conditions": [
+            {
+                "parent": "root",
+                "next": "fef47197-f48d-4821-960f-25ef1e1a499c",
+                "character;rs_guard_tutorial-state": {
+                    "value": 0,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "next": "a28bb2c1-efbf-4fed-be5d-72c684ae1498",
+                "character;rs_guard_tutorial-state": {
+                    "value": 1,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            }
+        ]
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                -480,
+                100
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "66fc0010-064f-4f03-ba00-85f36ad24fbb",
+                "offset": [
+                    1080,
+                    -300
+                ]
+            },
+            {
+                "uuid": "fba56db3-db2e-498a-a972-e0315349a19f",
+                "offset": [
+                    1920,
+                    -300
+                ]
+            },
+            {
+                "uuid": "52f74698-6708-4473-901d-8843bd7a9ca9",
+                "offset": [
+                    2320,
+                    -300
+                ]
+            },
+            {
+                "uuid": "b9a8dabd-b2b2-43b2-8513-b40cfc972e71",
+                "offset": [
+                    2720,
+                    -300
+                ]
+            },
+            {
+                "uuid": "d4f6cef8-ba47-479c-a3bc-5857633f0052",
+                "offset": [
+                    3120,
+                    -300
+                ]
+            },
+            {
+                "uuid": "fef47197-f48d-4821-960f-25ef1e1a499c",
+                "offset": [
+                    180,
+                    -180
+                ]
+            },
+            {
+                "uuid": "ff8991a2-d3fe-422e-b883-dacc3c277af1",
+                "offset": [
+                    1080,
+                    160
+                ]
+            },
+            {
+                "uuid": "a28bb2c1-efbf-4fed-be5d-72c684ae1498",
+                "offset": [
+                    200,
+                    360
+                ]
+            },
+            {
+                "uuid": "125acaee-8bde-4d1a-97b5-2965fe4f5227",
+                "offset": [
+                    1500,
+                    160
+                ]
+            }
+        ],
+        "conditions": [
+            {
+                "uuid": "408aec54-6789-47de-aab2-f1eb7745ad06",
+                "offset": [
+                    640,
+                    -260
+                ],
+                "parent": "fef47197-f48d-4821-960f-25ef1e1a499c"
+            },
+            {
+                "uuid": "4fa6af84-8ace-45f7-87ec-a50dd62cb63c",
+                "offset": [
+                    640,
+                    220
+                ],
+                "collapsed": true,
+                "parent": "fef47197-f48d-4821-960f-25ef1e1a499c"
+            },
+            {
+                "uuid": "034ab7bd-e0c8-4b37-8474-2de526f808b4",
+                "offset": [
+                    -260,
+                    -180
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "cc049680-75e3-405f-b4b7-e24af8648651",
+                "offset": [
+                    -280,
+                    380
+                ],
+                "parent": "root"
+            }
+        ],
+        "signals": [
+            {
+                "uuid": "e11ba0b7-66d8-4339-b51a-4578b0d748d3",
+                "offset": [
+                    2340,
+                    -600
+                ],
+                "parent": "fba56db3-db2e-498a-a972-e0315349a19f",
+                "data": {
+                    "parent": "fba56db3-db2e-498a-a972-e0315349a19f",
+                    "RemoveMission": {
+                        "String": "mission;tutorial"
+                    }
+                }
+            },
+            {
+                "uuid": "4ad84736-bd70-47e6-9b48-877091dd55e2",
+                "offset": [
+                    3520,
+                    -280
+                ],
+                "parent": "d4f6cef8-ba47-479c-a3bc-5857633f0052"
+            },
+            {
+                "uuid": "8e52b60b-0890-497c-9595-c7f1c812ed0c",
+                "offset": [
+                    600,
+                    -660
+                ],
+                "parent": "fef47197-f48d-4821-960f-25ef1e1a499c"
+            }
+        ],
+        "choices": [
+            {
+                "uuid": "1be070a5-d516-49b5-a626-fc13e18ab47d",
+                "offset": [
+                    1520,
+                    -380
+                ],
+                "parent": "66fc0010-064f-4f03-ba00-85f36ad24fbb"
+            },
+            {
+                "uuid": "5eee1ea8-b06e-41cc-9dc9-d0a9725e1396",
+                "offset": [
+                    1520,
+                    -100
+                ],
+                "parent": "66fc0010-064f-4f03-ba00-85f36ad24fbb"
+            }
+        ]
+    }
+}

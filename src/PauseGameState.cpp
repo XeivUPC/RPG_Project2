@@ -1,6 +1,8 @@
 #include "PauseGameState.h"
 #include "Engine.h"
+#include "GameScene.h"
 #include "ModuleUpdater.h"
+#include "ModuleInput.h"
 #include "ModulePhysics.h"
 #include "ModuleAudio.h"
 #include "ModuleCursor.h"
@@ -18,6 +20,10 @@ bool PauseGameState::UpdateState()
 {
     GameScene* scene = Engine::Instance().s_game;
     scene->pauseCanvas->UpdateCanvas();
+
+    if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN) {
+        Engine::Instance().s_game->SetPreviousState();
+    }
     
     return true;
 }

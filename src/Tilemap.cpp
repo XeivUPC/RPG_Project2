@@ -15,6 +15,10 @@
 #include "SimpleTilemapChanger.h"
 #include "SimpleMapObject.h"
 #include "NpcCharacter.h"
+#include "BirdFlock.h"
+#include "ButtonPuzzleElement.h"
+#include "BlockingPuzzleElement.h"
+#include "TriggerPuzzleElement.h"
 
 
 #include <sstream>
@@ -201,9 +205,14 @@ void Tilemap::CreateObjects()
 
                 if (object->properties.count("NpcId"))
                 {
-                    npc->SetCharacterId(stoi(object->properties.at("NpcId").value));
+                    npc->SetCharacterId((object->properties.at("NpcId").value));
                 }else
-                    npc->SetCharacterId(-1);
+                    npc->SetCharacterId("character;test");
+
+                if (object->properties.count("DialoguePath"))
+                {
+					npc->SetDialoguePath(object->properties.at("DialoguePath").value);
+                }
 
                 if (object->properties.count("Path"))
                 {
@@ -224,6 +233,72 @@ void Tilemap::CreateObjects()
                         npc->SetNpcPath(move(pathData));
                     printf("");
                 }
+            }
+            else if (type == "birdFlock") {
+                Vector2 position = { object->x+ object->width / 2 ,object->y + object->width / 2 };
+				auto flock = Pooling::Instance().AcquireObject<BirdFlock>();
+                flock->Initialize(position, (object->width/2));
+                flock->SpawnBirds();
+            }
+            else if (type == "buttonPuzzle") {
+
+                auto button = Pooling::Instance().AcquireObject<ButtonPuzzleElement>();
+
+                Vector2 position = { object->x ,object->y };
+				string puzzleId = object->properties.at("PuzzleId").value;
+                bool puzzleValue = object->properties.at("Value").value == "true";
+
+                string targetsText = object->properties.at("Targets").value;
+				vector<string> targets;
+
+                targetsText.erase(remove(targetsText.begin(), targetsText.end(), ' '));
+                stringstream ss(targetsText);
+                string temp;
+
+                while (getline(ss, temp, ','))
+                {
+                    targets.emplace_back(temp);
+                }
+
+                button->Initialize(puzzleId, position, puzzleValue, targets);
+            }
+            else if (type == "blockingPuzzle") {
+
+                auto blocking = Pooling::Instance().AcquireObject<BlockingPuzzleElement>();
+
+                Vector2 position = { object->x + object->width / 2 * scale ,object->y + +object->height/2 };
+                Vector2 size = { PIXEL_TO_METERS(object->width) ,PIXEL_TO_METERS(object->height) };
+                string blockingId = object->properties.at("PuzzleId").value;
+                bool blockingState = object->properties.at("IsBlocking").value == "true";
+
+                blocking->Initialize(blockingId, position, size, blockingState);
+             }
+            else if (type == "triggerPuzzle") {
+
+                auto trigger = Pooling::Instance().AcquireObject<TriggerPuzzleElement>();
+
+                Vector2 position = { object->x + object->width / 2 * scale ,object->y + +object->height / 2 };
+                float size = PIXEL_TO_METERS(object->width/2);
+                string puzzleId = object->properties.at("PuzzleId").value;
+
+                string targetsText = object->properties.at("Targets").value;
+                vector<string> targets;
+
+                targetsText.erase(remove(targetsText.begin(), targetsText.end(), ' '));
+                stringstream ss(targetsText);
+                string temp;
+
+                while (getline(ss, temp, ','))
+                {
+                    targets.emplace_back(temp);
+                }
+
+				bool callOnEnter = false;
+				callOnEnter = object->properties.at("OnEnterCall").value == "true";
+				bool callOnExit = false;
+                callOnExit = object->properties.at("OnExitCall").value == "true";
+
+                trigger->Initialize(puzzleId, position, size, targets, callOnEnter, callOnExit);
             }
             else if (type == "spawnPoint") {
                 if (!spawnPointSaved) {

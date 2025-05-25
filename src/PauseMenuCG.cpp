@@ -100,7 +100,7 @@ PauseMenuCG::PauseMenuCG(int _renderLayer)
 	teamGame_text->SetParent(teamGame_btn);
 	teamGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	teamGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
-	teamGame_btn->onMouseClick.Subscribe([this]() {OpenSubmenu("Party"); party->Reset();  party->ChangePartyToTrack(Engine::Instance().s_game->GetPlayer()->party); });
+	teamGame_btn->onMouseClick.Subscribe([this]() {OpenParty(); });
 	teamGame_btn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	teamGame_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	teamGame_btn->onMouseEnter.Subscribe([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
@@ -113,7 +113,7 @@ PauseMenuCG::PauseMenuCG(int _renderLayer)
 	inventoryGame_text->SetParent(inventoryGame_btn);
 	inventoryGame_btn->AddRect(UIButton::ButtonStates::HOVER, { 86,0,86,35 });
 	inventoryGame_btn->AddRect(UIButton::ButtonStates::PRESSED, { 172,0,86,35 });
-	inventoryGame_btn->onMouseClick.Subscribe([this]() {OpenSubmenu("Inventory"); inventory->Reset();  inventory->ChangeInventoryToTrack(Engine::Instance().s_game->GetPlayer()->inventory); });
+	inventoryGame_btn->onMouseClick.Subscribe([this]() {OpenInventory(); });
 	inventoryGame_btn->onMouseClick.Subscribe([this, btn_click]() {Engine::Instance().m_audio->PlaySFX(btn_click); });
 	inventoryGame_btn->onMouseEnter.Subscribe([this, btn_enter]() {Engine::Instance().m_audio->PlaySFX(btn_enter); });
 	inventoryGame_btn->onMouseEnter.Subscribe([this]() {Engine::Instance().m_cursor->SelectCursor("hand_cursor"); });
@@ -196,6 +196,21 @@ void PauseMenuCG::OpenSubmenu(string menuName)
 	submenus[menuName]->renderLayer = renderLayer + 1;
 
 	currentSubmenu = submenus[menuName];
+}
+
+void PauseMenuCG::OpenInventory()
+{
+	OpenSubmenu("Inventory");
+	inventory->ChangePartyToTrack(Engine::Instance().s_game->GetPlayer()->party); 
+	inventory->ChangeInventoryToTrack(Engine::Instance().s_game->GetPlayer()->inventory); 
+	inventory->Reset();
+}
+
+void PauseMenuCG::OpenParty()
+{
+	OpenSubmenu("Party"); 
+	party->Reset();  
+	party->ChangePartyToTrack(Engine::Instance().s_game->GetPlayer()->party);
 }
 
 void PauseMenuCG::UpdateCanvas()

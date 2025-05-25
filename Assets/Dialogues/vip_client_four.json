@@ -1,0 +1,55 @@
+{
+    "ede983fe-81ea-4ce4-978c-ea82bfce13f0": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "...",
+            "fr": ""
+        },
+        "parent": "14280315-95d6-4d1e-a9e8-09243afdf1a3"
+    },
+    "root": {
+        "conditions": [
+            {
+                "parent": "root",
+                "next": "ede983fe-81ea-4ce4-978c-ea82bfce13f0",
+                "character;dh_xt_vip4-state": {
+                    "value": 4,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            }
+        ]
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                -60,
+                100
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "ede983fe-81ea-4ce4-978c-ea82bfce13f0",
+                "offset": [
+                    600,
+                    -160
+                ]
+            }
+        ],
+        "conditions": [
+            {
+                "uuid": "14280315-95d6-4d1e-a9e8-09243afdf1a3",
+                "offset": [
+                    120,
+                    -40
+                ],
+                "parent": "root"
+            }
+        ],
+        "signals": [],
+        "choices": []
+    }
+}

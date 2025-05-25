@@ -12,7 +12,7 @@
 #include "Animator.h"
 #include "AnimationClip.h"
 
-FollowerCharacter::FollowerCharacter(Character* _characterToFollow, float _delayDistance, int _charId)
+FollowerCharacter::FollowerCharacter(Character* _characterToFollow, float _delayDistance, string _charId)
 {
 	SetCharacterToFollow(_characterToFollow);
 	SetCharacterId(_charId);
@@ -68,11 +68,11 @@ void FollowerCharacter::SetCharacterToFollow(Character* _characterToFollow)
 	characterToFollow = _characterToFollow;
 }
 
-bool FollowerCharacter::SetCharacterId(int _charId)
+bool FollowerCharacter::SetCharacterId(string _charId)
 {
 	if (Character::SetCharacterId(_charId)) {
 
-		texture = Engine::Instance().m_assetsDB->GetTexture(characterData->textureId);
+		texture = Engine::Instance().m_assetsDB->GetTexture(characterData->charTemplate->textureId);
 
 		for (auto& animClip : animator->GetAnimationClips()) {
 			for (auto& sprite : animClip.GetSprites()) {
@@ -131,8 +131,7 @@ void FollowerCharacter::Animate()
 	if (moveDirection.magnitude() != 0)
 		moveDirection.normalize();
 
-	bool flip = animationDirection.x < 0;
-	animator->clip()->Flip(flip);
+	
 
 
 	string animationId = isMoving ? (characterToFollow->speedModifier == characterToFollow->runSpeedModifier ? "run-" : "walk-") : "idle-";
@@ -150,6 +149,9 @@ void FollowerCharacter::Animate()
 	}
 	animationId += animationDirectionId;
 	animator->Animate(animationId);
+
+	bool flip = animationDirection.x < 0;
+	animator->clip()->Flip(flip);
 }
 
 void FollowerCharacter::SetDelayDistance(float _delayDistance)

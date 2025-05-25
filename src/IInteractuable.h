@@ -1,6 +1,6 @@
 #pragma once
 class IInteractuable {
 public:
-	virtual void Interact() = 0;
+	virtual void Interact(Vector2 from) = 0;
 	virtual ~IInteractuable() {}
 };

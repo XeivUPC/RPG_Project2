@@ -1,0 +1,17 @@
+<template>
+   <!-- Testing -->
+    <character id="character;test" textureId="cassian_test" faceId="Cassian-early-idle"/>
+
+    <!-- Main Characters -->
+    <character id="character;cassian" textureId="cassian_test" faceId="Cassian-early-idle"/>
+    <character id="character;artis" textureId="artis_test" faceId="Artis-early-idle"/>
+    <character id="character;zeryn" textureId="zeryn_test" faceId="Zeryn-early-idle"/>
+    <character id="character;guideon" textureId="pj_test" faceId="Guideon-idle"/>
+    <character id="character;pedroJr" textureId="dog_test" faceId="Pedro-idle"/>
+    
+    <!-- NPC Generic -->
+    <character id="character;rs_guard" textureId="rsGuard_test" faceId="Guard-idle"/>
+    <character id="character;dh_guard" textureId="rsGuard_test" faceId="Guard-idle"/>
+    <character id="character;dh_fisherman" textureId="fisherman_test" faceId="Fisherman-idle"/>
+
+</template>

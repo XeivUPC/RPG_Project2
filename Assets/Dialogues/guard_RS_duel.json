@@ -1,0 +1,333 @@
+{
+    "8e2b864e-8383-40f6-8087-ec60337f5cab": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "Are you ready?",
+            "fr": ""
+        },
+        "parent": "620c160c-d3c7-448a-9b5a-3d4b251cd961",
+        "choices": [
+            {
+                "text": {
+                    "en": "I am.",
+                    "fr": ""
+                },
+                "next": "64e647cb-8389-4f2f-8a6d-a9d1684d7f24",
+                "parent": "8e2b864e-8383-40f6-8087-ec60337f5cab"
+            },
+            {
+                "text": {
+                    "en": "Not yet - Leave -",
+                    "fr": ""
+                },
+                "next": "",
+                "parent": "8e2b864e-8383-40f6-8087-ec60337f5cab"
+            }
+        ]
+    },
+    "64e647cb-8389-4f2f-8a6d-a9d1684d7f24": {
+        "name": "Emperor Charles II",
+        "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "text": {
+            "en": "Then let the duel...",
+            "fr": ""
+        },
+        "parent": "8e31b53c-4db9-4793-bcc9-534c5c2dd311",
+        "next": "ec0a1798-20f9-455d-9853-86b4894037a5"
+    },
+    "ec0a1798-20f9-455d-9853-86b4894037a5": {
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "text": {
+            "en": "Wait!",
+            "fr": ""
+        },
+        "parent": "64e647cb-8389-4f2f-8a6d-a9d1684d7f24",
+        "next": "19af1667-3d21-4ff4-8937-27bde465b432"
+    },
+    "19af1667-3d21-4ff4-8937-27bde465b432": {
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "text": {
+            "en": "I would like to spar with him first.",
+            "fr": ""
+        },
+        "parent": "ec0a1798-20f9-455d-9853-86b4894037a5",
+        "next": "c1374eaa-6855-4973-a12e-9002df0136c1"
+    },
+    "c1374eaa-6855-4973-a12e-9002df0136c1": {
+        "name": "Emperor Charles II",
+        "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "text": {
+            "en": "That will be good training indeed, go on.",
+            "fr": ""
+        },
+        "parent": "19af1667-3d21-4ff4-8937-27bde465b432",
+        "next": "889450a7-8a51-4a0b-8a8d-f1e327663b2f"
+    },
+    "889450a7-8a51-4a0b-8a8d-f1e327663b2f": {
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "text": {
+            "en": "- Steps into the training area. -",
+            "fr": ""
+        },
+        "parent": "c1374eaa-6855-4973-a12e-9002df0136c1",
+        "choices": [
+            {
+                "text": {
+                    "en": "- Nod -",
+                    "fr": ""
+                },
+                "next": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6",
+                "parent": "889450a7-8a51-4a0b-8a8d-f1e327663b2f"
+            },
+            {
+                "text": {
+                    "en": "My prince - Bow -",
+                    "fr": ""
+                },
+                "next": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6",
+                "parent": "889450a7-8a51-4a0b-8a8d-f1e327663b2f"
+            }
+        ]
+    },
+    "6f7a9892-9b9a-4662-9c58-b43a8fa181e6": {
+        "name": "Emperor Charles II",
+        "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "text": {
+            "en": "Then let the duel begin!",
+            "fr": ""
+        },
+        "parent": "c027bb5a-9f28-435b-8f0d-91b362658db5",
+        "signals": {
+            "parent": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6",
+            "SetNpcState": {
+                "String": "character;rs_guard_duel-1"
+            }
+        }
+    },
+    "f1c56039-038a-408b-a6a9-4436867d7cf2": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "I am next, duel me boy.",
+            "fr": ""
+        },
+        "parent": "09c3bd41-6a21-4928-a470-e6c0c1fd728b",
+        "signals": {
+            "parent": "f1c56039-038a-408b-a6a9-4436867d7cf2",
+            "SetNpcState": {
+                "String": "character;rs_guard_duel-2"
+            }
+        }
+    },
+    "c10ec564-a840-42fd-9bc6-5e2bb0dfa986": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "...",
+            "fr": ""
+        },
+        "parent": "7b57dc65-1b30-499b-b2f9-d3dffe57fde9"
+    },
+    "root": {
+        "conditions": [
+            {
+                "parent": "root",
+                "next": "8e2b864e-8383-40f6-8087-ec60337f5cab",
+                "character;rs_guard_duel-state": {
+                    "value": 0,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "next": "f1c56039-038a-408b-a6a9-4436867d7cf2",
+                "character;rs_guard_duel-state": {
+                    "value": 1,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "next": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986",
+                "character;rs_guard_duel-state": {
+                    "value": 2,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            }
+        ]
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                40,
+                100
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "8e2b864e-8383-40f6-8087-ec60337f5cab",
+                "offset": [
+                    680,
+                    -220
+                ]
+            },
+            {
+                "uuid": "64e647cb-8389-4f2f-8a6d-a9d1684d7f24",
+                "offset": [
+                    1540,
+                    -400
+                ]
+            },
+            {
+                "uuid": "ec0a1798-20f9-455d-9853-86b4894037a5",
+                "offset": [
+                    1960,
+                    -400
+                ]
+            },
+            {
+                "uuid": "19af1667-3d21-4ff4-8937-27bde465b432",
+                "offset": [
+                    2360,
+                    -400
+                ]
+            },
+            {
+                "uuid": "c1374eaa-6855-4973-a12e-9002df0136c1",
+                "offset": [
+                    2760,
+                    -400
+                ]
+            },
+            {
+                "uuid": "889450a7-8a51-4a0b-8a8d-f1e327663b2f",
+                "offset": [
+                    3180,
+                    -400
+                ]
+            },
+            {
+                "uuid": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6",
+                "offset": [
+                    4060,
+                    -400
+                ]
+            },
+            {
+                "uuid": "f1c56039-038a-408b-a6a9-4436867d7cf2",
+                "offset": [
+                    680,
+                    180
+                ]
+            },
+            {
+                "uuid": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986",
+                "offset": [
+                    660,
+                    580
+                ]
+            }
+        ],
+        "conditions": [
+            {
+                "uuid": "620c160c-d3c7-448a-9b5a-3d4b251cd961",
+                "offset": [
+                    260,
+                    -220
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "09c3bd41-6a21-4928-a470-e6c0c1fd728b",
+                "offset": [
+                    260,
+                    180
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "7b57dc65-1b30-499b-b2f9-d3dffe57fde9",
+                "offset": [
+                    260,
+                    580
+                ],
+                "parent": "root"
+            }
+        ],
+        "signals": [
+            {
+                "uuid": "adb16fcf-1e93-4907-b871-0783464582c3",
+                "offset": [
+                    4480,
+                    -360
+                ],
+                "parent": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6",
+                "data": {
+                    "parent": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6",
+                    "SetNpcState": {
+                        "String": "character;rs_guard_duel-1"
+                    }
+                }
+            },
+            {
+                "uuid": "1bb01d5f-ccc1-48ba-bd06-fc29740c1b17",
+                "offset": [
+                    1100,
+                    220
+                ],
+                "parent": "f1c56039-038a-408b-a6a9-4436867d7cf2"
+            }
+        ],
+        "choices": [
+            {
+                "uuid": "8e31b53c-4db9-4793-bcc9-534c5c2dd311",
+                "offset": [
+                    1100,
+                    -320
+                ],
+                "parent": "8e2b864e-8383-40f6-8087-ec60337f5cab"
+            },
+            {
+                "uuid": "9a66525f-844d-40f4-9ee8-ce333d10ebf0",
+                "offset": [
+                    1100,
+                    -40
+                ],
+                "parent": "8e2b864e-8383-40f6-8087-ec60337f5cab"
+            },
+            {
+                "uuid": "1bae6729-2704-47c3-8c01-c5d7c79431e8",
+                "offset": [
+                    3600,
+                    -440
+                ],
+                "parent": "889450a7-8a51-4a0b-8a8d-f1e327663b2f"
+            },
+            {
+                "uuid": "c027bb5a-9f28-435b-8f0d-91b362658db5",
+                "offset": [
+                    3600,
+                    -180
+                ],
+                "parent": "889450a7-8a51-4a0b-8a8d-f1e327663b2f"
+            }
+        ]
+    }
+}

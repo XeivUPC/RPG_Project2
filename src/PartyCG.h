@@ -20,7 +20,7 @@ public:
 
 	void UpdateMemberSlots();
 	void GoToMemeberPage(int page);
-	void GoToMemeberPageByCharacterId(int id);
+	void GoToMemeberPageByCharacterId(string id);
 
 	void ChangePartyToTrack(Party* partyToTrack);
 
@@ -32,13 +32,13 @@ public:
 private:
 
 	struct UIPartyCharacterSlot {
-		int characterId = -1;
+		string characterId = "character;test";
 
 		UIButton* characterSelect = nullptr;
 		UIButton* chracterOverlay = nullptr;
 
 		UIImage* characterProfile = nullptr;
-		UITextBox* charcterName = nullptr;
+		UITextBox* characterName = nullptr;
 
 		UIButton* moveLeftBtn = nullptr;
 		UIButton* searchBtn = nullptr;
@@ -46,12 +46,12 @@ private:
 	};
 
 	struct UIMemberCharacterSlot {
-		int characterId = -1;
+		string characterId = "character;test";
 
 		UIButton* characterSelect = nullptr;
 		UIImage* characterBackground = nullptr;
 
-		UITextBox* charcterName = nullptr;
+		UITextBox* characterName = nullptr;
 		UITextBox* charcterLevel = nullptr;
 
 
@@ -68,8 +68,8 @@ private:
 		int energyBarMaxWidth = 90;
 	};
 
-	void RemovePartyCharacter(int id);
-	void AddPartyCharacter(int id);
+	void RemovePartyCharacter(string id);
+	void AddPartyCharacter(string id);
 
 	void SwitchCharacter(int slot1, int slot2);
 	void CreatePartySlots();

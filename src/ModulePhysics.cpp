@@ -115,7 +115,11 @@ void ModulePhysics::Render()
 
 				if (renderer.IsCircleCameraVisible({ (float)METERS_TO_PIXELS(pos.x), (float)METERS_TO_PIXELS(pos.y) },(float)METERS_TO_PIXELS(circleShape->m_radius)))
 				{
-					painter.RenderCircle({ METERS_TO_PIXELS_RAW(pos.x), METERS_TO_PIXELS_RAW(pos.y) },(float)METERS_TO_PIXELS_RAW(circleShape->m_radius), {255,255,255,255});
+					if(!f->IsSensor())
+						painter.RenderCircle({ METERS_TO_PIXELS_RAW(pos.x), METERS_TO_PIXELS_RAW(pos.y) },(float)METERS_TO_PIXELS_RAW(circleShape->m_radius), {255,255,255,255});
+					else
+						painter.RenderCircle({ METERS_TO_PIXELS_RAW(pos.x), METERS_TO_PIXELS_RAW(pos.y) }, (float)METERS_TO_PIXELS_RAW(circleShape->m_radius), { 255,255,255,150 });
+
 				}
 			}
 			break;
@@ -132,7 +136,11 @@ void ModulePhysics::Render()
 					{
 						if (renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(prev.x), (float)METERS_TO_PIXELS(prev.y) }, {(float)METERS_TO_PIXELS(v.x), (float)METERS_TO_PIXELS(v.y) }))
 						{
-							painter.RenderLine({ METERS_TO_PIXELS_RAW(prev.x), METERS_TO_PIXELS_RAW(prev.y) }, { METERS_TO_PIXELS_RAW(v.x), METERS_TO_PIXELS_RAW(v.y) },{0,255,0,255});
+							if (!f->IsSensor())
+								painter.RenderLine({ METERS_TO_PIXELS_RAW(prev.x), METERS_TO_PIXELS_RAW(prev.y) }, { METERS_TO_PIXELS_RAW(v.x), METERS_TO_PIXELS_RAW(v.y) },{0,255,0,255});
+							else
+								painter.RenderLine({ METERS_TO_PIXELS_RAW(prev.x), METERS_TO_PIXELS_RAW(prev.y) }, { METERS_TO_PIXELS_RAW(v.x), METERS_TO_PIXELS_RAW(v.y) }, { 0,255,0,150 });
+
 						}
 					}
 					prev = v;
@@ -153,7 +161,11 @@ void ModulePhysics::Render()
 					{
 						if (renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(prev.x), (float)METERS_TO_PIXELS(prev.y) }, { (float)METERS_TO_PIXELS(v.x), (float)METERS_TO_PIXELS(v.y) }))
 						{
-							painter.RenderLine({ METERS_TO_PIXELS_RAW(prev.x), METERS_TO_PIXELS_RAW(prev.y) }, { METERS_TO_PIXELS_RAW(v.x), METERS_TO_PIXELS_RAW(v.y) },{ 255,0,0,255 });
+							if (!f->IsSensor())
+								painter.RenderLine({ METERS_TO_PIXELS_RAW(prev.x), METERS_TO_PIXELS_RAW(prev.y) }, { METERS_TO_PIXELS_RAW(v.x), METERS_TO_PIXELS_RAW(v.y) },{ 255,0,0,255 });
+							else
+								painter.RenderLine({ METERS_TO_PIXELS_RAW(prev.x), METERS_TO_PIXELS_RAW(prev.y) }, { METERS_TO_PIXELS_RAW(v.x), METERS_TO_PIXELS_RAW(v.y) }, { 255,0,0,150 });
+
 						}
 					}
 					prev = v;
@@ -163,7 +175,11 @@ void ModulePhysics::Render()
 
 				if (renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(prev.x), (float)METERS_TO_PIXELS(prev.y) }, { (float)METERS_TO_PIXELS(v.x), (float)METERS_TO_PIXELS(v.y) }))
 				{
-					painter.RenderLine({ METERS_TO_PIXELS_RAW(prev.x), METERS_TO_PIXELS_RAW(prev.y) }, { METERS_TO_PIXELS_RAW(v.x), METERS_TO_PIXELS_RAW(v.y) },{ 255,0,0,255 });
+					if (!f->IsSensor())
+						painter.RenderLine({ METERS_TO_PIXELS_RAW(prev.x), METERS_TO_PIXELS_RAW(prev.y) }, { METERS_TO_PIXELS_RAW(v.x), METERS_TO_PIXELS_RAW(v.y) },{ 255,0,0,255 });
+					else
+						painter.RenderLine({ METERS_TO_PIXELS_RAW(prev.x), METERS_TO_PIXELS_RAW(prev.y) }, { METERS_TO_PIXELS_RAW(v.x), METERS_TO_PIXELS_RAW(v.y) }, { 255,0,0,150 });
+
 				}
 			}
 			break;
@@ -175,7 +191,11 @@ void ModulePhysics::Render()
 				b2Vec2 v2 = b->GetWorldPoint(edgeShape->m_vertex1);
 				if(renderer.IsLineCameraVisible({ (float)METERS_TO_PIXELS(v1.x), (float)METERS_TO_PIXELS(v1.y) }, { (float)METERS_TO_PIXELS(v2.x), (float)METERS_TO_PIXELS(v2.y) }))
 				{
-					painter.RenderLine({ METERS_TO_PIXELS_RAW(v1.x), METERS_TO_PIXELS_RAW(v1.y) }, { METERS_TO_PIXELS_RAW(v2.x), METERS_TO_PIXELS_RAW(v2.y) },{ 0,0,255,255 });
+					if (!f->IsSensor())
+						painter.RenderLine({ METERS_TO_PIXELS_RAW(v1.x), METERS_TO_PIXELS_RAW(v1.y) }, { METERS_TO_PIXELS_RAW(v2.x), METERS_TO_PIXELS_RAW(v2.y) },{ 0,0,255,255 });
+					else
+						painter.RenderLine({ METERS_TO_PIXELS_RAW(v1.x), METERS_TO_PIXELS_RAW(v1.y) }, { METERS_TO_PIXELS_RAW(v2.x), METERS_TO_PIXELS_RAW(v2.y) }, { 0,0,255,255 });
+
 				}
 			}
 			break;

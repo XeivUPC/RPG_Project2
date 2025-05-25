@@ -15,7 +15,11 @@ public:
 	void AddElementToCanvas(UIElement* element);
 	void RemoveElementFromCanvas(UIElement* element);
 
-	void UpdateCanvas();
+	void SendElementToFront(UIElement* element);
+	void SendElementToBack(UIElement* element);
+	void SendElementToPositionOrder(UIElement* element, int order);
+
+	virtual void UpdateCanvas();
 	void RenderCanvas();
 
 	void SetInteractable(bool mode);

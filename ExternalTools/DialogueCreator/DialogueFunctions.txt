@@ -4,16 +4,23 @@ PlayMusic(string musicId)
 ChangeTextColor(string rgba) --> example 255,255,255,255
 SetTypewriterMode(int value) --> 0 = false / 1 = true
 SetTypewriterSpeed(float speed) --> in sec
-SetNpcStatusByID(Vector2 data) --> x = characterId / y = characterState
-SetNpcFriendshipByID(Vector2 data) --> x = characterId / y = characterFriendShip
-AddNpcFriendshipByID(Vector2 data) --> x = characterId / y = characterFriendshipToAdd
-SetNpcLoveByID(Vector2 data) --> x = characterId / y = characterLove
-AddNpcLoveByID(Vector2 data) --> x = characterId / y = characterLoveToAdd
-
+SetNpcState(string data) --> example: character;cassian-1
+AddItem(string data) --> example item;null-2  (id-amount)
+RemoveItem(string data) --> example item;null-2  (id-amount)
+CheckIfHasItem(string data) --> example item;null-2  (id-amount)
+CheckIfCanGiveItem(string data) --> example item;null-2  (id-amount)
+AddMission(string data) --> example mission;tutorial  (id)
+RemoveMission(string data) --> example mission;tutorial  (id)
+CheckIfMissionCompleted(string data) --> example mission;tutorial  (id)
+UnlockNpc(int id)
+StartCombat(string charsArray)  ---> exmaple 0,-1,2,8  (MAX:4 chars)
+CheckIfWonCombat()
 
 ///////////////////////
 
 
-How to acces to a characterState? Use Char{Id}_State ---> Just replace {Id} by the number
-How to acces to a characterFriendship? Use Char{Id}_Friendship ---> Just replace {Id} by the number
-How to acces to a characterLove? Use Char{Id}_Love ---> Just replace {Id} by the number
+How to acces to a characterState? Use {Id}-state ---> Just replace {Id} by the carácter Id
+How to check if has item? Previusly, call "CheckIfHasItem()", then the variable HasItem will be true or false
+How to check if can give item? Previusly, call "CheckIfCanGiveItem()", then the variable CanGiveItem will be true or false
+How to check if has completed mission? Previusly, call "CheckIfMissionCompleted()", then the variable HasCompletedMission will be true or false
+How to check if has won last fight, Call CheckIfWonCombat(), then the variable HasWonCombat will be true or false

@@ -143,6 +143,10 @@
     <ClCompile Include="src\AttackList.cpp" />
     <ClCompile Include="src\AudioContainer.cpp" />
     <ClCompile Include="src\AudioFactory.cpp" />
+    <ClCompile Include="src\Bird.cpp" />
+    <ClCompile Include="src\BirdFlock.cpp" />
+    <ClCompile Include="src\BlockingPuzzleElement.cpp" />
+    <ClCompile Include="src\ButtonPuzzleElement.cpp" />
     <ClCompile Include="src\CameraController.cpp" />
     <ClCompile Include="src\Character.cpp" />
     <ClCompile Include="src\CharacterDatabase.cpp" />
@@ -164,9 +168,17 @@
     <ClCompile Include="src\InventoryCG.cpp" />
     <ClCompile Include="src\InventoryItem.cpp" />
     <ClCompile Include="src\Item.cpp" />
+    <ClCompile Include="src\ItemCondition.cpp" />
     <ClCompile Include="src\ItemList.cpp" />
     <ClCompile Include="src\GameplayCG.cpp" />
     <ClCompile Include="src\JsonAnimator.cpp" />
+    <ClCompile Include="src\KeyCondition.cpp" />
+    <ClCompile Include="src\Mission.cpp" />
+    <ClCompile Include="src\MissionHolder.cpp" />
+    <ClCompile Include="src\MissionCondition.cpp" />
+    <ClCompile Include="src\MissionList.cpp" />
+    <ClCompile Include="src\MissionManager.cpp" />
+    <ClCompile Include="src\MissionsCG.cpp" />
     <ClCompile Include="src\ModuleAssetDatabase.cpp" />
     <ClCompile Include="src\ModuleAudio.cpp" />
     <ClCompile Include="src\ModuleCursor.cpp" />
@@ -176,6 +188,7 @@
     <ClCompile Include="src\MusicContainer.cpp" />
     <ClCompile Include="src\NpcCharacter.cpp" />
     <ClCompile Include="src\OverworldItem.cpp" />
+    <ClCompile Include="src\ParallaxCG.cpp" />
     <ClCompile Include="src\Party.cpp" />
     <ClCompile Include="src\PartyCG.cpp" />
     <ClCompile Include="src\PauseGameState.cpp" />
@@ -196,6 +209,8 @@
     <ClCompile Include="src\ChronoTimer.cpp" />
     <ClCompile Include="src\ModuleWindow.cpp" />
     <ClCompile Include="src\PlayerCharacter.cpp" />
+    <ClCompile Include="src\PuzzleElement.cpp" />
+    <ClCompile Include="src\PuzzleManager.cpp" />
     <ClCompile Include="src\SaveLoadCG.cpp" />
     <ClCompile Include="src\ScreenEffectsCG.cpp" />
     <ClCompile Include="src\SettingsCG.cpp" />
@@ -205,6 +220,7 @@
     <ClCompile Include="src\StepTimer.cpp" />
     <ClCompile Include="src\TitleMenuCG.cpp" />
     <ClCompile Include="src\TitleScene.cpp" />
+    <ClCompile Include="src\TriggerPuzzleElement.cpp" />
     <ClCompile Include="src\UIAnimatedImage.cpp" />
     <ClCompile Include="src\UIDialogueBoxCG.cpp" />
     <ClCompile Include="src\UIEmpty.cpp" />
@@ -231,6 +247,10 @@
     <ClInclude Include="src\AttackList.h" />
     <ClInclude Include="src\AudioContainer.h" />
     <ClInclude Include="src\AudioFactory.h" />
+    <ClInclude Include="src\Bird.h" />
+    <ClInclude Include="src\BirdFlock.h" />
+    <ClInclude Include="src\BlockingPuzzleElement.h" />
+    <ClInclude Include="src\ButtonPuzzleElement.h" />
     <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\CameraController.h" />
     <ClInclude Include="src\Character.h" />
@@ -256,10 +276,18 @@
     <ClInclude Include="src\InventoryCG.h" />
     <ClInclude Include="src\InventoryItem.h" />
     <ClInclude Include="src\Item.h" />
+    <ClInclude Include="src\ItemCondition.h" />
     <ClInclude Include="src\ItemList.h" />
     <ClInclude Include="src\GameplayCG.h" />
     <ClInclude Include="src\JsonAnimator.h" />
+    <ClInclude Include="src\KeyCondition.h" />
     <ClInclude Include="src\MemLeaks.h" />
+    <ClInclude Include="src\Mission.h" />
+    <ClInclude Include="src\MissionHolder.h" />
+    <ClInclude Include="src\MissionCondition.h" />
+    <ClInclude Include="src\MissionList.h" />
+    <ClInclude Include="src\MissionManager.h" />
+    <ClInclude Include="src\MissionsCG.h" />
     <ClInclude Include="src\ModuleAssetDatabase.h" />
     <ClInclude Include="src\ModuleAudio.h" />
     <ClInclude Include="src\ModuleCursor.h" />
@@ -269,6 +297,7 @@
     <ClInclude Include="src\MusicContainer.h" />
     <ClInclude Include="src\NpcCharacter.h" />
     <ClInclude Include="src\OverworldItem.h" />
+    <ClInclude Include="src\ParallaxCG.h" />
     <ClInclude Include="src\Party.h" />
     <ClInclude Include="src\PartyCG.h" />
     <ClInclude Include="src\PauseGameState.h" />
@@ -297,6 +326,8 @@
     <ClInclude Include="src\PlayerCharacter.h" />
     <ClInclude Include="src\Pooling.h" />
     <ClInclude Include="src\ChronoTimer.h" />
+    <ClInclude Include="src\PuzzleElement.h" />
+    <ClInclude Include="src\PuzzleManager.h" />
     <ClInclude Include="src\SaveLoadCG.h" />
     <ClInclude Include="src\ScreenEffectsCG.h" />
     <ClInclude Include="src\SettingsCG.h" />
@@ -309,6 +340,7 @@
     <ClInclude Include="src\TextureAtlas.h" />
     <ClInclude Include="src\TitleMenuCG.h" />
     <ClInclude Include="src\TitleScene.h" />
+    <ClInclude Include="src\TriggerPuzzleElement.h" />
     <ClInclude Include="src\UIAnimatedImage.h" />
     <ClInclude Include="src\UIDialogueBoxCG.h" />
     <ClInclude Include="src\TextureFactory.h" />
@@ -332,6 +364,7 @@
     <Xml Include="Assets\Data\CharactersData_Default.xml" />
     <Xml Include="Assets\Data\GameSaveData.xml" />
     <Xml Include="Assets\Data\ItemsData.xml" />
+    <Xml Include="Assets\Data\MissionsData.xml" />
     <Xml Include="Assets\Data\UserPrefs.xml" />
   </ItemGroup>
   <ItemGroup>

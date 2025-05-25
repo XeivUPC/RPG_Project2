@@ -62,7 +62,7 @@
 		</properties>
 	</item>
 	<item>
-		<id>item;zalium_helm</id>
+		<id>item;zalium_helmet</id>
 		<name>Zalium helmet</name>
 		<description>0</description>
 		<stackable-quantity>1</stackable-quantity>
@@ -101,6 +101,15 @@
 			<type>weapon</type>
 			<damage-amount>20</damage-amount>
 			<speed-amount>10</speed-amount>
+		</properties>
+	</item>
+	<item>
+		<id>item;VIP_Card</id>
+		<name>VIP Card</name>
+		<description>A mysterious card that seems to grant some royalties at Xeiv Treaty.</description>
+		<stackable-quantity>64</stackable-quantity>
+		<properties>
+			<type>consumible</type>
 		</properties>
 	</item>
 </itemList> 

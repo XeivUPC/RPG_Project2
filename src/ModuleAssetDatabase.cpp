@@ -37,7 +37,7 @@ void ModuleAssetDatabase::LoadAssets()
 
 	///// LOAD ASSETS REQUIERED
 
-//// Sounds //pepe
+//// Sounds
 	////Music
 	AddMusicToStorage("mainTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/MainMenu.ogg"));
 	AddMusicToStorage("townTheme", *audioFactory->CreateMusic("Assets/Sounds/Music/TownTheme.ogg"));
@@ -47,6 +47,8 @@ void ModuleAssetDatabase::LoadAssets()
 
 	AddMusicToStorage("zaliumAnthemOrchestra", *audioFactory->CreateMusic("Assets/Sounds/Music/ZaliumAnthemOrchestra.ogg"));
 	AddMusicToStorage("herosMarch", *audioFactory->CreateMusic("Assets/Sounds/Music/HerosMarch.ogg"));
+
+	AddMusicToStorage("Dunhaven", *audioFactory->CreateMusic("Assets/Sounds/Music/Dunhaven.ogg"));
 
 	///SFX
 	AddAudioToStorage("alert", *audioFactory->CreateAudio("Assets/Sounds/SFX/alert.wav"));
@@ -62,6 +64,13 @@ void ModuleAssetDatabase::LoadAssets()
 	AddAudioToStorage("open_door", *audioFactory->CreateAudio("Assets/Sounds/SFX/open_door.wav"));
 	AddAudioToStorage("close_door", *audioFactory->CreateAudio("Assets/Sounds/SFX/close_door.wav"));
 	AddAudioToStorage("change_area", *audioFactory->CreateAudio("Assets/Sounds/SFX/change_area.wav"));
+	AddAudioToStorage("hmmm", *audioFactory->CreateAudio("Assets/Sounds/SFX/minecraft_villager.wav"));
+
+	AddAudioToStorage("combat_physic", *audioFactory->CreateAudio("Assets/Sounds/SFX/Combat/Physic_attack.wav"));
+	AddAudioToStorage("combat_magic", *audioFactory->CreateAudio("Assets/Sounds/SFX/Combat/Magic_attack.wav"));
+	AddAudioToStorage("combat_hurt", *audioFactory->CreateAudio("Assets/Sounds/SFX/Combat/Character_hurt.wav"));
+	AddAudioToStorage("combat_dead", *audioFactory->CreateAudio("Assets/Sounds/SFX/Combat/Character_dead.wav"));
+
 
 	AudioContainer* footstepContainer = new AudioContainer(AudioContainer::PlayMode::NonRepeatingRandom, { });
 	AddAudioContainerToStorage("footsteps_container", *footstepContainer);
@@ -83,14 +92,17 @@ void ModuleAssetDatabase::LoadAssets()
 	
 	AddTextureToStorage("battle_bg", *textureFactory->CreateTexture("Assets/Textures/UI/battle_bg.png"));
 	AddTextureToStorage("arrow_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/arrow1.png"));
+	AddTextureToStorage("arrow_tex2", *textureFactory->CreateTexture("Assets/Textures/UI/arrow2.png"));
 	AddTextureToStorage("tick_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/tick1.png"));
 	AddTextureToStorage("btn_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/btn1.png"));
 	AddTextureToStorage("btn_tex2", *textureFactory->CreateTexture("Assets/Textures/UI/btn2.png"));
 	AddTextureToStorage("btn_tex3", *textureFactory->CreateTexture("Assets/Textures/UI/btn3.png"));
 	AddTextureToStorage("btn_tex4", *textureFactory->CreateTexture("Assets/Textures/UI/btn4.png"));
 	AddTextureToStorage("btn_tex5", *textureFactory->CreateTexture("Assets/Textures/UI/btn5.png"));
+	AddTextureToStorage("btn_tex6", *textureFactory->CreateTexture("Assets/Textures/UI/btn6.png"));
 	AddTextureToStorage("toggle_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/toggle.png"));
 	AddTextureToStorage("toggle_tex2", *textureFactory->CreateTexture("Assets/Textures/UI/toggle2.png"));
+	AddTextureToStorage("toggle_tex3", *textureFactory->CreateTexture("Assets/Textures/UI/toggle3.png"));
 	AddTextureToStorage("effects_toggle", *textureFactory->CreateTexture("Assets/Textures/UI/effectsToggle.png"));
 	AddTextureToStorage("slider_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/slider.png"));
 	AddTextureToStorage("uiBox1", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox1.png"));
@@ -98,6 +110,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("uiBox3", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox3.png"));
 	AddTextureToStorage("uiBox4", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox4.png"));
 	AddTextureToStorage("uiBox5", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox5.png"));
+	AddTextureToStorage("uiBox6", *textureFactory->CreateTexture("Assets/Textures/UI/uiBox6.png"));
 	AddTextureToStorage("dialogue_box", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_box.png"));
 	AddTextureToStorage("combat_characterUI", *textureFactory->CreateTexture("Assets/Textures/UI/combatCharacterUI.png"));
 	AddTextureToStorage("party_characterUI", *textureFactory->CreateTexture("Assets/Textures/UI/partyCharacterUI.png"));
@@ -105,6 +118,16 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("dialogue_answerBox", *textureFactory->CreateTexture("Assets/Textures/UI/dialogue_answerBox.png"));
 	AddTextureToStorage("compass_overlay", *textureFactory->CreateTexture("Assets/Textures/UI/compass_overlay.png"));
 	AddTextureToStorage("compass_arrow", *textureFactory->CreateTexture("Assets/Textures/UI/compass_arrow.png"));
+	AddTextureToStorage("item_slot", *textureFactory->CreateTexture("Assets/Textures/UI/item_slot.png"));
+	AddTextureToStorage("missions_layOut", *textureFactory->CreateTexture("Assets/Textures/UI/missions_layOut.png"));
+
+	/// Parallax
+	AddTextureToStorage("title_bg1", *textureFactory->CreateTexture("Assets/Textures/Parallax/TitleBG/title_bg1.png"));
+	AddTextureToStorage("title_bg2", *textureFactory->CreateTexture("Assets/Textures/Parallax/TitleBG/title_bg2.png"));
+	AddTextureToStorage("title_bg3", *textureFactory->CreateTexture("Assets/Textures/Parallax/TitleBG/title_bg3.png"));
+	AddTextureToStorage("title_bg4", *textureFactory->CreateTexture("Assets/Textures/Parallax/TitleBG/title_bg4.png"));
+	AddTextureToStorage("title_bg5", *textureFactory->CreateTexture("Assets/Textures/Parallax/TitleBG/title_bg5.png"));
+	AddTextureToStorage("title_bg6", *textureFactory->CreateTexture("Assets/Textures/Parallax/TitleBG/title_bg6.png"));
 	///Cursors
 	AddTextureToStorage("mouse_cursor0", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_0.png"));
 	AddTextureToStorage("mouse_cursor1", *textureFactory->CreateTexture("Assets/Textures/Cursors/mouse_cursor_1.png"));
@@ -128,12 +151,18 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("items_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/Items/ItemsAtlas.png"));
 	AddAtlasToStorage("items_atlas", *atlasFactory->CreateAtlas(*GetTexture("items_atlas"), "Assets/Textures/Atlas/Items/ItemsAtlas.xml"));
 
+	/// Entities
+	AddTextureToStorage("birds", *textureFactory->CreateTexture("Assets/Textures/Entities/birds_spritesheet.png"));
+	AddTextureToStorage("puzzle", *textureFactory->CreateTexture("Assets/Textures/Entities/Puzzles.png"));
+
 	AddTextureToStorage("pj_test", *textureFactory->CreateTexture("Assets/Textures/Characters/player_spritesheet.png"));
-	AddTextureToStorage("guard_test", *textureFactory->CreateTexture("Assets/Textures/Characters/guard_spritesheet.png"));
-	AddTextureToStorage("npc_test", *textureFactory->CreateTexture("Assets/Textures/Characters/npc_spritesheet.png"));
+	AddTextureToStorage("rsGuard_test", *textureFactory->CreateTexture("Assets/Textures/Characters/rsGuard_spritesheet.png"));
 	AddTextureToStorage("artis_test", *textureFactory->CreateTexture("Assets/Textures/Characters/artis_spritesheet.png"));
 	AddTextureToStorage("cassian_test", *textureFactory->CreateTexture("Assets/Textures/Characters/cassian_spritesheet.png"));
 	AddTextureToStorage("zeryn_test", *textureFactory->CreateTexture("Assets/Textures/Characters/zeryn_spritesheet.png"));
+	AddTextureToStorage("dog_test", *textureFactory->CreateTexture("Assets/Textures/Characters/dog_spritesheet.png"));
+	AddTextureToStorage("fisherman_test", *textureFactory->CreateTexture("Assets/Textures/Characters/fisherman_spritesheet.png"));
+
 	///Tilesets
 	AddTextureToStorage("floors_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Floors_Tiles.png"));
 	AddTextureToStorage("water_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Water_Tiles.png"));

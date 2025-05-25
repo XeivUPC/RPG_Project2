@@ -15,6 +15,12 @@
 #include "Item.h"
 #include "LOG.h"
 #include "Party.h"
+#include "Inventory.h"
+
+
+#include "MissionHolder.h"
+#include "MissionList.h"
+#include "MissionManager.h"
 
 #include "pugixml.hpp"
 
@@ -25,6 +31,11 @@
 #include "NpcCharacter.h"
 #include "SimpleMapObject.h"
 #include "OverworldItem.h"
+#include "BirdFlock.h"
+#include "Bird.h"
+#include "ButtonPuzzleElement.h"
+#include "BlockingPuzzleElement.h"
+#include "TriggerPuzzleElement.h"
 ///
 
 #include "FadeCG.h"
@@ -42,6 +53,8 @@
 #include "CombatGameState.h"
 ///
 
+
+
 using namespace pugi;
 
 GameScene::GameScene(bool start_active) : ModuleScene(start_active)
@@ -51,12 +64,6 @@ GameScene::GameScene(bool start_active) : ModuleScene(start_active)
 GameScene::~GameScene()
 {
     
-}
-
-void GameScene::SetDialogue(string path)
-{
-    dialogueSystem->LoadDialogueFromJSON(path);
-    dialogueSystem->StartDialogue();
 }
 
 bool GameScene::Init()
@@ -70,25 +77,29 @@ bool GameScene::Start()
     Pooling::Instance().CreatePool<SimpleMapObject>(30);
     Pooling::Instance().CreatePool<NpcCharacter>(10);
     Pooling::Instance().CreatePool<OverworldItem>(10);
+    Pooling::Instance().CreatePool<BirdFlock>(10);
+    Pooling::Instance().CreatePool<Bird>(20);
+    Pooling::Instance().CreatePool<ButtonPuzzleElement>(3);
+    Pooling::Instance().CreatePool<BlockingPuzzleElement>(3);
+    Pooling::Instance().CreatePool<TriggerPuzzleElement>(3);
 
     fade = new FadeCG(33, 25, 17, 255);
     fade->FadeTo(1,0);
     fade->renderLayer = 9;
 
-    //canvas = new UITestingCG();
-    //canvas->renderLayer = 6;
-    combatSystem = new CombatSystem();
-    combatCanvas = new CombatCG(combatSystem);
-    combatCanvas->renderLayer = 7;
+
 
 	dialogueSystem = new DialogueSystem();
     dialogueCanvas = new UIDialogueBoxCG(dialogueSystem);
     dialogueCanvas->renderLayer = 7;
 
+    combatSystem = new CombatSystem();
+    combatCanvas = new CombatCG(combatSystem);
+    combatCanvas->renderLayer = 7;
+
     pauseCanvas = new PauseMenuCG(7);
 
-    gameplayCanvas = new GameplayCG();
-    gameplayCanvas->renderLayer = 6;
+    gameplayCanvas = new GameplayCG(6);
 
     screenEffectsCanvas = new ScreenEffectsCG(5);
 
@@ -121,13 +132,12 @@ bool GameScene::Start()
     cameraController->SetOffset({ -LOGIC_SCREEN_WIDTH / 2, -LOGIC_SCREEN_HEIGHT / 2 });
 
     gameplayCanvas->SetUser(player);
-   
 
-    if (!isRaining)
-        StopRain();
-    else
-        StartRain();
+    //MissionHolder* newMission = new MissionHolder(MissionList::Instance().MissionByID("mission;testing"));
+    //MissionManager::Instance().AddMission(*newMission);
 
+    //MissionHolder* newMission2 = new MissionHolder(MissionList::Instance().MissionByID("mission;testing2"));
+    //MissionManager::Instance().AddMission(*newMission2);
 
     return true;
 }
@@ -141,6 +151,8 @@ bool GameScene::PreUpdate()
 
 bool GameScene::Update()
 {   
+    MissionManager::Instance().UpdateMissions();
+
     if(tilemaps.size()!=0)
         tilemaps[tilemaps.size()-1]->UpdateTilemap();
 
@@ -149,6 +161,8 @@ bool GameScene::Update()
 
     if (Engine::Instance().m_input->GetKey(SDL_SCANCODE_C) == KEY_DOWN)
     {
+
+        SetCombat(vector<string>{"character;zeryn", "character;rs_guard", "character;rs_guard"});
 		SetState(State::Combat);
     }
 
@@ -208,15 +222,33 @@ bool GameScene::CleanUp()
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::POST_UPDATE);
 
-    Pooling::Instance().DeletePool<SimpleTilemapChanger>(true);
-    Pooling::Instance().DeletePool<SimpleMapObject>(true);
-    Pooling::Instance().DeletePool<NpcCharacter>(true);
-    Pooling::Instance().DeletePool<OverworldItem>(true);
+    DeletePoolMapObjects();
+
+    MissionManager::Instance().Reset();
+    MissionManager::Instance().ClearAllMissions();
 
     exitGame = false;
 
     return true;
 }
+
+void GameScene::SetDialogue(string path)
+{
+    dialogueSystem->LoadDialogueFromJSON(path);
+    dialogueSystem->StartDialogue();
+}
+
+void GameScene::SetCombat(std::vector<string> enemyTeam)
+{
+    combatSystem->AddPartyToCombat(GetPlayer()->party->GetPartyIds(), CombatSystem::Ally);
+    combatSystem->AddPartyToCombat(enemyTeam, CombatSystem::Enemy);
+}
+
+const CombatSystem* GameScene::GetCombat() const
+{
+    return combatSystem;
+}
+
 
 void GameScene::CheckTilesetInteriorState()
 {
@@ -307,9 +339,9 @@ void GameScene::SetState(State _newState)
     if (state == _newState)
         return;
     previous_state = state;
-    if(state != State::NONE___DO_NOT_USE)
-        game_states[state]->StateDeselected();
     state = _newState;
+    if(previous_state != State::NONE___DO_NOT_USE)
+        game_states[previous_state]->StateDeselected();
     game_states[state]->StateSelected();
 }
 
@@ -370,9 +402,7 @@ void GameScene::CreateNewTilemap(string path)
 
     if (tilemaps.size() != 0) {
         tilemaps[tilemaps.size() - 1]->isVisible = false;
-        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
-        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
-        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+        ReturnToPoolMapObjects();
     }
     tilemaps.emplace_back(new Tilemap(path, 1));
 
@@ -394,10 +424,7 @@ void GameScene::SwapNewTilemap(string path, int entryPoint)
 
    
     if (tilemaps.size() != 0) {
-        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
-        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
-        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
-        Pooling::Instance().ReturnAllToPool<OverworldItem>();
+        ReturnToPoolMapObjects();
         //// Do Swap
         tilemaps[tilemaps.size() - 1]->CleanUp();
         delete tilemaps[tilemaps.size() - 1];
@@ -431,10 +458,7 @@ void GameScene::DeleteLastTilemap()
 
     if (tilemaps.size() != 0) {
 
-        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
-        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
-        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
-        Pooling::Instance().ReturnAllToPool<OverworldItem>();
+        ReturnToPoolMapObjects();
 
         tilemaps[tilemaps.size() - 1]->CleanUp();
         delete tilemaps[tilemaps.size() - 1];
@@ -455,6 +479,8 @@ void GameScene::DeleteLastTilemap()
 }
 
 
+
+
 Tilemap* GameScene::GetLastTilemap()
 {
     if (tilemaps.size() != 0)
@@ -464,7 +490,7 @@ Tilemap* GameScene::GetLastTilemap()
 
 int GameScene::GetTime()
 {
-    return clock.ReadSec();;
+    return (int)clock.ReadSec();
 }
 
 float GameScene::GetTimeScale()
@@ -481,6 +507,7 @@ PlayerCharacter* GameScene::GetPlayer() const
 void GameScene::FreshStart()
 {
     CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
+    MissionManager::Instance().AddMission(*new MissionHolder(MissionList::Instance().MissionByID("mission;tutorial")));
     clock = StepTimer(3600*12);
     screenEffectsCanvas->RecalculateAmbientFadeColors();
 }
@@ -493,13 +520,37 @@ void GameScene::AskForLoadSaveData()
     fade->onFadeEnd.Subscribe([this]() {LoadGameSaveData();  fade->FadeTo(0.5f, 0);  SetState(State::Exploring); });
 }
 
+void GameScene::ReturnToPoolMapObjects()
+{
+    Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
+    Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
+    Pooling::Instance().ReturnAllToPool<NpcCharacter>();
+    Pooling::Instance().ReturnAllToPool<OverworldItem>();
+    Pooling::Instance().ReturnAllToPool<BirdFlock>();
+    Pooling::Instance().ReturnAllToPool<Bird>();
+    Pooling::Instance().ReturnAllToPool<ButtonPuzzleElement>();
+    Pooling::Instance().ReturnAllToPool<BlockingPuzzleElement>();
+    Pooling::Instance().ReturnAllToPool<TriggerPuzzleElement>();
+}
+
+void GameScene::DeletePoolMapObjects()
+{
+    Pooling::Instance().DeletePool<SimpleTilemapChanger>(true);
+    Pooling::Instance().DeletePool<SimpleMapObject>(true);
+    Pooling::Instance().DeletePool<NpcCharacter>(true);
+    Pooling::Instance().DeletePool<OverworldItem>(true);
+    Pooling::Instance().DeletePool<BirdFlock>(true);
+    Pooling::Instance().DeletePool<Bird>(true);
+    Pooling::Instance().DeletePool<ButtonPuzzleElement>(true);
+    Pooling::Instance().DeletePool<BlockingPuzzleElement>(true);
+    Pooling::Instance().DeletePool<TriggerPuzzleElement>(true);
+}
+
+
 void GameScene::LoadGameSaveData()
 {
     LOG("Loading Game");
 
-    
-   
-    
 
     xml_document file;
     pugi::xml_parse_result result = file.load_file(savePath.c_str());
@@ -508,6 +559,8 @@ void GameScene::LoadGameSaveData()
 
         player->party->ClearParty();
 		player->party->ClearMemebers();
+		player->inventory->ClearAllItems();
+		MissionManager::Instance().ClearAllMissions();
 
         for (size_t i = 0; i < tilemaps.size(); i++)
         {
@@ -516,11 +569,7 @@ void GameScene::LoadGameSaveData()
         }
         tilemaps.clear();
 
-        Pooling::Instance().ReturnAllToPool<SimpleTilemapChanger>();
-        Pooling::Instance().ReturnAllToPool<SimpleMapObject>();
-        Pooling::Instance().ReturnAllToPool<NpcCharacter>();
-        Pooling::Instance().ReturnAllToPool<OverworldItem>();
-
+        ReturnToPoolMapObjects();
 
 
         xml_node rootNode = file.child("game");
@@ -528,7 +577,7 @@ void GameScene::LoadGameSaveData()
         xml_node playerNode = rootNode.child("player");
         xml_node mapNode = rootNode.child("map");
 
-        Vector2 playerPosData = { 0,0 };
+        Vector2Int playerPosData = { 0,0 };
         playerPosData.x = playerNode.child("position").attribute("x").as_int();
         playerPosData.y = playerNode.child("position").attribute("y").as_int();
         
@@ -539,17 +588,47 @@ void GameScene::LoadGameSaveData()
 
         for (xml_node member = inactiveNode.child("member"); member; member = member.next_sibling("member"))
         {
-            int id = member.attribute("id").as_int();
+            string id = member.attribute("id").as_string();
             player->party->AddMemeber(id);
         }
 
         for (xml_node member = activeNode.child("member"); member; member = member.next_sibling("member"))
         {
-            int id = member.attribute("id").as_int();
+            string id = member.attribute("id").as_string();
             player->party->AddPartyMemeber(id);
         }
 
-       
+        /// Load Inventory
+        vector<InventorySlot>& slots = player->inventory->GetSlotsDataModifiable();
+        xml_node inventoryNode = playerNode.child("inventory");
+        int inventoryIndex = 0;
+        for (xml_node itemInventoryNode = inventoryNode.child("item"); itemInventoryNode; itemInventoryNode = itemInventoryNode.next_sibling("item"))
+        {
+            if (itemInventoryNode.attribute("id")) {
+			    slots[inventoryIndex].item = new InventoryItem(ItemList::Instance().ItemByID(itemInventoryNode.attribute("id").as_string()));
+			    slots[inventoryIndex].count = itemInventoryNode.attribute("amount").as_int();
+
+            }
+            inventoryIndex++;
+            
+        }
+        player->inventory->onInventoryChanged.Trigger();
+
+        /// Load Missions
+        xml_node missionsNode = playerNode.child("missions");
+        for (xml_node missionNode = missionsNode.child("mission"); missionNode; missionNode = missionNode.next_sibling("mission"))
+        {
+
+            string missionId = missionNode.attribute("id").as_string();
+            int status = missionNode.attribute("status").as_int();
+
+            MissionHolder* newMission = new MissionHolder(MissionList::Instance().MissionByID(missionId));
+
+            newMission->SetState((MissionHolder::State)status);
+	
+            MissionManager::Instance().AddMission(*newMission);
+        }
+        MissionManager::Instance().UpdateMissionsStatus();
 		
 
 		/// Load Map
@@ -560,7 +639,7 @@ void GameScene::LoadGameSaveData()
         for (xml_node tilemap = tilemapsNode.child("tilemap"); tilemap; tilemap = tilemap.next_sibling("tilemap"))
         {
 
-            Vector2 tilemapSpawnPoint = { 0, 0 };
+            Vector2Int tilemapSpawnPoint = { 0, 0 };
             tilemapSpawnPoint.x = tilemap.attribute("spawnpoint-x").as_int();
             tilemapSpawnPoint.y = tilemap.attribute("spawnpoint-y").as_int();
 
@@ -580,7 +659,7 @@ void GameScene::LoadGameSaveData()
         xml_node itemsNode = mapNode.child("items");
         for (xml_node item = itemsNode.child("item"); item; item = item.next_sibling("item"))
         {
-            Vector2 itemPosition = { 0, 0 };
+            Vector2Int itemPosition = { 0, 0 };
             itemPosition.x = item.attribute("position-x").as_int();
             itemPosition.y = item.attribute("position-y").as_int();
 
@@ -593,6 +672,17 @@ void GameScene::LoadGameSaveData()
         }
 
         player->SetPosition(playerPosData);
+
+
+
+
+        if (!isRaining)
+            StopRain();
+        else
+            StartRain();
+
+
+
         screenEffectsCanvas->RecalculateAmbientFadeColors();
     }
     else {
@@ -622,21 +712,45 @@ void GameScene::SaveGameSaveData()
 		playerNode.child("position").attribute("y").set_value(player->GetPosition().y);
 
         //// SaveParty
-        vector<int> partyMembers = player->party->GetPartyIds();
-        vector<int> unlockedMembers = player->party->GetMembersIds();
+        vector<string> partyMembers = player->party->GetPartyIds();
+        vector<string> unlockedMembers = player->party->GetMembersIds();
         xml_node activeNode = playerNode.child("party").child("active");
         xml_node inactiveNode = playerNode.child("party").child("inactive");
         activeNode.remove_children();
         inactiveNode.remove_children();
 
-        for (int id : partyMembers) {
-            activeNode.append_child("member").append_attribute("id").set_value(id);
+        for (string id : partyMembers) {
+            activeNode.append_child("member").append_attribute("id").set_value(id.c_str());
         }
 
-        for (int id : unlockedMembers) {
-            inactiveNode.append_child("member").append_attribute("id").set_value(id);
+        for (string id : unlockedMembers) {
+            inactiveNode.append_child("member").append_attribute("id").set_value(id.c_str());
         }
 
+        /// Save Inventory
+        const vector<InventorySlot>& slots = player->inventory->GetSlotsData();
+        xml_node inventoryNode = playerNode.child("inventory");
+        inventoryNode.remove_children();
+        for (InventorySlot itemSlot : slots) {
+            xml_node itemInventoryNode = inventoryNode.append_child("item");
+            if (itemSlot.item != nullptr) {
+                itemInventoryNode.append_attribute("id").set_value(itemSlot.item->GetReference()->id.c_str());
+                itemInventoryNode.append_attribute("amount").set_value(itemSlot.count);
+            }
+            else {
+
+            }
+        }
+
+        /// Save Missions
+        const vector<MissionHolder*>& missions = MissionManager::Instance().GetMissions();
+        xml_node missionsNode = playerNode.child("missions");
+        missionsNode.remove_children();
+        for (MissionHolder* mission : missions) {
+            xml_node missionNode = missionsNode.append_child("mission");
+            missionNode.append_attribute("id").set_value(mission->GetId().c_str());
+            missionNode.append_attribute("status").set_value((int)mission->GetState());
+        }
 
 
 		mapNode.child("raining").attribute("value").set_value(isRaining);
@@ -673,6 +787,8 @@ void GameScene::SaveGameSaveData()
         }
 
         file.save_file(savePath.c_str());
+
+		CharacterDatabase::Instance().SaveDatabase();
 
     }
     else {

@@ -2,7 +2,7 @@
 
 #include <algorithm>
 
-Party::Party(int defaultId)
+Party::Party(string defaultId)
 {
 	AddMemeber(defaultId);
 	AddPartyMemeber(defaultId);
@@ -15,17 +15,15 @@ Party::~Party()
 	leader = nullptr;
 }
 
-bool Party::AddPartyMemeber(int id)
+bool Party::AddPartyMemeber(string id)
 {
-	if (!IsMemberUnlocked(id))
-		return false;
-	if (IsMemberInParty(id))
+	if (!IsMemeberRecruitable(id) || !IsMemberUnlocked(id) || IsMemberInParty(id))
 		return false;
 
 	if (party.size() >= partyMaxSize)
 		return false;
 
-	CharacterDatabase::CharacterData& member = CharacterDatabase::Instance().GetCharacterData(id);
+	CharacterDatabase::CharacterDefinition& member = CharacterDatabase::Instance().GetCharacterDefinition(id);
 
 	party.emplace_back(&member);
 
@@ -33,12 +31,12 @@ bool Party::AddPartyMemeber(int id)
     return true;
 }
 
-bool Party::AddMemeber(int id)
+bool Party::AddMemeber(string id)
 {
-	if (IsMemberUnlocked(id))
+	if (IsMemberUnlocked(id) || !IsMemeberRecruitable(id))
 		return false;
 
-	CharacterDatabase::CharacterData& member = CharacterDatabase::Instance().GetCharacterData(id);
+	CharacterDatabase::CharacterDefinition& member = CharacterDatabase::Instance().GetCharacterDefinition(id);
 
 	members.emplace_back(&member);
 	SortMemebers();
@@ -46,7 +44,7 @@ bool Party::AddMemeber(int id)
 	return true;
 }
 
-bool Party::RemovePartyMemeber(int id)
+bool Party::RemovePartyMemeber(string id)
 {
 	if (!IsMemberUnlocked(id))
 		return false;
@@ -56,7 +54,7 @@ bool Party::RemovePartyMemeber(int id)
 	if (party.size() <= 1)
 		return false;
 
-	auto it = std::find_if(party.begin(), party.end(), [id](const CharacterDatabase::CharacterData* member) { return member->id == id; });
+	auto it = std::find_if(party.begin(), party.end(), [id](const CharacterDatabase::CharacterDefinition* member) { return member->id == id; });
 	if (it != party.end())
 	{
 		party.erase(it);
@@ -68,12 +66,12 @@ bool Party::RemovePartyMemeber(int id)
 		return false; 
 }
 
-bool Party::RemoveMemeber(int id)
+bool Party::RemoveMemeber(string id)
 {
 	if (!IsMemberUnlocked(id))
 		return false;
 
-	auto it = std::find_if(members.begin(), members.end(), [id](const CharacterDatabase::CharacterData* member) { return member->id == id; });
+	auto it = std::find_if(members.begin(), members.end(), [id](const CharacterDatabase::CharacterDefinition* member) { return member->id == id; });
 	if (it != members.end())
 	{
 		RemovePartyMemeber(id);
@@ -95,7 +93,7 @@ bool Party::SetPartyLeader()
 	return true;
 }
 
-bool Party::EditPartyMember(int index, int id)
+bool Party::EditPartyMember(int index, string id)
 {
 	if (IsMemberInParty(id))
 		return false;
@@ -106,7 +104,7 @@ bool Party::EditPartyMember(int index, int id)
 	if (index >= party.size())
 		return false;
 
-	CharacterDatabase::CharacterData& member = CharacterDatabase::Instance().GetCharacterData(id);
+	CharacterDatabase::CharacterDefinition& member = CharacterDatabase::Instance().GetCharacterDefinition(id);
 	party[index] = &member;
 	SetPartyLeader();
 
@@ -114,7 +112,7 @@ bool Party::EditPartyMember(int index, int id)
     return true;
 }
 
-bool Party::SwapPartyMembers(int id, int id2)
+bool Party::SwapPartyMembers(string id, string id2)
 {
 	if(!IsMemberInParty(id) || !IsMemberInParty(id2))
 		return false;
@@ -123,8 +121,8 @@ bool Party::SwapPartyMembers(int id, int id2)
 		return false;
 
 
-	auto it1 = std::find_if(party.begin(), party.end(), [id](const CharacterDatabase::CharacterData* member) { return member->id == id; });
-	auto it2 = std::find_if(party.begin(), party.end(), [id2](const CharacterDatabase::CharacterData* member) { return member->id == id2; });
+	auto it1 = std::find_if(party.begin(), party.end(), [id](const CharacterDatabase::CharacterDefinition* member) { return member->id == id; });
+	auto it2 = std::find_if(party.begin(), party.end(), [id2](const CharacterDatabase::CharacterDefinition* member) { return member->id == id2; });
 	if (it1 != party.end() && it2 != party.end())
 	{
 
@@ -163,16 +161,16 @@ int Party::GetMaxPartySize() const
 
 int Party::GetPartySize() const
 {
-	return party.size();
+	return (int)party.size();
 }
 
 int Party::GetMemebersAmount() const
 {
-	return members.size();
+	return (int)members.size();
 }
 
 
-CharacterDatabase::CharacterData* Party::GetPartyLeader() const
+CharacterDatabase::CharacterDefinition* Party::GetPartyLeader() const
 {
 	if (leader == nullptr)
 		throw std::runtime_error("Leader is not set.");
@@ -180,11 +178,11 @@ CharacterDatabase::CharacterData* Party::GetPartyLeader() const
 	return leader;
 }
 
-vector<CharacterDatabase::CharacterData*> Party::GetParty(bool removeLeader) const
+vector<CharacterDatabase::CharacterDefinition*> Party::GetParty(bool removeLeader) const
 {
 	if (removeLeader) {
-		vector<CharacterDatabase::CharacterData*> copy = party;
-		auto it = std::remove_if(copy.begin(), copy.end(), [this](const CharacterDatabase::CharacterData* member) { return member->id == leader->id; });
+		vector<CharacterDatabase::CharacterDefinition*> copy = party;
+		auto it = std::remove_if(copy.begin(), copy.end(), [this](const CharacterDatabase::CharacterDefinition* member) { return member->id == leader->id; });
 		copy.erase(it, copy.end());
 		return copy;
 	}
@@ -192,19 +190,19 @@ vector<CharacterDatabase::CharacterData*> Party::GetParty(bool removeLeader) con
 	return party;
 }
 
-vector<CharacterDatabase::CharacterData*> Party::GetMemebers() const
+vector<CharacterDatabase::CharacterDefinition*> Party::GetMemebers() const
 {
     return members;
 }
 
-int Party::GetPartyLeaderId() const
+string Party::GetPartyLeaderId() const
 {
 	return GetPartyLeader()->id;
 }
 
-vector<int> Party::GetPartyIds(bool removeLeader) const
+vector<string> Party::GetPartyIds(bool removeLeader) const
 {
-	vector<int> ids;
+	vector<string> ids;
 	for (size_t i = 0; i < party.size(); i++)
 	{
 		ids.emplace_back(party[i]->id);
@@ -218,9 +216,9 @@ vector<int> Party::GetPartyIds(bool removeLeader) const
 	return ids;
 }
 
-vector<int> Party::GetMembersIds() const
+vector<string> Party::GetMembersIds() const
 {
-	vector<int> ids;
+	vector<string> ids;
 	for (size_t i = 0; i < members.size(); i++)
 	{
 		ids.emplace_back(members[i]->id);
@@ -228,24 +226,40 @@ vector<int> Party::GetMembersIds() const
 	return ids;
 }
 
-CharacterDatabase::CharacterData* Party::GetCharacterFromParty(int index) const
+CharacterDatabase::CharacterDefinition* Party::GetCharacterFromParty(int index) const
 {
 	return party[index];
 }
 
-bool Party::IsPartyLeader(int id) const
+CharacterDatabase::CharacterDefinition* Party::GetCharacterFromMembers(string id) const
+{
+
+	CharacterDatabase::CharacterDefinition* memberPtr = nullptr;
+
+	for (const auto& member : members)
+	{
+		if (member->id == id)
+		{
+			memberPtr = member;
+			break;
+		}
+	}
+	return memberPtr;
+}
+
+bool Party::IsPartyLeader(string id) const
 {
 	return GetPartyLeader()->id == id;
 }
 
 void Party::SortMemebers()
 {
-	std::sort(members.begin(), members.end(), [](const CharacterDatabase::CharacterData* a, const CharacterDatabase::CharacterData* b) {
+	std::sort(members.begin(), members.end(), [](const CharacterDatabase::CharacterDefinition* a, const CharacterDatabase::CharacterDefinition* b) {
 		return a->id < b->id;
 		});
 }
 
-bool Party::IsMemberInParty(int id) const
+bool Party::IsMemberInParty(string id) const
 {
 	for (const auto& member : party)
 	{
@@ -256,7 +270,7 @@ bool Party::IsMemberInParty(int id) const
     return false;
 }
 
-bool Party::IsMemberUnlocked(int id) const
+bool Party::IsMemberUnlocked(string id) const
 {
 	for (const auto& member : members)
 	{
@@ -265,4 +279,10 @@ bool Party::IsMemberUnlocked(int id) const
 	}
 
 	return false;
+}
+
+bool Party::IsMemeberRecruitable(string id) const
+{
+	CharacterDatabase::CharacterDefinition& member = CharacterDatabase::Instance().GetCharacterDefinition(id);
+	return member.recruitable;
 }

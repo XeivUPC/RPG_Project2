@@ -42,7 +42,8 @@ public:
 	~GameScene();
 
 	void SetDialogue(string path);
-	void SetCombat(std::vector<int>team, std::vector<int> enemyTeam);
+	void SetCombat(std::vector<string> enemyTeam);
+	const CombatSystem* GetCombat() const;
 
 	void SetState(State _newState);
 	State GetState();
@@ -100,6 +101,9 @@ private:
 	void SwapNewTilemap(string path, int entryPoint=-1);
 	void DeleteLastTilemap();
 
+	void ReturnToPoolMapObjects();
+	void DeletePoolMapObjects();
+
 private:
 	/// Core
 	State state = State::NONE___DO_NOT_USE;
@@ -126,7 +130,7 @@ private:
 
 	/// Extra
 	StepTimer clock = StepTimer(12 * 3600);
-	float timeScale = 300;
+	float timeScale = 600;
 
 
 

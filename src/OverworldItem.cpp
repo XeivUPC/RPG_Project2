@@ -64,7 +64,6 @@ void OverworldItem::PickUp()
 	if (quantity <= 0) {
 		Pooling::Instance().ReturnObject(this);
 	}
-	Engine::Instance().s_game->GetPlayer()->inventory->displayInventory();
 }
 
 string OverworldItem::GetId() const

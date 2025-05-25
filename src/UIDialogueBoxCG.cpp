@@ -1,7 +1,19 @@
 #include "UIDialogueBoxCG.h"
 
+#include "GameScene.h"
+#include "PlayerCharacter.h"
+#include "CombatSystem.h"
+#include "Inventory.h"
+#include "ItemList.h"
+#include "Party.h"
+
+#include "MissionManager.h"
+#include "MissionList.h"
+#include "MissionHolder.h"
+
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
+#include "ModuleInput.h"
 #include "CharacterDatabase.h"
 #include "ModuleTime.h"
 #include "TextureAtlas.h"
@@ -70,7 +82,7 @@ void UIDialogueBoxCG::UpdateCanvas()
 		if (typewriterMode) {
 			typewriterTimer.Step(ModuleTime::deltaTime);
 			if (typewriterText != node.text) {
-				if (typewriterTimer.ReadSec() > typewriterSpeed) {
+				if (typewriterTimer.ReadMSec() > typewriterSpeed) {
 					typewriterTimer.Start();
 					char c = node.text.at(typewriterText.size());
 					typewriterText += c;
@@ -129,6 +141,11 @@ void UIDialogueBoxCG::UpdateCanvas()
 		characterNameTextBox->SetText(node.character.name);
 	}
 
+	if (btns[0]->isEnabled) {
+		if(Engine::Instance().m_input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN  || Engine::Instance().m_input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+			NextDialogue();
+	}
+
 	UICanvas::UpdateCanvas();
 }
 
@@ -140,9 +157,9 @@ void UIDialogueBoxCG::CreateChoiceButton(string text, int index, float verticalS
 	Vector2Int textSize = textBox->ProccesTextSize();
 	textBox->size.y = textSize.y;
 
-	int verticalPositionToPlace = 123 + verticalSpacing;
+	int verticalPositionToPlace = (int)(123 + verticalSpacing);
 	if (index != 0) {
-		verticalPositionToPlace = btns[index]->GetPosition().y + btns[index]->size.y + verticalSpacing;
+		verticalPositionToPlace = (int)(btns[index]->GetPosition().y + btns[index]->size.y + verticalSpacing);
 	}
 
 	UIButton* btn = new UIButton({ 388 ,(int)(verticalPositionToPlace)}, { 235,textSize.y }, { 0,0,0,0 }, { 0,0 }, {148,112,75,255});
@@ -215,11 +232,9 @@ void UIDialogueBoxCG::SetVariablesOnStart()
 
 	for (const auto& character : databaseCharacters.GetCharacters())
 	{
-		dialogue->AddGameStateVariable("Char" + to_string(character.second.id) + "_State", (float)character.second.state);
-		dialogue->AddGameStateVariable("Char" + to_string(character.second.id) + "_Friendship", (float)character.second.friendShip);
-		dialogue->AddGameStateVariable("Char" + to_string(character.second.id) + "_Love", (float)character.second.love);
+		if(character.second.dialogue!="")
+			dialogue->AddGameStateVariable((character.second.id) + "-state", (float)character.second.state);
 	}
-	
 }
 
 void UIDialogueBoxCG::SignalReader(Signal* signal)
@@ -249,42 +264,119 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 			typewriterSpeed = get<float>(signal->data);
 		}
 	}
-	else if (signal->name == "SetNpcStatusByID") {
-		if (holds_alternative<Vector2>(signal->data)) {
-			Vector2 data = get<Vector2>(signal->data);
-			CharacterDatabase::Instance().GetCharacterData((int)data.x).state = (int)data.y;
-			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_State", data.y);
-		}
-	}
-	else if (signal->name == "SetNpcFriendshipByID") {
-		if (holds_alternative<Vector2>(signal->data)) {
-			Vector2 data = get<Vector2>(signal->data);
-			CharacterDatabase::Instance().GetCharacterData((int)data.x).friendShip = (int)data.y;
-			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_Friendship", data.y);
-		}
-	}
-	else if (signal->name == "AddNpcFriendshipByID") {
-		if (holds_alternative<Vector2>(signal->data)) {
-			Vector2 data = get<Vector2>(signal->data);
-			CharacterDatabase::Instance().GetCharacterData((int)data.x).friendShip += (int)data.y;
-			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_Friendship", data.y);
-		}
-	}
-	else if (signal->name == "SetNpcLoveByID") {
-		if (holds_alternative<Vector2>(signal->data)) {
-			Vector2 data = get<Vector2>(signal->data);
-			CharacterDatabase::Instance().GetCharacterData((int)data.x).love = (int)data.y;
-			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_Love", data.y);
-		}
-	}
-	else if (signal->name == "AddNpcLoveByID") {
-		if (holds_alternative<Vector2>(signal->data)) {
-			Vector2 data = get<Vector2>(signal->data);
-			CharacterDatabase::Instance().GetCharacterData((int)data.x).love += (int)data.y;
-			dialogue->AddGameStateVariable("Char" + to_string((int)data.x) + "_Love", data.y);
-		}
-	}
+	else if (signal->name == "SetNpcState") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+			vector<string> infoToGet;
 
+			stringstream ss(data);
+			string word;
+			while (!ss.eof()) {
+				getline(ss, word, '-');
+				infoToGet.emplace_back(word);
+			}
+
+			int stateValue = stoi(infoToGet[1]);
+
+			CharacterDatabase::Instance().GetCharacterDefinition(infoToGet[0]).state = stateValue;
+			dialogue->AddGameStateVariable(infoToGet[0] + "-state", (float)stateValue);
+		}
+	}
+	else if (signal->name == "AddItem") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			size_t dash_pos = data.find('-');
+			string name = data.substr(0, dash_pos);
+			int amount = stoi(data.substr(dash_pos + 1));
+
+			Item* itemRef = ItemList::Instance().ItemByID(name);
+			Engine::Instance().s_game->GetPlayer()->inventory->AddItem(*(new InventoryItem(itemRef)), amount);
+		}
+	}
+	else if (signal->name == "RemoveItem") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			size_t dash_pos = data.find('-');
+			string name = data.substr(0, dash_pos);
+			int amount = stoi(data.substr(dash_pos + 1));
+
+			Engine::Instance().s_game->GetPlayer()->inventory->RemoveItem(name, amount);
+		}
+	}
+	else if (signal->name == "CheckIfHasItem") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			size_t dash_pos = data.find('-');
+			string name = data.substr(0, dash_pos);
+			int amount = stoi(data.substr(dash_pos + 1));
+
+			dialogue->AddGameStateVariable("HasItem", Engine::Instance().s_game->GetPlayer()->inventory->HasItem(name, amount));
+		}
+	}
+	else if (signal->name == "CheckIfCanGiveItem") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			size_t dash_pos = data.find('-');
+			string name = data.substr(0, dash_pos);
+			int amount = stoi(data.substr(dash_pos + 1));
+
+			dialogue->AddGameStateVariable("CanGiveItem", Engine::Instance().s_game->GetPlayer()->inventory->CanAddItem(name, amount));
+		}
+	}
+	else if (signal->name == "AddMission") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			MissionManager::Instance().AddMission(*new MissionHolder(MissionList::Instance().MissionByID(data)));
+		}
+	}
+	else if (signal->name == "RemoveMission") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			MissionManager::Instance().RemoveMission(data);
+		}
+		}
+	else if (signal->name == "CheckIfMissionCompleted") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+			if (MissionManager::Instance().HasMission(data))
+				dialogue->AddGameStateVariable("HasCompletedMission", MissionManager::Instance().IsMissionCompleted(data));
+			else
+				dialogue->AddGameStateVariable("HasCompletedMission", false);
+		}
+	}
+	else if (signal->name == "UnlockNpc") {
+		if (holds_alternative<string>(signal->data)) {
+			string data = get<string>(signal->data);
+
+			Engine::Instance().s_game->GetPlayer()->party->AddPartyMemeber(data);
+		}
+	}
+	else if (signal->name == "StartCombat") {
+		if (holds_alternative<string>(signal->data)) {
+			vector<string> charsData;
+			string characterIds = get<string>(signal->data);
+			characterIds.erase(remove(characterIds.begin(), characterIds.end(), ' '));
+			stringstream ss(characterIds);
+			string temp;
+
+			while (getline(ss, temp, ','))
+			{
+				charsData.emplace_back(temp);
+			}
+
+			Engine::Instance().s_game->SetCombat(charsData);
+			Engine::Instance().s_game->SetState(GameScene::State::Combat );
+		}
+	}
+	else if (signal->name == "CheckIfWonCombat") {
+		dialogue->AddGameStateVariable("HasWonCombat",Engine::Instance().s_game->GetCombat()->HasWonLastCombat());
+	}
 
 	//Change dialogue box
 }

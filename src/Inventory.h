@@ -1,5 +1,6 @@
 #pragma once
 #include "InventoryItem.h"
+#include "SystemEvent.h"
 #include <vector>
 #include <string>
 #include <iostream>
@@ -32,22 +33,19 @@ public:
     int GetUsedSlots() const;
     int GetFreeSlots() const;
 
-    void displayInventory() const {
-        cout << "Inventory (" << GetUsedSlots() << "/" << size << " slots used):\n";
-        for (size_t i = 0; i < slots.size(); ++i) {
-            const auto& slot = slots[i];
-            cout << "[" << i + 1 << "] ";
-            if (slot.IsEmpty()) {
-                cout << "Empty";
-            }
-            else {
-                cout << slot.item->GetName()
-                    << " x" << slot.count
-                    << " (Max " << slot.item->GetMaxStack() << ")";
-            }
-            cout << "\n";
-        }
-    }
+    void SwapSlots(int index1, int index2, Inventory* targetInventory = nullptr);
+    bool TryStackItems(int sourceIndex, int targetIndex, Inventory* targetInventory = nullptr);
+
+    bool HasItem(string item_id, int amount = 1);
+    bool CanAddItem(string item_id, int amount = 1);
+
+    void ClearAllItems();
+
+    const vector<InventorySlot>& GetSlotsData();
+    vector<InventorySlot>& GetSlotsDataModifiable();
+
+
+    SystemEvent<> onInventoryChanged;
 
 public:
 

@@ -3,6 +3,7 @@
 #include "Engine.h"
 #include "ModuleRender.h"
 #include "ModuleCursor.h"
+#include "ModuleInput.h"
 #include "ModuleTime.h"
 #include "ModuleAudio.h"
 #include "AudioContainer.h"
@@ -12,6 +13,8 @@
 #include "FadeCG.h"
 #include "TitleMenuCG.h"
 #include "SettingsCG.h"
+#include "ParallaxCG.h"
+#include "Camera.h"
 
 #include <random>
 
@@ -42,6 +45,15 @@ bool TitleScene::Start()
     fade = new FadeCG(33, 25, 17, 255);
     fade->FadeTo(1,0);
     fade->renderLayer = 9;
+
+    parallax = new ParallaxCG();
+    parallax->AddLayer(Engine::Instance().m_assetsDB->GetTexture("title_bg3"), 0.0f);
+    parallax->AddLayer(Engine::Instance().m_assetsDB->GetTexture("title_bg2"), 0.2f);
+    parallax->AddLayer(Engine::Instance().m_assetsDB->GetTexture("title_bg5"), { 0.05f,0 });
+    parallax->AddLayer(Engine::Instance().m_assetsDB->GetTexture("title_bg4"), 0.1f);
+    parallax->AddLayer(Engine::Instance().m_assetsDB->GetTexture("title_bg1"), 0.3f);
+    parallax->AddLayer(Engine::Instance().m_assetsDB->GetTexture("title_bg6"), 0.0f);
+    parallax->renderLayer = 5;
 
     settings_canvas = new SettingsCG();
     settings_canvas->isVisible = false;
@@ -91,11 +103,17 @@ bool TitleScene::Update()
             canvas->SetInteractable(false);
     }
     else {
+        
         if (!canvas->IsInteractable())
             canvas->SetInteractable(true);
     }
 
     canvas->UpdateCanvas();
+   
+    if(!settings_canvas->isVisible)
+        parallax->UpdatePosition(Engine::Instance().m_input->GetMousePosition() - Engine::Instance().m_render->GetCamera().viewport / 2);
+
+    parallax->UpdateCanvas();
     settings_canvas->UpdateCanvas();
     fade->UpdateCanvas();
     if (!fade->IsFading() && starting_game) {
@@ -126,6 +144,8 @@ bool TitleScene::CleanUp()
     delete canvas;
     delete fade;
     delete settings_canvas;
+
+    delete parallax;
 
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);

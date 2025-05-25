@@ -16,7 +16,7 @@ void Animator::AddAnimationClip(AnimationClip clip)
 {
 	AnimationList.emplace_back(clip);
 	if (currentAnimationIndex == -1)
-		currentAnimationIndex = AnimationList.size()-1;
+		currentAnimationIndex = (int)AnimationList.size()-1;
 }
 AnimationClip* Animator::clip()
 {
@@ -29,7 +29,7 @@ void Animator::Animate(const string& animation, bool keepTime)
 
 	if (currentAnimation && currentAnimation->Name() == animation)
 		return;
-	for (size_t i = 0; i < AnimationList.size(); i++)
+	for (int i = 0; i < AnimationList.size(); i++)
 	{
 		if (AnimationList[i].Name() == animation)
 		{

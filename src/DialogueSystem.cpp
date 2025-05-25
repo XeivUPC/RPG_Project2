@@ -161,8 +161,10 @@ void DialogueSystem::LoadDialogueFromJSON(const string& pathToFile)
                 if (signal_name == "parent")
                     continue;
                 signal.name = signal_name;
+                string key = "Empty";
                 auto it = signal_data.begin();
-                string key = it.key();
+                if(!signal_data.empty())
+                    key = it.key();
                 if (key == "String") {
                     signal.data = signal_data.begin()->get<string>();
                     signal.type = SignalType::String;
@@ -204,7 +206,8 @@ void DialogueSystem::LoadDialogueFromJSON(const string& pathToFile)
             }
         }
 
-        if (current_node != previous_node) {        
+        if (current_node != previous_node) {    
+            ProcessSignals();
             previous_node = current_node;
             onDialogNodeChange.Trigger();
         }

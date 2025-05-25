@@ -31,12 +31,16 @@ NpcCharacter::~NpcCharacter()
 	
 }
 
+bool NpcCharacter::PreUpdate()
+{
+	SearchPath();
+	return true;
+}
+
 bool NpcCharacter::Update()
 {
-    SearchPath();
 	Animate();
     Move();
-
 	animator->clip()->UpdateClip();
 
 	Character::Update();
@@ -72,11 +76,19 @@ void NpcCharacter::SetNpcPath(vector<Vector2> _path, MovementType _movementType)
 	movementType = _movementType;
 }
 
-bool NpcCharacter::SetCharacterId(int _charId)
+void NpcCharacter::SetDialoguePath(string _dialoguePath)
+{
+	dialogPath = _dialoguePath;
+}
+
+bool NpcCharacter::SetCharacterId(string _charId)
 {
 	if (Character::SetCharacterId(_charId)) {
 
-		texture = Engine::Instance().m_assetsDB->GetTexture(characterData->textureId);
+		if(characterData->dialogue!="")
+			SetDialoguePath(characterData->dialogue);
+
+		texture = Engine::Instance().m_assetsDB->GetTexture(characterData->charTemplate->textureId);
 
 		for (auto& animClip : animator->GetAnimationClips()) {
 			for (auto& sprite : animClip.GetSprites()) {
@@ -155,8 +167,7 @@ void NpcCharacter::Animate()
 	if (moveDirection.magnitude() != 0)
 		moveDirection.normalize();
 
-	bool flip = animationDirection.x < 0;
-	animator->clip()->Flip(flip);
+	
 
 
 	string animationId = isMoving ? (speedModifier == runSpeedModifier ? "run-" : "walk-") : "idle-";
@@ -173,21 +184,43 @@ void NpcCharacter::Animate()
 		animationDirectionId = "top";
 	}
 	animationId += animationDirectionId;
+
 	animator->Animate(animationId);
+
+	bool flip = animationDirection.x < 0;
+	animator->clip()->Flip(flip);
 }
 
-void NpcCharacter::Interact()
+
+void NpcCharacter::Interact(Vector2 from)
 {
-    Engine::Instance().s_game->SetState(GameScene::State::Dialogue);
-    Engine::Instance().s_game->SetDialogue(characterData->dialoguePath);
-	moveDirection = { 0,0 };
-	Animate();
+	if (UseDialogue()) {
+		moveDirection = { 0,0 };
+		Vector2 direction = Vector2::Direction(position, from);
+		lastDirection = direction;
+		Animate();
+		animator->clip()->UpdateClip();
+	}
+	else {
+
+	}
 }
+
+bool NpcCharacter::UseDialogue()
+{
+	if (dialogPath == "")
+		return false;
+	Engine::Instance().s_game->SetState(GameScene::State::Dialogue);
+	Engine::Instance().s_game->SetDialogue(dialogPath);
+	return true;
+}
+
 
 void NpcCharacter::InitPoolObject()
 {
     Engine::Instance().m_render->AddToRenderQueue(*this, *this);
     Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
+    Engine::Instance().m_updater->AddToUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
     Engine::Instance().m_updater->AddToUpdateGroup(*this, "Entity");
 
     body = Engine::Instance().m_physics->factory().CreateBox({ 0,0.2f }, 0.5f, 0.2f);
@@ -219,6 +252,7 @@ void NpcCharacter::ResetPoolObject()
 	pathDirection = 1;
 	path.clear();
 
+    Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::PRE_UPDATE);
     Engine::Instance().m_updater->RemoveFromUpdateQueue(*this, ModuleUpdater::UpdateMode::UPDATE);
     Engine::Instance().m_render->RemoveFromRenderQueue(*this);
 

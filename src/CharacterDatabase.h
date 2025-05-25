@@ -6,37 +6,33 @@ using namespace std;
 class CharacterDatabase {
 	public:
 
-		struct CharacterData {
+		struct CharacterTemplate {
+			string id;
+			string textureId;
+			string faceId;
+		};
 
-			enum CharacterRole {
-				DPS,
-				TANK,
-				HEALER,
-				ALCHEMIST
-			};
-
-			int id = 0;
+		struct CharacterDefinition {
+			string id = "character;test";
 			string name = "";
 
-			string textureId = "";
-			string faceId = "";
-			string dialoguePath = "";
+			CharacterTemplate* charTemplate;
 
-			//// Relations
-			int love = 0;
-			int friendShip = 0;
+			/// Party
+			bool recruitable = false;
+
+			/// Dialogue
+			string dialogue = "";
 			int state = 0;
 
-			//// Stats
+			/// Combat Data
+			vector<int> attacks;
+			// Stats
 			int level = 2;
 			int health = 0;
 			int attack = 0;
 			int defense = 0;
-			int speed=0;
-
-			vector<int> attacks;
-
-			CharacterRole role = DPS;
+			int speed = 0;
 		};
 
 		static CharacterDatabase& Instance() {
@@ -44,12 +40,14 @@ class CharacterDatabase {
 			return instance;
 		}
 
-		CharacterData& GetCharacterData(int id);
-		const unordered_map<int, CharacterData>& GetCharacters();
+		CharacterDefinition& GetCharacterDefinition(string id);
+		const unordered_map<string, CharacterDefinition>& GetCharacters();
 
-		bool Exists(int id);
+		bool Exists(string id);
 
 		void ResetDataToDefault();
+
+		void SaveDatabase();
 
 	public:
 	private:
@@ -59,12 +57,15 @@ class CharacterDatabase {
 		CharacterDatabase(const CharacterDatabase&) = delete;
 		CharacterDatabase& operator=(const CharacterDatabase&) = delete;
 
-		void SaveDatabase();
+
 		void LoadDatabase();
 	private:
-		string pathToCharacterData = "Assets/Data/CharactersData.xml";
-		string pathToCharacterDataDefault = "Assets/Data/CharactersData_Default.xml";
-		unordered_map<int, CharacterData> data;
+		string pathToCharacterDefinitions = "Assets/Data/Characters/SaveData/CharacterDefinitions.xml";
+		string pathToCharacterDefinitionsDefault = "Assets/Data/Characters/CharacterDefinitions_Default.xml";
+
+		string pathToCharacterTemplate = "Assets/Data/Characters/CharacterTemplate.xml";
+		unordered_map<string, CharacterDefinition> definitions;
+		unordered_map<string, CharacterTemplate> templates;
 	protected:
 	protected:
 };

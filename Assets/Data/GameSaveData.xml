@@ -1,34 +1,67 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="216" y="163" />
+		<position x="522" y="591" />
 		<party>
 			<active>
-				<member id="-1" />
-				<member id="2" />
-				<member id="5" />
-				<member id="6" />
+				<member id="character;cassian" />
 			</active>
 			<inactive>
-				<member id="-1" />
-				<member id="2" />
-				<member id="3" />
-				<member id="4" />
-				<member id="5" />
-				<member id="6" />
+				<member id="character;cassian" />
 			</inactive>
 		</party>
-		<inventory />
+		<missions>
+			<mission id="mission;tutorial" status="0" />
+		</missions>
+		<inventory>
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+		</inventory>
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="46915.6055" />
-		<items>
-			<item id="item;zalium_armor" amount="5" position-x="180" position-y="250" />
-		</items>
+		<time value="43636.1094" />
+		<items />
 		<tilemaps>
-			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="135" spawnpoint-y="767" />
-			<tilemap path="Assets/Map/Data/House2_Inside.xml" spawnpoint-x="216" spawnpoint-y="188" />
+			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="522.710999" spawnpoint-y="591.953979" />
 		</tilemaps>
 	</map>
 </game>
