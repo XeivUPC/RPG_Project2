@@ -780,64 +780,6 @@
         "parent": "8df3d032-54f5-47dd-927b-78a318e37f1f",
         "next": "8054afd0-6b85-4c42-87a0-83a8fe9025ac"
     },
-    "root": {
-        "conditions": [
-            {
-                "parent": "root",
-                "next": "c9809f6d-4b85-4f20-9ad3-53791d4eea48",
-                "character;guideon-state": {
-                    "value": 0,
-                    "operator": "equal",
-                    "type": "int"
-                }
-            },
-            {
-                "parent": "root",
-                "next": "247e1b70-08c3-4d24-9aa7-cf362fbee249",
-                "character;guideon-state": {
-                    "value": 1,
-                    "operator": "equal",
-                    "type": "int"
-                }
-            },
-            {
-                "parent": "root",
-                "next": "a3575057-1d52-43c6-9d3d-1621b45db126",
-                "character;guideon-state": {
-                    "value": 2,
-                    "operator": "equal",
-                    "type": "int"
-                }
-            },
-            {
-                "parent": "root",
-                "next": "07981e34-40c8-41d9-8b25-eb285bea7370",
-                "character;guideon-state": {
-                    "value": 3,
-                    "operator": "equal",
-                    "type": "int"
-                }
-            },
-            {
-                "parent": "root",
-                "next": "8d981fe1-3a73-4d5e-9d30-6ff57834bca5",
-                "character;guideon-state": {
-                    "value": 4,
-                    "operator": "equal",
-                    "type": "int"
-                }
-            },
-            {
-                "parent": "root",
-                "next": "aec36c70-c509-4243-8643-413a8652a42e",
-                "character;guideon-state": {
-                    "value": 5,
-                    "operator": "equal",
-                    "type": "int"
-                }
-            }
-        ]
-    },
     "f140f174-580e-40fe-9ac1-618eaf0f17f8": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
@@ -848,10 +790,10 @@
         },
         "parent": "5ed66da4-79b6-43a8-a3ff-7173898f73fa",
         "signals": {
+            "parent": "f140f174-580e-40fe-9ac1-618eaf0f17f8",
             "StartCombat": {
-                "String": "4"
-            },
-            "parent": "f140f174-580e-40fe-9ac1-618eaf0f17f8"
+                "String": "character;guideon"
+            }
         },
         "next": "940b8ab5-9827-4867-9cef-a9ca6cca3a65"
     },
@@ -914,10 +856,10 @@
         },
         "parent": "e89f90a4-3fa4-436d-89ff-7123ed978796",
         "signals": {
+            "parent": "b6752fa6-43c9-4071-a16a-18b0bb07fc20",
             "StartCombat": {
-                "String": "4"
-            },
-            "parent": "b6752fa6-43c9-4071-a16a-18b0bb07fc20"
+                "String": "character;guideon"
+            }
         },
         "next": "f680c39d-0a89-46b9-9033-7a9e03794709"
     },
@@ -992,6 +934,64 @@
                 "String": "character;guideon-1"
             }
         }
+    },
+    "root": {
+        "conditions": [
+            {
+                "parent": "root",
+                "next": "c9809f6d-4b85-4f20-9ad3-53791d4eea48",
+                "character;guideon-state": {
+                    "value": 0,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "next": "247e1b70-08c3-4d24-9aa7-cf362fbee249",
+                "character;guideon-state": {
+                    "value": 1,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "next": "a3575057-1d52-43c6-9d3d-1621b45db126",
+                "character;guideon-state": {
+                    "value": 2,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "next": "07981e34-40c8-41d9-8b25-eb285bea7370",
+                "character;guideon-state": {
+                    "value": 3,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "next": "8d981fe1-3a73-4d5e-9d30-6ff57834bca5",
+                "character;guideon-state": {
+                    "value": 4,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "next": "aec36c70-c509-4243-8643-413a8652a42e",
+                "character;guideon-state": {
+                    "value": 5,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            }
+        ]
     },
     "__editor": {
         "root": {
@@ -1411,6 +1411,40 @@
         ],
         "conditions": [
             {
+                "uuid": "c9ad87f1-c054-4626-b15a-3351863e5cee",
+                "offset": [
+                    2880,
+                    -260
+                ],
+                "parent": "940b8ab5-9827-4867-9cef-a9ca6cca3a65"
+            },
+            {
+                "uuid": "177bff7d-c88b-44c6-8f69-6461eb9087ec",
+                "offset": [
+                    2880,
+                    80
+                ],
+                "collapsed": true,
+                "parent": "940b8ab5-9827-4867-9cef-a9ca6cca3a65"
+            },
+            {
+                "uuid": "ea5e2a34-f989-4cde-b64f-43600e5aad6c",
+                "offset": [
+                    5380,
+                    -1060
+                ],
+                "parent": "f680c39d-0a89-46b9-9033-7a9e03794709"
+            },
+            {
+                "uuid": "8df3d032-54f5-47dd-927b-78a318e37f1f",
+                "offset": [
+                    5380,
+                    -700
+                ],
+                "collapsed": true,
+                "parent": "f680c39d-0a89-46b9-9033-7a9e03794709"
+            },
+            {
                 "uuid": "21b7bfda-4941-43b5-8db7-92680de6aaba",
                 "offset": [
                     240,
@@ -1457,40 +1491,6 @@
                     3860
                 ],
                 "parent": "root"
-            },
-            {
-                "uuid": "c9ad87f1-c054-4626-b15a-3351863e5cee",
-                "offset": [
-                    2880,
-                    -260
-                ],
-                "parent": "940b8ab5-9827-4867-9cef-a9ca6cca3a65"
-            },
-            {
-                "uuid": "177bff7d-c88b-44c6-8f69-6461eb9087ec",
-                "offset": [
-                    2880,
-                    80
-                ],
-                "collapsed": true,
-                "parent": "940b8ab5-9827-4867-9cef-a9ca6cca3a65"
-            },
-            {
-                "uuid": "ea5e2a34-f989-4cde-b64f-43600e5aad6c",
-                "offset": [
-                    5380,
-                    -1060
-                ],
-                "parent": "f680c39d-0a89-46b9-9033-7a9e03794709"
-            },
-            {
-                "uuid": "8df3d032-54f5-47dd-927b-78a318e37f1f",
-                "offset": [
-                    5380,
-                    -700
-                ],
-                "collapsed": true,
-                "parent": "f680c39d-0a89-46b9-9033-7a9e03794709"
             }
         ],
         "signals": [
@@ -1622,15 +1622,15 @@
             {
                 "uuid": "de6ebc5e-ba47-4220-98d0-6e69de02487a",
                 "offset": [
-                    2100,
-                    -340
+                    2040,
+                    -460
                 ],
                 "parent": "f140f174-580e-40fe-9ac1-618eaf0f17f8",
                 "data": {
+                    "parent": "f140f174-580e-40fe-9ac1-618eaf0f17f8",
                     "StartCombat": {
-                        "String": "4"
-                    },
-                    "parent": "f140f174-580e-40fe-9ac1-618eaf0f17f8"
+                        "String": "character;guideon"
+                    }
                 }
             },
             {

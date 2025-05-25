@@ -515,12 +515,12 @@
         },
         "parent": "6a9b6a9b-1df2-4b5f-8d83-402e74ee35c4",
         "signals": {
-            "StartCombat": {
-                "String": "5"
-            },
             "parent": "86016e89-254f-48ab-8d05-b95bfd8b0067",
             "RemoveMission": {
                 "String": "mission;tutorial2"
+            },
+            "StartCombat": {
+                "String": "character;zeryn"
             }
         },
         "next": "18495b2e-13e3-45c3-a1f6-ba699cd89108"
