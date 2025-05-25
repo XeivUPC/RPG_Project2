@@ -169,7 +169,7 @@
             "fr": ""
         },
         "parent": "5e384f27-7300-4f04-808f-6c02da1f9895",
-        "next": "b3a54a83-fb10-495c-a583-b8d3fed9e285"
+        "next": "b6752fa6-43c9-4071-a16a-18b0bb07fc20"
     },
     "a3575057-1d52-43c6-9d3d-1621b45db126": {
         "name": "Sir Gideon Hawthorne",
@@ -432,7 +432,7 @@
                     "en": "I am.",
                     "fr": ""
                 },
-                "next": "",
+                "next": "f140f174-580e-40fe-9ac1-618eaf0f17f8",
                 "parent": "247e1b70-08c3-4d24-9aa7-cf362fbee249"
             },
             {
@@ -777,16 +777,8 @@
             "en": "Im sorry Sir Gideon.",
             "fr": ""
         },
-        "parent": "e89f90a4-3fa4-436d-89ff-7123ed978796",
-        "signals": {
-            "parent": "b3a54a83-fb10-495c-a583-b8d3fed9e285",
-            "StartCombat": {
-                "String": "4,2,3"
-            },
-            "SetNpcState": {
-                "String": "character;guideon-1"
-            }
-        }
+        "parent": "8df3d032-54f5-47dd-927b-78a318e37f1f",
+        "next": "8054afd0-6b85-4c42-87a0-83a8fe9025ac"
     },
     "root": {
         "conditions": [
@@ -846,6 +838,161 @@
             }
         ]
     },
+    "f140f174-580e-40fe-9ac1-618eaf0f17f8": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Good.",
+            "fr": ""
+        },
+        "parent": "5ed66da4-79b6-43a8-a3ff-7173898f73fa",
+        "signals": {
+            "StartCombat": {
+                "String": "4"
+            },
+            "parent": "f140f174-580e-40fe-9ac1-618eaf0f17f8"
+        },
+        "next": "940b8ab5-9827-4867-9cef-a9ca6cca3a65"
+    },
+    "940b8ab5-9827-4867-9cef-a9ca6cca3a65": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "",
+            "fr": ""
+        },
+        "parent": "f140f174-580e-40fe-9ac1-618eaf0f17f8",
+        "signals": {
+            "CheckIfWonCombat": {},
+            "parent": "940b8ab5-9827-4867-9cef-a9ca6cca3a65"
+        },
+        "conditions": [
+            {
+                "parent": "940b8ab5-9827-4867-9cef-a9ca6cca3a65",
+                "HasWonCombat": {
+                    "value": true,
+                    "operator": "equal",
+                    "type": "boolean"
+                },
+                "next": "ff5a4564-6a94-44a0-8092-2ad6c760f32f"
+            },
+            {
+                "parent": "940b8ab5-9827-4867-9cef-a9ca6cca3a65",
+                "next": "4d5716d3-dd11-4334-8bb7-fb5ac9de1ec4"
+            }
+        ]
+    },
+    "ff5a4564-6a94-44a0-8092-2ad6c760f32f": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "",
+            "fr": ""
+        },
+        "parent": "c9ad87f1-c054-4626-b15a-3351863e5cee"
+    },
+    "4d5716d3-dd11-4334-8bb7-fb5ac9de1ec4": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "",
+            "fr": ""
+        },
+        "parent": "177bff7d-c88b-44c6-8f69-6461eb9087ec"
+    },
+    "b6752fa6-43c9-4071-a16a-18b0bb07fc20": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Hmmm...",
+            "fr": ""
+        },
+        "parent": "e89f90a4-3fa4-436d-89ff-7123ed978796",
+        "signals": {
+            "StartCombat": {
+                "String": "4"
+            },
+            "parent": "b6752fa6-43c9-4071-a16a-18b0bb07fc20"
+        },
+        "next": "f680c39d-0a89-46b9-9033-7a9e03794709"
+    },
+    "f680c39d-0a89-46b9-9033-7a9e03794709": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Interesting.",
+            "fr": ""
+        },
+        "parent": "b6752fa6-43c9-4071-a16a-18b0bb07fc20",
+        "signals": {
+            "CheckIfWonCombat": {},
+            "parent": "f680c39d-0a89-46b9-9033-7a9e03794709"
+        },
+        "conditions": [
+            {
+                "HasWonCombat": {
+                    "value": true,
+                    "operator": "equal",
+                    "type": "boolean"
+                },
+                "parent": "f680c39d-0a89-46b9-9033-7a9e03794709",
+                "next": "32db4635-f359-4ae4-8ac9-30c235e25588"
+            },
+            {
+                "parent": "f680c39d-0a89-46b9-9033-7a9e03794709",
+                "next": "b3a54a83-fb10-495c-a583-b8d3fed9e285"
+            }
+        ]
+    },
+    "32db4635-f359-4ae4-8ac9-30c235e25588": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Interesting what? You bald man cannot teach anything more to me.",
+            "fr": ""
+        },
+        "parent": "ea5e2a34-f989-4cde-b64f-43600e5aad6c",
+        "next": "e4e2d68b-9da0-4e57-806e-ddf3a1f19e5c"
+    },
+    "8054afd0-6b85-4c42-87a0-83a8fe9025ac": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "You better be, come to see me later. We will begin training so you can be a bit less dumb.",
+            "fr": ""
+        },
+        "parent": "b3a54a83-fb10-495c-a583-b8d3fed9e285",
+        "signals": {
+            "parent": "8054afd0-6b85-4c42-87a0-83a8fe9025ac",
+            "SetNpcState": {
+                "String": "character;guideon-1"
+            }
+        }
+    },
+    "e4e2d68b-9da0-4e57-806e-ddf3a1f19e5c": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "If you think so...  Come later and we will start practice.",
+            "fr": ""
+        },
+        "parent": "32db4635-f359-4ae4-8ac9-30c235e25588",
+        "signals": {
+            "parent": "e4e2d68b-9da0-4e57-806e-ddf3a1f19e5c",
+            "SetNpcState": {
+                "String": "character;guideon-1"
+            }
+        }
+    },
     "__editor": {
         "root": {
             "uuid": "root",
@@ -858,57 +1005,57 @@
             {
                 "uuid": "c9809f6d-4b85-4f20-9ad3-53791d4eea48",
                 "offset": [
-                    720,
-                    -440
+                    660,
+                    -1180
                 ]
             },
             {
                 "uuid": "da7fcca4-80d1-4af4-8831-0c2f652d8641",
                 "offset": [
-                    1160,
-                    -440
+                    1100,
+                    -1180
                 ]
             },
             {
                 "uuid": "f92611b0-feef-4d34-8352-b79f531c7d06",
                 "offset": [
-                    1560,
-                    -440
+                    1500,
+                    -1180
                 ]
             },
             {
                 "uuid": "72a45185-151b-4a0f-91f7-7c2b846a3c60",
                 "offset": [
-                    1980,
-                    -440
+                    1920,
+                    -1180
                 ]
             },
             {
                 "uuid": "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7",
                 "offset": [
-                    2380,
-                    -440
+                    2320,
+                    -1180
                 ]
             },
             {
                 "uuid": "edee822b-ba5b-4a36-852e-750f2c366aa6",
                 "offset": [
-                    3180,
-                    -360
+                    3140,
+                    -1080
                 ]
             },
             {
                 "uuid": "85615c26-8b8d-4944-812c-6d5a73811cdf",
                 "offset": [
-                    4000,
-                    -660
+                    4080,
+                    -1640
                 ]
             },
             {
                 "uuid": "e89f90a4-3fa4-436d-89ff-7123ed978796",
                 "offset": [
-                    4000,
-                    -100
+                    4080,
+                    -1080
                 ]
             },
             {
@@ -1019,8 +1166,8 @@
             {
                 "uuid": "247e1b70-08c3-4d24-9aa7-cf362fbee249",
                 "offset": [
-                    720,
-                    -20
+                    760,
+                    -300
                 ]
             },
             {
@@ -1166,36 +1313,99 @@
             {
                 "uuid": "25542bc2-943c-4f7f-b90d-9b85980d9672",
                 "offset": [
-                    4800,
-                    -960
+                    4880,
+                    -1940
                 ]
             },
             {
                 "uuid": "ae5966d5-c887-478f-9370-51177a2993d0",
                 "offset": [
-                    4800,
-                    -460
+                    4880,
+                    -1440
                 ]
             },
             {
                 "uuid": "ab6b0a15-c245-47f7-a145-9ac6b76b9f81",
                 "offset": [
-                    5640,
-                    -1160
+                    5720,
+                    -2140
                 ]
             },
             {
                 "uuid": "e5b42659-eb30-4575-a7aa-d2977f95040a",
                 "offset": [
-                    5640,
-                    -780
+                    5720,
+                    -1760
                 ]
             },
             {
                 "uuid": "b3a54a83-fb10-495c-a583-b8d3fed9e285",
                 "offset": [
-                    4380,
-                    -100
+                    5800,
+                    -700
+                ]
+            },
+            {
+                "uuid": "f140f174-580e-40fe-9ac1-618eaf0f17f8",
+                "offset": [
+                    1640,
+                    -200
+                ]
+            },
+            {
+                "uuid": "940b8ab5-9827-4867-9cef-a9ca6cca3a65",
+                "offset": [
+                    2460,
+                    -240
+                ]
+            },
+            {
+                "uuid": "ff5a4564-6a94-44a0-8092-2ad6c760f32f",
+                "offset": [
+                    3300,
+                    -380
+                ]
+            },
+            {
+                "uuid": "4d5716d3-dd11-4334-8bb7-fb5ac9de1ec4",
+                "offset": [
+                    3300,
+                    20
+                ]
+            },
+            {
+                "uuid": "b6752fa6-43c9-4071-a16a-18b0bb07fc20",
+                "offset": [
+                    4500,
+                    -1040
+                ]
+            },
+            {
+                "uuid": "f680c39d-0a89-46b9-9033-7a9e03794709",
+                "offset": [
+                    4900,
+                    -1040
+                ]
+            },
+            {
+                "uuid": "32db4635-f359-4ae4-8ac9-30c235e25588",
+                "offset": [
+                    5800,
+                    -1100
+                ]
+            },
+            {
+                "uuid": "8054afd0-6b85-4c42-87a0-83a8fe9025ac",
+                "offset": [
+                    6240,
+                    -700
+                ]
+            },
+            {
+                "uuid": "e4e2d68b-9da0-4e57-806e-ddf3a1f19e5c",
+                "offset": [
+                    6240,
+                    -1100
                 ]
             }
         ],
@@ -1203,16 +1413,16 @@
             {
                 "uuid": "21b7bfda-4941-43b5-8db7-92680de6aaba",
                 "offset": [
-                    300,
-                    -400
+                    240,
+                    -1140
                 ],
                 "parent": "root"
             },
             {
                 "uuid": "6feb6ee6-5a54-465c-b4ab-bf1c2c55c01c",
                 "offset": [
-                    300,
-                    20
+                    340,
+                    -260
                 ],
                 "parent": "root"
             },
@@ -1247,16 +1457,92 @@
                     3860
                 ],
                 "parent": "root"
+            },
+            {
+                "uuid": "c9ad87f1-c054-4626-b15a-3351863e5cee",
+                "offset": [
+                    2880,
+                    -260
+                ],
+                "parent": "940b8ab5-9827-4867-9cef-a9ca6cca3a65"
+            },
+            {
+                "uuid": "177bff7d-c88b-44c6-8f69-6461eb9087ec",
+                "offset": [
+                    2880,
+                    80
+                ],
+                "collapsed": true,
+                "parent": "940b8ab5-9827-4867-9cef-a9ca6cca3a65"
+            },
+            {
+                "uuid": "ea5e2a34-f989-4cde-b64f-43600e5aad6c",
+                "offset": [
+                    5380,
+                    -1060
+                ],
+                "parent": "f680c39d-0a89-46b9-9033-7a9e03794709"
+            },
+            {
+                "uuid": "8df3d032-54f5-47dd-927b-78a318e37f1f",
+                "offset": [
+                    5380,
+                    -700
+                ],
+                "collapsed": true,
+                "parent": "f680c39d-0a89-46b9-9033-7a9e03794709"
             }
         ],
         "signals": [
             {
                 "uuid": "8024da1d-ce32-41e3-aef5-78cacab66a3f",
                 "offset": [
-                    1160,
-                    -760
+                    1100,
+                    -1500
                 ],
                 "parent": "c9809f6d-4b85-4f20-9ad3-53791d4eea48"
+            },
+            {
+                "uuid": "560db598-ea3f-4cf2-b8b5-9c6d1aea9b06",
+                "offset": [
+                    2740,
+                    -1680
+                ],
+                "parent": "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"
+            },
+            {
+                "uuid": "869b6895-429a-4abd-90ca-b3297f7c7b18",
+                "offset": [
+                    3560,
+                    -800
+                ],
+                "parent": "edee822b-ba5b-4a36-852e-750f2c366aa6",
+                "data": {
+                    "ChangeTextColor": {
+                        "String": "184,132,78,255"
+                    },
+                    "SetTypewriterSpeed": {
+                        "Number": "50"
+                    },
+                    "parent": "edee822b-ba5b-4a36-852e-750f2c366aa6"
+                }
+            },
+            {
+                "uuid": "d8a7cc48-066e-4e76-a778-732de24ad427",
+                "offset": [
+                    4500,
+                    -2280
+                ],
+                "parent": "85615c26-8b8d-4944-812c-6d5a73811cdf",
+                "data": {
+                    "ChangeTextColor": {
+                        "String": "184,132,78,255"
+                    },
+                    "SetTypewriterSpeed": {
+                        "Number": "50"
+                    },
+                    "parent": "85615c26-8b8d-4944-812c-6d5a73811cdf"
+                }
             },
             {
                 "uuid": "e0e4ec4d-cba6-46c1-b509-156770caf54e",
@@ -1291,8 +1577,8 @@
             {
                 "uuid": "1386f993-8489-4afa-8d6d-947bbf590506",
                 "offset": [
-                    5240,
-                    -380
+                    5320,
+                    -1360
                 ],
                 "parent": "ae5966d5-c887-478f-9370-51177a2993d0",
                 "data": {
@@ -1305,8 +1591,8 @@
             {
                 "uuid": "b7a7f8ed-9272-47c0-a95d-d4243b9c3d18",
                 "offset": [
-                    6040,
-                    -1120
+                    6120,
+                    -2100
                 ],
                 "parent": "ab6b0a15-c245-47f7-a145-9ac6b76b9f81",
                 "data": {
@@ -1322,8 +1608,8 @@
             {
                 "uuid": "bf86ff90-9477-4c00-b84e-279ff77eb635",
                 "offset": [
-                    6040,
-                    -740
+                    6120,
+                    -1720
                 ],
                 "parent": "e5b42659-eb30-4575-a7aa-d2977f95040a",
                 "data": {
@@ -1334,70 +1620,74 @@
                 }
             },
             {
-                "uuid": "348181d3-1435-401f-a1f0-9f6ee0748acb",
+                "uuid": "de6ebc5e-ba47-4220-98d0-6e69de02487a",
                 "offset": [
-                    4780,
-                    -40
+                    2100,
+                    -340
                 ],
-                "parent": "b3a54a83-fb10-495c-a583-b8d3fed9e285"
-            },
-            {
-                "uuid": "560db598-ea3f-4cf2-b8b5-9c6d1aea9b06",
-                "offset": [
-                    2800,
-                    -940
-                ],
-                "parent": "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"
-            },
-            {
-                "uuid": "869b6895-429a-4abd-90ca-b3297f7c7b18",
-                "offset": [
-                    3560,
-                    140
-                ],
-                "parent": "edee822b-ba5b-4a36-852e-750f2c366aa6",
+                "parent": "f140f174-580e-40fe-9ac1-618eaf0f17f8",
                 "data": {
-                    "ChangeTextColor": {
-                        "String": "184,132,78,255"
+                    "StartCombat": {
+                        "String": "4"
                     },
-                    "SetTypewriterSpeed": {
-                        "Number": "50"
-                    },
-                    "parent": "edee822b-ba5b-4a36-852e-750f2c366aa6"
+                    "parent": "f140f174-580e-40fe-9ac1-618eaf0f17f8"
                 }
             },
             {
-                "uuid": "d8a7cc48-066e-4e76-a778-732de24ad427",
+                "uuid": "523eba65-acba-4177-8d53-2a092dee82cf",
                 "offset": [
-                    4420,
-                    -1300
+                    2880,
+                    -560
                 ],
-                "parent": "85615c26-8b8d-4944-812c-6d5a73811cdf",
-                "data": {
-                    "ChangeTextColor": {
-                        "String": "184,132,78,255"
-                    },
-                    "SetTypewriterSpeed": {
-                        "Number": "50"
-                    },
-                    "parent": "85615c26-8b8d-4944-812c-6d5a73811cdf"
-                }
+                "parent": "940b8ab5-9827-4867-9cef-a9ca6cca3a65"
+            },
+            {
+                "uuid": "818dfa24-ee38-4db7-adc1-1126932e0a08",
+                "offset": [
+                    4880,
+                    -600
+                ],
+                "parent": "b6752fa6-43c9-4071-a16a-18b0bb07fc20"
+            },
+            {
+                "uuid": "9bfe3fd5-07be-4606-836b-75c31a850071",
+                "offset": [
+                    5360,
+                    -540
+                ],
+                "parent": "f680c39d-0a89-46b9-9033-7a9e03794709"
+            },
+            {
+                "uuid": "c9747bb1-221b-4eda-9db8-91910f792d49",
+                "offset": [
+                    6660,
+                    -660
+                ],
+                "parent": "8054afd0-6b85-4c42-87a0-83a8fe9025ac"
+            },
+            {
+                "uuid": "b954cf3b-abf8-4581-b10c-b25043a24802",
+                "offset": [
+                    6660,
+                    -1060
+                ],
+                "parent": "e4e2d68b-9da0-4e57-806e-ddf3a1f19e5c"
             }
         ],
         "choices": [
             {
                 "uuid": "1a7dc7ee-afcd-435f-8894-0e16e7767f58",
                 "offset": [
-                    2800,
-                    -560
+                    2740,
+                    -1300
                 ],
                 "parent": "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"
             },
             {
                 "uuid": "0ab84aa0-0790-4493-b674-65a7be33c8fd",
                 "offset": [
-                    2800,
-                    -240
+                    2740,
+                    -980
                 ],
                 "parent": "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"
             },
@@ -1405,7 +1695,7 @@
                 "uuid": "f4269134-4bf3-4e30-9cf3-dcdcf632a867",
                 "offset": [
                     3620,
-                    -360
+                    -1300
                 ],
                 "parent": "edee822b-ba5b-4a36-852e-750f2c366aa6",
                 "data": {
@@ -1421,7 +1711,7 @@
                 "uuid": "5e384f27-7300-4f04-808f-6c02da1f9895",
                 "offset": [
                     3620,
-                    -100
+                    -1040
                 ],
                 "parent": "edee822b-ba5b-4a36-852e-750f2c366aa6",
                 "data": {
@@ -1436,8 +1726,8 @@
             {
                 "uuid": "9d30d18d-d845-4506-b908-8503d82ebf43",
                 "offset": [
-                    4420,
-                    -880
+                    4500,
+                    -1860
                 ],
                 "parent": "85615c26-8b8d-4944-812c-6d5a73811cdf",
                 "data": {
@@ -1452,8 +1742,8 @@
             {
                 "uuid": "bfcf4af0-1ab8-4ef7-baf3-756402422f2e",
                 "offset": [
-                    4440,
-                    -380
+                    4520,
+                    -1360
                 ],
                 "parent": "85615c26-8b8d-4944-812c-6d5a73811cdf",
                 "data": {
@@ -1540,16 +1830,16 @@
             {
                 "uuid": "5ed66da4-79b6-43a8-a3ff-7173898f73fa",
                 "offset": [
-                    1120,
-                    -40
+                    1160,
+                    -320
                 ],
                 "parent": "247e1b70-08c3-4d24-9aa7-cf362fbee249"
             },
             {
                 "uuid": "296b61ae-4ce0-4a55-9eae-88682e6c84be",
                 "offset": [
-                    1120,
-                    220
+                    1160,
+                    -60
                 ],
                 "parent": "247e1b70-08c3-4d24-9aa7-cf362fbee249"
             },
@@ -1572,8 +1862,8 @@
             {
                 "uuid": "fce22549-44b7-45f8-a5aa-10db51407c7f",
                 "offset": [
-                    5260,
-                    -1080
+                    5340,
+                    -2060
                 ],
                 "data": {
                     "text": {
@@ -1588,8 +1878,8 @@
             {
                 "uuid": "9a5c16d0-1549-41e8-98ac-4a4dd5eb79e5",
                 "offset": [
-                    5260,
-                    -720
+                    5340,
+                    -1700
                 ],
                 "data": {
                     "text": {
