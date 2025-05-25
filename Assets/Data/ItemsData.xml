@@ -10,6 +10,15 @@
 		</properties>
 	</item>
 	<item>
+		<id>item;scroll_test</id>
+		<name>scroll_test</name>
+		<description>0this is a test scroll, written by Iko</description>
+		<stackable-quantity>1</stackable-quantity>
+		<properties>
+			<message>this scroll is a test, in it you can decode this test scroll to learn the decoding mechanic!</message>
+		</properties>
+	</item>
+	<item>
 		<id>item;healing_bread</id>
 		<name>Military ration bread</name>
 		<description>Baked by the Cook, barely edible.</description>

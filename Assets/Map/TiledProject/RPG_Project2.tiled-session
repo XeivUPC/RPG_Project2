@@ -3,15 +3,15 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Tutorial_Room.tmx",
+    "activeFile": "Maps/Interiors/Dungeon_puzzles.tmx",
     "expandedProjectPaths": [
+        "Prefabs",
+        "Maps",
         "Tilesets",
-        "Maps/Interiors",
-        "Objects",
         ".",
         "Prefabs/Buildings",
-        "Prefabs",
-        "Maps"
+        "Maps/Interiors",
+        "Objects"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -51,26 +51,26 @@
         },
         "Maps/Dunhaven_City.tmx": {
             "expandedObjectLayers": [
-                6,
-                9
+                9,
+                6
             ],
-            "scale": 1,
-            "selectedLayer": 9,
+            "scale": 0.75,
+            "selectedLayer": 10,
             "viewCenter": {
-                "x": 896,
-                "y": 640.5
+                "x": 1055.3333333333335,
+                "y": 541.3333333333334
             }
         },
         "Maps/Forest.tmx": {
             "expandedObjectLayers": [
-                10,
-                7
+                7,
+                10
             ],
-            "scale": 0.75,
-            "selectedLayer": 5,
+            "scale": 3,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 1320,
-                "y": 394.6666666666666
+                "x": 512.8333333333333,
+                "y": 81.33333333333334
             }
         },
         "Maps/Forest_Secret_Cliff.tmx": {
@@ -81,8 +81,8 @@
             "scale": 1.5,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 223.33333333333334,
-                "y": 238
+                "x": 223.66666666666666,
+                "y": 238.33333333333331
             }
         },
         "Maps/House1_Inside.tmx": {
@@ -138,8 +138,153 @@
             "scale": 2,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 208,
+                "x": 208.25,
                 "y": 111.75
+            }
+        },
+        "Maps/Interiors/Dungeon_puzzles.tmx": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 1.5,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 252.33333333333326,
+                "y": 630.6666666666666
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_11.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 4.577272727272727,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 92.95928500496525,
+                "y": 75.15392254220458
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_12.tmx": {
+            "scale": 4.577272727272727,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 88.04369414101292,
+                "y": 119.06653426017874
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_13.tmx": {
+            "scale": 4.577272727272727,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 88.04369414101292,
+                "y": 119.06653426017874
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_14.tmx": {
+            "scale": 4.577272727272727,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 88.04369414101292,
+                "y": 119.06653426017874
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_21.tmx": {
+            "scale": 4.577272727272727,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 88.04369414101292,
+                "y": 119.06653426017874
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_22.tmx": {
+            "scale": 4.577272727272727,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 95.14399205561074,
+                "y": 68.81827209533267
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_23.tmx": {
+            "scale": 4.577272727272727,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 88.04369414101292,
+                "y": 119.06653426017874
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_24.tmx": {
+            "scale": 4.577272727272727,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 88.04369414101292,
+                "y": 119.06653426017874
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_31.tmx": {
+            "scale": 4.577272727272727,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 88.04369414101292,
+                "y": 119.06653426017874
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_32.tmx": {
+            "scale": 4.577272727272727,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 88.04369414101292,
+                "y": 119.06653426017874
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_33.tmx": {
+            "scale": 4.577272727272727,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 88.04369414101292,
+                "y": 119.06653426017874
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_34.tmx": {
+            "scale": 4.577272727272727,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 88.04369414101292,
+                "y": 119.06653426017874
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_41.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 4,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 77.125,
+                "y": 56.75
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_42.tmx": {
+            "scale": 4.577272727272727,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 88.04369414101292,
+                "y": 119.06653426017874
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_43.tmx": {
+            "scale": 4.577272727272727,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 88.04369414101292,
+                "y": 119.06653426017874
+            }
+        },
+        "Maps/Interiors/Dungeons/dungeon_room_44.tmx": {
+            "scale": 3,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 68.16666666666666,
+                "y": 87.33333333333334
             }
         },
         "Maps/Interiors/House2_Inside.tmx": {
@@ -176,19 +321,19 @@
             "expandedObjectLayers": [
                 7
             ],
-            "scale": 2.9002403846153846,
-            "selectedLayer": 4,
+            "scale": 4,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 207.91380024865313,
-                "y": 111.88727724823872
+                "x": 198.625,
+                "y": 116.75
             }
         },
         "Maps/Interiors/Testing_Zone2.tmx": {
-            "scale": 4,
+            "scale": 3,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 208,
-                "y": 112.125
+                "x": 192.83333333333331,
+                "y": 153
             }
         },
         "Maps/Interiors/XeivTreaty_MainRoom.tmx": {
@@ -200,6 +345,14 @@
             "viewCenter": {
                 "x": 247.86815523657629,
                 "y": 168.10207336523126
+            }
+        },
+        "Maps/Interiors/dungeon_room_11.tmx": {
+            "scale": 6.110227272727272,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 64.80937325646272,
+                "y": 82.48465687186163
             }
         },
         "Maps/Map1.tmx": {
@@ -214,11 +367,11 @@
             "expandedObjectLayers": [
                 6
             ],
-            "scale": 11,
+            "scale": 1.5,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 252.45454545454544,
-                "y": 902.5454545454545
+                "x": 298.3333333333333,
+                "y": 676.6666666666665
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {
@@ -279,11 +432,11 @@
             "expandedObjectLayers": [
                 7
             ],
-            "scale": 3,
+            "scale": 1,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 230.5,
-                "y": 116
+                "x": -418.5,
+                "y": -78.5
             }
         },
         "Maps/Water_tiles.tsx": {
@@ -317,6 +470,11 @@
         "Tilesets/Cave_Tiles.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "Tilesets/Dungeon_Tiles.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "Tilesets/Floors_Tiles.tsx": {
@@ -358,35 +516,36 @@
             }
         }
     },
-    "last.exportedFilePath": "G:/GitHub/RPG_Project2/Assets/Map/Data/Interiors",
+    "last.exportedFilePath": "G:/GitHub/RPG_Project2/Assets/Map/Data/Interiors/Dungeon",
     "last.externalTilesetPath": "G:/GitHub/RPG_Project2/Assets/Map/TiledProject/Tilesets",
     "last.imagePath": "C:/Users/adriaga1/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/MapObjects/Vegetation/Single",
     "last.objectTemplatePath": "C:/Users/maxpo/OneDrive/Documents/GitHub/RPG_Project2/Assets/Map/TiledProject/Prefabs/Buildings",
     "map.height": 12,
-    "map.lastUsedExportFilter": "All Files (*)",
+    "map.lastUsedExportFilter": "Tiled map files (*.tmx *.xml)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
-        "Maps/Tutorial_Room.tmx",
-        "Maps/Interiors/Testing_Zone.tmx"
+        "Maps/Interiors/Dungeon_puzzles.tmx",
+        "Tilesets/Dungeon_Tiles.tsx",
+        "Maps/Dunhaven_City.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
-    "property.type": "bool",
+    "property.type": "string",
     "recentFiles": [
         "Maps/Interiors/Testing_Zone.tmx",
-        "Maps/Tutorial_Room.tmx",
-        "Maps/Interiors/House3_Inside.tmx",
-        "Maps/Interiors/House2_Inside.tmx",
-        "Maps/Interiors/House4_Inside.tmx",
-        "Maps/Rogue_Squadron_Headquarters.tmx",
-        "Maps/Interiors/CottageDunhaven.tmx",
-        "Maps/Interiors/XeivTreaty_MainRoom.tmx",
-        "Maps/Dunhaven_City.tmx",
         "Maps/Interiors/Testing_Zone2.tmx",
+        "Maps/Interiors/Dungeons/dungeon_room_42.tmx",
+        "Maps/Interiors/Dungeons/dungeon_room_43.tmx",
         "Maps/Forest.tmx",
-        "Tilesets/Vegetation_Atlas.tsx"
+        "Maps/Interiors/Dungeons/dungeon_room_41.tmx",
+        "Maps/Interiors/Dungeons/dungeon_room_34.tmx",
+        "Maps/Interiors/Dungeons/dungeon_room_33.tmx",
+        "Maps/Interiors/Dungeons/dungeon_room_32.tmx",
+        "Maps/Interiors/Dungeons/dungeon_room_24.tmx",
+        "Maps/Interiors/Dungeons/dungeon_room_31.tmx",
+        "Maps/Interiors/Dungeons/dungeon_room_23.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,

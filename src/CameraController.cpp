@@ -70,8 +70,15 @@ void CameraController::Move() {
     const float maxX = bounds.x + bounds.w - cameraRect.w - camera.offset.x / camera.zoom;
     const float maxY = bounds.y + bounds.h - cameraRect.h - camera.offset.y / camera.zoom;
 
+    ///Centrar
+
     if (minX>maxX) {
-        position.x = maxX;
+        position.x = minX/2;
+        position.y = minY/2;
+
+
+
+
     }else
         position.x = std::clamp(position.x, minX, maxX);
     if (minY > maxY) {
