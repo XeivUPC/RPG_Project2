@@ -14,11 +14,14 @@
 
 #include "SimpleTilemapChanger.h"
 #include "SimpleMapObject.h"
+#include "OverworldItem.h"
 #include "NpcCharacter.h"
 #include "BirdFlock.h"
 #include "ButtonPuzzleElement.h"
 #include "BlockingPuzzleElement.h"
 #include "TriggerPuzzleElement.h"
+
+#include "ItemList.h"
 
 
 #include <sstream>
@@ -299,6 +302,17 @@ void Tilemap::CreateObjects()
                 callOnExit = object->properties.at("OnExitCall").value == "true";
 
                 trigger->Initialize(puzzleId, position, size, targets, callOnEnter, callOnExit);
+            }
+            else if (type == "item") {
+                if (object->properties.count("ItemId")) {
+				    auto item = Pooling::Instance().AcquireObject<OverworldItem>();
+				    Vector2 position = { object->x + object->width / 2 ,object->y + object->height / 2 };
+				    int amount = 1;
+				    if (object->properties.count("Amount")) {
+                       amount = stoi(object->properties.at("Amount").value);
+				    }
+				    item->Initialize(ItemList::Instance().ItemByID(object->properties.at("ItemId").value), amount, position);
+			    }
             }
             else if (type == "spawnPoint") {
                 if (!spawnPointSaved) {
