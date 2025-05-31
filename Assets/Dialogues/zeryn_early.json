@@ -4,7 +4,7 @@
         "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
         "text": {
-            "en": "Today might be only just \"day\", that annoying chef closed the dining room without even cooking for everyone.",
+            "en": "Today might just be a 'day'. That blasted cook shut the hall without even feeding us all.",
             "fr": ""
         },
         "next": "ebd65e3d-15f8-4b7e-a0e0-114b21db2756",
@@ -15,14 +15,14 @@
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-angry-fade.png",
         "text": {
-            "en": "He's so damn lazy.",
+            "en": "He's downright lazy, that one.",
             "fr": ""
         },
         "parent": "18495b2e-13e3-45c3-a1f6-ba699cd89108",
         "choices": [
             {
                 "text": {
-                    "en": "I will try and convince him.",
+                    "en": "I'll try to sway him.",
                     "fr": ""
                 },
                 "next": "5ba0f38d-e9ff-4e69-a239-c0bf502f6864",
@@ -30,7 +30,7 @@
             },
             {
                 "text": {
-                    "en": "I will try and convince Gideon to kick him.",
+                    "en": "I'm gonna try to get Gideon to put that lazy one in his place.",
                     "fr": ""
                 },
                 "next": "356519b7-2f40-4222-bc28-eaf516883faa",
@@ -43,7 +43,7 @@
         "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
         "text": {
-            "en": "Did you talk to the chef ?",
+            "en": "Did you speak to the chef yet?",
             "fr": ""
         },
         "choices": [
@@ -82,7 +82,7 @@
         "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
         "text": {
-            "en": "A no and a disrespect look in his eyes ?",
+            "en": "A 'No' and a disrespect look in his eyes ?",
             "fr": ""
         },
         "parent": "0fe3d9f7-5cb0-41d9-abd9-8a2673a17c6a",
@@ -299,7 +299,7 @@
         "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
         "text": {
-            "en": "Thanks! I would like a steak with mashed potatoes if there is the chance.",
+            "en": "Thank you! If there be any chance, I'd like a steak with mashed potatoes.",
             "fr": ""
         },
         "parent": "883cddc9-0352-4949-acf5-3678f5b6cff1",
@@ -318,7 +318,7 @@
         "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
         "text": {
-            "en": "That bald man won't move a muscle to get us food , I assure you.",
+            "en": "That bald man won't lift a finger to fetch us food, mark my words.",
             "fr": ""
         },
         "parent": "0f8ad72c-4454-4068-a37d-0d7a49971864",
@@ -337,7 +337,7 @@
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
-            "en": "What are you doing here this early?",
+            "en": "What brings you here this early?",
             "fr": ""
         },
         "parent": "4ddd1f5c-49c2-4806-8f71-f31e1dff181b",
@@ -368,7 +368,7 @@
         "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
         "text": {
-            "en": "I'm practicing my stance, would you spar with me?",
+            "en": "Practicin'  my stance. C' mon, fight me.",
             "fr": ""
         },
         "parent": "d7b083c6-0ec7-4d5b-9912-c6c2016b024a",
@@ -389,7 +389,7 @@
         "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
         "text": {
-            "en": "Lets get into it then!",
+            "en": "Alright, let's get on with it! Think before you act, pick who's makin' the move, what they'll do, and who it'll affect. Do all that before you let me strike! Smart moves win fights.",
             "fr": ""
         },
         "parent": "23739767-8289-4109-b6e2-c2802fef3653",
@@ -400,14 +400,14 @@
         "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
         "text": {
-            "en": "Hi Cassian! I was just practicing a new move, would you spar with me?",
+            "en": "Hey, Cassian! I was messin' about with a new move, care to test it the hard way?",
             "fr": ""
         },
         "parent": "b1b7da39-d5df-43a6-9989-f32e86ed877b",
         "choices": [
             {
                 "text": {
-                    "en": "I'd prefer a morning walk first, thanks.",
+                    "en": "Hold fast, I'm dyin' of thirst here. Gotta get water.",
                     "fr": ""
                 },
                 "next": "8546a4a8-1279-4ea2-8682-a0a35708f32f",
@@ -415,7 +415,7 @@
             },
             {
                 "text": {
-                    "en": "Of course, I also need some practice.",
+                    "en": "Sure do. Can't get rusty now, can I?",
                     "fr": ""
                 },
                 "next": "762de827-b3a9-4abe-8949-5a13a045b51c",
@@ -434,7 +434,7 @@
         "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
         "text": {
-            "en": "See you later then.",
+            "en": "Right then, I'm off. Catch you later.",
             "fr": ""
         },
         "parent": "7ffe3a84-9376-48df-a50d-a6a7b7134568",
@@ -453,7 +453,7 @@
         "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
         "text": {
-            "en": "Are you ready now?",
+            "en": "You ready or what?",
             "fr": ""
         },
         "parent": "f0abc425-5ebf-417c-8594-5b2a7488e6e4",
@@ -481,7 +481,7 @@
         "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
         "text": {
-            "en": "Good! Tell me when you're ready.",
+            "en": "Fine! Let me know when you're set.",
             "fr": ""
         },
         "signals": {
@@ -510,7 +510,7 @@
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
-            "en": "Nice training. Have a good day.",
+            "en": "Not bad today. Have a good day.",
             "fr": ""
         },
         "parent": "6a9b6a9b-1df2-4b5f-8d83-402e74ee35c4",
@@ -721,7 +721,7 @@
         "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
         "text": {
-            "en": "You will represent the entire Rogue squadron and show your skills in combat to the  emperor to show him our progress. Remember?",
+            "en": "You will represent the entire Rogue squadron and show your skills in combat to the emperor to show him our progress. Remember?",
             "fr": ""
         },
         "parent": "da5da365-7279-4a51-876b-64df2ba2c1a4",
@@ -1313,8 +1313,8 @@
             {
                 "uuid": "cb6172ed-beb5-44d2-abe5-6b2955f07942",
                 "offset": [
-                    2920,
-                    -2900
+                    2900,
+                    -2880
                 ],
                 "parent": "762de827-b3a9-4abe-8949-5a13a045b51c",
                 "data": {
@@ -1451,7 +1451,7 @@
                 "uuid": "d25a207d-c428-4bd9-85d6-aac1583bdb82",
                 "offset": [
                     2880,
-                    2420
+                    1960
                 ],
                 "parent": "3cf455e1-60fa-4098-85fc-1c8612f31abb"
             },
