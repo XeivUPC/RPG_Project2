@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="11" height="12" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="53">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="11" height="12" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="53">
  <editorsettings>
   <export target="../../Data/CottageDunhaven.xml" format="tmx"/>
  </editorsettings>
@@ -99,7 +99,7 @@
   </object>
   <object id="51" x="86" y="28.75">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;dh_cott_man"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
