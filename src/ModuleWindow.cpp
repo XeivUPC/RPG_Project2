@@ -1,4 +1,6 @@
 #include "ModuleWindow.h"
+#include "Engine.h"
+#include "ModuleRender.h"
 #include "Log.h"
 #include "Globals.h"
 #include "UserPrefs.h"
@@ -47,7 +49,7 @@ bool ModuleWindow::Init()
 			LOG("Window could not be created! SDL_Error: %s", SDL_GetError());
 			ret = false;
 		}
-
+		SDL_RenderSetIntegerScale(Engine::Instance().m_render->renderer, SDL_FALSE);
 	}
 
 	return ret;
@@ -86,6 +88,8 @@ void ModuleWindow::SetFullscreen(bool _fullscreen)
 	SDL_SetWindowFullscreen(window, _fullscreen ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0);
 	fullscreen = _fullscreen;
 	UserPrefs::Instance().SaveBool("screen_fullscreen", fullscreen);
+	SDL_RenderSetIntegerScale(Engine::Instance().m_render->renderer, SDL_FALSE);
+
 }
 
 bool ModuleWindow::IsFullscreen()
