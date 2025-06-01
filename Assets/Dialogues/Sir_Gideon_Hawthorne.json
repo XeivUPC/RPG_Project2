@@ -21,7 +21,7 @@
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
-            "en": "You are late Cassian, I shouldn't let you sleep at all if you do this.",
+            "en": "You are late Cassian, I shouldn't let you sleep at all if you keep doing this.",
             "fr": ""
         },
         "parent": "c9809f6d-4b85-4f20-9ad3-53791d4eea48",
@@ -43,7 +43,7 @@
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
-            "en": "Do not tell that to me, you will be sorry enough after the trainings that await you.",
+            "en": "Say that not to me. The training ahead shall teach you regret well enough.",
             "fr": ""
         },
         "parent": "f92611b0-feef-4d34-8352-b79f531c7d06",
@@ -54,7 +54,7 @@
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
-            "en": "And it is Sir Gideon not just Gideon. S-I-R Gideon, Sir Gideon!",
+            "en": "And it's Sir Gideon, not just Gideon. That's S-I-R, Gideon! Sir Gideon, mind you!",
             "fr": ""
         },
         "parent": "72a45185-151b-4a0f-91f7-7c2b846a3c60",
@@ -432,7 +432,7 @@
                     "en": "I am.",
                     "fr": ""
                 },
-                "next": "f140f174-580e-40fe-9ac1-618eaf0f17f8",
+                "next": "6f19b9b7-be94-4a50-ba1a-4d1765a88e04",
                 "parent": "247e1b70-08c3-4d24-9aa7-cf362fbee249"
             },
             {
@@ -788,14 +788,14 @@
             "en": "Good.",
             "fr": ""
         },
-        "parent": "5ed66da4-79b6-43a8-a3ff-7173898f73fa",
         "signals": {
             "parent": "f140f174-580e-40fe-9ac1-618eaf0f17f8",
             "StartCombat": {
-                "String": "character;guideon"
+                "String": "character;rs_guard"
             }
         },
-        "next": "940b8ab5-9827-4867-9cef-a9ca6cca3a65"
+        "next": "940b8ab5-9827-4867-9cef-a9ca6cca3a65",
+        "parent": "6f19b9b7-be94-4a50-ba1a-4d1765a88e04"
     },
     "940b8ab5-9827-4867-9cef-a9ca6cca3a65": {
         "name": "Sir Gideon Hawthorne",
@@ -993,6 +993,17 @@
             }
         ]
     },
+    "6f19b9b7-be94-4a50-ba1a-4d1765a88e04": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Remember to choose your action properly, do not only plan on the present, but also in the future. What can seem a good move now, can be your worst error in the blink of an eye.",
+            "fr": ""
+        },
+        "parent": "5ed66da4-79b6-43a8-a3ff-7173898f73fa",
+        "next": "f140f174-580e-40fe-9ac1-618eaf0f17f8"
+    },
     "__editor": {
         "root": {
             "uuid": "root",
@@ -1005,57 +1016,57 @@
             {
                 "uuid": "c9809f6d-4b85-4f20-9ad3-53791d4eea48",
                 "offset": [
-                    660,
-                    -1180
+                    600,
+                    -1820
                 ]
             },
             {
                 "uuid": "da7fcca4-80d1-4af4-8831-0c2f652d8641",
                 "offset": [
-                    1100,
-                    -1180
+                    1040,
+                    -1820
                 ]
             },
             {
                 "uuid": "f92611b0-feef-4d34-8352-b79f531c7d06",
                 "offset": [
-                    1500,
-                    -1180
+                    1440,
+                    -1820
                 ]
             },
             {
                 "uuid": "72a45185-151b-4a0f-91f7-7c2b846a3c60",
                 "offset": [
-                    1920,
-                    -1180
+                    1860,
+                    -1820
                 ]
             },
             {
                 "uuid": "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7",
                 "offset": [
-                    2320,
-                    -1180
+                    2260,
+                    -1820
                 ]
             },
             {
                 "uuid": "edee822b-ba5b-4a36-852e-750f2c366aa6",
                 "offset": [
-                    3140,
-                    -1080
+                    3080,
+                    -1720
                 ]
             },
             {
                 "uuid": "85615c26-8b8d-4944-812c-6d5a73811cdf",
                 "offset": [
-                    4080,
-                    -1640
+                    4020,
+                    -2280
                 ]
             },
             {
                 "uuid": "e89f90a4-3fa4-436d-89ff-7123ed978796",
                 "offset": [
-                    4080,
-                    -1080
+                    4020,
+                    -1720
                 ]
             },
             {
@@ -1166,8 +1177,8 @@
             {
                 "uuid": "247e1b70-08c3-4d24-9aa7-cf362fbee249",
                 "offset": [
-                    760,
-                    -300
+                    740,
+                    -920
                 ]
             },
             {
@@ -1314,98 +1325,105 @@
                 "uuid": "25542bc2-943c-4f7f-b90d-9b85980d9672",
                 "offset": [
                     4880,
-                    -1940
+                    -2620
                 ]
             },
             {
                 "uuid": "ae5966d5-c887-478f-9370-51177a2993d0",
                 "offset": [
                     4880,
-                    -1440
+                    -2120
                 ]
             },
             {
                 "uuid": "ab6b0a15-c245-47f7-a145-9ac6b76b9f81",
                 "offset": [
                     5720,
-                    -2140
+                    -2820
                 ]
             },
             {
                 "uuid": "e5b42659-eb30-4575-a7aa-d2977f95040a",
                 "offset": [
                     5720,
-                    -1760
+                    -2440
                 ]
             },
             {
                 "uuid": "b3a54a83-fb10-495c-a583-b8d3fed9e285",
                 "offset": [
                     5800,
-                    -700
+                    -1380
                 ]
             },
             {
                 "uuid": "f140f174-580e-40fe-9ac1-618eaf0f17f8",
                 "offset": [
-                    1640,
-                    -200
+                    2060,
+                    -1020
                 ]
             },
             {
                 "uuid": "940b8ab5-9827-4867-9cef-a9ca6cca3a65",
                 "offset": [
-                    2460,
-                    -240
+                    2620,
+                    -940
                 ]
             },
             {
                 "uuid": "ff5a4564-6a94-44a0-8092-2ad6c760f32f",
                 "offset": [
-                    3300,
-                    -380
+                    3460,
+                    -1080
                 ]
             },
             {
                 "uuid": "4d5716d3-dd11-4334-8bb7-fb5ac9de1ec4",
                 "offset": [
-                    3300,
-                    20
+                    3460,
+                    -680
                 ]
             },
             {
                 "uuid": "b6752fa6-43c9-4071-a16a-18b0bb07fc20",
                 "offset": [
                     4500,
-                    -1040
+                    -1720
                 ]
             },
             {
                 "uuid": "f680c39d-0a89-46b9-9033-7a9e03794709",
                 "offset": [
                     4900,
-                    -1040
+                    -1720
                 ]
             },
             {
                 "uuid": "32db4635-f359-4ae4-8ac9-30c235e25588",
                 "offset": [
                     5800,
-                    -1100
+                    -1780
                 ]
             },
             {
                 "uuid": "8054afd0-6b85-4c42-87a0-83a8fe9025ac",
                 "offset": [
                     6240,
-                    -700
+                    -1380
                 ]
             },
             {
                 "uuid": "e4e2d68b-9da0-4e57-806e-ddf3a1f19e5c",
                 "offset": [
                     6240,
-                    -1100
+                    -1780
+                ]
+            },
+            {
+                "uuid": "6f19b9b7-be94-4a50-ba1a-4d1765a88e04",
+                "offset": [
+                    1560,
+                    -1020
                 ]
             }
         ],
@@ -1413,16 +1431,16 @@
             {
                 "uuid": "c9ad87f1-c054-4626-b15a-3351863e5cee",
                 "offset": [
-                    2880,
-                    -260
+                    3040,
+                    -960
                 ],
                 "parent": "940b8ab5-9827-4867-9cef-a9ca6cca3a65"
             },
             {
                 "uuid": "177bff7d-c88b-44c6-8f69-6461eb9087ec",
                 "offset": [
-                    2880,
-                    80
+                    3040,
+                    -620
                 ],
                 "collapsed": true,
                 "parent": "940b8ab5-9827-4867-9cef-a9ca6cca3a65"
@@ -1431,7 +1449,7 @@
                 "uuid": "ea5e2a34-f989-4cde-b64f-43600e5aad6c",
                 "offset": [
                     5380,
-                    -1060
+                    -1740
                 ],
                 "parent": "f680c39d-0a89-46b9-9033-7a9e03794709"
             },
@@ -1439,7 +1457,7 @@
                 "uuid": "8df3d032-54f5-47dd-927b-78a318e37f1f",
                 "offset": [
                     5380,
-                    -700
+                    -1380
                 ],
                 "collapsed": true,
                 "parent": "f680c39d-0a89-46b9-9033-7a9e03794709"
@@ -1447,16 +1465,16 @@
             {
                 "uuid": "21b7bfda-4941-43b5-8db7-92680de6aaba",
                 "offset": [
-                    240,
-                    -1140
+                    180,
+                    -1780
                 ],
                 "parent": "root"
             },
             {
                 "uuid": "6feb6ee6-5a54-465c-b4ab-bf1c2c55c01c",
                 "offset": [
-                    340,
-                    -260
+                    320,
+                    -880
                 ],
                 "parent": "root"
             },
@@ -1497,24 +1515,24 @@
             {
                 "uuid": "8024da1d-ce32-41e3-aef5-78cacab66a3f",
                 "offset": [
-                    1100,
-                    -1500
+                    1040,
+                    -2140
                 ],
                 "parent": "c9809f6d-4b85-4f20-9ad3-53791d4eea48"
             },
             {
                 "uuid": "560db598-ea3f-4cf2-b8b5-9c6d1aea9b06",
                 "offset": [
-                    2740,
-                    -1680
+                    2680,
+                    -2320
                 ],
                 "parent": "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"
             },
             {
                 "uuid": "869b6895-429a-4abd-90ca-b3297f7c7b18",
                 "offset": [
-                    3560,
-                    -800
+                    3500,
+                    -1440
                 ],
                 "parent": "edee822b-ba5b-4a36-852e-750f2c366aa6",
                 "data": {
@@ -1531,7 +1549,7 @@
                 "uuid": "d8a7cc48-066e-4e76-a778-732de24ad427",
                 "offset": [
                     4500,
-                    -2280
+                    -2960
                 ],
                 "parent": "85615c26-8b8d-4944-812c-6d5a73811cdf",
                 "data": {
@@ -1578,7 +1596,7 @@
                 "uuid": "1386f993-8489-4afa-8d6d-947bbf590506",
                 "offset": [
                     5320,
-                    -1360
+                    -2040
                 ],
                 "parent": "ae5966d5-c887-478f-9370-51177a2993d0",
                 "data": {
@@ -1592,7 +1610,7 @@
                 "uuid": "b7a7f8ed-9272-47c0-a95d-d4243b9c3d18",
                 "offset": [
                     6120,
-                    -2100
+                    -2780
                 ],
                 "parent": "ab6b0a15-c245-47f7-a145-9ac6b76b9f81",
                 "data": {
@@ -1609,7 +1627,7 @@
                 "uuid": "bf86ff90-9477-4c00-b84e-279ff77eb635",
                 "offset": [
                     6120,
-                    -1720
+                    -2400
                 ],
                 "parent": "e5b42659-eb30-4575-a7aa-d2977f95040a",
                 "data": {
@@ -1622,22 +1640,16 @@
             {
                 "uuid": "de6ebc5e-ba47-4220-98d0-6e69de02487a",
                 "offset": [
-                    2040,
-                    -460
+                    2480,
+                    -1280
                 ],
-                "parent": "f140f174-580e-40fe-9ac1-618eaf0f17f8",
-                "data": {
-                    "parent": "f140f174-580e-40fe-9ac1-618eaf0f17f8",
-                    "StartCombat": {
-                        "String": "character;guideon"
-                    }
-                }
+                "parent": "f140f174-580e-40fe-9ac1-618eaf0f17f8"
             },
             {
                 "uuid": "523eba65-acba-4177-8d53-2a092dee82cf",
                 "offset": [
-                    2880,
-                    -560
+                    3040,
+                    -1260
                 ],
                 "parent": "940b8ab5-9827-4867-9cef-a9ca6cca3a65"
             },
@@ -1645,7 +1657,7 @@
                 "uuid": "818dfa24-ee38-4db7-adc1-1126932e0a08",
                 "offset": [
                     4880,
-                    -600
+                    -1280
                 ],
                 "parent": "b6752fa6-43c9-4071-a16a-18b0bb07fc20"
             },
@@ -1653,7 +1665,7 @@
                 "uuid": "9bfe3fd5-07be-4606-836b-75c31a850071",
                 "offset": [
                     5360,
-                    -540
+                    -1220
                 ],
                 "parent": "f680c39d-0a89-46b9-9033-7a9e03794709"
             },
@@ -1661,7 +1673,7 @@
                 "uuid": "c9747bb1-221b-4eda-9db8-91910f792d49",
                 "offset": [
                     6660,
-                    -660
+                    -1340
                 ],
                 "parent": "8054afd0-6b85-4c42-87a0-83a8fe9025ac"
             },
@@ -1669,7 +1681,7 @@
                 "uuid": "b954cf3b-abf8-4581-b10c-b25043a24802",
                 "offset": [
                     6660,
-                    -1060
+                    -1740
                 ],
                 "parent": "e4e2d68b-9da0-4e57-806e-ddf3a1f19e5c"
             }
@@ -1678,24 +1690,24 @@
             {
                 "uuid": "1a7dc7ee-afcd-435f-8894-0e16e7767f58",
                 "offset": [
-                    2740,
-                    -1300
+                    2680,
+                    -1940
                 ],
                 "parent": "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"
             },
             {
                 "uuid": "0ab84aa0-0790-4493-b674-65a7be33c8fd",
                 "offset": [
-                    2740,
-                    -980
+                    2680,
+                    -1620
                 ],
                 "parent": "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7"
             },
             {
                 "uuid": "f4269134-4bf3-4e30-9cf3-dcdcf632a867",
                 "offset": [
-                    3620,
-                    -1300
+                    3560,
+                    -1940
                 ],
                 "parent": "edee822b-ba5b-4a36-852e-750f2c366aa6",
                 "data": {
@@ -1710,8 +1722,8 @@
             {
                 "uuid": "5e384f27-7300-4f04-808f-6c02da1f9895",
                 "offset": [
-                    3620,
-                    -1040
+                    3560,
+                    -1680
                 ],
                 "parent": "edee822b-ba5b-4a36-852e-750f2c366aa6",
                 "data": {
@@ -1727,7 +1739,7 @@
                 "uuid": "9d30d18d-d845-4506-b908-8503d82ebf43",
                 "offset": [
                     4500,
-                    -1860
+                    -2540
                 ],
                 "parent": "85615c26-8b8d-4944-812c-6d5a73811cdf",
                 "data": {
@@ -1743,7 +1755,7 @@
                 "uuid": "bfcf4af0-1ab8-4ef7-baf3-756402422f2e",
                 "offset": [
                     4520,
-                    -1360
+                    -2040
                 ],
                 "parent": "85615c26-8b8d-4944-812c-6d5a73811cdf",
                 "data": {
@@ -1830,16 +1842,16 @@
             {
                 "uuid": "5ed66da4-79b6-43a8-a3ff-7173898f73fa",
                 "offset": [
-                    1160,
-                    -320
+                    1140,
+                    -940
                 ],
                 "parent": "247e1b70-08c3-4d24-9aa7-cf362fbee249"
             },
             {
                 "uuid": "296b61ae-4ce0-4a55-9eae-88682e6c84be",
                 "offset": [
-                    1160,
-                    -60
+                    1140,
+                    -680
                 ],
                 "parent": "247e1b70-08c3-4d24-9aa7-cf362fbee249"
             },
@@ -1863,7 +1875,7 @@
                 "uuid": "fce22549-44b7-45f8-a5aa-10db51407c7f",
                 "offset": [
                     5340,
-                    -2060
+                    -2740
                 ],
                 "data": {
                     "text": {
@@ -1879,7 +1891,7 @@
                 "uuid": "9a5c16d0-1549-41e8-98ac-4a4dd5eb79e5",
                 "offset": [
                     5340,
-                    -1700
+                    -2380
                 ],
                 "data": {
                     "text": {

@@ -277,7 +277,7 @@
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
-            "en": "I mean, you have 2 years more of experience than me in the Rogue Squadron and you are just a better fighter than me.",
+            "en": "I mean, you've two years more in the Rogue Squadron than I. I fight worse by far, and truth be told, you're just better suited to it than I am.",
             "fr": ""
         },
         "parent": "21d95370-e6e0-4f3e-8e7c-b0e66c603ba3",
@@ -288,7 +288,7 @@
         "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
         "text": {
-            "en": "It's because they think that a woman cannot handle a position of power properly. And because they are afraid that we are, indeed, more than just \"capable\". ",
+            "en": "They think a woman can't hold power proper, and they're scared witless we might be better at it than them.",
             "fr": ""
         },
         "parent": "b296a296-bad4-47fb-b212-cf3032608f7d",
@@ -700,7 +700,7 @@
             },
             {
                 "text": {
-                    "en": "Why aren't you the one attending the audience ?",
+                    "en": "Why it has to be me?",
                     "fr": ""
                 },
                 "next": "b296a296-bad4-47fb-b212-cf3032608f7d",
@@ -1490,16 +1490,16 @@
             {
                 "uuid": "da5da365-7279-4a51-876b-64df2ba2c1a4",
                 "offset": [
-                    3340,
-                    160
+                    3320,
+                    -240
                 ],
                 "parent": "f0e71534-4a53-41b0-9b86-a759d79682ed"
             },
             {
                 "uuid": "21d95370-e6e0-4f3e-8e7c-b0e66c603ba3",
                 "offset": [
-                    3320,
-                    -240
+                    3340,
+                    160
                 ],
                 "parent": "f0e71534-4a53-41b0-9b86-a759d79682ed"
             },
