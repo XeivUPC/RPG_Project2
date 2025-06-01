@@ -173,17 +173,6 @@
                 "uuid": "dab651be-9a2a-4d35-856a-618d1533af3d"
             },
             {
-                "name": "Fisherman",
-                "portraits": [
-                    {
-                        "name": "Fisherman-idle",
-                        "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
-                        "uuid": "91378b4e-8ea9-4ac0-a8b8-6c53e0878628"
-                    }
-                ],
-                "uuid": "b1bb962d-ac6b-4e34-aa60-cb68c42a463f"
-            },
-            {
                 "name": "Innkeeper",
                 "portraits": [
                     {
@@ -193,6 +182,17 @@
                     }
                 ],
                 "uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93"
+            },
+            {
+                "name": "Fisherman",
+                "portraits": [
+                    {
+                        "name": "Fisherman-idle",
+                        "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+                        "uuid": "f0ed7c6d-8740-47a4-8186-c249d66e9ed5"
+                    }
+                ],
+                "uuid": "6b32487b-ffcc-423c-8ab7-0779b9449b13"
             }
         ],
         "files": [
