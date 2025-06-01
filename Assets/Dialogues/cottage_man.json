@@ -2,7 +2,7 @@
     "cccf1882-97a6-4660-a15b-dc0d19544993": {
         "name": "Cottage Man",
         "character_uuid": "dab651be-9a2a-4d35-856a-618d1533af3d",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Innkeeper-idle.png",
         "text": {
             "en": "Hello.",
             "fr": ""
@@ -13,12 +13,12 @@
         "conditions": [
             {
                 "parent": "root",
-                "Char9_State": {
+                "next": "cccf1882-97a6-4660-a15b-dc0d19544993",
+                "character;dh_cottage_man-state": {
                     "value": 0,
                     "operator": "equal",
                     "type": "int"
-                },
-                "next": "cccf1882-97a6-4660-a15b-dc0d19544993"
+                }
             }
         ]
     },
@@ -43,7 +43,7 @@
             {
                 "uuid": "539e592e-5e5e-4561-8f4b-a007ff1da77e",
                 "offset": [
-                    360,
+                    280,
                     -40
                 ],
                 "parent": "root"
