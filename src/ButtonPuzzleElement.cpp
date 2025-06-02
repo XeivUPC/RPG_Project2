@@ -34,6 +34,7 @@ void ButtonPuzzleElement::Initialize(string _id, Vector2Int _position, bool valu
 {
 	SetPosition(_position);
 	id = _id;
+	PuzzleManager::Instance().AddPuzzleElement(_id, *this);
 	if (!Load()) {
 		isPressed = value;
 	}
@@ -99,6 +100,7 @@ void ButtonPuzzleElement::InitPoolObject()
 
 void ButtonPuzzleElement::ResetPoolObject()
 {
+	PuzzleManager::Instance().RemovePuzzleElement(*this);
 	isPressed = false;
 	SetPosition(Vector2Int(0, 0));
 	targets.clear();

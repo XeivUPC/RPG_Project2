@@ -11,6 +11,9 @@
 #include "MissionList.h"
 #include "MissionHolder.h"
 
+#include "PuzzleManager.h"
+#include "PuzzleElement.h"
+
 #include "Engine.h"
 #include "ModuleAssetDatabase.h"
 #include "ModuleInput.h"
@@ -377,7 +380,32 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 	else if (signal->name == "CheckIfWonCombat") {
 		dialogue->AddGameStateVariable("HasWonCombat",Engine::Instance().s_game->GetCombat()->HasWonLastCombat());
 	}
+	else if (signal->name == "SetPuzzleVariable") {
 
-	//Change dialogue box
+		if (holds_alternative<string>(signal->data)) {
+			vector<string> puzzleData;
+			string data = get<string>(signal->data);
+
+			// Properly remove spaces using erase-remove idiom
+			data.erase(remove(data.begin(), data.end(), ' '), data.end());
+
+			const string delimiter = "->";
+			size_t start = 0;
+			size_t end = data.find(delimiter);
+
+			while (end != string::npos) {
+				puzzleData.push_back(data.substr(start, end - start));
+				start = end + delimiter.length();
+				end = data.find(delimiter, start);
+			}
+			puzzleData.push_back(data.substr(start));
+
+			PuzzleManager::Instance().SetValueFromPuzzle(puzzleData[0], puzzleData[1], puzzleData[2]);
+			PuzzleElement* puzzle = PuzzleManager::Instance().GetPuzzleElement(puzzleData[0]);
+			if (puzzle) {
+				puzzle->Load();
+			}
+		}
+	}
 }
 

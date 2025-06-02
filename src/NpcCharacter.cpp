@@ -56,9 +56,15 @@ void NpcCharacter::Render()
 		return;
 	if (path.size() > 1)
 	{
-		for (size_t i = 0; i < path.size() - 1; i++)
+		int pathSize = int(path.size() - 1);
+		if (movementType == MovementType::Loop)
+			pathSize = int(path.size());
+		for (size_t i = 0; i < pathSize; i++)
 		{
-			Engine::Instance().m_render->painter().RenderLine(path[i], path[i + 1], { 255,255,255,255 });
+			if (i == path.size() - 1)
+				Engine::Instance().m_render->painter().RenderLine(path[i], path[0], { 255,255,255,255 });
+			else
+				Engine::Instance().m_render->painter().RenderLine(path[i], path[i + 1], { 255,255,255,255 });
 		}
 	}
 }
