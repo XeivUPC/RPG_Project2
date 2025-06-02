@@ -2,7 +2,7 @@
 <UserPrefs>
 	<Entry Key="screen_vsync" Value="0" />
 	<Entry Key="screen_fullscreen" Value="0" />
-	<Entry Key="screen_width" Value="1280" />
+	<Entry Key="screen_width" Value="1366" />
 	<Entry Key="general_volume" Value="0.000000" />
 	<Entry Key="music_volume" Value="1.000000" />
 	<Entry Key="sfx_volume" Value="1.000000" />

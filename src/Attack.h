@@ -65,7 +65,8 @@ public:
 
 	bool blocksTurn = false;
 	CombatSystem::CharacterType blockTurnTarget = CombatSystem::Enemy;
-	string animation_data = "";
+	string animation_hit_data = "";
+	string animation_hurt_data = "";
 
 	virtual void DoAttack(CombatSystem::CharacterReference& attacker, std::vector<CombatSystem::CharacterReference*>& target);
 };
