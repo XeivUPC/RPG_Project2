@@ -24,7 +24,7 @@ JsonAnimator::~JsonAnimator()
 {
 }
 
-void JsonAnimator::AddJsonAnimationClip(string jsonPath, float speed)
+void JsonAnimator::AddJsonAnimationClip(string jsonPath, float speed, Vector2 pivot)
 {
 
     std::ifstream file(jsonPath);
@@ -63,7 +63,7 @@ void JsonAnimator::AddJsonAnimationClip(string jsonPath, float speed)
         rect.h = value["frame"]["h"];
         //frame.duration = value["duration"];
        
-        sprites.emplace_back(Sprite{ texture,rect,{0,0},{0,0} });
+        sprites.emplace_back(Sprite{ texture,rect,pivot,{0,0} });
 
     }
 	AddAnimationClip(AnimationClip(key,true,false, speed,sprites,nullptr,nullptr));

@@ -14,7 +14,7 @@ public:
 	~JsonAnimator();
 
 	/// It will reset everything
-	void AddJsonAnimationClip(string jsonPath, float speed);
+	void AddJsonAnimationClip(string jsonPath, float speed, Vector2 pivot = {0,0});
 
 public:
 private:
