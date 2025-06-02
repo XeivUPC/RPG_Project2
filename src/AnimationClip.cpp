@@ -88,6 +88,8 @@ void AnimationClip::CleanUp()
 		spriteList[i].CleanUp();
 	}
 	spriteList.clear();
+	onAnimationFinished.UnsubscribeAll();
+
 }
 
 
@@ -101,8 +103,8 @@ void AnimationClip::UpdateClip()
 		if (currentSprite == spriteList.size() - 1) {
 			if(loop)
 				currentSprite = 0;
-			onAnimationFinished.Trigger();
 			spriteList[currentSprite].onSpriteSelected.Trigger();
+			onAnimationFinished.Trigger();
 		}
 		else if (currentSprite < spriteList.size() - 1) {
 			currentSprite++;
