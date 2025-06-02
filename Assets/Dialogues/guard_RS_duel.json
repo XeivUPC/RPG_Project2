@@ -118,7 +118,6 @@
             "en": "Would you like to duel me?",
             "fr": ""
         },
-        "parent": "7b57dc65-1b30-499b-b2f9-d3dffe57fde9",
         "choices": [
             {
                 "text": {
@@ -136,7 +135,8 @@
                 "next": "",
                 "parent": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986"
             }
-        ]
+        ],
+        "parent": "b541657f-d3cc-407c-9039-f23ce228764c"
     },
     "ea9a8b13-716b-49e1-bc2f-28977bd1e65b": {
         "name": "Artis",
@@ -281,7 +281,7 @@
             "fr": ""
         },
         "parent": "f781fecb-2b62-4282-ba5f-509d4ccbc9cd",
-        "next": "aaf320f4-9894-4052-bb14-5c17a2d7ae33"
+        "next": "f2d840a1-ea90-4c8e-855a-1c737aec60a3"
     },
     "aaf320f4-9894-4052-bb14-5c17a2d7ae33": {
         "name": "Artis",
@@ -291,14 +291,14 @@
             "en": "Now that everyone left, please meet me at the house they built for me in the upper part of this headquarters.",
             "fr": ""
         },
-        "parent": "37f1266b-cd1f-4351-b583-ae73f7999744",
         "signals": {
             "StartCombat": {
                 "String": "character;artis,character;rs_guard,character;rs_guard"
             },
             "parent": "aaf320f4-9894-4052-bb14-5c17a2d7ae33"
         },
-        "next": "76151515-5eed-4c31-9e17-21db3fd415c3"
+        "next": "76151515-5eed-4c31-9e17-21db3fd415c3",
+        "parent": "7b57dc65-1b30-499b-b2f9-d3dffe57fde9"
     },
     "76151515-5eed-4c31-9e17-21db3fd415c3": {
         "name": "Cassian",
@@ -330,7 +330,16 @@
             "en": "Nice to meet you, Artis",
             "fr": ""
         },
-        "parent": "76c4faa3-a2c0-4df4-a1ce-673ea9534f12"
+        "parent": "76c4faa3-a2c0-4df4-a1ce-673ea9534f12",
+        "signals": {
+            "SetPuzzleVariable": {
+                "String": "blocking_696->isBlocking->false"
+            },
+            "parent": "17732019-7cb7-4c24-9a9a-a0cc2999c141",
+            "SetNpcState": {
+                "String": "character;rs_guard_duel-3"
+            }
+        }
     },
     "f1573f64-27f7-4973-bb56-58c91e790236": {
         "name": "Rogue Squadron Soldier",
@@ -380,12 +389,21 @@
             },
             {
                 "parent": "root",
-                "next": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986",
+                "next": "aaf320f4-9894-4052-bb14-5c17a2d7ae33",
                 "character;rs_guard_duel-state": {
                     "value": 2,
                     "operator": "equal",
                     "type": "int"
                 }
+            },
+            {
+                "character;rs_guard_duel-state": {
+                    "value": 3,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "next": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986",
+                "parent": "root"
             }
         ]
     },
@@ -450,8 +468,8 @@
             {
                 "uuid": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986",
                 "offset": [
-                    680,
-                    280
+                    580,
+                    1200
                 ]
             },
             {
@@ -527,29 +545,29 @@
             {
                 "uuid": "aaf320f4-9894-4052-bb14-5c17a2d7ae33",
                 "offset": [
-                    8080,
-                    -380
+                    680,
+                    580
                 ]
             },
             {
                 "uuid": "76151515-5eed-4c31-9e17-21db3fd415c3",
                 "offset": [
-                    8480,
-                    -380
+                    1080,
+                    580
                 ]
             },
             {
                 "uuid": "76c4faa3-a2c0-4df4-a1ce-673ea9534f12",
                 "offset": [
-                    8860,
-                    -380
+                    1460,
+                    580
                 ]
             },
             {
                 "uuid": "17732019-7cb7-4c24-9a9a-a0cc2999c141",
                 "offset": [
-                    9260,
-                    -380
+                    1860,
+                    580
                 ]
             },
             {
@@ -562,8 +580,15 @@
             {
                 "uuid": "29d8b980-6700-42d7-88e0-acdca2f5a0b8",
                 "offset": [
-                    1500,
-                    160
+                    1400,
+                    1080
+                ]
+            },
+            {
+                "uuid": "f2d840a1-ea90-4c8e-855a-1c737aec60a3",
+                "offset": [
+                    8080,
+                    -380
                 ]
             }
         ],
@@ -587,8 +612,16 @@
             {
                 "uuid": "7b57dc65-1b30-499b-b2f9-d3dffe57fde9",
                 "offset": [
-                    260,
-                    300
+                    240,
+                    600
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "b541657f-d3cc-407c-9039-f23ce228764c",
+                "offset": [
+                    160,
+                    1220
                 ],
                 "parent": "root"
             }
@@ -601,6 +634,20 @@
                     -740
                 ],
                 "parent": "ea9a8b13-716b-49e1-bc2f-28977bd1e65b"
+            },
+            {
+                "uuid": "758d78b3-a467-4bee-98c1-e9af1b7212a8",
+                "offset": [
+                    7240,
+                    -880
+                ],
+                "parent": "b079124b-3dd0-4dc0-91b5-eab04a3da741",
+                "data": {
+                    "UnlockNpc": {
+                        "String": "character;zeryn"
+                    },
+                    "parent": "b079124b-3dd0-4dc0-91b5-eab04a3da741"
+                }
             },
             {
                 "uuid": "aad4040f-c66d-4af5-94b0-c82152e3af12",
@@ -619,16 +666,16 @@
             {
                 "uuid": "bb81d264-1e70-47e6-9d68-3add4e6e8f41",
                 "offset": [
-                    8460,
-                    -680
+                    1060,
+                    280
                 ],
                 "parent": "aaf320f4-9894-4052-bb14-5c17a2d7ae33"
             },
             {
                 "uuid": "763f9b85-7dc7-47da-8412-0cf067715106",
                 "offset": [
-                    1900,
-                    200
+                    1800,
+                    1120
                 ],
                 "parent": "29d8b980-6700-42d7-88e0-acdca2f5a0b8",
                 "data": {
@@ -639,18 +686,20 @@
                 }
             },
             {
-                "uuid": "758d78b3-a467-4bee-98c1-e9af1b7212a8",
+                "uuid": "9b3b4855-fd20-4f78-ba8e-8be70573cf06",
                 "offset": [
-                    7240,
-                    -880
+                    2280,
+                    600
                 ],
-                "parent": "b079124b-3dd0-4dc0-91b5-eab04a3da741",
-                "data": {
-                    "UnlockNpc": {
-                        "String": "character;zeryn"
-                    },
-                    "parent": "b079124b-3dd0-4dc0-91b5-eab04a3da741"
-                }
+                "parent": "17732019-7cb7-4c24-9a9a-a0cc2999c141"
+            },
+            {
+                "uuid": "a8d1bbbc-3051-41b7-97b3-75b499227025",
+                "offset": [
+                    8500,
+                    -320
+                ],
+                "parent": "f2d840a1-ea90-4c8e-855a-1c737aec60a3"
             }
         ],
         "choices": [
@@ -689,16 +738,16 @@
             {
                 "uuid": "5dab8a03-9479-4cc9-b24d-e3fa0dbe77bf",
                 "offset": [
-                    1100,
-                    480
+                    1000,
+                    1400
                 ],
                 "parent": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986"
             },
             {
                 "uuid": "b1f8c47e-5cf8-41ce-b5be-94418564adfa",
                 "offset": [
-                    1100,
-                    240
+                    1000,
+                    1160
                 ],
                 "parent": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986"
             },
@@ -719,5 +768,21 @@
                 "parent": "bf405456-f769-45b1-aee9-1cb6745d4066"
             }
         ]
+    },
+    "f2d840a1-ea90-4c8e-855a-1c737aec60a3": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "I found before a strange scroll that said something strange \"Tap ESC, let the menu rise, Where comrades wait neath distant skies. In Partys grace, their gear bestow, Prepare them well fore forth you go.\" is it yours Cassian?",
+            "fr": ""
+        },
+        "parent": "37f1266b-cd1f-4351-b583-ae73f7999744",
+        "signals": {
+            "parent": "f2d840a1-ea90-4c8e-855a-1c737aec60a3",
+            "SetNpcState": {
+                "String": "character;rs_guard_duel-2"
+            }
+        }
     }
 }

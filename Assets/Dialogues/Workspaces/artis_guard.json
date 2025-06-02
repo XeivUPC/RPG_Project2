@@ -1,0 +1,107 @@
+{
+    "root": {
+        "next": "477601d7-62d7-4658-b234-676393d14a3e"
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                40,
+                100
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "477601d7-62d7-4658-b234-676393d14a3e",
+                "offset": [
+                    280,
+                    -40
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "c4a19032-381c-40d8-8988-4f88454f3c42",
+                "offset": [
+                    1080,
+                    -220
+                ]
+            },
+            {
+                "uuid": "588dd7da-17c9-40bc-8ce1-bad4498495c9",
+                "offset": [
+                    1480,
+                    -220
+                ]
+            }
+        ],
+        "conditions": [],
+        "signals": [],
+        "choices": [
+            {
+                "uuid": "1133e1ae-be57-4a2e-a74a-3a13c57cc90a",
+                "offset": [
+                    700,
+                    -140
+                ],
+                "parent": "477601d7-62d7-4658-b234-676393d14a3e"
+            },
+            {
+                "uuid": "a281ecf6-91f8-4fce-9ef5-1e651d5aef53",
+                "offset": [
+                    700,
+                    120
+                ],
+                "parent": "477601d7-62d7-4658-b234-676393d14a3e"
+            }
+        ]
+    },
+    "477601d7-62d7-4658-b234-676393d14a3e": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "Are you Cassian?",
+            "fr": ""
+        },
+        "parent": "root",
+        "choices": [
+            {
+                "text": {
+                    "en": "I am...",
+                    "fr": ""
+                },
+                "next": "c4a19032-381c-40d8-8988-4f88454f3c42",
+                "parent": "477601d7-62d7-4658-b234-676393d14a3e"
+            },
+            {
+                "text": {
+                    "en": "No, I'm just a stranger. - Leave -",
+                    "fr": ""
+                },
+                "next": "",
+                "parent": "477601d7-62d7-4658-b234-676393d14a3e"
+            }
+        ]
+    },
+    "c4a19032-381c-40d8-8988-4f88454f3c42": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "The prince left a message for you \"Meet me at Dunhaven\".",
+            "fr": ""
+        },
+        "parent": "1133e1ae-be57-4a2e-a74a-3a13c57cc90a",
+        "next": "588dd7da-17c9-40bc-8ce1-bad4498495c9"
+    },
+    "588dd7da-17c9-40bc-8ce1-bad4498495c9": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "\"P.S. : I have informed Sir Gideon that I will require your services, and do not worry on the money you will be well paid. You should be able to leave ",
+            "fr": ""
+        },
+        "parent": "c4a19032-381c-40d8-8988-4f88454f3c42"
+    }
+}
