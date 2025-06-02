@@ -16,14 +16,6 @@
     "duration": 60
    },
    "_Frame2": {
-    "frame": { "x": 128, "y": 0, "w": 64, "h": 64 },
-    "rotated": false,
-    "trimmed": false,
-    "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
-    "sourceSize": { "w": 64, "h": 64 },
-    "duration": 100
-   },
-   "_Frame3": {
     "frame": { "x": 0, "y": 64, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -31,7 +23,7 @@
     "sourceSize": { "w": 64, "h": 64 },
     "duration": 100
    },
-   "_Frame4": {
+   "_Frame3": {
     "frame": { "x": 64, "y": 64, "w": 64, "h": 64 },
     "rotated": false,
     "trimmed": false,
@@ -43,13 +35,13 @@
  "meta": {
   "app": "https://www.aseprite.org/",
   "version": "1.2.40-x64",
-  "image": "powerStrike-hurt.png",
+  "image": "stoneShield-hurt.png",
   "format": "RGBA8888",
-  "size": { "w": 192, "h": 128 },
+  "size": { "w": 128, "h": 128 },
   "scale": "1",
   "layers": [
-   { "name": "TextureId", "opacity": 255, "blendMode": "normal", "data": "powerStrike-hurt" },
-   { "name": "Default", "opacity": 200, "blendMode": "normal", "data": "healingWind-hurt" }
+   { "name": "TextureId", "opacity": 255, "blendMode": "normal", "data": "stoneShield-hurt" },
+   { "name": "Default", "opacity": 255, "blendMode": "normal" }
   ]
  }
 }

@@ -75,7 +75,7 @@
 	<attack id="3" name="Stone Shield">
 		<description value="Raises user's defense by 2 stages" />
 		<animation-hit-data value= "Assets/Textures/Animations/Attacks/stoneShield-hit.json"/>
-		<animation-hurt-data value= "Assets/Textures/Animations/Attacks/healingWind-hurt.json"/>
+		<animation-hurt-data value= "Assets/Textures/Animations/Attacks/stoneShield-hurt.json"/>
 		<data>
 			<info attack-type="2" />
 			<properties priority="1" accuracy="100" />
