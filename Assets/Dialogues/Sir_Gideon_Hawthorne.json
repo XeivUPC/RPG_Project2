@@ -356,6 +356,12 @@
             "parent": "f75ed139-1374-472c-8823-c9ec401f9bb7",
             "SetNpcState": {
                 "String": "character;guideon-3"
+            },
+            "RemoveMission": {
+                "String": "mission;audience"
+            },
+            "AddMission": {
+                "String": "mission;audience1"
             }
         }
     },
@@ -686,6 +692,12 @@
             "parent": "809883d4-f099-443e-8963-93bb14e121df",
             "SetNpcState": {
                 "String": "character;guideon-5"
+            },
+            "RemoveMission": {
+                "String": "mission;audience1"
+            },
+            "AddMission": {
+                "String": "mission;audience2"
             }
         }
     },
@@ -1688,13 +1700,19 @@
                 "uuid": "e0e4ec4d-cba6-46c1-b509-156770caf54e",
                 "offset": [
                     5800,
-                    800
+                    760
                 ],
                 "parent": "f75ed139-1374-472c-8823-c9ec401f9bb7",
                 "data": {
                     "parent": "f75ed139-1374-472c-8823-c9ec401f9bb7",
                     "SetNpcState": {
                         "String": "character;guideon-3"
+                    },
+                    "RemoveMission": {
+                        "String": "mission;audience"
+                    },
+                    "AddMission": {
+                        "String": "mission;audience1"
                     }
                 }
             },

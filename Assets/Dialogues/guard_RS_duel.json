@@ -337,7 +337,13 @@
             },
             "parent": "17732019-7cb7-4c24-9a9a-a0cc2999c141",
             "SetNpcState": {
-                "String": "character;rs_guard_duel-3"
+                "String": "character;rs_artisGuard_entryL-2"
+            },
+            "RemoveMission": {
+                "String": "mission;audience2"
+            },
+            "AddMission": {
+                "String": "mission;audience3"
             }
         }
     },
@@ -365,6 +371,22 @@
                 "String": "character;rs_guard"
             },
             "parent": "29d8b980-6700-42d7-88e0-acdca2f5a0b8"
+        }
+    },
+    "f2d840a1-ea90-4c8e-855a-1c737aec60a3": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "I found before a strange scroll that said something strange \"Tap ESC, let the menu rise, Where comrades wait neath distant skies. In Partys grace, their gear bestow, Prepare them well fore forth you go.\" is it yours Cassian?",
+            "fr": ""
+        },
+        "parent": "37f1266b-cd1f-4351-b583-ae73f7999744",
+        "signals": {
+            "parent": "f2d840a1-ea90-4c8e-855a-1c737aec60a3",
+            "SetNpcState": {
+                "String": "character;rs_guard_duel-2"
+            }
         }
     },
     "root": {
@@ -672,6 +694,14 @@
                 "parent": "aaf320f4-9894-4052-bb14-5c17a2d7ae33"
             },
             {
+                "uuid": "9b3b4855-fd20-4f78-ba8e-8be70573cf06",
+                "offset": [
+                    2280,
+                    600
+                ],
+                "parent": "17732019-7cb7-4c24-9a9a-a0cc2999c141"
+            },
+            {
                 "uuid": "763f9b85-7dc7-47da-8412-0cf067715106",
                 "offset": [
                     1800,
@@ -684,14 +714,6 @@
                     },
                     "parent": "29d8b980-6700-42d7-88e0-acdca2f5a0b8"
                 }
-            },
-            {
-                "uuid": "9b3b4855-fd20-4f78-ba8e-8be70573cf06",
-                "offset": [
-                    2280,
-                    600
-                ],
-                "parent": "17732019-7cb7-4c24-9a9a-a0cc2999c141"
             },
             {
                 "uuid": "a8d1bbbc-3051-41b7-97b3-75b499227025",
@@ -768,21 +790,5 @@
                 "parent": "bf405456-f769-45b1-aee9-1cb6745d4066"
             }
         ]
-    },
-    "f2d840a1-ea90-4c8e-855a-1c737aec60a3": {
-        "name": "Sir Gideon Hawthorne",
-        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
-        "text": {
-            "en": "I found before a strange scroll that said something strange \"Tap ESC, let the menu rise, Where comrades wait neath distant skies. In Partys grace, their gear bestow, Prepare them well fore forth you go.\" is it yours Cassian?",
-            "fr": ""
-        },
-        "parent": "37f1266b-cd1f-4351-b583-ae73f7999744",
-        "signals": {
-            "parent": "f2d840a1-ea90-4c8e-855a-1c737aec60a3",
-            "SetNpcState": {
-                "String": "character;rs_guard_duel-2"
-            }
-        }
     }
 }

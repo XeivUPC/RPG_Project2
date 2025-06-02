@@ -570,9 +570,6 @@
             "fr": ""
         },
         "signals": {
-            "UnlockNpc": {
-                "String": "5"
-            },
             "parent": "b75bbcee-c754-4500-a13a-1ec72915665c",
             "SetNpcState": {
                 "String": "character;zeryn-4"
@@ -759,6 +756,16 @@
             "parent": "b076f8e4-0fa2-47b0-9b34-24cb60f5067f"
         }
     },
+    "20c1b54a-760f-406c-bad8-959b470b1b13": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "And now... what are we to do?",
+            "fr": ""
+        },
+        "parent": "0e547ae8-35bc-40d7-8b6d-dce835c9f876"
+    },
     "root": {
         "conditions": [
             {
@@ -825,16 +832,6 @@
                 "next": "20c1b54a-760f-406c-bad8-959b470b1b13"
             }
         ]
-    },
-    "20c1b54a-760f-406c-bad8-959b470b1b13": {
-        "name": "Zeryn",
-        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
-        "text": {
-            "en": "What will happen to us now... I wonder?",
-            "fr": ""
-        },
-        "parent": "0e547ae8-35bc-40d7-8b6d-dce835c9f876"
     },
     "__editor": {
         "root": {

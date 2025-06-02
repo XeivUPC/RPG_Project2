@@ -421,6 +421,7 @@
   </object>
   <object id="100" x="303.5" y="294.75">
    <properties>
+    <property name="NpcId" value="character;rs_fit_soldier"/>
     <property name="Path" type="object" value="112"/>
     <property name="PathMovementType" type="int" value="1"/>
     <property name="Type" value="npc"/>
@@ -2009,8 +2010,9 @@
    </properties>
    <point/>
   </object>
-  <object id="676" x="352.42" y="237.443" width="30.5" height="7">
+  <object id="676" x="351.753" y="236.11" width="30.5" height="7">
    <properties>
+    <property name="Color" type="color" value="#00000000"/>
     <property name="IsBlocking" type="bool" value="true"/>
     <property name="PuzzleId" value="blocking_696"/>
     <property name="Type" value="blockingPuzzle"/>
@@ -2018,6 +2020,7 @@
   </object>
   <object id="677" x="256" y="897" width="48" height="16">
    <properties>
+    <property name="Color" type="color" value="#00000000"/>
     <property name="IsBlocking" type="bool" value="true"/>
     <property name="PuzzleId" value="blocking_969"/>
     <property name="Type" value="blockingPuzzle"/>
