@@ -33,7 +33,7 @@
 	<character id="character;guideon" template="character;guideon" name="Guideon">
 		<dialogue path="Assets/Dialogues/Sir_Gideon_Hawthorne.json" state="0"/>
 		<combat>
-			<stats level="1" hp="60" defense="63" attack="72" speed="100"/>
+			<stats level="20" hp="60" defense="63" attack="72" speed="100"/>
 			<attacks attack1="0" attack2="1" attack3="2" attack4="3"/>
 		</combat>
 	</character>

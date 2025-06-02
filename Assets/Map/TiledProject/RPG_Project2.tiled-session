@@ -3,14 +3,15 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Maps/Dunhaven_City.tmx",
+    "activeFile": "Maps/Interiors/Dungeon_puzzles.tmx",
     "expandedProjectPaths": [
-        "Prefabs",
         "Tilesets",
-        "Objects",
+        "Prefabs/Buildings",
         ".",
         "Maps",
-        "Prefabs/Buildings",
+        "Prefabs",
+        "Maps/Interiors/Dungeons",
+        "Objects",
         "Maps/Interiors"
     ],
     "exportAsImage.visibleLayersOnly": false,
@@ -157,11 +158,11 @@
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 1.5,
+            "scale": 3,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 264,
-                "y": 416.3333333333333
+                "x": 294.3333333333333,
+                "y": 114.33333333333334
             }
         },
         "Maps/Interiors/Dungeons/dungeon_room_11.tmx": {
@@ -556,18 +557,18 @@
     "project": "RPG_Project2.tiled-project",
     "property.type": "color",
     "recentFiles": [
-        "Maps/Dunhaven_Palace_Venue.tmx",
-        "Maps/Interiors/Dungeons/dungeon_room_14.tmx",
-        "Maps/Interiors/Dungeon_puzzles.tmx",
-        "Maps/Interiors/XeivTreaty_MainRoom.tmx",
-        "Maps/Interiors/CottageDunhaven.tmx",
-        "Maps/Interiors/House2_Inside.tmx",
-        "Maps/Interiors/House3_Inside.tmx",
-        "Maps/Interiors/House4_Inside.tmx",
-        "Maps/Interiors/Testing_Zone2.tmx",
-        "Maps/Interiors/Testing_Zone.tmx",
+        "Maps/Dunhaven_City.tmx",
+        "Maps/Interiors/Dungeons/dungeon_room_12.tmx",
+        "Maps/Rogue_Squadron_Headquarters.tmx",
         "Maps/Interiors/Dungeons/dungeon_room_41.tmx",
-        "Maps/Rogue_Squadron_Headquarters.tmx"
+        "Maps/Interiors/Testing_Zone.tmx",
+        "Maps/Interiors/Testing_Zone2.tmx",
+        "Maps/Interiors/House4_Inside.tmx",
+        "Maps/Interiors/House3_Inside.tmx",
+        "Maps/Interiors/House2_Inside.tmx",
+        "Maps/Interiors/CottageDunhaven.tmx",
+        "Maps/Interiors/XeivTreaty_MainRoom.tmx",
+        "Maps/Dunhaven_Palace_Venue.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,
