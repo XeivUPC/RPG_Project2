@@ -58,14 +58,17 @@
 	<character id="character;dh_cottage_man" template="character;dh_fisherman" name="Cottage Man">
 		<dialogue path="Assets/Dialogues/cottage_man.json" state="0" />
 	</character>
+	<character id="character;dh_fisherman" template="character;dh_fisherman" name="Fisherman">
+		<dialogue path="Assets/Dialogues/Fisherman_Dunhaven_One.json" state="0" />
+	</character>
 	<character id="character;dh_xt_innkeeper" template="character;dh_fisherman" name="Innkeeper">
-		<dialogue path="Assets/Dialogues/innkeeper_xeivTreaty_one.json" state="3" />
+		<dialogue path="Assets/Dialogues/innkeeper_xeivTreaty_one.json" state="0" />
 	</character>
 	<character id="character;dh_xt_vip1" template="character;guideon" name="Vip 1">
 		<dialogue path="Assets/Dialogues/vip_client_one.json" state="0" />
 	</character>
 	<character id="character;dh_xt_vip2" template="character;guideon" name="Vip 2">
-		<dialogue path="Assets/Dialogues/vip_client_two.json" state="1" />
+		<dialogue path="Assets/Dialogues/vip_client_two.json" state="0" />
 	</character>
 	<character id="character;dh_xt_vip3" template="character;guideon" name="Vip 3">
 		<dialogue path="Assets/Dialogues/vip_client_three.json" state="0" />
@@ -85,14 +88,6 @@
 	</character>
 	<character id="character;dh_guard" template="character;dh_guard" name="DH Guard">
 		<recruitable>true</recruitable>
-		<combat>
-			<stats level="1" hp="60" defense="63" attack="72" speed="100" />
-			<attacks attack1="0" attack2="1" attack3="2" attack4="3" />
-		</combat>
-	</character>
-	<character id="character;dh_fisherman" template="character;dh_fisherman" name="Fisherman">
-		<recruitable>true</recruitable>
-		<dialogue path="Assets/Dialogues/Fihsherman_Dunhaven_One.json" state="0" />
 		<combat>
 			<stats level="1" hp="60" defense="63" attack="72" speed="100" />
 			<attacks attack1="0" attack2="1" attack3="2" attack4="3" />

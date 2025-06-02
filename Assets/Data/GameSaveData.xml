@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="1500" y="1250" />
+		<position x="815" y="638" />
 		<party>
 			<active>
 				<member id="character;cassian" />
@@ -11,11 +11,10 @@
 			</inactive>
 		</party>
 		<missions>
-			<mission id="mission;tutorial" status="0" />
-			<mission id="mission;XeivTreatyVIP" status="0" />
+			<mission id="mission;tutorial" status="1" />
 		</missions>
 		<inventory>
-			<item id="item;VIP_Card" amount="1" />
+			<item />
 			<item />
 			<item />
 			<item />
@@ -59,10 +58,10 @@
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="35840.7734" />
+		<time value="59209.7109" />
 		<items />
 		<tilemaps>
-			<tilemap path="Assets/Map/Data/Dunhaven_City.xml" spawnpoint-x="272.563202" spawnpoint-y="1134.36194" />
+			<tilemap path="Assets/Map/Data/Dunhaven_City.xml" spawnpoint-x="0" spawnpoint-y="0" />
 		</tilemaps>
 	</map>
 </game>
