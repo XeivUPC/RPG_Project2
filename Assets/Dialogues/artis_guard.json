@@ -1,0 +1,184 @@
+{
+    "477601d7-62d7-4658-b234-676393d14a3e": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "Are you Cassian?",
+            "fr": ""
+        },
+        "choices": [
+            {
+                "text": {
+                    "en": "I am...",
+                    "fr": ""
+                },
+                "next": "c4a19032-381c-40d8-8988-4f88454f3c42",
+                "parent": "477601d7-62d7-4658-b234-676393d14a3e"
+            },
+            {
+                "text": {
+                    "en": "No, I'm just a stranger. - Leave -",
+                    "fr": ""
+                },
+                "next": "",
+                "parent": "477601d7-62d7-4658-b234-676393d14a3e"
+            }
+        ],
+        "parent": "53207f02-cbae-4862-8dc8-4997df5146a9"
+    },
+    "c4a19032-381c-40d8-8988-4f88454f3c42": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "The prince left a message for you \"Meet me at Dunhaven\".",
+            "fr": ""
+        },
+        "parent": "1133e1ae-be57-4a2e-a74a-3a13c57cc90a",
+        "next": "588dd7da-17c9-40bc-8ce1-bad4498495c9"
+    },
+    "588dd7da-17c9-40bc-8ce1-bad4498495c9": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "\"P.S. : I have informed Sir Gideon that I will require your services, and do not worry on the money you will be well paid. You should be able to leave ",
+            "fr": ""
+        },
+        "parent": "c4a19032-381c-40d8-8988-4f88454f3c42",
+        "signals": {
+            "SetPuzzleVariable": {
+                "String": "blocking_969->isBlocking->false"
+            },
+            "parent": "588dd7da-17c9-40bc-8ce1-bad4498495c9",
+            "SetNpcState": {
+                "String": "character;rs_artisGuard-1"
+            },
+            "RemoveMission": {
+                "String": "mission;audience3"
+            },
+            "AddMission": {
+                "String": "mission;dunhaven"
+            }
+        }
+    },
+    "root": {
+        "conditions": [
+            {
+                "parent": "root",
+                "next": "477601d7-62d7-4658-b234-676393d14a3e",
+                "character;rs_artisGuard-state": {
+                    "value": 0,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "character;rs_artisGuard-state": {
+                    "value": 1,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "next": "a95a2229-bc1d-43ad-8a91-cd169593700e"
+            }
+        ]
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                40,
+                100
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "477601d7-62d7-4658-b234-676393d14a3e",
+                "offset": [
+                    680,
+                    -60
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "c4a19032-381c-40d8-8988-4f88454f3c42",
+                "offset": [
+                    1480,
+                    -240
+                ]
+            },
+            {
+                "uuid": "588dd7da-17c9-40bc-8ce1-bad4498495c9",
+                "offset": [
+                    1880,
+                    -240
+                ]
+            },
+            {
+                "uuid": "a95a2229-bc1d-43ad-8a91-cd169593700e",
+                "offset": [
+                    680,
+                    320
+                ]
+            }
+        ],
+        "conditions": [
+            {
+                "uuid": "53207f02-cbae-4862-8dc8-4997df5146a9",
+                "offset": [
+                    260,
+                    -20
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "29bdbcea-c99a-4c50-a672-b8bfb71b971c",
+                "offset": [
+                    260,
+                    340
+                ],
+                "parent": "root"
+            }
+        ],
+        "signals": [
+            {
+                "uuid": "fcaef8fb-7699-4272-993b-7e0a0e202a8a",
+                "offset": [
+                    2300,
+                    -240
+                ],
+                "parent": "588dd7da-17c9-40bc-8ce1-bad4498495c9"
+            }
+        ],
+        "choices": [
+            {
+                "uuid": "1133e1ae-be57-4a2e-a74a-3a13c57cc90a",
+                "offset": [
+                    1100,
+                    -160
+                ],
+                "parent": "477601d7-62d7-4658-b234-676393d14a3e"
+            },
+            {
+                "uuid": "a281ecf6-91f8-4fce-9ef5-1e651d5aef53",
+                "offset": [
+                    1100,
+                    100
+                ],
+                "parent": "477601d7-62d7-4658-b234-676393d14a3e"
+            }
+        ]
+    },
+    "a95a2229-bc1d-43ad-8a91-cd169593700e": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "You will find the prince at Dunhaven, not here.",
+            "fr": ""
+        },
+        "parent": "29bdbcea-c99a-4c50-a672-b8bfb71b971c"
+    }
+}

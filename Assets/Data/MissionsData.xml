@@ -116,6 +116,46 @@
 		</conditions>
 	</mission>
 
+	<mission id="mission;audience1">
+		<title>The Audience</title>
+		<description>Attend the audience with Sir Guideon.</description>
+		<conditions>
+			<condition type ="ItemCondition" tasksAmount ="1">
+				<item1 id="item;null" count="0" />
+			</condition>
+		</conditions>
+	</mission>
+
+	<mission id="mission;audience2">
+		<title>One vs one</title>
+		<description>Talk to the guard from Dunhaven and start the duel.</description>
+		<conditions>
+			<condition type ="ItemCondition" tasksAmount ="1">
+				<item1 id="item;null" count="0" />
+			</condition>
+		</conditions>
+	</mission>
+
+	<mission id="mission;audience3">
+		<title>Royalty</title>
+		<description>Talk to Artis at the house assigned to him in the north of the camp.</description>
+		<conditions>
+			<condition type ="ItemCondition" tasksAmount ="1">
+				<item1 id="item;null" count="0" />
+			</condition>
+		</conditions>
+	</mission>
+
+	<mission id="mission;dunhaven">
+		<title>City of nobles</title>
+		<description>Talk to Artis at Dunhaven.</description>
+		<conditions>
+			<condition type ="ItemCondition" tasksAmount ="1">
+				<item1 id="item;null" count="0" />
+			</condition>
+		</conditions>
+	</mission>
+
 	<mission id="mission;XeivTreatyVIP">
 		<title>Discover What Fun Is</title>
 		<description>Find 4 VIP Cards by talking to the villagers in Dunhaven.</description>
