@@ -84,10 +84,7 @@ private:
 		UIImage* selectedCharacterTarget = nullptr;
 
 		UIAnimatedImage* combatEffect = nullptr;
-
 	};
-
-
 
 	/// CreationFunctions
 	UIAttackButton CreateUIAttackButton(int attackIndex, Vector2 btn_position);
@@ -127,7 +124,7 @@ private:
 
 	void FinishAttackVisuals(UIAnimatedImage* characterImage);
 	void FinishHurtVisuals(UIAnimatedImage* characterImage, CombatSystem::CharacterReference* ref);
-	//void FinishEffectVisuals(UIAnimatedImage* characterImage);
+	void FinishEffectVisuals(UIAnimatedImage* combatEffect);
 
 private:
 	CombatSystem* combat = nullptr;
@@ -161,7 +158,7 @@ private:
 	AlertDisplayerCG* alert;
 	UITextBox* debug_immortalEnabled = nullptr;
 	pair<bool, bool> visualEffects = pair<bool,bool>(false,false);	//First bool = attacker  | Second bool = targets
-	pair<bool, bool> animationEffect = pair<bool,bool>(false,true);	//First bool = animation | Second bool = effect
+	pair<bool, bool> animationEffect = pair<bool,bool>(false,false);	//First bool = animation | Second bool = effect
 	pair<int, int> targetVisualsCompleted = pair<int, int>(0, 0);	//First bool = animation | Second bool = effect
 	pair<int, int> targetVisualsRequest = pair<int, int>(0, 0);	//First bool = animation | Second bool = effect
 	bool firstTick = true;

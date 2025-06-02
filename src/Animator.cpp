@@ -20,6 +20,7 @@ void Animator::AddAnimationClip(AnimationClip clip)
 }
 AnimationClip* Animator::clip()
 {
+	if (currentAnimationIndex == -1) return nullptr;
 	return &AnimationList[currentAnimationIndex];
 }
 
@@ -65,6 +66,14 @@ AnimationClip* Animator::GetAnimationClip(const string& animationName)
 		}
 	}
 	return nullptr;
+}
+
+AnimationClip* Animator::GetCurrentAnimationClip()
+{
+	if (currentAnimationIndex == -1)
+		return nullptr;
+	else
+		return &AnimationList[currentAnimationIndex];
 }
 
 vector<AnimationClip>& Animator::GetAnimationClips()
