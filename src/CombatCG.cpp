@@ -345,11 +345,11 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 	UITextBox* slotName = new UITextBox(charactedData.name, *btn_font, font_size, {255,255,255,255}, { 0,0 }, { 69,18 }, { 0,1 }, hAligment, vAligment, false);
 	slotName->SetLocalScale(0.5f);
 	
-	UIToggle* poisonToggle = new UIToggle(*effects_texture, { 53,4 }, { 5,3 }, { 0,0,5,3 }, { 5,0,5,3 }, {0,0},false);
+	UIToggle* poisonToggle = new UIToggle(*effects_texture, { 54,2 }, { 8,8 }, { 8,0,8,8 }, { 16,0,8,8 }, {0,0},false);
 	poisonToggle->interactable = false;
-	UIToggle* burnToggle = new UIToggle(*effects_texture, {58,4}, { 5,3 },{ 0,3,5,3 }, { 5,3,5,3 }, { 0,0 }, false);
+	UIToggle* burnToggle = new UIToggle(*effects_texture, {64,2}, { 8,8 },{ 8,8,8,8 }, { 16,0,8,8 }, { 0,0 }, false);
 	burnToggle->interactable = false;
-	UIToggle* regenerationToggle = new UIToggle(*effects_texture, {63,4}, {5,3}, { 0,6,5,3 }, { 5,6,5,3 }, { 0,0 }, false);
+	UIToggle* regenerationToggle = new UIToggle(*effects_texture, {74,2}, {8,8}, { 8,16,8,8 }, { 16,0,8,8 }, { 0,0 }, false);
 	regenerationToggle->interactable = false;
 
 
@@ -437,7 +437,6 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 	UIAnimatedImage* combatEffect = new UIAnimatedImage({ 0,-30 }, { 64,64 }, { 0.5f,0.5f }, {255,255,255,0});
 	combatEffect->SetLocalScale(1.7f);
 	combatEffect->flip = value->team == CombatSystem::Enemy;
-	combatEffect->localdebug = true;
 
 	selectedCharacterTarget->SetParent(characterBtn);
 	characterImage->SetParent(characterBtn);
