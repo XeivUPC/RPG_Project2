@@ -248,6 +248,7 @@ void CombatCG::LoadCanvas()
 
 void CombatCG::UnloadCanvas()
 {
+	charactersSlot.clear();
 	if (alert != nullptr) {
 		delete alert;
 		alert = nullptr;
