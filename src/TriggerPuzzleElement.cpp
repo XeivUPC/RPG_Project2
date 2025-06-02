@@ -51,6 +51,7 @@ void TriggerPuzzleElement::Render()
 
 void TriggerPuzzleElement::Initialize(string _id, Vector2Int _position, float _size, vector<string> _targets, bool callOnEnter, bool callOnExit)
 {
+	id = _id;
 	targets = _targets;
 	onEnter = callOnEnter;
 	onExit = callOnExit;
@@ -70,7 +71,8 @@ void TriggerPuzzleElement::Initialize(string _id, Vector2Int _position, float _s
 	mask.flags.player_layer = 1;
 	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
 
-	id = _id;
+
+	PuzzleManager::Instance().AddPuzzleElement(_id, *this);
 	if (!Load()) {
 
 	}
@@ -109,6 +111,7 @@ void TriggerPuzzleElement::InitPoolObject()
 
 void TriggerPuzzleElement::ResetPoolObject()
 {
+	PuzzleManager::Instance().RemovePuzzleElement(*this);
 	isBeingTriggered = false;
 	SetPosition(Vector2Int(0, 0));
 	targets.clear();

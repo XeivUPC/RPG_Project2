@@ -29,6 +29,7 @@ void BlockingPuzzleElement::Render()
 
 void BlockingPuzzleElement::Initialize(string _id, Vector2Int _position, Vector2 _size, bool blocks)
 {
+	id = _id;
 	size = { (float)METERS_TO_PIXELS(_size.x),(float)METERS_TO_PIXELS(_size.y) };
 	renderOffsetSorting = {0,(int)(size.y/2)};
 
@@ -42,9 +43,8 @@ void BlockingPuzzleElement::Initialize(string _id, Vector2Int _position, Vector2
 	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
 
 
-
+	PuzzleManager::Instance().AddPuzzleElement(_id, *this);
 	SetPosition(_position);
-	id = _id;
 
 	if (!Load()) {
 		isBlocking = blocks;
@@ -96,6 +96,7 @@ void BlockingPuzzleElement::InitPoolObject()
 
 void BlockingPuzzleElement::ResetPoolObject()
 {
+	PuzzleManager::Instance().RemovePuzzleElement(*this);
 	if (eventId.id != -1) {
 		PuzzleManager::Instance().onPuzzleCall.Unsubscribe(eventId);
 		eventId.id = -1;

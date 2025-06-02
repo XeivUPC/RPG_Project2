@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class PuzzleElemetn;
+class PuzzleElement;
 
 class PuzzleManager {
 public:
@@ -20,6 +20,11 @@ public:
     void ClearData();
     void SaveAllData();
 	void LoadAllData();
+
+    void AddPuzzleElement(const string& id, PuzzleElement& element);
+    void RemovePuzzleElement(const PuzzleElement& element);
+
+    PuzzleElement* GetPuzzleElement(const string& id);
 
 	bool HasPuzzle(const string& id) const;
 	bool HasPuzzleProperty(const string& id, const string& propertyId) const;
@@ -44,4 +49,5 @@ private:
 private:
 	string pathToSaveFile = "Assets/Data/Puzzles/PuzzlesData.xml";
 	unordered_map<string, unordered_map<string,string>> puzzlesData;
+	unordered_map<string, PuzzleElement*> puzzles;
 };

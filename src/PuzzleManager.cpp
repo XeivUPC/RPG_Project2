@@ -108,3 +108,26 @@ void PuzzleManager::LoadAllData()
     }
 }
 
+void PuzzleManager::AddPuzzleElement(const string& id, PuzzleElement& element)
+{
+	puzzles[id] = &element;
+}
+
+void PuzzleManager::RemovePuzzleElement(const PuzzleElement& element)
+{
+	for (auto it = puzzles.begin(); it != puzzles.end(); ++it) {
+		if (it->second == &element) {
+			puzzles.erase(it);
+			return;
+		}
+	}
+}
+
+PuzzleElement* PuzzleManager::GetPuzzleElement(const string& id)
+{
+    if (puzzles.count(id) == 0) {
+        return nullptr;
+    }
+	return puzzles.at(id);
+}
+
