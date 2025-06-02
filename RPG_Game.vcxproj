@@ -360,8 +360,9 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Assets\Data\AttackList.xml" />
-    <Xml Include="Assets\Data\CharactersData.xml" />
-    <Xml Include="Assets\Data\CharactersData_Default.xml" />
+    <Xml Include="Assets\Data\Characters\CharacterDefinitions_Default.xml" />
+    <Xml Include="Assets\Data\Characters\CharacterTemplate.xml" />
+    <Xml Include="Assets\Data\Characters\SaveData\CharacterDefinitions.xml" />
     <Xml Include="Assets\Data\GameSaveData.xml" />
     <Xml Include="Assets\Data\ItemsData.xml" />
     <Xml Include="Assets\Data\MissionsData.xml" />

@@ -17,7 +17,7 @@ FollowerCharacter::FollowerCharacter(Character* _characterToFollow, float _delay
 	SetCharacterToFollow(_characterToFollow);
 	SetCharacterId(_charId);
 	delayDistance = _delayDistance;
-	texture = Engine::Instance().m_assetsDB->GetTexture("npc_test");
+	texture = Engine::Instance().m_assetsDB->GetTexture("cassian_test");
 
 	renderLayer = 3;
 	renderOffsetSorting = { 0,2 };

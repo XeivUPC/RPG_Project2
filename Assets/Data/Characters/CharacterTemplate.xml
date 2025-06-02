@@ -10,8 +10,8 @@
     <character id="character;pedroJr" textureId="dog_test" faceId="Pedro-idle"/>
     
     <!-- NPC Generic -->
-    <character id="character;rs_guard" textureId="rsGuard_test" faceId="Guard-idle"/>
-    <character id="character;dh_guard" textureId="rsGuard_test" faceId="Guard-idle"/>
+    <character id="character;rs_guard" textureId="rsGuard_test" faceId="Guard1-idle"/>
+    <character id="character;dh_guard" textureId="rsGuard_test" faceId="Guard1-idle"/>
     <character id="character;dh_fisherman" textureId="fisherman_test" faceId="Fisherman-idle"/>
 
 </template>

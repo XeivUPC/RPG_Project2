@@ -208,7 +208,7 @@ SDL_Texture* ModuleAssetDatabase::GetTexture(const string& textureID)
 {
 	if (!IsTextureLoaded(textureID))
 	{
-		printf("Texture File Not Loaded\n");
+		printf("Texture File Not Loaded --> %s\n", textureID.c_str());
 		return nullptr;
 	}
 	return textureData[textureID];
@@ -241,7 +241,7 @@ Mix_Chunk* ModuleAssetDatabase::GetAudio(const string& audioID)
 {
 	if (!IsAudioLoaded(audioID))
 	{
-		printf("Audio File Not Loaded\n");
+		printf("Audio File Not Loaded --> %s\n", audioID.c_str());
 		return nullptr;
 	}
 	return audioData[audioID];
@@ -251,7 +251,7 @@ AudioContainer* ModuleAssetDatabase::GetAudioContainer(const string& audioContai
 {
 	if (!IsAudioContainerLoaded(audioContainerID))
 	{
-		printf("Audio Container File Not Loaded\n");
+		printf("Audio Container File Not Loaded --> %s\n", audioContainerID.c_str());
 		return nullptr;
 	}
 	return audioContainerData[audioContainerID];
@@ -261,7 +261,7 @@ _Mix_Music* ModuleAssetDatabase::GetMusic(const string& musicID)
 {
 	if (!IsMusicLoaded(musicID))
 	{
-		printf("Audio File Not Loaded\n");
+		printf("Audio File Not Loaded --> %s\n", musicID.c_str());
 		return nullptr;
 	}
 	return musicData[musicID];
@@ -271,7 +271,7 @@ MusicContainer* ModuleAssetDatabase::GetMusicContainer(const string& musicContai
 {
 	if (!IsMusicContainerLoaded(musicContainerID))
 	{
-		printf("Music Container File Not Loaded\n");
+		printf("Music Container File Not Loaded --> %s\n", musicContainerID.c_str());
 		return nullptr;
 	}
 	return musicContainerData[musicContainerID];
@@ -341,7 +341,7 @@ TextureAtlas* ModuleAssetDatabase::GetAtlas(const string& atlasID)
 {
 	if (!IsAtlasLoaded(atlasID))
 	{
-		printf("Atlas File Not Loaded\n");
+		printf("Atlas File Not Loaded --> %s\n", atlasID.c_str());
 		return nullptr;
 	}
 	return atlasData[atlasID];
@@ -366,7 +366,7 @@ _TTF_Font* ModuleAssetDatabase::GetFont(const string& fontID)
 {
 	if (!IsFontLoaded(fontID))
 	{
-		printf("Font File Not Loaded\n");
+		printf("Font File Not Loaded --> %s\n", fontID.c_str());
 		return nullptr;
 	}
 	return fontData[fontID];

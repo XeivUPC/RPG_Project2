@@ -400,7 +400,9 @@ void PartyCG::GoToMemeberPage(int page)
 	prev_pageBtn->isEnabled = true;
 	next_pageBtn->isEnabled = true;
 
-	int maxPage = party->GetMemebersAmount() / membersByPage;
+	int maxPage = ceil(party->GetMemebersAmount() / membersByPage) -1;
+	if (maxPage < 0)
+		maxPage = 0;
 
 	if (page <= 0 && page >= maxPage) {
 		membersPage = 0;
