@@ -357,7 +357,7 @@ void UIDialogueBoxCG::SignalReader(Signal* signal)
 		if (holds_alternative<string>(signal->data)) {
 			string data = get<string>(signal->data);
 
-			Engine::Instance().s_game->GetPlayer()->party->AddPartyMemeber(data);
+			Engine::Instance().s_game->GetPlayer()->party->AddMemeber(data);
 		}
 	}
 	else if (signal->name == "StartCombat") {
