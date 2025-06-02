@@ -107,7 +107,8 @@ void CombatCG::UpdateCanvas()
 				CombatSystem::TurnAttack* turnData = combat->GetCurrentTurnAttack();
 				slotSelected->combatEffect->GetJsonAnimator()->CleanUp();
 				slotSelected->combatEffect->GetJsonAnimator()->AddJsonAnimationClip(turnData->attack->animation_data, 0.1f);
-				slotSelected->combatEffect->GetJsonAnimator()->GetCurrentAnimationClip()->onAnimationFinished.Subscribe([this, slotSelected]() {FinishAttackVisuals(slotSelected->combatEffect); });
+				slotSelected->combatEffect->GetJsonAnimator()->GetCurrentAnimationClip()->Loop(false);
+				slotSelected->combatEffect->GetJsonAnimator()->GetCurrentAnimationClip()->onAnimationFinished.Subscribe([this, slotSelected]() {FinishEffectVisuals(slotSelected->combatEffect); });
 
 				if (turnData->attack->type == Attack::AttackType::Aggressive) {
 					slotSelected->characterImage->GetAnimator()->Animate("physic-attack");
@@ -145,7 +146,8 @@ void CombatCG::UpdateCanvas()
 					if (slot->characterRef->stats.currentHp > 0) {
 						slot->combatEffect->GetJsonAnimator()->CleanUp();
 						slot->combatEffect->GetJsonAnimator()->AddJsonAnimationClip(turnData->attack->animation_data, 0.1f);
-						slot->combatEffect->GetJsonAnimator()->GetCurrentAnimationClip()->onAnimationFinished.Subscribe([this, slot]() {FinishAttackVisuals(slot->combatEffect); });
+						slot->combatEffect->GetJsonAnimator()->GetCurrentAnimationClip()->Loop(false);
+						slot->combatEffect->GetJsonAnimator()->GetCurrentAnimationClip()->onAnimationFinished.Subscribe([this, slot]() {FinishEffectVisuals(slot->combatEffect); });
 
 						slot->characterImage->GetAnimator()->Animate("hurt");
 						Engine::Instance().m_audio->PlaySFX(combat_hurt);
@@ -432,7 +434,7 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
  	characterImage->GetAnimator()->GetAnimationClip("physic-attack")->onAnimationFinished.Subscribe([this, characterImage]() {FinishAttackVisuals(characterImage); });
  	characterImage->GetAnimator()->GetAnimationClip("hurt")->onAnimationFinished.Subscribe([this, characterImage, value]() {FinishHurtVisuals(characterImage, value); });
  	
-	UIAnimatedImage* combatEffect = new UIAnimatedImage({ 0,-30 }, { 64,64 }, { 0.5f,0.5f });
+	UIAnimatedImage* combatEffect = new UIAnimatedImage({ 0,-30 }, { 64,64 }, { 0.5f,0.5f }, {255,255,255,0});
 
 	selectedCharacterTarget->SetParent(characterBtn);
 	characterImage->SetParent(characterBtn);
@@ -453,7 +455,7 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 
 	AddElementToCanvas(overlay);
 
-	return { characterBtn,characterImage, value,slotLvl,slotName, poisonToggle, burnToggle,regenerationToggle, hpBar,hpBarMaxWidth, overlay, attackDone,selectedCharacterIndicator, selectedCharacterTarget};
+	return { characterBtn,characterImage, value,slotLvl,slotName, poisonToggle, burnToggle,regenerationToggle, hpBar,hpBarMaxWidth, overlay, attackDone,selectedCharacterIndicator, selectedCharacterTarget, combatEffect};
 }
 
 void CombatCG::CreateUIExtras()

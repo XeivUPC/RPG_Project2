@@ -20,7 +20,7 @@ void Animator::AddAnimationClip(AnimationClip clip)
 }
 AnimationClip* Animator::clip()
 {
-	if (AnimationList.size() == 0)return nullptr;
+	if (currentAnimationIndex == -1) return nullptr;
 	return &AnimationList[currentAnimationIndex];
 }
 

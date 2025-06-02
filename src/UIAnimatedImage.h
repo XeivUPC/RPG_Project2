@@ -24,4 +24,5 @@ private:
 
 private:
 	JsonAnimator animator;
+	SDL_Color color;
 };
