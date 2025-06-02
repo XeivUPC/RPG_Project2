@@ -16,6 +16,7 @@ public:
 	void CleanUp();
 
 	AnimationClip* GetAnimationClip(const string& animationName);
+	AnimationClip* GetCurrentAnimationClip();
 	vector<AnimationClip>& GetAnimationClips();
 
 public:

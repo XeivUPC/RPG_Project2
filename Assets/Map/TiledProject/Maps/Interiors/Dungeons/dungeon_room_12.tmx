@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="11" height="11" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="22">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="11" height="11" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="25">
+ <editorsettings>
+  <export target="dungeon_room_12..tmx" format="tmx"/>
+ </editorsettings>
  <properties>
   <property name="IsInside" type="bool" value="true"/>
  </properties>
@@ -17,6 +20,21 @@
 25,64,64,64,64,64,64,64,64,64,25,
 25,64,64,64,64,64,64,64,64,64,25,
 25,25,25,25,25,25,25,25,25,25,25
+</data>
+ </layer>
+ <layer id="3" name="objects" width="11" height="11">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,189,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,174,0,0,
+0,0,0,0,0,0,174,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
  <objectgroup id="2" name="Collisions">
@@ -85,5 +103,8 @@
    </properties>
    <point/>
   </object>
+  <object id="22" name="collision" x="96" y="128" width="16" height="16"/>
+  <object id="23" name="collision" x="128" y="112" width="16" height="16"/>
+  <object id="24" name="collision" x="112" y="80" width="16" height="16"/>
  </objectgroup>
 </map>

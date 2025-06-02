@@ -21,7 +21,8 @@ UIAnimatedImage::~UIAnimatedImage()
 
 void UIAnimatedImage::UpdateElement()
 {
-	animator.clip()->UpdateClip();
+	if(animator.clip() != nullptr)
+		animator.clip()->UpdateClip();
 
 	for (size_t i = 0; i < childs.size(); i++)
 	{

@@ -28,6 +28,7 @@
 	</attack>
 	<attack id="0" name="Power Strike">
 		<description value="A strong physical strike with increased critical chance" />
+		<animation-data value= "Assets/Textures/Animations/rain_animation.json"/>
 		<data>
 			<info attack-type="0" />
 			<properties priority="0" accuracy="95" />
