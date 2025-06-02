@@ -14,7 +14,7 @@ class UIToggle;
 
 class PartyCG : public UICanvas {
 public:
-	PartyCG();
+	PartyCG(int _renderLayer);
 	~PartyCG();
 	void UpdatePartySlots();
 

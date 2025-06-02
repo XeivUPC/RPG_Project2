@@ -30,6 +30,12 @@ public:
 	void SetPosition(Vector2 newPosition);
 
 private:
+
+	// Inherited via PuzzleElement
+	bool Load() override;
+	bool Save() override;
+
+private:
 	bool isBeingTriggered = false;
 	bool onEnter = false;
 	bool onExit = false;

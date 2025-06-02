@@ -45,11 +45,14 @@ void BlockingPuzzleElement::Initialize(string _id, Vector2Int _position, Vector2
 
 	SetPosition(_position);
 	id = _id;
-	isBlocking = blocks;
-	if (isBlocking)
-		Enable();
-	else
-		Disable();
+
+	if (!Load()) {
+		isBlocking = blocks;
+		if (isBlocking)
+			Enable();
+		else
+			Disable();
+	}
 
 }
 
@@ -67,6 +70,7 @@ void BlockingPuzzleElement::RecieveCall(string _id, unordered_map<string, string
 					Enable();
 				else
 					Disable();
+				Save();
 			}
 		}
 	}
@@ -117,4 +121,25 @@ void BlockingPuzzleElement::Disable()
 {
 	isBlocking = false;
 	body->SetSensor(0, true);
+}
+
+bool BlockingPuzzleElement::Load()
+{
+	if (PuzzleManager::Instance().HasPuzzleProperty(id, "isBlocking")) {
+		bool value = PuzzleManager::Instance().GetValueFromPuzzle(id, "isBlocking") == "true";
+		if (value)
+			Enable();
+		else
+			Disable();
+		isBlocking = value;
+
+		return true;
+	}
+	return false;
+}
+
+bool BlockingPuzzleElement::Save()
+{
+	PuzzleManager::Instance().SetValueFromPuzzle(id, "isBlocking", isBlocking ? "true" : "false");
+	return true;
 }

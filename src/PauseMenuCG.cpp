@@ -26,21 +26,17 @@ PauseMenuCG::PauseMenuCG(int _renderLayer)
 
 	renderLayer = _renderLayer;
 	//// Create SubCanvas
-	settings = new SettingsCG();
-	settings->renderLayer = renderLayer;
+	settings = new SettingsCG(renderLayer);
 	submenus["Settings"] = settings;
 
-	party = new PartyCG();
+	party = new PartyCG(renderLayer);
 	submenus["Party"] = party;
-	party->renderLayer = renderLayer;
 
-	inventory = new InventoryCG();
+	inventory = new InventoryCG(renderLayer);
 	submenus["Inventory"] = inventory;
-	inventory->renderLayer = renderLayer;
 
-	saveLoad = new SaveLoadCG();
+	saveLoad = new SaveLoadCG(renderLayer);
 	submenus["SaveLoad"] = saveLoad;
-	saveLoad->renderLayer = renderLayer;
 
 	Engine::Instance().m_render->SetRenderQueueDirty();
 

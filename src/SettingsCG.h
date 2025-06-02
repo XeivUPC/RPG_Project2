@@ -4,6 +4,6 @@
 
 class SettingsCG : public UICanvas {
 public:
-	SettingsCG();
+	SettingsCG(int _renderLayer);
 	~SettingsCG() override = default;
 };

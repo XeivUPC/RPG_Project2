@@ -22,6 +22,8 @@
 #include "MissionList.h"
 #include "MissionManager.h"
 
+#include "PuzzleManager.h"
+
 #include "pugixml.hpp"
 
 
@@ -97,11 +99,11 @@ bool GameScene::Start()
     combatCanvas = new CombatCG(combatSystem);
     combatCanvas->renderLayer = 7;
 
+    screenEffectsCanvas = new ScreenEffectsCG(5);
     pauseCanvas = new PauseMenuCG(7);
 
     gameplayCanvas = new GameplayCG(6);
 
-    screenEffectsCanvas = new ScreenEffectsCG(5);
 
    
     Engine::Instance().m_render->SetCameraZoom(1.5f);
@@ -506,6 +508,7 @@ PlayerCharacter* GameScene::GetPlayer() const
 
 void GameScene::FreshStart()
 {
+    PuzzleManager::Instance().ClearData();
     CreateNewTilemap("Assets/Map/Data/Rogue_Squadron_Headquarters.xml");
     MissionManager::Instance().AddMission(*new MissionHolder(MissionList::Instance().MissionByID("mission;tutorial")));
     clock = StepTimer(3600*12);
@@ -551,6 +554,7 @@ void GameScene::LoadGameSaveData()
 {
     LOG("Loading Game");
 
+    PuzzleManager::Instance().LoadAllData();
 
     xml_document file;
     pugi::xml_parse_result result = file.load_file(savePath.c_str());
@@ -697,6 +701,8 @@ void GameScene::SaveGameSaveData()
 {
 
     LOG("Saving Game");
+
+	PuzzleManager::Instance().SaveAllData();
 
     xml_document file;
     pugi::xml_parse_result result = file.load_file(savePath.c_str());

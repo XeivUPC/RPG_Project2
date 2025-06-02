@@ -27,12 +27,14 @@ bool TriggerPuzzleElement::Update()
 	if (!isBeingTriggered && sensor.IsBeingTriggered()) {
 		if (onEnter) {
 			isBeingTriggered = true;
+			Save();
 			SendCall();
 		}
 	}
 	else if(isBeingTriggered && !sensor.IsBeingTriggered()){
 		if (onExit) {
 			isBeingTriggered = false;
+			Save();
 			SendCall();
 		}
 	}
@@ -68,8 +70,12 @@ void TriggerPuzzleElement::Initialize(string _id, Vector2Int _position, float _s
 	mask.flags.player_layer = 1;
 	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
 
-	SetPosition(_position);
 	id = _id;
+	if (!Load()) {
+
+	}
+
+	SetPosition(_position);
 }
 
 void TriggerPuzzleElement::RecieveCall(string _id, unordered_map<string, string> _params)
@@ -118,4 +124,21 @@ void TriggerPuzzleElement::SetPosition(Vector2 newPosition)
 	position = newPosition;
 	if (body != nullptr)
 		body->SetPhysicPosition(position.x, position.y);
+}
+
+bool TriggerPuzzleElement::Load()
+{
+	if (PuzzleManager::Instance().HasPuzzleProperty(id, "isBeingTriggered")) {
+		bool value = PuzzleManager::Instance().GetValueFromPuzzle(id, "isBeingTriggered") == "true";
+		isBeingTriggered = value;
+
+		return true;
+	}
+	return false;
+}
+
+bool TriggerPuzzleElement::Save()
+{
+	PuzzleManager::Instance().SetValueFromPuzzle(id, "isBeingTriggered", isBeingTriggered ? "true" : "false");
+	return true;
 }

@@ -34,7 +34,9 @@ void ButtonPuzzleElement::Initialize(string _id, Vector2Int _position, bool valu
 {
 	SetPosition(_position);
 	id = _id;
-	isPressed = value;
+	if (!Load()) {
+		isPressed = value;
+	}
 	targets = _targets;
 }
 
@@ -63,6 +65,7 @@ void ButtonPuzzleElement::Complete()
 void ButtonPuzzleElement::Interact(Vector2 from)
 {
 	isPressed = !isPressed;
+	Save();
 	SendCall();
 }
 
@@ -111,4 +114,20 @@ void ButtonPuzzleElement::SetPosition(Vector2 newPosition)
 	position = newPosition;
 	if (body != nullptr)
 		body->SetPhysicPosition(position.x, position.y);
+}
+
+bool ButtonPuzzleElement::Load()
+{
+	if (PuzzleManager::Instance().HasPuzzleProperty(id, "isPressed")) {
+		bool value = PuzzleManager::Instance().GetValueFromPuzzle(id, "isPressed") == "true";
+		isPressed = value;
+		return true;
+	}
+	return false;
+}
+
+bool ButtonPuzzleElement::Save()
+{
+	PuzzleManager::Instance().SetValueFromPuzzle(id, "isPressed", isPressed ? "true" : "false");
+	return true;
 }

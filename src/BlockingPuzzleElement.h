@@ -34,9 +34,14 @@ private:
 	void Enable();
 	void Disable();
 
+	// Inherited via PuzzleElement
+	bool Load() override;
+	bool Save() override;
+
 private:
 	bool isBlocking = false;
 	PhysBody* body = nullptr;
 
 	Vector2 size = { 0,0 };
+
 };

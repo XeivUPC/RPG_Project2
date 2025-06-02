@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="707">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="707">
  <editorsettings>
   <export target="../../Data/Dunhaven_Palace_Venue.xml" format="tmx"/>
  </editorsettings>
@@ -197,7 +197,7 @@
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>
-  <object id="686" name="EntryPoint4" x="1025.25" y="322.25">
+  <object id="686" name="EntryPoint4" x="1012.58" y="322.583">
    <properties>
     <property name="Type" value="entryPoint"/>
     <property name="Value" type="int" value="4"/>

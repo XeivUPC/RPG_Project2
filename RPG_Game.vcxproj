@@ -365,6 +365,7 @@
     <Xml Include="Assets\Data\GameSaveData.xml" />
     <Xml Include="Assets\Data\ItemsData.xml" />
     <Xml Include="Assets\Data\MissionsData.xml" />
+    <Xml Include="Assets\Data\Puzzles\PuzzlesData.xml" />
     <Xml Include="Assets\Data\UserPrefs.xml" />
   </ItemGroup>
   <ItemGroup>

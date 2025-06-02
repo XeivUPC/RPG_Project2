@@ -18,8 +18,9 @@
 #include "GameScene.h"
 #include "PlayerCharacter.h"
 
-InventoryCG::InventoryCG()
+InventoryCG::InventoryCG(int _renderLayer)
 {
+	renderLayer = _renderLayer;
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
 
 	Mix_Chunk* btn_enter = Engine::Instance().m_assetsDB->GetAudio("btn_enter");

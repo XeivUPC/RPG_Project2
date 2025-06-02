@@ -20,8 +20,9 @@
 #include "Globals.h"
 #include <algorithm>
 
-PartyCG::PartyCG()
+PartyCG::PartyCG(int _renderLayer)
 {
+	renderLayer = _renderLayer;
 	///// AssetsLoading
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
 

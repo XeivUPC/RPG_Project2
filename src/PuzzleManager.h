@@ -17,8 +17,14 @@ public:
         return instance;
     }
 
-	bool AddPuzzle(PuzzleElemetn& puzzle, bool triggerEvent = true);
-	bool RemovePuzzle(PuzzleElemetn& puzzle, bool triggerEvent = true);
+    void ClearData();
+    void SaveAllData();
+	void LoadAllData();
+
+	bool HasPuzzle(const string& id) const;
+	bool HasPuzzleProperty(const string& id, const string& propertyId) const;
+    string GetValueFromPuzzle(const string& id, const string& propertyId);
+    void SetValueFromPuzzle(const string& id, const string& propertyId, const string& value);
 
 public:
     /// Ids, Paramas
@@ -34,5 +40,8 @@ private:
     PuzzleManager();
     ~PuzzleManager();
 
+
 private:
+	string pathToSaveFile = "Assets/Data/Puzzles/PuzzlesData.xml";
+	unordered_map<string, unordered_map<string,string>> puzzlesData;
 };
