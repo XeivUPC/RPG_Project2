@@ -24,11 +24,12 @@ BlockingPuzzleElement::~BlockingPuzzleElement()
 void BlockingPuzzleElement::Render()
 {
 	if(isBlocking)
-		Engine::Instance().m_render->painter().RenderBox(position, size, { 1,1 }, { 0.5f,0.5f }, true);
+		Engine::Instance().m_render->painter().RenderBox(position, size, { 1,1 }, { 0.5f,0.5f }, true,color);
 }
 
-void BlockingPuzzleElement::Initialize(string _id, Vector2Int _position, Vector2 _size, bool blocks)
+void BlockingPuzzleElement::Initialize(string _id, Vector2Int _position, Vector2 _size, bool blocks, SDL_Color _color)
 {
+	color = _color;
 	id = _id;
 	size = { (float)METERS_TO_PIXELS(_size.x),(float)METERS_TO_PIXELS(_size.y) };
 	renderOffsetSorting = {0,(int)(size.y/2)};

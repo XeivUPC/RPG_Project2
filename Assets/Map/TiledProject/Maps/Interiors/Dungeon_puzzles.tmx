@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="33" height="52" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="100">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="33" height="52" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="100">
  <editorsettings>
   <export target="../../../Data/Interiors/Dungeon_puzzles.xml" format="tmx"/>
  </editorsettings>
@@ -234,6 +234,7 @@
  <objectgroup id="3" name="Objects">
   <object id="1" name="Bloqueo" x="160" y="192.046" width="16" height="31.9535">
    <properties>
+    <property name="Color" type="color" value="#ff533927"/>
     <property name="IsBlocking" type="bool" value="true"/>
     <property name="PuzzleId" value="blocking_01"/>
     <property name="Type" value="blockingPuzzle"/>
@@ -241,6 +242,7 @@
   </object>
   <object id="2" name="Bloqueo" x="208" y="192" width="16" height="31.9535">
    <properties>
+    <property name="Color" type="color" value="#ff533927"/>
     <property name="IsBlocking" type="bool" value="true"/>
     <property name="PuzzleId" value="blocking_02"/>
     <property name="Type" value="blockingPuzzle"/>
@@ -248,6 +250,7 @@
   </object>
   <object id="3" name="Bloqueo" x="288" y="112" width="16" height="31.9535">
    <properties>
+    <property name="Color" type="color" value="#ff533927"/>
     <property name="IsBlocking" type="bool" value="true"/>
     <property name="PuzzleId" value="blocking_05"/>
     <property name="Type" value="blockingPuzzle"/>
@@ -255,6 +258,7 @@
   </object>
   <object id="4" name="Bloqueo" x="112" y="240" width="31.875" height="16.0785">
    <properties>
+    <property name="Color" type="color" value="#ff533927"/>
     <property name="IsBlocking" type="bool" value="true"/>
     <property name="PuzzleId" value="blocking_03"/>
     <property name="Type" value="blockingPuzzle"/>
@@ -262,6 +266,7 @@
   </object>
   <object id="5" name="Bloqueo" x="240.125" y="160" width="31.875" height="16.0785">
    <properties>
+    <property name="Color" type="color" value="#ff533927"/>
     <property name="IsBlocking" type="bool" value="false"/>
     <property name="PuzzleId" value="blocking_04"/>
     <property name="Type" value="blockingPuzzle"/>
@@ -296,8 +301,9 @@
    </properties>
    <point/>
   </object>
-  <object id="11" name="Bloqueo" x="160.625" y="510" width="63.0388" height="37.804">
+  <object id="11" name="Bloqueo" x="160.625" y="508.727" width="63.0388" height="40.7131">
    <properties>
+    <property name="Color" type="color" value="#c82c2c41"/>
     <property name="IsBlocking" type="bool" value="true"/>
     <property name="PuzzleId" value="blocking_06"/>
     <property name="Type" value="blockingPuzzle"/>
@@ -323,8 +329,9 @@
    </properties>
    <point/>
   </object>
-  <object id="41" name="Bloqueo" x="240" y="394" width="16.1638" height="101.804">
+  <object id="41" name="Bloqueo" x="240" y="394" width="16.1638" height="103.804">
    <properties>
+    <property name="Color" type="color" value="#c82c2c41"/>
     <property name="IsBlocking" type="bool" value="true"/>
     <property name="PuzzleId" value="blocking_20"/>
     <property name="Type" value="blockingPuzzle"/>
@@ -332,6 +339,7 @@
   </object>
   <object id="54" name="Bloqueo" x="160" y="768" width="16" height="15.7944">
    <properties>
+    <property name="Color" type="color" value="#ff533927"/>
     <property name="IsBlocking" type="bool" value="true"/>
     <property name="PuzzleId" value="blocking_07"/>
     <property name="Type" value="blockingPuzzle"/>
@@ -358,6 +366,7 @@
   </object>
   <object id="57" name="Bloqueo" x="208" y="768" width="16" height="15.7944">
    <properties>
+    <property name="Color" type="color" value="#ff533927"/>
     <property name="IsBlocking" type="bool" value="true"/>
     <property name="PuzzleId" value="blocking_08"/>
     <property name="Type" value="blockingPuzzle"/>
@@ -365,6 +374,7 @@
   </object>
   <object id="59" name="Bloqueo" x="128" y="800" width="16" height="15.7944">
    <properties>
+    <property name="Color" type="color" value="#ff533927"/>
     <property name="IsBlocking" type="bool" value="true"/>
     <property name="PuzzleId" value="blocking_09"/>
     <property name="Type" value="blockingPuzzle"/>
@@ -372,6 +382,7 @@
   </object>
   <object id="60" name="Bloqueo" x="240" y="800" width="16" height="15.7944">
    <properties>
+    <property name="Color" type="color" value="#ff533927"/>
     <property name="IsBlocking" type="bool" value="true"/>
     <property name="PuzzleId" value="blocking_10"/>
     <property name="Type" value="blockingPuzzle"/>

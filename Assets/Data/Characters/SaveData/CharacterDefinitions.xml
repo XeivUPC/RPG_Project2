@@ -52,6 +52,9 @@
 	<character id="character;rs_artisGuard_entryR" template="character;rs_guard" name="RS Artis Guard">
 		<dialogue path="Assets/Dialogues/guard_Artis_right.json" state="0" />
 	</character>
+	<character id="character;rs_artisGuard" template="character;rs_guard" name="Artis Guard">
+		<dialogue path="Assets/Dialogues/guard_Artis_right.json" state="0" />
+	</character>
 	<character id="character;pedroJr" template="character;pedroJr" name="PedroJr">
 		<dialogue path="Assets/Dialogues/pedro_jr.json" state="0" />
 	</character>

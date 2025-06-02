@@ -274,7 +274,24 @@ void Tilemap::CreateObjects()
                 string blockingId = object->properties.at("PuzzleId").value;
                 bool blockingState = object->properties.at("IsBlocking").value == "true";
 
-                blocking->Initialize(blockingId, position, size, blockingState);
+                string colorHtml = "";
+				SDL_Color color = { 255,255,255,255 };
+
+                if (object->properties.count("Color") != 0) {
+                    colorHtml = object->properties.at("Color").value;
+
+                    vector<uint8> rgba;
+                    for (int i = 1; i < 9; i += 2) {
+                        std::string component = colorHtml.substr(i, 2);
+                        int value = std::stoi(component, nullptr, 16);
+                        rgba.push_back(value);
+                    }
+                    SDL_Color color2 = { rgba[1],rgba[2],rgba[3],rgba[0] };
+					color = color2;
+                }
+
+               
+                blocking->Initialize(blockingId, position, size, blockingState, color);
              }
             else if (type == "triggerPuzzle") {
 

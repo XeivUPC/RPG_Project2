@@ -68,8 +68,8 @@
             "scale": 1,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 308,
-                "y": 299
+                "x": 512,
+                "y": 319.5
             }
         },
         "Maps/Forest.tmx": {
@@ -161,7 +161,7 @@
             "selectedLayer": 4,
             "viewCenter": {
                 "x": 264,
-                "y": 416
+                "y": 416.3333333333333
             }
         },
         "Maps/Interiors/Dungeons/dungeon_room_11.tmx": {
@@ -196,7 +196,7 @@
             "selectedLayer": 1,
             "viewCenter": {
                 "x": 88.0436941410129,
-                "y": 88.0436941410129
+                "y": 87.93445878848064
             }
         },
         "Maps/Interiors/Dungeons/dungeon_room_21.tmx": {
@@ -271,7 +271,7 @@
             "selectedLayer": 1,
             "viewCenter": {
                 "x": 88,
-                "y": 88
+                "y": 87.875
             }
         },
         "Maps/Interiors/Dungeons/dungeon_room_42.tmx": {
@@ -303,7 +303,7 @@
             "selectedLayer": 0,
             "viewCenter": {
                 "x": 88,
-                "y": 96
+                "y": 95.75
             }
         },
         "Maps/Interiors/House3_Inside.tmx": {
@@ -314,7 +314,7 @@
             "selectedLayer": 4,
             "viewCenter": {
                 "x": 207.74249673771206,
-                "y": 240.1043932144411
+                "y": 239.8434101783384
             }
         },
         "Maps/Interiors/House4_Inside.tmx": {
@@ -324,8 +324,8 @@
             "scale": 1.5,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 278.6666666666667,
-                "y": 180.66666666666669
+                "x": 248,
+                "y": 167.66666666666666
             }
         },
         "Maps/Interiors/Testing_Zone.tmx": {
@@ -336,7 +336,7 @@
             "selectedLayer": 4,
             "viewCenter": {
                 "x": 96,
-                "y": 48
+                "y": 47.75
             }
         },
         "Maps/Interiors/Testing_Zone2.tmx": {
@@ -344,7 +344,7 @@
             "selectedLayer": 0,
             "viewCenter": {
                 "x": 40,
-                "y": 40
+                "y": 39.875
             }
         },
         "Maps/Interiors/XeivTreaty_MainRoom.tmx": {
@@ -354,8 +354,8 @@
             "scale": 2.2754032258064516,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 247.86815523657634,
-                "y": 167.8823320928584
+                "x": 247.86815523657629,
+                "y": 168.10207336523126
             }
         },
         "Maps/Interiors/dungeon_room_11.tmx": {
@@ -554,7 +554,7 @@
         "Maps/Dunhaven_Palace_Venue.tmx"
     ],
     "project": "RPG_Project2.tiled-project",
-    "property.type": "string",
+    "property.type": "color",
     "recentFiles": [
         "Maps/Dunhaven_Palace_Venue.tmx",
         "Maps/Interiors/Dungeons/dungeon_room_14.tmx",
