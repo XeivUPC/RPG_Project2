@@ -160,7 +160,7 @@
             },
             {
                 "text": {
-                    "en": "No just passing by - Leave -",
+                    "en": "No... just passing by. - Leave -",
                     "fr": ""
                 },
                 "next": "",
@@ -214,7 +214,7 @@
         "choices": [
             {
                 "text": {
-                    "en": "Who is Sir Gideon apart from my trainer?",
+                    "en": "Sir Gideon was someone important in the past, right?",
                     "fr": ""
                 },
                 "next": "f76af9db-5358-4c1e-aef0-8a2ddd810510",
@@ -222,7 +222,7 @@
             },
             {
                 "text": {
-                    "en": "Why is Sir Gideon teaching us ?",
+                    "en": "What does Sir Gideon gain from teaching us ?",
                     "fr": ""
                 },
                 "next": "3d5ce7b7-3761-4ff8-8b8e-17e7eab5673b",
@@ -744,14 +744,20 @@
         }
     },
     "b076f8e4-0fa2-47b0-9b34-24cb60f5067f": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
         "text": {
-            "en": ".................................",
+            "en": "Nice sword, it will look good on you during the audience.",
             "fr": ""
         },
-        "parent": "0e9fe181-dcdd-41de-9824-03c3b7f086b7"
+        "parent": "0e9fe181-dcdd-41de-9824-03c3b7f086b7",
+        "signals": {
+            "SetNpcState": {
+                "String": "character;zeryn-5"
+            },
+            "parent": "b076f8e4-0fa2-47b0-9b34-24cb60f5067f"
+        }
     },
     "root": {
         "conditions": [
@@ -808,8 +814,27 @@
                     "operator": "equal",
                     "type": "int"
                 }
+            },
+            {
+                "character;zeryn-state": {
+                    "value": 6,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "parent": "root",
+                "next": "20c1b54a-760f-406c-bad8-959b470b1b13"
             }
         ]
+    },
+    "20c1b54a-760f-406c-bad8-959b470b1b13": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "What will happen to us now... I wonder?",
+            "fr": ""
+        },
+        "parent": "0e547ae8-35bc-40d7-8b6d-dce835c9f876"
     },
     "__editor": {
         "root": {
@@ -1106,6 +1131,13 @@
                     1780,
                     600
                 ]
+            },
+            {
+                "uuid": "20c1b54a-760f-406c-bad8-959b470b1b13",
+                "offset": [
+                    920,
+                    1920
+                ]
             }
         ],
         "conditions": [
@@ -1222,6 +1254,14 @@
                 "offset": [
                     540,
                     1500
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "0e547ae8-35bc-40d7-8b6d-dce835c9f876",
+                "offset": [
+                    540,
+                    1960
                 ],
                 "parent": "root"
             }
@@ -1380,6 +1420,14 @@
                         "String": "character;zeryn-5"
                     }
                 }
+            },
+            {
+                "uuid": "4a4fad91-fe1c-425d-83eb-cc02ef139770",
+                "offset": [
+                    2180,
+                    660
+                ],
+                "parent": "b076f8e4-0fa2-47b0-9b34-24cb60f5067f"
             }
         ],
         "choices": [

@@ -7,7 +7,6 @@
             "en": "Are you ready?",
             "fr": ""
         },
-        "parent": "620c160c-d3c7-448a-9b5a-3d4b251cd961",
         "choices": [
             {
                 "text": {
@@ -25,7 +24,8 @@
                 "next": "",
                 "parent": "8e2b864e-8383-40f6-8087-ec60337f5cab"
             }
-        ]
+        ],
+        "parent": "09c3bd41-6a21-4928-a470-e6c0c1fd728b"
     },
     "64e647cb-8389-4f2f-8a6d-a9d1684d7f24": {
         "name": "Emperor Charles II",
@@ -91,7 +91,7 @@
             },
             {
                 "text": {
-                    "en": "My prince - Bow -",
+                    "en": "My prince... - Bow -",
                     "fr": ""
                 },
                 "next": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6",
@@ -108,30 +108,231 @@
             "fr": ""
         },
         "parent": "c027bb5a-9f28-435b-8f0d-91b362658db5",
-        "signals": {
-            "parent": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6",
-            "SetNpcState": {
-                "String": "character;rs_guard_duel-1"
-            }
-        }
+        "next": "ea9a8b13-716b-49e1-bc2f-28977bd1e65b"
     },
-    "f1c56039-038a-408b-a6a9-4436867d7cf2": {
+    "c10ec564-a840-42fd-9bc6-5e2bb0dfa986": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
-            "en": "I am next, duel me boy.",
+            "en": "Would you like to duel me?",
             "fr": ""
         },
-        "parent": "09c3bd41-6a21-4928-a470-e6c0c1fd728b",
-        "signals": {
-            "parent": "f1c56039-038a-408b-a6a9-4436867d7cf2",
-            "SetNpcState": {
-                "String": "character;rs_guard_duel-2"
+        "parent": "7b57dc65-1b30-499b-b2f9-d3dffe57fde9",
+        "choices": [
+            {
+                "text": {
+                    "en": "Why not, lets do it.",
+                    "fr": ""
+                },
+                "next": "29d8b980-6700-42d7-88e0-acdca2f5a0b8",
+                "parent": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986"
+            },
+            {
+                "text": {
+                    "en": "Not now, thanks. - Leave -",
+                    "fr": ""
+                },
+                "next": "",
+                "parent": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986"
             }
+        ]
+    },
+    "ea9a8b13-716b-49e1-bc2f-28977bd1e65b": {
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "text": {
+            "en": "You are good, indeed.",
+            "fr": ""
+        },
+        "parent": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6",
+        "signals": {
+            "StartCombat": {
+                "String": "character;artis"
+            },
+            "parent": "ea9a8b13-716b-49e1-bc2f-28977bd1e65b"
+        },
+        "next": "007b0b7c-a789-4acc-b1a6-afc3f6a3ec9b"
+    },
+    "007b0b7c-a789-4acc-b1a6-afc3f6a3ec9b": {
+        "name": "Emperor Charles II",
+        "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "text": {
+            "en": "Then lets test the limits, Cassian... was it?",
+            "fr": ""
+        },
+        "parent": "ea9a8b13-716b-49e1-bc2f-28977bd1e65b",
+        "next": "6245a4be-b4bf-4b86-9296-998ce3e12167"
+    },
+    "6245a4be-b4bf-4b86-9296-998ce3e12167": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Yes, emperor.",
+            "fr": ""
+        },
+        "parent": "007b0b7c-a789-4acc-b1a6-afc3f6a3ec9b",
+        "next": "3ed02a61-7976-4fa1-a1e0-0c2df98b31ef"
+    },
+    "bf405456-f769-45b1-aee9-1cb6745d4066": {
+        "name": "Emperor Charles II",
+        "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "text": {
+            "en": "Call anyone you trust, Gideon does not count of course, so we can also test how you fight with allies. This time you will have an inferiority of numbers.",
+            "fr": ""
+        },
+        "choices": [
+            {
+                "text": {
+                    "en": "- Call Zeryn -",
+                    "fr": ""
+                },
+                "next": "b079124b-3dd0-4dc0-91b5-eab04a3da741",
+                "parent": "bf405456-f769-45b1-aee9-1cb6745d4066"
+            },
+            {
+                "text": {
+                    "en": "- Call the guard that always says you good morning -",
+                    "fr": ""
+                },
+                "next": "653ed75e-0a61-4f10-89a5-b749ea578751",
+                "parent": "bf405456-f769-45b1-aee9-1cb6745d4066"
+            }
+        ],
+        "parent": "3ed02a61-7976-4fa1-a1e0-0c2df98b31ef"
+    },
+    "b079124b-3dd0-4dc0-91b5-eab04a3da741": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Nothin' sweeter than thrashin' a pampered noble.",
+            "fr": ""
+        },
+        "parent": "706a87f0-0a4c-49cc-9084-84365a1de3f7",
+        "next": "725e8edd-3e1f-46ec-bead-731e6af3f486",
+        "signals": {
+            "UnlockNpc": {
+                "String": "character;zeryn"
+            },
+            "parent": "b079124b-3dd0-4dc0-91b5-eab04a3da741"
         }
     },
-    "c10ec564-a840-42fd-9bc6-5e2bb0dfa986": {
+    "3ed02a61-7976-4fa1-a1e0-0c2df98b31ef": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "H-Hey, that wasn't... never mind. Go on.",
+            "fr": ""
+        },
+        "parent": "6245a4be-b4bf-4b86-9296-998ce3e12167",
+        "next": "bf405456-f769-45b1-aee9-1cb6745d4066"
+    },
+    "725e8edd-3e1f-46ec-bead-731e6af3f486": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "...",
+            "fr": ""
+        },
+        "parent": "b079124b-3dd0-4dc0-91b5-eab04a3da741",
+        "next": "37f1266b-cd1f-4351-b583-ae73f7999744"
+    },
+    "653ed75e-0a61-4f10-89a5-b749ea578751": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "A pleasure.",
+            "fr": ""
+        },
+        "parent": "daf6c3f2-22c7-4415-ae36-36c92c81da94",
+        "next": "f781fecb-2b62-4282-ba5f-509d4ccbc9cd",
+        "signals": {
+            "UnlockNpc": {
+                "String": "character;rs_guard"
+            },
+            "parent": "653ed75e-0a61-4f10-89a5-b749ea578751"
+        }
+    },
+    "f781fecb-2b62-4282-ba5f-509d4ccbc9cd": {
+        "name": "Sir Gideon Hawthorne",
+        "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "text": {
+            "en": "Phew...",
+            "fr": ""
+        },
+        "parent": "653ed75e-0a61-4f10-89a5-b749ea578751",
+        "next": "37f1266b-cd1f-4351-b583-ae73f7999744"
+    },
+    "37f1266b-cd1f-4351-b583-ae73f7999744": {
+        "name": "Emperor Charles II",
+        "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "text": {
+            "en": "Then lets begin the final round!",
+            "fr": ""
+        },
+        "parent": "f781fecb-2b62-4282-ba5f-509d4ccbc9cd",
+        "next": "aaf320f4-9894-4052-bb14-5c17a2d7ae33"
+    },
+    "aaf320f4-9894-4052-bb14-5c17a2d7ae33": {
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-happy.png",
+        "text": {
+            "en": "Now that everyone left, please meet me at the house they built for me in the upper part of this headquarters.",
+            "fr": ""
+        },
+        "parent": "37f1266b-cd1f-4351-b583-ae73f7999744",
+        "signals": {
+            "StartCombat": {
+                "String": "character;artis,character;rs_guard,character;rs_guard"
+            },
+            "parent": "aaf320f4-9894-4052-bb14-5c17a2d7ae33"
+        },
+        "next": "76151515-5eed-4c31-9e17-21db3fd415c3"
+    },
+    "76151515-5eed-4c31-9e17-21db3fd415c3": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Good... nice to meet you prince.",
+            "fr": ""
+        },
+        "parent": "aaf320f4-9894-4052-bb14-5c17a2d7ae33",
+        "next": "76c4faa3-a2c0-4df4-a1ce-673ea9534f12"
+    },
+    "76c4faa3-a2c0-4df4-a1ce-673ea9534f12": {
+        "name": "Artis",
+        "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-happy.png",
+        "text": {
+            "en": "Just call me Artis, I have a name for a reason.",
+            "fr": ""
+        },
+        "parent": "76151515-5eed-4c31-9e17-21db3fd415c3",
+        "next": "17732019-7cb7-4c24-9a9a-a0cc2999c141"
+    },
+    "17732019-7cb7-4c24-9a9a-a0cc2999c141": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-happy.png",
+        "text": {
+            "en": "Nice to meet you, Artis",
+            "fr": ""
+        },
+        "parent": "76c4faa3-a2c0-4df4-a1ce-673ea9534f12"
+    },
+    "f1573f64-27f7-4973-bb56-58c91e790236": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
@@ -139,13 +340,29 @@
             "en": "...",
             "fr": ""
         },
-        "parent": "7b57dc65-1b30-499b-b2f9-d3dffe57fde9"
+        "parent": "620c160c-d3c7-448a-9b5a-3d4b251cd961"
+    },
+    "29d8b980-6700-42d7-88e0-acdca2f5a0b8": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Have a nice day.",
+            "fr": ""
+        },
+        "parent": "5dab8a03-9479-4cc9-b24d-e3fa0dbe77bf",
+        "signals": {
+            "StartCombat": {
+                "String": "character;rs_guard"
+            },
+            "parent": "29d8b980-6700-42d7-88e0-acdca2f5a0b8"
+        }
     },
     "root": {
         "conditions": [
             {
                 "parent": "root",
-                "next": "8e2b864e-8383-40f6-8087-ec60337f5cab",
+                "next": "f1573f64-27f7-4973-bb56-58c91e790236",
                 "character;rs_guard_duel-state": {
                     "value": 0,
                     "operator": "equal",
@@ -154,7 +371,7 @@
             },
             {
                 "parent": "root",
-                "next": "f1c56039-038a-408b-a6a9-4436867d7cf2",
+                "next": "8e2b864e-8383-40f6-8087-ec60337f5cab",
                 "character;rs_guard_duel-state": {
                     "value": 1,
                     "operator": "equal",
@@ -231,17 +448,122 @@
                 ]
             },
             {
-                "uuid": "f1c56039-038a-408b-a6a9-4436867d7cf2",
+                "uuid": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986",
                 "offset": [
                     680,
-                    180
+                    280
                 ]
             },
             {
-                "uuid": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986",
+                "uuid": "ea9a8b13-716b-49e1-bc2f-28977bd1e65b",
                 "offset": [
-                    660,
-                    580
+                    4460,
+                    -400
+                ]
+            },
+            {
+                "uuid": "007b0b7c-a789-4acc-b1a6-afc3f6a3ec9b",
+                "offset": [
+                    4860,
+                    -400
+                ]
+            },
+            {
+                "uuid": "6245a4be-b4bf-4b86-9296-998ce3e12167",
+                "offset": [
+                    5240,
+                    -400
+                ]
+            },
+            {
+                "uuid": "bf405456-f769-45b1-aee9-1cb6745d4066",
+                "offset": [
+                    6040,
+                    -400
+                ]
+            },
+            {
+                "uuid": "b079124b-3dd0-4dc0-91b5-eab04a3da741",
+                "offset": [
+                    6840,
+                    -580
+                ]
+            },
+            {
+                "uuid": "3ed02a61-7976-4fa1-a1e0-0c2df98b31ef",
+                "offset": [
+                    5640,
+                    -400
+                ]
+            },
+            {
+                "uuid": "725e8edd-3e1f-46ec-bead-731e6af3f486",
+                "offset": [
+                    7220,
+                    -580
+                ]
+            },
+            {
+                "uuid": "653ed75e-0a61-4f10-89a5-b749ea578751",
+                "offset": [
+                    6840,
+                    -180
+                ]
+            },
+            {
+                "uuid": "f781fecb-2b62-4282-ba5f-509d4ccbc9cd",
+                "offset": [
+                    7220,
+                    -180
+                ]
+            },
+            {
+                "uuid": "37f1266b-cd1f-4351-b583-ae73f7999744",
+                "offset": [
+                    7680,
+                    -380
+                ]
+            },
+            {
+                "uuid": "aaf320f4-9894-4052-bb14-5c17a2d7ae33",
+                "offset": [
+                    8080,
+                    -380
+                ]
+            },
+            {
+                "uuid": "76151515-5eed-4c31-9e17-21db3fd415c3",
+                "offset": [
+                    8480,
+                    -380
+                ]
+            },
+            {
+                "uuid": "76c4faa3-a2c0-4df4-a1ce-673ea9534f12",
+                "offset": [
+                    8860,
+                    -380
+                ]
+            },
+            {
+                "uuid": "17732019-7cb7-4c24-9a9a-a0cc2999c141",
+                "offset": [
+                    9260,
+                    -380
+                ]
+            },
+            {
+                "uuid": "f1573f64-27f7-4973-bb56-58c91e790236",
+                "offset": [
+                    700,
+                    -700
+                ]
+            },
+            {
+                "uuid": "29d8b980-6700-42d7-88e0-acdca2f5a0b8",
+                "offset": [
+                    1500,
+                    160
                 ]
             }
         ],
@@ -249,8 +571,8 @@
             {
                 "uuid": "620c160c-d3c7-448a-9b5a-3d4b251cd961",
                 "offset": [
-                    260,
-                    -220
+                    280,
+                    -660
                 ],
                 "parent": "root"
             },
@@ -258,7 +580,7 @@
                 "uuid": "09c3bd41-6a21-4928-a470-e6c0c1fd728b",
                 "offset": [
                     260,
-                    180
+                    -180
                 ],
                 "parent": "root"
             },
@@ -266,33 +588,69 @@
                 "uuid": "7b57dc65-1b30-499b-b2f9-d3dffe57fde9",
                 "offset": [
                     260,
-                    580
+                    300
                 ],
                 "parent": "root"
             }
         ],
         "signals": [
             {
-                "uuid": "adb16fcf-1e93-4907-b871-0783464582c3",
+                "uuid": "884047a7-a27e-4420-8ea7-7f0e56f10950",
                 "offset": [
-                    4480,
-                    -360
+                    4840,
+                    -740
                 ],
-                "parent": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6",
+                "parent": "ea9a8b13-716b-49e1-bc2f-28977bd1e65b"
+            },
+            {
+                "uuid": "aad4040f-c66d-4af5-94b0-c82152e3af12",
+                "offset": [
+                    7220,
+                    200
+                ],
+                "parent": "653ed75e-0a61-4f10-89a5-b749ea578751",
                 "data": {
-                    "parent": "6f7a9892-9b9a-4662-9c58-b43a8fa181e6",
-                    "SetNpcState": {
-                        "String": "character;rs_guard_duel-1"
-                    }
+                    "UnlockNpc": {
+                        "String": "character;rs_guard"
+                    },
+                    "parent": "653ed75e-0a61-4f10-89a5-b749ea578751"
                 }
             },
             {
-                "uuid": "1bb01d5f-ccc1-48ba-bd06-fc29740c1b17",
+                "uuid": "bb81d264-1e70-47e6-9d68-3add4e6e8f41",
                 "offset": [
-                    1100,
-                    220
+                    8460,
+                    -680
                 ],
-                "parent": "f1c56039-038a-408b-a6a9-4436867d7cf2"
+                "parent": "aaf320f4-9894-4052-bb14-5c17a2d7ae33"
+            },
+            {
+                "uuid": "763f9b85-7dc7-47da-8412-0cf067715106",
+                "offset": [
+                    1900,
+                    200
+                ],
+                "parent": "29d8b980-6700-42d7-88e0-acdca2f5a0b8",
+                "data": {
+                    "StartCombat": {
+                        "String": "character;rs_guard"
+                    },
+                    "parent": "29d8b980-6700-42d7-88e0-acdca2f5a0b8"
+                }
+            },
+            {
+                "uuid": "758d78b3-a467-4bee-98c1-e9af1b7212a8",
+                "offset": [
+                    7240,
+                    -880
+                ],
+                "parent": "b079124b-3dd0-4dc0-91b5-eab04a3da741",
+                "data": {
+                    "UnlockNpc": {
+                        "String": "character;zeryn"
+                    },
+                    "parent": "b079124b-3dd0-4dc0-91b5-eab04a3da741"
+                }
             }
         ],
         "choices": [
@@ -327,6 +685,38 @@
                     -180
                 ],
                 "parent": "889450a7-8a51-4a0b-8a8d-f1e327663b2f"
+            },
+            {
+                "uuid": "5dab8a03-9479-4cc9-b24d-e3fa0dbe77bf",
+                "offset": [
+                    1100,
+                    480
+                ],
+                "parent": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986"
+            },
+            {
+                "uuid": "b1f8c47e-5cf8-41ce-b5be-94418564adfa",
+                "offset": [
+                    1100,
+                    240
+                ],
+                "parent": "c10ec564-a840-42fd-9bc6-5e2bb0dfa986"
+            },
+            {
+                "uuid": "706a87f0-0a4c-49cc-9084-84365a1de3f7",
+                "offset": [
+                    6460,
+                    -500
+                ],
+                "parent": "bf405456-f769-45b1-aee9-1cb6745d4066"
+            },
+            {
+                "uuid": "daf6c3f2-22c7-4415-ae36-36c92c81da94",
+                "offset": [
+                    6460,
+                    -200
+                ],
+                "parent": "bf405456-f769-45b1-aee9-1cb6745d4066"
             }
         ]
     }

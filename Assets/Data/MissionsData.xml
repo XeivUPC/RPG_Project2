@@ -107,7 +107,7 @@
 	</mission>
 
 	<mission id="mission;audience">
-		<title></title>
+		<title>The bald man</title>
 		<description>Go to your training with Sir Gideon.</description>
 		<conditions>
 			<condition type ="ItemCondition" tasksAmount ="1">
