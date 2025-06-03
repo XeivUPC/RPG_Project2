@@ -468,6 +468,9 @@
     <ClCompile Include="src\TriggerPuzzleElement.cpp">
       <Filter>Source Files\Utils\Puzzles\Elements</Filter>
     </ClCompile>
+    <ClCompile Include="src\DialogueActivatorPuzzleElement.cpp">
+      <Filter>Source Files\Utils\Puzzles\Elements</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\IRendereable.h">
@@ -822,6 +825,9 @@
       <Filter>Source Files\Entities\Type %28Entity%29\Bird</Filter>
     </ClInclude>
     <ClInclude Include="src\TriggerPuzzleElement.h">
+      <Filter>Source Files\Utils\Puzzles\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DialogueActivatorPuzzleElement.h">
       <Filter>Source Files\Utils\Puzzles\Elements</Filter>
     </ClInclude>
   </ItemGroup>

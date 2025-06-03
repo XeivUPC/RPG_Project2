@@ -42,6 +42,7 @@ public:
 	~GameScene();
 
 	void SetDialogue(string path);
+	DialogueSystem* GetDialogue();
 	void SetCombat(std::vector<string> enemyTeam);
 	const CombatSystem* GetCombat() const;
 

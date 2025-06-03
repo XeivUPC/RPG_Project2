@@ -216,8 +216,8 @@ bool NpcCharacter::UseDialogue()
 {
 	if (dialogPath == "")
 		return false;
-	Engine::Instance().s_game->SetState(GameScene::State::Dialogue);
 	Engine::Instance().s_game->SetDialogue(dialogPath);
+	Engine::Instance().s_game->SetState(GameScene::State::Dialogue);
 	return true;
 }
 

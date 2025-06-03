@@ -38,6 +38,7 @@
 #include "ButtonPuzzleElement.h"
 #include "BlockingPuzzleElement.h"
 #include "TriggerPuzzleElement.h"
+#include "DialogueActivatorPuzzleElement.h"
 ///
 
 #include "FadeCG.h"
@@ -84,6 +85,7 @@ bool GameScene::Start()
     Pooling::Instance().CreatePool<ButtonPuzzleElement>(3);
     Pooling::Instance().CreatePool<BlockingPuzzleElement>(3);
     Pooling::Instance().CreatePool<TriggerPuzzleElement>(3);
+    Pooling::Instance().CreatePool<DialogueActivatorPuzzleElement>(3);
 
     fade = new FadeCG(33, 25, 17, 255);
     fade->FadeTo(1,0);
@@ -238,6 +240,11 @@ void GameScene::SetDialogue(string path)
 {
     dialogueSystem->LoadDialogueFromJSON(path);
     dialogueSystem->StartDialogue();
+}
+
+DialogueSystem* GameScene::GetDialogue()
+{
+    return dialogueSystem;
 }
 
 void GameScene::SetCombat(std::vector<string> enemyTeam)
@@ -534,6 +541,7 @@ void GameScene::ReturnToPoolMapObjects()
     Pooling::Instance().ReturnAllToPool<ButtonPuzzleElement>();
     Pooling::Instance().ReturnAllToPool<BlockingPuzzleElement>();
     Pooling::Instance().ReturnAllToPool<TriggerPuzzleElement>();
+    Pooling::Instance().ReturnAllToPool<DialogueActivatorPuzzleElement>();
 }
 
 void GameScene::DeletePoolMapObjects()
@@ -547,6 +555,7 @@ void GameScene::DeletePoolMapObjects()
     Pooling::Instance().DeletePool<ButtonPuzzleElement>(true);
     Pooling::Instance().DeletePool<BlockingPuzzleElement>(true);
     Pooling::Instance().DeletePool<TriggerPuzzleElement>(true);
+    Pooling::Instance().DeletePool<DialogueActivatorPuzzleElement>(true);
 }
 
 

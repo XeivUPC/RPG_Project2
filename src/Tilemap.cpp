@@ -20,6 +20,7 @@
 #include "ButtonPuzzleElement.h"
 #include "BlockingPuzzleElement.h"
 #include "TriggerPuzzleElement.h"
+#include "DialogueActivatorPuzzleElement.h"
 
 #include "ItemList.h"
 
@@ -301,16 +302,19 @@ void Tilemap::CreateObjects()
                 float size = PIXEL_TO_METERS(object->width/2);
                 string puzzleId = object->properties.at("PuzzleId").value;
 
-                string targetsText = object->properties.at("Targets").value;
+                string targetsText = "";
                 vector<string> targets;
+                if (object->properties.count("Targets") != 0) {
+                    object->properties.at("Targets").value;
 
-                targetsText.erase(remove(targetsText.begin(), targetsText.end(), ' '));
-                stringstream ss(targetsText);
-                string temp;
+                    targetsText.erase(remove(targetsText.begin(), targetsText.end(), ' '));
+                    stringstream ss(targetsText);
+                    string temp;
 
-                while (getline(ss, temp, ','))
-                {
-                    targets.emplace_back(temp);
+                    while (getline(ss, temp, ','))
+                    {
+                        targets.emplace_back(temp);
+                    }
                 }
 
 				bool callOnEnter = false;
@@ -319,6 +323,37 @@ void Tilemap::CreateObjects()
                 callOnExit = object->properties.at("OnExitCall").value == "true";
 
                 trigger->Initialize(puzzleId, position, size, targets, callOnEnter, callOnExit);
+            }
+            else if (type == "dialogueActivatorPuzzle") {
+                auto trigger = Pooling::Instance().AcquireObject<DialogueActivatorPuzzleElement>();
+
+                Vector2 position = { object->x + object->width / 2 * scale ,object->y + +object->height / 2 };
+                Vector2 size = { PIXEL_TO_METERS(object->width / 2), PIXEL_TO_METERS(object->height / 2) };
+                string puzzleId = object->properties.at("PuzzleId").value;
+
+                string targetsText = "";
+                vector<string> targets;
+
+                if (object->properties.count("Targets") != 0) {
+                    object->properties.at("Targets").value;
+
+                    targetsText.erase(remove(targetsText.begin(), targetsText.end(), ' '));
+                    stringstream ss(targetsText);
+                    string temp;
+
+                    while (getline(ss, temp, ','))
+                    {
+                        targets.emplace_back(temp);
+                    }
+                }
+				bool enabled = true;
+                enabled = object->properties.at("IsEnabled").value == "true";
+                string path = "";
+                path = object->properties.at("DialoguePath").value;
+                int state = 0;
+                state = stoi(object->properties.at("DialogueState").value);
+
+                trigger->Initialize(puzzleId, position, size, targets, enabled, path, state);
             }
             else if (type == "item") {
                 if (object->properties.count("ItemId")) {
