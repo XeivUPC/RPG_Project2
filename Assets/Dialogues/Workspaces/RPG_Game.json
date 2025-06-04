@@ -193,6 +193,17 @@
                     }
                 ],
                 "uuid": "660c6d60-cc87-487e-bb0a-12ff410b4d93"
+            },
+            {
+                "name": "VIP Client",
+                "portraits": [
+                    {
+                        "name": "VIP_Client",
+                        "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
+                        "uuid": "0964abd5-b31c-423d-a15b-d83cf36a93d5"
+                    }
+                ],
+                "uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8"
             }
         ],
         "files": [
@@ -288,8 +299,8 @@
     },
     "cache": {
         "last_opened_file": {
-            "name": "puzzle_dialogues.json",
-            "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Dialogues/puzzle_dialogues.json"
+            "name": "vip_client_four.json",
+            "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Dialogues/vip_client_four.json"
         }
     },
     "info": {

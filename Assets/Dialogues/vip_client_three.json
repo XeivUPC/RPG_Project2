@@ -1,1 +1,402 @@
-{"923d4e49-2326-48ba-91cb-91d22573f032":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"...","fr":""},"parent":"6babf92e-c83b-4f90-a2a5-49f776aacbce"},"5eef0982-73d0-4c6a-bd48-30c2685e7468":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"I see you have found me!","fr":""},"parent":"580eb385-b32d-4854-85b2-0fdb5bbbfbfa","signals":{"parent":"5eef0982-73d0-4c6a-bd48-30c2685e7468"},"conditions":[{"parent":"5eef0982-73d0-4c6a-bd48-30c2685e7468","next":"35b08a27-5b9d-42bf-a189-59858f01e16a"},{"parent":"5eef0982-73d0-4c6a-bd48-30c2685e7468","next":"bff55639-4dbc-416a-bc0f-fc4eec959082"}]},"35b08a27-5b9d-42bf-a189-59858f01e16a":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Here you go! Now  there is only one card to go.","fr":""},"parent":"6cbe7e67-df2f-43e1-b7e0-44b606ad1372","next":"15197311-e9f9-462a-a7d6-473d87ca6257","signals":{"parent":"35b08a27-5b9d-42bf-a189-59858f01e16a","SetNpcState":{"String":"character;dh_xt_vip4-1"}}},"bff55639-4dbc-416a-bc0f-fc4eec959082":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Come back when you have some spare space.","fr":""},"parent":"b984000a-2899-4078-8c55-b4a5264d2c42","signals":{"parent":"bff55639-4dbc-416a-bc0f-fc4eec959082","SetNpcState":{"String":"character;dh_xt_vip3-2"}}},"15197311-e9f9-462a-a7d6-473d87ca6257":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"... ... Now, go. Don't want to have anyone curious finding out about me. ","fr":""},"parent":"35b08a27-5b9d-42bf-a189-59858f01e16a","signals":{"parent":"15197311-e9f9-462a-a7d6-473d87ca6257","SetNpcState":{"String":"character;dh_xt_vip3-0"},"AddItem":{"String":"item;VIP_Card-1"}}},"1133467c-8549-4e9a-9194-bd807e1fd66d":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"I see you have found me!","fr":""},"signals":{"parent":"1133467c-8549-4e9a-9194-bd807e1fd66d","CheckIfCanGiveItem":{"String":"item;VIP_Card-1"}},"parent":"5b4c983c-8173-47ec-93f4-26a51c1ae70a","conditions":[{"parent":"1133467c-8549-4e9a-9194-bd807e1fd66d","next":"d7d8fc17-79f1-4c92-b865-9e561db91e33","CanGiveItem":{"value":true,"operator":"equal","type":"boolean"}},{"parent":"1133467c-8549-4e9a-9194-bd807e1fd66d","next":"fc11f368-c758-4488-bad0-91196164f85e"}]},"d7d8fc17-79f1-4c92-b865-9e561db91e33":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Here you go! Now  there is only one card to go.","fr":""},"parent":"33d5ef60-4a4c-4bb6-bda1-3ca8d21ce321","next":"c1aa8e42-2a2b-4c5d-8f23-291873ee544e","signals":{"parent":"d7d8fc17-79f1-4c92-b865-9e561db91e33","SetNpcState":{"String":"character;dh_xt_vip4-1"}}},"fc11f368-c758-4488-bad0-91196164f85e":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Come back when you have some spare space.","fr":""},"parent":"1a04a6e7-1a58-4b49-a324-837de1ceca27","signals":{"parent":"fc11f368-c758-4488-bad0-91196164f85e","SetNpcState":{"String":"character;dh_xt_vip3-2"}}},"c1aa8e42-2a2b-4c5d-8f23-291873ee544e":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"... ... Now, go. Don't want to have anyone curious finding out about me. ","fr":""},"parent":"d7d8fc17-79f1-4c92-b865-9e561db91e33","signals":{"parent":"c1aa8e42-2a2b-4c5d-8f23-291873ee544e","SetNpcState":{"String":"character;dh_xt_vip3-0"},"AddItem":{"String":"item;VIP_Card-1"}}},"root":{"conditions":[{"parent":"root","next":"923d4e49-2326-48ba-91cb-91d22573f032","character;dh_xt_vip3-state":{"value":0,"operator":"equal","type":"int"}},{"parent":"root","next":"5eef0982-73d0-4c6a-bd48-30c2685e7468","character;dh_xt_vip3-state":{"value":1,"operator":"equal","type":"int"}},{"next":"1133467c-8549-4e9a-9194-bd807e1fd66d","parent":"root","character;dh_xt_vip3-state":{"value":2,"operator":"equal","type":"int"}}]},"__editor":{"root":{"uuid":"root","offset":[-360,480]},"dialogues":[{"uuid":"923d4e49-2326-48ba-91cb-91d22573f032","offset":[680,-180]},{"uuid":"5eef0982-73d0-4c6a-bd48-30c2685e7468","offset":[640,260]},{"uuid":"35b08a27-5b9d-42bf-a189-59858f01e16a","offset":[1540,60]},{"uuid":"bff55639-4dbc-416a-bc0f-fc4eec959082","offset":[1480,460]},{"uuid":"15197311-e9f9-462a-a7d6-473d87ca6257","offset":[2060,120]},{"uuid":"1133467c-8549-4e9a-9194-bd807e1fd66d","offset":[600,1220]},{"uuid":"d7d8fc17-79f1-4c92-b865-9e561db91e33","offset":[1480,1300]},{"uuid":"fc11f368-c758-4488-bad0-91196164f85e","offset":[1480,1680]},{"uuid":"c1aa8e42-2a2b-4c5d-8f23-291873ee544e","offset":[1960,1300]}],"conditions":[{"uuid":"6cbe7e67-df2f-43e1-b7e0-44b606ad1372","offset":[1100,200],"parent":"5eef0982-73d0-4c6a-bd48-30c2685e7468"},{"uuid":"b984000a-2899-4078-8c55-b4a5264d2c42","offset":[1100,540],"collapsed":true,"parent":"5eef0982-73d0-4c6a-bd48-30c2685e7468"},{"uuid":"33d5ef60-4a4c-4bb6-bda1-3ca8d21ce321","offset":[1060,1280],"parent":"1133467c-8549-4e9a-9194-bd807e1fd66d"},{"uuid":"1a04a6e7-1a58-4b49-a324-837de1ceca27","offset":[1060,1640],"collapsed":true,"parent":"1133467c-8549-4e9a-9194-bd807e1fd66d"},{"uuid":"6babf92e-c83b-4f90-a2a5-49f776aacbce","offset":[240,-120],"parent":"root"},{"uuid":"580eb385-b32d-4854-85b2-0fdb5bbbfbfa","offset":[240,320],"parent":"root"},{"uuid":"5b4c983c-8173-47ec-93f4-26a51c1ae70a","offset":[120,1200],"parent":"root"}],"signals":[{"uuid":"3dade871-af03-4be8-988c-2a5ac548d320","offset":[1080,-120],"parent":"5eef0982-73d0-4c6a-bd48-30c2685e7468"},{"uuid":"d473db38-d467-435f-946c-1fa611f21713","offset":[1940,-160],"parent":"35b08a27-5b9d-42bf-a189-59858f01e16a"},{"uuid":"aa0aeb58-44dc-4a91-afc4-b65daf9a7595","offset":[1960,520],"parent":"bff55639-4dbc-416a-bc0f-fc4eec959082"},{"uuid":"c1e5c98a-2dca-4609-9b70-e8cb6a32678f","offset":[2480,140],"parent":"15197311-e9f9-462a-a7d6-473d87ca6257"},{"uuid":"136f15fd-fb72-42f7-8f42-53a5acea1316","offset":[1020,940],"parent":"1133467c-8549-4e9a-9194-bd807e1fd66d"},{"uuid":"e5095f6c-b363-42d1-ac4c-98373b320ee4","offset":[1940,1000],"parent":"d7d8fc17-79f1-4c92-b865-9e561db91e33"},{"uuid":"a6680a20-8835-412b-bfc0-8a74f828e815","offset":[1900,1740],"parent":"fc11f368-c758-4488-bad0-91196164f85e"},{"uuid":"045273e1-2839-4545-aa5e-745bbf7f444d","offset":[2440,1380],"parent":"c1aa8e42-2a2b-4c5d-8f23-291873ee544e"}],"choices":[]}}
+{
+    "923d4e49-2326-48ba-91cb-91d22573f032": {
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
+        "text": {
+            "en": "...",
+            "fr": ""
+        },
+        "parent": "6babf92e-c83b-4f90-a2a5-49f776aacbce"
+    },
+    "5eef0982-73d0-4c6a-bd48-30c2685e7468": {
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
+        "text": {
+            "en": "I see you have found me!",
+            "fr": ""
+        },
+        "parent": "580eb385-b32d-4854-85b2-0fdb5bbbfbfa",
+        "signals": {
+            "parent": "5eef0982-73d0-4c6a-bd48-30c2685e7468"
+        },
+        "conditions": [
+            {
+                "parent": "5eef0982-73d0-4c6a-bd48-30c2685e7468",
+                "next": "35b08a27-5b9d-42bf-a189-59858f01e16a"
+            },
+            {
+                "parent": "5eef0982-73d0-4c6a-bd48-30c2685e7468",
+                "next": "bff55639-4dbc-416a-bc0f-fc4eec959082"
+            }
+        ]
+    },
+    "35b08a27-5b9d-42bf-a189-59858f01e16a": {
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
+        "text": {
+            "en": "Here you go! Now  there is only one card to go.",
+            "fr": ""
+        },
+        "parent": "6cbe7e67-df2f-43e1-b7e0-44b606ad1372",
+        "next": "15197311-e9f9-462a-a7d6-473d87ca6257",
+        "signals": {
+            "parent": "35b08a27-5b9d-42bf-a189-59858f01e16a",
+            "SetNpcState": {
+                "String": "character;dh_xt_vip4-1"
+            }
+        }
+    },
+    "bff55639-4dbc-416a-bc0f-fc4eec959082": {
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
+        "text": {
+            "en": "Come back when you have some spare space.",
+            "fr": ""
+        },
+        "parent": "b984000a-2899-4078-8c55-b4a5264d2c42",
+        "signals": {
+            "parent": "bff55639-4dbc-416a-bc0f-fc4eec959082",
+            "SetNpcState": {
+                "String": "character;dh_xt_vip3-2"
+            }
+        }
+    },
+    "15197311-e9f9-462a-a7d6-473d87ca6257": {
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
+        "text": {
+            "en": "... ... Now, go. Don't want to have anyone curious finding out about me. ",
+            "fr": ""
+        },
+        "parent": "35b08a27-5b9d-42bf-a189-59858f01e16a",
+        "signals": {
+            "parent": "15197311-e9f9-462a-a7d6-473d87ca6257",
+            "SetNpcState": {
+                "String": "character;dh_xt_vip3-0"
+            },
+            "AddItem": {
+                "String": "item;VIP_Card-1"
+            }
+        }
+    },
+    "1133467c-8549-4e9a-9194-bd807e1fd66d": {
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
+        "text": {
+            "en": "I see you have found me!",
+            "fr": ""
+        },
+        "signals": {
+            "parent": "1133467c-8549-4e9a-9194-bd807e1fd66d",
+            "CheckIfCanGiveItem": {
+                "String": "item;VIP_Card-1"
+            }
+        },
+        "parent": "5b4c983c-8173-47ec-93f4-26a51c1ae70a",
+        "conditions": [
+            {
+                "parent": "1133467c-8549-4e9a-9194-bd807e1fd66d",
+                "next": "d7d8fc17-79f1-4c92-b865-9e561db91e33",
+                "CanGiveItem": {
+                    "value": true,
+                    "operator": "equal",
+                    "type": "boolean"
+                }
+            },
+            {
+                "parent": "1133467c-8549-4e9a-9194-bd807e1fd66d",
+                "next": "fc11f368-c758-4488-bad0-91196164f85e"
+            }
+        ]
+    },
+    "d7d8fc17-79f1-4c92-b865-9e561db91e33": {
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
+        "text": {
+            "en": "Here you go! Now  there is only one card to go.",
+            "fr": ""
+        },
+        "parent": "33d5ef60-4a4c-4bb6-bda1-3ca8d21ce321",
+        "next": "c1aa8e42-2a2b-4c5d-8f23-291873ee544e",
+        "signals": {
+            "parent": "d7d8fc17-79f1-4c92-b865-9e561db91e33",
+            "SetNpcState": {
+                "String": "character;dh_xt_vip4-1"
+            }
+        }
+    },
+    "fc11f368-c758-4488-bad0-91196164f85e": {
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
+        "text": {
+            "en": "Come back when you have some spare space.",
+            "fr": ""
+        },
+        "parent": "1a04a6e7-1a58-4b49-a324-837de1ceca27",
+        "signals": {
+            "parent": "fc11f368-c758-4488-bad0-91196164f85e",
+            "SetNpcState": {
+                "String": "character;dh_xt_vip3-2"
+            }
+        }
+    },
+    "c1aa8e42-2a2b-4c5d-8f23-291873ee544e": {
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
+        "text": {
+            "en": "... ... Now, go. Don't want to have anyone curious finding out about me. ",
+            "fr": ""
+        },
+        "parent": "d7d8fc17-79f1-4c92-b865-9e561db91e33",
+        "signals": {
+            "parent": "c1aa8e42-2a2b-4c5d-8f23-291873ee544e",
+            "SetNpcState": {
+                "String": "character;dh_xt_vip3-0"
+            },
+            "AddItem": {
+                "String": "item;VIP_Card-1"
+            }
+        }
+    },
+    "root": {
+        "conditions": [
+            {
+                "parent": "root",
+                "next": "923d4e49-2326-48ba-91cb-91d22573f032",
+                "character;dh_xt_vip3-state": {
+                    "value": 0,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "next": "5eef0982-73d0-4c6a-bd48-30c2685e7468",
+                "character;dh_xt_vip3-state": {
+                    "value": 1,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "next": "1133467c-8549-4e9a-9194-bd807e1fd66d",
+                "parent": "root",
+                "character;dh_xt_vip3-state": {
+                    "value": 2,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            }
+        ]
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                -360,
+                480
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "923d4e49-2326-48ba-91cb-91d22573f032",
+                "offset": [
+                    680,
+                    -180
+                ]
+            },
+            {
+                "uuid": "5eef0982-73d0-4c6a-bd48-30c2685e7468",
+                "offset": [
+                    640,
+                    260
+                ]
+            },
+            {
+                "uuid": "35b08a27-5b9d-42bf-a189-59858f01e16a",
+                "offset": [
+                    1540,
+                    60
+                ]
+            },
+            {
+                "uuid": "bff55639-4dbc-416a-bc0f-fc4eec959082",
+                "offset": [
+                    1480,
+                    460
+                ]
+            },
+            {
+                "uuid": "15197311-e9f9-462a-a7d6-473d87ca6257",
+                "offset": [
+                    2060,
+                    120
+                ]
+            },
+            {
+                "uuid": "1133467c-8549-4e9a-9194-bd807e1fd66d",
+                "offset": [
+                    600,
+                    1220
+                ]
+            },
+            {
+                "uuid": "d7d8fc17-79f1-4c92-b865-9e561db91e33",
+                "offset": [
+                    1480,
+                    1300
+                ]
+            },
+            {
+                "uuid": "fc11f368-c758-4488-bad0-91196164f85e",
+                "offset": [
+                    1480,
+                    1680
+                ]
+            },
+            {
+                "uuid": "c1aa8e42-2a2b-4c5d-8f23-291873ee544e",
+                "offset": [
+                    1960,
+                    1300
+                ]
+            }
+        ],
+        "conditions": [
+            {
+                "uuid": "6cbe7e67-df2f-43e1-b7e0-44b606ad1372",
+                "offset": [
+                    1100,
+                    200
+                ],
+                "parent": "5eef0982-73d0-4c6a-bd48-30c2685e7468"
+            },
+            {
+                "uuid": "b984000a-2899-4078-8c55-b4a5264d2c42",
+                "offset": [
+                    1100,
+                    540
+                ],
+                "collapsed": true,
+                "parent": "5eef0982-73d0-4c6a-bd48-30c2685e7468"
+            },
+            {
+                "uuid": "33d5ef60-4a4c-4bb6-bda1-3ca8d21ce321",
+                "offset": [
+                    1060,
+                    1280
+                ],
+                "parent": "1133467c-8549-4e9a-9194-bd807e1fd66d"
+            },
+            {
+                "uuid": "1a04a6e7-1a58-4b49-a324-837de1ceca27",
+                "offset": [
+                    1060,
+                    1640
+                ],
+                "collapsed": true,
+                "parent": "1133467c-8549-4e9a-9194-bd807e1fd66d"
+            },
+            {
+                "uuid": "6babf92e-c83b-4f90-a2a5-49f776aacbce",
+                "offset": [
+                    240,
+                    -120
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "580eb385-b32d-4854-85b2-0fdb5bbbfbfa",
+                "offset": [
+                    240,
+                    320
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "5b4c983c-8173-47ec-93f4-26a51c1ae70a",
+                "offset": [
+                    120,
+                    1200
+                ],
+                "parent": "root"
+            }
+        ],
+        "signals": [
+            {
+                "uuid": "3dade871-af03-4be8-988c-2a5ac548d320",
+                "offset": [
+                    1080,
+                    -120
+                ],
+                "parent": "5eef0982-73d0-4c6a-bd48-30c2685e7468"
+            },
+            {
+                "uuid": "d473db38-d467-435f-946c-1fa611f21713",
+                "offset": [
+                    1940,
+                    -160
+                ],
+                "parent": "35b08a27-5b9d-42bf-a189-59858f01e16a"
+            },
+            {
+                "uuid": "aa0aeb58-44dc-4a91-afc4-b65daf9a7595",
+                "offset": [
+                    1960,
+                    520
+                ],
+                "parent": "bff55639-4dbc-416a-bc0f-fc4eec959082"
+            },
+            {
+                "uuid": "c1e5c98a-2dca-4609-9b70-e8cb6a32678f",
+                "offset": [
+                    2480,
+                    140
+                ],
+                "parent": "15197311-e9f9-462a-a7d6-473d87ca6257"
+            },
+            {
+                "uuid": "136f15fd-fb72-42f7-8f42-53a5acea1316",
+                "offset": [
+                    1020,
+                    940
+                ],
+                "parent": "1133467c-8549-4e9a-9194-bd807e1fd66d"
+            },
+            {
+                "uuid": "e5095f6c-b363-42d1-ac4c-98373b320ee4",
+                "offset": [
+                    1940,
+                    1000
+                ],
+                "parent": "d7d8fc17-79f1-4c92-b865-9e561db91e33"
+            },
+            {
+                "uuid": "a6680a20-8835-412b-bfc0-8a74f828e815",
+                "offset": [
+                    1900,
+                    1740
+                ],
+                "parent": "fc11f368-c758-4488-bad0-91196164f85e"
+            },
+            {
+                "uuid": "045273e1-2839-4545-aa5e-745bbf7f444d",
+                "offset": [
+                    2440,
+                    1380
+                ],
+                "parent": "c1aa8e42-2a2b-4c5d-8f23-291873ee544e"
+            }
+        ],
+        "choices": []
+    }
+}
