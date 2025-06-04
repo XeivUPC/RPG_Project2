@@ -2039,7 +2039,7 @@
     <property name="Type" value="blockingPuzzle"/>
    </properties>
   </object>
-  <object id="677" x="209.375" y="877.125" width="48" height="16">
+  <object id="677" x="256.625" y="901" width="48" height="16">
    <properties>
     <property name="Color" type="color" value="#00000000"/>
     <property name="IsBlocking" type="bool" value="true"/>
