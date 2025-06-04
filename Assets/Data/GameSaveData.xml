@@ -1,22 +1,25 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="522" y="591" />
+		<position x="8" y="1091" />
 		<party>
 			<active>
 				<member id="character;cassian" />
 			</active>
 			<inactive>
 				<member id="character;cassian" />
+				<member id="character;zeryn" />
 			</inactive>
 		</party>
 		<missions>
-			<mission id="mission;tutorial" status="0" />
+			<mission id="mission;chef" status="1" />
+			<mission id="mission;dunhaven" status="1" />
+			<mission id="mission;XeivTreatyVIP" status="0" />
 		</missions>
 		<inventory>
+			<item id="item;zalium_sword" amount="1" />
 			<item />
-			<item />
-			<item />
+			<item id="item;VIP_Card" amount="3" />
 			<item />
 			<item />
 			<item />
@@ -58,10 +61,10 @@
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="43932.6211" />
+		<time value="72024.8594" />
 		<items />
 		<tilemaps>
-			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="522.710999" spawnpoint-y="591.953979" />
+			<tilemap path="Assets/Map/Data/Dunhaven_City.xml" spawnpoint-x="272.563202" spawnpoint-y="1134.36194" />
 		</tilemaps>
 	</map>
 </game>
