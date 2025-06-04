@@ -305,7 +305,7 @@ void Tilemap::CreateObjects()
                 string targetsText = "";
                 vector<string> targets;
                 if (object->properties.count("Targets") != 0) {
-                    object->properties.at("Targets").value;
+                    targetsText = object->properties.at("Targets").value;
 
                     targetsText.erase(remove(targetsText.begin(), targetsText.end(), ' '));
                     stringstream ss(targetsText);
@@ -335,7 +335,7 @@ void Tilemap::CreateObjects()
                 vector<string> targets;
 
                 if (object->properties.count("Targets") != 0) {
-                    object->properties.at("Targets").value;
+                    targetsText = object->properties.at("Targets").value;
 
                     targetsText.erase(remove(targetsText.begin(), targetsText.end(), ' '));
                     stringstream ss(targetsText);
