@@ -154,6 +154,12 @@
     <Filter Include="Source Files\Entities\Type %28Entity%29\Bird">
       <UniqueIdentifier>{47530a77-4550-4534-950d-20384ecc9e46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\_DataFiles\Characters">
+      <UniqueIdentifier>{84f43de6-e6c1-4a48-a706-b69ec7a54512}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\_DataFiles\Characters\Template">
+      <UniqueIdentifier>{2fe3df7d-1e7c-45bd-98ca-e1f5147e1efa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ModuleRender.cpp">
@@ -460,6 +466,9 @@
       <Filter>Source Files\Entities\Type %28Entity%29\Bird</Filter>
     </ClCompile>
     <ClCompile Include="src\TriggerPuzzleElement.cpp">
+      <Filter>Source Files\Utils\Puzzles\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DialogueActivatorPuzzleElement.cpp">
       <Filter>Source Files\Utils\Puzzles\Elements</Filter>
     </ClCompile>
   </ItemGroup>
@@ -818,18 +827,15 @@
     <ClInclude Include="src\TriggerPuzzleElement.h">
       <Filter>Source Files\Utils\Puzzles\Elements</Filter>
     </ClInclude>
+    <ClInclude Include="src\DialogueActivatorPuzzleElement.h">
+      <Filter>Source Files\Utils\Puzzles\Elements</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Assets\Data\UserPrefs.xml">
       <Filter>Source Files\_DataFiles</Filter>
     </Xml>
     <Xml Include="Assets\Data\AttackList.xml">
-      <Filter>Source Files\_DataFiles</Filter>
-    </Xml>
-    <Xml Include="Assets\Data\CharactersData.xml">
-      <Filter>Source Files\_DataFiles</Filter>
-    </Xml>
-    <Xml Include="Assets\Data\CharactersData_Default.xml">
       <Filter>Source Files\_DataFiles</Filter>
     </Xml>
     <Xml Include="Assets\Data\ItemsData.xml">
@@ -840,6 +846,18 @@
     </Xml>
     <Xml Include="Assets\Data\MissionsData.xml">
       <Filter>Source Files\_DataFiles</Filter>
+    </Xml>
+    <Xml Include="Assets\Data\Puzzles\PuzzlesData.xml">
+      <Filter>Source Files\_DataFiles</Filter>
+    </Xml>
+    <Xml Include="Assets\Data\Characters\SaveData\CharacterDefinitions.xml">
+      <Filter>Source Files\_DataFiles\Characters</Filter>
+    </Xml>
+    <Xml Include="Assets\Data\Characters\CharacterDefinitions_Default.xml">
+      <Filter>Source Files\_DataFiles\Characters</Filter>
+    </Xml>
+    <Xml Include="Assets\Data\Characters\CharacterTemplate.xml">
+      <Filter>Source Files\_DataFiles\Characters\Template</Filter>
     </Xml>
   </ItemGroup>
   <ItemGroup>

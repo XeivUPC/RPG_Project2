@@ -18,6 +18,10 @@ public:
 
 	virtual void Complete() = 0;
 
+
+	virtual bool Load() =0;
+	virtual bool Save() =0;
+
 public:
 
 private:
@@ -30,4 +34,5 @@ protected:
 protected:
 	string id;
 	EventId eventId;
+
 };

@@ -24,11 +24,13 @@ BlockingPuzzleElement::~BlockingPuzzleElement()
 void BlockingPuzzleElement::Render()
 {
 	if(isBlocking)
-		Engine::Instance().m_render->painter().RenderBox(position, size, { 1,1 }, { 0.5f,0.5f }, true);
+		Engine::Instance().m_render->painter().RenderBox(position, size, { 1,1 }, { 0.5f,0.5f }, true,color);
 }
 
-void BlockingPuzzleElement::Initialize(string _id, Vector2Int _position, Vector2 _size, bool blocks)
+void BlockingPuzzleElement::Initialize(string _id, Vector2Int _position, Vector2 _size, bool blocks, SDL_Color _color)
 {
+	color = _color;
+	id = _id;
 	size = { (float)METERS_TO_PIXELS(_size.x),(float)METERS_TO_PIXELS(_size.y) };
 	renderOffsetSorting = {0,(int)(size.y/2)};
 
@@ -42,14 +44,16 @@ void BlockingPuzzleElement::Initialize(string _id, Vector2Int _position, Vector2
 	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
 
 
-
+	PuzzleManager::Instance().AddPuzzleElement(_id, *this);
 	SetPosition(_position);
-	id = _id;
-	isBlocking = blocks;
-	if (isBlocking)
-		Enable();
-	else
-		Disable();
+
+	if (!Load()) {
+		isBlocking = blocks;
+		if (isBlocking)
+			Enable();
+		else
+			Disable();
+	}
 
 }
 
@@ -67,6 +71,7 @@ void BlockingPuzzleElement::RecieveCall(string _id, unordered_map<string, string
 					Enable();
 				else
 					Disable();
+				Save();
 			}
 		}
 	}
@@ -92,6 +97,7 @@ void BlockingPuzzleElement::InitPoolObject()
 
 void BlockingPuzzleElement::ResetPoolObject()
 {
+	PuzzleManager::Instance().RemovePuzzleElement(*this);
 	if (eventId.id != -1) {
 		PuzzleManager::Instance().onPuzzleCall.Unsubscribe(eventId);
 		eventId.id = -1;
@@ -117,4 +123,25 @@ void BlockingPuzzleElement::Disable()
 {
 	isBlocking = false;
 	body->SetSensor(0, true);
+}
+
+bool BlockingPuzzleElement::Load()
+{
+	if (PuzzleManager::Instance().HasPuzzleProperty(id, "isBlocking")) {
+		bool value = PuzzleManager::Instance().GetValueFromPuzzle(id, "isBlocking") == "true";
+		if (value)
+			Enable();
+		else
+			Disable();
+		isBlocking = value;
+
+		return true;
+	}
+	return false;
+}
+
+bool BlockingPuzzleElement::Save()
+{
+	PuzzleManager::Instance().SetValueFromPuzzle(id, "isBlocking", isBlocking ? "true" : "false");
+	return true;
 }

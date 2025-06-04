@@ -155,6 +155,7 @@
     <ClCompile Include="src\CombatCG.cpp" />
     <ClCompile Include="src\CombatGameState.cpp" />
     <ClCompile Include="src\CombatSystem.cpp" />
+    <ClCompile Include="src\DialogueActivatorPuzzleElement.cpp" />
     <ClCompile Include="src\DialogueGameState.cpp" />
     <ClCompile Include="src\DialogueSystem.cpp" />
     <ClCompile Include="src\DrawingTools.cpp" />
@@ -261,6 +262,7 @@
     <ClInclude Include="src\CombatGameState.h" />
     <ClInclude Include="src\CombatStats.h" />
     <ClInclude Include="src\CombatSystem.h" />
+    <ClInclude Include="src\DialogueActivatorPuzzleElement.h" />
     <ClInclude Include="src\DialogueGameState.h" />
     <ClInclude Include="src\DialogueSystem.h" />
     <ClInclude Include="src\DrawingTools.h" />
@@ -360,11 +362,13 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Assets\Data\AttackList.xml" />
-    <Xml Include="Assets\Data\CharactersData.xml" />
-    <Xml Include="Assets\Data\CharactersData_Default.xml" />
+    <Xml Include="Assets\Data\Characters\CharacterDefinitions_Default.xml" />
+    <Xml Include="Assets\Data\Characters\CharacterTemplate.xml" />
+    <Xml Include="Assets\Data\Characters\SaveData\CharacterDefinitions.xml" />
     <Xml Include="Assets\Data\GameSaveData.xml" />
     <Xml Include="Assets\Data\ItemsData.xml" />
     <Xml Include="Assets\Data\MissionsData.xml" />
+    <Xml Include="Assets\Data\Puzzles\PuzzlesData.xml" />
     <Xml Include="Assets\Data\UserPrefs.xml" />
   </ItemGroup>
   <ItemGroup>

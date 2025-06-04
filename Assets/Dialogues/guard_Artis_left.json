@@ -94,8 +94,27 @@
                     "operator": "equal",
                     "type": "int"
                 }
+            },
+            {
+                "character;rs_artisGuard_entryL-state": {
+                    "value": 2,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "parent": "root",
+                "next": "42a55860-793e-43c2-b18c-29f47ffe52b2"
             }
         ]
+    },
+    "42a55860-793e-43c2-b18c-29f47ffe52b2": {
+        "name": "Rogue Squadron Soldier",
+        "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "text": {
+            "en": "...",
+            "fr": ""
+        },
+        "parent": "7402edd3-025e-4190-beb3-5a6076855378"
     },
     "__editor": {
         "root": {
@@ -140,6 +159,13 @@
                     680,
                     80
                 ]
+            },
+            {
+                "uuid": "42a55860-793e-43c2-b18c-29f47ffe52b2",
+                "offset": [
+                    620,
+                    500
+                ]
             }
         ],
         "conditions": [
@@ -156,6 +182,14 @@
                 "offset": [
                     120,
                     100
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "7402edd3-025e-4190-beb3-5a6076855378",
+                "offset": [
+                    120,
+                    540
                 ],
                 "parent": "root"
             }

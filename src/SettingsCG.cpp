@@ -14,9 +14,9 @@
 
 #include "Globals.h"
 
-SettingsCG::SettingsCG()
+SettingsCG::SettingsCG(int _renderLayer)
 {
-
+	renderLayer = _renderLayer;
 	///// AssetsLoading
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
 

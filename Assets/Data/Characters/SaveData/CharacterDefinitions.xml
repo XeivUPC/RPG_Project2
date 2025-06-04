@@ -27,7 +27,7 @@
 	<character id="character;guideon" template="character;guideon" name="Guideon">
 		<dialogue path="Assets/Dialogues/Sir_Gideon_Hawthorne.json" state="0" />
 		<combat>
-			<stats level="1" hp="60" defense="63" attack="72" speed="100" />
+			<stats level="20" hp="60" defense="63" attack="72" speed="100" />
 			<attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		</combat>
 	</character>
@@ -51,6 +51,12 @@
 	</character>
 	<character id="character;rs_artisGuard_entryR" template="character;rs_guard" name="RS Artis Guard">
 		<dialogue path="Assets/Dialogues/guard_Artis_right.json" state="0" />
+	</character>
+	<character id="character;rs_artisGuard" template="character;rs_guard" name="Artis Guard">
+		<dialogue path="Assets/Dialogues/artis_guard.json" state="0" />
+	</character>
+	<character id="character;rs_fit_soldier" template="character;cassian" name="Fit Soldier">
+		<dialogue path="Assets/Dialogues/fit_guard.json" state="0" />
 	</character>
 	<character id="character;pedroJr" template="character;pedroJr" name="PedroJr">
 		<dialogue path="Assets/Dialogues/pedro_jr.json" state="0" />

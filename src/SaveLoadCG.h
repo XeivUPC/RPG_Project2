@@ -13,7 +13,7 @@ class UIToggle;
 
 class SaveLoadCG : public UICanvas {
 public:
-	SaveLoadCG();
+	SaveLoadCG(int _renderLayer);
 	~SaveLoadCG() override = default;
 
 private:

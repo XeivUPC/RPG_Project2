@@ -143,6 +143,16 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("top_fade", *textureFactory->CreateTexture("Assets/Textures/General/top_fade.png"));
 	AddTextureToStorage("vignette", *textureFactory->CreateTexture("Assets/Textures/General/vignette.png"));
 	AddTextureToStorage("rain_effect", *textureFactory->CreateTexture("Assets/Textures/General/rain_effect_spritesheet.png"));
+	/// Attack Effects
+	AddTextureToStorage("powerStrike-hit", *textureFactory->CreateTexture("Assets/Textures/Animations/Attacks/powerStrike-hit.png"));
+	AddTextureToStorage("toxicBite-hit", *textureFactory->CreateTexture("Assets/Textures/Animations/Attacks/toxicBite-hit.png"));
+	AddTextureToStorage("stoneShield-hit", *textureFactory->CreateTexture("Assets/Textures/Animations/Attacks/stoneShield-hit.png"));
+	AddTextureToStorage("healingWind-hit", *textureFactory->CreateTexture("Assets/Textures/Animations/Attacks/healingWind-hit.png"));
+
+	AddTextureToStorage("powerStrike-hurt", *textureFactory->CreateTexture("Assets/Textures/Animations/Attacks/powerStrike-hurt.png"));
+	AddTextureToStorage("toxicBite-hurt", *textureFactory->CreateTexture("Assets/Textures/Animations/Attacks/toxicBite-hurt.png"));
+	AddTextureToStorage("stoneShield-hurt", *textureFactory->CreateTexture("Assets/Textures/Animations/Attacks/stoneShield-hurt.png"));
+	AddTextureToStorage("healingWind-hurt", *textureFactory->CreateTexture("Assets/Textures/Animations/Attacks/healingWind-hurt.png"));
 	///Characters --> Make Atlas later
 	AddTextureToStorage("character_atlas", *textureFactory->CreateTexture("Assets/Textures/Atlas/Characters/CharactersAtlas.png"));
 	AddAtlasToStorage("character_atlas",*atlasFactory->CreateAtlas(*GetTexture("character_atlas"), "Assets/Textures/Atlas/Characters/CharactersAtlas.xml"));
@@ -208,7 +218,7 @@ SDL_Texture* ModuleAssetDatabase::GetTexture(const string& textureID)
 {
 	if (!IsTextureLoaded(textureID))
 	{
-		printf("Texture File Not Loaded\n");
+		printf("Texture File Not Loaded --> %s\n", textureID.c_str());
 		return nullptr;
 	}
 	return textureData[textureID];
@@ -241,7 +251,7 @@ Mix_Chunk* ModuleAssetDatabase::GetAudio(const string& audioID)
 {
 	if (!IsAudioLoaded(audioID))
 	{
-		printf("Audio File Not Loaded\n");
+		printf("Audio File Not Loaded --> %s\n", audioID.c_str());
 		return nullptr;
 	}
 	return audioData[audioID];
@@ -251,7 +261,7 @@ AudioContainer* ModuleAssetDatabase::GetAudioContainer(const string& audioContai
 {
 	if (!IsAudioContainerLoaded(audioContainerID))
 	{
-		printf("Audio Container File Not Loaded\n");
+		printf("Audio Container File Not Loaded --> %s\n", audioContainerID.c_str());
 		return nullptr;
 	}
 	return audioContainerData[audioContainerID];
@@ -261,7 +271,7 @@ _Mix_Music* ModuleAssetDatabase::GetMusic(const string& musicID)
 {
 	if (!IsMusicLoaded(musicID))
 	{
-		printf("Audio File Not Loaded\n");
+		printf("Audio File Not Loaded --> %s\n", musicID.c_str());
 		return nullptr;
 	}
 	return musicData[musicID];
@@ -271,7 +281,7 @@ MusicContainer* ModuleAssetDatabase::GetMusicContainer(const string& musicContai
 {
 	if (!IsMusicContainerLoaded(musicContainerID))
 	{
-		printf("Music Container File Not Loaded\n");
+		printf("Music Container File Not Loaded --> %s\n", musicContainerID.c_str());
 		return nullptr;
 	}
 	return musicContainerData[musicContainerID];
@@ -341,7 +351,7 @@ TextureAtlas* ModuleAssetDatabase::GetAtlas(const string& atlasID)
 {
 	if (!IsAtlasLoaded(atlasID))
 	{
-		printf("Atlas File Not Loaded\n");
+		printf("Atlas File Not Loaded --> %s\n", atlasID.c_str());
 		return nullptr;
 	}
 	return atlasData[atlasID];
@@ -366,7 +376,7 @@ _TTF_Font* ModuleAssetDatabase::GetFont(const string& fontID)
 {
 	if (!IsFontLoaded(fontID))
 	{
-		printf("Font File Not Loaded\n");
+		printf("Font File Not Loaded --> %s\n", fontID.c_str());
 		return nullptr;
 	}
 	return fontData[fontID];

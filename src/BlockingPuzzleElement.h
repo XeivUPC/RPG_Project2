@@ -16,7 +16,7 @@ public:
 
 	void Render() override;
 
-	void Initialize(string _id, Vector2Int _position, Vector2 _size , bool blocks);
+	void Initialize(string _id, Vector2Int _position, Vector2 _size, bool blocks, SDL_Color _color = {255,255,255,255});
 
 	void RecieveCall(string _id, unordered_map<string, string> _params) override;
 	void SendCall() override;
@@ -34,9 +34,15 @@ private:
 	void Enable();
 	void Disable();
 
+	// Inherited via PuzzleElement
+	bool Load() override;
+	bool Save() override;
+
 private:
 	bool isBlocking = false;
 	PhysBody* body = nullptr;
 
 	Vector2 size = { 0,0 };
+	SDL_Color color;
+
 };

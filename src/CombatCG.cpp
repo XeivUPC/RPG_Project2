@@ -92,6 +92,7 @@ void CombatCG::UpdateCanvas()
 		animationEffect.first = false;
 
 		targetVisualsCompleted = pair<int, int>(0, 0);
+		targetVisualsRequest = pair<int, int>(0, 0);
 
 		firstTick = true;
 	}
@@ -101,8 +102,13 @@ void CombatCG::UpdateCanvas()
 		{
 			if (firstTick)
 			{
+				targetVisualsRequest.second = 1;
 				UICharacterSlot* slotSelected = GetSlotByCharacter(combat->GetCurrentAttackAttacker());
 				CombatSystem::TurnAttack* turnData = combat->GetCurrentTurnAttack();
+				slotSelected->combatEffect->GetJsonAnimator()->CleanUp();
+				slotSelected->combatEffect->GetJsonAnimator()->AddJsonAnimationClip(turnData->attack->animation_hit_data, 0.1f, {0.5f,0.5f});
+				slotSelected->combatEffect->GetJsonAnimator()->GetCurrentAnimationClip()->Loop(false);
+				slotSelected->combatEffect->GetJsonAnimator()->GetCurrentAnimationClip()->onAnimationFinished.Subscribe([this, slotSelected]() {FinishEffectVisuals(slotSelected->combatEffect); });
 
 				if (turnData->attack->type == Attack::AttackType::Aggressive) {
 					slotSelected->characterImage->GetAnimator()->Animate("physic-attack");
@@ -113,6 +119,8 @@ void CombatCG::UpdateCanvas()
 					Engine::Instance().m_audio->PlaySFX(combat_magic);
 				}
 				//Animate effects
+				if (targetVisualsRequest.second == targetVisualsCompleted.second)
+					animationEffect.second = true;
 				firstTick = false;
 			}
 
@@ -129,11 +137,18 @@ void CombatCG::UpdateCanvas()
 			if (firstTick)
 			{
 				targetVisualsRequest.first = combat->CurrentAttackTargetAmount();
+				targetVisualsRequest.second = combat->CurrentAttackTargetAmount();
+				CombatSystem::TurnAttack* turnData = combat->GetCurrentTurnAttack();
 
 				for (size_t i = 0; i < combat->CurrentAttackTargetAmount(); i++)
 				{
 					UICharacterSlot* slot = GetSlotByCharacter(combat->GetCurrentAttackTargetList()[i]);
 					if (slot->characterRef->stats.currentHp > 0) {
+						slot->combatEffect->GetJsonAnimator()->CleanUp();
+						slot->combatEffect->GetJsonAnimator()->AddJsonAnimationClip(turnData->attack->animation_hurt_data, 0.1f, { 0.5f,0.5f });
+						slot->combatEffect->GetJsonAnimator()->GetCurrentAnimationClip()->Loop(false);
+						slot->combatEffect->GetJsonAnimator()->GetCurrentAnimationClip()->onAnimationFinished.Subscribe([this, slot]() {FinishEffectVisuals(slot->combatEffect); });
+
 						slot->characterImage->GetAnimator()->Animate("hurt");
 						Engine::Instance().m_audio->PlaySFX(combat_hurt);
 					}
@@ -142,6 +157,8 @@ void CombatCG::UpdateCanvas()
 
 					if (targetVisualsRequest.first == targetVisualsCompleted.first)
 						animationEffect.first = true;
+					if (targetVisualsRequest.second == targetVisualsCompleted.second)
+						animationEffect.second = true;
 				}
 				//Animate effects
 				firstTick = false;
@@ -149,10 +166,10 @@ void CombatCG::UpdateCanvas()
 			}
 			if (animationEffect == pair<bool, bool>(true, true))
 			{
-				animationEffect = pair<bool, bool>(false, true);
+				animationEffect = pair<bool, bool>(false, false);
 				visualEffects.second = true;
 				targetVisualsCompleted = pair<int, int>(0, 0);
-				
+				targetVisualsRequest = pair<int, int>(0, 0);
 				firstTick = true;
 			}
 		}
@@ -231,6 +248,7 @@ void CombatCG::LoadCanvas()
 
 void CombatCG::UnloadCanvas()
 {
+	charactersSlot.clear();
 	if (alert != nullptr) {
 		delete alert;
 		alert = nullptr;
@@ -328,11 +346,11 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 	UITextBox* slotName = new UITextBox(charactedData.name, *btn_font, font_size, {255,255,255,255}, { 0,0 }, { 69,18 }, { 0,1 }, hAligment, vAligment, false);
 	slotName->SetLocalScale(0.5f);
 	
-	UIToggle* poisonToggle = new UIToggle(*effects_texture, { 53,4 }, { 5,3 }, { 0,0,5,3 }, { 5,0,5,3 }, {0,0},false);
+	UIToggle* poisonToggle = new UIToggle(*effects_texture, { 54,2 }, { 8,8 }, { 0,0,8,8 }, { 8,0,8,8 }, {0,0},false);
 	poisonToggle->interactable = false;
-	UIToggle* burnToggle = new UIToggle(*effects_texture, {58,4}, { 5,3 },{ 0,3,5,3 }, { 5,3,5,3 }, { 0,0 }, false);
+	UIToggle* burnToggle = new UIToggle(*effects_texture, {64,2}, { 8,8 },{ 0,8,8,8 }, { 8,0,8,8 }, { 0,0 }, false);
 	burnToggle->interactable = false;
-	UIToggle* regenerationToggle = new UIToggle(*effects_texture, {63,4}, {5,3}, { 0,6,5,3 }, { 5,6,5,3 }, { 0,0 }, false);
+	UIToggle* regenerationToggle = new UIToggle(*effects_texture, {74,2}, {8,8}, { 0,16,8,8 }, { 8,0,8,8 }, { 0,0 }, false);
 	regenerationToggle->interactable = false;
 
 
@@ -417,8 +435,13 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
  	characterImage->GetAnimator()->GetAnimationClip("physic-attack")->onAnimationFinished.Subscribe([this, characterImage]() {FinishAttackVisuals(characterImage); });
  	characterImage->GetAnimator()->GetAnimationClip("hurt")->onAnimationFinished.Subscribe([this, characterImage, value]() {FinishHurtVisuals(characterImage, value); });
  	
+	UIAnimatedImage* combatEffect = new UIAnimatedImage({ 0,-30 }, { 64,64 }, { 0.5f,0.5f }, {255,255,255,0});
+	combatEffect->SetLocalScale(1.7f);
+	combatEffect->flip = value->team == CombatSystem::Enemy;
+
 	selectedCharacterTarget->SetParent(characterBtn);
 	characterImage->SetParent(characterBtn);
+	combatEffect->SetParent(characterBtn);
 	characterBtn->SetParent(overlay);
 	slotLvl->SetParent(overlay);
 	slotName->SetParent(overlay);
@@ -435,7 +458,7 @@ CombatCG::UICharacterSlot CombatCG::CreateUICharacterSlot(CombatSystem::Characte
 
 	AddElementToCanvas(overlay);
 
-	return { characterBtn,characterImage, value,slotLvl,slotName, poisonToggle, burnToggle,regenerationToggle, hpBar,hpBarMaxWidth, overlay, attackDone,selectedCharacterIndicator, selectedCharacterTarget};
+	return { characterBtn,characterImage, value,slotLvl,slotName, poisonToggle, burnToggle,regenerationToggle, hpBar,hpBarMaxWidth, overlay, attackDone,selectedCharacterIndicator, selectedCharacterTarget, combatEffect};
 }
 
 void CombatCG::CreateUIExtras()
@@ -861,5 +884,10 @@ void CombatCG::FinishHurtVisuals(UIAnimatedImage* characterImage, CombatSystem::
 	}
 }
 
-
-
+void CombatCG::FinishEffectVisuals(UIAnimatedImage* combatEffect)
+{
+	targetVisualsCompleted.second++;
+	if (targetVisualsCompleted.second == targetVisualsRequest.second)
+		animationEffect.second = true;
+	combatEffect->GetJsonAnimator()->CleanUp();
+}

@@ -27,12 +27,14 @@ bool TriggerPuzzleElement::Update()
 	if (!isBeingTriggered && sensor.IsBeingTriggered()) {
 		if (onEnter) {
 			isBeingTriggered = true;
+			Save();
 			SendCall();
 		}
 	}
 	else if(isBeingTriggered && !sensor.IsBeingTriggered()){
 		if (onExit) {
 			isBeingTriggered = false;
+			Save();
 			SendCall();
 		}
 	}
@@ -49,6 +51,7 @@ void TriggerPuzzleElement::Render()
 
 void TriggerPuzzleElement::Initialize(string _id, Vector2Int _position, float _size, vector<string> _targets, bool callOnEnter, bool callOnExit)
 {
+	id = _id;
 	targets = _targets;
 	onEnter = callOnEnter;
 	onExit = callOnExit;
@@ -68,8 +71,13 @@ void TriggerPuzzleElement::Initialize(string _id, Vector2Int _position, float _s
 	mask.flags.player_layer = 1;
 	body->SetFilter(0, category.rawValue, mask.rawValue, 0);
 
+
+	PuzzleManager::Instance().AddPuzzleElement(_id, *this);
+	if (!Load()) {
+
+	}
+
 	SetPosition(_position);
-	id = _id;
 }
 
 void TriggerPuzzleElement::RecieveCall(string _id, unordered_map<string, string> _params)
@@ -103,6 +111,7 @@ void TriggerPuzzleElement::InitPoolObject()
 
 void TriggerPuzzleElement::ResetPoolObject()
 {
+	PuzzleManager::Instance().RemovePuzzleElement(*this);
 	isBeingTriggered = false;
 	SetPosition(Vector2Int(0, 0));
 	targets.clear();
@@ -118,4 +127,21 @@ void TriggerPuzzleElement::SetPosition(Vector2 newPosition)
 	position = newPosition;
 	if (body != nullptr)
 		body->SetPhysicPosition(position.x, position.y);
+}
+
+bool TriggerPuzzleElement::Load()
+{
+	if (PuzzleManager::Instance().HasPuzzleProperty(id, "isBeingTriggered")) {
+		bool value = PuzzleManager::Instance().GetValueFromPuzzle(id, "isBeingTriggered") == "true";
+		isBeingTriggered = value;
+
+		return true;
+	}
+	return false;
+}
+
+bool TriggerPuzzleElement::Save()
+{
+	PuzzleManager::Instance().SetValueFromPuzzle(id, "isBeingTriggered", isBeingTriggered ? "true" : "false");
+	return true;
 }

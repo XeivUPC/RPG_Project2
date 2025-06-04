@@ -60,6 +60,12 @@ void AttackList::LoadAttacks()
 		xml_node descriptionNode = attack.child("description");
 		newAttack.description = descriptionNode.attribute("value").as_string();
 
+		xml_node animationHitDataNode = attack.child("animation-hit-data");
+		newAttack.animation_hit_data = animationHitDataNode.attribute("value").as_string();
+		
+		xml_node animationHurtDataNode = attack.child("animation-hurt-data");
+		newAttack.animation_hurt_data = animationHurtDataNode.attribute("value").as_string();
+
 		xml_node dataNode = attack.child("data");
 
 		xml_node infoNode = dataNode.child("info");

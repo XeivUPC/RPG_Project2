@@ -17,7 +17,7 @@ class UIToggle;
 
 class InventoryCG : public UICanvas {
 public:
-	InventoryCG();
+	InventoryCG(int _renderLayer);
 	~InventoryCG();
 
 

@@ -55,9 +55,8 @@ bool TitleScene::Start()
     parallax->AddLayer(Engine::Instance().m_assetsDB->GetTexture("title_bg6"), 0.0f);
     parallax->renderLayer = 5;
 
-    settings_canvas = new SettingsCG();
+    settings_canvas = new SettingsCG(7);
     settings_canvas->isVisible = false;
-    settings_canvas->renderLayer = 7;
 
 
     canvas = new TitleMenuCG(*settings_canvas);

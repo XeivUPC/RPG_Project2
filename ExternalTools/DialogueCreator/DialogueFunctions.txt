@@ -15,6 +15,7 @@ CheckIfMissionCompleted(string data) --> example mission;tutorial  (id)
 UnlockNpc(int id)
 StartCombat(string charsArray)  ---> exmaple 0,-1,2,8  (MAX:4 chars)
 CheckIfWonCombat()
+SetPuzzleVariable(string data) --> example button_01->isPressed->true
 
 ///////////////////////
 
