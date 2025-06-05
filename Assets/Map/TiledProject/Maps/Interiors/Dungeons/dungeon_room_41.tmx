@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="11" height="11" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="35">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="11" height="11" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="36">
  <editorsettings>
   <export target="../../../../Data/Interiors/Dungeon/dungeon_room_41.xml" format="tmx"/>
  </editorsettings>
@@ -103,25 +103,26 @@
    </properties>
    <point/>
   </object>
-  <object id="25" name="Zone1" x="67.7102" y="174.636" width="41" height="6.25">
+  <object id="25" name="Zone100" x="67.7102" y="174.636" width="41" height="6.25">
    <properties>
-    <property name="EntryPoint" type="int" value="2"/>
-    <property name="TargetPath" value="Assets/Map/Data/Rogue_Squadron_Headquarters.xml"/>
+    <property name="EntryPoint" type="int" value="100"/>
+    <property name="TargetPath" value="Assets/Map/Data/Forest_Dungeon.xml"/>
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>
   <object id="27" name="collision" x="96" y="160" width="80" height="16"/>
   <object id="28" x="75.0909" y="176.545" width="26.7273" height="6.72727"/>
-  <object id="29" name="SpawnPoint" x="88.375" y="153.75">
-   <properties>
-    <property name="Type" value="spawnPoint"/>
-   </properties>
-   <point/>
-  </object>
   <object id="30" name="collision" x="16" y="96" width="16" height="16"/>
   <object id="31" name="collision" x="48" y="64" width="16" height="16"/>
   <object id="32" name="collision" x="128" y="80" width="16" height="16"/>
   <object id="33" name="collision" x="48" y="144" width="16" height="16"/>
   <object id="34" name="collision" x="128" y="128" width="16" height="16"/>
+  <object id="35" name="EntryPoint100" x="88.5" y="166.875">
+   <properties>
+    <property name="Type" value="entryPoint"/>
+    <property name="Value" type="int" value="100"/>
+   </properties>
+   <point/>
+  </object>
  </objectgroup>
 </map>
