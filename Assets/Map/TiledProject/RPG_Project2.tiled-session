@@ -5,14 +5,14 @@
     },
     "activeFile": "Maps/Interiors/Dungeon_puzzles.tmx",
     "expandedProjectPaths": [
-        "Tilesets",
-        "Prefabs/Buildings",
-        ".",
         "Maps",
-        "Prefabs",
-        "Maps/Interiors/Dungeons",
+        ".",
         "Objects",
-        "Maps/Interiors"
+        "Maps/Interiors/Dungeons",
+        "Tilesets",
+        "Maps/Interiors",
+        "Prefabs",
+        "Prefabs/Buildings"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -58,8 +58,8 @@
             "scale": 2,
             "selectedLayer": 9,
             "viewCenter": {
-                "x": 262.5,
-                "y": 141.5
+                "x": 904,
+                "y": 724.75
             }
         },
         "Maps/Dunhaven_Palace_Venue.tmx": {
@@ -151,7 +151,7 @@
             "selectedLayer": 4,
             "viewCenter": {
                 "x": 88,
-                "y": 96
+                "y": 95.75
             }
         },
         "Maps/Interiors/Dungeon_puzzles.tmx": {
@@ -181,7 +181,7 @@
             "selectedLayer": 1,
             "viewCenter": {
                 "x": 88.0436941410129,
-                "y": 88.0436941410129
+                "y": 87.93445878848064
             }
         },
         "Maps/Interiors/Dungeons/dungeon_room_13.tmx": {
@@ -383,7 +383,7 @@
             "selectedLayer": 6,
             "viewCenter": {
                 "x": 512,
-                "y": 448
+                "y": 448.3333333333333
             }
         },
         "Maps/Rogue_Squadron_Headquarters.tmx#vegetation_atlas": {

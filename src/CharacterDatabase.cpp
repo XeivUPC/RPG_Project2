@@ -167,7 +167,13 @@ void CharacterDatabase::LoadDatabase()
             {
                 charDefinition.attacks.emplace_back(attack.as_int());
             }
-  
+            
+
+            vector<InventorySlot>& slotsData = charDefinition.inventory.GetSlotsDataModifiable();
+			slotsData[0].SetSlotType("helmet");
+			slotsData[1].SetSlotType("armor");
+			slotsData[2].SetSlotType("weapon");
+			slotsData[3].SetSlotType("accessory");
             definitions[charId] = charDefinition;
         }
     }

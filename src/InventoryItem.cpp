@@ -20,6 +20,13 @@ int InventoryItem::GetMaxStack() const
     return itemRef->stackable_quantity;
 }
 
+string InventoryItem::GetType() const
+{
+    if (itemRef->properties.count("type") == 0)
+        return "";
+    return itemRef->properties["type"];
+}
+
 InventoryItem* InventoryItem::clone() const
 {
     return new InventoryItem(*this);

@@ -13,6 +13,7 @@ public:
     string GetName() const;
     string GetId() const;
     int GetMaxStack() const;
+    string GetType() const;
 
     InventoryItem* clone() const;
     Item* GetReference();
@@ -29,4 +30,5 @@ protected:
 
 protected:
     Item* itemRef;
+
 };
