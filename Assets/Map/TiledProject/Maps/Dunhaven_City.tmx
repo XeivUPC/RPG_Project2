@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="112" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="24" nextobjectid="1226">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="112" height="80" tilewidth="16" tileheight="16" infinite="0" nextlayerid="24" nextobjectid="1229">
  <editorsettings>
   <export target="../../Data/Dunhaven_City.xml" format="tmx"/>
  </editorsettings>
@@ -2537,13 +2537,35 @@
    </properties>
    <point/>
   </object>
+  <object id="1226" x="1792.01" y="15.6667" width="16.9855" height="90.3478">
+   <properties>
+    <property name="Color" type="color" value="#00000000"/>
+    <property name="IsBlocking" type="bool" value="true"/>
+    <property name="PuzzleId" value="blocking_420"/>
+    <property name="Type" value="blockingPuzzle"/>
+   </properties>
+  </object>
+  <object id="1227" name="EntryPoint5" x="1782.48" y="61.9803">
+   <properties>
+    <property name="Type" value="entryPoint"/>
+    <property name="Value" type="int" value="5"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="1228" name="Zone5" x="1795.5" y="17.943" width="6.99999" height="86.614">
+   <properties>
+    <property name="EntryPoint" type="int" value="5"/>
+    <property name="TargetPath" value="Assets/Map/Data/Forest_Dungeon.xml"/>
+    <property name="Type" value="tilemapChanger"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="9" name="Collisions">
-  <object id="665" x="112.386" y="-21.25" width="1678.5" height="37"/>
+  <object id="665" x="112.386" y="-21.25" width="1679.59" height="37"/>
   <object id="666" x="0.17134" y="1279.86" width="1791.32" height="19.803"/>
   <object id="667" x="-16" y="-20.9624" width="16" height="1300.97"/>
   <object id="669" x="1792" y="895" width="16" height="385"/>
-  <object id="670" x="1792" y="16" width="16" height="736.5"/>
+  <object id="670" x="1792" y="106" width="16" height="646.5"/>
   <object id="671" x="1800.18" y="752.545" width="7.72727" height="142.273"/>
   <object id="1190" x="1161" y="1279.33">
    <polygon points="0,0 1.33333,-8.66667 15.6667,-11.3333 13,-25 43.3333,-26.6667 44.6667,-57.6667 60.6667,-58 60.6667,-88.6667 77,-90 77.3333,-106 92.6667,-106.667 93,-119.667 77,-119 77,-165.667 58.3333,-166.333 61.3333,-231 45.6667,-231.333 45.6667,-367.333 226,-367.333 228.333,-300.667 243,-299.667 245,-203.667 258,-203 259.333,-140 275.333,-138 275,-40.6667 257.667,-37 257.667,-21.6667 241.333,-20.6667 241.667,-7.66667 211.333,-6.33333 210.333,3.66667"/>

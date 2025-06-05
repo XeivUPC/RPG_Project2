@@ -204,6 +204,17 @@
                     }
                 ],
                 "uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8"
+            },
+            {
+                "name": "Doorman",
+                "portraits": [
+                    {
+                        "name": "Fisherman-idle",
+                        "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+                        "uuid": "4c09e92f-aa17-4f83-8c2e-534ed80a231a"
+                    }
+                ],
+                "uuid": "66e7dd9f-8fb6-4339-b790-7af94a626c8c"
             }
         ],
         "files": [
@@ -299,8 +310,8 @@
     },
     "cache": {
         "last_opened_file": {
-            "name": "vip_client_four.json",
-            "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Dialogues/vip_client_four.json"
+            "name": "xeivTreaty_doorman.json",
+            "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Dialogues/xeivTreaty_doorman.json"
         }
     },
     "info": {

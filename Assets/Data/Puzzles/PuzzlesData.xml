@@ -1,9 +1,2 @@
 <?xml version="1.0"?>
-<puzzles>
-	<puzzle id="blocking_696">
-		<property key="isBlocking" value="false" />
-	</puzzle>
-	<puzzle id="blocking_969">
-		<property key="isBlocking" value="false" />
-	</puzzle>
-</puzzles>
+<puzzles />
