@@ -171,7 +171,7 @@
   </object>
   <object id="306" x="217.333" y="195.833">
    <properties>
-    <property name="NpcId" value="character;pedroJr"/>
+    <property name="NpcId" value="character;pedroJrDungeon"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>

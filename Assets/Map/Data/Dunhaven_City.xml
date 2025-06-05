@@ -2534,7 +2534,7 @@
    </properties>
    <point/>
   </object>
-  <object id="1226" x="1792" y="16" width="16.9855" height="90.3478">
+  <object id="1226" x="1829.09" y="68" width="16.9855" height="90.3478">
    <properties>
     <property name="Color" type="color" value="#00000000"/>
     <property name="IsBlocking" type="bool" value="true"/>

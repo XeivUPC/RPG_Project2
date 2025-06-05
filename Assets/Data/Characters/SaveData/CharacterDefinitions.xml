@@ -61,6 +61,9 @@
 	<character id="character;pedroJr" template="character;pedroJr" name="PedroJr">
 		<dialogue path="Assets/Dialogues/pedro_jr.json" state="0" />
 	</character>
+	<character id="character;pedroJrDungeon" template="character;pedroJr" name="PedroJr">
+		<dialogue path="Assets/Dialogues/pedro_jr_dungeon.json" state="0" />
+	</character>
 	<character id="character;dh_cottage_man" template="character;dh_fisherman" name="Cottage Man">
 		<dialogue path="Assets/Dialogues/cottage_man.json" state="0" />
 	</character>
