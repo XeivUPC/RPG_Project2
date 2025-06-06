@@ -279,13 +279,17 @@
             {
                 "name": "fit_guard.json",
                 "path": "D:/Github/Uni/RPG_Project2/Assets/Dialogues/fit_guard.json"
+            },
+            {
+                "name": "puzzle_dialogues.json",
+                "path": "D:/Github/Uni/RPG_Project2/Assets/Dialogues/puzzle_dialogues.json"
             }
         ]
     },
     "cache": {
         "last_opened_file": {
-            "name": "artis_guard.json",
-            "path": "D:/Github/Uni/RPG_Project2/Assets/Dialogues/artis_guard.json"
+            "name": "puzzle_dialogues.json",
+            "path": "D:/Github/Uni/RPG_Project2/Assets/Dialogues/puzzle_dialogues.json"
         }
     },
     "info": {
