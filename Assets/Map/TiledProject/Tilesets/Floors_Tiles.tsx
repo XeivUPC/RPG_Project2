@@ -152,6 +152,7 @@
   </wangset>
   <wangset name="StoneFloor" type="corner" tile="-1">
    <wangcolor name="StoneFloor" color="#ff0000" tile="-1" probability="1"/>
+   <wangcolor name="Palace" color="#00ff00" tile="-1" probability="1"/>
    <wangtile tileid="16" wangid="0,0,0,1,0,0,0,0"/>
    <wangtile tileid="17" wangid="0,0,0,1,0,1,0,0"/>
    <wangtile tileid="18" wangid="0,0,0,0,0,1,0,0"/>
@@ -173,6 +174,27 @@
    <wangtile tileid="116" wangid="0,1,0,0,0,0,0,0"/>
    <wangtile tileid="117" wangid="0,1,0,0,0,0,0,1"/>
    <wangtile tileid="118" wangid="0,0,0,0,0,0,0,1"/>
+   <wangtile tileid="146" wangid="0,0,0,2,0,0,0,0"/>
+   <wangtile tileid="147" wangid="0,0,0,2,0,2,0,0"/>
+   <wangtile tileid="148" wangid="0,0,0,0,0,2,0,0"/>
+   <wangtile tileid="170" wangid="0,0,0,2,0,0,0,0"/>
+   <wangtile tileid="171" wangid="0,2,0,2,0,2,0,0"/>
+   <wangtile tileid="172" wangid="0,2,0,2,0,2,0,2"/>
+   <wangtile tileid="173" wangid="0,0,0,2,0,2,0,2"/>
+   <wangtile tileid="174" wangid="0,0,0,0,0,2,0,0"/>
+   <wangtile tileid="195" wangid="0,2,0,2,0,0,0,0"/>
+   <wangtile tileid="196" wangid="0,2,0,2,0,2,0,2"/>
+   <wangtile tileid="197" wangid="0,2,0,2,0,2,0,2"/>
+   <wangtile tileid="198" wangid="0,2,0,2,0,2,0,2"/>
+   <wangtile tileid="199" wangid="0,0,0,0,0,2,0,2"/>
+   <wangtile tileid="220" wangid="0,2,0,0,0,0,0,0"/>
+   <wangtile tileid="221" wangid="0,2,0,2,0,0,0,2"/>
+   <wangtile tileid="222" wangid="0,2,0,2,0,2,0,2"/>
+   <wangtile tileid="223" wangid="0,2,0,0,0,2,0,2"/>
+   <wangtile tileid="224" wangid="0,0,0,0,0,0,0,2"/>
+   <wangtile tileid="246" wangid="0,2,0,0,0,0,0,0"/>
+   <wangtile tileid="247" wangid="0,2,0,0,0,0,0,2"/>
+   <wangtile tileid="248" wangid="0,0,0,0,0,0,0,2"/>
   </wangset>
  </wangsets>
 </tileset>
