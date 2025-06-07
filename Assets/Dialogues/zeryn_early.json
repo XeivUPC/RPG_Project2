@@ -1,1 +1,1566 @@
-{"18495b2e-13e3-45c3-a1f6-ba699cd89108":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Today might just be a 'day'. That blasted cook shut the hall without even feeding us all.","fr":""},"next":"ebd65e3d-15f8-4b7e-a0e0-114b21db2756","parent":"86016e89-254f-48ab-8d05-b95bfd8b0067"},"ebd65e3d-15f8-4b7e-a0e0-114b21db2756":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-angry-fade.png","text":{"en":"He's downright lazy, that one.","fr":""},"parent":"18495b2e-13e3-45c3-a1f6-ba699cd89108","choices":[{"text":{"en":"I'll try to sway him.","fr":""},"next":"5ba0f38d-e9ff-4e69-a239-c0bf502f6864","parent":"ebd65e3d-15f8-4b7e-a0e0-114b21db2756"},{"text":{"en":"I'm gonna try to get Gideon to put that lazy one in his place.","fr":""},"next":"356519b7-2f40-4222-bc28-eaf516883faa","parent":"ebd65e3d-15f8-4b7e-a0e0-114b21db2756"}]},"10c8e9df-f94e-4406-9f02-363300c1cff1":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Did you speak to the chef yet?","fr":""},"choices":[{"text":{"en":"Yes.","fr":""},"next":"0fe3d9f7-5cb0-41d9-abd9-8a2673a17c6a","parent":"10c8e9df-f94e-4406-9f02-363300c1cff1"},{"text":{"en":"Not yet - Leave -","fr":""},"next":"","parent":"10c8e9df-f94e-4406-9f02-363300c1cff1"}],"parent":"b9c4ea89-dc73-4ade-9349-e4f630fdd4c1"},"0fe3d9f7-5cb0-41d9-abd9-8a2673a17c6a":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-happy.png","text":{"en":"Guess the answer ?","fr":""},"parent":"da351ad7-22b6-4112-8443-3b22554eedf2","next":"71c59f09-2645-4d90-a9b6-25847ea30c6c"},"71c59f09-2645-4d90-a9b6-25847ea30c6c":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"A 'No' and a disrespect look in his eyes ?","fr":""},"parent":"0fe3d9f7-5cb0-41d9-abd9-8a2673a17c6a","conditions":[{"parent":"71c59f09-2645-4d90-a9b6-25847ea30c6c","next":"db70fe02-8608-497f-9285-8c9cb8aa7b78","HasItem":{"value":true,"operator":"equal","type":"boolean"}},{"parent":"71c59f09-2645-4d90-a9b6-25847ea30c6c","next":"c17b6a35-849d-4643-a0cc-00f626210087"}],"signals":{"parent":"71c59f09-2645-4d90-a9b6-25847ea30c6c","CheckIfHasItem":{"String":"item;healing_bread-1"}}},"c17b6a35-849d-4643-a0cc-00f626210087":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-sad-fade.png","text":{"en":"And... he called me filthy kid.","fr":""},"next":"de96ad39-4e8b-48cb-8e6f-34ca497d9f97","parent":"a2d10ed5-55d0-4ae5-b4c3-fbf05f2f3d1e"},"de96ad39-4e8b-48cb-8e6f-34ca497d9f97":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Don't worry,  I did not have high hopes on that annoying chef.","fr":""},"parent":"c17b6a35-849d-4643-a0cc-00f626210087","signals":{"parent":"de96ad39-4e8b-48cb-8e6f-34ca497d9f97","RemoveMission":{"String":"mission;chef1"},"AddMission":{"String":"mission;audience"},"SetNpcState":{"String":"character;zeryn-3"}}},"963213bc-74a5-4a28-ac7e-001f70028abb":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Are you lost?","fr":""},"choices":[{"text":{"en":"Yes... I still do not understand my role here.","fr":""},"next":"f28cf5d1-365a-41ed-87e6-86f660645a1e","parent":"963213bc-74a5-4a28-ac7e-001f70028abb"},{"text":{"en":"No... just passing by. - Leave -","fr":""},"next":"","parent":"963213bc-74a5-4a28-ac7e-001f70028abb"}],"parent":"bfe2befe-b969-48a4-a6c2-8e653f1e41cf"},"f28cf5d1-365a-41ed-87e6-86f660645a1e":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Then ask me wathever you want, that's what friends are for.","fr":""},"parent":"97ed7940-8c51-48a9-9332-958339f36ea7","choices":[],"next":"3cf455e1-60fa-4098-85fc-1c8612f31abb"},"f76af9db-5358-4c1e-aef0-8a2ddd810510":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Well that old man's story is very long you know?","fr":""},"parent":"8d766b73-b8e3-41d4-80ef-750335ff86a7","next":"e5bac56e-e337-44d6-85e2-9e47bd65f052"},"e5bac56e-e337-44d6-85e2-9e47bd65f052":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"He is a noble from the house of Hawthorne, renowned for its knowledge on archery. He became the best markshman in Zalium, and ended up being one of the four people considered \"Elite soldiers\" in the whole empire, which formed the Royal Guard.","fr":""},"parent":"f76af9db-5358-4c1e-aef0-8a2ddd810510","next":"3cf455e1-60fa-4098-85fc-1c8612f31abb"},"3cf455e1-60fa-4098-85fc-1c8612f31abb":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Which are your doubts ?","fr":""},"choices":[{"text":{"en":"Sir Gideon was someone important in the past, right?","fr":""},"next":"f76af9db-5358-4c1e-aef0-8a2ddd810510","parent":"3cf455e1-60fa-4098-85fc-1c8612f31abb"},{"text":{"en":"What does Sir Gideon gain from teaching us ?","fr":""},"next":"3d5ce7b7-3761-4ff8-8b8e-17e7eab5673b","parent":"3cf455e1-60fa-4098-85fc-1c8612f31abb"},{"text":{"en":"I'm fine, thanks. - Leave -","fr":""},"next":"","parent":"3cf455e1-60fa-4098-85fc-1c8612f31abb"}],"parent":"2c605db2-d775-4afa-8739-b6a916e97e2d"},"3d5ce7b7-3761-4ff8-8b8e-17e7eab5673b":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Remember the soldier group called the Royal Guard ? Despite being the best on our empire, they faced a battle not even them could win, Sir Gideon was the only survivor. That traumatizing experience still follows him today.","fr":""},"parent":"64ff4b09-41da-4545-bb34-73490da04979","next":"3230e7b4-d180-4242-9264-f87806c5fcb4"},"3230e7b4-d180-4242-9264-f87806c5fcb4":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"All he strives for now, is leaving the battlefield, to do so he must train a new generation of soldiers able to replace those \"Elite soldiers\" so that the cycle keeps going. ","fr":""},"parent":"3d5ce7b7-3761-4ff8-8b8e-17e7eab5673b","next":"2c605db2-d775-4afa-8739-b6a916e97e2d"},"2c605db2-d775-4afa-8739-b6a916e97e2d":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"And those replaces are you and me, maybe someone else from the Rogue Squad, but they will have to improve to do so.","fr":""},"parent":"3230e7b4-d180-4242-9264-f87806c5fcb4","next":"3cf455e1-60fa-4098-85fc-1c8612f31abb"},"b296a296-bad4-47fb-b212-cf3032608f7d":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"I mean, you've two years more in the Rogue Squadron than I. I fight worse by far, and truth be told, you're just better suited to it than I am.","fr":""},"parent":"21d95370-e6e0-4f3e-8e7c-b0e66c603ba3","next":"88717644-0bb2-445d-a2ea-a627e55673ee"},"88717644-0bb2-445d-a2ea-a627e55673ee":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"They think a woman can't hold power proper, and they're scared witless we might be better at it than them.","fr":""},"parent":"b296a296-bad4-47fb-b212-cf3032608f7d","next":"f0e71534-4a53-41b0-9b86-a759d79682ed"},"5ba0f38d-e9ff-4e69-a239-c0bf502f6864":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Thank you! If there be any chance, I'd like a steak with mashed potatoes.","fr":""},"parent":"883cddc9-0352-4949-acf5-3678f5b6cff1","signals":{"parent":"5ba0f38d-e9ff-4e69-a239-c0bf502f6864","AddMission":{"String":"mission;chef"},"SetNpcState":{"String":"character;zeryn-2"}}},"356519b7-2f40-4222-bc28-eaf516883faa":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"That bald man won't lift a finger to fetch us food, mark my words.","fr":""},"parent":"0f8ad72c-4454-4068-a37d-0d7a49971864","signals":{"parent":"356519b7-2f40-4222-bc28-eaf516883faa","AddMission":{"String":"mission;chef0"},"SetNpcState":{"String":"character;zeryn-2"}}},"48e9effc-cabe-4282-9d69-a5810dbd8c4e":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"What brings you here this early?","fr":""},"parent":"4ddd1f5c-49c2-4806-8f71-f31e1dff181b","signals":{"parent":"48e9effc-cabe-4282-9d69-a5810dbd8c4e","CheckIfMissionCompleted":{"String":"mission;tutorial1"}},"conditions":[{"HasCompletedMission":{"value":true,"operator":"equal","type":"boolean"},"parent":"48e9effc-cabe-4282-9d69-a5810dbd8c4e","next":"f6a6fe17-d793-4160-a405-913d3a61f5d5"},{"parent":"48e9effc-cabe-4282-9d69-a5810dbd8c4e","next":"f67074e4-18ee-43d2-8c3d-355a6e4d728c"}]},"f67074e4-18ee-43d2-8c3d-355a6e4d728c":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Practicin'  my stance. C' mon, fight me.","fr":""},"parent":"d7b083c6-0ec7-4d5b-9912-c6c2016b024a","choices":[{"text":{"en":"No thanks, I'd prefer a morning walk first.","fr":""},"next":"","parent":"f67074e4-18ee-43d2-8c3d-355a6e4d728c"}],"next":"79483b1c-eeb9-4473-bf74-feb177a9ae61"},"6a9b6a9b-1df2-4b5f-8d83-402e74ee35c4":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Alright, let's get on with it! Think before you act, pick who's makin' the move, what they'll do, and who it'll affect. Do all that before you let me strike! Smart moves win fights.","fr":""},"parent":"23739767-8289-4109-b6e2-c2802fef3653","next":"86016e89-254f-48ab-8d05-b95bfd8b0067"},"f6a6fe17-d793-4160-a405-913d3a61f5d5":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Hey, Cassian! I was messin' about with a new move, care to test it the hard way?","fr":""},"parent":"b1b7da39-d5df-43a6-9989-f32e86ed877b","choices":[{"text":{"en":"Hold fast, I'm dyin' of thirst here. Gotta get water.","fr":""},"next":"8546a4a8-1279-4ea2-8682-a0a35708f32f","parent":"f6a6fe17-d793-4160-a405-913d3a61f5d5"},{"text":{"en":"Sure do. Can't get rusty now, can I?","fr":""},"next":"762de827-b3a9-4abe-8949-5a13a045b51c","parent":"f6a6fe17-d793-4160-a405-913d3a61f5d5"}],"signals":{"parent":"f6a6fe17-d793-4160-a405-913d3a61f5d5","RemoveMission":{"String":"mission;tutorial1"}}},"8546a4a8-1279-4ea2-8682-a0a35708f32f":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Right then, I'm off. Catch you later.","fr":""},"parent":"7ffe3a84-9376-48df-a50d-a6a7b7134568","signals":{"parent":"8546a4a8-1279-4ea2-8682-a0a35708f32f","AddMission":{"String":"mission;tutorial2"},"SetNpcState":{"String":"character;zeryn-1"}}},"2e1753ac-5108-474a-956b-0bc8664e126b":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"You ready or what?","fr":""},"parent":"f0abc425-5ebf-417c-8594-5b2a7488e6e4","choices":[{"text":{"en":"I am, nothing beats a calm mind.","fr":""},"next":"6a9b6a9b-1df2-4b5f-8d83-402e74ee35c4","parent":"2e1753ac-5108-474a-956b-0bc8664e126b"},{"text":{"en":"Not yet, still need to fully wake up.","fr":""},"next":"","parent":"2e1753ac-5108-474a-956b-0bc8664e126b"}]},"762de827-b3a9-4abe-8949-5a13a045b51c":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Fine! Let me know when you're set.","fr":""},"signals":{"parent":"762de827-b3a9-4abe-8949-5a13a045b51c","AddMission":{"String":"mission;tutorial2"},"SetNpcState":{"String":"character;zeryn-1"}},"parent":"68b4a3b8-21e8-42e4-9562-3d8f51187fe1"},"79483b1c-eeb9-4473-bf74-feb177a9ae61":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"I'd prefer a morning walk first, thanks.","fr":""},"parent":"f67074e4-18ee-43d2-8c3d-355a6e4d728c"},"86016e89-254f-48ab-8d05-b95bfd8b0067":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Not bad today. Have a good day.","fr":""},"parent":"6a9b6a9b-1df2-4b5f-8d83-402e74ee35c4","signals":{"parent":"86016e89-254f-48ab-8d05-b95bfd8b0067","RemoveMission":{"String":"mission;tutorial2"},"StartCombat":{"String":"character;zeryn"}},"next":"18495b2e-13e3-45c3-a1f6-ba699cd89108"},"db70fe02-8608-497f-9285-8c9cb8aa7b78":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Actually, I did get a bread with the properties of a rock. Want a bite?","fr":""},"parent":"3673bb16-6efd-4ea6-b478-93cf2ebf16db","next":"c6421549-6186-41fa-a461-fe529a0cec10"},"c6421549-6186-41fa-a461-fe529a0cec10":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Yes of course, thanks!","fr":""},"parent":"db70fe02-8608-497f-9285-8c9cb8aa7b78","signals":{"parent":"c6421549-6186-41fa-a461-fe529a0cec10","RemoveMission":{"String":"mission;chef2"},"RemoveItem":{"String":"item;healing_bread-1"},"AddMission":{"String":"mission;audience"},"SetNpcState":{"String":"character;zeryn-3"}}},"b75bbcee-c754-4500-a13a-1ec72915665c":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"We should go to our daily training with Sir Gideon, we are already late again...","fr":""},"signals":{"parent":"b75bbcee-c754-4500-a13a-1ec72915665c","SetNpcState":{"String":"character;zeryn-4"}},"parent":"aa475f5f-5082-4199-8212-00edd0fd6ade"},"950fa259-5fdd-40f6-8fab-dd98ead5bc53":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"I'm back.","fr":""},"signals":{"CheckIfHasItem":{"String":"item;zalium_sword-1"},"parent":"950fa259-5fdd-40f6-8fab-dd98ead5bc53"},"conditions":[{"parent":"950fa259-5fdd-40f6-8fab-dd98ead5bc53","HasItem":{"value":true,"operator":"equal","type":"boolean"},"next":"b076f8e4-0fa2-47b0-9b34-24cb60f5067f"},{"parent":"950fa259-5fdd-40f6-8fab-dd98ead5bc53","next":"dc571d31-83c5-4e37-ac2f-f5212dfa3102"}],"parent":"f8cb026f-f275-4d1f-9811-b28d4d175058"},"dc571d31-83c5-4e37-ac2f-f5212dfa3102":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"You liar! Gideon will hit you to the ground if you don't go.","fr":""},"parent":"6040c576-62ea-4a94-84df-87ed78449822"},"77a3f8a4-0570-49f1-8d9a-1a9618370589":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"...","fr":""},"parent":"94de8bc5-f849-4a93-86cb-9fb3ceb87b24","signals":{"CheckIfHasItem":{"String":"item;zalium_sword-1"},"parent":"77a3f8a4-0570-49f1-8d9a-1a9618370589"},"conditions":[{"parent":"77a3f8a4-0570-49f1-8d9a-1a9618370589","next":"08c5fd91-d4a4-4c1d-a5e9-71c465284aaa","HasItem":{"value":true,"operator":"equal","type":"boolean"}},{"parent":"77a3f8a4-0570-49f1-8d9a-1a9618370589","next":"b75bbcee-c754-4500-a13a-1ec72915665c"}]},"08c5fd91-d4a4-4c1d-a5e9-71c465284aaa":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"Just came back from training with the bald man.","fr":""},"parent":"c660d9a4-ab1b-4221-9278-9107d314f8ad","next":"89a88b2b-a881-40ed-9fa4-e1bd815c0795"},"89a88b2b-a881-40ed-9fa4-e1bd815c0795":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"How was it?","fr":""},"parent":"08c5fd91-d4a4-4c1d-a5e9-71c465284aaa","next":"e3923401-8dc1-40f4-95d4-5f0d48ec2c42"},"e3923401-8dc1-40f4-95d4-5f0d48ec2c42":{"name":"Cassian","character_uuid":"9e488680-eba3-4172-8361-67b08867e5ab","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png","text":{"en":"He was far more intense than usual.","fr":""},"parent":"89a88b2b-a881-40ed-9fa4-e1bd815c0795","next":"f0e71534-4a53-41b0-9b86-a759d79682ed"},"f0e71534-4a53-41b0-9b86-a759d79682ed":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Must be the audience.","fr":""},"parent":"31e43435-18aa-4a47-a4ba-2897a9984147","choices":[{"text":{"en":"Audience...?","fr":""},"next":"31e43435-18aa-4a47-a4ba-2897a9984147","parent":"f0e71534-4a53-41b0-9b86-a759d79682ed"},{"text":{"en":"Why it has to be me?","fr":""},"next":"b296a296-bad4-47fb-b212-cf3032608f7d","parent":"f0e71534-4a53-41b0-9b86-a759d79682ed"},{"text":{"en":"Yeah, might be.","fr":""},"next":"2db153b5-59b3-4dc2-b151-74fd3e6c515d","parent":"f0e71534-4a53-41b0-9b86-a759d79682ed"}]},"31e43435-18aa-4a47-a4ba-2897a9984147":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"You will represent the entire Rogue squadron and show your skills in combat to the emperor to show him our progress. Remember?","fr":""},"parent":"da5da365-7279-4a51-876b-64df2ba2c1a4","next":"f0e71534-4a53-41b0-9b86-a759d79682ed"},"2db153b5-59b3-4dc2-b151-74fd3e6c515d":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"He really wants it to go as perfect as it can be.","fr":""},"parent":"3f745dce-2c7e-4de3-b0ec-c147c90d1023","signals":{"parent":"2db153b5-59b3-4dc2-b151-74fd3e6c515d","SetNpcState":{"String":"character;zeryn-5"}}},"b076f8e4-0fa2-47b0-9b34-24cb60f5067f":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"Nice sword, it will look good on you during the audience.","fr":""},"parent":"0e9fe181-dcdd-41de-9824-03c3b7f086b7","signals":{"SetNpcState":{"String":"character;zeryn-5"},"parent":"b076f8e4-0fa2-47b0-9b34-24cb60f5067f"}},"20c1b54a-760f-406c-bad8-959b470b1b13":{"name":"Zeryn","character_uuid":"2afae365-da73-4cd0-9360-8e26c89cb5b0","portrait":"D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png","text":{"en":"And now... what are we to do?","fr":""},"parent":"0e547ae8-35bc-40d7-8b6d-dce835c9f876"},"root":{"conditions":[{"parent":"root","next":"48e9effc-cabe-4282-9d69-a5810dbd8c4e","character;zeryn-state":{"value":0,"operator":"equal","type":"int"}},{"parent":"root","next":"2e1753ac-5108-474a-956b-0bc8664e126b","character;zeryn-state":{"value":1,"operator":"equal","type":"int"}},{"parent":"root","next":"10c8e9df-f94e-4406-9f02-363300c1cff1","character;zeryn-state":{"value":2,"operator":"equal","type":"int"}},{"next":"77a3f8a4-0570-49f1-8d9a-1a9618370589","parent":"root","character;zeryn-state":{"value":3,"operator":"equal","type":"int"}},{"next":"950fa259-5fdd-40f6-8fab-dd98ead5bc53","parent":"root","character;zeryn-state":{"value":4,"operator":"equal","type":"int"}},{"next":"963213bc-74a5-4a28-ac7e-001f70028abb","parent":"root","character;zeryn-state":{"value":5,"operator":"equal","type":"int"}},{"character;zeryn-state":{"value":6,"operator":"equal","type":"int"},"parent":"root","next":"20c1b54a-760f-406c-bad8-959b470b1b13"}]},"__editor":{"root":{"uuid":"root","offset":[40,100]},"dialogues":[{"uuid":"18495b2e-13e3-45c3-a1f6-ba699cd89108","offset":[2480,-1820]},{"uuid":"ebd65e3d-15f8-4b7e-a0e0-114b21db2756","offset":[2920,-1820]},{"uuid":"10c8e9df-f94e-4406-9f02-363300c1cff1","offset":[900,-940]},{"uuid":"0fe3d9f7-5cb0-41d9-abd9-8a2673a17c6a","offset":[1740,-1100]},{"uuid":"71c59f09-2645-4d90-a9b6-25847ea30c6c","offset":[2180,-1100]},{"uuid":"c17b6a35-849d-4643-a0cc-00f626210087","offset":[3000,-700]},{"uuid":"de96ad39-4e8b-48cb-8e6f-34ca497d9f97","offset":[3400,-700]},{"uuid":"963213bc-74a5-4a28-ac7e-001f70028abb","offset":[940,1480]},{"uuid":"f28cf5d1-365a-41ed-87e6-86f660645a1e","offset":[1780,1380]},{"uuid":"f76af9db-5358-4c1e-aef0-8a2ddd810510","offset":[3260,1160]},{"uuid":"e5bac56e-e337-44d6-85e2-9e47bd65f052","offset":[3660,1160]},{"uuid":"3cf455e1-60fa-4098-85fc-1c8612f31abb","offset":[2360,1380]},{"uuid":"3d5ce7b7-3761-4ff8-8b8e-17e7eab5673b","offset":[3260,1560]},{"uuid":"3230e7b4-d180-4242-9264-f87806c5fcb4","offset":[3660,1560]},{"uuid":"2c605db2-d775-4afa-8739-b6a916e97e2d","offset":[4080,1560]},{"uuid":"b296a296-bad4-47fb-b212-cf3032608f7d","offset":[3700,100]},{"uuid":"88717644-0bb2-445d-a2ea-a627e55673ee","offset":[4100,100]},{"uuid":"5ba0f38d-e9ff-4e69-a239-c0bf502f6864","offset":[3860,-2040]},{"uuid":"356519b7-2f40-4222-bc28-eaf516883faa","offset":[3860,-1620]},{"uuid":"48e9effc-cabe-4282-9d69-a5810dbd8c4e","offset":[740,-3160]},{"uuid":"f67074e4-18ee-43d2-8c3d-355a6e4d728c","offset":[1680,-2520]},{"uuid":"6a9b6a9b-1df2-4b5f-8d83-402e74ee35c4","offset":[1600,-1820]},{"uuid":"f6a6fe17-d793-4160-a405-913d3a61f5d5","offset":[1680,-3160]},{"uuid":"8546a4a8-1279-4ea2-8682-a0a35708f32f","offset":[2480,-3300]},{"uuid":"2e1753ac-5108-474a-956b-0bc8664e126b","offset":[800,-1600]},{"uuid":"762de827-b3a9-4abe-8949-5a13a045b51c","offset":[2480,-2900]},{"uuid":"79483b1c-eeb9-4473-bf74-feb177a9ae61","offset":[2080,-2520]},{"uuid":"86016e89-254f-48ab-8d05-b95bfd8b0067","offset":[2020,-1820]},{"uuid":"db70fe02-8608-497f-9285-8c9cb8aa7b78","offset":[3000,-1100]},{"uuid":"c6421549-6186-41fa-a461-fe529a0cec10","offset":[3400,-1100]},{"uuid":"b75bbcee-c754-4500-a13a-1ec72915665c","offset":[1720,0]},{"uuid":"950fa259-5fdd-40f6-8fab-dd98ead5bc53","offset":[840,440]},{"uuid":"dc571d31-83c5-4e37-ac2f-f5212dfa3102","offset":[1680,1000]},{"uuid":"77a3f8a4-0570-49f1-8d9a-1a9618370589","offset":[740,-240]},{"uuid":"08c5fd91-d4a4-4c1d-a5e9-71c465284aaa","offset":[1720,-380]},{"uuid":"89a88b2b-a881-40ed-9fa4-e1bd815c0795","offset":[2120,-380]},{"uuid":"e3923401-8dc1-40f4-95d4-5f0d48ec2c42","offset":[2500,-380]},{"uuid":"f0e71534-4a53-41b0-9b86-a759d79682ed","offset":[2900,-160]},{"uuid":"31e43435-18aa-4a47-a4ba-2897a9984147","offset":[3700,-300]},{"uuid":"2db153b5-59b3-4dc2-b151-74fd3e6c515d","offset":[3700,480]},{"uuid":"b076f8e4-0fa2-47b0-9b34-24cb60f5067f","offset":[1780,600]},{"uuid":"20c1b54a-760f-406c-bad8-959b470b1b13","offset":[920,1920]}],"conditions":[{"uuid":"3673bb16-6efd-4ea6-b478-93cf2ebf16db","offset":[2600,-1080],"parent":"71c59f09-2645-4d90-a9b6-25847ea30c6c"},{"uuid":"a2d10ed5-55d0-4ae5-b4c3-fbf05f2f3d1e","offset":[2580,-560],"collapsed":true,"parent":"71c59f09-2645-4d90-a9b6-25847ea30c6c"},{"uuid":"b1b7da39-d5df-43a6-9989-f32e86ed877b","offset":[1260,-3120],"parent":"48e9effc-cabe-4282-9d69-a5810dbd8c4e"},{"uuid":"d7b083c6-0ec7-4d5b-9912-c6c2016b024a","offset":[1280,-2380],"collapsed":true,"parent":"48e9effc-cabe-4282-9d69-a5810dbd8c4e"},{"uuid":"0e9fe181-dcdd-41de-9824-03c3b7f086b7","offset":[1340,680],"parent":"950fa259-5fdd-40f6-8fab-dd98ead5bc53"},{"uuid":"6040c576-62ea-4a94-84df-87ed78449822","offset":[1300,1140],"collapsed":true,"parent":"950fa259-5fdd-40f6-8fab-dd98ead5bc53"},{"uuid":"c660d9a4-ab1b-4221-9278-9107d314f8ad","offset":[1220,-200],"parent":"77a3f8a4-0570-49f1-8d9a-1a9618370589"},{"uuid":"aa475f5f-5082-4199-8212-00edd0fd6ade","offset":[1220,160],"collapsed":true,"parent":"77a3f8a4-0570-49f1-8d9a-1a9618370589"},{"uuid":"4ddd1f5c-49c2-4806-8f71-f31e1dff181b","offset":[380,-3120],"parent":"root"},{"uuid":"f0abc425-5ebf-417c-8594-5b2a7488e6e4","offset":[420,-1580],"parent":"root"},{"uuid":"b9c4ea89-dc73-4ade-9349-e4f630fdd4c1","offset":[460,-920],"parent":"root"},{"uuid":"94de8bc5-f849-4a93-86cb-9fb3ceb87b24","offset":[360,-200],"parent":"root"},{"uuid":"f8cb026f-f275-4d1f-9811-b28d4d175058","offset":[460,460],"parent":"root"},{"uuid":"bfe2befe-b969-48a4-a6c2-8e653f1e41cf","offset":[540,1500],"parent":"root"},{"uuid":"0e547ae8-35bc-40d7-8b6d-dce835c9f876","offset":[540,1960],"parent":"root"}],"signals":[{"uuid":"94255524-a118-4347-8b73-ea3513a2bdca","offset":[2580,-1380],"parent":"71c59f09-2645-4d90-a9b6-25847ea30c6c"},{"uuid":"9938cb58-db9c-4035-9ef5-fc53708ff5de","offset":[3820,-700],"parent":"de96ad39-4e8b-48cb-8e6f-34ca497d9f97"},{"uuid":"df9a79c0-dfc0-4d9a-99ff-7bd690018c92","offset":[4300,-2000],"parent":"5ba0f38d-e9ff-4e69-a239-c0bf502f6864","data":{"parent":"5ba0f38d-e9ff-4e69-a239-c0bf502f6864","AddMission":{"String":"mission;chef"},"SetNpcState":{"String":"character;zeryn-2"}}},{"uuid":"e52be61c-5c44-4199-9fef-48475c78459e","offset":[4300,-1580],"parent":"356519b7-2f40-4222-bc28-eaf516883faa","data":{"parent":"356519b7-2f40-4222-bc28-eaf516883faa","AddMission":{"String":"mission;chef0"},"SetNpcState":{"String":"character;zeryn-2"}}},{"uuid":"17381c6f-1582-4b2d-821e-82fa175987ff","offset":[1220,-3480],"parent":"48e9effc-cabe-4282-9d69-a5810dbd8c4e"},{"uuid":"a28e89d4-1b06-4379-8c56-e1db10996292","offset":[2100,-3600],"parent":"f6a6fe17-d793-4160-a405-913d3a61f5d5"},{"uuid":"f1ec74e0-b05d-4f7a-ab49-2310136a4489","offset":[2900,-3280],"data":{"parent":"8546a4a8-1279-4ea2-8682-a0a35708f32f","AddMission":{"String":"mission;tutorial2"},"SetNpcState":{"String":"character;zeryn-1"}},"parent":"8546a4a8-1279-4ea2-8682-a0a35708f32f"},{"uuid":"cb6172ed-beb5-44d2-abe5-6b2955f07942","offset":[2900,-2880],"parent":"762de827-b3a9-4abe-8949-5a13a045b51c","data":{"parent":"762de827-b3a9-4abe-8949-5a13a045b51c","AddMission":{"String":"mission;tutorial2"},"SetNpcState":{"String":"character;zeryn-1"}}},{"uuid":"421f4055-9222-4120-8dee-28cd9ec8a6be","offset":[2480,-2160],"parent":"86016e89-254f-48ab-8d05-b95bfd8b0067"},{"uuid":"40df6b20-6506-48ad-a532-01a2eb46ffa6","offset":[3800,-1140],"parent":"c6421549-6186-41fa-a461-fe529a0cec10"},{"uuid":"7bcbe601-2238-4652-8577-4022e1625e24","offset":[2160,40],"parent":"b75bbcee-c754-4500-a13a-1ec72915665c"},{"uuid":"22c0c3d9-d5c5-4aa3-a2a1-380dd14c4d8b","offset":[1300,380],"parent":"950fa259-5fdd-40f6-8fab-dd98ead5bc53"},{"uuid":"8e8f0c3a-6a10-4223-8186-dacf760844cf","offset":[1220,-500],"parent":"77a3f8a4-0570-49f1-8d9a-1a9618370589"},{"uuid":"53408cd7-fd77-4143-9336-8d0686f95727","offset":[4120,520],"parent":"2db153b5-59b3-4dc2-b151-74fd3e6c515d","data":{"parent":"2db153b5-59b3-4dc2-b151-74fd3e6c515d","SetNpcState":{"String":"character;zeryn-5"}}},{"uuid":"4a4fad91-fe1c-425d-83eb-cc02ef139770","offset":[2180,660],"parent":"b076f8e4-0fa2-47b0-9b34-24cb60f5067f"}],"choices":[{"uuid":"883cddc9-0352-4949-acf5-3678f5b6cff1","offset":[3440,-1920],"parent":"ebd65e3d-15f8-4b7e-a0e0-114b21db2756"},{"uuid":"0f8ad72c-4454-4068-a37d-0d7a49971864","offset":[3440,-1560],"parent":"ebd65e3d-15f8-4b7e-a0e0-114b21db2756"},{"uuid":"da351ad7-22b6-4112-8443-3b22554eedf2","offset":[1340,-1040],"parent":"10c8e9df-f94e-4406-9f02-363300c1cff1"},{"uuid":"9068cc16-2f4e-4de4-8eb7-dd3b038b405a","offset":[1340,-780],"parent":"10c8e9df-f94e-4406-9f02-363300c1cff1"},{"uuid":"97ed7940-8c51-48a9-9332-958339f36ea7","offset":[1360,1700],"parent":"963213bc-74a5-4a28-ac7e-001f70028abb"},{"uuid":"92f6cd9f-c4dd-462c-9f64-94d52517e8e5","offset":[1360,1440],"parent":"963213bc-74a5-4a28-ac7e-001f70028abb"},{"uuid":"8d766b73-b8e3-41d4-80ef-750335ff86a7","offset":[2880,1280],"parent":"3cf455e1-60fa-4098-85fc-1c8612f31abb"},{"uuid":"64ff4b09-41da-4545-bb34-73490da04979","offset":[2880,1640],"parent":"3cf455e1-60fa-4098-85fc-1c8612f31abb"},{"uuid":"d25a207d-c428-4bd9-85d6-aac1583bdb82","offset":[2880,1960],"parent":"3cf455e1-60fa-4098-85fc-1c8612f31abb"},{"uuid":"7ffe3a84-9376-48df-a50d-a6a7b7134568","offset":[2100,-3240],"parent":"f6a6fe17-d793-4160-a405-913d3a61f5d5"},{"uuid":"68b4a3b8-21e8-42e4-9562-3d8f51187fe1","offset":[2100,-2840],"parent":"f6a6fe17-d793-4160-a405-913d3a61f5d5"},{"uuid":"23739767-8289-4109-b6e2-c2802fef3653","offset":[1220,-1740],"parent":"2e1753ac-5108-474a-956b-0bc8664e126b"},{"uuid":"fbfd9a4c-ddbd-41e4-8ad9-58b3d2d5a255","offset":[1220,-1400],"parent":"2e1753ac-5108-474a-956b-0bc8664e126b"},{"uuid":"da5da365-7279-4a51-876b-64df2ba2c1a4","offset":[3320,-240],"parent":"f0e71534-4a53-41b0-9b86-a759d79682ed"},{"uuid":"21d95370-e6e0-4f3e-8e7c-b0e66c603ba3","offset":[3340,160],"parent":"f0e71534-4a53-41b0-9b86-a759d79682ed"},{"uuid":"3f745dce-2c7e-4de3-b0ec-c147c90d1023","offset":[3340,560],"parent":"f0e71534-4a53-41b0-9b86-a759d79682ed"}]}}
+{
+    "18495b2e-13e3-45c3-a1f6-ba699cd89108": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Today might just be a 'day'. That blasted cook shut the hall without even feeding us all.",
+            "fr": ""
+        },
+        "next": "ebd65e3d-15f8-4b7e-a0e0-114b21db2756",
+        "parent": "86016e89-254f-48ab-8d05-b95bfd8b0067"
+    },
+    "ebd65e3d-15f8-4b7e-a0e0-114b21db2756": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-angry-fade.png",
+        "text": {
+            "en": "He's downright lazy, that one.",
+            "fr": ""
+        },
+        "parent": "18495b2e-13e3-45c3-a1f6-ba699cd89108",
+        "choices": [
+            {
+                "text": {
+                    "en": "I'll try to sway him.",
+                    "fr": ""
+                },
+                "next": "5ba0f38d-e9ff-4e69-a239-c0bf502f6864",
+                "parent": "ebd65e3d-15f8-4b7e-a0e0-114b21db2756"
+            },
+            {
+                "text": {
+                    "en": "I'm gonna try to get Gideon to put that lazy one in his place.",
+                    "fr": ""
+                },
+                "next": "356519b7-2f40-4222-bc28-eaf516883faa",
+                "parent": "ebd65e3d-15f8-4b7e-a0e0-114b21db2756"
+            }
+        ]
+    },
+    "10c8e9df-f94e-4406-9f02-363300c1cff1": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Did you speak to the chef yet?",
+            "fr": ""
+        },
+        "choices": [
+            {
+                "text": {
+                    "en": "Yes.",
+                    "fr": ""
+                },
+                "next": "0fe3d9f7-5cb0-41d9-abd9-8a2673a17c6a",
+                "parent": "10c8e9df-f94e-4406-9f02-363300c1cff1"
+            },
+            {
+                "text": {
+                    "en": "Not yet - Leave -",
+                    "fr": ""
+                },
+                "next": "",
+                "parent": "10c8e9df-f94e-4406-9f02-363300c1cff1"
+            }
+        ],
+        "parent": "b9c4ea89-dc73-4ade-9349-e4f630fdd4c1"
+    },
+    "0fe3d9f7-5cb0-41d9-abd9-8a2673a17c6a": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-happy.png",
+        "text": {
+            "en": "Guess the answer ?",
+            "fr": ""
+        },
+        "parent": "da351ad7-22b6-4112-8443-3b22554eedf2",
+        "next": "71c59f09-2645-4d90-a9b6-25847ea30c6c"
+    },
+    "71c59f09-2645-4d90-a9b6-25847ea30c6c": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "A 'No' and a disrespect look in his eyes ?",
+            "fr": ""
+        },
+        "parent": "0fe3d9f7-5cb0-41d9-abd9-8a2673a17c6a",
+        "conditions": [
+            {
+                "parent": "71c59f09-2645-4d90-a9b6-25847ea30c6c",
+                "next": "db70fe02-8608-497f-9285-8c9cb8aa7b78",
+                "HasItem": {
+                    "value": true,
+                    "operator": "equal",
+                    "type": "boolean"
+                }
+            },
+            {
+                "parent": "71c59f09-2645-4d90-a9b6-25847ea30c6c",
+                "next": "c17b6a35-849d-4643-a0cc-00f626210087"
+            }
+        ],
+        "signals": {
+            "parent": "71c59f09-2645-4d90-a9b6-25847ea30c6c",
+            "CheckIfHasItem": {
+                "String": "item;healing_bread-1"
+            }
+        }
+    },
+    "c17b6a35-849d-4643-a0cc-00f626210087": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-sad-fade.png",
+        "text": {
+            "en": "And... he called me filthy kid.",
+            "fr": ""
+        },
+        "next": "de96ad39-4e8b-48cb-8e6f-34ca497d9f97",
+        "parent": "a2d10ed5-55d0-4ae5-b4c3-fbf05f2f3d1e"
+    },
+    "de96ad39-4e8b-48cb-8e6f-34ca497d9f97": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Don't worry,  I did not have high hopes on that annoying chef.",
+            "fr": ""
+        },
+        "parent": "c17b6a35-849d-4643-a0cc-00f626210087",
+        "signals": {
+            "parent": "de96ad39-4e8b-48cb-8e6f-34ca497d9f97",
+            "RemoveMission": {
+                "String": "mission;chef1"
+            },
+            "AddMission": {
+                "String": "mission;audience"
+            },
+            "SetNpcState": {
+                "String": "character;zeryn-3"
+            }
+        }
+    },
+    "963213bc-74a5-4a28-ac7e-001f70028abb": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Are you lost?",
+            "fr": ""
+        },
+        "choices": [
+            {
+                "text": {
+                    "en": "Yes... I still do not understand my role here.",
+                    "fr": ""
+                },
+                "next": "f28cf5d1-365a-41ed-87e6-86f660645a1e",
+                "parent": "963213bc-74a5-4a28-ac7e-001f70028abb"
+            },
+            {
+                "text": {
+                    "en": "No... just passing by. - Leave -",
+                    "fr": ""
+                },
+                "next": "",
+                "parent": "963213bc-74a5-4a28-ac7e-001f70028abb"
+            }
+        ],
+        "parent": "bfe2befe-b969-48a4-a6c2-8e653f1e41cf"
+    },
+    "f28cf5d1-365a-41ed-87e6-86f660645a1e": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Then ask me wathever you want, that's what friends are for.",
+            "fr": ""
+        },
+        "parent": "97ed7940-8c51-48a9-9332-958339f36ea7",
+        "choices": [],
+        "next": "3cf455e1-60fa-4098-85fc-1c8612f31abb"
+    },
+    "f76af9db-5358-4c1e-aef0-8a2ddd810510": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Well that old man's story is very long you know?",
+            "fr": ""
+        },
+        "parent": "8d766b73-b8e3-41d4-80ef-750335ff86a7",
+        "next": "e5bac56e-e337-44d6-85e2-9e47bd65f052"
+    },
+    "e5bac56e-e337-44d6-85e2-9e47bd65f052": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "He is a noble from the house of Hawthorne, renowned for its knowledge on archery. He became the best markshman in Zalium, and ended up being one of the four people considered \"Elite soldiers\" in the whole empire, which formed the Royal Guard.",
+            "fr": ""
+        },
+        "parent": "f76af9db-5358-4c1e-aef0-8a2ddd810510",
+        "next": "3cf455e1-60fa-4098-85fc-1c8612f31abb"
+    },
+    "3cf455e1-60fa-4098-85fc-1c8612f31abb": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Which are your doubts ?",
+            "fr": ""
+        },
+        "choices": [
+            {
+                "text": {
+                    "en": "Sir Gideon was someone important in the past, right?",
+                    "fr": ""
+                },
+                "next": "f76af9db-5358-4c1e-aef0-8a2ddd810510",
+                "parent": "3cf455e1-60fa-4098-85fc-1c8612f31abb"
+            },
+            {
+                "text": {
+                    "en": "What does Sir Gideon gain from teaching us ?",
+                    "fr": ""
+                },
+                "next": "3d5ce7b7-3761-4ff8-8b8e-17e7eab5673b",
+                "parent": "3cf455e1-60fa-4098-85fc-1c8612f31abb"
+            },
+            {
+                "text": {
+                    "en": "I'm fine, thanks. - Leave -",
+                    "fr": ""
+                },
+                "next": "",
+                "parent": "3cf455e1-60fa-4098-85fc-1c8612f31abb"
+            }
+        ],
+        "parent": "2c605db2-d775-4afa-8739-b6a916e97e2d"
+    },
+    "3d5ce7b7-3761-4ff8-8b8e-17e7eab5673b": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Remember the soldier group called the Royal Guard ? Despite being the best on our empire, they faced a battle not even them could win, Sir Gideon was the only survivor. That traumatizing experience still follows him today.",
+            "fr": ""
+        },
+        "parent": "64ff4b09-41da-4545-bb34-73490da04979",
+        "next": "3230e7b4-d180-4242-9264-f87806c5fcb4"
+    },
+    "3230e7b4-d180-4242-9264-f87806c5fcb4": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "All he strives for now, is leaving the battlefield, to do so he must train a new generation of soldiers able to replace those \"Elite soldiers\" so that the cycle keeps going. ",
+            "fr": ""
+        },
+        "parent": "3d5ce7b7-3761-4ff8-8b8e-17e7eab5673b",
+        "next": "2c605db2-d775-4afa-8739-b6a916e97e2d"
+    },
+    "2c605db2-d775-4afa-8739-b6a916e97e2d": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "And those replaces are you and me, maybe someone else from the Rogue Squad, but they will have to improve to do so.",
+            "fr": ""
+        },
+        "parent": "3230e7b4-d180-4242-9264-f87806c5fcb4",
+        "next": "3cf455e1-60fa-4098-85fc-1c8612f31abb"
+    },
+    "b296a296-bad4-47fb-b212-cf3032608f7d": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "I mean, you've two years more in the Rogue Squadron than I. I fight worse by far, and truth be told, you're just better suited to it than I am.",
+            "fr": ""
+        },
+        "parent": "21d95370-e6e0-4f3e-8e7c-b0e66c603ba3",
+        "next": "88717644-0bb2-445d-a2ea-a627e55673ee"
+    },
+    "88717644-0bb2-445d-a2ea-a627e55673ee": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "They think a woman can't hold power proper, and they're scared witless we might be better at it than them.",
+            "fr": ""
+        },
+        "parent": "b296a296-bad4-47fb-b212-cf3032608f7d",
+        "next": "f0e71534-4a53-41b0-9b86-a759d79682ed"
+    },
+    "5ba0f38d-e9ff-4e69-a239-c0bf502f6864": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Thank you! If there be any chance, I'd like a steak with mashed potatoes.",
+            "fr": ""
+        },
+        "parent": "883cddc9-0352-4949-acf5-3678f5b6cff1",
+        "signals": {
+            "parent": "5ba0f38d-e9ff-4e69-a239-c0bf502f6864",
+            "AddMission": {
+                "String": "mission;chef"
+            },
+            "SetNpcState": {
+                "String": "character;zeryn-2"
+            }
+        }
+    },
+    "356519b7-2f40-4222-bc28-eaf516883faa": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "That bald man won't lift a finger to fetch us food, mark my words.",
+            "fr": ""
+        },
+        "parent": "0f8ad72c-4454-4068-a37d-0d7a49971864",
+        "signals": {
+            "parent": "356519b7-2f40-4222-bc28-eaf516883faa",
+            "AddMission": {
+                "String": "mission;chef0"
+            },
+            "SetNpcState": {
+                "String": "character;zeryn-2"
+            }
+        }
+    },
+    "48e9effc-cabe-4282-9d69-a5810dbd8c4e": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "What brings you here this early?",
+            "fr": ""
+        },
+        "parent": "4ddd1f5c-49c2-4806-8f71-f31e1dff181b",
+        "signals": {
+            "parent": "48e9effc-cabe-4282-9d69-a5810dbd8c4e",
+            "CheckIfMissionCompleted": {
+                "String": "mission;tutorial1"
+            }
+        },
+        "conditions": [
+            {
+                "HasCompletedMission": {
+                    "value": true,
+                    "operator": "equal",
+                    "type": "boolean"
+                },
+                "parent": "48e9effc-cabe-4282-9d69-a5810dbd8c4e",
+                "next": "f6a6fe17-d793-4160-a405-913d3a61f5d5"
+            },
+            {
+                "parent": "48e9effc-cabe-4282-9d69-a5810dbd8c4e",
+                "next": "f67074e4-18ee-43d2-8c3d-355a6e4d728c"
+            }
+        ]
+    },
+    "f67074e4-18ee-43d2-8c3d-355a6e4d728c": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Practicin'  my stance. C' mon, fight me.",
+            "fr": ""
+        },
+        "parent": "d7b083c6-0ec7-4d5b-9912-c6c2016b024a",
+        "choices": [
+            {
+                "text": {
+                    "en": "No thanks, I'd prefer a morning walk first.",
+                    "fr": ""
+                },
+                "next": "",
+                "parent": "f67074e4-18ee-43d2-8c3d-355a6e4d728c"
+            }
+        ],
+        "next": "79483b1c-eeb9-4473-bf74-feb177a9ae61"
+    },
+    "6a9b6a9b-1df2-4b5f-8d83-402e74ee35c4": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Alright, let's get on with it! Think before you act, pick who's makin' the move, what they'll do, and who it'll affect. Do all that before you let me strike! Smart moves win fights.",
+            "fr": ""
+        },
+        "parent": "23739767-8289-4109-b6e2-c2802fef3653",
+        "next": "86016e89-254f-48ab-8d05-b95bfd8b0067"
+    },
+    "f6a6fe17-d793-4160-a405-913d3a61f5d5": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Hey, Cassian! I was messin' about with a new move, care to test it the hard way?",
+            "fr": ""
+        },
+        "parent": "b1b7da39-d5df-43a6-9989-f32e86ed877b",
+        "choices": [
+            {
+                "text": {
+                    "en": "Hold fast, I'm dyin' of thirst here. Gotta get water.",
+                    "fr": ""
+                },
+                "next": "8546a4a8-1279-4ea2-8682-a0a35708f32f",
+                "parent": "f6a6fe17-d793-4160-a405-913d3a61f5d5"
+            },
+            {
+                "text": {
+                    "en": "Sure do. Can't get rusty now, can I?",
+                    "fr": ""
+                },
+                "next": "762de827-b3a9-4abe-8949-5a13a045b51c",
+                "parent": "f6a6fe17-d793-4160-a405-913d3a61f5d5"
+            }
+        ],
+        "signals": {
+            "parent": "f6a6fe17-d793-4160-a405-913d3a61f5d5",
+            "RemoveMission": {
+                "String": "mission;tutorial1"
+            }
+        }
+    },
+    "8546a4a8-1279-4ea2-8682-a0a35708f32f": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Right then, I'm off. Catch you later.",
+            "fr": ""
+        },
+        "parent": "7ffe3a84-9376-48df-a50d-a6a7b7134568",
+        "signals": {
+            "parent": "8546a4a8-1279-4ea2-8682-a0a35708f32f",
+            "AddMission": {
+                "String": "mission;tutorial2"
+            },
+            "SetNpcState": {
+                "String": "character;zeryn-1"
+            }
+        }
+    },
+    "2e1753ac-5108-474a-956b-0bc8664e126b": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "You ready or what?",
+            "fr": ""
+        },
+        "parent": "f0abc425-5ebf-417c-8594-5b2a7488e6e4",
+        "choices": [
+            {
+                "text": {
+                    "en": "I am, nothing beats a calm mind.",
+                    "fr": ""
+                },
+                "next": "6a9b6a9b-1df2-4b5f-8d83-402e74ee35c4",
+                "parent": "2e1753ac-5108-474a-956b-0bc8664e126b"
+            },
+            {
+                "text": {
+                    "en": "Not yet, still need to fully wake up.",
+                    "fr": ""
+                },
+                "next": "",
+                "parent": "2e1753ac-5108-474a-956b-0bc8664e126b"
+            }
+        ]
+    },
+    "762de827-b3a9-4abe-8949-5a13a045b51c": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Fine! Let me know when you're set.",
+            "fr": ""
+        },
+        "signals": {
+            "parent": "762de827-b3a9-4abe-8949-5a13a045b51c",
+            "AddMission": {
+                "String": "mission;tutorial2"
+            },
+            "SetNpcState": {
+                "String": "character;zeryn-1"
+            }
+        },
+        "parent": "68b4a3b8-21e8-42e4-9562-3d8f51187fe1"
+    },
+    "79483b1c-eeb9-4473-bf74-feb177a9ae61": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "I'd prefer a morning walk first, thanks.",
+            "fr": ""
+        },
+        "parent": "f67074e4-18ee-43d2-8c3d-355a6e4d728c"
+    },
+    "86016e89-254f-48ab-8d05-b95bfd8b0067": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Not bad today. Have a good day.",
+            "fr": ""
+        },
+        "parent": "6a9b6a9b-1df2-4b5f-8d83-402e74ee35c4",
+        "signals": {
+            "parent": "86016e89-254f-48ab-8d05-b95bfd8b0067",
+            "RemoveMission": {
+                "String": "mission;tutorial2"
+            },
+            "StartCombat": {
+                "String": "character;zeryn"
+            }
+        },
+        "next": "18495b2e-13e3-45c3-a1f6-ba699cd89108"
+    },
+    "db70fe02-8608-497f-9285-8c9cb8aa7b78": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Actually, I did get a bread with the properties of a rock. Want a bite?",
+            "fr": ""
+        },
+        "parent": "3673bb16-6efd-4ea6-b478-93cf2ebf16db",
+        "next": "c6421549-6186-41fa-a461-fe529a0cec10"
+    },
+    "c6421549-6186-41fa-a461-fe529a0cec10": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Yes of course, thanks!",
+            "fr": ""
+        },
+        "parent": "db70fe02-8608-497f-9285-8c9cb8aa7b78",
+        "signals": {
+            "parent": "c6421549-6186-41fa-a461-fe529a0cec10",
+            "RemoveMission": {
+                "String": "mission;chef2"
+            },
+            "RemoveItem": {
+                "String": "item;healing_bread-1"
+            },
+            "AddMission": {
+                "String": "mission;audience"
+            },
+            "SetNpcState": {
+                "String": "character;zeryn-3"
+            }
+        }
+    },
+    "b75bbcee-c754-4500-a13a-1ec72915665c": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "We should go to our daily training with Sir Gideon, we are already late again...",
+            "fr": ""
+        },
+        "signals": {
+            "parent": "b75bbcee-c754-4500-a13a-1ec72915665c",
+            "SetNpcState": {
+                "String": "character;zeryn-4"
+            }
+        },
+        "parent": "aa475f5f-5082-4199-8212-00edd0fd6ade"
+    },
+    "950fa259-5fdd-40f6-8fab-dd98ead5bc53": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "I'm back.",
+            "fr": ""
+        },
+        "signals": {
+            "CheckIfHasItem": {
+                "String": "item;zalium_sword-1"
+            },
+            "parent": "950fa259-5fdd-40f6-8fab-dd98ead5bc53"
+        },
+        "conditions": [
+            {
+                "parent": "950fa259-5fdd-40f6-8fab-dd98ead5bc53",
+                "HasItem": {
+                    "value": true,
+                    "operator": "equal",
+                    "type": "boolean"
+                },
+                "next": "b076f8e4-0fa2-47b0-9b34-24cb60f5067f"
+            },
+            {
+                "parent": "950fa259-5fdd-40f6-8fab-dd98ead5bc53",
+                "next": "dc571d31-83c5-4e37-ac2f-f5212dfa3102"
+            }
+        ],
+        "parent": "f8cb026f-f275-4d1f-9811-b28d4d175058"
+    },
+    "dc571d31-83c5-4e37-ac2f-f5212dfa3102": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "You liar! Gideon will hit you to the ground if you don't go.",
+            "fr": ""
+        },
+        "parent": "6040c576-62ea-4a94-84df-87ed78449822"
+    },
+    "77a3f8a4-0570-49f1-8d9a-1a9618370589": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "...",
+            "fr": ""
+        },
+        "parent": "94de8bc5-f849-4a93-86cb-9fb3ceb87b24",
+        "signals": {
+            "CheckIfHasItem": {
+                "String": "item;zalium_sword-1"
+            },
+            "parent": "77a3f8a4-0570-49f1-8d9a-1a9618370589"
+        },
+        "conditions": [
+            {
+                "parent": "77a3f8a4-0570-49f1-8d9a-1a9618370589",
+                "next": "08c5fd91-d4a4-4c1d-a5e9-71c465284aaa",
+                "HasItem": {
+                    "value": true,
+                    "operator": "equal",
+                    "type": "boolean"
+                }
+            },
+            {
+                "parent": "77a3f8a4-0570-49f1-8d9a-1a9618370589",
+                "next": "b75bbcee-c754-4500-a13a-1ec72915665c"
+            }
+        ]
+    },
+    "08c5fd91-d4a4-4c1d-a5e9-71c465284aaa": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "Just came back from training with the bald man.",
+            "fr": ""
+        },
+        "parent": "c660d9a4-ab1b-4221-9278-9107d314f8ad",
+        "next": "89a88b2b-a881-40ed-9fa4-e1bd815c0795"
+    },
+    "89a88b2b-a881-40ed-9fa4-e1bd815c0795": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "How was it?",
+            "fr": ""
+        },
+        "parent": "08c5fd91-d4a4-4c1d-a5e9-71c465284aaa",
+        "next": "e3923401-8dc1-40f4-95d4-5f0d48ec2c42"
+    },
+    "e3923401-8dc1-40f4-95d4-5f0d48ec2c42": {
+        "name": "Cassian",
+        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "text": {
+            "en": "He was far more intense than usual.",
+            "fr": ""
+        },
+        "parent": "89a88b2b-a881-40ed-9fa4-e1bd815c0795",
+        "next": "f0e71534-4a53-41b0-9b86-a759d79682ed"
+    },
+    "f0e71534-4a53-41b0-9b86-a759d79682ed": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Must be the audience.",
+            "fr": ""
+        },
+        "parent": "31e43435-18aa-4a47-a4ba-2897a9984147",
+        "choices": [
+            {
+                "text": {
+                    "en": "Audience...?",
+                    "fr": ""
+                },
+                "next": "31e43435-18aa-4a47-a4ba-2897a9984147",
+                "parent": "f0e71534-4a53-41b0-9b86-a759d79682ed"
+            },
+            {
+                "text": {
+                    "en": "Why it has to be me?",
+                    "fr": ""
+                },
+                "next": "b296a296-bad4-47fb-b212-cf3032608f7d",
+                "parent": "f0e71534-4a53-41b0-9b86-a759d79682ed"
+            },
+            {
+                "text": {
+                    "en": "Yeah, might be.",
+                    "fr": ""
+                },
+                "next": "2db153b5-59b3-4dc2-b151-74fd3e6c515d",
+                "parent": "f0e71534-4a53-41b0-9b86-a759d79682ed"
+            }
+        ]
+    },
+    "31e43435-18aa-4a47-a4ba-2897a9984147": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "You will represent the entire Rogue squadron and show your skills in combat to the emperor to show him our progress. Remember?",
+            "fr": ""
+        },
+        "parent": "da5da365-7279-4a51-876b-64df2ba2c1a4",
+        "next": "f0e71534-4a53-41b0-9b86-a759d79682ed"
+    },
+    "2db153b5-59b3-4dc2-b151-74fd3e6c515d": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "He really wants it to go as perfect as it can be.",
+            "fr": ""
+        },
+        "parent": "3f745dce-2c7e-4de3-b0ec-c147c90d1023",
+        "signals": {
+            "parent": "2db153b5-59b3-4dc2-b151-74fd3e6c515d",
+            "SetNpcState": {
+                "String": "character;zeryn-5"
+            }
+        }
+    },
+    "b076f8e4-0fa2-47b0-9b34-24cb60f5067f": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "Nice sword, it will look good on you during the audience.",
+            "fr": ""
+        },
+        "parent": "0e9fe181-dcdd-41de-9824-03c3b7f086b7",
+        "signals": {
+            "SetNpcState": {
+                "String": "character;zeryn-5"
+            },
+            "parent": "b076f8e4-0fa2-47b0-9b34-24cb60f5067f"
+        }
+    },
+    "20c1b54a-760f-406c-bad8-959b470b1b13": {
+        "name": "Zeryn",
+        "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "text": {
+            "en": "And now... what are we to do?",
+            "fr": ""
+        },
+        "parent": "0e547ae8-35bc-40d7-8b6d-dce835c9f876"
+    },
+    "root": {
+        "conditions": [
+            {
+                "parent": "root",
+                "next": "48e9effc-cabe-4282-9d69-a5810dbd8c4e",
+                "character;zeryn-state": {
+                    "value": 0,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "next": "2e1753ac-5108-474a-956b-0bc8664e126b",
+                "character;zeryn-state": {
+                    "value": 1,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "next": "10c8e9df-f94e-4406-9f02-363300c1cff1",
+                "character;zeryn-state": {
+                    "value": 2,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "next": "77a3f8a4-0570-49f1-8d9a-1a9618370589",
+                "parent": "root",
+                "character;zeryn-state": {
+                    "value": 3,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "next": "950fa259-5fdd-40f6-8fab-dd98ead5bc53",
+                "parent": "root",
+                "character;zeryn-state": {
+                    "value": 4,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "next": "963213bc-74a5-4a28-ac7e-001f70028abb",
+                "parent": "root",
+                "character;zeryn-state": {
+                    "value": 5,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "character;zeryn-state": {
+                    "value": 6,
+                    "operator": "equal",
+                    "type": "int"
+                },
+                "parent": "root",
+                "next": "20c1b54a-760f-406c-bad8-959b470b1b13"
+            }
+        ]
+    },
+    "__editor": {
+        "root": {
+            "uuid": "root",
+            "offset": [
+                40,
+                100
+            ]
+        },
+        "dialogues": [
+            {
+                "uuid": "18495b2e-13e3-45c3-a1f6-ba699cd89108",
+                "offset": [
+                    2480,
+                    -1820
+                ]
+            },
+            {
+                "uuid": "ebd65e3d-15f8-4b7e-a0e0-114b21db2756",
+                "offset": [
+                    2920,
+                    -1820
+                ]
+            },
+            {
+                "uuid": "10c8e9df-f94e-4406-9f02-363300c1cff1",
+                "offset": [
+                    900,
+                    -940
+                ]
+            },
+            {
+                "uuid": "0fe3d9f7-5cb0-41d9-abd9-8a2673a17c6a",
+                "offset": [
+                    1740,
+                    -1100
+                ]
+            },
+            {
+                "uuid": "71c59f09-2645-4d90-a9b6-25847ea30c6c",
+                "offset": [
+                    2180,
+                    -1100
+                ]
+            },
+            {
+                "uuid": "c17b6a35-849d-4643-a0cc-00f626210087",
+                "offset": [
+                    3000,
+                    -700
+                ]
+            },
+            {
+                "uuid": "de96ad39-4e8b-48cb-8e6f-34ca497d9f97",
+                "offset": [
+                    3400,
+                    -700
+                ]
+            },
+            {
+                "uuid": "963213bc-74a5-4a28-ac7e-001f70028abb",
+                "offset": [
+                    940,
+                    1480
+                ]
+            },
+            {
+                "uuid": "f28cf5d1-365a-41ed-87e6-86f660645a1e",
+                "offset": [
+                    1780,
+                    1380
+                ]
+            },
+            {
+                "uuid": "f76af9db-5358-4c1e-aef0-8a2ddd810510",
+                "offset": [
+                    3260,
+                    1160
+                ]
+            },
+            {
+                "uuid": "e5bac56e-e337-44d6-85e2-9e47bd65f052",
+                "offset": [
+                    3660,
+                    1160
+                ]
+            },
+            {
+                "uuid": "3cf455e1-60fa-4098-85fc-1c8612f31abb",
+                "offset": [
+                    2360,
+                    1380
+                ]
+            },
+            {
+                "uuid": "3d5ce7b7-3761-4ff8-8b8e-17e7eab5673b",
+                "offset": [
+                    3260,
+                    1560
+                ]
+            },
+            {
+                "uuid": "3230e7b4-d180-4242-9264-f87806c5fcb4",
+                "offset": [
+                    3660,
+                    1560
+                ]
+            },
+            {
+                "uuid": "2c605db2-d775-4afa-8739-b6a916e97e2d",
+                "offset": [
+                    4080,
+                    1560
+                ]
+            },
+            {
+                "uuid": "b296a296-bad4-47fb-b212-cf3032608f7d",
+                "offset": [
+                    3700,
+                    100
+                ]
+            },
+            {
+                "uuid": "88717644-0bb2-445d-a2ea-a627e55673ee",
+                "offset": [
+                    4100,
+                    100
+                ]
+            },
+            {
+                "uuid": "5ba0f38d-e9ff-4e69-a239-c0bf502f6864",
+                "offset": [
+                    3860,
+                    -2040
+                ]
+            },
+            {
+                "uuid": "356519b7-2f40-4222-bc28-eaf516883faa",
+                "offset": [
+                    3860,
+                    -1620
+                ]
+            },
+            {
+                "uuid": "48e9effc-cabe-4282-9d69-a5810dbd8c4e",
+                "offset": [
+                    740,
+                    -3160
+                ]
+            },
+            {
+                "uuid": "f67074e4-18ee-43d2-8c3d-355a6e4d728c",
+                "offset": [
+                    1680,
+                    -2520
+                ]
+            },
+            {
+                "uuid": "6a9b6a9b-1df2-4b5f-8d83-402e74ee35c4",
+                "offset": [
+                    1600,
+                    -1820
+                ]
+            },
+            {
+                "uuid": "f6a6fe17-d793-4160-a405-913d3a61f5d5",
+                "offset": [
+                    1680,
+                    -3160
+                ]
+            },
+            {
+                "uuid": "8546a4a8-1279-4ea2-8682-a0a35708f32f",
+                "offset": [
+                    2480,
+                    -3300
+                ]
+            },
+            {
+                "uuid": "2e1753ac-5108-474a-956b-0bc8664e126b",
+                "offset": [
+                    800,
+                    -1600
+                ]
+            },
+            {
+                "uuid": "762de827-b3a9-4abe-8949-5a13a045b51c",
+                "offset": [
+                    2480,
+                    -2900
+                ]
+            },
+            {
+                "uuid": "79483b1c-eeb9-4473-bf74-feb177a9ae61",
+                "offset": [
+                    2080,
+                    -2520
+                ]
+            },
+            {
+                "uuid": "86016e89-254f-48ab-8d05-b95bfd8b0067",
+                "offset": [
+                    2020,
+                    -1820
+                ]
+            },
+            {
+                "uuid": "db70fe02-8608-497f-9285-8c9cb8aa7b78",
+                "offset": [
+                    3000,
+                    -1100
+                ]
+            },
+            {
+                "uuid": "c6421549-6186-41fa-a461-fe529a0cec10",
+                "offset": [
+                    3400,
+                    -1100
+                ]
+            },
+            {
+                "uuid": "b75bbcee-c754-4500-a13a-1ec72915665c",
+                "offset": [
+                    1720,
+                    0
+                ]
+            },
+            {
+                "uuid": "950fa259-5fdd-40f6-8fab-dd98ead5bc53",
+                "offset": [
+                    840,
+                    440
+                ]
+            },
+            {
+                "uuid": "dc571d31-83c5-4e37-ac2f-f5212dfa3102",
+                "offset": [
+                    1680,
+                    1000
+                ]
+            },
+            {
+                "uuid": "77a3f8a4-0570-49f1-8d9a-1a9618370589",
+                "offset": [
+                    740,
+                    -240
+                ]
+            },
+            {
+                "uuid": "08c5fd91-d4a4-4c1d-a5e9-71c465284aaa",
+                "offset": [
+                    1720,
+                    -380
+                ]
+            },
+            {
+                "uuid": "89a88b2b-a881-40ed-9fa4-e1bd815c0795",
+                "offset": [
+                    2120,
+                    -380
+                ]
+            },
+            {
+                "uuid": "e3923401-8dc1-40f4-95d4-5f0d48ec2c42",
+                "offset": [
+                    2500,
+                    -380
+                ]
+            },
+            {
+                "uuid": "f0e71534-4a53-41b0-9b86-a759d79682ed",
+                "offset": [
+                    2900,
+                    -160
+                ]
+            },
+            {
+                "uuid": "31e43435-18aa-4a47-a4ba-2897a9984147",
+                "offset": [
+                    3700,
+                    -300
+                ]
+            },
+            {
+                "uuid": "2db153b5-59b3-4dc2-b151-74fd3e6c515d",
+                "offset": [
+                    3700,
+                    480
+                ]
+            },
+            {
+                "uuid": "b076f8e4-0fa2-47b0-9b34-24cb60f5067f",
+                "offset": [
+                    1780,
+                    600
+                ]
+            },
+            {
+                "uuid": "20c1b54a-760f-406c-bad8-959b470b1b13",
+                "offset": [
+                    920,
+                    1920
+                ]
+            }
+        ],
+        "conditions": [
+            {
+                "uuid": "3673bb16-6efd-4ea6-b478-93cf2ebf16db",
+                "offset": [
+                    2600,
+                    -1080
+                ],
+                "parent": "71c59f09-2645-4d90-a9b6-25847ea30c6c"
+            },
+            {
+                "uuid": "a2d10ed5-55d0-4ae5-b4c3-fbf05f2f3d1e",
+                "offset": [
+                    2580,
+                    -560
+                ],
+                "collapsed": true,
+                "parent": "71c59f09-2645-4d90-a9b6-25847ea30c6c"
+            },
+            {
+                "uuid": "b1b7da39-d5df-43a6-9989-f32e86ed877b",
+                "offset": [
+                    1260,
+                    -3120
+                ],
+                "parent": "48e9effc-cabe-4282-9d69-a5810dbd8c4e"
+            },
+            {
+                "uuid": "d7b083c6-0ec7-4d5b-9912-c6c2016b024a",
+                "offset": [
+                    1280,
+                    -2380
+                ],
+                "collapsed": true,
+                "parent": "48e9effc-cabe-4282-9d69-a5810dbd8c4e"
+            },
+            {
+                "uuid": "0e9fe181-dcdd-41de-9824-03c3b7f086b7",
+                "offset": [
+                    1340,
+                    680
+                ],
+                "parent": "950fa259-5fdd-40f6-8fab-dd98ead5bc53"
+            },
+            {
+                "uuid": "6040c576-62ea-4a94-84df-87ed78449822",
+                "offset": [
+                    1300,
+                    1140
+                ],
+                "collapsed": true,
+                "parent": "950fa259-5fdd-40f6-8fab-dd98ead5bc53"
+            },
+            {
+                "uuid": "c660d9a4-ab1b-4221-9278-9107d314f8ad",
+                "offset": [
+                    1220,
+                    -200
+                ],
+                "parent": "77a3f8a4-0570-49f1-8d9a-1a9618370589"
+            },
+            {
+                "uuid": "aa475f5f-5082-4199-8212-00edd0fd6ade",
+                "offset": [
+                    1220,
+                    160
+                ],
+                "collapsed": true,
+                "parent": "77a3f8a4-0570-49f1-8d9a-1a9618370589"
+            },
+            {
+                "uuid": "4ddd1f5c-49c2-4806-8f71-f31e1dff181b",
+                "offset": [
+                    380,
+                    -3120
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "f0abc425-5ebf-417c-8594-5b2a7488e6e4",
+                "offset": [
+                    420,
+                    -1580
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "b9c4ea89-dc73-4ade-9349-e4f630fdd4c1",
+                "offset": [
+                    460,
+                    -920
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "94de8bc5-f849-4a93-86cb-9fb3ceb87b24",
+                "offset": [
+                    360,
+                    -200
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "f8cb026f-f275-4d1f-9811-b28d4d175058",
+                "offset": [
+                    460,
+                    460
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "bfe2befe-b969-48a4-a6c2-8e653f1e41cf",
+                "offset": [
+                    540,
+                    1500
+                ],
+                "parent": "root"
+            },
+            {
+                "uuid": "0e547ae8-35bc-40d7-8b6d-dce835c9f876",
+                "offset": [
+                    540,
+                    1960
+                ],
+                "parent": "root"
+            }
+        ],
+        "signals": [
+            {
+                "uuid": "94255524-a118-4347-8b73-ea3513a2bdca",
+                "offset": [
+                    2580,
+                    -1380
+                ],
+                "parent": "71c59f09-2645-4d90-a9b6-25847ea30c6c"
+            },
+            {
+                "uuid": "9938cb58-db9c-4035-9ef5-fc53708ff5de",
+                "offset": [
+                    3820,
+                    -700
+                ],
+                "parent": "de96ad39-4e8b-48cb-8e6f-34ca497d9f97"
+            },
+            {
+                "uuid": "df9a79c0-dfc0-4d9a-99ff-7bd690018c92",
+                "offset": [
+                    4300,
+                    -2000
+                ],
+                "parent": "5ba0f38d-e9ff-4e69-a239-c0bf502f6864",
+                "data": {
+                    "parent": "5ba0f38d-e9ff-4e69-a239-c0bf502f6864",
+                    "AddMission": {
+                        "String": "mission;chef"
+                    },
+                    "SetNpcState": {
+                        "String": "character;zeryn-2"
+                    }
+                }
+            },
+            {
+                "uuid": "e52be61c-5c44-4199-9fef-48475c78459e",
+                "offset": [
+                    4300,
+                    -1580
+                ],
+                "parent": "356519b7-2f40-4222-bc28-eaf516883faa",
+                "data": {
+                    "parent": "356519b7-2f40-4222-bc28-eaf516883faa",
+                    "AddMission": {
+                        "String": "mission;chef0"
+                    },
+                    "SetNpcState": {
+                        "String": "character;zeryn-2"
+                    }
+                }
+            },
+            {
+                "uuid": "17381c6f-1582-4b2d-821e-82fa175987ff",
+                "offset": [
+                    1220,
+                    -3480
+                ],
+                "parent": "48e9effc-cabe-4282-9d69-a5810dbd8c4e"
+            },
+            {
+                "uuid": "a28e89d4-1b06-4379-8c56-e1db10996292",
+                "offset": [
+                    2100,
+                    -3600
+                ],
+                "parent": "f6a6fe17-d793-4160-a405-913d3a61f5d5"
+            },
+            {
+                "uuid": "f1ec74e0-b05d-4f7a-ab49-2310136a4489",
+                "offset": [
+                    2900,
+                    -3280
+                ],
+                "data": {
+                    "parent": "8546a4a8-1279-4ea2-8682-a0a35708f32f",
+                    "AddMission": {
+                        "String": "mission;tutorial2"
+                    },
+                    "SetNpcState": {
+                        "String": "character;zeryn-1"
+                    }
+                },
+                "parent": "8546a4a8-1279-4ea2-8682-a0a35708f32f"
+            },
+            {
+                "uuid": "cb6172ed-beb5-44d2-abe5-6b2955f07942",
+                "offset": [
+                    2900,
+                    -2880
+                ],
+                "parent": "762de827-b3a9-4abe-8949-5a13a045b51c",
+                "data": {
+                    "parent": "762de827-b3a9-4abe-8949-5a13a045b51c",
+                    "AddMission": {
+                        "String": "mission;tutorial2"
+                    },
+                    "SetNpcState": {
+                        "String": "character;zeryn-1"
+                    }
+                }
+            },
+            {
+                "uuid": "421f4055-9222-4120-8dee-28cd9ec8a6be",
+                "offset": [
+                    2480,
+                    -2160
+                ],
+                "parent": "86016e89-254f-48ab-8d05-b95bfd8b0067"
+            },
+            {
+                "uuid": "40df6b20-6506-48ad-a532-01a2eb46ffa6",
+                "offset": [
+                    3800,
+                    -1140
+                ],
+                "parent": "c6421549-6186-41fa-a461-fe529a0cec10"
+            },
+            {
+                "uuid": "7bcbe601-2238-4652-8577-4022e1625e24",
+                "offset": [
+                    2160,
+                    40
+                ],
+                "parent": "b75bbcee-c754-4500-a13a-1ec72915665c"
+            },
+            {
+                "uuid": "22c0c3d9-d5c5-4aa3-a2a1-380dd14c4d8b",
+                "offset": [
+                    1300,
+                    380
+                ],
+                "parent": "950fa259-5fdd-40f6-8fab-dd98ead5bc53"
+            },
+            {
+                "uuid": "8e8f0c3a-6a10-4223-8186-dacf760844cf",
+                "offset": [
+                    1220,
+                    -500
+                ],
+                "parent": "77a3f8a4-0570-49f1-8d9a-1a9618370589"
+            },
+            {
+                "uuid": "53408cd7-fd77-4143-9336-8d0686f95727",
+                "offset": [
+                    4120,
+                    520
+                ],
+                "parent": "2db153b5-59b3-4dc2-b151-74fd3e6c515d",
+                "data": {
+                    "parent": "2db153b5-59b3-4dc2-b151-74fd3e6c515d",
+                    "SetNpcState": {
+                        "String": "character;zeryn-5"
+                    }
+                }
+            },
+            {
+                "uuid": "4a4fad91-fe1c-425d-83eb-cc02ef139770",
+                "offset": [
+                    2180,
+                    660
+                ],
+                "parent": "b076f8e4-0fa2-47b0-9b34-24cb60f5067f"
+            }
+        ],
+        "choices": [
+            {
+                "uuid": "883cddc9-0352-4949-acf5-3678f5b6cff1",
+                "offset": [
+                    3440,
+                    -1920
+                ],
+                "parent": "ebd65e3d-15f8-4b7e-a0e0-114b21db2756"
+            },
+            {
+                "uuid": "0f8ad72c-4454-4068-a37d-0d7a49971864",
+                "offset": [
+                    3440,
+                    -1560
+                ],
+                "parent": "ebd65e3d-15f8-4b7e-a0e0-114b21db2756"
+            },
+            {
+                "uuid": "da351ad7-22b6-4112-8443-3b22554eedf2",
+                "offset": [
+                    1340,
+                    -1040
+                ],
+                "parent": "10c8e9df-f94e-4406-9f02-363300c1cff1"
+            },
+            {
+                "uuid": "9068cc16-2f4e-4de4-8eb7-dd3b038b405a",
+                "offset": [
+                    1340,
+                    -780
+                ],
+                "parent": "10c8e9df-f94e-4406-9f02-363300c1cff1"
+            },
+            {
+                "uuid": "97ed7940-8c51-48a9-9332-958339f36ea7",
+                "offset": [
+                    1360,
+                    1700
+                ],
+                "parent": "963213bc-74a5-4a28-ac7e-001f70028abb"
+            },
+            {
+                "uuid": "92f6cd9f-c4dd-462c-9f64-94d52517e8e5",
+                "offset": [
+                    1360,
+                    1440
+                ],
+                "parent": "963213bc-74a5-4a28-ac7e-001f70028abb"
+            },
+            {
+                "uuid": "8d766b73-b8e3-41d4-80ef-750335ff86a7",
+                "offset": [
+                    2880,
+                    1280
+                ],
+                "parent": "3cf455e1-60fa-4098-85fc-1c8612f31abb"
+            },
+            {
+                "uuid": "64ff4b09-41da-4545-bb34-73490da04979",
+                "offset": [
+                    2880,
+                    1640
+                ],
+                "parent": "3cf455e1-60fa-4098-85fc-1c8612f31abb"
+            },
+            {
+                "uuid": "d25a207d-c428-4bd9-85d6-aac1583bdb82",
+                "offset": [
+                    2880,
+                    1960
+                ],
+                "parent": "3cf455e1-60fa-4098-85fc-1c8612f31abb"
+            },
+            {
+                "uuid": "7ffe3a84-9376-48df-a50d-a6a7b7134568",
+                "offset": [
+                    2100,
+                    -3240
+                ],
+                "parent": "f6a6fe17-d793-4160-a405-913d3a61f5d5"
+            },
+            {
+                "uuid": "68b4a3b8-21e8-42e4-9562-3d8f51187fe1",
+                "offset": [
+                    2100,
+                    -2840
+                ],
+                "parent": "f6a6fe17-d793-4160-a405-913d3a61f5d5"
+            },
+            {
+                "uuid": "23739767-8289-4109-b6e2-c2802fef3653",
+                "offset": [
+                    1220,
+                    -1740
+                ],
+                "parent": "2e1753ac-5108-474a-956b-0bc8664e126b"
+            },
+            {
+                "uuid": "fbfd9a4c-ddbd-41e4-8ad9-58b3d2d5a255",
+                "offset": [
+                    1220,
+                    -1400
+                ],
+                "parent": "2e1753ac-5108-474a-956b-0bc8664e126b"
+            },
+            {
+                "uuid": "da5da365-7279-4a51-876b-64df2ba2c1a4",
+                "offset": [
+                    3320,
+                    -240
+                ],
+                "parent": "f0e71534-4a53-41b0-9b86-a759d79682ed"
+            },
+            {
+                "uuid": "21d95370-e6e0-4f3e-8e7c-b0e66c603ba3",
+                "offset": [
+                    3340,
+                    160
+                ],
+                "parent": "f0e71534-4a53-41b0-9b86-a759d79682ed"
+            },
+            {
+                "uuid": "3f745dce-2c7e-4de3-b0ec-c147c90d1023",
+                "offset": [
+                    3340,
+                    560
+                ],
+                "parent": "f0e71534-4a53-41b0-9b86-a759d79682ed"
+            }
+        ]
+    }
+}
