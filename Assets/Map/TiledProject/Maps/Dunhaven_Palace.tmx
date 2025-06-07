@@ -261,7 +261,7 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="973" x="1010.77" y="308.724">
+  <object id="973" x="1008" y="272">
    <properties>
     <property name="Type" value="spawnPoint"/>
    </properties>
