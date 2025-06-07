@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="furniture_atlas" tilewidth="176" tileheight="157" tilecount="71" columns="0">
+<tileset version="1.10" tiledversion="1.11.0" name="furniture_atlas" tilewidth="176" tileheight="157" tilecount="72" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/Bench1.png" width="16" height="32"/>
@@ -404,6 +404,15 @@
   <objectgroup draworder="index" id="2">
    <object id="1" name="collision" x="0.494318" y="16.1932" width="47.375" height="15.25"/>
    <object id="2" name="renderPosition" x="23.9943" y="17.6932">
+    <point/>
+   </object>
+  </objectgroup>
+ </tile>
+ <tile id="71">
+  <image source="../../../Textures/Atlas/MapObjects/Furniture/Single/ImperialShrine.png" width="90" height="127"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="19.2727" y="94.25" width="51.7273" height="29"/>
+   <object id="2" name="renderPosition" x="44.375" y="113.5">
     <point/>
    </object>
   </objectgroup>
