@@ -447,7 +447,7 @@
     <property name="Type" value="building"/>
    </properties>
   </object>
-  <object id="768" name="Zone6" x="288.477" y="-14.5871" width="94.6387" height="8.28033">
+  <object id="768" name="Zone6" x="289.227" y="-14.5871" width="93.8887" height="8.28033">
    <properties>
     <property name="EntryPoint" type="int" value="6"/>
     <property name="TargetPath" value="Assets/Map/Data/Dunhaven_Palace.xml"/>

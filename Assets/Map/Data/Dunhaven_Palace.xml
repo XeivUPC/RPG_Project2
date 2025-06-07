@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="823">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="973">
  <properties>
   <property name="IsInside" type="bool" value="false"/>
  </properties>
@@ -99,24 +99,14 @@
 </data>
  </layer>
  <objectgroup id="6" name="Objects">
-  <object id="744" gid="2530" x="420" y="799" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="746" gid="2530" x="244" y="799" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="749" x="721.333" y="825.667">
+  <object id="749" x="626.666" y="560.334">
    <properties>
     <property name="NpcId" value="character;dh_guard"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
-  <object id="751" x="593.333" y="825.667">
+  <object id="751" x="498.666" y="560.334">
    <properties>
     <property name="NpcId" value="character;dh_guard"/>
     <property name="Type" value="npc"/>
@@ -137,158 +127,168 @@
    </properties>
    <point/>
   </object>
- </objectgroup>
- <objectgroup id="9" name="Collisions">
-  <object id="773" x="914.75" y="737.194">
+  <object id="943" gid="2530" x="297.333" y="505.667" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="944" gid="2530" x="121.333" y="505.667" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="945" x="804.083" y="471.861">
    <properties>
     <property name="NpcId" value="character;dh_guard"/>
-    <property name="Path" type="object" value="774"/>
+    <property name="Path" type="object" value="946"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
-  <object id="774" x="841.602" y="806.318" rotation="270">
+  <object id="946" x="730.935" y="540.985" rotation="270">
    <polyline points="68.3399,66.6361 68.305,-305.686"/>
   </object>
-  <object id="775" gid="2530" x="864" y="224" width="19" height="86">
+  <object id="947" gid="2530" x="848" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="781" gid="2530" x="944" y="224" width="19" height="86">
+  <object id="948" gid="2530" x="928" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="782" x="837.75" y="261.861">
+  <object id="949" x="821.75" y="261.861">
    <properties>
     <property name="NpcId" value="character;dh_guard"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
-  <object id="783" gid="2530" x="784" y="224" width="19" height="86">
+  <object id="950" gid="2530" x="768" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="784" x="709.75" y="261.861">
+  <object id="951" x="693.75" y="261.861">
    <properties>
     <property name="NpcId" value="character;dh_guard"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
+  <object id="952" gid="2530" x="608" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="953" gid="2530" x="688" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="954" gid="2530" x="528" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="955" gid="2530" x="368" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="956" gid="2530" x="448" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="957" gid="2530" x="288" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="958" gid="2530" x="128" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="959" gid="2530" x="208" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="960" gid="2530" x="48" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="961" gid="2530" x="816" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="962" gid="2530" x="896" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="963" gid="2530" x="736" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="964" gid="2530" x="576" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="965" gid="2530" x="656" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="966" gid="2530" x="496" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="967" gid="2530" x="336" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="968" gid="2530" x="416" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="969" gid="2530" x="256" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="970" gid="2530" x="96" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="971" gid="2530" x="176" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="972" gid="2530" x="16" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="9" name="Collisions">
   <object id="791" x="1038.55" y="-27.2727" width="27" height="1039.73" rotation="90"/>
   <object id="792" x="1036.85" y="237.965" width="17.648" height="144.535"/>
   <object id="793" x="1037.27" y="369.091" width="272.849" height="13.2386" rotation="90"/>
   <object id="794" x="1040" y="640" width="16" height="1042.27" rotation="90"/>
   <object id="795" x="1024" y="245.455" width="249.031" height="11.833" rotation="270"/>
   <object id="801" x="-15.4545" y="-2.73295" width="15.5" height="645.672"/>
-  <object id="802" gid="2530" x="624" y="224" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="803" gid="2530" x="704" y="224" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="804" gid="2530" x="544" y="224" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="805" gid="2530" x="384" y="224" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="806" gid="2530" x="464" y="224" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="807" gid="2530" x="304" y="224" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="808" gid="2530" x="144" y="224" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="809" gid="2530" x="224" y="224" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="810" gid="2530" x="64" y="224" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="811" gid="2530" x="832" y="400" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="812" gid="2530" x="912" y="400" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="813" gid="2530" x="752" y="400" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="814" gid="2530" x="592" y="400" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="815" gid="2530" x="672" y="400" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="816" gid="2530" x="512" y="400" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="817" gid="2530" x="352" y="400" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="818" gid="2530" x="432" y="400" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="819" gid="2530" x="272" y="400" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="820" gid="2530" x="112" y="400" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="821" gid="2530" x="192" y="400" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="822" gid="2530" x="32" y="400" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
  </objectgroup>
 </map>
