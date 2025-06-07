@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="802">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="823">
  <properties>
   <property name="IsInside" type="bool" value="false"/>
  </properties>
@@ -54,94 +54,92 @@
 248,222,198,199,223,197,199,197,173,199,173,199,223,223,199,223,173,223,199,198,197,173,198,173,197,199,223,199,198,223,197,223,197,173,197,198,173,173,223,199,173,198,173,223,173,224,248,248,248,248,248,248,222,173,197,223,199,198,223,199,173,224,248,249
 </data>
  </layer>
+ <layer id="17" name="Carpet" width="64" height="40">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,
+267,267,267,269,269,269,269,269,267,267,268,268,268,269,269,268,268,268,268,269,268,268,268,269,269,267,267,267,267,269,269,268,268,269,267,267,269,267,267,267,269,267,269,267,267,269,268,269,267,267,267,268,269,269,267,269,267,269,269,268,269,268,267,269,
+267,269,268,267,268,268,267,268,267,267,267,269,268,268,269,267,268,267,268,267,269,269,269,267,267,267,268,268,267,268,269,269,267,268,267,268,268,269,268,267,268,268,269,267,268,269,268,269,269,268,268,269,267,269,269,269,268,269,268,269,268,269,267,268,
+269,269,269,269,267,269,267,269,267,269,269,267,269,269,267,267,267,268,267,268,269,267,268,268,268,269,267,269,267,267,269,267,269,267,268,267,267,267,267,268,267,269,269,267,267,269,269,268,268,267,267,267,268,269,269,267,269,268,268,267,267,269,267,268,
+268,268,269,269,267,269,267,269,268,268,268,267,268,267,269,269,267,268,269,269,267,269,268,267,268,267,269,267,267,268,269,269,268,268,268,269,267,268,268,269,268,267,267,269,268,268,268,268,269,269,267,267,267,267,267,267,267,269,269,269,269,268,269,269,
+267,269,268,269,269,269,268,269,268,268,268,267,268,269,268,269,268,269,267,267,269,267,269,267,269,269,267,269,267,268,269,268,268,269,268,267,267,269,268,267,267,269,269,267,267,269,267,268,267,268,267,268,268,267,268,269,267,268,268,269,267,268,269,267,
+267,267,267,269,268,268,267,268,268,267,269,267,267,268,268,269,267,267,267,268,269,269,267,267,267,268,269,267,269,268,269,267,269,268,267,269,269,268,267,268,268,269,269,268,267,268,267,267,267,267,268,268,267,267,267,269,269,268,267,269,268,268,269,267,
+143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,143,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
  <objectgroup id="6" name="Objects">
-  <object id="744" gid="2530" x="416" y="672" width="19" height="86">
+  <object id="744" gid="2530" x="420" y="799" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="746" gid="2530" x="240" y="672" width="19" height="86">
+  <object id="746" gid="2530" x="244" y="799" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="748" gid="2530" x="416" y="384" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="749" x="653.333" y="594.667">
+  <object id="749" x="721.333" y="825.667">
    <properties>
     <property name="NpcId" value="character;dh_guard"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
-  <object id="750" gid="2530" x="240" y="384" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="751" x="525.333" y="594.667">
+  <object id="751" x="593.333" y="825.667">
    <properties>
     <property name="NpcId" value="character;dh_guard"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
-  <object id="752" gid="2530" x="416" y="192" width="19" height="86">
+  <object id="799" name="Zone6" x="1026.77" y="250.072" width="6.366" height="115.947">
    <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="753" x="448" y="208">
-   <properties>
-    <property name="NpcId" value="character;dh_guard"/>
-    <property name="Type" value="npc"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="754" gid="2530" x="240" y="192" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="755" x="224" y="208">
-   <properties>
-    <property name="NpcId" value="character;dh_guard"/>
-    <property name="Type" value="npc"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="799" name="Zone4" x="1025.77" y="364.405" width="115.366" height="8.28033" rotation="270">
-   <properties>
-    <property name="EntryPoint" type="int" value="4"/>
-    <property name="TargetPath" value="Assets/Map/Data/Dunhaven_City.xml"/>
+    <property name="EntryPoint" type="int" value="6"/>
+    <property name="TargetPath" value="Assets/Map/Data/Dunhaven_Palace_Venue.xml"/>
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>
-  <object id="800" name="EntryPoint4" x="1007.1" y="304.332">
+  <object id="800" name="EntryPoint6" x="1009.77" y="305.665">
    <properties>
     <property name="Type" value="entryPoint"/>
-    <property name="Value" type="int" value="4"/>
+    <property name="Value" type="int" value="6"/>
    </properties>
    <point/>
   </object>
  </objectgroup>
  <objectgroup id="9" name="Collisions">
-  <object id="768" gid="2530" x="1033.75" y="1299.86" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="769" x="1065.75" y="1315.86">
-   <properties>
-    <property name="NpcId" value="character;dh_guard"/>
-    <property name="Type" value="npc"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="773" x="811.75" y="451.194">
+  <object id="773" x="914.75" y="737.194">
    <properties>
     <property name="NpcId" value="character;dh_guard"/>
     <property name="Path" type="object" value="774"/>
@@ -149,63 +147,32 @@
    </properties>
    <point/>
   </object>
-  <object id="774" x="738.602" y="520.318" rotation="270">
+  <object id="774" x="841.602" y="806.318" rotation="270">
    <polyline points="68.3399,66.6361 68.305,-305.686"/>
   </object>
-  <object id="775" gid="2530" x="857.75" y="1299.86" width="19" height="86">
+  <object id="775" gid="2530" x="864" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="776" x="841.75" y="1315.86">
+  <object id="781" gid="2530" x="944" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="782" x="837.75" y="261.861">
    <properties>
     <property name="NpcId" value="character;dh_guard"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
-  <object id="777" gid="2530" x="1033.75" y="1011.86" width="19" height="86">
+  <object id="783" gid="2530" x="784" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="778" x="1033.75" y="1043.86">
-   <properties>
-    <property name="NpcId" value="character;dh_guard"/>
-    <property name="Type" value="npc"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="779" gid="2530" x="857.75" y="1011.86" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="780" x="873.75" y="1043.86">
-   <properties>
-    <property name="NpcId" value="character;dh_guard"/>
-    <property name="Type" value="npc"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="781" gid="2530" x="1033.75" y="723.861" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="782" x="1017.75" y="755.861">
-   <properties>
-    <property name="NpcId" value="character;dh_guard"/>
-    <property name="Type" value="npc"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="783" gid="2530" x="857.75" y="723.861" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="784" x="889.75" y="755.861">
+  <object id="784" x="709.75" y="261.861">
    <properties>
     <property name="NpcId" value="character;dh_guard"/>
     <property name="Type" value="npc"/>
@@ -213,22 +180,115 @@
    <point/>
   </object>
   <object id="791" x="1038.55" y="-27.2727" width="27" height="1039.73" rotation="90"/>
-  <object id="792" x="1034.85" y="368.981" width="123.648" height="25.8523" rotation="270"/>
+  <object id="792" x="1036.85" y="237.965" width="17.648" height="144.535"/>
   <object id="793" x="1037.27" y="369.091" width="272.849" height="13.2386" rotation="90"/>
   <object id="794" x="1040" y="640" width="16" height="1042.27" rotation="90"/>
   <object id="795" x="1024" y="245.455" width="249.031" height="11.833" rotation="270"/>
-  <object id="796" x="929.718" y="1280.07" width="45.741" height="45.741" rotation="359.029">
-   <properties>
-    <property name="Type" value="birdFlock"/>
-   </properties>
-   <ellipse/>
-  </object>
-  <object id="798" x="1113.95" y="582.065" width="97.5923" height="97.5923" rotation="359.029">
-   <properties>
-    <property name="Type" value="birdFlock"/>
-   </properties>
-   <ellipse/>
-  </object>
   <object id="801" x="-15.4545" y="-2.73295" width="15.5" height="645.672"/>
+  <object id="802" gid="2530" x="624" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="803" gid="2530" x="704" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="804" gid="2530" x="544" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="805" gid="2530" x="384" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="806" gid="2530" x="464" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="807" gid="2530" x="304" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="808" gid="2530" x="144" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="809" gid="2530" x="224" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="810" gid="2530" x="64" y="224" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="811" gid="2530" x="832" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="812" gid="2530" x="912" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="813" gid="2530" x="752" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="814" gid="2530" x="592" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="815" gid="2530" x="672" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="816" gid="2530" x="512" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="817" gid="2530" x="352" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="818" gid="2530" x="432" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="819" gid="2530" x="272" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="820" gid="2530" x="112" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="821" gid="2530" x="192" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="822" gid="2530" x="32" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

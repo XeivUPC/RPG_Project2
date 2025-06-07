@@ -2558,7 +2558,7 @@
   </object>
  </objectgroup>
  <objectgroup id="9" name="Collisions">
-  <object id="665" x="112.386" y="-21.25" width="1679.59" height="37"/>
+  <object id="665" x="112.386" y="-21.25" width="1693.04" height="37"/>
   <object id="666" x="0.17134" y="1279.86" width="1791.32" height="19.803"/>
   <object id="667" x="-16" y="-20.9624" width="16" height="1300.97"/>
   <object id="669" x="1792" y="895" width="16" height="385"/>
