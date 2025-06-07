@@ -146,9 +146,9 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="951" x="691.083" y="289.861">
+  <object id="951" x="64" y="288">
    <properties>
-    <property name="NpcId" value="character;dh_guard"/>
+    <property name="NpcId" value="character;kingCharles"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>

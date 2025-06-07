@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="973">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="1002">
  <editorsettings>
-  <export target="../../Data/Dunhaven_Palace.xml" format="tmx"/>
+  <export target="../../Data/Interiors/Dunhaven_Palace.xml" format="tmx"/>
  </editorsettings>
  <properties>
-  <property name="IsInside" type="bool" value="false"/>
+  <property name="IsInside" type="bool" value="true"/>
  </properties>
- <tileset firstgid="1" source="../Tilesets/Floors_Tiles.tsx"/>
- <tileset firstgid="626" source="../Tilesets/Cave_Tiles.tsx"/>
- <tileset firstgid="915" source="../Tilesets/Building_Atlas.tsx"/>
- <tileset firstgid="927" source="../Tilesets/Vegetation_Atlas.tsx"/>
- <tileset firstgid="1230" source="../Tilesets/Water_tiles.tsx"/>
- <tileset firstgid="1855" source="../Tilesets/Grass_Tiles.tsx"/>
- <tileset firstgid="2480" source="../Tilesets/Furniture_Atlas.tsx"/>
+ <tileset firstgid="1" source="../../Tilesets/Floors_Tiles.tsx"/>
+ <tileset firstgid="626" source="../../Tilesets/Cave_Tiles.tsx"/>
+ <tileset firstgid="915" source="../../Tilesets/Building_Atlas.tsx"/>
+ <tileset firstgid="930" source="../../Tilesets/Vegetation_Atlas.tsx"/>
+ <tileset firstgid="1233" source="../../Tilesets/Water_tiles.tsx"/>
+ <tileset firstgid="1858" source="../../Tilesets/Grass_Tiles.tsx"/>
+ <tileset firstgid="2483" source="../../Tilesets/Furniture_Atlas.tsx"/>
  <layer id="16" name="Floor" width="64" height="40">
   <data encoding="csv">
 173,199,173,174,148,148,148,172,173,223,198,173,173,198,198,173,197,197,174,148,148,148,148,148,148,148,148,148,148,148,148,148,148,148,148,148,172,173,198,173,198,173,199,173,200,196,197,200,196,199,223,223,173,173,198,197,197,174,148,172,199,223,197,200,
@@ -31,12 +31,12 @@
 196,223,173,197,223,223,198,174,148,172,223,199,223,198,223,199,198,199,223,197,198,173,197,198,173,199,199,223,223,223,199,199,199,197,173,199,173,223,223,198,173,197,173,198,198,197,173,173,223,198,199,197,223,197,197,173,197,198,197,197,199,223,198,199,
 196,199,198,197,199,223,197,199,198,223,198,173,223,198,173,197,224,222,223,198,197,199,197,198,223,223,223,223,198,173,198,198,199,173,223,197,198,198,197,173,198,223,173,198,223,198,224,222,198,224,222,197,198,173,199,173,223,223,198,173,223,223,173,173,
 196,197,198,173,199,173,224,222,173,198,197,223,197,224,248,248,225,196,223,197,173,197,173,223,173,173,223,199,173,223,173,223,223,198,199,197,173,198,223,199,197,223,173,223,173,198,200,196,223,174,172,173,198,198,197,198,173,199,199,199,173,198,199,199,
-196,173,197,197,198,198,174,172,173,173,198,224,248,249,171,148,148,172,198,199,223,223,197,199,198,199,173,199,197,223,223,223,198,173,199,199,198,198,199,173,197,223,223,199,199,223,200,196,198,198,199,197,199,199,223,223,223,173,223,197,198,198,223,199,
-196,198,197,199,197,173,223,173,223,224,248,225,147,148,172,199,173,198,223,223,223,197,198,173,173,199,173,198,199,197,197,173,199,199,197,198,198,198,197,198,197,197,223,223,173,198,200,196,223,223,173,198,199,199,173,197,199,173,199,199,199,173,199,199,
-196,197,173,223,197,198,199,198,173,174,148,148,172,173,197,198,199,197,198,199,197,223,198,199,198,199,199,198,199,197,223,223,223,199,199,198,223,197,197,197,198,198,198,198,173,199,174,172,198,223,197,223,199,173,223,197,199,199,197,198,223,197,173,223,
-196,173,197,197,198,173,197,173,223,197,198,173,173,223,173,173,199,197,198,199,198,198,198,197,173,199,199,173,198,223,173,224,222,198,199,197,199,223,199,198,199,223,199,198,223,224,222,199,223,223,173,199,197,223,199,198,223,198,197,223,173,223,198,197,
-196,223,223,197,223,199,199,197,197,198,198,199,199,223,173,223,223,197,223,173,197,199,197,198,197,173,198,224,248,248,222,174,172,198,197,199,223,173,198,223,173,197,223,223,173,200,196,199,173,223,198,197,173,197,198,198,223,198,223,199,198,199,173,224,
-196,198,197,173,198,198,199,198,223,197,223,198,173,223,197,223,198,197,199,199,173,199,199,223,173,173,223,174,148,148,172,199,197,199,197,197,223,198,197,199,223,198,197,198,223,200,196,223,198,198,199,199,173,199,197,198,198,198,223,197,198,223,197,200,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 196,173,173,173,199,223,198,199,199,173,198,197,199,223,197,173,197,197,173,173,223,173,199,199,223,197,198,197,199,173,223,198,197,173,198,173,223,198,198,198,197,197,223,199,173,174,172,197,173,199,197,223,223,198,199,199,197,199,223,223,199,198,197,200,
 172,223,173,223,197,173,199,173,223,199,173,173,223,224,222,198,197,173,199,198,197,224,248,248,248,222,223,173,198,199,197,197,223,198,199,198,197,173,223,198,223,198,198,198,197,198,198,224,222,223,198,223,173,198,198,173,198,173,223,197,198,197,223,200,
 199,198,199,173,197,224,222,199,173,173,198,198,199,174,172,199,199,173,199,199,223,174,148,148,148,172,223,197,197,223,197,223,198,197,197,223,173,224,222,199,223,199,198,197,223,198,198,174,172,223,198,198,198,199,198,197,223,198,198,173,173,173,198,200,
@@ -116,31 +116,7 @@
    </properties>
    <point/>
   </object>
-  <object id="799" name="Zone6" x="1026.77" y="250.072" width="6.366" height="115.947">
-   <properties>
-    <property name="EntryPoint" type="int" value="6"/>
-    <property name="TargetPath" value="Assets/Map/Data/Dunhaven_Palace_Venue.xml"/>
-    <property name="Type" value="tilemapChanger"/>
-   </properties>
-  </object>
-  <object id="800" name="EntryPoint6" x="993.043" y="306.392">
-   <properties>
-    <property name="Type" value="entryPoint"/>
-    <property name="Value" type="int" value="6"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="943" gid="2530" x="297.333" y="505.667" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="944" gid="2530" x="121.333" y="505.667" width="19" height="86">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
-  <object id="945" x="804.083" y="471.861">
+  <object id="945" x="798.959" y="480.288">
    <properties>
     <property name="NpcId" value="character;dh_guard"/>
     <property name="Path" type="object" value="946"/>
@@ -148,139 +124,275 @@
    </properties>
    <point/>
   </object>
-  <object id="946" x="730.935" y="540.985" rotation="270">
-   <polyline points="68.3399,66.6361 68.305,-305.686"/>
+  <object id="946" x="-500560" y="480">
+   <polyline points="501358,0.048303 501102,-0.221585"/>
   </object>
-  <object id="947" gid="2530" x="848" y="224" width="19" height="86">
+  <object id="947" gid="2533" x="864" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="948" gid="2530" x="928" y="224" width="19" height="86">
+  <object id="948" gid="2533" x="944" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="949" x="821.75" y="261.861">
+  <object id="949" x="819.083" y="289.861">
    <properties>
     <property name="NpcId" value="character;dh_guard"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
-  <object id="950" gid="2530" x="768" y="224" width="19" height="86">
+  <object id="950" gid="2533" x="784" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="951" x="693.75" y="261.861">
+  <object id="951" x="64" y="288">
    <properties>
-    <property name="NpcId" value="character;dh_guard"/>
+    <property name="NpcId" value="character;kingCharles"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
-  <object id="952" gid="2530" x="608" y="224" width="19" height="86">
+  <object id="952" gid="2533" x="624" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="953" gid="2530" x="688" y="224" width="19" height="86">
+  <object id="953" gid="2533" x="704" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="954" gid="2530" x="528" y="224" width="19" height="86">
+  <object id="954" gid="2533" x="544" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="955" gid="2530" x="368" y="224" width="19" height="86">
+  <object id="955" gid="2533" x="384" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="956" gid="2530" x="448" y="224" width="19" height="86">
+  <object id="956" gid="2533" x="464" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="957" gid="2530" x="288" y="224" width="19" height="86">
+  <object id="957" gid="2533" x="304" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="958" gid="2530" x="128" y="224" width="19" height="86">
+  <object id="958" gid="2533" x="144" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="959" gid="2530" x="208" y="224" width="19" height="86">
+  <object id="959" gid="2533" x="224" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="960" gid="2530" x="48" y="224" width="19" height="86">
+  <object id="960" gid="2533" x="64" y="224" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="961" gid="2530" x="816" y="400" width="19" height="86">
+  <object id="961" gid="2533" x="848" y="400" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="962" gid="2530" x="896" y="400" width="19" height="86">
+  <object id="962" gid="2533" x="928" y="400" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="963" gid="2530" x="736" y="400" width="19" height="86">
+  <object id="963" gid="2533" x="768" y="400" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="964" gid="2530" x="576" y="400" width="19" height="86">
+  <object id="964" gid="2533" x="608" y="400" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="965" gid="2530" x="656" y="400" width="19" height="86">
+  <object id="965" gid="2533" x="688" y="400" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="966" gid="2530" x="496" y="400" width="19" height="86">
+  <object id="966" gid="2533" x="528" y="400" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="967" gid="2530" x="336" y="400" width="19" height="86">
+  <object id="967" gid="2533" x="368" y="400" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="968" gid="2530" x="416" y="400" width="19" height="86">
+  <object id="968" gid="2533" x="448" y="400" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="969" gid="2530" x="256" y="400" width="19" height="86">
+  <object id="969" gid="2533" x="288" y="400" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="970" gid="2530" x="96" y="400" width="19" height="86">
+  <object id="970" gid="2533" x="128" y="400" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="971" gid="2530" x="176" y="400" width="19" height="86">
+  <object id="971" gid="2533" x="208" y="400" width="19" height="86">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="972" gid="2530" x="16" y="400" width="19" height="86">
+  <object id="972" gid="2533" x="48" y="400" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="973" x="1008" y="272">
+   <properties>
+    <property name="Type" value="spawnPoint"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="974" x="1025.73" y="248.576" width="8.21217" height="116.515">
+   <properties>
+    <property name="Type" value="tilemapChanger"/>
+   </properties>
+  </object>
+  <object id="975" gid="2506" x="880" y="400" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="976" gid="2506" x="160" y="400" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="977" gid="2506" x="240" y="400" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="978" gid="2506" x="320" y="400" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="979" gid="2506" x="400" y="400" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="980" gid="2506" x="480" y="400" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="981" gid="2506" x="560" y="400" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="982" gid="2506" x="640" y="400" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="983" gid="2506" x="720" y="400" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="984" gid="2506" x="800" y="400" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="985" gid="2506" x="896" y="224" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="986" gid="2506" x="816" y="224" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="987" gid="2506" x="736" y="224" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="988" gid="2506" x="656" y="224" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="989" gid="2506" x="576" y="224" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="990" gid="2506" x="496" y="224" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="991" gid="2506" x="416" y="224" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="992" gid="2506" x="336" y="224" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="993" gid="2506" x="256" y="224" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="994" gid="2506" x="176" y="224" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="995" gid="2506" x="96" y="224" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="997" gid="2539" x="16" y="240" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="998" gid="2533" x="0" y="304" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="1000" gid="2534" x="16" y="368" width="19" height="86">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="1001" gid="2506" x="80" y="400" width="32" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>

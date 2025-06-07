@@ -102,4 +102,11 @@
 			<attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		</combat>
 	</character>
+	<character id="character;kingCharles" template="character;kingCharles" name="King Charles">
+		<recruitable>true</recruitable>
+		<combat>
+			<stats level="1" hp="60" defense="63" attack="72" speed="100" />
+			<attacks attack1="0" attack2="1" attack3="2" attack4="3" />
+		</combat>
+	</character>
 </definition>

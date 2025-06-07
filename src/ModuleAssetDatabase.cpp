@@ -173,6 +173,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("zeryn_test", *textureFactory->CreateTexture("Assets/Textures/Characters/zeryn_spritesheet.png"));
 	AddTextureToStorage("dog_test", *textureFactory->CreateTexture("Assets/Textures/Characters/dog_spritesheet.png"));
 	AddTextureToStorage("fisherman_test", *textureFactory->CreateTexture("Assets/Textures/Characters/fisherman_spritesheet.png"));
+	AddTextureToStorage("kingCharles_test", *textureFactory->CreateTexture("Assets/Textures/Characters/kingCharles_spritesheet.png"));
 
 	///Tilesets
 	AddTextureToStorage("floors_tiles", *textureFactory->CreateTexture("Assets/Textures/Tilesets/Floors_Tiles.png"));

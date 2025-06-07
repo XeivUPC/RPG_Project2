@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="326" y="474" />
+		<position x="77" y="293" />
 		<party>
 			<active>
 				<member id="character;cassian" />
@@ -58,10 +58,11 @@
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="38603.6484" />
+		<time value="81367.1328" />
 		<items />
 		<tilemaps>
 			<tilemap path="Assets/Map/Data/Dunhaven_Palace_Venue.xml" spawnpoint-x="324.625" spawnpoint-y="446.375" />
+			<tilemap path="Assets/Map/Data/Interiors/Dunhaven_Palace.xml" spawnpoint-x="1008" spawnpoint-y="272" />
 		</tilemaps>
 	</map>
 </game>
