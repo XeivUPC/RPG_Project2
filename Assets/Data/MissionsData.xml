@@ -165,7 +165,7 @@
 			</condition>
 		</conditions>
 	</mission>
-	<mission id="mission;XeivTreatyVIP_PartTwo">
+	<mission id="mission;XeivTreatyVIPInnkeeper">
 		<title>Speak with the Innkeeper</title>
 		<description>You have found the 4 VIP Cards. Speak with the Innkeeper at Xeiv Treaty!</description>
 		<conditions>
@@ -174,9 +174,18 @@
 			</condition>
 		</conditions>
 	</mission>
-	<mission id="mission;XeivTreatyVIP_PartThree">
-		<title>The VIP Door</title>
-		<description>Go and speak with the man infront of the VIP Door. Tell him the Innkeeper sent you there.</description>
+	<mission id="mission;XeivTreatyVIPDoorman">
+		<title>Speak with the Doorman</title>
+		<description>The Innkeeper sent you to the doorman!</description>
+		<conditions>
+			<condition type ="ItemCondition" tasksAmount ="1">
+				<item1 id="item;VIP_Card" count="4" />
+			</condition>
+		</conditions>
+	</mission>
+	<mission id="mission;SecretDungeon">
+		<title>Find and explore the secret dungeon!</title>
+		<description>The clue the doorman gave you reads as such: "Thy shall find thy will, most likely looking in the waters where the wind least heavy is, but finding thyself nearset to the earth." </description>
 		<conditions>
 			<condition type ="ItemCondition" tasksAmount ="1">
 				<item1 id="item;VIP_Card" count="4" />

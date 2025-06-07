@@ -1,8 +1,8 @@
 {
     "170d572f-c0fb-4afa-aad6-eb2f7d447cb9": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
         "text": {
             "en": "...",
             "fr": ""
@@ -10,11 +10,11 @@
         "parent": "00267b68-287d-4164-acd4-0f00357f4fe6"
     },
     "de2088eb-2a09-4959-ad15-5fa08b047590": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
         "text": {
-            "en": "I see you have found me!v",
+            "en": "I see you have found me!",
             "fr": ""
         },
         "parent": "30e44e4e-57d0-4511-9076-716a6e96fbf9",
@@ -41,11 +41,11 @@
         ]
     },
     "dfcf6a1a-762f-40e8-86eb-7cfd8c36df9f": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
         "text": {
-            "en": "Here you go! Here you go, there are only two cards to go. The next card is in a house. Which one? That, you'll have to find out yourself.",
+            "en": "Here you go, there are only two cards to go. The next card is in a house. Which one? That, you'll have to find out yourself.",
             "fr": ""
         },
         "parent": "74c391e5-ab41-47a0-92a5-5fb5ba3ad925",
@@ -58,19 +58,25 @@
         }
     },
     "c97b97ee-3ace-4956-be0d-3cd58227f262": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
         "text": {
             "en": "Come back when you have some spare space.",
             "fr": ""
         },
-        "parent": "60eb881c-1de1-42c1-9459-550bfe00f191"
+        "parent": "60eb881c-1de1-42c1-9459-550bfe00f191",
+        "signals": {
+            "parent": "c97b97ee-3ace-4956-be0d-3cd58227f262",
+            "SetNpcState": {
+                "String": "character;dh_xt_vip2-2"
+            }
+        }
     },
     "e6d53064-b92e-48f1-a141-06baf958df37": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
         "text": {
             "en": "You're back! Let's see if this time you have space for the card!",
             "fr": ""
@@ -90,12 +96,18 @@
                 "parent": "e6d53064-b92e-48f1-a141-06baf958df37",
                 "next": "14cff7ec-a93b-4ff8-b06c-f9190a181003"
             }
-        ]
+        ],
+        "signals": {
+            "parent": "e6d53064-b92e-48f1-a141-06baf958df37",
+            "CheckIfCanGiveItem": {
+                "String": "item;VIP_Card-1"
+            }
+        }
     },
     "14cff7ec-a93b-4ff8-b06c-f9190a181003": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
         "text": {
             "en": "Come back when you have some spare space.",
             "fr": ""
@@ -109,9 +121,9 @@
         }
     },
     "88816cfe-77ab-4566-adde-392077668102": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
         "text": {
             "en": "Here you go! Here you go, there are only two cards to go. The next card is in a house. Which one? That, you'll have to find out yourself.",
             "fr": ""
@@ -126,9 +138,9 @@
         }
     },
     "a03f3ce8-0dd8-4d20-81a1-d85da1894645": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
         "text": {
             "en": "... ... Now, go. Don't want to have anyone curious finding out about me. ",
             "fr": ""
@@ -145,9 +157,9 @@
         }
     },
     "8c543a28-5999-4bfc-be79-09aef05b5208": {
-        "name": "Cassian",
-        "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "name": "VIP Client",
+        "character_uuid": "fe2a6800-ce47-458c-9998-f4c08e8f33f8",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/VIP_Client.png",
         "text": {
             "en": "... ... Now, go. Don't want to have anyone curious finding out about me. ",
             "fr": ""
@@ -255,7 +267,7 @@
             {
                 "uuid": "a03f3ce8-0dd8-4d20-81a1-d85da1894645",
                 "offset": [
-                    2280,
+                    2360,
                     1180
                 ]
             },
@@ -313,7 +325,7 @@
             {
                 "uuid": "30e44e4e-57d0-4511-9076-716a6e96fbf9",
                 "offset": [
-                    280,
+                    240,
                     260
                 ],
                 "parent": "root"
@@ -343,6 +355,22 @@
                     -100
                 ],
                 "parent": "dfcf6a1a-762f-40e8-86eb-7cfd8c36df9f"
+            },
+            {
+                "uuid": "539b69ac-0a08-4052-b060-1954918cdb2b",
+                "offset": [
+                    2140,
+                    620
+                ],
+                "parent": "c97b97ee-3ace-4956-be0d-3cd58227f262"
+            },
+            {
+                "uuid": "e23bda93-b490-45cf-84db-6be73b8fb5cb",
+                "offset": [
+                    1040,
+                    960
+                ],
+                "parent": "e6d53064-b92e-48f1-a141-06baf958df37"
             },
             {
                 "uuid": "ea907510-ea6e-4533-b17d-6d9ce874ab3e",

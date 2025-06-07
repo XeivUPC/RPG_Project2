@@ -1,13 +1,66 @@
 {
     "27643c81-ba2c-486d-8c5d-39295d614477": {
-        "name": "Fisherman",
-        "character_uuid": "b1bb962d-ac6b-4e34-aa60-cb68c42a463f",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+        "name": "Doorman",
+        "character_uuid": "66e7dd9f-8fb6-4339-b790-7af94a626c8c",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
         "text": {
-            "en": "Its closed",
+            "en": "Its closed.",
             "fr": ""
         },
         "parent": "ecc8676f-e352-4e0d-bae1-9696a0a47a37"
+    },
+    "8139caed-8078-43e9-ac05-1c602ce4a32a": {
+        "name": "Doorman",
+        "character_uuid": "66e7dd9f-8fb6-4339-b790-7af94a626c8c",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+        "text": {
+            "en": "What do you want?",
+            "fr": ""
+        },
+        "parent": "de68ecaa-a05f-43fc-b9f4-712397bbe32b",
+        "choices": [
+            {
+                "text": {
+                    "en": "The inkeeper told me to come here.",
+                    "fr": ""
+                },
+                "next": "2bb4b739-1b70-4733-b04f-547c30af9339",
+                "parent": "8139caed-8078-43e9-ac05-1c602ce4a32a"
+            },
+            {
+                "text": {
+                    "en": "Nothing - Leave -",
+                    "fr": ""
+                },
+                "next": "",
+                "parent": "8139caed-8078-43e9-ac05-1c602ce4a32a"
+            }
+        ]
+    },
+    "2bb4b739-1b70-4733-b04f-547c30af9339": {
+        "name": "Doorman",
+        "character_uuid": "66e7dd9f-8fb6-4339-b790-7af94a626c8c",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+        "text": {
+            "en": "Well, too bad, you're too young for the VIP. But I'll give you this. It's the clue to finding a secret dungeon hidden somewhere... It is said to have some treasures!",
+            "fr": ""
+        },
+        "parent": "a94a3a9b-4de2-45ac-bcce-43bda4940c42",
+        "signals": {
+            "RemoveMission": {
+                "String": "mission;XeivTreatyVIPDoorman"
+            },
+            "parent": "2bb4b739-1b70-4733-b04f-547c30af9339",
+            "AddMission": {
+                "String": "mission;SecretDungeon"
+            },
+            "SetPuzzleVariable": {
+                "String": "blocking_420->isBlocking->false"
+            },
+            "SetNpcState": {
+                "String": "character;dh_xt_doorman-0"
+            }
+        }
     },
     "root": {
         "conditions": [
@@ -16,6 +69,15 @@
                 "next": "27643c81-ba2c-486d-8c5d-39295d614477",
                 "character;dh_xt_doorman-state": {
                     "value": 0,
+                    "operator": "equal",
+                    "type": "int"
+                }
+            },
+            {
+                "parent": "root",
+                "next": "8139caed-8078-43e9-ac05-1c602ce4a32a",
+                "character;dh_xt_doorman-state": {
+                    "value": 1,
                     "operator": "equal",
                     "type": "int"
                 }
@@ -37,6 +99,20 @@
                     760,
                     -260
                 ]
+            },
+            {
+                "uuid": "8139caed-8078-43e9-ac05-1c602ce4a32a",
+                "offset": [
+                    760,
+                    200
+                ]
+            },
+            {
+                "uuid": "2bb4b739-1b70-4733-b04f-547c30af9339",
+                "offset": [
+                    1580,
+                    -40
+                ]
             }
         ],
         "conditions": [
@@ -47,9 +123,58 @@
                     -180
                 ],
                 "parent": "root"
+            },
+            {
+                "uuid": "de68ecaa-a05f-43fc-b9f4-712397bbe32b",
+                "offset": [
+                    280,
+                    220
+                ],
+                "parent": "root"
             }
         ],
-        "signals": [],
-        "choices": []
+        "signals": [
+            {
+                "uuid": "4221afdd-c377-4d7b-bfa8-212a21b534a3",
+                "offset": [
+                    2040,
+                    -40
+                ],
+                "parent": "2bb4b739-1b70-4733-b04f-547c30af9339",
+                "data": {
+                    "RemoveMission": {
+                        "String": "mission;XeivTreatyVIPDoorman"
+                    },
+                    "parent": "2bb4b739-1b70-4733-b04f-547c30af9339",
+                    "AddMission": {
+                        "String": "mission;SecretDungeon"
+                    },
+                    "SetPuzzleVariable": {
+                        "String": "blocking_420->isBlocking->false"
+                    },
+                    "SetNpcState": {
+                        "String": "character;dh_xt_doorman-0"
+                    }
+                }
+            }
+        ],
+        "choices": [
+            {
+                "uuid": "a94a3a9b-4de2-45ac-bcce-43bda4940c42",
+                "offset": [
+                    1180,
+                    140
+                ],
+                "parent": "8139caed-8078-43e9-ac05-1c602ce4a32a"
+            },
+            {
+                "uuid": "286f7357-452d-4c85-8e61-b91b15cb64ec",
+                "offset": [
+                    1180,
+                    380
+                ],
+                "parent": "8139caed-8078-43e9-ac05-1c602ce4a32a"
+            }
+        ]
     }
 }

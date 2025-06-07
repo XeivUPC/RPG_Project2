@@ -493,7 +493,7 @@ void CombatCG::CreateUIExtras()
 
 
 	passTurn = new UIButton(*controlBtns_texture, { 532,0 }, btn_size, { 0,btn_size.y * 2,btn_size.x,btn_size.y }, { 0,1 });
-	UITextBox* passTurnText = new UITextBox("Pass Turn", *btn_font, font_size, font_color, { 6,2 }, { 78,19 }, { 0,1 }, UITextBox::HorizontalAlignment::Right, UITextBox::VerticalAlignment::Middle, false);
+	UITextBox* passTurnText = new UITextBox("Next Turn", *btn_font, font_size, font_color, { 6,2 }, { 78,19 }, { 0,1 }, UITextBox::HorizontalAlignment::Right, UITextBox::VerticalAlignment::Middle, false);
 	passTurnText->SetParent(passTurn);
 	passTurn->AddRect(UIButton::ButtonStates::HOVER, { btn_size.x,btn_size.y * 2,btn_size.x,btn_size.y });
 	passTurn->onMouseClick.Subscribe([this]() {EndTurn(); });

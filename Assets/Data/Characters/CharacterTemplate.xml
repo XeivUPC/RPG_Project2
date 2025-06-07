@@ -14,4 +14,6 @@
     <character id="character;dh_guard" textureId="rsGuard_test" faceId="Guard1-idle"/>
     <character id="character;dh_fisherman" textureId="fisherman_test" faceId="Fisherman-idle"/>
 
+	<character id="character;dh_cottage_man" textureId="fisherman_test" faceId="Fisherman-idle"/>
+
 </template>

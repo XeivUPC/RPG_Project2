@@ -11,7 +11,8 @@
 			</inactive>
 		</party>
 		<missions>
-			<mission id="mission;tutorial" status="0" />
+			<mission id="mission;tutorial" status="1" />
+			<mission id="mission;SecretDungeon" status="1" />
 		</missions>
 		<inventory>
 			<item />
@@ -21,7 +22,7 @@
 			<item id="item;zalium_shield" amount="1" />
 			<item id="item;zalium_spear" amount="1" />
 			<item id="item;zalium_sword" amount="1" />
-			<item />
+			<item id="item;VIP_Card" amount="4" />
 			<item />
 			<item />
 			<item />

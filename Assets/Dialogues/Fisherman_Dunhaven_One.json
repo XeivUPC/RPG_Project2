@@ -1,23 +1,23 @@
 {
     "d370d512-3de5-45d9-a236-e0ffabc289df": {
         "name": "Fisherman",
-        "character_uuid": "b1bb962d-ac6b-4e34-aa60-cb68c42a463f",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+        "character_uuid": "6b32487b-ffcc-423c-8ab7-0779b9449b13",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
         "text": {
             "en": "Lad, let me work. If you want to go to the citadelle, follow the stone path. Now, go, I've work to do.",
             "fr": ""
         },
-        "parent": "51e7a733-eabb-438b-bbe0-70d92f16d5e1"
+        "parent": "b1db3123-c006-4e3a-9bf8-efae5479970b"
     },
     "root": {
         "conditions": [
             {
-                "parent": "root",
-                "Char12_State": {
+                "character;dh_fisherman-state": {
                     "value": 0,
                     "operator": "equal",
                     "type": "int"
                 },
+                "parent": "root",
                 "next": "d370d512-3de5-45d9-a236-e0ffabc289df"
             }
         ]
@@ -41,10 +41,10 @@
         ],
         "conditions": [
             {
-                "uuid": "51e7a733-eabb-438b-bbe0-70d92f16d5e1",
+                "uuid": "b1db3123-c006-4e3a-9bf8-efae5479970b",
                 "offset": [
-                    300,
-                    0
+                    260,
+                    40
                 ],
                 "parent": "root"
             }

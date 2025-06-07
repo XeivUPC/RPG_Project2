@@ -99,7 +99,7 @@
   </object>
   <object id="51" x="86" y="28.75">
    <properties>
-    <property name="NpcId" value="character;dh_cott_man"/>
+    <property name="NpcId" value="character;dh_cottage_man"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
