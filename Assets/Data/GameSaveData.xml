@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="444" y="483" />
+		<position x="77" y="293" />
 		<party>
 			<active>
 				<member id="character;cassian" />
@@ -11,18 +11,17 @@
 			</inactive>
 		</party>
 		<missions>
-			<mission id="mission;tutorial" status="1" />
-			<mission id="mission;SecretDungeon" status="1" />
+			<mission id="mission;tutorial" status="0" />
 		</missions>
 		<inventory>
 			<item />
-			<item id="item;zalium_armor" amount="1" />
-			<item id="item;zalium_bow" amount="1" />
-			<item id="item;zalium_helmet" amount="1" />
-			<item id="item;zalium_shield" amount="1" />
-			<item id="item;zalium_spear" amount="1" />
-			<item id="item;zalium_sword" amount="1" />
-			<item id="item;VIP_Card" amount="4" />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
+			<item />
 			<item />
 			<item />
 			<item />
@@ -59,11 +58,11 @@
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="54731.332" />
+		<time value="81367.1328" />
 		<items />
 		<tilemaps>
-			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="384" spawnpoint-y="569" />
-			<tilemap path="Assets/Map/Data/Interiors/Dungeon_puzzles.xml" spawnpoint-x="15" spawnpoint-y="456" />
+			<tilemap path="Assets/Map/Data/Dunhaven_Palace_Venue.xml" spawnpoint-x="324.625" spawnpoint-y="446.375" />
+			<tilemap path="Assets/Map/Data/Interiors/Dunhaven_Palace.xml" spawnpoint-x="1008" spawnpoint-y="272" />
 		</tilemaps>
 	</map>
 </game>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.11.2" name="building_atlas" tilewidth="357" tileheight="272" tilecount="11" columns="0">
+<tileset version="1.10" tiledversion="1.11.0" name="building_atlas" tilewidth="618" tileheight="316" tilecount="13" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/tent1.png" width="96" height="107"/>
@@ -184,6 +184,33 @@
     <point/>
    </object>
    <object id="17" name="collision" x="224.052" y="68.4936" width="28.5132" height="89.1162"/>
+  </objectgroup>
+ </tile>
+ <tile id="13">
+  <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/Hostel.png" width="357" height="258"/>
+ </tile>
+ <tile id="14">
+  <image source="../../../Textures/Atlas/MapObjects/Buildings/Single/DunhavenCastle.png" width="618" height="316"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" name="collision" x="4.84848" y="184.424" width="608" height="78"/>
+   <object id="2" name="collision" x="37" y="261.75" width="127.25" height="17.75"/>
+   <object id="4" name="collision" x="245.273" y="261.545" width="36.0114" height="51.6136"/>
+   <object id="5" name="collision" x="195.636" y="260.909">
+    <polygon points="0,0 50.1818,50.9091 51.0909,-0.181818"/>
+   </object>
+   <object id="6" name="collision" x="372" y="310.727">
+    <polygon points="0,0 49.8182,-50 -0.909091,-49.8182"/>
+   </object>
+   <object id="7" name="collision" x="453" y="262.75" width="127" height="17"/>
+   <object id="8" name="renderPosition" x="7.27273" y="258.182">
+    <point/>
+   </object>
+   <object id="9" x="336.761" y="260.909" width="36.0568" height="51.2727"/>
+   <object id="10" name="collision" x="276.5" y="260.625" width="67.125" height="36.625"/>
+   <object id="11" name="entryCollider" x="281.25" y="296.375" width="55.75" height="13.5"/>
+   <object id="12" name="exitPosition" x="308.625" y="314.375">
+    <point/>
+   </object>
   </objectgroup>
  </tile>
 </tileset>

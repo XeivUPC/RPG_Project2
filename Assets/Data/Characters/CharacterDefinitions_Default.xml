@@ -102,4 +102,7 @@
 			<attacks attack1="0" attack2="1" attack3="2" attack4="3" />
 		</combat>
 	</character>
+	<character id="character;kingCharles" template="character;kingCharles" name="King Charles">
+		<dialogue path="Assets/Dialogues/emperor_charles.json" state="0" />
+	</character>
 </definition>
