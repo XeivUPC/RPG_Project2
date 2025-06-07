@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="522" y="591" />
+		<position x="444" y="483" />
 		<party>
 			<active>
 				<member id="character;cassian" />
@@ -15,12 +15,12 @@
 		</missions>
 		<inventory>
 			<item />
-			<item />
-			<item />
-			<item />
-			<item />
-			<item />
-			<item />
+			<item id="item;zalium_armor" amount="1" />
+			<item id="item;zalium_bow" amount="1" />
+			<item id="item;zalium_helmet" amount="1" />
+			<item id="item;zalium_shield" amount="1" />
+			<item id="item;zalium_spear" amount="1" />
+			<item id="item;zalium_sword" amount="1" />
 			<item />
 			<item />
 			<item />
@@ -58,10 +58,11 @@
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="43932.6211" />
+		<time value="54731.332" />
 		<items />
 		<tilemaps>
-			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="522.710999" spawnpoint-y="591.953979" />
+			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="384" spawnpoint-y="569" />
+			<tilemap path="Assets/Map/Data/Interiors/Dungeon_puzzles.xml" spawnpoint-x="15" spawnpoint-y="456" />
 		</tilemaps>
 	</map>
 </game>

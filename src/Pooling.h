@@ -179,6 +179,7 @@ public:
                 obj->ResetPoolObject();
                 pool.available.push(obj);
             }
+            pool.checked_out.clear();
         }
 
         pool.checked_out.clear();

@@ -5,14 +5,14 @@
     },
     "activeFile": "Maps/Interiors/Dungeon_puzzles.tmx",
     "expandedProjectPaths": [
-        "Maps",
+        "Prefabs/Buildings",
         ".",
-        "Objects",
-        "Maps/Interiors/Dungeons",
         "Tilesets",
         "Maps/Interiors",
+        "Maps/Interiors/Dungeons",
+        "Objects",
         "Prefabs",
-        "Prefabs/Buildings"
+        "Maps"
     ],
     "exportAsImage.visibleLayersOnly": false,
     "file.lastUsedOpenFilter": "Todos los archivos (*)",
@@ -52,8 +52,8 @@
         },
         "Maps/Dunhaven_City.tmx": {
             "expandedObjectLayers": [
-                6,
-                9
+                9,
+                6
             ],
             "scale": 2,
             "selectedLayer": 9,
@@ -162,7 +162,7 @@
             "selectedLayer": 4,
             "viewCenter": {
                 "x": 294.3333333333333,
-                "y": 114.33333333333334
+                "y": 389.33333333333326
             }
         },
         "Maps/Interiors/Dungeons/dungeon_room_11.tmx": {

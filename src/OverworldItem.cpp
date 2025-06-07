@@ -59,7 +59,7 @@ void OverworldItem::Initialize(Item* item, int q, Vector2 position)
 
 void OverworldItem::PickUp()
 {
-	int added = Engine::Instance().s_game->GetPlayer()->inventory->AddItem(*(new InventoryItem(itemRef)),quantity);
+	int added = Engine::Instance().s_game->GetPlayer()->inventory->AddItem(InventoryItem(itemRef),quantity);
 	quantity -= added;
 	if (quantity <= 0) {
 		Pooling::Instance().ReturnObject(this);

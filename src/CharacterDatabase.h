@@ -34,8 +34,6 @@ class CharacterDatabase {
 			int attack = 0;
 			int defense = 0;
 			int speed = 0;
-
-			Inventory inventory = Inventory(4);
 		};
 
 		static CharacterDatabase& Instance() {

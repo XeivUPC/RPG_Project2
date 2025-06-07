@@ -24,7 +24,7 @@
 		<description>Baked by the Cook, barely edible.</description>
 		<stackable-quantity>64</stackable-quantity>
 		<properties>
-			<type>consumible</type>
+			<type>consumable</type>
 			<healing-amount>10</healing-amount>
 		</properties>
 	</item>
@@ -34,7 +34,7 @@
 		<description>Not only does it have great taste, it is also healthy!</description>
 		<stackable-quantity>64</stackable-quantity>
 		<properties>
-			<type>consumible</type>
+			<type>consumable</type>
 			<healing-amount>20</healing-amount>
 		</properties>
 	</item>
@@ -44,7 +44,7 @@
 		<description>A meal forged by gods, there are few worthy to taste them.</description>
 		<stackable-quantity>64</stackable-quantity>
 		<properties>
-			<type>consumible</type>
+			<type>consumable</type>
 			<healing-amount>50</healing-amount>
 		</properties>
 	</item>
@@ -118,7 +118,7 @@
 		<description>A mysterious card that seems to grant some royalties at Xeiv Treaty.</description>
 		<stackable-quantity>64</stackable-quantity>
 		<properties>
-			<type>consumible</type>
+			<type>consumable</type>
 		</properties>
 	</item>
 </itemList> 

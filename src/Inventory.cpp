@@ -8,9 +8,7 @@ Inventory::Inventory(int size) : size(size) {
 }
 
 Inventory::~Inventory() {
-    for (auto& slot : slots) {
-        if (!slot.IsEmpty()) delete slot.item;
-    }
+    ClearAllItems();
     onInventoryChanged.UnsubscribeAll();
 }
 
@@ -28,7 +26,7 @@ void Inventory::SwapSlotContents(InventorySlot& a, InventorySlot& b) {
     std::swap(a.count, b.count);
 }
 
-int Inventory::AddItem(InventoryItem& newItem, int amount) {
+int Inventory::AddItem(InventoryItem newItem, int amount) {
     if (amount <= 0) return 0;
 
     int added = 0;
@@ -46,7 +44,6 @@ int Inventory::AddItem(InventoryItem& newItem, int amount) {
             amount -= canAdd;
 
             if (amount == 0) {
-                delete& newItem;
                 onInventoryChanged.Trigger();
                 return added;
             }
@@ -63,14 +60,12 @@ int Inventory::AddItem(InventoryItem& newItem, int amount) {
             amount -= canAdd;
 
             if (amount == 0) {
-                delete& newItem;
                 onInventoryChanged.Trigger();
                 return added;
             }
         }
     }
 
-    delete& newItem;
     onInventoryChanged.Trigger();
     return added;
 }
@@ -285,7 +280,7 @@ void Inventory::ClearAllItems() {
     onInventoryChanged.Trigger();
 }
 
-const vector<InventorySlot>& Inventory::GetSlotsData() {
+const vector<InventorySlot>& Inventory::GetSlotsData() const{
     return slots;
 }
 

@@ -98,8 +98,6 @@ PlayerCharacter::PlayerCharacter()
 
 PlayerCharacter::~PlayerCharacter()
 {
-	delete inventory;
-	delete silhouette;
 }
 
 bool PlayerCharacter::Update()
@@ -131,6 +129,8 @@ bool PlayerCharacter::CleanUp()
 	Engine::Instance().m_render->RemoveFromRenderQueue(*this);
 	delete body;
 	delete party;
+	delete inventory;
+	delete silhouette;
 
 	animator->CleanUp();
 	delete animator;

@@ -15,6 +15,9 @@
 #include "UIToggle.h"
 #include "UIButton.h"
 
+#include "UserPrefs.h"
+#include "ItemList.h"
+
 #include "GameScene.h"
 #include "PlayerCharacter.h"
 
@@ -52,6 +55,7 @@ InventoryCG::InventoryCG(int _renderLayer)
 	close_btn->SetParent(container_image);
 
 	CreateCharacterSlot();
+	CreateUseSlot();
 	CreateExtras();
 
 
@@ -61,6 +65,11 @@ InventoryCG::InventoryCG(int _renderLayer)
 
 InventoryCG::~InventoryCG()
 {
+	if (useSlot.useInventory != nullptr) {
+		
+		delete useSlot.useInventory;
+		useSlot.useInventory = nullptr;
+	}
 }
 
 void InventoryCG::UpdateCanvas()
@@ -301,7 +310,10 @@ void InventoryCG::UpdateItemSlot(UIItemSlots* slot, Inventory* inventory, Item* 
 		slot->itemAmount->SetText(to_string(itemAmount));
 
 		slot->itemImage->localVisible = true;
-		slot->itemAmount->localVisible = true;
+		if(itemAmount >1)
+			slot->itemAmount->localVisible = true;
+		else
+			slot->itemAmount->localVisible = false;
 	}
 
 	
@@ -406,6 +418,8 @@ void InventoryCG::CreateCharacterSlot()
 
 	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
 
+
+	characterSlot.characterId = "";
 	characterSlot.characterOverlay = new UIImage(*overlay, { 247,88 }, { 66,66 }, { 0,0 }, true, {198,0,66,66});
 
 	characterSlot.characterProfile = new UIImage(*overlay, { 1,1 }, { 64,64 }, { 0,0 });
@@ -421,7 +435,6 @@ void InventoryCG::CreateCharacterSlot()
 	characterSlot.characterOverlay->SetParent(container_image);
 
 	characterSlot.helmetSlot = CreateItemSlot(nullptr,0,nullptr,0,1);
-	characterSlot.helmetSlot.itemSelect->SetLocalPosition({193,99});
 	characterSlot.helmetSlot.itemSelect->SetLocalPosition({193,99});
 
 	characterSlot.chestplateSlot = CreateItemSlot(nullptr, 1,nullptr,0,2);
@@ -453,36 +466,40 @@ void InventoryCG::CreateCharacterSlot()
 
 void InventoryCG::UpdateCharacterSlot(string charId)
 {
-	CharacterDatabase::CharacterDefinition* charData = nullptr;
-	charData = party->GetCharacterFromMembers(charId);
+	Party::Member* charData = nullptr;
+	charData = party->GetFullCharacterDataFromMembers(charId);
 
 	TextureAtlas* characterProfilesAtlas = Engine::Instance().m_assetsDB->GetAtlas("character_atlas");
 	SDL_Texture* character_profile_texture = nullptr;
 
 	if (charData != nullptr) {
+
+		characterSlot.characterId = charData->id;
+
 		character_profile_texture = characterProfilesAtlas->texture;
-		characterSlot.characterProfile->SetSprite(*character_profile_texture, true, characterProfilesAtlas->sprites[charData->charTemplate->faceId].rect);
+		characterSlot.characterProfile->SetSprite(*character_profile_texture, true, characterProfilesAtlas->sprites[charData->definition->charTemplate->faceId].rect);
 		characterSlot.characterProfile->localVisible = true;
 
 		characterSlot.characterOverlay->SetRect({ 0,0,66,66 });
 
-		characterSlot.characterName->SetText(charData->name);
+		characterSlot.characterName->SetText(charData->definition->name);
 
-		const vector<InventorySlot>& items = charData->inventory.GetSlotsData();
+		const vector<InventorySlot>& items = charData->inventory->GetSlotsData();
 
 		Item* item = items[0].item ? items[0].item->GetReference() : nullptr;
-		UpdateItemSlot(&characterSlot.helmetSlot, &charData->inventory, item, items[0].count);
+		UpdateItemSlot(&characterSlot.helmetSlot, charData->inventory, item, items[0].count);
 
 		item = items[1].item ? items[1].item->GetReference() : nullptr;
-		UpdateItemSlot(&characterSlot.chestplateSlot, &charData->inventory, item, items[1].count);
+		UpdateItemSlot(&characterSlot.chestplateSlot, charData->inventory, item, items[1].count);
 
 		item = items[2].item ? items[2].item->GetReference() : nullptr;
-		UpdateItemSlot(&characterSlot.weaponSlot, &charData->inventory, item, items[2].count);
+		UpdateItemSlot(&characterSlot.weaponSlot, charData->inventory, item, items[2].count);
 
 		item = items[3].item ? items[3].item->GetReference() : nullptr;
-		UpdateItemSlot(&characterSlot.accesorieSlot, &charData->inventory, item, items[3].count);
+		UpdateItemSlot(&characterSlot.accesorieSlot, charData->inventory, item, items[3].count);
 	}
 	else {
+		characterSlot.characterId = "";
 		characterSlot.characterProfile->localVisible = false;
 		characterSlot.characterOverlay->SetRect({ 198,0,66,66 });
 		characterSlot.characterName->SetText("NO SELECTED");
@@ -495,6 +512,74 @@ void InventoryCG::UpdateCharacterSlot(string charId)
 
 	
 
+}
+
+void InventoryCG::CreateUseSlot()
+{
+	SDL_Texture* btn_tex = Engine::Instance().m_assetsDB->GetTexture("btn_tex7");
+	_TTF_Font* textFont = Engine::Instance().m_assetsDB->GetFont("alagard");
+
+	useSlot.useButton = new UIButton(*btn_tex, { 334,169 }, { 22,13 }, { 0,0,22,13 });
+	useSlot.useButton->AddRect(UIButton::ButtonStates::HOVER, {22,0,22,13});
+	useSlot.useButton->AddRect(UIButton::ButtonStates::PRESSED, {44,0,22,13});
+
+	useSlot.useButton->onMouseClick.Subscribe([this]() {ConsumeItem(); });
+
+	UITextBox* useButton_text = new UITextBox("Use", *textFont, 16, { 184,132,78,255 }, { 0,0 }, { 44,28 }, { 0,0 }, UITextBox::HorizontalAlignment::Middle, UITextBox::VerticalAlignment::Middle);
+	useButton_text->SetLocalScale(0.5f);
+	useButton_text->SetParent(useSlot.useButton);
+
+	useSlot.useButton->SetParent(container_image);
+
+
+	useSlot.useInventory = new Inventory(1);
+	useSlot.useInventory->GetSlotsDataModifiable()[0].SetSlotType("consumable");
+
+
+	useSlot.useSlot = CreateItemSlot(useSlot.useInventory, 0, nullptr, 0, 5);
+	useSlot.useSlot.itemSelect->SetLocalPosition({ 335,145 });
+
+
+	useSlot.useSlot.itemSelect->onMouseDown.Subscribe([this]() {OnItemSelected(&useSlot.useSlot); });
+	useSlot.useSlot.itemSelect->onMouseOver.Subscribe([this]() {OnMouseOverItem(&useSlot.useSlot); });
+	useSlot.useSlot.itemSelect->onMouseExit.Subscribe([this]() {OnMouseOverItem(nullptr); });
+
+
+
+}
+
+void InventoryCG::LoadUseSlot()
+{
+	string itemId = UserPrefs::Instance().GetString("useInventoryItemId","");
+	int amount = UserPrefs::Instance().GetInt("useInventoryItemAmount", -1);
+
+	if (itemId != "") {
+		useSlot.useInventory->ClearAllItems();
+		useSlot.useInventory->AddItem(InventoryItem(ItemList::Instance().ItemByID(itemId)), amount);
+		UpdateItemSlot(&useSlot.useSlot, useSlot.useInventory, useSlot.useSlot.index);
+	}
+}
+
+void InventoryCG::SaveUseSlot()
+{
+	if (useSlot.useSlot.itemRef != nullptr) {
+		UserPrefs::Instance().SaveString("useInventoryItemId", useSlot.useSlot.itemRef->id);
+		UserPrefs::Instance().SaveInt("useInventoryItemAmount", useSlot.useSlot.amount);
+	}
+	else {
+		UserPrefs::Instance().RemoveEntry("useInventoryItemId");
+		UserPrefs::Instance().RemoveEntry("useInventoryItemAmount");
+	}
+}
+
+void InventoryCG::ConsumeItem()
+{
+
+
+	if (useSlot.useSlot.itemRef != nullptr && characterSlot.characterId != "") {
+		useSlot.useInventory->UseItem(useSlot.useSlot.itemRef->name, 1);
+		UpdateItemSlot(&useSlot.useSlot, useSlot.useInventory, useSlot.useSlot.index);
+	}
 }
 
 void InventoryCG::CreateExtras()

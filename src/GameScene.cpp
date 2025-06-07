@@ -45,6 +45,7 @@
 #include "UIDialogueBoxCG.h"
 #include "CombatCG.h"
 #include "PauseMenuCG.h"
+#include "InventoryCG.h"
 #include "GameplayCG.h"
 #include "ScreenEffectsCG.h"
 
@@ -66,7 +67,7 @@ GameScene::GameScene(bool start_active) : ModuleScene(start_active)
 
 GameScene::~GameScene()
 {
-    
+
 }
 
 bool GameScene::Init()
@@ -603,12 +604,26 @@ void GameScene::LoadGameSaveData()
         {
             string id = member.attribute("id").as_string();
             player->party->AddMemeber(id);
+            xml_node inventoryNode = member.child("inventory");
+            if (inventoryNode) {
+                Party::Member* character = player->party->GetFullCharacterDataFromMembers(id);
+                for (xml_node slot = inventoryNode.child("item"); slot; slot = slot.next_sibling("item"))
+                {
+                    if (!slot.empty()) {
+                        string itemId = slot.attribute("id").as_string();
+                        int amount = slot.attribute("amount").as_int();
+						Item* item = ItemList::Instance().ItemByID(itemId);
+                        character->inventory->AddItem(InventoryItem(item), amount);
+                    }
+                }
+            }
         }
 
         for (xml_node member = activeNode.child("member"); member; member = member.next_sibling("member"))
         {
             string id = member.attribute("id").as_string();
             player->party->AddPartyMemeber(id);
+			
         }
 
         /// Load Inventory
@@ -668,7 +683,7 @@ void GameScene::LoadGameSaveData()
         }     
 
 
-
+        Pooling::Instance().ReturnAllToPool<OverworldItem>();
         xml_node itemsNode = mapNode.child("items");
         for (xml_node item = itemsNode.child("item"); item; item = item.next_sibling("item"))
         {
@@ -683,6 +698,9 @@ void GameScene::LoadGameSaveData()
             auto itemObject = Pooling::Instance().AcquireObject<OverworldItem>();
             itemObject->Initialize(ItemList::Instance().ItemByID(itemId), itemAmount, itemPosition);
         }
+
+
+        pauseCanvas->inventory->LoadUseSlot();
 
         player->SetPosition(playerPosData);
 
@@ -728,7 +746,7 @@ void GameScene::SaveGameSaveData()
 
         //// SaveParty
         vector<string> partyMembers = player->party->GetPartyIds();
-        vector<string> unlockedMembers = player->party->GetMembersIds();
+        vector<Party::Member*> unlockedMembers = player->party->GetFullMemebersData();
         xml_node activeNode = playerNode.child("party").child("active");
         xml_node inactiveNode = playerNode.child("party").child("inactive");
         activeNode.remove_children();
@@ -738,8 +756,21 @@ void GameScene::SaveGameSaveData()
             activeNode.append_child("member").append_attribute("id").set_value(id.c_str());
         }
 
-        for (string id : unlockedMembers) {
-            inactiveNode.append_child("member").append_attribute("id").set_value(id.c_str());
+        for (Party::Member* character : unlockedMembers) {
+            xml_node memberNode = inactiveNode.append_child("member");
+            memberNode.append_attribute("id").set_value(character->id.c_str());
+            memberNode.remove_child("inventory");
+            if (character->inventory->GetUsedSlots() > 0) {
+                xml_node inventoryNode = memberNode.append_child("inventory");
+                for (auto slot : character->inventory->GetSlotsData()) {
+					xml_node itemNode = inventoryNode.append_child("item");
+					if (!slot.IsEmpty()) {
+						itemNode.append_attribute("id").set_value(slot.item->GetReference()->id.c_str());
+						itemNode.append_attribute("amount").set_value(slot.count);
+					}
+                }
+            }
+
         }
 
         /// Save Inventory
@@ -804,6 +835,8 @@ void GameScene::SaveGameSaveData()
         file.save_file(savePath.c_str());
 
 		CharacterDatabase::Instance().SaveDatabase();
+
+        pauseCanvas->inventory->SaveUseSlot();
 
     }
     else {

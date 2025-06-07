@@ -2,9 +2,11 @@
 <UserPrefs>
 	<Entry Key="screen_vsync" Value="0" />
 	<Entry Key="screen_fullscreen" Value="0" />
-	<Entry Key="screen_width" Value="2560" />
+	<Entry Key="screen_width" Value="1280" />
 	<Entry Key="general_volume" Value="0.094118" />
 	<Entry Key="music_volume" Value="1.000000" />
 	<Entry Key="sfx_volume" Value="1.000000" />
-	<Entry Key="screen_height" Value="1369" />
+	<Entry Key="screen_height" Value="720" />
+	<Entry Key="useInventoryItemId" Value="item;healing_bread" />
+	<Entry Key="useInventoryItemAmount" Value="8" />
 </UserPrefs>

@@ -52,6 +52,7 @@ CharacterDatabase::CharacterDatabase()
 
 CharacterDatabase::~CharacterDatabase()
 {
+    definitions.clear();
 }
 
 void CharacterDatabase::SaveDatabase()
@@ -107,6 +108,7 @@ void CharacterDatabase::LoadDatabase()
 {
     LOG("Loading");
     LOG("Loading characters data from XML");
+
     definitions.clear();
     templates.clear();
     xml_document file;
@@ -167,13 +169,6 @@ void CharacterDatabase::LoadDatabase()
             {
                 charDefinition.attacks.emplace_back(attack.as_int());
             }
-            
-
-            vector<InventorySlot>& slotsData = charDefinition.inventory.GetSlotsDataModifiable();
-			slotsData[0].SetSlotType("helmet");
-			slotsData[1].SetSlotType("armor");
-			slotsData[2].SetSlotType("weapon");
-			slotsData[3].SetSlotType("accessory");
             definitions[charId] = charDefinition;
         }
     }

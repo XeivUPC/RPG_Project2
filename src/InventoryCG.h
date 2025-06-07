@@ -23,6 +23,8 @@ public:
 
 	void UpdateCanvas() override;
 
+	void LoadUseSlot();
+	void SaveUseSlot();
 	void ChangeInventoryToTrack(Inventory* inventoryToTrack);
 	void ChangePartyToTrack(Party* partyToTrack);
 
@@ -52,7 +54,7 @@ private:
 	};
 
 	struct UICharacterSlot {
-		int characterId = -1;
+		string characterId = "";
 
 		UIImage* characterOverlay = nullptr;
 		UIImage* characterProfile = nullptr;
@@ -65,6 +67,12 @@ private:
 		UIItemSlots weaponSlot;
 		UIItemSlots accesorieSlot;
 	};
+
+	struct UIUseSlot {
+		UIButton* useButton = nullptr;
+		Inventory* useInventory = nullptr;
+		UIItemSlots useSlot;
+	};;
 
 
 	void CreateCharacterSelectorSlots();
@@ -80,6 +88,9 @@ private:
 
 	void CreateCharacterSlot();
 	void UpdateCharacterSlot(string charId);
+
+	void CreateUseSlot();
+	void ConsumeItem();
 
 	void CreateExtras();
 
@@ -108,4 +119,5 @@ private:
 	
 
 	UICharacterSlot characterSlot;
+	UIUseSlot useSlot;
 };

@@ -26,7 +26,7 @@ public:
     explicit Inventory(int size = 20);
     ~Inventory();
 
-    int AddItem(InventoryItem& item, int amount = 1);
+    int AddItem(InventoryItem item, int amount = 1);
     void RemoveItem(const string& itemName, int amount = 1);
     void UseItem(const string& itemName, int amount = 1);
 
@@ -42,7 +42,7 @@ public:
     bool CanAddItem(string item_id, int amount = 1);
 
     void ClearAllItems();
-    const vector<InventorySlot>& GetSlotsData();
+    const vector<InventorySlot>& GetSlotsData() const;
     vector<InventorySlot>& GetSlotsDataModifiable();
 
     SystemEvent<> onInventoryChanged;
