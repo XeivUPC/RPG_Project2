@@ -43,9 +43,12 @@ void ItemList::LoadItems()
 		newItem.stackable_quantity = item_node.child("stackable-quantity").text().as_int();
 
 		xml_node properties = item_node.child("properties");
+		newItem.properties["type"]= "";
 		for (xml_node property : properties.children())
 		{
-			newItem.properties.emplace(property.name(),property.text().as_string());
+			string propName = property.name();
+			string propValue = property.text().as_string();
+			newItem.properties[propName]=propValue;
 		}
 		itemList.emplace(newItem.id, newItem);
 	}

@@ -21,14 +21,14 @@ public:
 
 	void UpdateCanvas();
 public:
-
-private:
-
-private:
 	SettingsCG* settings;
 	InventoryCG* inventory;
 	SaveLoadCG* saveLoad;
 	PartyCG* party;
+private:
+
+private:
+
 
 	unordered_map<string, UICanvas*> submenus;
 	UICanvas* currentSubmenu = nullptr;

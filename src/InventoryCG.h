@@ -23,6 +23,8 @@ public:
 
 	void UpdateCanvas() override;
 
+	void LoadUseSlot();
+	void SaveUseSlot();
 	void ChangeInventoryToTrack(Inventory* inventoryToTrack);
 	void ChangePartyToTrack(Party* partyToTrack);
 
@@ -40,6 +42,7 @@ private:
 	};
 
 	struct UIItemSlots {
+		Inventory* inventory = nullptr;
 		int index = 0;
 		Item* itemRef = nullptr;
 		int amount;
@@ -51,42 +54,51 @@ private:
 	};
 
 	struct UICharacterSlot {
-		int characterId = -1;
+		string characterId = "";
 
 		UIImage* characterOverlay = nullptr;
 		UIImage* characterProfile = nullptr;
 		UITextBox* characterName = nullptr;
 
 
-		UIItemSlots* helmetSlot = nullptr;
-		UIItemSlots* chestplateSlot = nullptr;
-		UIItemSlots* leggingsSlot = nullptr;
-		UIItemSlots* bootsSlot = nullptr;
+		UIItemSlots helmetSlot;
+		UIItemSlots chestplateSlot;
 
-		UIItemSlots* weaponSlot = nullptr;
-		UIItemSlots* accesorieSlot = nullptr;
+		UIItemSlots weaponSlot;
+		UIItemSlots accesorieSlot;
 	};
 
-	
+	struct UIUseSlot {
+		UIButton* useButton = nullptr;
+		Inventory* useInventory = nullptr;
+		UIItemSlots useSlot;
+	};;
+
 
 	void CreateCharacterSelectorSlots();
 	void UpdateCharacterSelectorSlots();
 
 	void GoToMemebersOffset(int _membersOffset);
 
+	UIItemSlots CreateItemSlot(Inventory* inventory, int index, Item* itemRef, int amount, int textureType = 0);
+	void UpdateItemSlot(UIItemSlots* slot, Inventory* inventory, Item* itemRef, int amount);
+	void UpdateItemSlot(UIItemSlots* slot, Inventory* inventory, int index);
 	void CreateItemSlots();
 	void UpdateItemSlots();
 
 	void CreateCharacterSlot();
 	void UpdateCharacterSlot(string charId);
 
+	void CreateUseSlot();
+	void ConsumeItem();
+
 	void CreateExtras();
 
-	void OnItemSelected(int index);
-	void OnMouseOverItem(int index);
+	void OnItemSelected(UIItemSlots* slot);
+	void OnMouseOverItem(UIItemSlots* slot);
 
 private:
-	Inventory* inventory = nullptr;
+	Inventory* playerInventory = nullptr;
 	Party* party = nullptr;
 
 	UIImage* container_image = nullptr;
@@ -107,4 +119,5 @@ private:
 	
 
 	UICharacterSlot characterSlot;
+	UIUseSlot useSlot;
 };

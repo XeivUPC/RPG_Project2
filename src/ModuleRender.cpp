@@ -149,6 +149,11 @@ void ModuleRender::RemoveFromRenderQueue(IRendereable& rendereableObj)
 		transformMap.erase(it);
 	}
 
+	auto it2 = std::find(addPendingQueue.begin(), addPendingQueue.end(), &rendereableObj);
+	if (it2 != addPendingQueue.end()) {
+		addPendingQueue.erase(it2);
+	}
+
 	removePendingQueue.emplace_back(&rendereableObj);
 	renderQueueDirty = true;
 }
@@ -175,6 +180,11 @@ void ModuleRender::SetRenderQueueDirty()
 }
 void ModuleRender::AddToRenderQueue(IRendereable& rendereableObj)
 {
+	auto it = std::find(removePendingQueue.begin(), removePendingQueue.end(), &rendereableObj);
+	if (it != removePendingQueue.end()) {
+		removePendingQueue.erase(it);
+	}
+
 	addPendingQueue.emplace_back(&rendereableObj);
 	renderQueueDirty = true;
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include "Inventory.h"
 #include <unordered_map>
 #include <string>
 

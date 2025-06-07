@@ -1,5 +1,5 @@
 #include "Inventory.h"
-
+#include "ItemList.h"
 #include <algorithm>
 #include <iostream>
 
@@ -8,38 +8,51 @@ Inventory::Inventory(int size) : size(size) {
 }
 
 Inventory::~Inventory() {
-    for (auto& slot : slots) {
-        if (!slot.IsEmpty()) delete slot.item;
-    }
-
+    ClearAllItems();
     onInventoryChanged.UnsubscribeAll();
 }
 
-int Inventory::AddItem(InventoryItem& newItem, int amount) {
+bool Inventory::CanPlaceItemInSlot(const InventoryItem* item, const InventorySlot& slot) const {
+    // Empty slots with no type restriction
+    if (slot.IsEmpty()) {
+        return slot.slotType.empty() || slot.slotType == item->GetType();
+    }
+    // Non-empty slots must match type if slot has type restriction
+    return slot.slotType.empty() || slot.slotType == item->GetType();
+}
+
+void Inventory::SwapSlotContents(InventorySlot& a, InventorySlot& b) {
+    std::swap(a.item, b.item);
+    std::swap(a.count, b.count);
+}
+
+int Inventory::AddItem(InventoryItem newItem, int amount) {
     if (amount <= 0) return 0;
 
     int added = 0;
     const int maxStack = newItem.GetMaxStack();
     const std::string targetName = newItem.GetName();
+    const std::string itemType = newItem.GetType();
 
+    // First pass: stack on existing compatible slots
     for (auto& slot : slots) {
-        if (!slot.IsEmpty() && slot.item->GetName() == targetName) {
+        if (!slot.IsEmpty() && slot.item->GetName() == targetName &&
+            CanPlaceItemInSlot(&newItem, slot)) {
             const int canAdd = min(maxStack - slot.count, amount);
             slot.count += canAdd;
             added += canAdd;
             amount -= canAdd;
 
             if (amount == 0) {
-                delete &newItem;
-
                 onInventoryChanged.Trigger();
                 return added;
             }
         }
     }
 
+    // Second pass: use empty compatible slots
     for (auto& slot : slots) {
-        if (slot.IsEmpty()) {
+        if (slot.IsEmpty() && CanPlaceItemInSlot(&newItem, slot)) {
             slot.item = newItem.clone();
             const int canAdd = std::min(maxStack, amount);
             slot.count = canAdd;
@@ -47,21 +60,19 @@ int Inventory::AddItem(InventoryItem& newItem, int amount) {
             amount -= canAdd;
 
             if (amount == 0) {
-                delete &newItem;
                 onInventoryChanged.Trigger();
                 return added;
             }
         }
     }
 
-    delete &newItem;
     onInventoryChanged.Trigger();
     return added;
 }
 
 void Inventory::RemoveItem(const std::string& itemName, int amount) {
     for (auto& slot : slots) {
-        if (!slot.IsEmpty() && slot.item!=nullptr && slot.item->GetName() == itemName) {
+        if (!slot.IsEmpty() && slot.item != nullptr && slot.item->GetName() == itemName) {
             const int removeAmount = min(slot.count, amount);
             slot.count -= removeAmount;
             amount -= removeAmount;
@@ -75,10 +86,10 @@ void Inventory::RemoveItem(const std::string& itemName, int amount) {
             if (amount <= 0) break;
         }
     }
+    onInventoryChanged.Trigger();
 }
 
-void Inventory::UseItem(const string& itemName, int amount)
-{
+void Inventory::UseItem(const string& itemName, int amount) {
     RemoveItem(itemName, amount);
 }
 
@@ -92,8 +103,7 @@ int Inventory::GetItemCount(const std::string& itemName) const {
     return total;
 }
 
-int Inventory::GetTotalSlots() const
-{
+int Inventory::GetTotalSlots() const {
     return size;
 }
 
@@ -102,8 +112,7 @@ int Inventory::GetUsedSlots() const {
         [](const InventorySlot& s) { return !s.IsEmpty(); }));
 }
 
-int Inventory::GetFreeSlots() const
-{
+int Inventory::GetFreeSlots() const {
     return size - GetUsedSlots();
 }
 
@@ -112,15 +121,35 @@ void Inventory::SwapSlots(int index1, int index2, Inventory* targetInventory) {
         if (index1 < 0 || index1 >= size || index2 < 0 || index2 >= size) {
             return;
         }
-        std::swap(slots[index1], slots[index2]);
+
+        InventorySlot& slot1 = slots[index1];
+        InventorySlot& slot2 = slots[index2];
+
+        // Check if items can be placed in target slots
+        if ((!slot1.IsEmpty() && !CanPlaceItemInSlot(slot1.item, slot2)) ||
+            (!slot2.IsEmpty() && !CanPlaceItemInSlot(slot2.item, slot1))) {
+            return;
+        }
+
+        SwapSlotContents(slot1, slot2);
     }
     else {
         if (index1 < 0 || index1 >= size || index2 < 0 || index2 >= targetInventory->size) {
             return;
         }
-        std::swap(slots[index1], targetInventory->slots[index2]);
-        onInventoryChanged.Trigger();
+
+        InventorySlot& slot1 = slots[index1];
+        InventorySlot& slot2 = targetInventory->slots[index2];
+
+        // Check if items can be placed in target slots
+        if ((!slot1.IsEmpty() && !CanPlaceItemInSlot(slot1.item, slot2)) ||
+            (!slot2.IsEmpty() && !CanPlaceItemInSlot(slot2.item, slot1))) {
+            return;
+        }
+
+        SwapSlotContents(slot1, slot2);
     }
+    onInventoryChanged.Trigger();
 }
 
 bool Inventory::TryStackItems(int sourceIndex, int targetIndex, Inventory* targetInventory) {
@@ -135,7 +164,8 @@ bool Inventory::TryStackItems(int sourceIndex, int targetIndex, Inventory* targe
         InventorySlot& target = slots[targetIndex];
 
         if (source.IsEmpty() || target.IsEmpty() ||
-            source.item->GetName() != target.item->GetName()) {
+            source.item->GetName() != target.item->GetName() ||
+            !CanPlaceItemInSlot(source.item, target)) {
             return false;
         }
 
@@ -154,6 +184,7 @@ bool Inventory::TryStackItems(int sourceIndex, int targetIndex, Inventory* targe
             source.count = 0;
         }
 
+        onInventoryChanged.Trigger();
         return true;
     }
     else {
@@ -166,7 +197,8 @@ bool Inventory::TryStackItems(int sourceIndex, int targetIndex, Inventory* targe
         InventorySlot& target = targetInventory->slots[targetIndex];
 
         if (source.IsEmpty() || target.IsEmpty() ||
-            source.item->GetName() != target.item->GetName()) {
+            source.item->GetName() != target.item->GetName() ||
+            !CanPlaceItemInSlot(source.item, target)) {
             return false;
         }
 
@@ -184,49 +216,60 @@ bool Inventory::TryStackItems(int sourceIndex, int targetIndex, Inventory* targe
             source.item = nullptr;
             source.count = 0;
         }
+
         onInventoryChanged.Trigger();
         return true;
     }
 }
 
-bool Inventory::HasItem(string item_id, int amount)
-{
-    return GetItemCount(item_id)>=amount;
+bool Inventory::HasItem(string item_id, int amount) {
+    return GetItemCount(item_id) >= amount;
 }
 
-bool Inventory::CanAddItem(string item_id, int amount)
-{
-    if (amount <= 0) 
+bool Inventory::CanAddItem(string item_id, int amount) {
+    if (amount <= 0)
         return true;
 
+    Item* baseItem = ItemList::Instance().ItemByID(item_id);
+    if (!baseItem) return false; 
+
+    string itemType = "";
+    auto it = baseItem->properties.find("type");
+    if (it != baseItem->properties.end()) {
+        itemType = it->second;
+    }
+    int maxStack = baseItem->stackable_quantity;
+
+    int remaining = amount;
+
     for (const auto& slot : slots) {
-        if (!slot.IsEmpty() && slot.item->GetId() == item_id) {
-            int canAddToStack = slot.item->GetMaxStack() - slot.count;
-            if (canAddToStack > 0) {
-                amount -= std::min(canAddToStack, amount);
-                if (amount <= 0) 
-                    return true;
+        if (!slot.IsEmpty() &&
+            slot.item->GetId() == item_id &&
+            (slot.slotType.empty() || slot.slotType == itemType)) {
+
+            int spaceInStack = slot.getRemainingSpace();
+            if (spaceInStack > 0) {
+                if (remaining <= spaceInStack) {
+                    return true; 
+                }
+                remaining -= spaceInStack;
             }
         }
     }
-    if (amount > 0) {
-        int maxStack = 1;
-        for (const auto& slot : slots) {
-            if (!slot.IsEmpty() && slot.item->GetId() == item_id) {
-                maxStack = slot.item->GetMaxStack();
-                break;
-            }
-        }
 
-        int neededSlots = (amount + maxStack - 1) / maxStack; 
-        return GetFreeSlots() >= neededSlots;
+    int availableEmptySlots = 0;
+    for (const auto& slot : slots) {
+        if (slot.IsEmpty() &&
+            (slot.slotType.empty() || slot.slotType == itemType)) {
+            availableEmptySlots++;
+        }
     }
 
-    return true;
+    int neededSlots = (remaining + maxStack - 1) / maxStack;
+    return availableEmptySlots >= neededSlots;
 }
 
-void Inventory::ClearAllItems()
-{
+void Inventory::ClearAllItems() {
     for (auto& slot : slots) {
         if (!slot.IsEmpty()) {
             delete slot.item;
@@ -237,12 +280,10 @@ void Inventory::ClearAllItems()
     onInventoryChanged.Trigger();
 }
 
-const vector<InventorySlot>& Inventory::GetSlotsData()
-{
+const vector<InventorySlot>& Inventory::GetSlotsData() const{
     return slots;
 }
 
-vector<InventorySlot>& Inventory::GetSlotsDataModifiable()
-{
+vector<InventorySlot>& Inventory::GetSlotsDataModifiable() {
     return slots;
 }

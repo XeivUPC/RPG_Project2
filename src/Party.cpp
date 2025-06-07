@@ -11,8 +11,15 @@ Party::Party(string defaultId)
 
 Party::~Party()
 {
+	for (; members.size() != 0;)
+	{
+		delete members[0];
+		members.erase(members.begin());
+	}
+
 	party.clear();
 	leader = nullptr;
+	members.clear();
 }
 
 bool Party::AddPartyMemeber(string id)
@@ -36,9 +43,12 @@ bool Party::AddMemeber(string id)
 	if (IsMemberUnlocked(id) || !IsMemeberRecruitable(id))
 		return false;
 
-	CharacterDatabase::CharacterDefinition& member = CharacterDatabase::Instance().GetCharacterDefinition(id);
+	Member* member = new Member();
+	CharacterDatabase::CharacterDefinition& character = CharacterDatabase::Instance().GetCharacterDefinition(id);
+	member->definition = &character;
+	member->id = id;
 
-	members.emplace_back(&member);
+	members.emplace_back(member);
 	SortMemebers();
 	onMembersChanged.Trigger();
 	return true;
@@ -71,12 +81,12 @@ bool Party::RemoveMemeber(string id)
 	if (!IsMemberUnlocked(id))
 		return false;
 
-	auto it = std::find_if(members.begin(), members.end(), [id](const CharacterDatabase::CharacterDefinition* member) { return member->id == id; });
+	auto it = std::find_if(members.begin(), members.end(), [id](const Member* member) { return member->id == id; });
 	if (it != members.end())
 	{
 		RemovePartyMemeber(id);
-
 		members.erase(it);
+		delete* it;
 		onMembersChanged.Trigger();
 		return true;
 	}
@@ -143,7 +153,12 @@ void Party::ClearParty()
 
 void Party::ClearMemebers()
 {
-	members.clear();
+	for (; members.size() != 0;)
+	{
+		delete members[0];
+		members.erase(members.begin());
+	}
+
 	onMembersChanged.Trigger();
 
 	ClearParty();
@@ -192,7 +207,20 @@ vector<CharacterDatabase::CharacterDefinition*> Party::GetParty(bool removeLeade
 
 vector<CharacterDatabase::CharacterDefinition*> Party::GetMemebers() const
 {
-    return members;
+	vector<CharacterDatabase::CharacterDefinition*> membersData;
+	for (const auto& member : members) {
+		membersData.emplace_back(member->definition);
+	}
+    return membersData;
+}
+
+vector<Party::Member*> Party::GetFullMemebersData() const
+{
+	vector<Party::Member*> membersData;
+	for (const auto& member : members) {
+		membersData.emplace_back(member);
+	}
+	return membersData;
 }
 
 string Party::GetPartyLeaderId() const
@@ -240,11 +268,22 @@ CharacterDatabase::CharacterDefinition* Party::GetCharacterFromMembers(string id
 	{
 		if (member->id == id)
 		{
-			memberPtr = member;
+			memberPtr = member->definition;
 			break;
 		}
 	}
 	return memberPtr;
+}
+
+Party::Member* Party::GetFullCharacterDataFromMembers(string id) const
+{
+
+	for (size_t i = 0; i < members.size(); i++)
+	{
+		if (members[i]->id == id)
+			return  members[i];
+	}
+	return nullptr;
 }
 
 bool Party::IsPartyLeader(string id) const
@@ -254,7 +293,7 @@ bool Party::IsPartyLeader(string id) const
 
 void Party::SortMemebers()
 {
-	std::sort(members.begin(), members.end(), [](const CharacterDatabase::CharacterDefinition* a, const CharacterDatabase::CharacterDefinition* b) {
+	std::sort(members.begin(), members.end(), [](const Member* a, const Member* b) {
 		return a->id < b->id;
 		});
 }

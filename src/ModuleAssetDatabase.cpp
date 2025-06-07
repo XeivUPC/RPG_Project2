@@ -100,6 +100,7 @@ void ModuleAssetDatabase::LoadAssets()
 	AddTextureToStorage("btn_tex4", *textureFactory->CreateTexture("Assets/Textures/UI/btn4.png"));
 	AddTextureToStorage("btn_tex5", *textureFactory->CreateTexture("Assets/Textures/UI/btn5.png"));
 	AddTextureToStorage("btn_tex6", *textureFactory->CreateTexture("Assets/Textures/UI/btn6.png"));
+	AddTextureToStorage("btn_tex7", *textureFactory->CreateTexture("Assets/Textures/UI/btn7.png"));
 	AddTextureToStorage("toggle_tex1", *textureFactory->CreateTexture("Assets/Textures/UI/toggle.png"));
 	AddTextureToStorage("toggle_tex2", *textureFactory->CreateTexture("Assets/Textures/UI/toggle2.png"));
 	AddTextureToStorage("toggle_tex3", *textureFactory->CreateTexture("Assets/Textures/UI/toggle3.png"));

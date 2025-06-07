@@ -7,4 +7,6 @@
 	<Entry Key="music_volume" Value="1.000000" />
 	<Entry Key="sfx_volume" Value="1.000000" />
 	<Entry Key="screen_height" Value="720" />
+	<Entry Key="useInventoryItemId" Value="item;healing_bread" />
+	<Entry Key="useInventoryItemAmount" Value="8" />
 </UserPrefs>

@@ -52,6 +52,7 @@ CharacterDatabase::CharacterDatabase()
 
 CharacterDatabase::~CharacterDatabase()
 {
+    definitions.clear();
 }
 
 void CharacterDatabase::SaveDatabase()
@@ -107,6 +108,7 @@ void CharacterDatabase::LoadDatabase()
 {
     LOG("Loading");
     LOG("Loading characters data from XML");
+
     definitions.clear();
     templates.clear();
     xml_document file;
@@ -167,7 +169,6 @@ void CharacterDatabase::LoadDatabase()
             {
                 charDefinition.attacks.emplace_back(attack.as_int());
             }
-  
             definitions[charId] = charDefinition;
         }
     }

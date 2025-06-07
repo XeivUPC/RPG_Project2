@@ -2,7 +2,7 @@
     "c9809f6d-4b85-4f20-9ad3-53791d4eea48": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "Good morning Sir Gideon.",
             "fr": ""
@@ -19,7 +19,7 @@
     "da7fcca4-80d1-4af4-8831-0c2f652d8641": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "You are late Cassian, I shouldn't let you sleep at all if you keep doing this.",
             "fr": ""
@@ -30,7 +30,7 @@
     "f92611b0-feef-4d34-8352-b79f531c7d06": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "Sorry Gideon.",
             "fr": ""
@@ -41,7 +41,7 @@
     "72a45185-151b-4a0f-91f7-7c2b846a3c60": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Say that not to me. The training ahead shall teach you regret well enough.",
             "fr": ""
@@ -52,7 +52,7 @@
     "b0dbd2a6-0a10-4ef3-b9b3-14e1869bb7c7": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "And it's Sir Gideon, not just Gideon. That's S-I-R, Gideon! Sir Gideon, mind you!",
             "fr": ""
@@ -89,7 +89,7 @@
     "edee822b-ba5b-4a36-852e-750f2c366aa6": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Say it !",
             "fr": ""
@@ -126,7 +126,7 @@
     "85615c26-8b8d-4944-812c-6d5a73811cdf": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Good, now lets review the basics.",
             "fr": ""
@@ -143,7 +143,7 @@
             },
             {
                 "text": {
-                    "en": "Ok",
+                    "en": "Ok.",
                     "fr": ""
                 },
                 "next": "ae5966d5-c887-478f-9370-51177a2993d0",
@@ -163,7 +163,7 @@
     "e89f90a4-3fa4-436d-89ff-7123ed978796": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Then face me and feel defeat you filthy kid.",
             "fr": ""
@@ -174,7 +174,7 @@
     "a3575057-1d52-43c6-9d3d-1621b45db126": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Everything is set on my end. Come back when you are ready for the audience, and don't be late, or you will find out what real torture feels like.",
             "fr": ""
@@ -210,7 +210,7 @@
     "b26956f6-51a2-4778-92cd-d75d5ecbbddf": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Don't go forgetting the basics! Knowing how to fight is one thing, but it's the ones who have mastered the simple stuff that rise above as elite soldiers.",
             "fr": ""
@@ -221,7 +221,7 @@
     "ce8e572b-86b5-4a95-9ba9-b4832d16377b": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Is this some kind of your unpleasant jokes?",
             "fr": ""
@@ -232,7 +232,7 @@
     "adaaf8df-e2da-4976-bd46-3f75429f7195": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "Not at all...",
             "fr": ""
@@ -243,7 +243,7 @@
     "e76ddcd2-910c-4ae6-84f7-45543dafdc2f": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Oh my goodness. It's because of people like you that I will stay here working forever.",
             "fr": ""
@@ -254,7 +254,7 @@
     "f69e44a1-1b93-4b57-8f62-80a01446eb85": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Well, listen. Today you do have an audience with the emperor Charles II, the man leading the whole Zalium empire and his son, the prince Artis.",
             "fr": ""
@@ -266,7 +266,7 @@
     "592716b9-a359-4f01-8c29-ec0a1cd8289e": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Understood?",
             "fr": ""
@@ -294,7 +294,7 @@
     "88c1e69c-3aec-4643-b72c-812062cf57d6": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Anything else?",
             "fr": ""
@@ -346,7 +346,7 @@
     "f75ed139-1374-472c-8823-c9ec401f9bb7": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "No, thanks, I will be right back.",
             "fr": ""
@@ -368,7 +368,7 @@
     "ede35739-2cd1-4356-a1ad-8533ec30b4da": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Did you eat something poisoned? The Zalium empire is the place you live, the place we are standing on right now. It is thanks to the empire that you have been trained by someone like me, if not for that, you might be right now on the streets asking for food.",
             "fr": ""
@@ -379,7 +379,7 @@
     "1450bca5-9717-4f7d-b5be-691cc8194c3f": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "These \"Powerful people\" are the ones investing the coins onto the Rogue Squad Project, a project founded to replace their previous Royal Guard. They need elite soldiers, people like me or maybe you, in a very far future it seems.",
             "fr": ""
@@ -390,7 +390,7 @@
     "24f28e13-dc36-4520-987e-e78cfeee27e4": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "If it was for me I would have placed your comrade Zeryn, she is much more capable than you right now, maybe the only trainee I am proud of. But you know, we cannot place a woman in such a position of power and you are the second best trainee in the Rogue Squadron Project. ",
             "fr": ""
@@ -401,7 +401,7 @@
     "d2d8d438-6893-4f9d-9a1a-24637d5e9a7e": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "If all of this goes as expected, you will become the leader of the Royal Guard and you will be tasked with the next step of the Rogue Squadron Project, which will involve training new generations of elite soldiers so every formation of soldiers in the empire has one of such soldiers as a  captain.",
             "fr": ""
@@ -412,7 +412,7 @@
     "0c5bba6d-978b-4446-97c5-bec36f898301": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "But do not get any ilusion, at the pace this is going, you might die from old before any of that happens.",
             "fr": ""
@@ -423,7 +423,7 @@
     "6d32d392-51e2-4b78-82f2-b988f7d9bf95": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Well, If you are considered \"capable\" of becoming someone able to uphold a position such as mine right now as well as being the leader of the next Royal Guard in a near future, I will be able to retire in peace.",
             "fr": ""
@@ -434,7 +434,7 @@
     "247e1b70-08c3-4d24-9aa7-cf362fbee249": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Are you ready now kiddo?",
             "fr": ""
@@ -462,7 +462,7 @@
     "07981e34-40c8-41d9-8b25-eb285bea7370": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "I'm back.",
             "fr": ""
@@ -473,7 +473,7 @@
     "23828037-2014-4404-96c8-33fcbcea1821": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Are you ready?",
             "fr": ""
@@ -501,7 +501,7 @@
     "b7fcdf5a-189f-4379-b2df-f5fc065bd556": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "When does it start ?",
             "fr": ""
@@ -512,7 +512,7 @@
     "6573ef4b-0643-4603-8f76-91a447df821c": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Look behind, they are just entering the arena.",
             "fr": ""
@@ -523,7 +523,7 @@
     "12ee7fd2-5cb4-4597-8146-9350ce55a61c": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "THE EMPEROR IS ENTERING THE TRAINING ARENA !",
             "fr": ""
@@ -534,7 +534,7 @@
     "d530c7f6-3324-4dda-922a-cd5a4d5ef11a": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Emperor Charles II, the one who's leading Zalium to a bright future ! And Artis, heir to the throne, our prince. Please, feel welcome!",
             "fr": ""
@@ -545,7 +545,7 @@
     "3caa96bd-8699-4af5-82b6-0f2dc8ea1bf9": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "Not yet.",
             "fr": ""
@@ -555,7 +555,7 @@
     "d218a333-1dd8-42ce-b6a4-c81aed1d2137": {
         "name": "Emperor Charles II",
         "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
         "text": {
             "en": "Thanks, but there is no need for such flattery today. We aim to see the progress you have been making lately Gideon.",
             "fr": ""
@@ -566,7 +566,7 @@
     "03a018d5-e7a2-4236-a845-df4029efd2e7": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "...",
             "fr": ""
@@ -577,7 +577,7 @@
     "ebb06f02-7c06-4206-9b59-7874cb735891": {
         "name": "Emperor Charles II",
         "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
         "text": {
             "en": "Gideon, we planned you to spar with your best trainee in order to observe how the project is going. If you don't mind, I would like you to step out for this one. I want to test your trainee with a guard from Dunhaven, our  capital.",
             "fr": ""
@@ -588,7 +588,7 @@
     "b6e9d98c-8690-4e44-817f-2749b42eeb47": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Of course, I assure you won't be disappointed, emperor.",
             "fr": ""
@@ -599,9 +599,9 @@
     "854e65e4-c534-4277-acd0-f27a7bbafd82": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
-            "en": "Then let it begin! Come here Cassian !",
+            "en": "Then let it begin! Come here Cassian!",
             "fr": ""
         },
         "parent": "b6e9d98c-8690-4e44-817f-2749b42eeb47",
@@ -610,7 +610,7 @@
     "6e1fc407-956d-4226-bb6e-d7c93cc3c819": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "Yes sir.",
             "fr": ""
@@ -626,9 +626,9 @@
     "8d981fe1-3a73-4d5e-9d30-6ff57834bca5": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
-            "en": "Fast ! Come here !",
+            "en": "Fast! Come here!",
             "fr": ""
         },
         "parent": "a021262b-175c-4363-90ed-9ef3d82c822b",
@@ -637,7 +637,7 @@
     "5fff6584-bb16-4c7c-b949-d5522ddfbe82": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Well, hear me, the soldiers from the capital are mosly low nobles that do a little service as generals only to gain recognition, and they are also trained by nobles with no real experience.",
             "fr": ""
@@ -648,7 +648,7 @@
     "fee1353b-5234-4434-9ef5-6bde6739336e": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Their fancy style looks sharp and hits hard, sure, but once you knock them out of it, they are helpless. Throw him off, and the fight is as good as won.",
             "fr": ""
@@ -665,7 +665,7 @@
     "864f4f27-ae18-4e21-85d9-1077b46d7ca4": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "Understood.",
             "fr": ""
@@ -682,7 +682,7 @@
     "809883d4-f099-443e-8963-93bb14e121df": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Now, go and kick that fancy guard's ass.",
             "fr": ""
@@ -704,7 +704,7 @@
     "aec36c70-c509-4243-8643-413a8652a42e": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "What are you doing here? Go!",
             "fr": ""
@@ -714,7 +714,7 @@
     "25542bc2-943c-4f7f-b90d-9b85980d9672": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "I will not, you deserve it for being late, you either go by yourself or start training.",
             "fr": ""
@@ -723,7 +723,7 @@
         "choices": [
             {
                 "text": {
-                    "en": "I'll go ask him",
+                    "en": "I'll go ask him.",
                     "fr": ""
                 },
                 "next": "ab6b0a15-c245-47f7-a145-9ac6b76b9f81",
@@ -742,7 +742,7 @@
     "ae5966d5-c887-478f-9370-51177a2993d0": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Good.",
             "fr": ""
@@ -758,7 +758,7 @@
     "ab6b0a15-c245-47f7-a145-9ac6b76b9f81": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Go! And quick!",
             "fr": ""
@@ -777,9 +777,9 @@
     "e5b42659-eb30-4575-a7aa-d2977f95040a": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
-            "en": "Good",
+            "en": "Good.",
             "fr": ""
         },
         "parent": "9a5c16d0-1549-41e8-98ac-4a4dd5eb79e5",
@@ -793,9 +793,9 @@
     "b3a54a83-fb10-495c-a583-b8d3fed9e285": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
-            "en": "Im sorry Sir Gideon.",
+            "en": "I'm sorry Sir Gideon.",
             "fr": ""
         },
         "parent": "8df3d032-54f5-47dd-927b-78a318e37f1f",
@@ -804,7 +804,7 @@
     "f140f174-580e-40fe-9ac1-618eaf0f17f8": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "...",
             "fr": ""
@@ -821,7 +821,7 @@
     "940b8ab5-9827-4867-9cef-a9ca6cca3a65": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "You still need a bit of improvement.",
             "fr": ""
@@ -850,7 +850,7 @@
     "ff5a4564-6a94-44a0-8092-2ad6c760f32f": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Still, it can be enough. Come back to me if you still need more training. Also check this sword, might be useful that you have it during the audience.",
             "fr": ""
@@ -869,7 +869,7 @@
     "4d5716d3-dd11-4334-8bb7-fb5ac9de1ec4": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "I hope it will be enough.  Come back to me if you still want more training. Also check this sword, might be useful that you have it during the audience.",
             "fr": ""
@@ -888,7 +888,7 @@
     "b6752fa6-43c9-4071-a16a-18b0bb07fc20": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Hmmm...",
             "fr": ""
@@ -905,7 +905,7 @@
     "f680c39d-0a89-46b9-9033-7a9e03794709": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Interesting.",
             "fr": ""
@@ -934,7 +934,7 @@
     "32db4635-f359-4ae4-8ac9-30c235e25588": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "Interesting what? You bald man cannot teach anything more to me.",
             "fr": ""
@@ -945,7 +945,7 @@
     "8054afd0-6b85-4c42-87a0-83a8fe9025ac": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "You better be, come to see me later. We will begin training so you can be a bit less dumb.",
             "fr": ""
@@ -961,7 +961,7 @@
     "e4e2d68b-9da0-4e57-806e-ddf3a1f19e5c": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "If you think so...  Come later and we will start practice.",
             "fr": ""
@@ -977,7 +977,7 @@
     "6f19b9b7-be94-4a50-ba1a-4d1765a88e04": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Remember to choose your action properly, do not only plan on the present, but also in the future. What can seem a good move now, can be your worst error in the blink of an eye.",
             "fr": ""
@@ -988,7 +988,7 @@
     "08179ce5-4fa3-44d7-9069-d26934b5c560": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Do you want to practice?",
             "fr": ""
@@ -1024,7 +1024,7 @@
     "c49a12d0-7878-4bdd-b8d9-670de4c5ecda": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "That will come, in time. Once you have pushed your style to its limits, you will be forced to learn from elsewhere. So your idea of mastery grows, and you with it.",
             "fr": ""
@@ -1035,7 +1035,7 @@
     "995ccae8-e56b-4d95-ac4d-9daf73564c93": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Now lets begin.",
             "fr": ""
@@ -1046,7 +1046,7 @@
     "d9db2aa4-16b8-4603-bb38-4d41d0bfeca0": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Do any preparations before the audience starts. It will take place just here, in our training grounds.",
             "fr": ""
@@ -1213,7 +1213,7 @@
             {
                 "uuid": "e76ddcd2-910c-4ae6-84f7-45543dafdc2f",
                 "offset": [
-                    3680,
+                    3660,
                     -80
                 ]
             },
@@ -1940,7 +1940,7 @@
                 "parent": "85615c26-8b8d-4944-812c-6d5a73811cdf",
                 "data": {
                     "text": {
-                        "en": "Ok",
+                        "en": "Ok.",
                         "fr": ""
                     },
                     "next": "ae5966d5-c887-478f-9370-51177a2993d0",
@@ -2091,7 +2091,7 @@
                 ],
                 "data": {
                     "text": {
-                        "en": "I'll go ask him",
+                        "en": "I'll go ask him.",
                         "fr": ""
                     },
                     "next": "ab6b0a15-c245-47f7-a145-9ac6b76b9f81",

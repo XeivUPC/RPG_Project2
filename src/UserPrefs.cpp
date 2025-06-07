@@ -92,7 +92,7 @@ void UserPrefs::SavePrefs()
     if (result != NULL)
     {
         xml_node rootNode = file.child("UserPrefs");
-
+        rootNode.remove_children();
         for (const auto& [key, value] : prefs) {
             xml_node entry = rootNode.find_child_by_attribute("Key", key.c_str());
             if (entry) {
