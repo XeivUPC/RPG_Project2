@@ -143,7 +143,7 @@
             },
             {
                 "text": {
-                    "en": "Ok",
+                    "en": "Ok.",
                     "fr": ""
                 },
                 "next": "ae5966d5-c887-478f-9370-51177a2993d0",
@@ -601,7 +601,7 @@
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
         "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
-            "en": "Then let it begin! Come here Cassian !",
+            "en": "Then let it begin! Come here Cassian!",
             "fr": ""
         },
         "parent": "b6e9d98c-8690-4e44-817f-2749b42eeb47",
@@ -628,7 +628,7 @@
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
         "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
-            "en": "Fast ! Come here !",
+            "en": "Fast! Come here!",
             "fr": ""
         },
         "parent": "a021262b-175c-4363-90ed-9ef3d82c822b",
@@ -723,7 +723,7 @@
         "choices": [
             {
                 "text": {
-                    "en": "I'll go ask him",
+                    "en": "I'll go ask him.",
                     "fr": ""
                 },
                 "next": "ab6b0a15-c245-47f7-a145-9ac6b76b9f81",
@@ -779,7 +779,7 @@
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
         "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
-            "en": "Good",
+            "en": "Good.",
             "fr": ""
         },
         "parent": "9a5c16d0-1549-41e8-98ac-4a4dd5eb79e5",
@@ -795,7 +795,7 @@
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
         "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
-            "en": "Im sorry Sir Gideon.",
+            "en": "I'm sorry Sir Gideon.",
             "fr": ""
         },
         "parent": "8df3d032-54f5-47dd-927b-78a318e37f1f",
@@ -1213,7 +1213,7 @@
             {
                 "uuid": "e76ddcd2-910c-4ae6-84f7-45543dafdc2f",
                 "offset": [
-                    3680,
+                    3660,
                     -80
                 ]
             },
@@ -1940,7 +1940,7 @@
                 "parent": "85615c26-8b8d-4944-812c-6d5a73811cdf",
                 "data": {
                     "text": {
-                        "en": "Ok",
+                        "en": "Ok.",
                         "fr": ""
                     },
                     "next": "ae5966d5-c887-478f-9370-51177a2993d0",
@@ -2091,7 +2091,7 @@
                 ],
                 "data": {
                     "text": {
-                        "en": "I'll go ask him",
+                        "en": "I'll go ask him.",
                         "fr": ""
                     },
                     "next": "ab6b0a15-c245-47f7-a145-9ac6b76b9f81",

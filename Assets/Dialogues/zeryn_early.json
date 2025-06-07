@@ -636,7 +636,12 @@
         "conditions": [
             {
                 "parent": "77a3f8a4-0570-49f1-8d9a-1a9618370589",
-                "next": "08c5fd91-d4a4-4c1d-a5e9-71c465284aaa"
+                "next": "08c5fd91-d4a4-4c1d-a5e9-71c465284aaa",
+                "HasItem": {
+                    "value": true,
+                    "operator": "equal",
+                    "type": "boolean"
+                }
             },
             {
                 "parent": "77a3f8a4-0570-49f1-8d9a-1a9618370589",
