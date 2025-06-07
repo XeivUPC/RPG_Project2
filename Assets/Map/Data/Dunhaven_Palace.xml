@@ -130,7 +130,7 @@
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>
-  <object id="800" name="EntryPoint6" x="1009.77" y="305.665">
+  <object id="800" name="EntryPoint6" x="993.043" y="306.392">
    <properties>
     <property name="Type" value="entryPoint"/>
     <property name="Value" type="int" value="6"/>
