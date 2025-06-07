@@ -468,7 +468,7 @@
   <object id="718" x="384.006" y="1024.17" width="266.182" height="13.2386"/>
   <object id="719" x="639.875" y="-15.9717" width="16" height="1040"/>
   <object id="720" x="-20.8371" y="1024.18" width="308.667" height="11.833"/>
-  <object id="721" x="132.635" y="890.878" width="45.741" height="45.741" rotation="359.029">
+  <object id="721" x="309.635" y="915.378" width="45.741" height="45.741" rotation="359.029">
    <properties>
     <property name="Type" value="birdFlock"/>
    </properties>
