@@ -2,7 +2,7 @@
     "66fc0010-064f-4f03-ba00-85f36ad24fbb": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "A fair morning to thee.",
             "fr": ""
@@ -30,7 +30,7 @@
     "fba56db3-db2e-498a-a972-e0315349a19f": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "I go now to stretch my legs, have a pleasant day. ",
             "fr": ""
@@ -47,7 +47,7 @@
     "52f74698-6708-4473-901d-8843bd7a9ca9": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Wait!",
             "fr": ""
@@ -58,7 +58,7 @@
     "b9a8dabd-b2b2-43b2-8513-b40cfc972e71": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "That flame-haired girl was asking after you. Best have words with her on your path.",
             "fr": ""
@@ -69,7 +69,7 @@
     "d4f6cef8-ba47-479c-a3bc-5857633f0052": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "Very well, my thanks.",
             "fr": ""
@@ -88,7 +88,7 @@
     "fef47197-f48d-4821-960f-25ef1e1a499c": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "...",
             "fr": ""
@@ -122,7 +122,7 @@
     "ff8991a2-d3fe-422e-b883-dacc3c277af1": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Have your arrows been seen to?",
             "fr": ""
@@ -133,7 +133,7 @@
     "a28bb2c1-efbf-4fed-be5d-72c684ae1498": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "...",
             "fr": ""
@@ -149,7 +149,7 @@
     "125acaee-8bde-4d1a-97b5-2965fe4f5227": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "To triumph in archery, one must keep his arrows keen.",
             "fr": ""
@@ -628,7 +628,7 @@
     "44dd067e-70d7-48a8-83fd-d270c1f565c5": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "....",
             "fr": ""
@@ -644,7 +644,7 @@
     "6ab0570e-350f-4435-a869-8eb4ca5bb5fc": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": ".....",
             "fr": ""
@@ -660,7 +660,7 @@
     "22cc72e7-86b4-4bf4-a1bd-85b569a8ce24": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "......",
             "fr": ""
@@ -676,7 +676,7 @@
     "29ee8c61-087d-4508-a664-deca8f3891cf": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": ".......",
             "fr": ""
@@ -692,7 +692,7 @@
     "bba14747-17d6-45fe-9220-f257de516992": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "........",
             "fr": ""
@@ -708,7 +708,7 @@
     "e70084f1-2c47-43da-ad1e-153f64495986": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": ".........",
             "fr": ""
@@ -724,7 +724,7 @@
     "1807b59e-b5fb-4437-8148-308f14205cf7": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "..........",
             "fr": ""
@@ -740,7 +740,7 @@
     "a358691d-9cec-4eea-93e1-08d3c4936b13": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "I beg you, speak with her, lest she turn her wrath upon me.",
             "fr": ""
@@ -756,7 +756,7 @@
     "020a1e18-e259-4fa8-a5b5-2adfd3167f32": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "That is all I can offer, now speak with her, or leave me to suffer in silence.",
             "fr": ""

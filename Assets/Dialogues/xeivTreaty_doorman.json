@@ -2,7 +2,7 @@
     "27643c81-ba2c-486d-8c5d-39295d614477": {
         "name": "Doorman",
         "character_uuid": "d6aa8a4f-c19a-4f67-96a7-afbc837f5cc7",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
         "text": {
             "en": "Its closed.",
             "fr": ""
@@ -12,7 +12,7 @@
     "8139caed-8078-43e9-ac05-1c602ce4a32a": {
         "name": "Doorman",
         "character_uuid": "d6aa8a4f-c19a-4f67-96a7-afbc837f5cc7",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
         "text": {
             "en": "What do you want?",
             "fr": ""
@@ -40,7 +40,7 @@
     "2bb4b739-1b70-4733-b04f-547c30af9339": {
         "name": "Doorman",
         "character_uuid": "d6aa8a4f-c19a-4f67-96a7-afbc837f5cc7",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
         "text": {
             "en": "Well, too bad, you're too young for the VIP. But I'll give you this. It's the clue to finding a secret dungeon hidden somewhere... It is said to have some treasures!",
             "fr": ""
