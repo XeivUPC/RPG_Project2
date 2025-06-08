@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="11" height="12" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="53">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="11" height="12" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="54">
  <editorsettings>
-  <export target="../../Data/CottageDunhaven.xml" format="tmx"/>
+  <export target="../CottageDunhaven.xml" format="tmx"/>
  </editorsettings>
  <properties>
   <property name="IsInside" type="bool" value="true"/>
@@ -10,7 +10,7 @@
  <tileset firstgid="290" source="../../Tilesets/Floors_Tiles.tsx"/>
  <tileset firstgid="915" source="../../Tilesets/Water_tiles.tsx"/>
  <tileset firstgid="1540" source="../../Tilesets/Building_Atlas.tsx"/>
- <tileset firstgid="1552" source="../../Tilesets/Furniture_Atlas.tsx"/>
+ <tileset firstgid="1555" source="../../Tilesets/Furniture_Atlas.tsx"/>
  <layer id="2" name="Ground0" width="11" height="12">
   <data encoding="csv">
 333,332,306,306,331,382,357,407,308,331,333,
@@ -87,19 +87,19 @@
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>
-  <object id="33" gid="1577" x="48" y="128" width="32" height="32">
+  <object id="33" gid="1580" x="48" y="128" width="32" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="34" gid="1575" x="96" y="112" width="32" height="16">
+  <object id="34" gid="1578" x="96" y="112" width="32" height="16">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="51" x="86" y="28.75">
+  <object id="53" x="80" y="32">
    <properties>
-    <property name="NpcId" value="character;dh_cottage_man"/>
+    <property name="NpcId" value="character;dh_xt_vip3"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>

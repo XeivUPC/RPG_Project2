@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="77" y="293" />
+		<position x="148" y="317" />
 		<party>
 			<active>
 				<member id="character;cassian" />
@@ -11,11 +11,12 @@
 			</inactive>
 		</party>
 		<missions>
-			<mission id="mission;tutorial" status="0" />
+			<mission id="mission;tutorial" status="1" />
+			<mission id="mission;SecretDungeon" status="1" />
 		</missions>
 		<inventory>
-			<item />
-			<item />
+			<item id="item;VIP_Card" amount="4" />
+			<item id="item;healing_macaroni" amount="3" />
 			<item />
 			<item />
 			<item />
@@ -57,8 +58,8 @@
 		</inventory>
 	</player>
 	<map>
-		<raining value="false" />
-		<time value="81367.1328" />
+		<raining value="true" />
+		<time value="68534.1094" />
 		<items />
 		<tilemaps>
 			<tilemap path="Assets/Map/Data/Dunhaven_Palace_Venue.xml" spawnpoint-x="324.625" spawnpoint-y="446.375" />

@@ -1,2 +1,10 @@
 <?xml version="1.0"?>
-<puzzles />
+<puzzles>
+	<puzzle id="blocking_1000">
+		<property key="isBeingTriggered" value="false" />
+		<property key="isEnabled" value="true" />
+	</puzzle>
+	<puzzle id="blocking_420">
+		<property key="isBlocking" value="false" />
+	</puzzle>
+</puzzles>
