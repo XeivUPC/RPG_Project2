@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="31" height="21" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="71">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="31" height="21" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="114">
  <editorsettings>
-  <export target="../../Data/House4_Inside.xml" format="tmx"/>
+  <export target="../../../Data/House4_Inside.xml" format="tmx"/>
  </editorsettings>
  <properties>
   <property name="IsInside" type="bool" value="true"/>
@@ -10,7 +10,7 @@
  <tileset firstgid="290" source="../../Tilesets/Floors_Tiles.tsx"/>
  <tileset firstgid="915" source="../../Tilesets/Water_tiles.tsx"/>
  <tileset firstgid="1540" source="../../Tilesets/Building_Atlas.tsx"/>
- <tileset firstgid="1552" source="../../Tilesets/Furniture_Atlas.tsx"/>
+ <tileset firstgid="1555" source="../../Tilesets/Furniture_Atlas.tsx"/>
  <layer id="2" name="Ground0" width="31" height="21">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -61,56 +61,6 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="4" name="GroundDecoration0" width="31" height="21" visible="0">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-</data>
- </layer>
- <layer id="8" name="GroundDecoration1" width="31" height="21" visible="0">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-</data>
- </layer>
  <objectgroup id="7" name="Objects">
   <object id="28" x="248.42" y="264.75">
    <properties>
@@ -130,12 +80,157 @@
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>
-  <object id="33" gid="1577" x="38" y="183.333" width="32" height="32">
+  <object id="33" gid="1580" x="38" y="183.333" width="32" height="32">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="34" gid="1575" x="351" y="238" width="32" height="16">
+  <object id="34" gid="1578" x="351" y="238" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="72" gid="1578" x="38.6667" y="195.667" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="73" gid="1578" x="37.6667" y="161.667" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="74" gid="1580" x="112.333" y="117.666" width="32" height="32">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="75" gid="1578" x="113" y="130" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="76" gid="1578" x="112" y="96" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="77" gid="1580" x="144.333" y="117.666" width="32" height="32">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="78" gid="1578" x="145" y="130" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="79" gid="1578" x="144" y="96" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="89" gid="1580" x="432.333" y="165.666" width="32" height="32">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="90" gid="1578" x="433" y="178" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="91" gid="1578" x="432" y="144" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="92" gid="1580" x="283.666" y="117" width="32" height="32">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="93" gid="1578" x="284.333" y="129.334" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="94" gid="1578" x="283.333" y="95.3335" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="95" gid="1580" x="315.666" y="117" width="32" height="32">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="96" gid="1578" x="316.333" y="129.334" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="97" gid="1578" x="315.333" y="95.3335" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="100" gid="1558" x="256" y="80" width="16" height="32">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="101" gid="1557" x="240" y="80" width="16" height="32">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="104" gid="1557" x="224" y="80" width="16" height="32">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="105" gid="1555" x="208" y="80" width="16" height="32">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="106" gid="1580" x="176.333" y="181.666" width="32" height="32">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="107" gid="1578" x="177" y="194" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="108" gid="1578" x="176" y="160" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="109" gid="1580" x="256.333" y="181.666" width="32" height="32">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="110" gid="1578" x="257" y="194" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="111" gid="1578" x="256" y="160" width="32" height="16">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="112" gid="1576" x="336" y="208" width="32" height="48">
+   <properties>
+    <property name="Type" value="simpleObject"/>
+   </properties>
+  </object>
+  <object id="113" gid="1576" x="112" y="208" width="32" height="48">
    <properties>
     <property name="Type" value="simpleObject"/>
    </properties>
@@ -153,11 +248,6 @@
   <object id="61" x="400" y="224" width="80" height="16"/>
   <object id="62" x="400" y="240" width="16" height="32"/>
   <object id="63" x="80" y="240" width="16" height="32"/>
-  <object id="65" gid="1573" x="336" y="208" width="32" height="48">
-   <properties>
-    <property name="Type" value="simpleObject"/>
-   </properties>
-  </object>
   <object id="68" x="96" y="272" width="144" height="16"/>
   <object id="69" x="256" y="272" width="144" height="16"/>
   <object id="70" x="240" y="288" width="16" height="16"/>
