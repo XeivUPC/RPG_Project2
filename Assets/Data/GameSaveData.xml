@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="242" y="308" />
+		<position x="514" y="591" />
 		<party>
 			<active>
 				<member id="character;cassian" />
@@ -11,13 +11,12 @@
 			</inactive>
 		</party>
 		<missions>
-			<mission id="mission;tutorial" status="1" />
-			<mission id="mission;SecretDungeon" status="1" />
+			<mission id="mission;tutorial" status="0" />
 		</missions>
 		<inventory>
-			<item id="item;VIP_Card" amount="4" />
-			<item id="item;healing_macaroni" amount="3" />
-			<item id="item;zalium_armor" amount="1" />
+			<item />
+			<item />
+			<item />
 			<item />
 			<item />
 			<item />
@@ -59,11 +58,10 @@
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="41972.4023" />
+		<time value="51547.7891" />
 		<items />
 		<tilemaps>
-			<tilemap path="Assets/Map/Data/Dunhaven_Palace_Venue.xml" spawnpoint-x="324.625" spawnpoint-y="446.375" />
-			<tilemap path="Assets/Map/Data/Dunhaven_Palace.xml" spawnpoint-x="0" spawnpoint-y="0" />
+			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="522.710999" spawnpoint-y="591.953979" />
 		</tilemaps>
 	</map>
 </game>
