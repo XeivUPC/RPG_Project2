@@ -582,7 +582,7 @@
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
         "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
-            "en": "I'm back.",
+            "en": "I'm back from training.",
             "fr": ""
         },
         "signals": {
@@ -616,7 +616,13 @@
             "en": "You liar! Gideon will hit you to the ground if you don't go.",
             "fr": ""
         },
-        "parent": "6040c576-62ea-4a94-84df-87ed78449822"
+        "parent": "6040c576-62ea-4a94-84df-87ed78449822",
+        "signals": {
+            "parent": "dc571d31-83c5-4e37-ac2f-f5212dfa3102",
+            "RemoveMission": {
+                "String": "mission;chef2"
+            }
+        }
     },
     "77a3f8a4-0570-49f1-8d9a-1a9618370589": {
         "name": "Zeryn",
@@ -1430,6 +1436,14 @@
                     660
                 ],
                 "parent": "b076f8e4-0fa2-47b0-9b34-24cb60f5067f"
+            },
+            {
+                "uuid": "a970355d-8a35-428d-9390-acb1b0591c6a",
+                "offset": [
+                    2120,
+                    1040
+                ],
+                "parent": "dc571d31-83c5-4e37-ac2f-f5212dfa3102"
             }
         ],
         "choices": [

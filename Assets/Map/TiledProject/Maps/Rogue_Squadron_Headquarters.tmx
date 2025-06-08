@@ -2019,7 +2019,7 @@
     <property name="Type" value="blockingPuzzle"/>
    </properties>
   </object>
-  <object id="677" x="191.125" y="871.125" width="48" height="16">
+  <object id="677" x="257.307" y="896.761" width="48" height="16">
    <properties>
     <property name="Color" type="color" value="#00000000"/>
     <property name="IsBlocking" type="bool" value="true"/>

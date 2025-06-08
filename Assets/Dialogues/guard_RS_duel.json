@@ -341,6 +341,9 @@
             },
             "AddMission": {
                 "String": "mission;audience3"
+            },
+            "SetNpcState": {
+                "String": "character;rs_guard_duel-3"
             }
         }
     },
