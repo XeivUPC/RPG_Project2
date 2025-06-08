@@ -118,7 +118,6 @@
 		<description>A mysterious card that seems to grant some royalties at Xeiv Treaty.</description>
 		<stackable-quantity>64</stackable-quantity>
 		<properties>
-			<type>consumable</type>
 		</properties>
 	</item>
 </itemList> 
