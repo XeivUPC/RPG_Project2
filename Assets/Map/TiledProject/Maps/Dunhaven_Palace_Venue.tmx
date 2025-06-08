@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="40" height="106" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="838">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="40" height="106" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="840">
  <editorsettings>
   <export target="../../Data/Dunhaven_Palace_Venue.xml" format="tmx"/>
  </editorsettings>
@@ -744,7 +744,7 @@
   </object>
   <object id="777" name="Castle" gid="929" x="16" y="448" width="618" height="316">
    <properties>
-    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dunhaven_Palace.xml"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon_puzzles.xml"/>
     <property name="Type" value="building"/>
    </properties>
   </object>
@@ -1010,6 +1010,20 @@
    <properties>
     <property name="EntryPoint" type="int" value="4"/>
     <property name="TargetPath" value="Assets/Map/Data/Dunhaven_City.xml"/>
+    <property name="Type" value="tilemapChanger"/>
+   </properties>
+  </object>
+  <object id="838" name="EntryPoint6" x="326.087" y="466.896">
+   <properties>
+    <property name="Type" value="entryPoint"/>
+    <property name="Value" type="int" value="6"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="839" name="Zone6" x="299.663" y="432.956" width="48.8409" height="17.0882">
+   <properties>
+    <property name="EntryPoint" type="int" value="6"/>
+    <property name="TargetPath" value="Assets/Map/Data/Interiors/Dungeon_puzzles.xml"/>
     <property name="Type" value="tilemapChanger"/>
    </properties>
   </object>

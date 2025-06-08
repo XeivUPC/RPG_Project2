@@ -1,10 +1,52 @@
 <?xml version="1.0"?>
 <puzzles>
+	<puzzle id="trigger_02">
+		<property key="isBeingTriggered" value="true" />
+	</puzzle>
 	<puzzle id="blocking_1000">
 		<property key="isBeingTriggered" value="false" />
 		<property key="isEnabled" value="true" />
 	</puzzle>
+	<puzzle id="blocking_04">
+		<property key="isBlocking" value="false" />
+	</puzzle>
 	<puzzle id="blocking_420">
+		<property key="isBlocking" value="false" />
+	</puzzle>
+	<puzzle id="trigger_03">
+		<property key="isBeingTriggered" value="true" />
+	</puzzle>
+	<puzzle id="button_01">
+		<property key="isPressed" value="false" />
+	</puzzle>
+	<puzzle id="blocking_01">
+		<property key="isBlocking" value="true" />
+	</puzzle>
+	<puzzle id="blocking_02">
+		<property key="isBlocking" value="false" />
+	</puzzle>
+	<puzzle id="blocking_03">
+		<property key="isBlocking" value="false" />
+	</puzzle>
+	<puzzle id="blocking_05">
+		<property key="isBlocking" value="false" />
+	</puzzle>
+	<puzzle id="button_02">
+		<property key="isPressed" value="true" />
+	</puzzle>
+	<puzzle id="blocking_06">
+		<property key="isBlocking" value="false" />
+	</puzzle>
+	<puzzle id="button_03">
+		<property key="isPressed" value="true" />
+	</puzzle>
+	<puzzle id="blocking_10">
+		<property key="isBlocking" value="false" />
+	</puzzle>
+	<puzzle id="button_05">
+		<property key="isPressed" value="true" />
+	</puzzle>
+	<puzzle id="blocking_20">
 		<property key="isBlocking" value="false" />
 	</puzzle>
 </puzzles>

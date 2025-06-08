@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="33" height="52" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="100">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="33" height="52" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="109">
  <editorsettings>
   <export target="../../../Data/Interiors/Dungeon_puzzles.xml" format="tmx"/>
  </editorsettings>
@@ -198,9 +198,9 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,251,252,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,276,277,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,301,302,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -309,17 +309,6 @@
     <property name="Type" value="blockingPuzzle"/>
    </properties>
   </object>
-  <object id="12" x="15.7273" y="456.697">
-   <properties>
-    <property name="Type" value="spawnPoint"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="14" x="-12.5114" y="414.847" width="5.0364" height="80.7688">
-   <properties>
-    <property name="Type" value="tilemapChanger"/>
-   </properties>
-  </object>
   <object id="15" name="Boton" x="166.83" y="249.019">
    <properties>
     <property name="PuzzleId" value="button_01"/>
@@ -424,6 +413,34 @@
    </properties>
    <point/>
   </object>
+  <object id="103" name="EntryPoint7" x="416" y="400">
+   <properties>
+    <property name="Type" value="entryPoint"/>
+    <property name="Value" type="int" value="7"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="104" name="Zone7" x="402.165" y="369.99" width="27.5852" height="8.77004">
+   <properties>
+    <property name="EntryPoint" type="int" value="7"/>
+    <property name="TargetPath" value="Assets/Map/Data/Dunhaven_Palace.xml"/>
+    <property name="Type" value="tilemapChanger"/>
+   </properties>
+  </object>
+  <object id="107" name="EntryPoint6" x="10.7308" y="455.305">
+   <properties>
+    <property name="Type" value="entryPoint"/>
+    <property name="Value" type="int" value="6"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="108" name="Zone6" x="-9.12878" y="417.142" width="8.47726" height="78.3609">
+   <properties>
+    <property name="EntryPoint" type="int" value="6"/>
+    <property name="TargetPath" value="Assets/Map/Data/Dunhaven_Palace_Venue.xml"/>
+    <property name="Type" value="tilemapChanger"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="2" name="Collisions">
   <object id="19" x="-35.3333" y="496" width="195.333" height="128"/>
@@ -463,5 +480,7 @@
   <object id="95" x="384" y="528" width="128" height="32"/>
   <object id="96" x="384" y="320" width="128" height="32"/>
   <object id="97" x="512" y="320" width="16" height="240"/>
+  <object id="105" x="384" y="351.75" width="17.8125" height="30.1875"/>
+  <object id="106" x="430.182" y="352.091" width="81.5455" height="29.7614"/>
  </objectgroup>
 </map>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="148" y="317" />
+		<position x="242" y="308" />
 		<party>
 			<active>
 				<member id="character;cassian" />
@@ -17,7 +17,7 @@
 		<inventory>
 			<item id="item;VIP_Card" amount="4" />
 			<item id="item;healing_macaroni" amount="3" />
-			<item />
+			<item id="item;zalium_armor" amount="1" />
 			<item />
 			<item />
 			<item />
@@ -58,12 +58,12 @@
 		</inventory>
 	</player>
 	<map>
-		<raining value="true" />
-		<time value="68534.1094" />
+		<raining value="false" />
+		<time value="41972.4023" />
 		<items />
 		<tilemaps>
 			<tilemap path="Assets/Map/Data/Dunhaven_Palace_Venue.xml" spawnpoint-x="324.625" spawnpoint-y="446.375" />
-			<tilemap path="Assets/Map/Data/Interiors/Dunhaven_Palace.xml" spawnpoint-x="1008" spawnpoint-y="272" />
+			<tilemap path="Assets/Map/Data/Dunhaven_Palace.xml" spawnpoint-x="0" spawnpoint-y="0" />
 		</tilemaps>
 	</map>
 </game>

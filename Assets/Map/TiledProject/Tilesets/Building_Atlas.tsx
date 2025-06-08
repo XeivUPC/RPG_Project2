@@ -207,10 +207,6 @@
    </object>
    <object id="9" x="336.761" y="260.909" width="36.0568" height="51.2727"/>
    <object id="10" name="collision" x="276.5" y="260.625" width="67.125" height="36.625"/>
-   <object id="11" name="entryCollider" x="281.25" y="296.375" width="55.75" height="13.5"/>
-   <object id="12" name="exitPosition" x="308.625" y="314.375">
-    <point/>
-   </object>
   </objectgroup>
  </tile>
 </tileset>
