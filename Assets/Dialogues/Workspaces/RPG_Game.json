@@ -204,6 +204,17 @@
                     }
                 ],
                 "uuid": "3ee8f3c3-7995-4e78-a0db-2bf2fe4679e6"
+            },
+            {
+                "name": "Doorman",
+                "portraits": [
+                    {
+                        "name": "Fisherman-idle",
+                        "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Fisherman-idle.png",
+                        "uuid": "0b3277eb-e276-47ae-88d7-721a47fc64cd"
+                    }
+                ],
+                "uuid": "d6aa8a4f-c19a-4f67-96a7-afbc837f5cc7"
             }
         ],
         "files": [
@@ -268,22 +279,6 @@
                 "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Dialogues/xeivTreaty_doorman.json"
             },
             {
-                "name": "vip_client_one.json",
-                "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Dialogues/vip_client_one.json"
-            },
-            {
-                "name": "vip_client_two.json",
-                "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Dialogues/vip_client_two.json"
-            },
-            {
-                "name": "vip_client_three.json",
-                "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Dialogues/vip_client_three.json"
-            },
-            {
-                "name": "vip_client_four.json",
-                "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Dialogues/vip_client_four.json"
-            },
-            {
                 "name": "artis_guard.json",
                 "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Dialogues/artis_guard.json"
             },
@@ -294,13 +289,17 @@
             {
                 "name": "puzzle_dialogues.json",
                 "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Dialogues/puzzle_dialogues.json"
+            },
+            {
+                "name": "emperor_charles.json",
+                "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Dialogues/emperor_charles.json"
             }
         ]
     },
     "cache": {
         "last_opened_file": {
-            "name": "vip_client_one.json",
-            "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Dialogues/vip_client_one.json"
+            "name": "xeivTreaty_doorman.json",
+            "path": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Dialogues/xeivTreaty_doorman.json"
         }
     },
     "info": {
