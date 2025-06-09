@@ -2,7 +2,7 @@
     "8e2b864e-8383-40f6-8087-ec60337f5cab": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Are you ready?",
             "fr": ""
@@ -30,7 +30,7 @@
     "64e647cb-8389-4f2f-8a6d-a9d1684d7f24": {
         "name": "Emperor Charles II",
         "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
         "text": {
             "en": "Then let the duel...",
             "fr": ""
@@ -41,7 +41,7 @@
     "ec0a1798-20f9-455d-9853-86b4894037a5": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "Wait!",
             "fr": ""
@@ -52,7 +52,7 @@
     "19af1667-3d21-4ff4-8937-27bde465b432": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "I would like to spar with him first.",
             "fr": ""
@@ -63,7 +63,7 @@
     "c1374eaa-6855-4973-a12e-9002df0136c1": {
         "name": "Emperor Charles II",
         "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
         "text": {
             "en": "That will be good training indeed, go on.",
             "fr": ""
@@ -74,7 +74,7 @@
     "889450a7-8a51-4a0b-8a8d-f1e327663b2f": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "- Steps into the training area. -",
             "fr": ""
@@ -102,7 +102,7 @@
     "6f7a9892-9b9a-4662-9c58-b43a8fa181e6": {
         "name": "Emperor Charles II",
         "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
         "text": {
             "en": "Then let the duel begin!",
             "fr": ""
@@ -113,7 +113,7 @@
     "c10ec564-a840-42fd-9bc6-5e2bb0dfa986": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Would you like to duel me?",
             "fr": ""
@@ -141,7 +141,7 @@
     "ea9a8b13-716b-49e1-bc2f-28977bd1e65b": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-idle.png",
         "text": {
             "en": "You are good, indeed.",
             "fr": ""
@@ -158,7 +158,7 @@
     "007b0b7c-a789-4acc-b1a6-afc3f6a3ec9b": {
         "name": "Emperor Charles II",
         "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
         "text": {
             "en": "Then lets test the limits, Cassian... was it?",
             "fr": ""
@@ -169,7 +169,7 @@
     "6245a4be-b4bf-4b86-9296-998ce3e12167": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "Yes, emperor.",
             "fr": ""
@@ -180,7 +180,7 @@
     "bf405456-f769-45b1-aee9-1cb6745d4066": {
         "name": "Emperor Charles II",
         "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
         "text": {
             "en": "Call anyone you trust, Gideon does not count of course, so we can also test how you fight with allies. This time you will have an inferiority of numbers.",
             "fr": ""
@@ -208,7 +208,7 @@
     "b079124b-3dd0-4dc0-91b5-eab04a3da741": {
         "name": "Zeryn",
         "character_uuid": "2afae365-da73-4cd0-9360-8e26c89cb5b0",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Zeryn-early-idle.png",
         "text": {
             "en": "Nothin' sweeter than thrashin' a pampered noble.",
             "fr": ""
@@ -225,7 +225,7 @@
     "3ed02a61-7976-4fa1-a1e0-0c2df98b31ef": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "H-Hey, that wasn't... never mind. Go on.",
             "fr": ""
@@ -236,7 +236,7 @@
     "725e8edd-3e1f-46ec-bead-731e6af3f486": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "...",
             "fr": ""
@@ -247,7 +247,7 @@
     "653ed75e-0a61-4f10-89a5-b749ea578751": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "A pleasure.",
             "fr": ""
@@ -264,7 +264,7 @@
     "f781fecb-2b62-4282-ba5f-509d4ccbc9cd": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "Phew...",
             "fr": ""
@@ -275,7 +275,7 @@
     "37f1266b-cd1f-4351-b583-ae73f7999744": {
         "name": "Emperor Charles II",
         "character_uuid": "fbfa7b91-5f36-4b76-b697-8e0e07bd80c0",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/CharlesII-idle.png",
         "text": {
             "en": "Then lets begin the final round!",
             "fr": ""
@@ -286,7 +286,7 @@
     "aaf320f4-9894-4052-bb14-5c17a2d7ae33": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-happy.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-happy.png",
         "text": {
             "en": "Now that everyone left, please meet me at the house they built for me in the upper part of this headquarters.",
             "fr": ""
@@ -303,7 +303,7 @@
     "76151515-5eed-4c31-9e17-21db3fd415c3": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "Good... nice to meet you prince.",
             "fr": ""
@@ -314,7 +314,7 @@
     "76c4faa3-a2c0-4df4-a1ce-673ea9534f12": {
         "name": "Artis",
         "character_uuid": "66658753-5bc8-4f86-ad55-c5607a3fd336",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-happy.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Artis-early-happy.png",
         "text": {
             "en": "Just call me Artis, I have a name for a reason.",
             "fr": ""
@@ -325,7 +325,7 @@
     "17732019-7cb7-4c24-9a9a-a0cc2999c141": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-happy.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-happy.png",
         "text": {
             "en": "Nice to meet you, Artis",
             "fr": ""
@@ -350,7 +350,7 @@
     "f1573f64-27f7-4973-bb56-58c91e790236": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "...",
             "fr": ""
@@ -360,7 +360,7 @@
     "29d8b980-6700-42d7-88e0-acdca2f5a0b8": {
         "name": "Cassian",
         "character_uuid": "9e488680-eba3-4172-8361-67b08867e5ab",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Cassian-early-idle.png",
         "text": {
             "en": "Have a nice day.",
             "fr": ""
@@ -376,7 +376,7 @@
     "f2d840a1-ea90-4c8e-855a-1c737aec60a3": {
         "name": "Sir Gideon Hawthorne",
         "character_uuid": "59baaa05-176b-49c2-b5aa-41b38f2c78d1",
-        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
+        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guideon-idle.png",
         "text": {
             "en": "I found before a strange scroll that said something strange \"Tap ESC, let the menu rise, Where comrades wait neath distant skies. In Partys grace, their gear bestow, Prepare them well fore forth you go.\" is it yours Cassian?",
             "fr": ""
