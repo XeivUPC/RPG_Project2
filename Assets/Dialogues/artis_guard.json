@@ -2,7 +2,7 @@
     "477601d7-62d7-4658-b234-676393d14a3e": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "Are you Cassian?",
             "fr": ""
@@ -30,18 +30,24 @@
     "c4a19032-381c-40d8-8988-4f88454f3c42": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "The prince left a message for you \"Meet me at Dunhaven\".",
             "fr": ""
         },
         "parent": "1133e1ae-be57-4a2e-a74a-3a13c57cc90a",
-        "next": "588dd7da-17c9-40bc-8ce1-bad4498495c9"
+        "next": "588dd7da-17c9-40bc-8ce1-bad4498495c9",
+        "signals": {
+            "SetPuzzleVariable": {
+                "String": "blocking_1000->isEnabled->false"
+            },
+            "parent": "c4a19032-381c-40d8-8988-4f88454f3c42"
+        }
     },
     "588dd7da-17c9-40bc-8ce1-bad4498495c9": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "\"P.S. : I have informed Sir Gideon that I will require your services, and do not worry on the money you will be well paid. You should be able to leave ",
             "fr": ""
@@ -59,14 +65,14 @@
                 "String": "mission;dunhaven"
             },
             "SetPuzzleVariable": {
-                "String": "blocking_1000->IsEnabled->false"
+                "String": "blocking_969->isBlocking->false"
             }
         }
     },
     "a95a2229-bc1d-43ad-8a91-cd169593700e": {
         "name": "Rogue Squadron Soldier",
         "character_uuid": "23095ecd-ae6c-45b5-a31e-64ad132e5779",
-        "portrait": "C:/Users/joset/Documents/GitHub/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
+        "portrait": "D:/Github/Uni/RPG_Project2/Assets/Textures/Atlas/Characters/Single/Guard1-idle.png",
         "text": {
             "en": "You will find the prince at Dunhaven, not here.",
             "fr": ""
@@ -160,6 +166,20 @@
                     -220
                 ],
                 "parent": "588dd7da-17c9-40bc-8ce1-bad4498495c9"
+            },
+            {
+                "uuid": "97b8ce63-4c48-48de-8936-00d55c5e90fc",
+                "offset": [
+                    1880,
+                    -540
+                ],
+                "parent": "c4a19032-381c-40d8-8988-4f88454f3c42",
+                "data": {
+                    "SetPuzzleVariable": {
+                        "String": "blocking_1000->isEnabled->false"
+                    },
+                    "parent": "c4a19032-381c-40d8-8988-4f88454f3c42"
+                }
             }
         ],
         "choices": [
