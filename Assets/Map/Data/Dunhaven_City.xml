@@ -2324,7 +2324,7 @@
     <property name="Type" value="simpleObject"/>
    </properties>
   </object>
-  <object id="1177" x="730.833" y="890.083">
+  <object id="1177" x="796.166" y="923.416">
    <properties>
     <property name="NpcId" value="character;test"/>
     <property name="Path" type="object" value="1184"/>
@@ -2345,12 +2345,12 @@
   <object id="1182" x="642.682" y="769.577">
    <polygon points="0,0 0,164.836 230.945,164.836 230.945,0.21491"/>
   </object>
-  <object id="1184" x="758.23" y="913.501">
+  <object id="1184" x="762.23" y="912.168">
    <polygon points="-45.2384,17.4924 44.5908,-23.931 97.603,-60.2391 41.0111,-121.828 -80.1242,-127.548 -87.8967,-25.4858"/>
   </object>
   <object id="1185" x="728.5" y="1116.5">
    <properties>
-    <property name="NpcId" value="character;dh_guard"/>
+    <property name="NpcId" value="character;test"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -2551,7 +2551,7 @@
   </object>
   <object id="1229" x="1536" y="64">
    <properties>
-    <property name="NpcId" value="character;dh_cottage_man"/>
+    <property name="NpcId" value="character;test"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
