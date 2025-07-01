@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const gameImage = document.getElementById("game-download-image");
 
     gameImage.addEventListener("click", function () {
-        const filePath = "../assets/game_build.zip";
+        const filePath = "../Assets/EssetAxis-Records_Of_Lies.zip";
         const filename = filePath.replace(/^.*[\\/]/, '');
 
         axios({
