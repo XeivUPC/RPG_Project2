@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <definition>
 	<character id="character;test" template="character;test" name="TESTING" />
+
+	<character id="character;villager" template="character;dh_fisherman" name="TESTING" />
+	<character id="character;minister" template="character;rs_guard" name="TESTING" />
+	
 	<character id="character;cassian" template="character;cassian" name="Cassian">
 		<recruitable>true</recruitable>
 		<combat>

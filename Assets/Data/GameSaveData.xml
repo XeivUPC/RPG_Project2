@@ -1,20 +1,30 @@
 <?xml version="1.0"?>
 <game>
 	<player>
-		<position x="514" y="591" />
+		<position x="1114" y="234" />
 		<party>
 			<active>
 				<member id="character;cassian" />
+				<member id="character;rs_guard" />
 			</active>
 			<inactive>
-				<member id="character;cassian" />
+				<member id="character;cassian">
+					<inventory>
+						<item />
+						<item />
+						<item id="item;zalium_sword" amount="1" />
+						<item />
+					</inventory>
+				</member>
+				<member id="character;rs_guard" />
 			</inactive>
 		</party>
 		<missions>
-			<mission id="mission;tutorial" status="0" />
+			<mission id="mission;chef" status="1" />
+			<mission id="mission;dunhaven" status="1" />
 		</missions>
 		<inventory>
-			<item />
+			<item id="item;zalium_armor" amount="1" />
 			<item />
 			<item />
 			<item />
@@ -58,10 +68,10 @@
 	</player>
 	<map>
 		<raining value="false" />
-		<time value="51547.7891" />
+		<time value="81724.0703" />
 		<items />
 		<tilemaps>
-			<tilemap path="Assets/Map/Data/Rogue_Squadron_Headquarters.xml" spawnpoint-x="522.710999" spawnpoint-y="591.953979" />
+			<tilemap path="Assets/Map/Data/Dunhaven_City.xml" spawnpoint-x="0" spawnpoint-y="0" />
 		</tilemaps>
 	</map>
 </game>

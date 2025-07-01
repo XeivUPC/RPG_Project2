@@ -1342,28 +1342,28 @@
   </object>
   <object id="907" x="864" y="368">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;villager"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
   <object id="908" x="1016.25" y="459">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;villager"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
   <object id="909" x="1205.5" y="683.5">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;villager"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
   </object>
   <object id="910" x="660.667" y="217.333">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;villager"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -2329,7 +2329,7 @@
   </object>
   <object id="1177" x="796.166" y="923.416">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;villager"/>
     <property name="Path" type="object" value="1184"/>
     <property name="PathMovementType" type="int" value="1"/>
     <property name="Type" value="npc"/>
@@ -2353,7 +2353,7 @@
   </object>
   <object id="1185" x="728.5" y="1116.5">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;villager"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -2554,7 +2554,7 @@
   </object>
   <object id="1229" x="1536" y="64">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;villager"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>

@@ -8,8 +8,12 @@
     <character id="character;zeryn" textureId="zeryn_test" faceId="Zeryn-early-idle"/>
     <character id="character;guideon" textureId="pj_test" faceId="Guideon-idle"/>
     <character id="character;pedroJr" textureId="dog_test" faceId="Pedro-idle"/>
-    
-    <!-- NPC Generic -->
+	<character id="character;villager" textureId="cassian_test" faceId="Cassian-early-idle"/>
+	<character id="character;minister" textureId="cassian_test" faceId="Cassian-early-idle"/>
+
+
+
+	<!-- NPC Generic -->
     <character id="character;rs_guard" textureId="rsGuard_test" faceId="Guard1-idle"/>
     <character id="character;dh_guard" textureId="rsGuard_test" faceId="Guard1-idle"/>
     <character id="character;dh_fisherman" textureId="fisherman_test" faceId="Fisherman-idle"/>

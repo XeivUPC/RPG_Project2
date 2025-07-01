@@ -440,7 +440,7 @@
   </object>
   <object id="100" x="303.5" y="294.75">
    <properties>
-    <property name="NpcId" value="character;rs_fit_soldier"/>
+    <property name="NpcId" value="character;minister"/>
     <property name="Path" type="object" value="112"/>
     <property name="PathMovementType" type="int" value="1"/>
     <property name="Type" value="npc"/>

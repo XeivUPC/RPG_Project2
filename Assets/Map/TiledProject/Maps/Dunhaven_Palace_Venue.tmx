@@ -571,7 +571,7 @@
   </object>
   <object id="703" x="448" y="1648">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;minister"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -614,7 +614,7 @@
   </object>
   <object id="743" x="224" y="1648">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;minister"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -626,7 +626,7 @@
   </object>
   <object id="745" x="416" y="1376">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;minister"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -638,7 +638,7 @@
   </object>
   <object id="747" x="256" y="1376">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;minister"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -650,7 +650,7 @@
   </object>
   <object id="749" x="400" y="1088">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;minister"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -662,7 +662,7 @@
   </object>
   <object id="751" x="272" y="1088">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;minister"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -674,7 +674,7 @@
   </object>
   <object id="753" x="448" y="880">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;minister"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
@@ -686,7 +686,7 @@
   </object>
   <object id="755" x="224" y="880">
    <properties>
-    <property name="NpcId" value="character;test"/>
+    <property name="NpcId" value="character;minister"/>
     <property name="Type" value="npc"/>
    </properties>
    <point/>
